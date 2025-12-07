@@ -1,0 +1,63 @@
+train:
+  exp_name: "jit_b16_in256"
+  seed: 0
+
+  epochs: 10
+  warmup_epochs: 5
+
+  per_device_batch_size: 128
+  num_workers: 4
+  pin_mem: true
+
+  lr: null                  # if null, use blr * total_batch / 256
+  blr: 5.0e-5
+  weight_decay: 0.0
+
+  lr_schedule: "constant"   # keep this for lr_sched.adjust_learning_rate
+  min_lr: 0.0
+
+  ema_decay: 0.9999         # use original ema_decay1
+
+  log_every: 100            # iteration logging frequency
+  save_every: 1             # save "last.pt" every N epochs
+  eval_every: 1             # run FID evaluation every N epochs
+
+  mixed_precision: "bf16"   # used by Accelerator
+
+data:
+  data_path: "/vast/work/public/ml-datasets/imagenet"
+  img_size: 256
+  class_num: 1000
+
+model:
+  name: "JiT-B/16"
+  attn_dropout: 0.0
+  proj_dropout: 0.0
+
+diffusion:
+  P_mean: -0.8
+  P_std: 0.8
+  noise_scale: 1.0
+  t_eps: 5.0e-2
+  label_drop_prob: 0.1
+
+sample:
+  tmp_dir: "/vast/hl3797/jit-codebase-tmp"
+  sampling_method: "heun"
+  num_sampling_steps: 50
+  cfg: 2.9
+  interval_min: 0.1
+  interval_max: 1.0
+  num_images: 5000
+  gen_bsz: 128
+  eval_online: true
+  fid_stats_256: "fid_stats/jit_in256_stats.npz"
+  fid_stats_512: "fid_stats/jit_in512_stats.npz"
+
+checkpointing:
+  out_dir: "/vast/hl3797/jit-codebase/results"
+  resume: ""
+
+logging:
+  project: "jit-training"
+  run_name: "jit_b16_in256"
