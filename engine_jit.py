@@ -1,11 +1,11 @@
 
-import math
 import os
+import math
+import wandb
 import shutil
 
 import torch
 import numpy as np
-import cv2
 from tqdm import tqdm
 
 import util.misc as misc
@@ -13,7 +13,7 @@ import util.lr_sched as lr_sched
 # import torch_fidelity
 import copy
 
-from util.fid import calculate_fid_path
+from util.fid import calculate_fid, calculate_fid_path
 
 def _build_lr_args(cfg, base_lr):
     """Mimic the old args object for lr_sched.adjust_learning_rate."""
@@ -57,11 +57,9 @@ def train_one_epoch(
     for data_iter_step, (x, labels) in enumerate(
         metric_logger.log_every(train_loader, print_freq, header)
     ):
-        # -------------------------
-        # Per-iteration LR scheduling
-        # -------------------------
-        it = data_iter_step / len(train_loader) + epoch
-        lr_sched.adjust_learning_rate(optimizer, it, lr_args)
+        # # Per-iteration LR scheduling
+        # it = data_iter_step / len(train_loader) + epoch
+        # lr_sched.adjust_learning_rate(optimizer, it, lr_args)
 
         x = x.to(accelerator.device, non_blocking=True).to(torch.float32).div_(255)
         x = x * 2.0 - 1.0
@@ -111,11 +109,10 @@ def train_one_epoch(
             accelerator.log(log_dict, step=global_step)
 
         # # debug
-        # if data_iter_step == 50:
+        # if data_iter_step == 40:
         #     break
 
     return global_step
-
 
 def evaluate(
     accelerator,
@@ -137,23 +134,7 @@ def evaluate(
     batch_size = cfg["sample"]["gen_bsz"]
     img_size = cfg["data"]["img_size"]
     class_num = cfg["data"]["class_num"]
-
     num_steps = num_images // (batch_size * world_size) + 1
-
-    # Save folder for generated images (per evaluation)
-    save_folder = os.path.join(
-        cfg["sample"]["tmp_dir"],
-        cfg["train"]["exp_name"],
-        f"steps{unwrapped.steps}-cfg{unwrapped.cfg_scale}"
-        f"-interval{unwrapped.cfg_interval[0]}-{unwrapped.cfg_interval[1]}"
-        f"-image{num_images}-res{img_size}",
-    )
-
-    if accelerator.is_main_process:
-        print(f"[Eval] Saving generated images to: {save_folder}")
-        os.makedirs(save_folder, exist_ok=True)
-
-    accelerator.wait_for_everyone()
 
     # Swap to EMA weights
     model_state_dict = copy.deepcopy(unwrapped.state_dict())
@@ -169,9 +150,8 @@ def evaluate(
     # Ensure equal number of images per class
     assert num_images % class_num == 0, "Number of images per class must be the same."
     class_label_gen_world = np.arange(0, class_num).repeat(num_images // class_num)
-    # pad a bit to avoid OOB
-    class_label_gen_world = np.hstack([class_label_gen_world, np.zeros(50000)])
 
+    val_images = []
     for i in range(num_steps):
         if accelerator.is_main_process:
             print(f"[Eval] Generation step {i+1}/{num_steps}")
@@ -180,30 +160,19 @@ def evaluate(
         end_idx = start_idx + batch_size
         labels_gen = class_label_gen_world[start_idx:end_idx]
         labels_gen = torch.Tensor(labels_gen).long().to(device)
-
         if labels_gen.numel() == 0:
             continue
 
         with accelerator.autocast():
-            sampled_images = unwrapped.generate(labels_gen)
+            sampled_images = unwrapped.generate(labels_gen, seed=i+local_rank*10000)
 
-        accelerator.wait_for_everyone()
-
-        # Denormalize images from [-1, 1] to [0, 255]
-        sampled_images = (sampled_images + 1) / 2
+        # Denormalize images from [-1, 1] to [0, 1]
+        sampled_images = ((sampled_images + 1) / 2).clamp(0, 1)
         sampled_images = sampled_images.detach().cpu()
+        val_images.append(sampled_images)
 
-        for b_id in range(sampled_images.size(0)):
-            img_id = i * sampled_images.size(0) * world_size + local_rank * sampled_images.size(0) + b_id
-            if img_id >= num_images:
-                break
-            gen_img = sampled_images[b_id].numpy().transpose(1, 2, 0)
-            gen_img = np.round(np.clip(gen_img * 255, 0, 255)).astype(np.uint8)
-            # BGR for OpenCV
-            gen_img_bgr = gen_img[:, :, ::-1]
-            cv2.imwrite(os.path.join(save_folder, f"{str(img_id).zfill(5)}.png"), gen_img_bgr)
-
-    accelerator.wait_for_everyone()
+    val_images = torch.cat(val_images, dim=0)
+    print(f"[Eval] Generated images shape: {val_images.shape}")
 
     # Switch back from EMA
     if accelerator.is_main_process:
@@ -219,42 +188,160 @@ def evaluate(
         else:
             raise NotImplementedError(f"No FID stats configured for img_size={img_size}")
 
-        # metrics_dict = torch_fidelity.calculate_metrics(
-        #     input1=save_folder,
-        #     input2=None,
-        #     fid_statistics_file=fid_statistics_file,
-        #     cuda=torch.cuda.is_available(),
-        #     isc=True,
-        #     fid=True,
-        #     kid=False,
-        #     prc=False,
-        #     verbose=False,
-        # )
-        # fid = metrics_dict["frechet_inception_distance"]
-        # inception_score = metrics_dict["inception_score_mean"]
-
-        # log_dict = {
-        #     "val/fid": fid,
-        #     "val/is": inception_score,
-        #     "val/epoch": epoch,
-        #     "val/step": global_step,
-        # }
-        # accelerator.log(log_dict, step=global_step)
-        # print(f"[Eval] FID: {fid:.4f}, Inception Score: {inception_score:.4f}")
-
-        fid_score = calculate_fid_path(save_folder, ref_path=fid_statistics_file)
+        fid_score = calculate_fid(val_images, ref_path=fid_statistics_file)
+        demo_images_step = num_images // 8
+        demo_images_indices = list(range(0, num_images, demo_images_step))
+        demo_images = val_images[demo_images_indices]
         log_dict = {
             "val/fid": fid_score,
             "val/epoch": epoch,
             "val/step": global_step,
+            "val/images": wandb.Image(demo_images),
         }
         accelerator.log(log_dict, step=global_step)
         print(f"[Eval] FID: {fid_score:.2f}")
 
-        # Optionally clean temp folder
-        shutil.rmtree(save_folder, ignore_errors=True)
-
-    accelerator.wait_for_everyone()
-
     # Back to train mode
     unwrapped.train()
+
+# def evaluate(
+#     accelerator,
+#     model,
+#     cfg,
+#     epoch: int,
+#     global_step: int,
+#     checkpoint_dir: str,
+# ):
+#     """FID/IS evaluation with EMA weights."""
+#     device = accelerator.device
+#     world_size = accelerator.num_processes
+#     local_rank = accelerator.process_index
+
+#     unwrapped = accelerator.unwrap_model(model)
+#     unwrapped.eval()
+
+#     num_images = cfg["sample"]["num_images"]
+#     batch_size = cfg["sample"]["gen_bsz"]
+#     img_size = cfg["data"]["img_size"]
+#     class_num = cfg["data"]["class_num"]
+
+#     num_steps = num_images // (batch_size * world_size) + 1
+
+#     # Save folder for generated images (per evaluation)
+#     save_folder = os.path.join(
+#         cfg["sample"]["tmp_dir"],
+#         cfg["train"]["exp_name"],
+#         f"steps{unwrapped.steps}-cfg{unwrapped.cfg_scale}"
+#         f"-interval{unwrapped.cfg_interval[0]}-{unwrapped.cfg_interval[1]}"
+#         f"-image{num_images}-res{img_size}",
+#     )
+
+#     if accelerator.is_main_process:
+#         print(f"[Eval] Saving generated images to: {save_folder}")
+#         os.makedirs(save_folder, exist_ok=True)
+
+#     accelerator.wait_for_everyone()
+
+#     # Swap to EMA weights
+#     model_state_dict = copy.deepcopy(unwrapped.state_dict())
+#     ema_state_dict = copy.deepcopy(unwrapped.state_dict())
+#     for i, (name, _value) in enumerate(unwrapped.named_parameters()):
+#         assert hasattr(unwrapped, "ema_params"), "ema_params not found on model."
+#         ema_param = unwrapped.ema_params[i]
+#         ema_state_dict[name] = ema_param.to(device)
+#     if accelerator.is_main_process:
+#         print("[Eval] Switching to EMA weights.")
+#     unwrapped.load_state_dict(ema_state_dict)
+
+#     # Ensure equal number of images per class
+#     assert num_images % class_num == 0, "Number of images per class must be the same."
+#     class_label_gen_world = np.arange(0, class_num).repeat(num_images // class_num)
+#     # pad a bit to avoid OOB
+#     class_label_gen_world = np.hstack([class_label_gen_world, np.zeros(50000)])
+
+#     for i in range(num_steps):
+#         if accelerator.is_main_process:
+#             print(f"[Eval] Generation step {i+1}/{num_steps}")
+
+#         start_idx = world_size * batch_size * i + local_rank * batch_size
+#         end_idx = start_idx + batch_size
+#         labels_gen = class_label_gen_world[start_idx:end_idx]
+#         labels_gen = torch.Tensor(labels_gen).long().to(device)
+
+#         if labels_gen.numel() == 0:
+#             continue
+
+#         with accelerator.autocast():
+#             sampled_images = unwrapped.generate(labels_gen)
+
+#         accelerator.wait_for_everyone()
+
+#         # Denormalize images from [-1, 1] to [0, 255]
+#         sampled_images = (sampled_images + 1) / 2
+#         sampled_images = sampled_images.detach().cpu()
+
+#         for b_id in range(sampled_images.size(0)):
+#             img_id = i * sampled_images.size(0) * world_size + local_rank * sampled_images.size(0) + b_id
+#             if img_id >= num_images:
+#                 break
+#             gen_img = sampled_images[b_id].numpy().transpose(1, 2, 0)
+#             gen_img = np.round(np.clip(gen_img * 255, 0, 255)).astype(np.uint8)
+#             # BGR for OpenCV
+#             gen_img_bgr = gen_img[:, :, ::-1]
+#             cv2.imwrite(os.path.join(save_folder, f"{str(img_id).zfill(5)}.png"), gen_img_bgr)
+
+#     accelerator.wait_for_everyone()
+
+#     # Switch back from EMA
+#     if accelerator.is_main_process:
+#         print("[Eval] Switching back from EMA weights.")
+#     unwrapped.load_state_dict(model_state_dict)
+
+#     # Compute FID / IS on main process
+#     if accelerator.is_main_process:
+#         if img_size == 256:
+#             fid_statistics_file = cfg["sample"]["fid_stats_256"]
+#         elif img_size == 512:
+#             fid_statistics_file = cfg["sample"]["fid_stats_512"]
+#         else:
+#             raise NotImplementedError(f"No FID stats configured for img_size={img_size}")
+
+#         # metrics_dict = torch_fidelity.calculate_metrics(
+#         #     input1=save_folder,
+#         #     input2=None,
+#         #     fid_statistics_file=fid_statistics_file,
+#         #     cuda=torch.cuda.is_available(),
+#         #     isc=True,
+#         #     fid=True,
+#         #     kid=False,
+#         #     prc=False,
+#         #     verbose=False,
+#         # )
+#         # fid = metrics_dict["frechet_inception_distance"]
+#         # inception_score = metrics_dict["inception_score_mean"]
+
+#         # log_dict = {
+#         #     "val/fid": fid,
+#         #     "val/is": inception_score,
+#         #     "val/epoch": epoch,
+#         #     "val/step": global_step,
+#         # }
+#         # accelerator.log(log_dict, step=global_step)
+#         # print(f"[Eval] FID: {fid:.4f}, Inception Score: {inception_score:.4f}")
+
+#         fid_score = calculate_fid_path(save_folder, ref_path=fid_statistics_file)
+#         log_dict = {
+#             "val/fid": fid_score,
+#             "val/epoch": epoch,
+#             "val/step": global_step,
+#         }
+#         accelerator.log(log_dict, step=global_step)
+#         print(f"[Eval] FID: {fid_score:.2f}")
+
+#         # Optionally clean temp folder
+#         shutil.rmtree(save_folder, ignore_errors=True)
+
+#     accelerator.wait_for_everyone()
+
+#     # Back to train mode
+#     unwrapped.train()

@@ -46,7 +46,7 @@ def build_model_args(cfg):
 def get_lr_and_batch(cfg, accelerator):
     eff_batch_size = cfg["train"]["per_device_batch_size"] * accelerator.num_processes
     if cfg["train"]["lr"] is None:
-        lr = cfg["train"]["blr"] * eff_batch_size / 256.0
+        lr = cfg["train"]["blr"] * eff_batch_size / 512.0
     else:
         lr = cfg["train"]["lr"]
 
@@ -144,7 +144,7 @@ def main():
 
     lr, eff_batch_size = get_lr_and_batch(cfg, accelerator)
     param_groups = misc.add_weight_decay(model, weight_decay=cfg["train"]["weight_decay"])
-    optimizer = torch.optim.AdamW(param_groups, lr=lr, betas=(0.9, 0.95))
+    optimizer = torch.optim.AdamW(param_groups, lr=lr, betas=(0.9, 0.995))
 
     # -------------------------
     # Prepare for distributed / mixed precision

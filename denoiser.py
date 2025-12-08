@@ -60,10 +60,11 @@ class Denoiser(nn.Module):
         return loss
 
     @torch.no_grad()
-    def generate(self, labels):
+    def generate(self, labels, seed=None):
         device = labels.device
         bsz = labels.size(0)
-        z = self.noise_scale * torch.randn(bsz, 3, self.img_size, self.img_size, device=device)
+        gen = torch.Generator(device=device).manual_seed(seed) if seed is not None else None
+        z = self.noise_scale * torch.randn(bsz, 3, self.img_size, self.img_size, device=device, generator=gen)
         timesteps = torch.linspace(0.0, 1.0, self.steps + 1, device=device).view(-1, *([1] * z.ndim)).expand(-1, bsz, -1, -1, -1)
 
         if self.method == "euler":

@@ -1,16 +1,16 @@
 train:
   exp_name: "jit_b16_in256"
-  seed: 0
+  seed: 42
 
-  epochs: 10
-  warmup_epochs: 5
+  epochs: 30
+  warmup_epochs: 1
 
   per_device_batch_size: 128
-  num_workers: 4
+  num_workers: 8
   pin_mem: true
 
-  lr: null                  # if null, use blr * total_batch / 256
-  blr: 5.0e-5
+  lr: null
+  blr: 1.0e-4
   weight_decay: 0.0
 
   lr_schedule: "constant"   # keep this for lr_sched.adjust_learning_rate
