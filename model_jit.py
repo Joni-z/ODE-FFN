@@ -359,6 +359,10 @@ class JiT(nn.Module):
         return output
 
 
+def JiT_B_16_full(**kwargs):
+    return JiT(depth=12, hidden_size=768, num_heads=12,
+               bottleneck_dim=768, in_context_len=32, in_context_start=4, patch_size=16, **kwargs)
+
 def JiT_B_16(**kwargs):
     return JiT(depth=12, hidden_size=768, num_heads=12,
                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=16, **kwargs)
@@ -385,6 +389,7 @@ def JiT_H_32(**kwargs):
 
 
 JiT_models = {
+    'JiT-B/16-full': JiT_B_16_full,
     'JiT-B/16': JiT_B_16,
     'JiT-B/32': JiT_B_32,
     'JiT-L/16': JiT_L_16,

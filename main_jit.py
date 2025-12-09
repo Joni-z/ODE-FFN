@@ -98,7 +98,7 @@ def main():
     np.random.seed(seed + rank)
 
     if accelerator.is_main_process and (not args.debug):
-        init_kwargs = {"wandb": {"name": cfg["logging"]["run_name"]}}
+        init_kwargs = {"wandb": {"name": cfg["train"]["exp_name"]}}
         accelerator.init_trackers(
             cfg["logging"]["project"],
             config=cfg,
@@ -144,7 +144,7 @@ def main():
 
     lr, eff_batch_size = get_lr_and_batch(cfg, accelerator)
     param_groups = misc.add_weight_decay(model, weight_decay=cfg["train"]["weight_decay"])
-    optimizer = torch.optim.AdamW(param_groups, lr=lr, betas=(0.9, 0.995))
+    optimizer = torch.optim.AdamW(param_groups, lr=lr, betas=(0.9, cfg["train"]["beta2"]))
 
     # -------------------------
     # Prepare for distributed / mixed precision

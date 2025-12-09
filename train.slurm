@@ -4,7 +4,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32GB
-#SBATCH --time=2-00:00:00
+#SBATCH --time=1-00:00:00
 #SBATCH --gres=gpu:a100:1
 #SBATCH --account=pr_119_tandon_advanced
 
@@ -17,9 +17,10 @@ GPUS_PER_NODE=${GPUS_PER_NODE:-1}
 NNODES=${NNODES:-1}
 NODE_RANK=${NODE_RANK:-0}
 MASTER_ADDR=${MASTER_ADDR:-localhost}
-MASTER_PORT=${MASTER_PORT:-114514}
+MASTER_PORT=${MASTER_PORT:-12017}
 WORLD_SIZE=$(($GPUS_PER_NODE * $NNODES))
-CONFIG_PATH=${CONFIG_PATH:-"./configs/jit_b16_in256.yaml"}
+CONFIG_PATH="./configs/$1.yaml"
+# CONFIG_PATH=${CONFIG_PATH:-"./configs/jit_b16_in256.yaml"}
 
 accelerate launch \
     --main_process_ip $MASTER_ADDR \
@@ -28,4 +29,4 @@ accelerate launch \
     --num_processes $WORLD_SIZE \
     --num_machines $NNODES \
     --mixed_precision $PRECISION \
-    main_jit.py --config $CONFIG_PATH > logs/jit_b16_in256.log 2>&1
+    main_jit.py --config $CONFIG_PATH > logs/$1.log 2>&1
