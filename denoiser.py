@@ -6,12 +6,15 @@ from model_jit import JiT_models
 class Denoiser(nn.Module):
     def __init__(self, args):
         super().__init__()
+        ffn_kwargs = getattr(args, "ffn_kwargs", None)
         self.net = JiT_models[args.model](
             input_size=args.img_size,
             in_channels=3,
             num_classes=args.class_num,
             attn_drop=args.attn_dropout,
             proj_drop=args.proj_dropout,
+            ffn_type=getattr(args, "ffn_type", "swiglu"),
+            ffn_kwargs=ffn_kwargs,
         )
         self.img_size = args.img_size
         self.num_classes = args.class_num

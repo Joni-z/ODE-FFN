@@ -8,7 +8,7 @@ import torch.nn as nn
 import math
 import torch.nn.functional as F
 from util.model_util import VisionRotaryEmbeddingFast, get_2d_sincos_pos_embed, RMSNorm
-
+from .ffn_factory import build_ffn
 
 def modulate(x, shift, scale):
     return x * (1 + scale.unsqueeze(1)) + shift.unsqueeze(1)
@@ -138,25 +138,25 @@ class Attention(nn.Module):
         return x
 
 
-class SwiGLUFFN(nn.Module):
-    def __init__(
-        self,
-        dim: int,
-        hidden_dim: int,
-        drop=0.0,
-        bias=True
-    ) -> None:
-        super().__init__()
-        hidden_dim = int(hidden_dim * 2 / 3)
-        self.w12 = nn.Linear(dim, 2 * hidden_dim, bias=bias)
-        self.w3 = nn.Linear(hidden_dim, dim, bias=bias)
-        self.ffn_dropout = nn.Dropout(drop)
+# class SwiGLUFFN(nn.Module):
+#     def __init__(
+#         self,
+#         dim: int,
+#         hidden_dim: int,
+#         drop=0.0,
+#         bias=True
+#     ) -> None:
+#         super().__init__()
+#         hidden_dim = int(hidden_dim * 2 / 3)
+#         self.w12 = nn.Linear(dim, 2 * hidden_dim, bias=bias)
+#         self.w3 = nn.Linear(hidden_dim, dim, bias=bias)
+#         self.ffn_dropout = nn.Dropout(drop)
 
-    def forward(self, x):
-        x12 = self.w12(x)
-        x1, x2 = x12.chunk(2, dim=-1)
-        hidden = F.silu(x1) * x2
-        return self.w3(self.ffn_dropout(hidden))
+#     def forward(self, x):
+#         x12 = self.w12(x)
+#         x1, x2 = x12.chunk(2, dim=-1)
+#         hidden = F.silu(x1) * x2
+#         return self.w3(self.ffn_dropout(hidden))
 
 
 class FinalLayer(nn.Module):
@@ -181,14 +181,15 @@ class FinalLayer(nn.Module):
 
 
 class JiTBlock(nn.Module):
-    def __init__(self, hidden_size, num_heads, mlp_ratio=4.0, attn_drop=0.0, proj_drop=0.0):
+    def __init__(self, hidden_size, num_heads, mlp_ratio=4.0, attn_drop=0.0, proj_drop=0.0,
+                 ffn_type="swiglu", ffn_kwargs=None):
         super().__init__()
         self.norm1 = RMSNorm(hidden_size, eps=1e-6)
         self.attn = Attention(hidden_size, num_heads=num_heads, qkv_bias=True, qk_norm=True,
                               attn_drop=attn_drop, proj_drop=proj_drop)
         self.norm2 = RMSNorm(hidden_size, eps=1e-6)
         mlp_hidden_dim = int(hidden_size * mlp_ratio)
-        self.mlp = SwiGLUFFN(hidden_size, mlp_hidden_dim, drop=proj_drop)
+        self.mlp = build_ffn(ffn_type, hidden_size, mlp_hidden_dim, drop=proj_drop, **(ffn_kwargs or {}))
         self.adaLN_modulation = nn.Sequential(
             nn.SiLU(),
             nn.Linear(hidden_size, 6 * hidden_size, bias=True)
@@ -220,7 +221,9 @@ class JiT(nn.Module):
         num_classes=1000,
         bottleneck_dim=128,
         in_context_len=32,
-        in_context_start=8
+        in_context_start=8,
+        ffn_type="swiglu",
+        ffn_kwargs=None,
     ):
         super().__init__()
         self.in_channels = in_channels
@@ -267,7 +270,8 @@ class JiT(nn.Module):
         self.blocks = nn.ModuleList([
             JiTBlock(hidden_size, num_heads, mlp_ratio=mlp_ratio,
                      attn_drop=attn_drop if (depth // 4 * 3 > i >= depth // 4) else 0.0,
-                     proj_drop=proj_drop if (depth // 4 * 3 > i >= depth // 4) else 0.0)
+                     proj_drop=proj_drop if (depth // 4 * 3 > i >= depth // 4) else 0.0,
+                     ffn_type=ffn_type, ffn_kwargs=ffn_kwargs)
             for i in range(depth)
         ])
 

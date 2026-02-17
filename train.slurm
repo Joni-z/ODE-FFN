@@ -5,12 +5,22 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32GB
 #SBATCH --time=1-00:00:00
-#SBATCH --gres=gpu:a100:1
-#SBATCH --account=pr_119_tandon_advanced
+# GPU 二选一：不传则用下面默认；传参覆盖，例如 sbatch --partition=l40s_public --gres=gpu:l40s:1 train.slurm jit_b16_in256_imagenet
+#SBATCH --partition=l40s_public
+#SBATCH --gres=gpu:l40s:1
+# 要跑 H200 时提交加：--partition=h200_tandon --gres=gpu:h200:1
+#SBATCH --account=torch_pr_63_tandon_advanced
 
-source /vast/hl3797/miniconda/bin/activate
-source activate ldit
-cd /vast/hl3797/jit-codebase
+# 激活 conda 环境 VLM（若 conda 不在默认路径，请修改下面两行）
+source "$HOME/miniconda3/etc/profile.d/conda.sh" 2>/dev/null || source "$HOME/miniforge3/etc/profile.d/conda.sh" 2>/dev/null || true
+conda activate VLM
+
+cd /scratch/zz5070/ODE_FFN/jit-codebase
+
+# 配置名：sbatch train.slurm jit_b16_in256_imagenet 则用 configs/jit_b16_in256_imagenet.yaml
+CONFIG_NAME=${1:-jit_b16_in256_imagenet}
+CONFIG_PATH="./configs/${CONFIG_NAME}.yaml"
+mkdir -p logs
 
 PRECISION=${PRECISION:-bf16}
 GPUS_PER_NODE=${GPUS_PER_NODE:-1}
@@ -19,8 +29,8 @@ NODE_RANK=${NODE_RANK:-0}
 MASTER_ADDR=${MASTER_ADDR:-localhost}
 MASTER_PORT=${MASTER_PORT:-12017}
 WORLD_SIZE=$(($GPUS_PER_NODE * $NNODES))
-CONFIG_PATH="./configs/$1.yaml"
-# CONFIG_PATH=${CONFIG_PATH:-"./configs/jit_b16_in256.yaml"}
+
+echo "Config: $CONFIG_PATH | Log: logs/${CONFIG_NAME}.log"
 
 accelerate launch \
     --main_process_ip $MASTER_ADDR \
@@ -29,4 +39,4 @@ accelerate launch \
     --num_processes $WORLD_SIZE \
     --num_machines $NNODES \
     --mixed_precision $PRECISION \
-    main_jit.py --config $CONFIG_PATH > logs/$1.log 2>&1
+    main_jit.py --config "$CONFIG_PATH" 2>&1 | tee "logs/${CONFIG_NAME}.log"

@@ -23,12 +23,17 @@ from engine_jit import train_one_epoch, evaluate
 
 def build_model_args(cfg):
     """Wrap config into an args-like object for Denoiser."""
+    model_cfg = cfg["model"]
+    ffn_type = model_cfg.get("ffn_type", "swiglu")
+    ffn_kwargs = model_cfg.get("ffn_kwargs")  # optional dict for ode/ode_swiglu (tau, scale, shift, orders, ode_hidden_features)
     return SimpleNamespace(
-        model=cfg["model"]["name"],
+        model=model_cfg["name"],
         img_size=cfg["data"]["img_size"],
         class_num=cfg["data"]["class_num"],
-        attn_dropout=cfg["model"]["attn_dropout"],
-        proj_dropout=cfg["model"]["proj_dropout"],
+        attn_dropout=model_cfg["attn_dropout"],
+        proj_dropout=model_cfg["proj_dropout"],
+        ffn_type=ffn_type,
+        ffn_kwargs=ffn_kwargs,
         P_mean=cfg["diffusion"]["P_mean"],
         P_std=cfg["diffusion"]["P_std"],
         noise_scale=cfg["diffusion"]["noise_scale"],
@@ -98,7 +103,10 @@ def main():
     np.random.seed(seed + rank)
 
     if accelerator.is_main_process and (not args.debug):
-        init_kwargs = {"wandb": {"name": cfg["train"]["exp_name"]}}
+        run_name = cfg["logging"].get("run_name") or cfg["train"]["exp_name"]
+        init_kwargs = {"wandb": {"name": run_name}}
+        if cfg["logging"].get("entity"):
+            init_kwargs["wandb"]["entity"] = cfg["logging"]["entity"]
         accelerator.init_trackers(
             cfg["logging"]["project"],
             config=cfg,
