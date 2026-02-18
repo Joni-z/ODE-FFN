@@ -68,6 +68,7 @@ def main():
 
     # 3. 模型构建（部分代码 init 时用 .cuda()，无 GPU 的登录节点会报错，则跳过此项）
     step("构建 Denoiser 模型")
+    model = None
     try:
         model_args = build_model_args(cfg)
         model = Denoiser(model_args)
@@ -91,9 +92,9 @@ def main():
         fail(str(e))
     ok()
 
-    # 5. 一次前向（小 batch，可 CPU）
-    if args.no_forward:
-        print("[CHECK] 跳过前向 (--no-forward)")
+    # 5. 一次前向（小 batch，可 CPU；若上面模型未构建则跳过）
+    if args.no_forward or model is None:
+        print("[CHECK] 跳过前向 (--no-forward 或模型未构建)")
     else:
         step("一次前向 (batch=2)")
         try:
