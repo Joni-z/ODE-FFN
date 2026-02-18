@@ -98,7 +98,7 @@ def train_one_epoch(
 
         global_step += 1
 
-        # Logging via accelerator
+        # Logging：主进程用 wandb.log（与 ODE_FFN 一致）
         if accelerator.is_main_process and (data_iter_step % log_every == 0):
             log_dict = {
                 "train/loss": loss_reduced.item(),
@@ -106,7 +106,11 @@ def train_one_epoch(
                 "train/epoch": epoch,
                 "train/step": global_step,
             }
-            accelerator.log(log_dict, step=global_step)
+            try:
+                if wandb.run is not None:
+                    wandb.log(log_dict, step=global_step)
+            except Exception:
+                pass
 
         # # debug
         # if data_iter_step == 40:
@@ -179,7 +183,7 @@ def evaluate(
         print("[Eval] Switching back from EMA weights.")
     unwrapped.load_state_dict(model_state_dict)
 
-    # Compute FID / IS on main process
+    # Compute FID / IS on main process（若 npz 不存在则跳过 FID，只打警告，不中断训练）
     if accelerator.is_main_process:
         if img_size == 256:
             fid_statistics_file = cfg["sample"]["fid_stats_256"]
@@ -188,18 +192,23 @@ def evaluate(
         else:
             raise NotImplementedError(f"No FID stats configured for img_size={img_size}")
 
-        fid_score = calculate_fid(val_images, ref_path=fid_statistics_file)
         demo_images_step = num_images // 8
         demo_images_indices = list(range(0, num_images, demo_images_step))
         demo_images = val_images[demo_images_indices]
-        log_dict = {
-            "val/fid": fid_score,
-            "val/epoch": epoch,
-            "val/step": global_step,
-            "val/images": wandb.Image(demo_images),
-        }
-        accelerator.log(log_dict, step=global_step)
-        print(f"[Eval] FID: {fid_score:.2f}")
+        log_dict = {"val/epoch": epoch, "val/step": global_step, "val/images": wandb.Image(demo_images)}
+
+        if os.path.isfile(fid_statistics_file):
+            fid_score = calculate_fid(val_images, ref_path=fid_statistics_file)
+            log_dict["val/fid"] = fid_score
+            print(f"[Eval] FID: {fid_score:.2f}")
+        else:
+            print(f"[Eval] 跳过 FID（不存在 {fid_statistics_file}，请下载或生成该 npz 后重跑 eval）")
+
+        try:
+            if wandb.run is not None:
+                wandb.log(log_dict, step=global_step)
+        except Exception:
+            pass
 
     # Back to train mode
     unwrapped.train()

@@ -87,35 +87,34 @@ def main():
         cfg["sample"]["num_images"] = min(1000, cfg["sample"]["num_images"])
 
     # -------------------------
-    # Accelerator + logging
+    # Accelerator (W&B 用下面直接 wandb.init，不用 log_with)
     # -------------------------
     accelerator = Accelerator(
-        log_with=None if args.debug else "wandb",
+        log_with=None,
         mixed_precision=cfg["train"]["mixed_precision"],
     )
     device = accelerator.device
 
     # Seed
     seed = cfg["train"]["seed"]
-    # Use misc.get_rank() to keep behavior closer to original, but through accelerator, rank is:
     rank = accelerator.process_index
     torch.manual_seed(seed + rank)
     np.random.seed(seed + rank)
 
+    # W&B：与 ODE_FFN 一致，主进程直接 wandb.init，训练里用 wandb.log
+    wandb_enabled = False
     if accelerator.is_main_process and (not args.debug):
-        run_name = cfg["logging"].get("run_name") or cfg["train"]["exp_name"]
-        init_kwargs = {"wandb": {"name": run_name}}
-        if cfg["logging"].get("entity"):
-            init_kwargs["wandb"]["entity"] = cfg["logging"]["entity"]
-        try:
-            accelerator.init_trackers(
-                cfg["logging"]["project"],
+        wandb_cfg = cfg.get("wandb", cfg.get("logging", {}))
+        wandb_enabled = bool(wandb_cfg.get("enabled", True))
+        if wandb_enabled:
+            import wandb
+            run = wandb.init(
+                project=wandb_cfg.get("project", cfg["logging"].get("project", "jit-training")),
+                name=wandb_cfg.get("name", cfg["logging"].get("run_name", cfg["train"]["exp_name"])),
                 config=cfg,
-                init_kwargs=init_kwargs,
+                resume=wandb_cfg.get("resume", False),
             )
-        except Exception as e:
-            import warnings
-            warnings.warn(f"wandb/tracker init 失败 ({e})，继续训练但不记录到 wandb")
+            print(f"W&B 已登录: 账号={run.entity} | project={run.project} | run={run.name}")
 
     # -------------------------
     # Data
@@ -285,6 +284,13 @@ def main():
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     if accelerator.is_main_process:
         print("Training time:", total_time_str)
+        if wandb_enabled:
+            try:
+                import wandb
+                if wandb.run is not None:
+                    wandb.finish()
+            except Exception:
+                pass
 
     accelerator.end_training()
 

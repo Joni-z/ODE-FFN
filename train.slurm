@@ -22,8 +22,6 @@ else
   exit 1
 fi
 export PATH="$CONDA_PREFIX/bin:$PATH"
-# 计算节点上 wandb 常因未登录报 401，先离线记录，之后在登录节点或本机运行 wandb sync 上传
-export WANDB_MODE=offline
 
 cd /scratch/zz5070/ODE_FFN/jit-codebase
 
@@ -49,4 +47,4 @@ accelerate launch \
     --num_processes $WORLD_SIZE \
     --num_machines $NNODES \
     --mixed_precision $PRECISION \
-    main_jit.py --config "$CONFIG_PATH" 2>&1 | tee "logs/${CONFIG_NAME}.log"
+    src/main_jit.py --config "$CONFIG_PATH" 2>&1 | tee "logs/${CONFIG_NAME}.log"

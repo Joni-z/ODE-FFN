@@ -16,4 +16,4 @@ accelerate launch \
     --num_processes $WORLD_SIZE \
     --num_machines $NNODES \
     --mixed_precision $PRECISION \
-    main_jit.py --config $CONFIG_PATH --debug
+    src/main_jit.py --config $CONFIG_PATH --debug
