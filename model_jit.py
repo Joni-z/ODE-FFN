@@ -8,7 +8,7 @@ import torch.nn as nn
 import math
 import torch.nn.functional as F
 from util.model_util import VisionRotaryEmbeddingFast, get_2d_sincos_pos_embed, RMSNorm
-from .ffn_factory import build_ffn
+from ffn_factory import build_ffn
 
 def modulate(x, shift, scale):
     return x * (1 + scale.unsqueeze(1)) + shift.unsqueeze(1)

@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional
 
-from .ode_ffn import ODEFFN, ODELayer  # 确保 ode_ffn.py 里导出了 ODELayer
+from ode_ffn import ODEFFN, ODELayer
 
 
 class SwiGLUFFN(nn.Module):

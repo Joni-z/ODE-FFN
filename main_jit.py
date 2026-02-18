@@ -107,15 +107,29 @@ def main():
         init_kwargs = {"wandb": {"name": run_name}}
         if cfg["logging"].get("entity"):
             init_kwargs["wandb"]["entity"] = cfg["logging"]["entity"]
-        accelerator.init_trackers(
-            cfg["logging"]["project"],
-            config=cfg,
-            init_kwargs=init_kwargs,
-        )
+        try:
+            accelerator.init_trackers(
+                cfg["logging"]["project"],
+                config=cfg,
+                init_kwargs=init_kwargs,
+            )
+        except Exception as e:
+            import warnings
+            warnings.warn(f"wandb/tracker init 失败 ({e})，继续训练但不记录到 wandb")
 
     # -------------------------
     # Data
     # -------------------------
+    data_path = cfg["data"]["data_path"]
+    train_dir = os.path.join(data_path, "train")
+    if not os.path.isdir(train_dir):
+        if accelerator.is_main_process:
+            raise FileNotFoundError(
+                f"训练数据目录不存在: {train_dir}\n"
+                f"请在各 config 的 data.data_path 中填写本集群上 ImageNet 的实际路径（需含 train/ 子目录）。"
+            )
+        raise RuntimeError("data_path not found")
+
     transform_train = transforms.Compose([
         transforms.Lambda(lambda img: center_crop_arr(img, cfg["data"]["img_size"])),
         transforms.RandomHorizontalFlip(),
@@ -123,7 +137,7 @@ def main():
     ])
 
     dataset_train = datasets.ImageFolder(
-        os.path.join(cfg["data"]["data_path"], "train"),
+        train_dir,
         transform=transform_train,
     )
 
@@ -152,7 +166,7 @@ def main():
 
     lr, eff_batch_size = get_lr_and_batch(cfg, accelerator)
     param_groups = misc.add_weight_decay(model, weight_decay=cfg["train"]["weight_decay"])
-    optimizer = torch.optim.AdamW(param_groups, lr=lr, betas=(0.9, cfg["train"]["beta2"]))
+    optimizer = torch.optim.AdamW(param_groups, lr=lr, betas=(0.9, cfg["train"].get("beta2", 0.99)))
 
     # -------------------------
     # Prepare for distributed / mixed precision

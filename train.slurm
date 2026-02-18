@@ -2,18 +2,28 @@
 #SBATCH --job-name=jit
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --mem=32GB
-#SBATCH --time=1-00:00:00
-# GPU 二选一：不传则用下面默认；传参覆盖，例如 sbatch --partition=l40s_public --gres=gpu:l40s:1 train.slurm jit_b16_in256_imagenet
-#SBATCH --partition=l40s_public
-#SBATCH --gres=gpu:l40s:1
-# 要跑 H200 时提交加：--partition=h200_tandon --gres=gpu:h200:1
+#SBATCH --time=24:00:00
+#SBATCH --gres=gpu:1
 #SBATCH --account=torch_pr_63_tandon_advanced
+#SBATCH --mail-user=zz5070@nyu.edu
+#SBATCH --mail-type=ALL
+#SBATCH --output=/scratch/zz5070/ODE_FFN/jit-codebase/logs/jit-%j.out
+#SBATCH --error=/scratch/zz5070/ODE_FFN/jit-codebase/logs/jit-%j.err
 
-# 激活 conda 环境 VLM（若 conda 不在默认路径，请修改下面两行）
-source "$HOME/miniconda3/etc/profile.d/conda.sh" 2>/dev/null || source "$HOME/miniforge3/etc/profile.d/conda.sh" 2>/dev/null || true
-conda activate VLM
+# Conda 激活（本机 miniconda 需先 source conda.sh，再用 conda activate；HPC 文档的 source activate 针对 module anaconda）
+CONDA_SH="${CONDA_SH:-/scratch/zz5070/miniconda3/etc/profile.d/conda.sh}"
+if [ -f "$CONDA_SH" ]; then
+  source "$CONDA_SH"
+  conda activate VLM || { echo "ERROR: conda activate VLM 失败"; exit 1; }
+else
+  echo "ERROR: 未找到 conda.sh，请设置 CONDA_SH"
+  exit 1
+fi
+export PATH="$CONDA_PREFIX/bin:$PATH"
+# 计算节点上 wandb 常因未登录报 401，先离线记录，之后在登录节点或本机运行 wandb sync 上传
+export WANDB_MODE=offline
 
 cd /scratch/zz5070/ODE_FFN/jit-codebase
 

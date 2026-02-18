@@ -12,6 +12,7 @@ train:
 
   lr: null
   blr: 1.0e-4
+  beta2: 0.99
   weight_decay: 0.0
 
   lr_schedule: "constant"
@@ -26,7 +27,7 @@ train:
   mixed_precision: "bf16"
 
 data:
-  data_path: "/scratch/work/public/ml-datasets/imagenet"
+  data_path: "/projects/work/public/ml-datasets/imagenet"
   img_size: 256
   class_num: 1000
 
