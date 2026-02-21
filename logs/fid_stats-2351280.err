@@ -1,0 +1,38 @@
+  0%|          | 0/10010 [00:00<?, ?it/s]  0%|          | 0/10010 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/scratch/zz5070/ODE_FFN/jit-codebase/src/util/generate_fid_stats_imagenet.py", line 89, in <module>
+    main()
+  File "/scratch/zz5070/ODE_FFN/jit-codebase/src/util/generate_fid_stats_imagenet.py", line 78, in main
+    save_fid_stats(
+  File "/scratch/zz5070/ODE_FFN/jit-codebase/src/util/fid.py", line 327, in save_fid_stats
+    m1, s1 = compute_statistics_of_path(
+  File "/scratch/zz5070/ODE_FFN/jit-codebase/src/util/fid.py", line 285, in compute_statistics_of_path
+    m, s = calculate_activation_statistics(
+  File "/scratch/zz5070/ODE_FFN/jit-codebase/src/util/fid.py", line 266, in calculate_activation_statistics
+    act = get_activations(files, model, batch_size, dims, device, num_workers)
+  File "/scratch/zz5070/ODE_FFN/jit-codebase/src/util/fid.py", line 166, in get_activations
+    for batch in tqdm(dataloader):
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 741, in __next__
+    data = self._next_data()
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1548, in _next_data
+    return self._process_data(data, worker_id)
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1586, in _process_data
+    data.reraise()
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/_utils.py", line 775, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 358, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 57, in fetch
+    return self.collate_fn(data)
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 401, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 155, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+  File "/scratch/zz5070/miniconda3/envs/VLM/lib/python3.10/site-packages/torch/utils/data/_utils/collate.py", line 275, in collate_tensor_fn
+    return torch.stack(batch, 0, out=out)
+RuntimeError: stack expects each tensor to be equal size, but got [3, 250, 250] at entry 0 and [3, 150, 200] at entry 1
+

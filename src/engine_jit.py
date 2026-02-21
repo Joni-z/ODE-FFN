@@ -176,7 +176,22 @@ def evaluate(
         val_images.append(sampled_images)
 
     val_images = torch.cat(val_images, dim=0)
-    print(f"[Eval] Generated images shape: {val_images.shape}")
+    # Gather from all processes for multi-GPU (gather requires same shape across ranks)
+    world_size = accelerator.num_processes
+    if world_size > 1:
+        target_per_rank = (num_images + world_size - 1) // world_size
+        n_local = val_images.shape[0]
+        if n_local < target_per_rank:
+            # Pad by repeating last image (avoid zeros which would skew FID)
+            n_pad = target_per_rank - n_local
+            pad = val_images[-1:].expand(n_pad, -1, -1, -1).clone() if n_local > 0 else torch.zeros(n_pad, *val_images.shape[1:], dtype=val_images.dtype, device=val_images.device)
+            val_images = torch.cat([val_images, pad], dim=0)
+        elif n_local > target_per_rank:
+            val_images = val_images[:target_per_rank]
+        val_images = accelerator.gather(val_images)
+    val_images = val_images[:num_images]  # trim to exact count
+    if accelerator.is_main_process:
+        print(f"[Eval] Generated images shape: {val_images.shape}")
 
     # Switch back from EMA
     if accelerator.is_main_process:
@@ -192,16 +207,22 @@ def evaluate(
         else:
             raise NotImplementedError(f"No FID stats configured for img_size={img_size}")
 
-        demo_images_step = num_images // 8
-        demo_images_indices = list(range(0, num_images, demo_images_step))
-        demo_images = val_images[demo_images_indices]
-        log_dict = {"val/epoch": epoch, "val/step": global_step, "val/images": wandb.Image(demo_images)}
+        n_demo = min(8, val_images.shape[0])
+        demo_step = max(1, (val_images.shape[0] - 1) // n_demo) if val_images.shape[0] > 0 else 1
+        demo_indices = list(range(0, val_images.shape[0], demo_step))[:n_demo]
+        demo_images = val_images[demo_indices]  # [N, 3, H, W]
+        # wandb.Image() does not accept batch; pass list of single images as uint8 [H,W,C]
+        demo_list = []
+        for i in range(demo_images.shape[0]):
+            img = (demo_images[i].clamp(0, 1) * 255).round().byte().permute(1, 2, 0).cpu().numpy()
+            demo_list.append(wandb.Image(img))
+        log_dict = {"val/epoch": epoch, "val/step": global_step, "val/images": demo_list}
 
-        if os.path.isfile(fid_statistics_file):
+        if val_images.shape[0] > 0 and os.path.isfile(fid_statistics_file):
             fid_score = calculate_fid(val_images, ref_path=fid_statistics_file)
             log_dict["val/fid"] = fid_score
             print(f"[Eval] FID: {fid_score:.2f}")
-        else:
+        elif not os.path.isfile(fid_statistics_file):
             print(f"[Eval] 跳过 FID（不存在 {fid_statistics_file}，请下载或生成该 npz 后重跑 eval）")
 
         try:

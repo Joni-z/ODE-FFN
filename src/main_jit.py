@@ -108,9 +108,10 @@ def main():
         wandb_enabled = bool(wandb_cfg.get("enabled", True))
         if wandb_enabled:
             import wandb
+            log_cfg = cfg.get("logging", {})
             run = wandb.init(
-                project=wandb_cfg.get("project", cfg["logging"].get("project", "jit-training")),
-                name=wandb_cfg.get("name", cfg["logging"].get("run_name", cfg["train"]["exp_name"])),
+                project=wandb_cfg.get("project", log_cfg.get("project", "jit-training")),
+                name=wandb_cfg.get("name", log_cfg.get("run_name", cfg["train"]["exp_name"])),
                 config=cfg,
                 resume=wandb_cfg.get("resume", False),
             )
@@ -143,11 +144,20 @@ def main():
     if accelerator.is_main_process:
         print(dataset_train)
 
+    # Cap num_workers to avoid "excessive worker creation" warning / freeze
+    try:
+        max_workers = len(os.sched_getaffinity(0))
+    except AttributeError:
+        max_workers = os.cpu_count() or 4
+    num_workers = min(cfg["train"]["num_workers"], max_workers)
+    if accelerator.is_main_process and num_workers < cfg["train"]["num_workers"]:
+        print(f"num_workers capped: {cfg['train']['num_workers']} -> {num_workers} (max available)")
+
     train_dl = torch.utils.data.DataLoader(
         dataset_train,
         batch_size=cfg["train"]["per_device_batch_size"],
         shuffle=True,  # sampler will be replaced by accelerator if distributed
-        num_workers=cfg["train"]["num_workers"],
+        num_workers=num_workers,
         pin_memory=cfg["train"]["pin_mem"],
         drop_last=True,
     )
@@ -189,34 +199,23 @@ def main():
     global_step = 0
     start_epoch = 0
     resume_path = cfg["checkpointing"]["resume"]
-    if resume_path:
+    if resume_path and os.path.exists(resume_path):
         if accelerator.is_main_process:
             print(f"Resuming from checkpoint: {resume_path}")
-        map_location = "cpu"
-        checkpoint = torch.load(resume_path, map_location=map_location)
-
+        checkpoint = torch.load(resume_path, map_location="cpu")
         unwrapped = accelerator.unwrap_model(model)
         unwrapped.load_state_dict(checkpoint["model"])
-
         if "ema" in checkpoint:
             ema_state = checkpoint["ema"]
-            # Load EMA into unwrapped.ema_params as a list
-            # by matching named parameters
-            named = dict(unwrapped.named_parameters())
-            unwrapped.ema_params = []
-            for name, param in named.items():
-                assert name in ema_state
-                ema_param = ema_state[name].to(param.device)
-                unwrapped.ema_params.append(ema_param)
+            unwrapped.ema_params = [ema_state[name].to(p.device) for name, p in unwrapped.named_parameters()]
         else:
-            # fallback: init EMA from the loaded model
             unwrapped.ema_params = [p.detach().clone() for p in unwrapped.parameters()]
-
         optimizer.load_state_dict(checkpoint["opt"])
         start_epoch = checkpoint.get("epoch", 0) + 1
         global_step = checkpoint.get("step", 0)
-
         del checkpoint
+    elif resume_path and accelerator.is_main_process:
+        print(f"Resume path not found, skipping: {resume_path}")
 
     # -------------------------
     # Training loop
