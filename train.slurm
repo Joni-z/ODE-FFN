@@ -3,15 +3,12 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
-# 尽量少要资源：更容易被调度（Torch 指南强调只申请所需资源）
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=16
 #SBATCH --mem=100G
-#SBATCH --time=24:00:00
+#SBATCH --time=30:00:00
 
-# 你就是要 1 张卡
 #SBATCH --gres=gpu:1
 
-# Torch 要求必须带 account
 #SBATCH --account=torch_pr_63_tandon_advanced
 
 #SBATCH --mail-user=zz5070@nyu.edu

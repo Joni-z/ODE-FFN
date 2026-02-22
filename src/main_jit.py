@@ -159,6 +159,8 @@ def main():
         shuffle=True,  # sampler will be replaced by accelerator if distributed
         num_workers=num_workers,
         pin_memory=cfg["train"]["pin_mem"],
+        prefetch_factor=4 if num_workers > 0 else None,
+        persistent_workers=num_workers > 0,
         drop_last=True,
     )
 
