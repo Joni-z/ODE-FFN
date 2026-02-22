@@ -18,6 +18,20 @@
 
 set -euo pipefail
 
+# 使用 Slurm 分配的那块 GPU，否则监控会看到“分配到的 GPU”利用率为 0 而 cancel job
+# 多卡节点上 Slurm 可能分配 GPU 1，但未设置 CUDA_VISIBLE_DEVICES 时进程会用 GPU 0
+if [ -z "${CUDA_VISIBLE_DEVICES:-}" ]; then
+  if [ -n "${SLURM_JOB_GPUS:-}" ]; then
+    export CUDA_VISIBLE_DEVICES="$SLURM_JOB_GPUS"
+  else
+    gpu_idx=$(scontrol show job "$SLURM_JOB_ID" 2>/dev/null | sed -n 's/.*IDX:\([0-9]*\).*/\1/p' | head -1)
+    if [ -n "$gpu_idx" ]; then
+      export CUDA_VISIBLE_DEVICES="$gpu_idx"
+    fi
+  fi
+fi
+echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-not set}"
+
 # Conda 激活
 CONDA_SH="${CONDA_SH:-/scratch/zz5070/miniconda3/etc/profile.d/conda.sh}"
 if [ -f "$CONDA_SH" ]; then
