@@ -50,8 +50,8 @@ class ODESwiGLUFFN(nn.Module):
         t_embed_dim: Optional[int] = None,
         # NEW: stabilize delta magnitude
         delta_normalize: bool = True,
-        # NEW: gate init (sigmoid(-5) ~ 0.0067), very close to baseline but trainable
-        gate_init_logit: float = -5.0,
+        # NEW: gate init; use 0 so gate=0.5 and ODE branch has visible contribution (was -5 ~ 0.0067)
+        gate_init_logit: float = 0.0,
     ) -> None:
         super().__init__()
 
