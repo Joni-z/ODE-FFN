@@ -1,6 +1,3 @@
-# --------------------------------------------------------
-# FFN factory: build FFN by type for ablation (swiglu / ode / mlp / ode_swiglu).
-# --------------------------------------------------------
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -17,7 +14,8 @@ class SwiGLUFFN(nn.Module):
         self.w3 = nn.Linear(hidden_dim, dim, bias=bias)
         self.ffn_dropout = nn.Dropout(drop)
 
-    def forward(self, x):
+    def forward(self, x, t: Optional[torch.Tensor] = None):
+        # keep signature compatible with t-passthrough
         x12 = self.w12(x)
         x1, x2 = x12.chunk(2, dim=-1)
         hidden = F.silu(x1) * x2
@@ -26,9 +24,15 @@ class SwiGLUFFN(nn.Module):
 
 class ODESwiGLUFFN(nn.Module):
     """
-    ODE + SwiGLU hybrid FFN:
-      x_ode = x + alpha * (ODELayer(x) - x)   (alpha init=0 for safe ablation)
-      out   = SwiGLU(x_ode)
+    ODE + SwiGLU hybrid FFN (FM-friendly):
+      base = SwiGLU(x)
+      ode  = (ODELayer(x,t) - x)  (ODE bias)
+      out  = base + gate(t) * ode
+
+    Key points:
+      - gate is bounded via sigmoid(logit)
+      - supports passing flow-time t (scalar or embedding)
+      - does NOT perturb SwiGLU input distribution (more stable than preconditioning)
     """
     def __init__(
         self,
@@ -40,13 +44,17 @@ class ODESwiGLUFFN(nn.Module):
         tau: float = 10.0,
         scale: float = 0.8,
         shift: float = 0.2,
-        orders: int = 2,
-        # width for t_func inside ODELayer (not the same as SwiGLU hidden_dim)
+        orders: int = 1,  # IMPORTANT: start with 1; you can ablate 2/3 later
         ode_hidden_features: Optional[int] = None,
+        # NEW: if you pass time embedding into forward, set t_embed_dim
+        t_embed_dim: Optional[int] = None,
+        # NEW: stabilize delta magnitude
+        delta_normalize: bool = True,
+        # NEW: gate init; use 0 so gate=0.5 and ODE branch has visible contribution (was -5 ~ 0.0067)
+        gate_init_logit: float = 0.0,
     ) -> None:
         super().__init__()
 
-        # 1) ODE preconditioner on token feature (dim)
         ode_hidden_features = ode_hidden_features or dim
         self.ode = ODELayer(
             in_features=dim,
@@ -56,26 +64,41 @@ class ODESwiGLUFFN(nn.Module):
             scale=scale,
             shift=shift,
             orders=orders,
+            t_embed_dim=t_embed_dim,
         )
 
-        # learnable interpolation; start from pure identity => exactly baseline SwiGLU
-        self.ode_alpha = nn.Parameter(torch.zeros(()))  # scalar
+        # bounded gate in (0,1)
+        self.ode_gate_logit = nn.Parameter(torch.tensor(gate_init_logit))
+        self.delta_normalize = delta_normalize
 
-        # 2) Standard SwiGLU body (keep identical for fair comparison)
+        # SwiGLU (unchanged)
         hidden_dim_eff = int(hidden_dim * 2 / 3)
         self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
         self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
         self.ffn_dropout = nn.Dropout(drop)
 
-    def forward(self, x):
-        # safe mixing: at init ode_alpha=0 => x_ode = x
-        x_ode = x + self.ode_alpha * (self.ode(x) - x)
-
-        x12 = self.w12(x_ode)
+    def _swiglu(self, x):
+        x12 = self.w12(x)
         x1, x2 = x12.chunk(2, dim=-1)
         hidden = F.silu(x1) * x2
         hidden = self.ffn_dropout(hidden)
         return self.w3(hidden)
+
+    def forward(self, x, t: Optional[torch.Tensor] = None):
+        base = self._swiglu(x)
+
+        # ODE bias branch
+        ode_out = self.ode(x, t) if t is not None else self.ode(x)
+        delta = ode_out - x
+
+        if self.delta_normalize:
+            # match delta RMS to x RMS (token-wise), prevents delta from dominating
+            x_rms = torch.sqrt(torch.mean(x * x, dim=-1, keepdim=True) + 1e-6)
+            d_rms = torch.sqrt(torch.mean(delta * delta, dim=-1, keepdim=True) + 1e-6)
+            delta = delta * (x_rms / d_rms)
+
+        gate = torch.sigmoid(self.ode_gate_logit)  # scalar in (0,1)
+        return base + gate * delta
 
 
 class MLP(nn.Module):
@@ -86,7 +109,7 @@ class MLP(nn.Module):
         self.fc2 = nn.Linear(hidden_features, in_features, bias=bias)
         self.drop = nn.Dropout(drop)
 
-    def forward(self, x):
+    def forward(self, x, t: Optional[torch.Tensor] = None):
         x = self.fc1(x)
         x = self.act(x)
         x = self.drop(x)
@@ -103,7 +126,7 @@ def build_ffn(
 ) -> nn.Module:
     """
     ffn_type: "swiglu" | "ode" | "mlp" | "ode_swiglu"
-    ode_kwargs: (tau, scale, shift, orders, ode_hidden_features, ...)
+    ode_kwargs: (tau, scale, shift, orders, ode_hidden_features, t_embed_dim, delta_normalize, gate_init_logit, ...)
     """
     ffn_type = ffn_type.lower().strip()
 

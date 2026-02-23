@@ -26,6 +26,12 @@ def build_model_args(cfg):
     model_cfg = cfg["model"]
     ffn_type = model_cfg.get("ffn_type", "swiglu")
     ffn_kwargs = model_cfg.get("ffn_kwargs")  # optional dict for ode/ode_swiglu (tau, scale, shift, orders, ode_hidden_features)
+    if ffn_type == "ode_swiglu":
+        # ODE branch needs time/context embedding dim so it can use diffusion time
+        name = model_cfg.get("name", "")
+        hidden_size = 768 if "JiT-B" in name else (1024 if "JiT-L" in name else 1280)
+        ffn_kwargs = dict(ffn_kwargs) if ffn_kwargs else {}
+        ffn_kwargs.setdefault("t_embed_dim", hidden_size)
     return SimpleNamespace(
         model=model_cfg["name"],
         img_size=cfg["data"]["img_size"],
