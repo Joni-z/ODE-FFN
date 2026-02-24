@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional
 
-from ode_ffn import ODEFFN, ODELayer
+from ode_ffn import ODELayer
 
 
 class SwiGLUFFN(nn.Module):
@@ -101,6 +101,54 @@ class ODESwiGLUFFN(nn.Module):
         return base + gate * delta
 
 
+class ODEOnlyFFN(nn.Module):
+    """
+    ODE-only FFN: same ODE branch as ODESwiGLUFFN but without the SwiGLU base.
+      delta = ODELayer(x,t) - x,  out = gate(t) * delta
+    Uses same hyperparams: tau, scale, shift, orders, t_embed_dim, delta_normalize, gate_init_logit.
+    """
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 10.0,
+        scale: float = 0.8,
+        shift: float = 0.2,
+        orders: int = 1,
+        ode_hidden_features: Optional[int] = None,
+        t_embed_dim: Optional[int] = None,
+        delta_normalize: bool = True,
+        gate_init_logit: float = 0.0,
+    ) -> None:
+        super().__init__()
+        ode_hidden_features = ode_hidden_features or dim
+        self.ode = ODELayer(
+            in_features=dim,
+            hidden_features=ode_hidden_features,
+            bias=bias,
+            tau=tau,
+            scale=scale,
+            shift=shift,
+            orders=orders,
+            t_embed_dim=t_embed_dim,
+        )
+        self.ode_gate_logit = nn.Parameter(torch.tensor(gate_init_logit))
+        self.delta_normalize = delta_normalize
+        self.ffn_dropout = nn.Dropout(drop)
+
+    def forward(self, x, t: Optional[torch.Tensor] = None):
+        ode_out = self.ode(x, t) if t is not None else self.ode(x)
+        delta = ode_out - x
+        if self.delta_normalize:
+            x_rms = torch.sqrt(torch.mean(x * x, dim=-1, keepdim=True) + 1e-6)
+            d_rms = torch.sqrt(torch.mean(delta * delta, dim=-1, keepdim=True) + 1e-6)
+            delta = delta * (x_rms / d_rms)
+        gate = torch.sigmoid(self.ode_gate_logit)
+        return self.ffn_dropout(gate * delta)
+
+
 class MLP(nn.Module):
     def __init__(self, in_features: int, hidden_features: int, drop: float = 0.0, bias: bool = True) -> None:
         super().__init__()
@@ -134,9 +182,10 @@ def build_ffn(
         return SwiGLUFFN(in_features, hidden_features, drop=drop, bias=bias)
 
     if ffn_type == "ode":
-        return ODEFFN(
-            in_features=in_features,
-            hidden_features=hidden_features,
+        return ODEOnlyFFN(
+            dim=in_features,
+            hidden_dim=hidden_features,
+            drop=drop,
             bias=bias,
             **ode_kwargs,
         )

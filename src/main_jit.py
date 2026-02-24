@@ -26,7 +26,7 @@ def build_model_args(cfg):
     model_cfg = cfg["model"]
     ffn_type = model_cfg.get("ffn_type", "swiglu")
     ffn_kwargs = model_cfg.get("ffn_kwargs")  # optional dict for ode/ode_swiglu (tau, scale, shift, orders, ode_hidden_features)
-    if ffn_type == "ode_swiglu":
+    if ffn_type in ("ode", "ode_swiglu"):
         # ODE branch needs time/context embedding dim so it can use diffusion time
         name = model_cfg.get("name", "")
         hidden_size = 768 if "JiT-B" in name else (1024 if "JiT-L" in name else 1280)

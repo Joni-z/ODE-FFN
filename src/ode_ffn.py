@@ -51,8 +51,10 @@ class ODELayer(nn.Module):
         else:
             # Case 1: have learned mapper for embedding
             if self.t_from_embed is not None and t.dim() >= 2 and t.shape[-1] != 1:
-                # (B, tE) or (B,N,tE) -> (B,1) or (B,N,1)
+                # (B, tE) or (B,N,tE) -> (B,1) or (B,N,1); expand to (B,1,1) for (B,N,D) broadcast
                 t_scalar = self.t_from_embed(t)
+                if t_scalar.dim() == 2 and t_scalar.shape[-1] == 1:
+                    t_scalar = t_scalar.unsqueeze(-1)  # (B,1) -> (B,1,1)
             else:
                 # Case 2: already scalar-like
                 if t.dim() == 1:
