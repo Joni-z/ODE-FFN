@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional
 
+from mh_ode_swiglu_ffn import MHODESwiGLUFFN
 from ode_ffn import ODELayer
 
 
@@ -173,7 +174,7 @@ def build_ffn(
     **ode_kwargs,
 ) -> nn.Module:
     """
-    ffn_type: "swiglu" | "ode" | "mlp" | "ode_swiglu"
+    ffn_type: "swiglu" | "ode" | "mlp" | "ode_swiglu" | "mh_ode_swiglu"
     ode_kwargs: (tau, scale, shift, orders, ode_hidden_features, t_embed_dim, delta_normalize, gate_init_logit, ...)
     """
     ffn_type = ffn_type.lower().strip()
@@ -199,6 +200,15 @@ def build_ffn(
             **ode_kwargs,
         )
 
+    if ffn_type in {"mh_ode_swiglu", "mhode_swiglu", "multihead_ode_swiglu"}:
+        return MHODESwiGLUFFN(
+            dim=in_features,
+            hidden_dim=hidden_features,
+            drop=drop,
+            bias=bias,
+            **ode_kwargs,
+        )
+
     if ffn_type == "mlp":
         return MLP(
             in_features=in_features,
@@ -207,4 +217,6 @@ def build_ffn(
             bias=bias,
         )
 
-    raise ValueError(f"Unknown ffn_type: {ffn_type}. Use one of: swiglu, ode, ode_swiglu, mlp")
+    raise ValueError(
+        f"Unknown ffn_type: {ffn_type}. Use one of: swiglu, ode, ode_swiglu, mh_ode_swiglu, mlp"
+    )

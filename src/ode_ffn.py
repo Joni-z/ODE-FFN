@@ -3,6 +3,8 @@ import torch
 from typing import Optional
 from torch import Tensor, nn
 
+from time_condition import build_time_mlp, resolve_time_scalar
+
 class ODELayer(nn.Module):
     def __init__(
         self,
@@ -21,19 +23,11 @@ class ODELayer(nn.Module):
         self.scale = scale
         self.shift = shift
         self.orders = orders
-        self.t_func = nn.Sequential(
-            nn.Linear(in_features, hidden_features, bias=bias),
-            nn.SiLU(),
-            nn.Linear(hidden_features, 1, bias=bias),
-        )
+        self.t_func = build_time_mlp(in_features, hidden_features, bias=bias)
         # if given external t embedding, map it to scalar step
         self.t_from_embed = None
         if t_embed_dim is not None:
-            self.t_from_embed = nn.Sequential(
-                nn.Linear(t_embed_dim, hidden_features, bias=bias),
-                nn.SiLU(),
-                nn.Linear(hidden_features, 1, bias=bias),
-            )
+            self.t_from_embed = build_time_mlp(t_embed_dim, hidden_features, bias=bias)
 
         self.proj = nn.Linear(in_features, in_features, bias=False)
 
@@ -46,25 +40,7 @@ class ODELayer(nn.Module):
           - scalar time: shape (B,) or (B,1) or (B,N,1)
           - time embedding: shape (B, t_embed_dim) or (B,N,t_embed_dim) if t_from_embed is set
         """
-        if t is None:
-            t_scalar = self.t_func(x)  # (B,N,1)
-        else:
-            # Case 1: have learned mapper for embedding
-            if self.t_from_embed is not None and t.dim() >= 2 and t.shape[-1] != 1:
-                # (B, tE) or (B,N,tE) -> (B,1) or (B,N,1); expand to (B,1,1) for (B,N,D) broadcast
-                t_scalar = self.t_from_embed(t)
-                if t_scalar.dim() == 2 and t_scalar.shape[-1] == 1:
-                    t_scalar = t_scalar.unsqueeze(-1)  # (B,1) -> (B,1,1)
-            else:
-                # Case 2: already scalar-like
-                if t.dim() == 1:
-                    t_scalar = t[:, None, None]          # (B,1,1)
-                elif t.dim() == 2 and t.shape[-1] == 1:
-                    t_scalar = t[:, None, :]             # (B,1,1)
-                else:
-                    # (B,N,1)
-                    t_scalar = t
-
+        t_scalar = resolve_time_scalar(x, t, self.t_func, self.t_from_embed)
         t_scalar = torch.sigmoid(t_scalar / self.tau) * self.scale + self.shift  # (..,1)
 
         approx = [x]

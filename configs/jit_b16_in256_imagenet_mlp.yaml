@@ -1,13 +1,13 @@
 # JiT-B/16 @ ImageNet 256, FFN=mlp
 train:
-  exp_name: "jit_b16_in256_imagenet_mlp"
+  exp_name: "baseline_mlp"
   seed: 42
 
-  epochs: 30
+  epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 16
+  num_workers: 6
   pin_mem: true
 
   lr: null
@@ -63,5 +63,5 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "jit_b16_in256_imagenet_mlp"
+  run_name: "baseline_mlp"
   # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
