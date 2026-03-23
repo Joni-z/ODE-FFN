@@ -19,15 +19,28 @@ from util.crop import center_crop_arr
 
 from denoiser import Denoiser
 from engine_jit import train_one_epoch, evaluate
+from ffn_factory import normalize_ffn_type
 
 
 def build_model_args(cfg):
     """Wrap config into an args-like object for Denoiser."""
     model_cfg = cfg["model"]
-    ffn_type = model_cfg.get("ffn_type", "swiglu")
+    ffn_type = normalize_ffn_type(model_cfg.get("ffn_type", "swiglu"))
     ffn_kwargs = model_cfg.get("ffn_kwargs")
-    if ffn_type in {"ode", "ode_swiglu", "mh_ode_swiglu", "mhode_swiglu", "multihead_ode_swiglu"}:
-        # ODE branch needs time/context embedding dim so it can use diffusion time
+    cond_aware_ffn_types = {
+        "ode",
+        "ode_swiglu",
+        "mh_ode_swiglu",
+        "headwise_ode_value_glu",
+        "lowrank_state_ode",
+        "tied_flow",
+        "nav_refine",
+        "time_split",
+        "clean_target",
+        "time_moe",
+    }
+    if ffn_type in cond_aware_ffn_types:
+        # Condition-aware FFNs use the shared diffusion/class embedding from JiT blocks.
         name = model_cfg.get("name", "")
         hidden_size = 768 if "JiT-B" in name else (1024 if "JiT-L" in name else 1280)
         ffn_kwargs = dict(ffn_kwargs) if ffn_kwargs else {}
