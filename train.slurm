@@ -18,29 +18,14 @@
 
 set -euo pipefail
 
-# 使用 Slurm 分配的那块 GPU，否则监控会看到“分配到的 GPU”利用率为 0 而 cancel job
-# 多卡节点上 Slurm 可能分配 GPU 1，但未设置 CUDA_VISIBLE_DEVICES 时进程会用 GPU 0
-if [ -z "${CUDA_VISIBLE_DEVICES:-}" ]; then
-  if [ -n "${SLURM_JOB_GPUS:-}" ]; then
-    export CUDA_VISIBLE_DEVICES="$SLURM_JOB_GPUS"
-  else
-    gpu_idx=$(scontrol show job "$SLURM_JOB_ID" 2>/dev/null | sed -n 's/.*IDX:\([0-9]*\).*/\1/p' | head -1)
-    if [ -n "$gpu_idx" ]; then
-      export CUDA_VISIBLE_DEVICES="$gpu_idx"
-    fi
-  fi
-fi
-echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-not set}"
+# 作业里 Slurm/cgroup 通常只把「分到的那块卡」暴露成 cuda:0。登录 shell 里带的
+# CUDA_VISIBLE_DEVICES 会指错或和 SLURM_JOB_GPUS 混用导致 PyTorch 报 No CUDA GPUs。
+unset CUDA_VISIBLE_DEVICES
 
 # Conda 激活
 CONDA_SH="${CONDA_SH:-/scratch/zz5070/miniconda3/etc/profile.d/conda.sh}"
-if [ -f "$CONDA_SH" ]; then
-  source "$CONDA_SH"
-  conda activate VLM || { echo "ERROR: conda activate VLM 失败"; exit 1; }
-else
-  echo "ERROR: 未找到 conda.sh，请设置 CONDA_SH"
-  exit 1
-fi
+source "$CONDA_SH"
+conda activate VLM
 export PATH="$CONDA_PREFIX/bin:$PATH"
 
 cd /scratch/zz5070/ODE_FFN/jit-codebase
@@ -50,11 +35,20 @@ CONFIG_PATH="./configs/${CONFIG_NAME}.yaml"
 mkdir -p logs
 
 PRECISION=${PRECISION:-bf16}
+GPUS_PER_NODE=${GPUS_PER_NODE:-1}
+NNODES=${NNODES:-1}
+NODE_RANK=${NODE_RANK:-0}
+MASTER_ADDR=${MASTER_ADDR:-localhost}
+MASTER_PORT=${MASTER_PORT:-12017}
+WORLD_SIZE=$(($GPUS_PER_NODE * $NNODES))
 
-# 单机单卡：accelerate 最简配置，减少变量也更稳
-echo "Config: $CONFIG_PATH | Log: logs/${CONFIG_NAME}.log"
+echo "Config: $CONFIG_PATH | Log: logs/${CONFIG_NAME}.log | World size: $WORLD_SIZE"
 
 accelerate launch \
-  --num_processes 1 \
+  --main_process_ip "$MASTER_ADDR" \
+  --main_process_port "$MASTER_PORT" \
+  --machine_rank "$NODE_RANK" \
+  --num_processes "$WORLD_SIZE" \
+  --num_machines "$NNODES" \
   --mixed_precision $PRECISION \
   src/main_jit.py --config "$CONFIG_PATH" 2>&1 | tee "logs/${CONFIG_NAME}.log"
