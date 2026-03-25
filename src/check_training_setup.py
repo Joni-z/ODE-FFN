@@ -24,7 +24,7 @@ def fail(msg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="configs/jit_b16_in256_imagenet.yaml", help="用的 config")
+    ap.add_argument("--config", default="configs/jit_b16_in256_imagenet_swiglu.yaml", help="用的 config")
     ap.add_argument("--no-forward", action="store_true", help="不跑一次前向")
     ap.add_argument("--no-wandb", action="store_true", help="不测 wandb 登录")
     args = ap.parse_args()
