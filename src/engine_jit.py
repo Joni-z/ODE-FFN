@@ -61,14 +61,19 @@ def train_one_epoch(
         # it = data_iter_step / len(train_loader) + epoch
         # lr_sched.adjust_learning_rate(optimizer, it, lr_args)
 
-        x = x.to(accelerator.device, non_blocking=True).to(torch.float32).div_(255)
-        x = x * 2.0 - 1.0
-        labels = labels.to(accelerator.device, non_blocking=True)
+        if x.device != accelerator.device:
+            x = x.to(accelerator.device, non_blocking=True).to(torch.float32).div_(255)
+            x = x * 2.0 - 1.0
+        if labels.device != accelerator.device:
+            labels = labels.to(accelerator.device, non_blocking=True)
 
         with accelerator.autocast():
-            loss = model(x, labels)
+            loss_dict = model(x, labels, return_loss_dict=True)
+            loss = loss_dict["loss"]
 
         loss_value = loss.detach().float()
+        loss_fm_value = loss_dict["loss_fm"].detach().float()
+        loss_lip_value = loss_dict["loss_lip"].detach().float()
 
         if not math.isfinite(loss_value.item()):
             if accelerator.is_main_process:
@@ -87,14 +92,19 @@ def train_one_epoch(
         # Metrics
         lr = optimizer.param_groups[0]["lr"]
         metric_logger.update(loss=loss_value.item())
+        metric_logger.update(loss_fm=loss_fm_value.item())
+        metric_logger.update(loss_lip=loss_lip_value.item())
         metric_logger.update(lr=lr)
 
         # All-reduce mean loss across processes
         loss_reduced = loss_value
+        loss_fm_reduced = loss_fm_value
+        loss_lip_reduced = loss_lip_value
         # Use accelerator.gather for cross-process stats
         with torch.no_grad():
-            gathered = accelerator.gather(loss_reduced)
-            loss_reduced = gathered.mean()
+            loss_reduced = accelerator.gather(loss_reduced).mean()
+            loss_fm_reduced = accelerator.gather(loss_fm_reduced).mean()
+            loss_lip_reduced = accelerator.gather(loss_lip_reduced).mean()
 
         global_step += 1
 
@@ -102,6 +112,8 @@ def train_one_epoch(
         if accelerator.is_main_process and (data_iter_step % log_every == 0):
             log_dict = {
                 "train/loss": loss_reduced.item(),
+                "train/loss_fm": loss_fm_reduced.item(),
+                "train/loss_lip": loss_lip_reduced.item(),
                 "train/lr": lr,
                 "train/epoch": epoch,
                 "train/step": global_step,

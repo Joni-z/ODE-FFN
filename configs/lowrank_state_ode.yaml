@@ -1,13 +1,13 @@
-# JiT-B/16 @ ImageNet 256, FFN=ode
+# JiT-B/16 @ ImageNet 256, FFN=lowrank_state_ode
 train:
-  exp_name: "jit_b16_in256_imagenet_ode"
+  exp_name: "lowrank_state_ode"
   seed: 42
 
-  epochs: 30
+  epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 16
+  num_workers: 6
   pin_mem: true
 
   lr: null
@@ -33,9 +33,15 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "ode"
+  ffn_type: "lowrank_state_ode"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  ffn_kwargs:
+    rank: 64
+    orders: 1
+    tau: 4.0
+    scale: 0.8
+    shift: 0.1
 
 diffusion:
   P_mean: -0.8
@@ -58,10 +64,10 @@ sample:
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet_ode"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "jit_b16_in256_imagenet_ode"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "lowrank_state_ode"
+

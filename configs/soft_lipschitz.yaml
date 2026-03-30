@@ -1,14 +1,15 @@
-# JiT-B/16 @ ImageNet 256, FFN=mlp
 train:
-  exp_name: "baseline_mlp"
+  exp_name: "swiglu_soft_lipschitz"
   seed: 42
 
   epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 6
+  num_workers: 12
   pin_mem: true
+  prefetch_factor: 6
+  device_prefetch: true
 
   lr: null
   blr: 1.0e-4
@@ -33,7 +34,7 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "mlp"
+  ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
 
@@ -43,6 +44,11 @@ diffusion:
   noise_scale: 1.0
   t_eps: 5.0e-2
   label_drop_prob: 0.1
+
+loss:
+  soft_lipschitz:
+    enabled: true
+    lambda: 1.0e-3
 
 sample:
   tmp_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/tmp"
@@ -58,10 +64,9 @@ sample:
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet_mlp"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "baseline_mlp"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "soft_lipschitz"

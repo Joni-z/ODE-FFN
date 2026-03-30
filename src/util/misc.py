@@ -119,6 +119,8 @@ class MetricLogger(object):
             "{meters}",
             "time: {time}",
             "data: {data}",
+            "compute: {compute}",
+            "data%: {data_pct}",
         ]
         if torch.cuda.is_available():
             log_msg.append("max mem: {memory:.0f}")
@@ -133,6 +135,10 @@ class MetricLogger(object):
                 eta_string = str(
                     datetime.timedelta(seconds=int(eta_seconds))
                 )
+                avg_iter = iter_time.global_avg
+                avg_data = data_time.global_avg
+                avg_compute = max(0.0, avg_iter - avg_data)
+                data_pct = 100.0 * avg_data / avg_iter if avg_iter > 0 else 0.0
                 if torch.cuda.is_available():
                     print(
                         log_msg.format(
@@ -142,6 +148,8 @@ class MetricLogger(object):
                             meters=str(self),
                             time=str(iter_time),
                             data=str(data_time),
+                            compute=f"{avg_compute:.4f}",
+                            data_pct=f"{data_pct:.1f}%",
                             memory=torch.cuda.max_memory_allocated() / MB,
                         )
                     )
@@ -154,6 +162,8 @@ class MetricLogger(object):
                             meters=str(self),
                             time=str(iter_time),
                             data=str(data_time),
+                            compute=f"{avg_compute:.4f}",
+                            data_pct=f"{data_pct:.1f}%",
                         )
                     )
             i += 1

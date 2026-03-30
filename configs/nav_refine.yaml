@@ -1,6 +1,6 @@
-# JiT-B/16 @ ImageNet 256, FFN=headwise_ode_value_glu
+# JiT-B/16 @ ImageNet 256, FFN=nav_refine
 train:
-  exp_name: "jit_b16_in256_imagenet_headwise_ode_value_glu"
+  exp_name: "nav_refine"
   seed: 42
 
   epochs: 80
@@ -33,12 +33,13 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "headwise_ode_value_glu"
+  ffn_type: "nav_refine"
   attn_dropout: 0.0
   proj_dropout: 0.0
   ffn_kwargs:
     num_heads: 12
     orders: 2
+    mix_hidden_dim: 96
     tau: 4.0
     scale: 0.8
     shift: 0.1
@@ -64,10 +65,9 @@ sample:
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet_headwise_ode_value_glu"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "jit_b16_in256_imagenet_headwise_ode_value_glu"
-
+  run_name: "nav_refine"

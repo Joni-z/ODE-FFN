@@ -1,14 +1,16 @@
 # JiT-B/16 @ ImageNet 256, FFN=time_split
 train:
-  exp_name: "jit_b16_in256_imagenet_time_split"
+  exp_name: "time_split"
   seed: 42
 
   epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 6
+  num_workers: 12
   pin_mem: true
+  prefetch_factor: 6
+  device_prefetch: true
 
   lr: null
   blr: 1.0e-4
@@ -58,7 +60,7 @@ sample:
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet_time_split"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:

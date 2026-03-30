@@ -1,13 +1,13 @@
-# JiT-B/16 @ ImageNet 256, FFN=lowrank_state_ode
+# JiT-L/16 @ ImageNet 256 (larger model: depth=24, hidden=1024 -> smaller batch)
 train:
-  exp_name: "jit_b16_in256_imagenet_lowrank_state_ode"
+  exp_name: "swiglu"
   seed: 42
 
-  epochs: 80
+  epochs: 30
   warmup_epochs: 1
 
-  per_device_batch_size: 256
-  num_workers: 6
+  per_device_batch_size: 96
+  num_workers: 16
   pin_mem: true
 
   lr: null
@@ -21,8 +21,8 @@ train:
   ema_decay: 0.9999
 
   log_every: 100
-  save_every: 2
-  eval_every: 2
+  save_every: 1
+  eval_every: 1
 
   mixed_precision: "bf16"
 
@@ -32,16 +32,10 @@ data:
   class_num: 1000
 
 model:
-  name: "JiT-B/16"
-  ffn_type: "lowrank_state_ode"
+  name: "JiT-L/16"
+  ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
-  ffn_kwargs:
-    rank: 64
-    orders: 1
-    tau: 4.0
-    scale: 0.8
-    shift: 0.1
 
 diffusion:
   P_mean: -0.8
@@ -58,16 +52,16 @@ sample:
   interval_min: 0.1
   interval_max: 1.0
   num_images: 5000
-  gen_bsz: 128
+  gen_bsz: 64
   eval_online: true
   fid_stats_256: "fid_stats/jit_in256_stats.npz"
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet_lowrank_state_ode"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/Large"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "jit_b16_in256_imagenet_lowrank_state_ode"
-
+  run_name: "swiglu"
+  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认

@@ -1,13 +1,13 @@
-# JiT-B/16 @ ImageNet 256, FFN=tied_flow
+# JiT-B/16 @ ImageNet 256, FFN=ode
 train:
-  exp_name: "jit_b16_in256_imagenet_tied_flow"
+  exp_name: "ode"
   seed: 42
 
-  epochs: 80
+  epochs: 30
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 6
+  num_workers: 16
   pin_mem: true
 
   lr: null
@@ -33,15 +33,9 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "tied_flow"
+  ffn_type: "ode"
   attn_dropout: 0.0
   proj_dropout: 0.0
-  ffn_kwargs:
-    steps: 2
-    tau: 4.0
-    scale: 0.6
-    shift: 0.1
-    step_init: 0.0
 
 diffusion:
   P_mean: -0.8
@@ -64,10 +58,10 @@ sample:
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet_tied_flow"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "jit_b16_in256_imagenet_tied_flow"
-
+  run_name: "ode"
+  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认

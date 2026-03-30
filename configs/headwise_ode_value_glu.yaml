@@ -1,5 +1,6 @@
+# JiT-B/16 @ ImageNet 256, FFN=headwise_ode_value_glu
 train:
-  exp_name: "baseline_swiglu"
+  exp_name: "headwise_ode_value_glu"
   seed: 42
 
   epochs: 80
@@ -32,9 +33,15 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "swiglu"
+  ffn_type: "headwise_ode_value_glu"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  ffn_kwargs:
+    num_heads: 12
+    orders: 2
+    tau: 4.0
+    scale: 0.8
+    shift: 0.1
 
 diffusion:
   P_mean: -0.8
@@ -57,10 +64,10 @@ sample:
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_b16_in256_imagenet"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "baseline_swiglu"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "headwise_ode_value_glu"
+

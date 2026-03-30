@@ -7,7 +7,7 @@ MASTER_ADDR=${MASTER_ADDR:-localhost}
 MASTER_PORT=${MASTER_PORT:-114514}
 WORLD_SIZE=$(($GPUS_PER_NODE * $NNODES))
 CONFIG_PATH="./configs/$1.yaml"
-# CONFIG_PATH=${CONFIG_PATH:-"./configs/jit_b16_in256.yaml"}
+# CONFIG_PATH=${CONFIG_PATH:-"./configs/swiglu.yaml"}
 
 accelerate launch \
     --main_process_ip $MASTER_ADDR \

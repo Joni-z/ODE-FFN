@@ -1,12 +1,12 @@
-# JiT-L/16 @ ImageNet 256 (larger model: depth=24, hidden=1024 -> smaller batch)
+# JiT-B/16 @ ImageNet 256, FFN=ode_swiglu
 train:
-  exp_name: "jit_l16_in256_imagenet"
+  exp_name: "ode_swiglu"
   seed: 42
 
   epochs: 30
   warmup_epochs: 1
 
-  per_device_batch_size: 96
+  per_device_batch_size: 256
   num_workers: 16
   pin_mem: true
 
@@ -21,8 +21,8 @@ train:
   ema_decay: 0.9999
 
   log_every: 100
-  save_every: 1
-  eval_every: 1
+  save_every: 2
+  eval_every: 2
 
   mixed_precision: "bf16"
 
@@ -32,8 +32,8 @@ data:
   class_num: 1000
 
 model:
-  name: "JiT-L/16"
-  ffn_type: "swiglu"
+  name: "JiT-B/16"
+  ffn_type: "ode_swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
 
@@ -52,16 +52,16 @@ sample:
   interval_min: 0.1
   interval_max: 1.0
   num_images: 5000
-  gen_bsz: 64
+  gen_bsz: 128
   eval_online: true
   fid_stats_256: "fid_stats/jit_in256_stats.npz"
   fid_stats_512: "fid_stats/jit_in512_stats.npz"
 
 checkpointing:
-  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results/jit_l16_in256_imagenet"
+  out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
 logging:
   project: "jit-training"
-  run_name: "jit_l16_in256_imagenet"
+  run_name: "ode_swiglu"
   # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认

@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 from model_jit import JiT_models
 
+
 class Denoiser(nn.Module):
     def __init__(self, args):
         super().__init__()
@@ -24,6 +25,8 @@ class Denoiser(nn.Module):
         self.P_std = args.P_std
         self.t_eps = args.t_eps
         self.noise_scale = args.noise_scale
+        self.soft_lipschitz_enabled = getattr(args, "soft_lipschitz_enabled", False)
+        self.soft_lipschitz_lambda = float(getattr(args, "soft_lipschitz_lambda", 0.0))
 
         # Single EMA (use ema_decay1)
         self.ema_decay = args.ema_decay1
@@ -44,7 +47,7 @@ class Denoiser(nn.Module):
         z = torch.randn(n, device=device) * self.P_std + self.P_mean
         return torch.sigmoid(z)
 
-    def forward(self, x, labels):
+    def _flow_matching_losses(self, x, labels):
         labels_dropped = self.drop_labels(labels) if self.training else labels
 
         t = self.sample_t(x.size(0), device=x.device).view(-1, *([1] * (x.ndim - 1)))
@@ -53,14 +56,40 @@ class Denoiser(nn.Module):
         z = t * x + (1 - t) * e
         v = (x - z) / (1 - t).clamp_min(self.t_eps)
 
+        if self.soft_lipschitz_enabled and self.soft_lipschitz_lambda > 0.0:
+            z = z.detach().requires_grad_(True)
+
         x_pred = self.net(z, t.flatten(), labels_dropped)
         v_pred = (x_pred - z) / (1 - t).clamp_min(self.t_eps)
 
-        # l2 loss
-        loss = (v - v_pred) ** 2
-        loss = loss.mean(dim=(1, 2, 3)).mean()
+        mse_loss = (v - v_pred) ** 2
+        mse_loss = mse_loss.mean(dim=(1, 2, 3)).mean()
 
-        return loss
+        lip_loss = torch.zeros((), device=x.device, dtype=mse_loss.dtype)
+        if self.soft_lipschitz_enabled and self.soft_lipschitz_lambda > 0.0:
+            grad_outputs = torch.ones_like(v_pred)
+            input_grads = torch.autograd.grad(
+                outputs=v_pred,
+                inputs=z,
+                grad_outputs=grad_outputs,
+                create_graph=True,
+                retain_graph=True,
+                only_inputs=True,
+            )[0]
+            lip_loss = input_grads.flatten(1).pow(2).sum(dim=1).mean()
+
+        total_loss = mse_loss + self.soft_lipschitz_lambda * lip_loss
+        return {
+            "loss": total_loss,
+            "loss_fm": mse_loss,
+            "loss_lip": lip_loss,
+        }
+
+    def forward(self, x, labels, return_loss_dict: bool = False):
+        losses = self._flow_matching_losses(x, labels)
+        if return_loss_dict:
+            return losses
+        return losses["loss"]
 
     @torch.no_grad()
     def generate(self, labels, seed=None):

@@ -16,6 +16,7 @@ import torchvision.datasets as datasets
 
 import util.misc as misc
 from util.crop import center_crop_arr
+from util.prefetch import CUDAPrefetcher
 
 from denoiser import Denoiser
 from engine_jit import train_one_epoch, evaluate
@@ -25,6 +26,8 @@ from ffn_factory import normalize_ffn_type
 def build_model_args(cfg):
     """Wrap config into an args-like object for Denoiser."""
     model_cfg = cfg["model"]
+    loss_cfg = cfg.get("loss", {})
+    soft_lip_cfg = loss_cfg.get("soft_lipschitz", {})
     ffn_type = normalize_ffn_type(model_cfg.get("ffn_type", "swiglu"))
     ffn_kwargs = model_cfg.get("ffn_kwargs")
     cond_aware_ffn_types = {
@@ -64,6 +67,8 @@ def build_model_args(cfg):
         interval_min=cfg["sample"]["interval_min"],
         interval_max=cfg["sample"]["interval_max"],
         ema_decay1=cfg["train"]["ema_decay"],   # keep field name for compatibility
+        soft_lipschitz_enabled=soft_lip_cfg.get("enabled", False),
+        soft_lipschitz_lambda=soft_lip_cfg.get("lambda", 0.0),
     )
 
 
@@ -178,10 +183,18 @@ def main():
         shuffle=True,  # sampler will be replaced by accelerator if distributed
         num_workers=num_workers,
         pin_memory=cfg["train"]["pin_mem"],
-        prefetch_factor=4 if num_workers > 0 else None,
+        prefetch_factor=cfg["train"].get("prefetch_factor", 4) if num_workers > 0 else None,
         persistent_workers=num_workers > 0,
         drop_last=True,
     )
+    if accelerator.is_main_process:
+        print(
+            "DataLoader config:"
+            f" num_workers={num_workers},"
+            f" pin_mem={cfg['train']['pin_mem']},"
+            f" prefetch_factor={cfg['train'].get('prefetch_factor', 4) if num_workers > 0 else None},"
+            f" persistent_workers={num_workers > 0}"
+        )
 
     # -------------------------
     # Model & optimizer
@@ -202,6 +215,12 @@ def main():
     # Prepare for distributed / mixed precision
     # -------------------------
     model, optimizer, train_dl = accelerator.prepare(model, optimizer, train_dl)
+    if cfg["train"].get("device_prefetch", True):
+        train_dl = CUDAPrefetcher(train_dl, accelerator.device)
+        if accelerator.is_main_process:
+            print("Device prefetch: enabled")
+    elif accelerator.is_main_process:
+        print("Device prefetch: disabled")
     unwrapped = accelerator.unwrap_model(model)
     unwrapped.ema_params = [p.detach().clone().to(p.device) for p in unwrapped.parameters()]
 

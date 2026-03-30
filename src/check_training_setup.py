@@ -3,7 +3,7 @@
 提交 sbatch 前在登录节点跑一遍，快速检查容易出问题的地方，避免排到卡才发现失败。
 用法（在项目根目录、激活 VLM 后）:
   python src/check_training_setup.py
-  python src/check_training_setup.py --config configs/jit_l16_in256_imagenet_ode.yaml
+  python src/check_training_setup.py --config configs/Large/ode.yaml
   python src/check_training_setup.py --no-forward   # 不跑前向
   python src/check_training_setup.py --no-wandb    # 不测 wandb 登录（如无网或未 login）
 """
@@ -24,7 +24,7 @@ def fail(msg):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--config", default="configs/jit_b16_in256_imagenet_swiglu.yaml", help="用的 config")
+    ap.add_argument("--config", default="configs/swiglu.yaml", help="用的 config")
     ap.add_argument("--no-forward", action="store_true", help="不跑一次前向")
     ap.add_argument("--no-wandb", action="store_true", help="不测 wandb 登录")
     args = ap.parse_args()
@@ -127,7 +127,7 @@ def main():
             model.eval()
             x = torch.randn(2, 3, img_size, img_size, device=device)
             y = torch.randint(0, class_num, (2,), device=device)
-            with torch.no_grad():
+            with torch.set_grad_enabled(getattr(model, "soft_lipschitz_enabled", False)):
                 loss = model(x, y)
             print(f"OK (loss={loss.item():.4f}, device={device})", flush=True)
         except Exception as e:

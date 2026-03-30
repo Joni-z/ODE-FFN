@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=12
 #SBATCH --mem=100G
 #SBATCH --time=48:00:00
 
@@ -30,7 +30,7 @@ export PATH="$CONDA_PREFIX/bin:$PATH"
 
 cd /scratch/zz5070/ODE_FFN/jit-codebase
 
-CONFIG_NAME=${1:-jit_b16_in256_imagenet}
+CONFIG_NAME=${1:-swiglu}
 CONFIG_PATH="./configs/${CONFIG_NAME}.yaml"
 mkdir -p logs
 
