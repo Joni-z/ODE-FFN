@@ -17,6 +17,7 @@ import torchvision.datasets as datasets
 import util.misc as misc
 from util.crop import center_crop_arr
 from util.prefetch import CUDAPrefetcher
+from util.compile_control import set_compile_enabled
 
 from denoiser import Denoiser
 from engine_jit import train_one_epoch, evaluate
@@ -39,6 +40,7 @@ def build_model_args(cfg):
         "tied_flow",
         "nav_refine",
         "time_split",
+        "freq_split",
         "clean_target",
         "time_moe",
     }
@@ -69,6 +71,8 @@ def build_model_args(cfg):
         ema_decay1=cfg["train"]["ema_decay"],   # keep field name for compatibility
         soft_lipschitz_enabled=soft_lip_cfg.get("enabled", False),
         soft_lipschitz_lambda=soft_lip_cfg.get("lambda", 0.0),
+        soft_lipschitz_eps=soft_lip_cfg.get("eps", 1.0e-2),
+        soft_lipschitz_num_samples=soft_lip_cfg.get("num_samples"),
     )
 
 
@@ -86,6 +90,17 @@ def get_lr_and_batch(cfg, accelerator):
 
     return lr, eff_batch_size
 
+
+def maybe_configure_compile(cfg, accelerator):
+    soft_lip_cfg = cfg.get("loss", {}).get("soft_lipschitz", {})
+    soft_lip_enabled = bool(soft_lip_cfg.get("enabled", False))
+    soft_lip_lambda = float(soft_lip_cfg.get("lambda", 0.0))
+    if not (soft_lip_enabled and soft_lip_lambda > 0.0):
+        return
+
+    set_compile_enabled(False)
+    if accelerator.is_main_process:
+        print("Disabled torch.compile wrappers for soft_lipschitz to reduce peak memory.")
 
 def main():
     # -------------------------
@@ -118,6 +133,7 @@ def main():
         mixed_precision=cfg["train"]["mixed_precision"],
     )
     device = accelerator.device
+    maybe_configure_compile(cfg, accelerator)
 
     # Seed
     seed = cfg["train"]["seed"]

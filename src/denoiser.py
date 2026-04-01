@@ -27,6 +27,9 @@ class Denoiser(nn.Module):
         self.noise_scale = args.noise_scale
         self.soft_lipschitz_enabled = getattr(args, "soft_lipschitz_enabled", False)
         self.soft_lipschitz_lambda = float(getattr(args, "soft_lipschitz_lambda", 0.0))
+        self.soft_lipschitz_eps = float(getattr(args, "soft_lipschitz_eps", 1.0e-2))
+        soft_lip_num_samples = getattr(args, "soft_lipschitz_num_samples", None)
+        self.soft_lipschitz_num_samples = None if soft_lip_num_samples is None else int(soft_lip_num_samples)
 
         # Single EMA (use ema_decay1)
         self.ema_decay = args.ema_decay1
@@ -56,9 +59,6 @@ class Denoiser(nn.Module):
         z = t * x + (1 - t) * e
         v = (x - z) / (1 - t).clamp_min(self.t_eps)
 
-        if self.soft_lipschitz_enabled and self.soft_lipschitz_lambda > 0.0:
-            z = z.detach().requires_grad_(True)
-
         x_pred = self.net(z, t.flatten(), labels_dropped)
         v_pred = (x_pred - z) / (1 - t).clamp_min(self.t_eps)
 
@@ -67,16 +67,31 @@ class Denoiser(nn.Module):
 
         lip_loss = torch.zeros((), device=x.device, dtype=mse_loss.dtype)
         if self.soft_lipschitz_enabled and self.soft_lipschitz_lambda > 0.0:
-            grad_outputs = torch.ones_like(v_pred)
-            input_grads = torch.autograd.grad(
-                outputs=v_pred,
-                inputs=z,
-                grad_outputs=grad_outputs,
-                create_graph=True,
-                retain_graph=True,
-                only_inputs=True,
-            )[0]
-            lip_loss = input_grads.flatten(1).pow(2).sum(dim=1).mean()
+            lip_batch_size = z.shape[0]
+            if self.soft_lipschitz_num_samples is not None:
+                lip_batch_size = min(lip_batch_size, max(self.soft_lipschitz_num_samples, 0))
+
+            if lip_batch_size > 0:
+                if lip_batch_size < z.shape[0]:
+                    lip_indices = torch.randperm(z.shape[0], device=z.device)[:lip_batch_size]
+                    z_lip = z.index_select(0, lip_indices)
+                    t_lip = t.index_select(0, lip_indices)
+                    labels_lip = labels_dropped.index_select(0, lip_indices)
+                    v_pred_ref = v_pred.detach().index_select(0, lip_indices)
+                else:
+                    z_lip = z
+                    t_lip = t
+                    labels_lip = labels_dropped
+                    v_pred_ref = v_pred.detach()
+
+                direction = torch.randn_like(z_lip)
+                direction = direction / direction.flatten(1).norm(dim=1, keepdim=True).view(-1, 1, 1, 1).clamp_min(1.0e-6)
+                z_perturbed = z_lip + self.soft_lipschitz_eps * direction
+                x_pred_perturbed = self.net(z_perturbed, t_lip.flatten(), labels_lip)
+                v_pred_perturbed = (x_pred_perturbed - z_perturbed) / (1 - t_lip).clamp_min(self.t_eps)
+
+                local_diff = (v_pred_perturbed - v_pred_ref) / self.soft_lipschitz_eps
+                lip_loss = local_diff.pow(2).mean(dim=(1, 2, 3)).mean()
 
         total_loss = mse_loss + self.soft_lipschitz_lambda * lip_loss
         return {

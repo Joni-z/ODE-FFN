@@ -48,6 +48,7 @@ def _make_args(**overrides):
         ema_decay1=0.999,
         soft_lipschitz_enabled=False,
         soft_lipschitz_lambda=0.0,
+        soft_lipschitz_num_samples=None,
     )
     base.update(overrides)
     return SimpleNamespace(**base)
@@ -86,6 +87,7 @@ def test_build_model_args_reads_soft_lipschitz_config():
             "soft_lipschitz": {
                 "enabled": True,
                 "lambda": 0.05,
+                "num_samples": 8,
             }
         },
     }
@@ -95,6 +97,44 @@ def test_build_model_args_reads_soft_lipschitz_config():
     assert args.ffn_type == "swiglu"
     assert args.soft_lipschitz_enabled is True
     assert args.soft_lipschitz_lambda == 0.05
+    assert args.soft_lipschitz_num_samples == 8
+
+
+def test_build_model_args_adds_cond_dim_for_freq_split():
+    cfg = {
+        "model": {
+            "name": "JiT-B/16",
+            "ffn_type": "freq_split",
+            "attn_dropout": 0.0,
+            "proj_dropout": 0.0,
+        },
+        "data": {
+            "img_size": 256,
+            "class_num": 1000,
+        },
+        "diffusion": {
+            "P_mean": -0.8,
+            "P_std": 0.8,
+            "noise_scale": 1.0,
+            "t_eps": 5.0e-2,
+            "label_drop_prob": 0.1,
+        },
+        "sample": {
+            "sampling_method": "heun",
+            "num_sampling_steps": 50,
+            "cfg": 2.9,
+            "interval_min": 0.1,
+            "interval_max": 1.0,
+        },
+        "train": {
+            "ema_decay": 0.9999,
+        },
+    }
+
+    args = build_model_args(cfg)
+
+    assert args.ffn_type == "freq_split"
+    assert args.ffn_kwargs["t_embed_dim"] == 768
 
 
 def test_denoiser_returns_soft_lipschitz_breakdown():
@@ -134,5 +174,28 @@ def test_denoiser_soft_lipschitz_defaults_to_zero_when_disabled():
 
         assert loss_dict["loss_lip"].item() == 0.0
         assert torch.allclose(loss_dict["loss"], loss_dict["loss_fm"])
+    finally:
+        denoiser_module.JiT_models = old_models
+
+
+def test_denoiser_soft_lipschitz_supports_subsampled_batch():
+    old_models = denoiser_module.JiT_models
+    denoiser_module.JiT_models = {"dummy": DummyFlowNet}
+    try:
+        model = Denoiser(
+            _make_args(
+                soft_lipschitz_enabled=True,
+                soft_lipschitz_lambda=0.1,
+                soft_lipschitz_num_samples=1,
+            )
+        )
+        model.train()
+
+        x = torch.randn(4, 3, 8, 8)
+        labels = torch.randint(0, 10, (4,))
+        loss_dict = model(x, labels, return_loss_dict=True)
+
+        assert loss_dict["loss_lip"].ndim == 0
+        assert loss_dict["loss_lip"].item() >= 0.0
     finally:
         denoiser_module.JiT_models = old_models

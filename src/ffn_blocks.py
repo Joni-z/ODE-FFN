@@ -5,6 +5,7 @@ import torch.nn.functional as F
 from torch import Tensor, nn
 
 from time_condition import build_time_mlp, resolve_time_scalar
+from util.compile_control import maybe_compile
 
 
 def _linear_param_count(in_features: int, out_features: int, bias: bool) -> int:
@@ -150,7 +151,7 @@ class ODELayer(nn.Module):
 
         self.proj = nn.Linear(in_features, in_features, bias=False)
 
-    @torch.compile
+    @maybe_compile
     def forward(self, x: Tensor, t: Optional[Tensor] = None) -> Tensor:
         t_scalar = resolve_time_scalar(x, t, self.t_func, self.t_from_embed)
         t_scalar = torch.sigmoid(t_scalar / self.tau) * self.scale + self.shift
@@ -805,6 +806,26 @@ def _mean_pool_tokens(x: Tensor) -> Tensor:
     return x.mean(dim=1, keepdim=True)
 
 
+def _split_low_high_tokens(x: Tensor, kernel_size: int) -> tuple[Tensor, Tensor]:
+    batch_size, seq_len, dim = x.shape
+    side = int(seq_len ** 0.5)
+    if side * side != seq_len:
+        low = _mean_pool_tokens(x).expand(-1, seq_len, -1)
+        return low, x - low
+
+    x_map = x.transpose(1, 2).reshape(batch_size, dim, side, side)
+    padding = kernel_size // 2
+    low_map = F.avg_pool2d(
+        x_map,
+        kernel_size=kernel_size,
+        stride=1,
+        padding=padding,
+        count_include_pad=False,
+    )
+    low = low_map.flatten(2).transpose(1, 2)
+    return low, x - low
+
+
 class TimeSplitFFN(BaseFFN):
     def __init__(
         self,
@@ -864,6 +885,77 @@ class TimeSplitFFN(BaseFFN):
         aux = self._aux(x, out, gate=gate)
         aux["ref_gate_mean"] = ref_gate.detach().mean()
         aux["ref_gate_std"] = ref_gate.detach().std(unbiased=False)
+        return self._maybe_return(out, aux, return_aux)
+
+
+class FrequencySplitFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        detail_ratio: float = 0.5,
+        gate_hidden_dim: Optional[int] = None,
+        lowpass_kernel_size: int = 3,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden_dim, _ = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        detail_hidden_dim = max(1, min(baseline_hidden_dim - 1, int(round(baseline_hidden_dim * detail_ratio))))
+        coarse_hidden_dim = max(1, baseline_hidden_dim - detail_hidden_dim)
+        gate_hidden_dim = gate_hidden_dim or min(dim, 128)
+
+        if lowpass_kernel_size < 1 or lowpass_kernel_size % 2 == 0:
+            raise ValueError("lowpass_kernel_size must be a positive odd integer")
+
+        self.lowpass_kernel_size = lowpass_kernel_size
+        self.coarse_w12 = nn.Linear(dim, 2 * coarse_hidden_dim, bias=bias)
+        self.coarse_w3 = nn.Linear(coarse_hidden_dim, dim, bias=bias)
+        self.detail_w12 = nn.Linear(dim, 2 * detail_hidden_dim, bias=bias)
+        self.detail_w3 = nn.Linear(detail_hidden_dim, dim, bias=bias)
+
+        self.gate_from_freq = nn.Sequential(
+            nn.Linear(2, gate_hidden_dim, bias=True),
+            nn.SiLU(),
+            nn.Linear(gate_hidden_dim, 1, bias=True),
+        )
+        self.gate_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.gate_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _branch_swiglu(self, x: Tensor, w12: nn.Linear, w3: nn.Linear) -> tuple[Tensor, Tensor]:
+        x12 = w12(x)
+        gate, value = x12.chunk(2, dim=-1)
+        gate = F.silu(gate)
+        hidden = self.drop(gate * value)
+        return w3(hidden), gate
+
+    def _mix_gate(self, low: Tensor, high: Tensor, cond: Optional[Tensor]) -> Tensor:
+        low_energy = low.pow(2).mean(dim=-1, keepdim=True)
+        high_energy = high.pow(2).mean(dim=-1, keepdim=True)
+        freq_stats = torch.cat([low_energy, high_energy], dim=-1)
+        gate_logits = self.gate_from_freq(freq_stats) + self.gate_bias.view(1, 1, 1)
+        cond_term = self._condition_term(cond, self.gate_from_cond)
+        if cond_term is not None:
+            gate_logits = gate_logits + cond_term
+        return torch.sigmoid(gate_logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        coarse_tokens, detail_tokens = _split_low_high_tokens(x, self.lowpass_kernel_size)
+        coarse, coarse_gate = self._branch_swiglu(coarse_tokens, self.coarse_w12, self.coarse_w3)
+        detail, detail_gate = self._branch_swiglu(detail_tokens, self.detail_w12, self.detail_w3)
+        gate = self._mix_gate(coarse_tokens, detail_tokens, cond)
+        out = (1.0 - gate) * coarse + gate * detail
+
+        aux = self._aux(x, out, gate=gate)
+        aux["coarse_gate_mean"] = coarse_gate.detach().mean()
+        aux["coarse_gate_std"] = coarse_gate.detach().std(unbiased=False)
+        aux["detail_gate_mean"] = detail_gate.detach().mean()
+        aux["detail_gate_std"] = detail_gate.detach().std(unbiased=False)
+        aux["low_energy_mean"] = coarse_tokens.detach().pow(2).mean()
+        aux["high_energy_mean"] = detail_tokens.detach().pow(2).mean()
         return self._maybe_return(out, aux, return_aux)
 
 
@@ -1025,6 +1117,7 @@ FFN_REGISTRY = {
     "tied_flow": TiedFlowFFN,
     "nav_refine": NavRefineFFN,
     "time_split": TimeSplitFFN,
+    "freq_split": FrequencySplitFFN,
     "clean_target": CleanTargetFFN,
     "time_moe": TimeMoEFFN,
 }
@@ -1041,6 +1134,9 @@ FFN_ALIASES = {
     "nav_refine_ffn": "nav_refine",
     "time_split_dual_path": "time_split",
     "time_split_ffn": "time_split",
+    "frequency_split": "freq_split",
+    "frequency_split_ffn": "freq_split",
+    "freq_split_ffn": "freq_split",
     "clean_target_ffn": "clean_target",
     "time_routed_moe": "time_moe",
     "time_moe_ffn": "time_moe",

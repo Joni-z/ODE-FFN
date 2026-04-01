@@ -31,7 +31,7 @@ def test_new_condition_aware_ffns_build_and_forward():
     x = torch.randn(2, 4, 16)
     cond = torch.randn(2, 16)
 
-    for ffn_type in ("time_split", "clean_target", "time_moe"):
+    for ffn_type in ("time_split", "freq_split", "clean_target", "time_moe"):
         layer = build_ffn(ffn_type, in_features=16, hidden_features=64, t_embed_dim=16)
         out = layer(x, cond)
         assert out.shape == x.shape
@@ -39,5 +39,6 @@ def test_new_condition_aware_ffns_build_and_forward():
 
 def test_new_ffn_aliases_normalize():
     assert normalize_ffn_type("time_split_dual_path") == "time_split"
+    assert normalize_ffn_type("frequency_split") == "freq_split"
     assert normalize_ffn_type("clean_target_ffn") == "clean_target"
     assert normalize_ffn_type("time_routed_moe") == "time_moe"
