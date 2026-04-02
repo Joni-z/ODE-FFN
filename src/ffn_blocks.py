@@ -911,8 +911,11 @@ class FrequencySplitFFN(BaseFFN):
             raise ValueError("lowpass_kernel_size must be a positive odd integer")
 
         self.lowpass_kernel_size = lowpass_kernel_size
+        # Coarse branch: larger hidden with depthwise conv for spatial mixing
+        self.depthwise_conv = nn.Conv2d(dim, dim, kernel_size=3, groups=dim, padding=1, bias=False)
         self.coarse_w12 = nn.Linear(dim, 2 * coarse_hidden_dim, bias=bias)
         self.coarse_w3 = nn.Linear(coarse_hidden_dim, dim, bias=bias)
+        # Detail branch: smaller hidden, no smoothing
         self.detail_w12 = nn.Linear(dim, 2 * detail_hidden_dim, bias=bias)
         self.detail_w3 = nn.Linear(detail_hidden_dim, dim, bias=bias)
 
@@ -925,12 +928,29 @@ class FrequencySplitFFN(BaseFFN):
         self.gate_bias = nn.Parameter(torch.tensor(0.0))
         self.drop = nn.Dropout(drop)
 
-    def _branch_swiglu(self, x: Tensor, w12: nn.Linear, w3: nn.Linear) -> tuple[Tensor, Tensor]:
-        x12 = w12(x)
+    def _coarse_branch(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        batch_size, seq_len, dim = x.shape
+        side = int(seq_len ** 0.5)
+        if side * side != seq_len:
+            # If not square, skip conv
+            x_conv = x
+        else:
+            x_map = x.transpose(1, 2).reshape(batch_size, dim, side, side)
+            x_conv_map = self.depthwise_conv(x_map)
+            x_conv = x_conv_map.flatten(2).transpose(1, 2)
+        
+        x12 = self.coarse_w12(x_conv)
         gate, value = x12.chunk(2, dim=-1)
         gate = F.silu(gate)
         hidden = self.drop(gate * value)
-        return w3(hidden), gate
+        return self.coarse_w3(hidden), gate
+
+    def _detail_branch(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        x12 = self.detail_w12(x)
+        gate, value = x12.chunk(2, dim=-1)
+        gate = F.silu(gate)
+        hidden = self.drop(gate * value)
+        return self.detail_w3(hidden), gate
 
     def _mix_gate(self, low: Tensor, high: Tensor, cond: Optional[Tensor]) -> Tensor:
         low_energy = low.pow(2).mean(dim=-1, keepdim=True)
@@ -944,10 +964,10 @@ class FrequencySplitFFN(BaseFFN):
 
     def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
         coarse_tokens, detail_tokens = _split_low_high_tokens(x, self.lowpass_kernel_size)
-        coarse, coarse_gate = self._branch_swiglu(coarse_tokens, self.coarse_w12, self.coarse_w3)
-        detail, detail_gate = self._branch_swiglu(detail_tokens, self.detail_w12, self.detail_w3)
+        y_coarse, coarse_gate = self._coarse_branch(coarse_tokens)
+        delta_detail, detail_gate = self._detail_branch(detail_tokens)
         gate = self._mix_gate(coarse_tokens, detail_tokens, cond)
-        out = (1.0 - gate) * coarse + gate * detail
+        out = y_coarse + gate * delta_detail
 
         aux = self._aux(x, out, gate=gate)
         aux["coarse_gate_mean"] = coarse_gate.detach().mean()
