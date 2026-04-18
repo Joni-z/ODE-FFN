@@ -1,9 +1,9 @@
-# JiT-B/16 @ ImageNet 256, FFN=ode
+# JiT-B/16 @ ImageNet 256, FFN=ta_gate (Timestep-Adaptive Gated SwiGLU)
 train:
-  exp_name: "ode"
+  exp_name: "ta_gate"
   seed: 42
 
-  epochs: 30
+  epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
@@ -35,7 +35,7 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "ode"
+  ffn_type: "ta_gate"
   attn_dropout: 0.0
   proj_dropout: 0.0
 
@@ -65,5 +65,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "ode"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "ta_gate"

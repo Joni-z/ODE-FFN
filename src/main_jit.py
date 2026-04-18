@@ -24,11 +24,24 @@ from engine_jit import train_one_epoch, evaluate
 from ffn_factory import normalize_ffn_type
 
 
+def infer_hidden_size(model_name: str, model_cfg: dict) -> int:
+    if "hidden_size" in model_cfg:
+        return int(model_cfg["hidden_size"])
+    if "JiT-B" in model_name:
+        return 768
+    if "JiT-L" in model_name:
+        return 1024
+    if "JiT-H" in model_name:
+        return 1280
+    raise ValueError(f"Unable to infer hidden size for model: {model_name}")
+
+
 def build_model_args(cfg):
     """Wrap config into an args-like object for Denoiser."""
     model_cfg = cfg["model"]
     loss_cfg = cfg.get("loss", {})
     soft_lip_cfg = loss_cfg.get("soft_lipschitz", {})
+    perceptual_cfg = loss_cfg.get("perceptual", {})
     ffn_type = normalize_ffn_type(model_cfg.get("ffn_type", "swiglu"))
     ffn_kwargs = model_cfg.get("ffn_kwargs")
     cond_aware_ffn_types = {
@@ -43,13 +56,25 @@ def build_model_args(cfg):
         "freq_split",
         "clean_target",
         "time_moe",
+        "ta_gate",
+        "flow_evolved_gate",
+        "spatial_adaptive",
+        "freq_split_dual",
+        "progressive_refine",
+        "multistep_ffn",
     }
     if ffn_type in cond_aware_ffn_types:
         # Condition-aware FFNs use the shared diffusion/class embedding from JiT blocks.
         name = model_cfg.get("name", "")
-        hidden_size = 768 if "JiT-B" in name else (1024 if "JiT-L" in name else 1280)
+        hidden_size = infer_hidden_size(name, model_cfg)
         ffn_kwargs = dict(ffn_kwargs) if ffn_kwargs else {}
         ffn_kwargs.setdefault("t_embed_dim", hidden_size)
+
+    model_kwargs = {}
+    for key in ("depth", "hidden_size", "num_heads", "mlp_ratio", "bottleneck_dim", "in_context_len", "in_context_start"):
+        if key in model_cfg:
+            model_kwargs[key] = model_cfg[key]
+
     return SimpleNamespace(
         model=model_cfg["name"],
         img_size=cfg["data"]["img_size"],
@@ -58,6 +83,10 @@ def build_model_args(cfg):
         proj_dropout=model_cfg["proj_dropout"],
         ffn_type=ffn_type,
         ffn_kwargs=ffn_kwargs,
+        attention_kwargs=model_cfg.get("attention_kwargs"),
+        topology_kwargs=model_cfg.get("topology_kwargs"),
+        patch_kwargs=model_cfg.get("patch_kwargs"),
+        model_kwargs=model_kwargs,
         P_mean=cfg["diffusion"]["P_mean"],
         P_std=cfg["diffusion"]["P_std"],
         noise_scale=cfg["diffusion"]["noise_scale"],
@@ -73,6 +102,7 @@ def build_model_args(cfg):
         soft_lipschitz_lambda=soft_lip_cfg.get("lambda", 0.0),
         soft_lipschitz_eps=soft_lip_cfg.get("eps", 1.0e-2),
         soft_lipschitz_num_samples=soft_lip_cfg.get("num_samples"),
+        perceptual_cfg=perceptual_cfg,
     )
 
 

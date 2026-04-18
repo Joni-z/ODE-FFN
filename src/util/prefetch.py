@@ -48,8 +48,7 @@ class CUDAPrefetcher:
             return None
 
         with torch.cuda.stream(self.stream):
-            x = x.to(self.device, non_blocking=True).to(torch.float32).div_(255)
-            x = x * 2.0 - 1.0
+            x = x.to(self.device, non_blocking=True)
             labels = labels.to(self.device, non_blocking=True)
 
         return x, labels

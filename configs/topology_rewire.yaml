@@ -1,9 +1,8 @@
-# JiT-B/16 @ ImageNet 256, FFN=ode
 train:
-  exp_name: "ode"
+  exp_name: "topology_rewire"
   seed: 42
 
-  epochs: 30
+  epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
@@ -35,9 +34,15 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "ode"
+  depth: 15
+  in_context_start: 5
+  ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  topology_kwargs:
+    long_shortcuts: true
+    dense_input_shortcuts: true
+    adaln_lora_rank: 192
 
 diffusion:
   P_mean: -0.8
@@ -65,5 +70,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "ode"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "topology_rewire"

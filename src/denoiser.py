@@ -2,12 +2,23 @@
 import torch
 import torch.nn as nn
 from model_jit import JiT_models
+from perceptual_loss import build_perceptual_loss
 
 
 class Denoiser(nn.Module):
     def __init__(self, args):
         super().__init__()
         ffn_kwargs = getattr(args, "ffn_kwargs", None)
+        model_kwargs = dict(getattr(args, "model_kwargs", {}) or {})
+        attention_kwargs = getattr(args, "attention_kwargs", None)
+        topology_kwargs = getattr(args, "topology_kwargs", None)
+        patch_kwargs = getattr(args, "patch_kwargs", None)
+        if attention_kwargs is not None:
+            model_kwargs["attention_kwargs"] = attention_kwargs
+        if topology_kwargs is not None:
+            model_kwargs["topology_kwargs"] = topology_kwargs
+        if patch_kwargs is not None:
+            model_kwargs["patch_kwargs"] = patch_kwargs
         self.net = JiT_models[args.model](
             input_size=args.img_size,
             in_channels=3,
@@ -16,6 +27,7 @@ class Denoiser(nn.Module):
             proj_drop=args.proj_dropout,
             ffn_type=getattr(args, "ffn_type", "swiglu"),
             ffn_kwargs=ffn_kwargs,
+            **model_kwargs,
         )
         self.img_size = args.img_size
         self.num_classes = args.class_num
@@ -30,6 +42,14 @@ class Denoiser(nn.Module):
         self.soft_lipschitz_eps = float(getattr(args, "soft_lipschitz_eps", 1.0e-2))
         soft_lip_num_samples = getattr(args, "soft_lipschitz_num_samples", None)
         self.soft_lipschitz_num_samples = None if soft_lip_num_samples is None else int(soft_lip_num_samples)
+        self.perceptual_cfg = dict(getattr(args, "perceptual_cfg", {}) or {})
+        self.perceptual_lambda = float(self.perceptual_cfg.get("lambda", 0.0))
+        self.perceptual_min_t = float(self.perceptual_cfg.get("min_t", 0.0))
+        self.perceptual_max_t = float(self.perceptual_cfg.get("max_t", 1.0))
+        self.perceptual_power = float(self.perceptual_cfg.get("power", 1.0))
+        if self.perceptual_max_t <= self.perceptual_min_t:
+            raise ValueError("perceptual.max_t must be greater than perceptual.min_t")
+        self.perceptual_loss = build_perceptual_loss(self.perceptual_cfg)
 
         # Single EMA (use ema_decay1)
         self.ema_decay = args.ema_decay1
@@ -66,6 +86,7 @@ class Denoiser(nn.Module):
         mse_loss = mse_loss.mean(dim=(1, 2, 3)).mean()
 
         lip_loss = torch.zeros((), device=x.device, dtype=mse_loss.dtype)
+        perc_loss = torch.zeros((), device=x.device, dtype=mse_loss.dtype)
         if self.soft_lipschitz_enabled and self.soft_lipschitz_lambda > 0.0:
             lip_batch_size = z.shape[0]
             if self.soft_lipschitz_num_samples is not None:
@@ -93,12 +114,22 @@ class Denoiser(nn.Module):
                 local_diff = (v_pred_perturbed - v_pred_ref) / self.soft_lipschitz_eps
                 lip_loss = local_diff.pow(2).mean(dim=(1, 2, 3)).mean()
 
-        total_loss = mse_loss + self.soft_lipschitz_lambda * lip_loss
-        return {
+        if self.perceptual_loss is not None and self.perceptual_lambda > 0.0:
+            t_flat = t.flatten()
+            time_weight = ((t_flat - self.perceptual_min_t) / (self.perceptual_max_t - self.perceptual_min_t)).clamp(0.0, 1.0)
+            time_weight = time_weight.pow(self.perceptual_power)
+            perc_per_sample = self.perceptual_loss(x_pred, x)
+            perc_loss = (perc_per_sample * time_weight).mean()
+
+        total_loss = mse_loss + self.soft_lipschitz_lambda * lip_loss + self.perceptual_lambda * perc_loss
+        loss_dict = {
             "loss": total_loss,
             "loss_fm": mse_loss,
             "loss_lip": lip_loss,
         }
+        if self.perceptual_loss is not None:
+            loss_dict["loss_perc"] = perc_loss
+        return loss_dict
 
     def forward(self, x, labels, return_loss_dict: bool = False):
         losses = self._flow_matching_losses(x, labels)

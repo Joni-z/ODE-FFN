@@ -6,8 +6,10 @@ train:
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 6
+  num_workers: 12
   pin_mem: true
+  prefetch_factor: 6
+  device_prefetch: true
 
   lr: null
   blr: 1.0e-4

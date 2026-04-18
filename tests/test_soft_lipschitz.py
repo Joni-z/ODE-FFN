@@ -35,6 +35,10 @@ def _make_args(**overrides):
         proj_dropout=0.0,
         ffn_type="swiglu",
         ffn_kwargs=None,
+        attention_kwargs=None,
+        topology_kwargs=None,
+        patch_kwargs=None,
+        model_kwargs=None,
         P_mean=-0.8,
         P_std=0.8,
         noise_scale=1.0,
@@ -49,6 +53,7 @@ def _make_args(**overrides):
         soft_lipschitz_enabled=False,
         soft_lipschitz_lambda=0.0,
         soft_lipschitz_num_samples=None,
+        perceptual_cfg=None,
     )
     base.update(overrides)
     return SimpleNamespace(**base)
@@ -137,6 +142,70 @@ def test_build_model_args_adds_cond_dim_for_freq_split():
     assert args.ffn_kwargs["t_embed_dim"] == 768
 
 
+def test_build_model_args_reads_jit_design_kwargs():
+    cfg = {
+        "model": {
+            "name": "JiT-B/16",
+            "ffn_type": "swiglu",
+            "attn_dropout": 0.0,
+            "proj_dropout": 0.0,
+            "depth": 15,
+            "in_context_start": 5,
+            "attention_kwargs": {
+                "adaptive_temperature": True,
+                "position_bias": True,
+                "head_specialization": True,
+            },
+            "topology_kwargs": {
+                "long_shortcuts": True,
+                "dense_input_shortcuts": True,
+                "adaln_lora_rank": 192,
+            },
+            "patch_kwargs": {
+                "adaptive_bottleneck": True,
+                "multiscale_patch_embed": True,
+                "fine_patch_size": 8,
+            },
+        },
+        "data": {
+            "img_size": 256,
+            "class_num": 1000,
+        },
+        "diffusion": {
+            "P_mean": -0.8,
+            "P_std": 0.8,
+            "noise_scale": 1.0,
+            "t_eps": 5.0e-2,
+            "label_drop_prob": 0.1,
+        },
+        "sample": {
+            "sampling_method": "heun",
+            "num_sampling_steps": 50,
+            "cfg": 2.9,
+            "interval_min": 0.1,
+            "interval_max": 1.0,
+        },
+        "train": {
+            "ema_decay": 0.9999,
+        },
+        "loss": {
+            "perceptual": {
+                "enabled": True,
+                "lambda": 0.05,
+            }
+        },
+    }
+
+    args = build_model_args(cfg)
+
+    assert args.attention_kwargs["adaptive_temperature"] is True
+    assert args.topology_kwargs["adaln_lora_rank"] == 192
+    assert args.patch_kwargs["multiscale_patch_embed"] is True
+    assert args.model_kwargs["depth"] == 15
+    assert args.model_kwargs["in_context_start"] == 5
+    assert args.perceptual_cfg["enabled"] is True
+
+
 def test_denoiser_returns_soft_lipschitz_breakdown():
     old_models = denoiser_module.JiT_models
     denoiser_module.JiT_models = {"dummy": DummyFlowNet}
@@ -199,3 +268,43 @@ def test_denoiser_soft_lipschitz_supports_subsampled_batch():
         assert loss_dict["loss_lip"].item() >= 0.0
     finally:
         denoiser_module.JiT_models = old_models
+
+
+class DummyPerceptualLoss(nn.Module):
+    def forward(self, pred, target):
+        return (pred - target).abs().mean(dim=(1, 2, 3))
+
+
+def test_denoiser_returns_perceptual_breakdown():
+    old_models = denoiser_module.JiT_models
+    old_builder = denoiser_module.build_perceptual_loss
+    denoiser_module.JiT_models = {"dummy": DummyFlowNet}
+    denoiser_module.build_perceptual_loss = lambda cfg: DummyPerceptualLoss()
+    try:
+        model = Denoiser(
+            _make_args(
+                perceptual_cfg={
+                    "enabled": True,
+                    "lambda": 0.2,
+                    "min_t": 0.0,
+                    "max_t": 1.0,
+                    "power": 1.0,
+                }
+            )
+        )
+        model.train()
+
+        x = torch.randn(2, 3, 8, 8)
+        labels = torch.randint(0, 10, (2,))
+        loss_dict = model(x, labels, return_loss_dict=True)
+
+        assert set(loss_dict) == {"loss", "loss_fm", "loss_lip", "loss_perc"}
+        assert loss_dict["loss_perc"].ndim == 0
+        assert loss_dict["loss_perc"].item() >= 0.0
+        assert torch.allclose(
+            loss_dict["loss"],
+            loss_dict["loss_fm"] + 0.2 * loss_dict["loss_perc"],
+        )
+    finally:
+        denoiser_module.JiT_models = old_models
+        denoiser_module.build_perceptual_loss = old_builder

@@ -1,9 +1,8 @@
-# JiT-B/16 @ ImageNet 256, FFN=ode
 train:
-  exp_name: "ode"
+  exp_name: "adaptive_patch_perceptual"
   seed: 42
 
-  epochs: 30
+  epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
@@ -35,9 +34,16 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "ode"
+  ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  patch_kwargs:
+    adaptive_bottleneck: true
+    bottleneck_mask_temperature: 24.0
+    adaptive_bottleneck_init_bias: 6.0
+    multiscale_patch_embed: true
+    fine_patch_size: 8
+    multiscale_init_bias: -4.0
 
 diffusion:
   P_mean: -0.8
@@ -63,7 +69,18 @@ checkpointing:
   out_dir: "/scratch/zz5070/ODE_FFN/jit-codebase/results"
   resume: ""
 
+loss:
+  perceptual:
+    enabled: true
+    lambda: 0.05
+    min_t: 0.35
+    max_t: 1.0
+    power: 2.0
+    type: "vgg16"
+    weights: "IMAGENET1K_V1"
+    strict_weights: false
+    # weights_path: "/path/to/local/vgg16_imagenet1k_v1.pth"
+
 logging:
   project: "jit-training"
-  run_name: "ode"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "adaptive_patch_perceptual"

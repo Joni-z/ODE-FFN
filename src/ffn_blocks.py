@@ -1126,6 +1126,360 @@ class TimeMoEFFN(BaseFFN):
 MHODESwiGLUFFN = MultiHeadODESwiGLUFFN
 
 
+# ─── Design 1: Timestep-Adaptive Gated SwiGLU ────────────────────────────
+
+
+class TimestepAdaptiveGatedSwiGLU(BaseFFN):
+    """SwiGLU with timestep-adaptive channel gate:
+    y = W_o(SiLU(W1 x) ⊙ W2 x ⊙ g(x,t)),  g(x,t) = σ(W_g x + U_t t_emb).
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        hidden_dim_eff = _search_hidden_dim(
+            baseline_hidden,
+            1,
+            budget,
+            lambda h: (
+                _linear_param_count(dim, 2 * h, bias)
+                + _linear_param_count(h, dim, bias)
+                + _linear_param_count(dim, h, True)
+                + _cond_param_count(t_embed_dim, h, True)
+            ),
+        )
+        self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.gate_from_x = nn.Linear(dim, hidden_dim_eff, bias=True)
+        self.gate_from_cond = (
+            nn.Linear(t_embed_dim, hidden_dim_eff, bias=True) if t_embed_dim is not None else None
+        )
+        self.drop = nn.Dropout(drop)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        g = self.gate_from_x(x)
+        cond_term = self._condition_term(cond, self.gate_from_cond)
+        if cond_term is not None:
+            g = g + cond_term
+        g = torch.sigmoid(g)
+        hidden = F.silu(x1) * x2 * g
+        out = self.w3(self.drop(hidden))
+        return self._maybe_return(out, self._aux(x, out, gate=g), return_aux)
+
+
+# ─── Design 2: Flow-Evolved Gate SwiGLU ──────────────────────────────────
+
+
+class FlowEvolvedGateSwiGLU(BaseFFN):
+    """Gate sees flow-evolved input via low-rank ODE:
+    x̃ = x + t·U(V⊤x),  y = W_o(SiLU(W_gate x̃) ⊙ W_value x).
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        rank: int = 32,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        tau: float = 4.0,
+        scale: float = 0.8,
+        shift: float = 0.1,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        rank = min(rank, dim)
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+        self.U = nn.Parameter(torch.randn(dim, rank) * 0.02)
+        self.V = nn.Parameter(torch.randn(dim, rank) * 0.02)
+        self.step_from_x = nn.Linear(dim, 1, bias=True)
+        self.step_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.w_gate = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_value = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_out = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def _step(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        logits = self.step_from_x(_mean_pool_tokens(x))
+        ct = self._condition_term(cond, self.step_from_cond)
+        if ct is not None:
+            logits = logits + ct
+        return torch.sigmoid(logits / self.tau) * self.scale + self.shift
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        t = self._step(x, cond)
+        x_tilde = x + t * ((x @ self.V) @ self.U.t())
+        gate = F.silu(self.w_gate(x_tilde))
+        value = self.w_value(x)
+        hidden = self.drop(gate * value)
+        out = self.w_out(hidden)
+        return self._maybe_return(out, self._aux(x, out, step=t, gate=gate), return_aux)
+
+
+# ─── Design 3: Spatial-Adaptive Value SwiGLU ─────────────────────────────
+
+
+class SpatialAdaptiveValueSwiGLU(BaseFFN):
+    """Value interpolates between token and spatial context controlled by timestep:
+    x_val = (1-α)x + α·SpatialMix(x),  y = W_o(SiLU(W1 x) ⊙ W2 x_val).
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.w_gate = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_value = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_out = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.dw_conv = nn.Conv2d(dim, dim, kernel_size=3, padding=1, groups=dim, bias=False)
+        self.alpha_proj = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.alpha_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _spatial_mix(self, x: Tensor) -> Tensor:
+        B, N, C = x.shape
+        side = int(N ** 0.5)
+        if side * side != N:
+            return x.mean(dim=1, keepdim=True).expand_as(x)
+        x_2d = x.transpose(1, 2).reshape(B, C, side, side)
+        return self.dw_conv(x_2d).flatten(2).transpose(1, 2)
+
+    def _alpha(self, cond: Optional[Tensor]) -> Tensor:
+        logits = self.alpha_bias.view(1, 1, 1)
+        if self.alpha_proj is not None and cond is not None and torch.is_tensor(cond):
+            a = self.alpha_proj(cond)
+            if a.dim() == 2:
+                a = a.unsqueeze(1)
+            logits = logits + a
+        return torch.sigmoid(logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x_ctx = self._spatial_mix(x)
+        alpha = self._alpha(cond)
+        x_val = (1.0 - alpha) * x + alpha * x_ctx
+        gate = F.silu(self.w_gate(x))
+        value = self.w_value(x_val)
+        hidden = self.drop(gate * value)
+        out = self.w_out(hidden)
+        return self._maybe_return(out, self._aux(x, out, alpha=alpha, gate=gate), return_aux)
+
+
+# ─── Design 4: Frequency-Split Dual FFN ──────────────────────────────────
+
+
+class FreqSplitDualFFN(BaseFFN):
+    """Two-branch FFN: coarse (with DWConv) + detail, mixed by timestep.
+    y = r(t)·f_low(LowPass(x)) + (1-r(t))·f_high(x - LowPass(x)).
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        low_ratio: float = 0.5,
+        lowpass_kernel: int = 3,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if lowpass_kernel < 1 or lowpass_kernel % 2 == 0:
+            raise ValueError("lowpass_kernel must be a positive odd integer")
+        baseline_hidden, _ = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        low_hidden = max(1, int(baseline_hidden * low_ratio))
+        high_hidden = max(1, baseline_hidden - low_hidden)
+        self.lowpass_kernel = lowpass_kernel
+        self.dw_conv = nn.Conv2d(
+            dim,
+            dim,
+            kernel_size=lowpass_kernel,
+            padding=lowpass_kernel // 2,
+            groups=dim,
+            bias=False,
+        )
+        self.low_w12 = nn.Linear(dim, 2 * low_hidden, bias=bias)
+        self.low_w3 = nn.Linear(low_hidden, dim, bias=bias)
+        self.high_w12 = nn.Linear(dim, 2 * high_hidden, bias=bias)
+        self.high_w3 = nn.Linear(high_hidden, dim, bias=bias)
+        self.mix_proj = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.mix_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _lowpass(self, x: Tensor) -> Tensor:
+        B, N, C = x.shape
+        side = int(N ** 0.5)
+        if side * side != N:
+            return x.mean(dim=1, keepdim=True).expand_as(x)
+        x_2d = x.transpose(1, 2).reshape(B, C, side, side)
+        low = F.avg_pool2d(
+            x_2d, kernel_size=self.lowpass_kernel, stride=1,
+            padding=self.lowpass_kernel // 2, count_include_pad=False,
+        )
+        return low.flatten(2).transpose(1, 2)
+
+    def _swiglu(self, x: Tensor, w12: nn.Linear, w3: nn.Linear) -> Tensor:
+        x12 = w12(x)
+        g, v = x12.chunk(2, dim=-1)
+        return w3(self.drop(F.silu(g) * v))
+
+    def _mix_ratio(self, cond: Optional[Tensor]) -> Tensor:
+        logits = self.mix_bias.view(1, 1, 1)
+        if self.mix_proj is not None and cond is not None and torch.is_tensor(cond):
+            m = self.mix_proj(cond)
+            if m.dim() == 2:
+                m = m.unsqueeze(1)
+            logits = logits + m
+        return torch.sigmoid(logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x_low = self._lowpass(x)
+        x_high = x - x_low
+        B, N, C = x_low.shape
+        side = int(N ** 0.5)
+        if side * side == N:
+            x_low = self.dw_conv(
+                x_low.transpose(1, 2).reshape(B, C, side, side)
+            ).flatten(2).transpose(1, 2)
+        h_low = self._swiglu(x_low, self.low_w12, self.low_w3)
+        h_high = self._swiglu(x_high, self.high_w12, self.high_w3)
+        r = self._mix_ratio(cond)
+        out = r * h_low + (1.0 - r) * h_high
+        return self._maybe_return(out, self._aux(x, out, gate=r), return_aux)
+
+
+# ─── Design 5: Progressive Refinement FFN ────────────────────────────────
+
+
+class ProgressiveRefineFFN(BaseFFN):
+    """Main SwiGLU + small time-aware refinement head:
+    h1 = SwiGLU(x),  Δh = g_φ(h1, t_emb),  y = h1 + α(t)·Δh.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        refine_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        refine_dim = refine_dim or max(64, dim // 4)
+        refine_cost = (
+            _linear_param_count(dim, refine_dim, True)
+            + _cond_param_count(t_embed_dim, refine_dim, True)
+            + _linear_param_count(refine_dim, dim, True)
+            + _cond_param_count(t_embed_dim, 1, True)
+            + 1
+        )
+        main_hidden = _search_hidden_dim(
+            baseline_hidden, 1, budget - refine_cost,
+            lambda h: _linear_param_count(dim, 2 * h, bias) + _linear_param_count(h, dim, bias),
+        )
+        self.w12 = nn.Linear(dim, 2 * main_hidden, bias=bias)
+        self.w3 = nn.Linear(main_hidden, dim, bias=bias)
+        self.refine_in = nn.Linear(dim, refine_dim, bias=True)
+        self.refine_cond = nn.Linear(t_embed_dim, refine_dim, bias=True) if t_embed_dim is not None else None
+        self.refine_out = nn.Linear(refine_dim, dim, bias=True)
+        self.alpha_proj = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.alpha_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _alpha(self, cond: Optional[Tensor]) -> Tensor:
+        logits = self.alpha_bias.view(1, 1, 1)
+        if self.alpha_proj is not None and cond is not None and torch.is_tensor(cond):
+            a = self.alpha_proj(cond)
+            if a.dim() == 2:
+                a = a.unsqueeze(1)
+            logits = logits + a
+        return torch.sigmoid(logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        gate = F.silu(x1)
+        h1 = self.w3(self.drop(gate * x2))
+        r = self.refine_in(h1)
+        cond_term = self._condition_term(cond, self.refine_cond)
+        if cond_term is not None:
+            r = r + cond_term
+        delta_h = self.refine_out(F.silu(r))
+        alpha = self._alpha(cond)
+        out = h1 + alpha * delta_h
+        return self._maybe_return(out, self._aux(x, out, alpha=alpha, gate=gate), return_aux)
+
+
+# ─── Design 6: Multi-Step Integrated FFN ─────────────────────────────────
+
+
+class MultiStepIntegratedFFN(BaseFFN):
+    """K shared-parameter integration steps inside one FFN block:
+    x_0 = x,  x_{k+1} = x_k + (1/K)·f_θ(x_k),  y = x_K.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        steps: int = 2,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if not isinstance(steps, int) or steps < 1:
+            raise ValueError("steps must be a positive integer")
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.steps = steps
+        self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.step_scale = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.drop = nn.Dropout(drop)
+
+    def _field(self, z: Tensor) -> Tensor:
+        z12 = self.w12(z)
+        z1, z2 = z12.chunk(2, dim=-1)
+        return self.w3(self.drop(F.silu(z1) * z2))
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        dt: Tensor | float = 1.0 / self.steps
+        if self.step_scale is not None and cond is not None and torch.is_tensor(cond):
+            s = self.step_scale(cond)
+            if s.dim() == 2:
+                s = s.unsqueeze(1)
+            dt = dt * torch.sigmoid(s)
+        z = x
+        for _ in range(self.steps):
+            z = z + dt * self._field(z)
+        return self._maybe_return(z, self._aux(x, z), return_aux)
+
+
 FFN_REGISTRY = {
     "swiglu": SwiGLUFFN,
     "mlp": MLP,
@@ -1140,6 +1494,12 @@ FFN_REGISTRY = {
     "freq_split": FrequencySplitFFN,
     "clean_target": CleanTargetFFN,
     "time_moe": TimeMoEFFN,
+    "ta_gate": TimestepAdaptiveGatedSwiGLU,
+    "flow_evolved_gate": FlowEvolvedGateSwiGLU,
+    "spatial_adaptive": SpatialAdaptiveValueSwiGLU,
+    "freq_split_dual": FreqSplitDualFFN,
+    "progressive_refine": ProgressiveRefineFFN,
+    "multistep_ffn": MultiStepIntegratedFFN,
 }
 
 
@@ -1160,4 +1520,14 @@ FFN_ALIASES = {
     "clean_target_ffn": "clean_target",
     "time_routed_moe": "time_moe",
     "time_moe_ffn": "time_moe",
+    "timestep_adaptive_gate": "ta_gate",
+    "ta_gate_swiglu": "ta_gate",
+    "flow_evolved": "flow_evolved_gate",
+    "flow_evolved_gate_swiglu": "flow_evolved_gate",
+    "spatial_adaptive_value": "spatial_adaptive",
+    "spatial_adaptive_swiglu": "spatial_adaptive",
+    "freq_split_dual_ffn": "freq_split_dual",
+    "progressive_refine_ffn": "progressive_refine",
+    "multistep_integrated": "multistep_ffn",
+    "multi_step_ffn": "multistep_ffn",
 }
