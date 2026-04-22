@@ -1,0 +1,274 @@
+# JiT 宏观结构改造方案
+
+## 两轮实验之后的整体判断
+
+前两轮围绕 JiT block 内部做的改造（六种 FFN 内部改造 + 六种 FFN 边界 / AdaLN 替代）基本都打平或略差于 baseline。这个结果本身是有信号的——**JiT 的局部结构（单个 block 内部的 token mixer / channel mixer / 条件注入）是一个很紧的局部最优**。在 flow matching 的光滑速度场目标、AdaLN-Zero 已经把 $t$ 信息注入到每一层的前提下，任何"在 block 内部再微调一次 $t$ 路径"的改动都和已有机制高度重复。
+
+合理的下一步不再是"继续调 block 内部"，而是**改 block 之间的关系**——要么改层间拓扑（谁和谁直接连），要么重新分配参数预算（从 AdaLN 冗余里把参数省出来投入深度），要么在 FFN 位置做 sparse scaling（增加总参数但不增加计算）。这三个方向都有公开文献直接支持，并且都在 DiT / MDTv2 / FiTv2 / JiTMoE 等 diffusion transformer 上被验证过收益显著。值得强调的是 JiT 原文自己在 introduction 就承认：pixel-space diffusion 要克服信息瓶颈的三种已知方式是 "dense convolutions, smaller patches, or adding long skip connections" [R4]——JiT 出于 minimalist 哲学没用 long skip connections，这等于作者亲自给了第一个方案的 motivation。
+
+下面三个方案按实现复杂度递增排列。
+
+---
+
+## 方案 A：U-Net-style Long Skip Connections
+
+### 核心想法
+
+在 JiT 的 plain Transformer stack 上加入对称的 encoder-decoder 式 long skip connections：前半层的输出跨过中间层、直接送到后半层的对应位置。这是 U-ViT [R12]、MDTv2 [R10]、Hunyuan DiT、Skip-DiT [R15] 都验证过的一种**低成本、大收益**的改动——它不改 block 内部结构，只改 block 之间的信息通路。
+
+对 JiT 这样的 pixel-space flow matching 模型尤其重要，原因有三：
+
+1. **$v$-prediction 每层都需要访问 noisy input**。Flow matching 的速度 $v = x_1 - x_0$ 在每个 timestep 下都是 "当前 noisy state 到 clean image 的方向"，网络需要在**每一层**都记得当前 noisy state 的样子。Plain stack 里，这个信息只能通过很深的残差链间接传递，深层容易"忘记" input。
+2. **pixel-space 的信息量远大于 latent-space**。JiT 每个 patch 是 $16\times 16\times 3 = 768$ 维原始 pixel，比 SD latent 的 4 维信息密集得多，浅层抽取的 pixel-level 细节信息不应在深层被彻底丢弃。
+3. **JiT 原文的 "information bottleneck" 讨论**本身就指出 long skip connection 是 pixel-space diffusion 的典型解决方案之一 [R4]。JiT 选择不用是为了 minimalism，但你的实验目标不是 minimalism，是 FID。
+
+### 结构
+
+记 JiT block 数为 $N$（为描述方便假设 $N$ 偶数）。把 block 序列分成两半：前 $N/2$ 个 block 作为 encoder，后 $N/2$ 个作为 decoder。记第 $l$ 个 block 的输出为 $h^{(l)} \in \mathbb{R}^{T\times d}$（$T$ 是 token 数、$d$ 是 hidden dim）。
+
+**Encoder 阶段**（$l = 1, \dots, N/2$）：
+$$
+h^{(l)} = \text{Block}_l\big(h^{(l-1)}\big), \qquad \text{同时记录 } s_l := h^{(l)}
+$$
+
+**Decoder 阶段**（$l = N/2+1, \dots, N$）：记对称的 encoder 索引 $l^* = N - l + 1$，
+$$
+\tilde{h}^{(l-1)} = \text{Linear}_l\Big(\text{Concat}\big(h^{(l-1)}, s_{l^*}\big)\Big), \qquad h^{(l)} = \text{Block}_l\big(\tilde{h}^{(l-1)}\big)
+$$
+
+`Concat` 沿 channel 维（得到 $2d$），`Linear` 是 $\mathbb{R}^{2d}\to\mathbb{R}^{d}$ 投影回原维度。Concat+Linear 是 U-ViT 消融过的最优 fusion 方式 [R12]——比直接 add、add+proj 都更稳定且 FID 更低。
+
+```python
+# pseudo-code
+class JiT_USkip(nn.Module):
+    def __init__(self, ..., N=12, d=768):
+        self.encoder = nn.ModuleList([JiTBlock(...) for _ in range(N//2)])
+        self.decoder = nn.ModuleList([JiTBlock(...) for _ in range(N//2)])
+        self.skip_proj = nn.ModuleList([nn.Linear(2*d, d) for _ in range(N//2)])
+
+    def forward(self, x, c):
+        skips = []
+        for blk in self.encoder:
+            x = blk(x, c)
+            skips.append(x)
+        for i, blk in enumerate(self.decoder):
+            s = skips[-(i+1)]  # 对称配对
+            x = self.skip_proj[i](torch.cat([x, s], dim=-1))
+            x = blk(x, c)
+        return x
+```
+
+**关键设计细节**：
+
+- **skip_proj 零初始化**。将 `skip_proj[i]` 的权重初始化为 $[I_d, 0_d]$（即 concat 后只保留主支、忽略 skip），训练初期等价于原 plain stack，随训练让 skip 逐渐生效。这是 AdaLN-Zero 同款的"扰动最小化"哲学。
+- **LayerNorm 位置**。Skip 特征 $s_{l^*}$ 经过多个 block 之后尺度可能偏大，建议在 concat 之前对 $s_{l^*}$ 加一次 RMSNorm（参数几乎为零）。
+- **奇数 block 不配对**。若 $N$ 为奇数，中间那一层作为 bottleneck，不参与 skip。
+
+### 为什么这样设计
+
+U-ViT [R12] 对四种 fusion 方式做过消融：
+- **方法 1**：`Linear(Concat($h_m, h_s$))` — 最优
+- **方法 2**：$h_m + h_s$（直接加）— 几乎无收益
+- **方法 3**：$h_m + \text{Linear}(h_s)$ — 有一定提升
+- **方法 4**：$\text{Linear}(h_m + h_s)$ — 中等
+
+方法 2 失败的原因是：深层的 $h_m$ 本身已经通过残差链含有浅层信息，直接再加一次不带来新信号。而 concat+linear 保留了完整的浅层表征，由 $\text{Linear}$ 的 $2d \to d$ 投影自适应决定"这一层该用多少 skip 信息"，每层都可以学到不同的 skip-to-main 比例，表达力最强。
+
+MDTv2 [R10] 在 DiT 架构上单独做过 macro-structure 消融：仅加 encoder long-shortcut 一项，在 MDT-S/2 规模 600k steps 下 FID 提升约 0.5-1.0，且收敛速度显著加快。在 DiT-XL 规模上 MDTv2 最终 2000k steps FID=5.06，而 DiT-XL 7000k steps 才到 FID=9.62 ——从训练效率看 long skip 带来的是数量级的加速。
+
+Skip-DiT [R15] 从理论角度给出了额外依据：带 long skip connection 的 DiT 的 Jacobian 谱半径更紧凑，数值上更稳定、收敛更快，对应实验中 Skip-DiT 在 1.6M steps 就达到了 DiT-XL 需要 7M steps 才能达到的 FID。
+
+### 和已有工作的关系
+
+- **U-ViT** [R12]: 在 ViT-based diffusion 上最早系统验证 long skip connection 有效性（ImageNet 256 FID 2.29）。本方案直接沿用其 `Linear(Concat)` fusion 设计。
+- **MDTv2** [R10]: 在 DiT 上的实现，除 encoder long-shortcut 外还加了 dense input shortcut（见下方 "扩展设计"）。MDTv2 的消融证明 long-shortcut 是 plain-stack DiT 最关键的 macro structure 改动。
+- **Skip-DiT** [R15]: 提供了 long skip 的数值稳定性理论分析。
+- **U-DiT** [R13]: 采用 full U-Net 结构（带 spatial down/upsample），相比之下本方案保持 isotropic（token 数不变），是更小的扰动。
+
+### 扩展设计：Dense Input Shortcut（可选）
+
+MDTv2 还额外在**每个 decoder block** 前面加上原始 noisy input $x_0$ 的 concat shortcut：
+$$
+\tilde{h}^{(l-1)} = \text{Linear}_l\big(\text{Concat}(h^{(l-1)}, s_{l^*}, x_0)\big)
+$$
+
+这样每个 decoder block 都直接访问 noisy input，契合 flow matching 中 "每层都需要计算 $x_t \to x$ 的方向" 的结构。代价是 `Linear` 投影从 $2d \to d$ 变成 $3d\to d$，额外参数 $N/2 \cdot d^2$。建议作为方案 A 的第二阶段——先单独验证 U-skip，若有效再叠加 dense input shortcut。
+
+### 参数预算
+
+- `skip_proj`：$N/2$ 个 $\mathbb{R}^{2d}\to\mathbb{R}^{d}$ 的 Linear，共 $N/2 \cdot 2d^2 = N d^2$ 参数。
+- JiT-B/16 ($N=12$, $d=768$)：$12 \cdot 768^2 \approx 7.1\text{M}$，约为 baseline 的 5-6%。
+- 若加 dense input shortcut：再多 $N/2 \cdot d^2 \approx 3.5\text{M}$，合计 10.6M。
+
+与其他方案比较——这个 skip 的参数代价是实打实的增加，不像方案 B 那样通过削减 AdaLN 来"零预算"引入。如果你希望严格控制总参数，可以把 `skip_proj` 改成 low-rank（$2d \to r \to d$，$r = d/4$），参数降到约 $1/4$。
+
+### 风险 / 适合的实验定位
+
+- **风险 1：pixel-space 的 skip 特征尺度问题**。浅层 $s_{l^*}$ 保留了大量原始 pixel 信息，activation 方差可能比深层大几倍。**必加 RMSNorm on skip**。
+- **风险 2：skip_proj 初始化错误会立刻破坏 baseline**。严格按照 $[I_d, 0_d]$ 初始化（即初期忽略 skip），否则训练初期 FID 会显著恶化。
+- **风险 3：若 JiTMoE 的 MoE 层分布不均匀，U-skip 对称配对可能打破 encoder-decoder 功能对称性**。建议 MoE 层在前后半对称分布。
+- **风险 4：和 AdaLN-Zero 的初始化交互**。AdaLN-Zero 初期每 block 接近恒等，这时 skip 实际上把 input 直接传到了 decoder，行为接近 residual 累加。这通常是好事（初期收敛快），但需要监控 loss 曲线确认没有训练初期爆炸。
+
+**实验定位**：这是**三个方案中置信度最高的一个**。U-ViT 和 MDTv2 的数据清楚地表明 long skip connection 是 plain-stack ViT-based diffusion 的首要 architectural missing piece。代价只是 ~5% 参数增量和一个带零初始化的小改动。在你当前 baseline FID ≈ 18 的水平下，预期收益 -2 to -4 FID。
+
+**推荐先跑 JiTMoE-B/16 + U-skip vs baseline JiTMoE-B/16，400k steps**。如果 400k 步 FID 下降 ≥1.5，就值得扩到 L/16 或加 dense input shortcut。
+
+---
+
+## 方案 B：AdaLN-LoRA + Depth Reinvestment
+
+### 核心想法
+
+前一轮实验中 `adaln_lora` 和 `adaln_single` 都略差于 baseline ——但 FiTv2 [R9] 的原始故事是 **"AdaLN-LoRA 省下的参数 **必须** 重新投资到深度 / 宽度上"**，单独换成 LoRA 而保持其他不变就是纯削弱模型，结果当然会变差。这次把完整 recipe 做一遍：压缩 AdaLN + 用省下的参数加深 block 数，总参数保持不变甚至减少，但 backbone 容量显著增加。
+
+### 结构
+
+**第一步：AdaLN-LoRA** — 每 block 的 6 组调制信号从完全独立的 $W^{(l)} \in \mathbb{R}^{6d\times d}$（原 DiT 做法）改为 "shared global + per-block LoRA"：
+$$
+S^{(l)}(c) = W^g\, c \;+\; W_2^{(l)}\,W_1^{(l)}\, c
+$$
+其中
+- $W^g \in \mathbb{R}^{6d\times d}$ 跨所有 block 共享（**一次性** 参数）
+- $W_1^{(l)} \in \mathbb{R}^{r\times d}$, $W_2^{(l)} \in \mathbb{R}^{6d\times r}$ 是 per-block LoRA，rank $r$ 取 $d/16$（FiTv2 默认）
+
+$W_2^{(l)}$ 零初始化，使每 block 初期等价于 shared global AdaLN（即所有 block 共享同一组调制），训练中 LoRA 分支逐渐产生 block 间差异。
+
+**第二步：把省下的参数加回深度** — 具体数字（以 JiT-B/16 为例，$d=768$，$N=12$）：
+
+| 组件 | 原 AdaLN | AdaLN-LoRA ($r=48$) |
+|---|---|---|
+| 每 block 条件注入 | $6d^2 = 3.54\text{M}$ | $7dr/N + $ shared $= 0.26\text{M}$ (amortized) |
+| 12 blocks 合计 | **42.5M** | **6.6M** |
+| **节省** | — | **~35.9M** |
+
+一个完整 JiT-B block（attention + FFN + AdaLN）大约 7M 参数。节省 35.9M ≈ **可以多加 5 个 block**，即 $N: 12 \to 17$，总参数基本持平。或者适度加一点深度 + 一点宽度。
+
+**第三步：训练稳定性保护** — JiT 是 pixel-space，activation 方差大，加深 block 数后 attention softmax 可能失稳。同步加上 QK-Norm（Dehghani 2023，FiTv2 默认）：在 attention 计算前对 $Q, K$ 各做一次 RMSNorm，参数 $2d$ per block，可忽略。
+
+### 为什么这样设计
+
+1. **AdaLN 的 block-wise 差异是低秩的**：FiTv2 实验显示不同 block 的 $W^{(l)}_{\text{adaLN}}$ 之间差矩阵 $W^{(l)} - W^{(l')}$ 的奇异值衰减很快，低秩近似（$r = d/16$）基本无损失。[R9]
+2. **Flow matching 比 DDPM 更友好**：连续时间 $t$ 下速度场 $v(x, t)$ 本身比 DDPM 的 $\sigma_t$-indexed 训练目标光滑得多，block 间需要的 $t$-dependent 调制差异更小，低秩更有余量。
+3. **深度 vs 宽度的 scaling 经验**：在同参数预算下，DiT、FiTv2、SiT、MDTv2 的消融都倾向于**更深更窄**优于**更浅更宽**，尤其是 diffusion 的迭代去噪结构需要更深的 refinement capacity。FiTv2 通过 AdaLN-LoRA + 加深得到的 FiTv2-XL 在 ImageNet 256 上 FID 2.15，优于 DiT-XL 的 2.27 且收敛快 2×。[R9]
+4. **为什么上次单独换 LoRA 会变差**：上次实验参数从 42.5M → 6.6M，但 block 数仍是 12，等于**白白砍掉了 36M 参数的表达力**。这次把省下的参数完整投回 backbone。
+
+### 和已有工作的关系
+
+- **FiTv2** [R9]: 本方案的直接源头。FiTv2-XL 28→36 层、AdaLN-LoRA $r=d/16$ 是可直接参考的配置。
+- **PixArt-α** [R14]: 提出 AdaLN-single（更激进的 global-only + per-block offset），比 LoRA 再省一层但可能损失 block 差异表达力。作为方案 B 的可选更激进变体。
+- **W.A.L.T.**: 最早把 LoRA 用于 AdaLN 的视频 DiT 论文，FiTv2 的灵感来源之一。
+
+### 参数预算详算
+
+以 JiT-B/16，$d=768$, $N=12$（baseline）为起点：
+
+| 配置 | AdaLN 参数 | Backbone blocks | 单 block ≈ | 总计 ≈ |
+|---|---|---|---|---|
+| Baseline JiT-B | 42.5M | 12 | 10M | ~130M |
+| JiT-B + AdaLN-LoRA 但不加深 | 6.6M | 12 | 10M | ~95M (失去 35M) ❌ |
+| **JiT-B + AdaLN-LoRA + 加深到 17** | 6.6M | 17 | 10M | ~180M (超预算) |
+| **JiT-B + AdaLN-LoRA + 加深到 14** | 6.6M | 14 | 10M | ~135M (持平) ✅ |
+| **JiT-B + AdaLN-LoRA + 加深到 15 + 削 MoE 总参** | 6.6M | 15 | 9M | ~135M ✅ |
+
+推荐配置：**保持总参数与 baseline 持平的前提下，block 数从 12 增到 14-15**。
+
+### 风险 / 适合的实验定位
+
+- **风险 1：单独验证 AdaLN-LoRA 部分已经跑过了（FID 更差）**。必须把 "加深" 这一步做完整，否则重复失败。
+- **风险 2：JiT 用的是 RoPE 还是 learned PE？** 若 learned PE，加深 2 层需要重新学 PE（但是 PE 不是 per-block 参数，所以跨层加深应该无碍）。
+- **风险 3：Backbone 更深后训练稳定性**。QK-Norm 是必备。Pre-LN 下加深一般稳定，Post-LN 需要 warmup，但 JiT/DiT 系列都是 Pre-LN，风险低。
+- **风险 4：内存占用**。加深 25% 会让 activation memory 也增加约 25%，可能需要调 batch size 或开 gradient checkpointing。
+
+**实验定位**：这是**收益最明确但需要做完整 recipe 才能看到收益**的方案。推荐步骤：
+
+1. 先独立验证 AdaLN-LoRA + **加深 2-3 层**（总参数持平），确认 FID 不掉甚至下降。
+2. 如果步骤 1 有效，扩到 JiTMoE-L 规模做 final comparison。
+3. 可选：把 QK-Norm 单独作为一个 ablation（FiTv2 显示 QK-Norm 在 pixel-space 和 mixed-precision 下对稳定性很关键）。
+
+预期收益：FID -0.5 to -1.5（FiTv2 论文在 ImageNet 256 上报告了约 0.1-0.3 的 FID 提升，但那是在已经很低的 FID 2-3 水平；在你 FID ≈ 18 的早期阶段，绝对 delta 会更大）。
+
+---
+
+## 方案 C：MoE-FFN 升级到 DeepSeek-style Fine-Grained + Shared Experts
+
+### 核心想法
+
+你的 baseline 已经是 **JiTMoE**（所以 `baseline_swiglu` 其实是 MoE 的 dense baseline，不是 JiT 原版 dense 模型）。这本身已经走了 "用 MoE 做 sparse scaling" 这条路径。但问题是——**JiTMoE 和大部分 diffusion MoE 用的是"标准 top-K 路由、每 expert 都是完整 4d SwiGLU"的老设计**。这个设计在 LLM 社区从 2024 年开始就被 DeepSeekMoE [R16] 和后继工作系统性升级过：
+
+1. **Fine-Grained Expert Segmentation**：把每个 expert 的 FFN intermediate 宽度切成 $m$ 倍细，expert 数也相应 $\times m$，top-K 也 $\times m$。总参数、总 FLOPs 不变，但**可能的 expert 组合数从 $\binom{E}{K}$ 暴涨到 $\binom{mE}{mK}$**。
+2. **Shared Expert Isolation**：保留 $K_s$ 个"始终激活"的 shared experts 承载通用知识，让路由的 $K_r = K - K_s$ 个 expert 专注于真正有区分度的内容。这降低了 routed experts 的冗余，让每个被路由的 expert 学到更"专业"的模式。
+3. **Narrowed intermediate width**：把每个 expert 的 intermediate scaling 从标准的 $4\times$ 降到 $2\times$ 到 $3\times$，单 expert 参数减小，可以容纳更多 expert 且不影响 activated 参数量。
+
+**关键背景**：2025 年 12 月刚发布的 arxiv 2512.01252 [R17] **直接在 JiTMoE 上做了这套改造**，JiTMoE-B/16-E16 的 FID 从 4.37 → 4.23，而且 IS 从 ~180 → 245（IS 提升非常显著，说明 class-specific specialization 明显增强）。这是目前最直接的同尺度参考数据。你之前的 baseline_swiglu 大概率没用这个 recipe。
+
+### 结构
+
+令 FFN 原始形式为 SwiGLU，hidden expansion ratio $\rho$（标准 JiT/DiT 是 $\rho = 4$）：
+$$
+\text{SwiGLU}_\rho(x) = W_o\big(\text{SiLU}(W_1 x) \odot (W_2 x)\big), \quad W_1, W_2 \in \mathbb{R}^{\rho d \times d}
+$$
+
+**升级后的 MoE-FFN**：给定 token $x$，路由模块 $R: \mathbb{R}^d \to \mathbb{R}^{E_r}$ 算出 $E_r$ 个 routed experts 的 affinity score，top-$K_r$ 的 expert 被激活。同时 $K_s$ 个 shared experts **始终激活**。
+$$
+\text{MoE-FFN}(x) = \underbrace{\sum_{i=1}^{K_s} f_i^{\text{shared}}(x)}_{\text{always-on}} \;+\; \underbrace{\sum_{j \in \text{Top-}K_r(R(x))} g_j \cdot f_j^{\text{routed}}(x)}_{\text{sparse}}
+$$
+其中
+- 每个 expert $f_\cdot$ 都是**窄 SwiGLU**，hidden 宽度 $\rho' d$，$\rho'$ 取 $2$（比标准的 4 减半）
+- $g_j = \text{softmax}(R(x))_j$（或 DeepSeek-V3 用的 normalized sigmoid）
+- Shared experts 和 routed experts 结构相同但角色不同：shared 捕获 "所有 token 都需要的基础变换"，routed 捕获 "依 token 而异的 specialized 变换"
+
+**典型配置（DeepSeek-style）**：$E_r = 16$, $K_r = 2$, $K_s = 1$, $\rho' = 2$。每 token 激活 $K_s + K_r = 3$ 个 experts，每 expert hidden = $2d$，等效激活参数 = $3 \times 2d \times d \times 3 = 18d^2$，和原 dense SwiGLU 的 $3 \times 4d \times d = 12d^2$ 相比略多（约 1.5×），但可以通过进一步调整 $\rho'$ 到 1.5 或减少 $K_r$ 来平衡。
+
+**2D RoPE 替代 learned PE**：arxiv 2512.01252 [R17] 还发现，把 JiT 的 learned 2D PE 换成 2D RoPE（旋转位置编码应用在 attention 的 QK 上）可以进一步提升 MoE 的稳定性和 FID。RoPE 参数为零（只是旋转），建议一起做。
+
+**路由稳定性训练**：
+- **Auxiliary-loss-free load balancing**（DeepSeek-V3 [R18]）：不用 auxiliary balancing loss，而是给每个 routed expert 的 affinity score 加一个 EMA 更新的 bias $b_j$（overload 时变小、underload 时变大）。比传统 aux loss 对 FID 更友好。
+- **Router similarity loss**：Race-DiT [R19] 的做法，对不同 token 的 routing 分布加一个低权重的多样性 loss（$1e{-4}$），避免 mode collapse。
+
+### 为什么这样设计
+
+1. **Fine-grained 让 expert combinations 爆炸增长**。标准 top-2-in-8 只有 $\binom{8}{2}=28$ 种组合；fine-grained 切成 top-4-in-16 就有 $\binom{16}{4}=1820$ 种组合。在 flow matching 下，不同 $(t, y, \text{spatial position})$ 的 token 本来就需要不同的处理——更多组合数直接增加了"每个 token 能得到的专门化程度"。DiT-MoE [R7] 的分析甚至显示 diffusion MoE 的 routing 对 **spatial position 和 timestep 都有强 preference**，说明 fine-grained 的组合空间确实被有效利用。
+2. **Shared expert 降低 routed expert 之间的冗余**。在 MoE 里，没有 shared expert 时，每个 routed expert 都要同时学 "通用的 channel mixing" + "专门的 token-specific 模式"，后者被前者挤占 capacity。DeepSeekMoE ablation 显示 shared experts 单独带来约 3-5% 的性能提升（LLM 任务）[R16]。对 diffusion 这个现象应该更明显，因为 diffusion 有明显的"共性去噪方向" + "class/content specific 细节"的分工。
+3. **Narrowed intermediate 让参数预算更灵活**。$\rho' = 2$ 时单 expert 参数只有标准 SwiGLU 的一半，相同 parameter budget 下可以容纳 2× experts。而 arxiv 2512.01252 [R17] 在 JiTMoE 上的实验直接证明这不会损失性能：activation 参数和 $\rho'=4$ 持平，但 FID 更低。
+4. **为什么 IS 涨得比 FID 多**。arxiv 2512.01252 [R17] 在 JiTMoE-B/16-E16 上 FID 只下降 0.14（4.37→4.23）但 IS 从 ~180 涨到 245。这个 pattern 强烈提示：**DeepSeek-style 改造主要改善的是 class-specific modes 的 coverage 和 separation**（IS 的核心衡量）——这正是 JiT 在 class-conditional ImageNet 上的潜在弱点，因为它只靠 AdaLN 和 class embedding 吸收类别信息。
+
+### 和已有工作的关系
+
+- **DeepSeekMoE** [R16] / **DeepSeek-V3** [R18]：提出 fine-grained + shared experts，LLM 领域把 MoE 的效率天花板推高一大截。
+- **DiT-MoE** [R7]：把 top-K MoE 引入 DiT，规模到 16B，是 diffusion MoE 的第一代 scaling 工作，但用的是标准 MoE。
+- **EC-DiT** [R20] / **Race-DiT** [R19]：改进 diffusion MoE 的 routing 策略（expert-choice, expert race），但仍用标准 expert 结构。
+- **arxiv 2512.01252** [R17]：**最直接的参考**，证明在 JiTMoE 上 DeepSeek-style recipe 同样有效。
+- **Diff-MoE** [R21]：给每个 expert 加 timestep conditioning，可以作为后续升级方向。
+
+### 参数预算
+
+以 JiT-B/16 ($d=768$, $N=12$) 为例。假设 baseline JiTMoE 是 E8K2（8 experts, top-2, $\rho=4$）：
+
+| 配置 | 每 block FFN 总参数 | 每 token 激活参数 |
+|---|---|---|
+| Dense SwiGLU ($\rho=4$) | $3\cdot 4d^2 = 7.1\text{M}$ | 7.1M |
+| JiTMoE E8K2 ($\rho=4$) | $8 \cdot 7.1\text{M} = 56.6\text{M}$ | $2 \cdot 7.1\text{M} = 14.2\text{M}$ |
+| **DS-JiTMoE S1E16K2 ($\rho'=2$)** | $(1+16) \cdot 3.5\text{M} = 60\text{M}$ | $(1+2)\cdot 3.5\text{M} = 10.6\text{M}$ |
+| **DS-JiTMoE S1E16K3 ($\rho'=2$)** | $60\text{M}$ | $(1+3)\cdot 3.5\text{M} = 14\text{M}$ |
+
+两种 DS-JiTMoE 配置：S1E16K2 降低了 activation 参数（速度更快）、S1E16K3 保持 activation 持平（容量更大）。推荐先试 **S1E16K2**（前向更快、更好调试）。
+
+总参数层面两种 MoE 差别不大（60M vs 56M per block），但激活组合数从 28 涨到 560。
+
+### 风险 / 适合的实验定位
+
+- **风险 1：路由失衡 / mode collapse**。shared expert + fine-grained 让路由更敏感，没有 aux-loss-free balancing 或 router similarity loss 可能训练到一半就收敛到只用少数 expert。**必加 DeepSeek-V3 的 bias-based balancing** [R18]。
+- **风险 2：需要改训练代码**。相比方案 A、B，MoE-FFN 升级对代码改动最大，需要实现 fine-grained dispatch、shared expert forward、bias EMA、capacity factor 等。若用 megablocks / tutel / DeepSpeed-MoE 等库，改动量可控；若自己写会比较重。
+- **风险 3：通信开销**。Fine-grained 会增加 expert 数，在 multi-GPU 下 all-to-all 通信量增加。对 JiT pixel-space、token 数少（256）的设定影响较小，但仍需留意。
+- **风险 4：与 U-skip (方案 A) 的交互**。如果两个方案叠加，skip 会绕过 MoE 的路由——skip 过来的特征没经过专家处理。理论上这是好事（给路由提供"原始参考"），但可能需要 ablation 确认。
+
+**实验定位**：这是**三个方案中理论上 upper bound 最高**的一个，也是**实现复杂度最高**的一个。推荐先做方案 A、B 再来做 C。具体路径：
+
+1. 先在 JiTMoE-B/16 上把 expert 结构换成 DeepSeek-style（S1E16K2, $\rho'=2$），保持其他完全一致，跑 400k steps 看 FID。预期 -0.1 to -0.3（arxiv 2512.01252 [R17] 报告的增量）。
+2. 如果步骤 1 有效，换 2D RoPE 再跑一次，预期再 -0.2。
+3. 如果步骤 1、2 都有效，扩到 L/16 做 final report。
+
+预期总收益（单独方案 C）：FID -0.5 to -1.0；IS 大幅改善（+60 到 +100）。
+
+---
+

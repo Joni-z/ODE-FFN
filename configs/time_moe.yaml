@@ -1,15 +1,17 @@
-# JiT-B/16 @ ImageNet 256, FFN=spatial_adaptive (Spatial-Adaptive Value SwiGLU)
+# Scheme C: DeepSeek-style Fine-Grained MoE with Shared Experts
+# Config: 1 shared + 16 routed experts, top-2 routing, expert hidden = 2×d (ρ'=2).
+# EMA bias load balancing (no aux loss) per DeepSeek-V3 recipe.
 train:
-  exp_name: "spatial_adaptive"
+  exp_name: "deepseek_moe"
   seed: 42
 
   epochs: 80
   warmup_epochs: 1
 
   per_device_batch_size: 256
-  num_workers: 12
+  num_workers: 16
   pin_mem: true
-  prefetch_factor: 6
+  prefetch_factor: 4
   device_prefetch: true
 
   lr: null
@@ -35,9 +37,15 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "spatial_adaptive"
+  ffn_type: "deepseek_moe"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  ffn_kwargs:
+    num_shared_experts: 1
+    num_routed_experts: 16
+    top_k: 2
+    expert_ratio: 2.0
+    balance_bias_lr: 0.01
 
 diffusion:
   P_mean: -0.8
@@ -65,4 +73,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "spatial_adaptive"
+  run_name: "deepseek_moe"

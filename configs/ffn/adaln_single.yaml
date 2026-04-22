@@ -1,5 +1,6 @@
+# JiT-B/16 @ ImageNet 256, PDF方案5: AdaLN-Single with Per-Block Residual
 train:
-  exp_name: "swiglu"
+  exp_name: "adaln_single"
   seed: 42
 
   epochs: 80
@@ -37,6 +38,8 @@ model:
   ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  topology_kwargs:
+    adaln_single: true
 
 diffusion:
   P_mean: -0.8
@@ -64,5 +67,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "swiglu"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "adaln_single"

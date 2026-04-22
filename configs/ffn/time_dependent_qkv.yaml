@@ -1,5 +1,6 @@
+# JiT-B/16 @ ImageNet 256, PDF方案6: Time-Dependent QKV Projection (DiffiT route)
 train:
-  exp_name: "swiglu"
+  exp_name: "time_dependent_qkv"
   seed: 42
 
   epochs: 80
@@ -37,6 +38,11 @@ model:
   ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  attention_kwargs:
+    time_dependent_qkv: true
+    time_qkv_init_scale: 1.0
+  topology_kwargs:
+    adaln_mode: "shift_only"
 
 diffusion:
   P_mean: -0.8
@@ -64,5 +70,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "swiglu"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "time_dependent_qkv"

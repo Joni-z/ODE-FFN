@@ -112,27 +112,44 @@ def test_six_designs_aliases():
     assert normalize_ffn_type("multistep_integrated") == "multistep_ffn"
 
 
-def test_freq_split_dual_uses_configured_kernel():
+def test_spatial_adaptive_accepts_class_condition_and_null_label():
+    layer = build_ffn(
+        "spatial_adaptive",
+        in_features=16,
+        hidden_features=64,
+        t_embed_dim=16,
+        num_spatial_tokens=4,
+        null_class_id=10,
+    )
+    x = torch.randn(2, 6, 16)
+    cond = torch.randn(2, 16)
+    class_cond = torch.randn(2, 16)
+    labels = torch.tensor([2, 10])
+    out = layer(x, cond, class_cond=class_cond, class_labels=labels)
+    assert out.shape == x.shape
+
+
+def test_freq_split_dual_uses_configured_pool_size():
     layer = build_ffn(
         "freq_split_dual",
         in_features=16,
         hidden_features=64,
         t_embed_dim=16,
-        lowpass_kernel=5,
+        pool_size=2,
     )
-    assert layer.dw_conv.kernel_size == (5, 5)
-    assert layer.dw_conv.padding == (2, 2)
+    assert layer.pool_size == 2
+    assert layer.lowpass_kernel == 2
 
 
-@pytest.mark.parametrize("lowpass_kernel", [0, 2, 4])
-def test_freq_split_dual_rejects_invalid_lowpass_kernel(lowpass_kernel):
-    with pytest.raises(ValueError, match="lowpass_kernel must be a positive odd integer"):
+@pytest.mark.parametrize("pool_size", [0, -1, 1.5])
+def test_freq_split_dual_rejects_invalid_pool_size(pool_size):
+    with pytest.raises(ValueError, match="pool_size must be a positive integer"):
         build_ffn(
             "freq_split_dual",
             in_features=16,
             hidden_features=64,
             t_embed_dim=16,
-            lowpass_kernel=lowpass_kernel,
+            pool_size=pool_size,
         )
 
 

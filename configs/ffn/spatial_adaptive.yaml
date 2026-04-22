@@ -1,5 +1,6 @@
+# JiT-B/16 @ ImageNet 256, PDF方案2: Class-Conditioned Spatial Information Injection
 train:
-  exp_name: "swiglu"
+  exp_name: "spatial_adaptive"
   seed: 42
 
   epochs: 80
@@ -34,9 +35,12 @@ data:
 
 model:
   name: "JiT-B/16"
-  ffn_type: "swiglu"
+  ffn_type: "spatial_adaptive"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  ffn_kwargs:
+    spatial_rank: 16
+    spatial_init_scale: 0.02
 
 diffusion:
   P_mean: -0.8
@@ -64,5 +68,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "swiglu"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "spatial_adaptive"

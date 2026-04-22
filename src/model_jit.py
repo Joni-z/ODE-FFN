@@ -220,7 +220,9 @@ class Attention(nn.Module):
         adaptive_temperature: bool = False,
         position_bias: bool = False,
         head_specialization: bool = False,
+        time_dependent_qkv: bool = False,
         temperature_logit_clamp: float = 2.0,
+        time_qkv_init_scale: float = 1.0,
         **_: object,
     ):
         super().__init__()
@@ -238,20 +240,31 @@ class Attention(nn.Module):
         self.adaptive_temperature = bool(adaptive_temperature)
         self.position_bias = bool(position_bias)
         self.head_specialization = bool(head_specialization)
+        self.time_dependent_qkv = bool(time_dependent_qkv)
         self.temperature_logit_clamp = float(temperature_logit_clamp)
+        self.time_qkv_init_scale = float(time_qkv_init_scale)
 
-        if (self.adaptive_temperature or self.position_bias or self.head_specialization) and cond_dim is None:
+        if (
+            self.adaptive_temperature
+            or self.position_bias
+            or self.head_specialization
+            or self.time_dependent_qkv
+        ) and cond_dim is None:
             raise ValueError("Timestep-aware attention requires cond_dim")
 
         self.temperature_proj = nn.Linear(cond_dim, 1, bias=True) if self.adaptive_temperature else None
         self.position_proj = nn.Linear(cond_dim, 1, bias=True) if self.position_bias else None
         self.head_proj = nn.Linear(cond_dim, num_heads, bias=True) if self.head_specialization else None
+        self.qkv_t = nn.Linear(cond_dim, 3 * dim, bias=False) if self.time_dependent_qkv else None
 
     def reset_design_parameters(self) -> None:
         for proj in (self.temperature_proj, self.position_proj, self.head_proj):
             if proj is not None:
                 nn.init.constant_(proj.weight, 0)
                 nn.init.constant_(proj.bias, 0)
+        if self.qkv_t is not None:
+            nn.init.xavier_uniform_(self.qkv_t.weight)
+            self.qkv_t.weight.data.mul_(self.time_qkv_init_scale)
 
     def forward(
         self,
@@ -261,7 +274,12 @@ class Attention(nn.Module):
         distance_matrix: Optional[torch.Tensor] = None,
     ):
         B, N, C = x.shape
-        qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
+        qkv = self.qkv(x)
+        if self.time_dependent_qkv:
+            if t_emb is None:
+                raise ValueError("time_dependent_qkv requires timestep embeddings")
+            qkv = qkv + self.qkv_t(t_emb).unsqueeze(1)
+        qkv = qkv.reshape(B, N, 3, self.num_heads, C // self.num_heads).permute(2, 0, 3, 1, 4)
         q, k, v = qkv[0], qkv[1], qkv[2]
 
         q = self.q_norm(q)
@@ -305,22 +323,38 @@ class Attention(nn.Module):
 
 
 class AdaLNModulation(nn.Module):
-    def __init__(self, hidden_size: int, shared_linear: Optional[nn.Linear] = None, lora_rank: Optional[int] = None):
+    def __init__(
+        self,
+        hidden_size: int,
+        shared_linear: Optional[nn.Linear] = None,
+        lora_rank: Optional[int] = None,
+        mode: str = "full",
+    ):
         super().__init__()
+        if mode not in {"full", "single", "shift_only"}:
+            raise ValueError("AdaLN mode must be one of: full, single, shift_only")
         self.hidden_size = hidden_size
         self.shared_linear = shared_linear
         self.lora_rank = lora_rank
+        self.mode = mode
+        self.output_features = 2 * hidden_size if mode == "shift_only" else 6 * hidden_size
         self.linear = None
         self.lora_down = None
         self.lora_up = None
+        self.offset = None
 
         if shared_linear is None:
-            self.linear = nn.Linear(hidden_size, 6 * hidden_size, bias=True)
+            self.linear = nn.Linear(hidden_size, self.output_features, bias=True)
         else:
-            if lora_rank is None or int(lora_rank) <= 0:
-                raise ValueError("AdaLN-LoRA requires a positive lora_rank")
-            self.lora_down = nn.Linear(hidden_size, int(lora_rank), bias=False)
-            self.lora_up = nn.Linear(int(lora_rank), 6 * hidden_size, bias=False)
+            if shared_linear.out_features != self.output_features:
+                raise ValueError("shared AdaLN projection has incompatible output size")
+            if mode == "single":
+                self.offset = nn.Parameter(torch.zeros(self.output_features))
+            else:
+                if lora_rank is None or int(lora_rank) <= 0:
+                    raise ValueError("AdaLN-LoRA requires a positive lora_rank")
+                self.lora_down = nn.Linear(hidden_size, int(lora_rank), bias=False)
+                self.lora_up = nn.Linear(int(lora_rank), self.output_features, bias=False)
 
     def zero_init(self) -> None:
         if self.linear is not None:
@@ -328,12 +362,17 @@ class AdaLNModulation(nn.Module):
             nn.init.constant_(self.linear.bias, 0)
         if self.lora_up is not None:
             nn.init.constant_(self.lora_up.weight, 0)
+        if self.offset is not None:
+            nn.init.constant_(self.offset, 0)
 
     def forward(self, c: torch.Tensor) -> torch.Tensor:
         hidden = F.silu(c)
         if self.linear is not None:
             return self.linear(hidden)
-        return self.shared_linear(hidden) + self.lora_up(self.lora_down(hidden))
+        out = self.shared_linear(hidden)
+        if self.offset is not None:
+            return out + self.offset.view(1, -1)
+        return out + self.lora_up(self.lora_down(hidden))
 
 
 class FinalLayer(nn.Module):
@@ -368,8 +407,10 @@ class JiTBlock(nn.Module):
         attention_kwargs=None,
         adaln_shared_linear: Optional[nn.Linear] = None,
         adaln_lora_rank: Optional[int] = None,
+        adaln_mode: str = "full",
     ):
         super().__init__()
+        self.adaln_mode = adaln_mode
         self.norm1 = RMSNorm(hidden_size, eps=1e-6)
         self.attn = Attention(
             hidden_size,
@@ -388,18 +429,45 @@ class JiTBlock(nn.Module):
             hidden_size,
             shared_linear=adaln_shared_linear,
             lora_rank=adaln_lora_rank,
+            mode=adaln_mode,
         )
 
+    def _adaln_terms(self, c: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+        if self.adaln_mode == "shift_only":
+            shift_msa, shift_mlp = self.adaLN_modulation(c).chunk(2, dim=-1)
+            zeros = torch.zeros_like(shift_msa)
+            ones = torch.ones_like(shift_msa)
+            return shift_msa, zeros, ones, shift_mlp, zeros, ones
+        return self.adaLN_modulation(c).chunk(6, dim=-1)
+
     @maybe_compile
-    def forward(self, x, c, t_emb, feat_rope=None, distance_matrix=None):
-        shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self.adaLN_modulation(c).chunk(6, dim=-1)
+    def forward(
+        self,
+        x,
+        c,
+        t_emb,
+        y_emb=None,
+        y_labels=None,
+        feat_rope=None,
+        distance_matrix=None,
+    ):
+        shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp = self._adaln_terms(c)
+        attn_cond = c if getattr(self.attn, "time_dependent_qkv", False) else t_emb
         x = x + gate_msa.unsqueeze(1) * self.attn(
             modulate(self.norm1(x), shift_msa, scale_msa),
             rope=feat_rope,
-            t_emb=t_emb,
+            t_emb=attn_cond,
             distance_matrix=distance_matrix,
         )
-        x = x + gate_mlp.unsqueeze(1) * self.mlp(modulate(self.norm2(x), shift_mlp, scale_mlp), c)
+        mlp_kwargs = {}
+        if getattr(self.mlp, "uses_class_condition", False):
+            mlp_kwargs["class_cond"] = y_emb
+            mlp_kwargs["class_labels"] = y_labels
+        x = x + gate_mlp.unsqueeze(1) * self.mlp(
+            modulate(self.norm2(x), shift_mlp, scale_mlp),
+            c,
+            **mlp_kwargs,
+        )
         return x
 
 
@@ -442,13 +510,29 @@ class JiT(nn.Module):
         topology_kwargs = dict(topology_kwargs or {})
         patch_kwargs = dict(patch_kwargs or {})
         attention_kwargs = dict(attention_kwargs or {})
+        ffn_kwargs = dict(ffn_kwargs or {})
 
         self.use_dense_input_shortcuts = bool(topology_kwargs.get("dense_input_shortcuts", False))
         self.use_long_shortcuts = bool(topology_kwargs.get("long_shortcuts", False))
+        self.adaln_mode = str(topology_kwargs.get("adaln_mode", "full")).lower()
+        if self.adaln_mode == "lora":
+            self.adaln_mode = "full"
+            topology_kwargs.setdefault("adaln_lora_rank", "auto")
+        if bool(topology_kwargs.get("adaln_single", False)):
+            self.adaln_mode = "single"
+        if self.adaln_mode not in {"full", "single", "shift_only"}:
+            raise ValueError("topology_kwargs.adaln_mode must be one of: full, lora, single, shift_only")
+
         adaln_lora_rank = topology_kwargs.get("adaln_lora_rank")
+        if adaln_lora_rank == "auto":
+            adaln_lora_rank = max(1, hidden_size // 16)
         self.adaln_lora_rank = None if adaln_lora_rank is None else int(adaln_lora_rank)
         if self.adaln_lora_rank is not None and self.adaln_lora_rank <= 0:
             raise ValueError("adaln_lora_rank must be positive")
+        if self.adaln_mode == "single" and self.adaln_lora_rank is not None:
+            raise ValueError("AdaLN-Single and AdaLN-LoRA are mutually exclusive")
+        if self.adaln_mode == "shift_only" and self.adaln_lora_rank is not None:
+            raise ValueError("shift_only AdaLN does not support adaln_lora_rank")
 
         # time and class embed
         self.t_embedder = TimestepEmbedder(hidden_size)
@@ -469,6 +553,8 @@ class JiT(nn.Module):
         # use fixed sin-cos embedding
         num_patches = self.x_embedder.num_patches
         self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, hidden_size), requires_grad=False)
+        ffn_kwargs.setdefault("num_spatial_tokens", num_patches)
+        ffn_kwargs.setdefault("null_class_id", num_classes)
 
         # in-context cls token
         if self.in_context_len > 0:
@@ -497,7 +583,7 @@ class JiT(nn.Module):
         )
 
         self.shared_adaln_linear = None
-        if self.adaln_lora_rank is not None:
+        if self.adaln_lora_rank is not None or self.adaln_mode == "single":
             self.shared_adaln_linear = nn.Linear(hidden_size, 6 * hidden_size, bias=True)
 
         # transformer
@@ -514,6 +600,7 @@ class JiT(nn.Module):
                     attention_kwargs=attention_kwargs,
                     adaln_shared_linear=self.shared_adaln_linear,
                     adaln_lora_rank=self.adaln_lora_rank,
+                    adaln_mode=self.adaln_mode,
                 )
                 for i in range(depth)
             ]
@@ -572,6 +659,8 @@ class JiT(nn.Module):
         for block in self.blocks:
             block.adaLN_modulation.zero_init()
             block.attn.reset_design_parameters()
+            if hasattr(block.mlp, "reset_design_parameters"):
+                block.mlp.reset_design_parameters()
 
         if self.dense_input_projs is not None:
             for proj in self.dense_input_projs:
@@ -640,7 +729,15 @@ class JiT(nn.Module):
                     x = self._merge_shortcut(x, skip, self.long_shortcut_projs[str(i)])
 
             rope = self.feat_rope if x.shape[1] == self.pos_embed.shape[1] else self.feat_rope_incontext
-            x = block(x, c, t_emb, feat_rope=rope, distance_matrix=self._distance_for_tokens(x.shape[1]))
+            x = block(
+                x,
+                c,
+                t_emb,
+                y_emb=y_emb,
+                y_labels=y,
+                feat_rope=rope,
+                distance_matrix=self._distance_for_tokens(x.shape[1]),
+            )
             if i < self.encoder_skip_depth:
                 skip_features.append(x)
 

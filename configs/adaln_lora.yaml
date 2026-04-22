@@ -1,5 +1,8 @@
+# Scheme B: AdaLN-LoRA + Depth Reinvestment (FiTv2 recipe)
+# Shared AdaLN + per-block LoRA (rank=d/16=48) frees ~36M params;
+# depth 12→14 reinvests the budget, keeping total params roughly equal.
 train:
-  exp_name: "swiglu"
+  exp_name: "adaln_lora_deep"
   seed: 42
 
   epochs: 80
@@ -34,9 +37,12 @@ data:
 
 model:
   name: "JiT-B/16"
+  depth: 14
   ffn_type: "swiglu"
   attn_dropout: 0.0
   proj_dropout: 0.0
+  topology_kwargs:
+    adaln_lora_rank: "auto"
 
 diffusion:
   P_mean: -0.8
@@ -64,5 +70,4 @@ checkpointing:
 
 logging:
   project: "jit-training"
-  run_name: "swiglu"
-  # entity: "your-wandb-username"   # optional: wandb 用户名或 team 名，不填则用默认
+  run_name: "adaln_lora_deep"
