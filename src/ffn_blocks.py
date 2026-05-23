@@ -1624,7 +1624,7 @@ class DeepSeekMoEFFN(BaseFFN):
         del cond
         B, N, C = x.shape
         T = B * N
-        x_flat = x.view(T, C)
+        x_flat = x.reshape(T, C)
 
         # Router: add EMA bias for soft load balancing
         logits = self.router(x_flat) + self.balance_bias  # (T, E_r)
@@ -1655,7 +1655,7 @@ class DeepSeekMoEFFN(BaseFFN):
 
         # Shared experts always run on the full token sequence
         shared_out = sum(exp(x_flat) for exp in self.shared_experts) if self.shared_experts else 0
-        out = (shared_out + routed_out).view(B, N, C)
+        out = (shared_out + routed_out).reshape(B, N, C)
         return self._maybe_return(out, self._aux(x, out), return_aux)
 
 
