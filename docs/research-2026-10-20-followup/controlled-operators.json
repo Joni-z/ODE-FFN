@@ -1,0 +1,1930 @@
+{
+  "status": "complete",
+  "device": "cpu",
+  "new_training": false,
+  "records": [
+    {
+      "family": "fixed_eigenvalues",
+      "parameter": 0.0,
+      "matrix": [
+        [
+          -0.25,
+          0.0
+        ],
+        [
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 0.25,
+      "mu": -0.25,
+      "stable_rank": 2.0,
+      "nonnormality": 0.0,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 0.95,
+          "relative_operator_error": 0.0012924584427773326
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 0.9512499999999999,
+          "relative_operator_error": 2.1630427692669215e-05
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 0.9512294270833332,
+          "relative_operator_error": 2.715032832293348e-09
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 0.951229424500714,
+          "relative_operator_error": 1.1671453763195937e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 0.9512294245007139,
+          "relative_operator_error": 2.3342907526391874e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 0.85,
+          "relative_operator_error": 0.012440893680959627
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 0.86125,
+          "relative_operator_error": 0.0006297415497335338
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 0.86070859375,
+          "relative_operator_error": 7.172292564393666e-07
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 0.8607079764251622,
+          "relative_operator_error": 1.2099216291962304e-13
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 0.8607079764250579,
+          "relative_operator_error": 1.2898951270748725e-16
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 0.75,
+          "relative_operator_error": 0.03698093748419376
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 0.78125,
+          "relative_operator_error": 0.0031448567872981643
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 0.77880859375,
+          "relative_operator_error": 1.0029109837857493e-05
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 0.7788007830816601,
+          "relative_operator_error": 1.3168132783101257e-11
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 0.7788007830714047,
+          "relative_operator_error": 1.4255545818106414e-16
+        }
+      ]
+    },
+    {
+      "family": "rescaled_norm_one",
+      "parameter": 0.0,
+      "matrix": [
+        [
+          -1.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0
+        ]
+      ],
+      "spectral_radius": 1.0,
+      "spectral_norm": 1.0,
+      "mu": -1.0,
+      "stable_rank": 2.0,
+      "nonnormality": 0.0,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 0.8,
+          "relative_operator_error": 0.022877793471864298
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 0.8200000000000001,
+          "relative_operator_error": 0.0015502616913391143
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 0.8187333333333334,
+          "relative_operator_error": 3.1515310029342365e-06
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 0.8187307530793652,
+          "relative_operator_error": 1.6893415068119246e-12
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 0.8187307530779818,
+          "relative_operator_error": 2.7120589289001843e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 0.4,
+          "relative_operator_error": 0.2711524798437965
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 0.5800000000000001,
+          "relative_operator_error": 0.056828904226495204
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 0.5494,
+          "relative_operator_error": 0.0010720689345455063
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 0.5488116622857143,
+          "relative_operator_error": 4.772436678820937e-08
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 0.5488116360940265,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 0.0,
+          "relative_operator_error": 1.0
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 0.5,
+          "relative_operator_error": 0.35914091422952255
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 0.37500000000000006,
+          "relative_operator_error": 0.01935568567214208
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 0.3678819444444445,
+          "relative_operator_error": 6.804601513453064e-06
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 0.36787944117144233,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "fixed_eigenvalues",
+      "parameter": 0.25,
+      "matrix": [
+        [
+          -0.25,
+          0.25
+        ],
+        [
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 0.4045084971874737,
+      "mu": -0.125,
+      "stable_rank": 1.1458980337503155,
+      "nonnormality": 0.47140452079103173,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 0.9753288904374107,
+          "relative_operator_error": 0.0030254706279038536
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 0.9752964386986059,
+          "relative_operator_error": 6.943707296491095e-05
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 0.9753073688510134,
+          "relative_operator_error": 1.372883660611872e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 0.975307372876148,
+          "relative_operator_error": 1.4142586388700484e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 0.9753073728761479,
+          "relative_operator_error": 2.3125135885318346e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 0.9283024082938005,
+          "relative_operator_error": 0.027387506382544967
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 0.9273561747115985,
+          "relative_operator_error": 0.0019101367182639646
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 0.9276773862222971,
+          "relative_operator_error": 3.439655576557063e-06
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 0.9276784212136363,
+          "relative_operator_error": 1.0231989405464651e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 0.9276784212140363,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 0.8853453162872774,
+          "relative_operator_error": 0.07659710333721771
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 0.8806048945008856,
+          "relative_operator_error": 0.009016354864007592
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 0.8821976583584678,
+          "relative_operator_error": 4.5627388929384326e-05
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 0.8822116788046713,
+          "relative_operator_error": 1.0561578903006069e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 0.8822116788462268,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "rescaled_norm_one",
+      "parameter": 0.25,
+      "matrix": [
+        [
+          -0.6180339887498948,
+          0.6180339887498948
+        ],
+        [
+          0.0,
+          -0.6180339887498948
+        ]
+      ],
+      "spectral_radius": 0.6180339887498948,
+      "spectral_norm": 1.0,
+      "mu": -0.30901699437494745,
+      "stable_rank": 1.1458980337503153,
+      "nonnormality": 0.4714045207910317,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 0.9403730916498698,
+          "relative_operator_error": 0.01856731634300076
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 0.9398543451707133,
+          "relative_operator_error": 0.0010635287916491046
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 0.9400303768795926,
+          "relative_operator_error": 1.296433360664877e-06
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 0.9400307644983757,
+          "relative_operator_error": 1.773904736708577e-13
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 0.9400307644984451,
+          "relative_operator_error": 1.6064530300103942e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 0.8413400088477958,
+          "relative_operator_error": 0.17017722952218697
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 0.82427192387507,
+          "relative_operator_error": 0.03015494355501542
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 0.8297881929367644,
+          "relative_operator_error": 0.0003403622296382326
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 0.8298947450053978,
+          "relative_operator_error": 3.851513938207891e-09
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 0.8298947465256354,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 0.8003310859323154,
+          "relative_operator_error": 0.4851157742915153
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 0.7030148418027277,
+          "relative_operator_error": 0.14745716331472206
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 0.7292046547379739,
+          "relative_operator_error": 0.004748780880807078
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 0.7307124585905912,
+          "relative_operator_error": 4.228146662003086e-07
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 0.730712623623929,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "fixed_eigenvalues",
+      "parameter": 0.5,
+      "matrix": [
+        [
+          -0.25,
+          0.5
+        ],
+        [
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 0.6035533905932737,
+      "mu": 0.0,
+      "stable_rank": 1.0294372515228594,
+      "nonnormality": 0.9428090415820635,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.0013148795220221,
+          "relative_operator_error": 0.005169553265544584
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 0.9999352012079352,
+          "relative_operator_error": 0.00012629717218262353
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 0.9999791793297875,
+          "relative_operator_error": 2.604009243166822e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 0.9999791902858739,
+          "relative_operator_error": 1.697583622367562e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 0.9999791902858738,
+          "relative_operator_error": 2.2909666002532665e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.0131338250816033,
+          "relative_operator_error": 0.044396420058129035
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 0.998136441059068,
+          "relative_operator_error": 0.0033032217622474824
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 0.9994403586283611,
+          "relative_operator_error": 6.207806598874742e-06
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 0.9994432752127692,
+          "relative_operator_error": 1.8823246470266418e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 0.9994432752137431,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.0405694150420948,
+          "relative_operator_error": 0.11794850129454315
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 0.9909350082614027,
+          "relative_operator_error": 0.014843112578883644
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 0.997429114046562,
+          "relative_operator_error": 7.845297496617336e-05
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 0.9974696681427162,
+          "relative_operator_error": 1.85131399624475e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 0.9974696682471381,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "rescaled_norm_one",
+      "parameter": 0.5,
+      "matrix": [
+        [
+          -0.4142135623730951,
+          0.8284271247461902
+        ],
+        [
+          0.0,
+          -0.4142135623730951
+        ]
+      ],
+      "spectral_radius": 0.4142135623730951,
+      "spectral_norm": 1.0,
+      "mu": 0.0,
+      "stable_rank": 1.0294372515228596,
+      "nonnormality": 0.9428090415820634,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.0037338054226759,
+          "relative_operator_error": 0.013971842658305334
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 0.9996986762904295,
+          "relative_operator_error": 0.0005683779100483787
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 0.9999053976675346,
+          "relative_operator_error": 3.2305585979824993e-07
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 0.9999055388287609,
+          "relative_operator_error": 9.070344923742066e-15
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 0.9999055388287651,
+          "relative_operator_error": 2.7758197687493845e-17
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.0400306297351758,
+          "relative_operator_error": 0.11663781603619262
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 0.9910997188525567,
+          "relative_operator_error": 0.014588624918940198
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 0.997473925075303,
+          "relative_operator_error": 7.618886543823373e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 0.9975132578051261,
+          "relative_operator_error": 1.7556990192235028e-10
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 0.9975132579040392,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.1316524975873958,
+          "relative_operator_error": 0.30307469707303647
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 0.9567027501238872,
+          "relative_operator_error": 0.06469510273749092
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 0.98848642613774,
+          "relative_operator_error": 0.0009574321388965911
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 0.9890465762117375,
+          "relative_operator_error": 1.7259601063804377e-08
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 0.9890465870994289,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "fixed_eigenvalues",
+      "parameter": 1.0,
+      "matrix": [
+        [
+          -0.25,
+          1.0
+        ],
+        [
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 1.0590169943749475,
+      "mu": 0.25,
+      "stable_rank": 1.0031056200151418,
+      "nonnormality": 1.257078722109418,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.05524865872714,
+          "relative_operator_error": 0.009425096106807335
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.050981988585559,
+          "relative_operator_error": 0.00023555849748253886
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0510966570091826,
+          "relative_operator_error": 4.918275621932246e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0510966827883292,
+          "relative_operator_error": 2.327734704298665e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.0510966827883295,
+          "relative_operator_error": 2.2486575667191064e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.2013878188659974,
+          "relative_operator_error": 0.07341289399012135
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.1532074161907149,
+          "relative_operator_error": 0.005593095043506068
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.1568105850074408,
+          "relative_operator_error": 1.0647134436156343e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.1568179017793787,
+          "relative_operator_error": 3.2450177726130574e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.156817901781693,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.4013878188659974,
+          "relative_operator_error": 0.17846440314510612
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.241589038991378,
+          "relative_operator_error": 0.02301958401447684
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.2600210039166002,
+          "relative_operator_error": 0.00012327532726200902
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.2601261372173167,
+          "relative_operator_error": 2.92409342328836e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.2601261374745676,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "rescaled_norm_one",
+      "parameter": 1.0,
+      "matrix": [
+        [
+          -0.2360679774997897,
+          0.9442719099991588
+        ],
+        [
+          0.0,
+          -0.2360679774997897
+        ]
+      ],
+      "spectral_radius": 0.2360679774997897,
+      "spectral_norm": 1.0,
+      "mu": 0.23606797749978967,
+      "stable_rank": 1.0031056200151418,
+      "nonnormality": 1.2570787221094177,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.0518813293273097,
+          "relative_operator_error": 0.008438646275224056
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.0481033103459223,
+          "relative_operator_error": 0.0001990616026835758
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0481993744715385,
+          "relative_operator_error": 3.704565181287705e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.048199393728231,
+          "relative_operator_error": 1.9110078537654098e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.048199393728231,
+          "relative_operator_error": 2.6479289896274414e-17
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.1871781317949268,
+          "relative_operator_error": 0.06623065416820513
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.1449484307084776,
+          "relative_operator_error": 0.004758392385555087
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.1479501338753217,
+          "relative_operator_error": 8.06806810786586e-06
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.1479555656270375,
+          "relative_operator_error": 1.9536170620819206e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.1479555656284033,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.3701919081587504,
+          "relative_operator_error": 0.16197589797138146
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.2307550088725299,
+          "relative_operator_error": 0.019685721642339504
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.246103098488954,
+          "relative_operator_error": 9.383506516549759e-05
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.2461810015300834,
+          "relative_operator_error": 1.767483258009339e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.2461810016815682,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "fixed_eigenvalues",
+      "parameter": 2.0,
+      "matrix": [
+        [
+          -0.25,
+          2.0
+        ],
+        [
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 2.0307764064044154,
+      "mu": 0.75,
+      "stable_rank": 1.0002296738752294,
+      "nonnormality": 1.3713586059375469,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.1708243919473798,
+          "relative_operator_error": 0.016879409332288684
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.1600394644033818,
+          "relative_operator_error": 0.00042456562709610097
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.160313305239273,
+          "relative_operator_error": 8.893998312789478e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.1603133643866976,
+          "relative_operator_error": 3.160195918383867e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.1603133643866979,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.6404326023342406,
+          "relative_operator_error": 0.11040419926159177
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.5109253531108104,
+          "relative_operator_error": 0.008467710728503556
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.5201560695990048,
+          "relative_operator_error": 1.6173942730568434e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.5201741470582741,
+          "relative_operator_error": 4.936347120278857e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.520174147063866,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 2.25,
+          "relative_operator_error": 0.2362873928297051
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.8329827156977159,
+          "relative_operator_error": 0.03069130024609904
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.879932426126605,
+          "relative_operator_error": 0.00016492800082420074
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.8801914122564896,
+          "relative_operator_error": 3.9172486629032263e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.8801914128777741,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "rescaled_norm_one",
+      "parameter": 2.0,
+      "matrix": [
+        [
+          -0.12310562561766053,
+          0.9848450049412842
+        ],
+        [
+          0.0,
+          -0.12310562561766053
+        ]
+      ],
+      "spectral_radius": 0.12310562561766053,
+      "spectral_norm": 1.0,
+      "mu": 0.3693168768529816,
+      "stable_rank": 1.0002296738752294,
+      "nonnormality": 1.3713586059375467,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.078822782105564,
+          "relative_operator_error": 0.004467464597862002
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.076458998569729,
+          "relative_operator_error": 5.510261344833613e-05
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0764890450978826,
+          "relative_operator_error": 2.7896207927591736e-09
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0764890466707844,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.0764890466707844,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.2675758286707628,
+          "relative_operator_error": 0.03398581012424772
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.2419602364871014,
+          "relative_operator_error": 0.0012677778935555166
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.2429055738449442,
+          "relative_operator_error": 5.813992653605232e-07
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.242906019885712,
+          "relative_operator_error": 1.0361674076400358e-14
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.2429060198857202,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.4981181148518654,
+          "relative_operator_error": 0.08060618686534386
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.4160504129686795,
+          "relative_operator_error": 0.005051796582344892
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.4209332995982014,
+          "relative_operator_error": 6.476797139728698e-06
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.4209397226855582,
+          "relative_operator_error": 8.944114662374894e-13
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.4209397226864582,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "fixed_eigenvalues",
+      "parameter": 4.0,
+      "matrix": [
+        [
+          -0.25,
+          4.0
+        ],
+        [
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 4.015564437074637,
+      "mu": 1.75,
+      "stable_rank": 1.000015023587035,
+      "nonnormality": 1.4032506665407456,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.4307764064044148,
+          "relative_operator_error": 0.02779732321905828
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.4043420144170597,
+          "relative_operator_error": 0.0007003358006500406
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.4049970748281193,
+          "relative_operator_error": 1.4683272469019403e-07
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.404997213866696,
+          "relative_operator_error": 4.869406483464587e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.4049972138666964,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 2.6705441169852744,
+          "relative_operator_error": 0.14076511192566168
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 2.3549724950350104,
+          "relative_operator_error": 0.010814945994236092
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 2.3772753575737195,
+          "relative_operator_error": 2.0675048554544264e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 2.3773184104816862,
+          "relative_operator_error": 6.3119901911184e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 2.3773184104948855,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 4.136000936329383,
+          "relative_operator_error": 0.2684810906061977
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 3.191257390966851,
+          "relative_operator_error": 0.03493583675718482
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 3.298469475153869,
+          "relative_operator_error": 0.00018790160557613755
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 3.299053056630118,
+          "relative_operator_error": 4.4643759615052014e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 3.299053058020541,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "rescaled_norm_one",
+      "parameter": 4.0,
+      "matrix": [
+        [
+          -0.06225774829854965,
+          0.9961239727767944
+        ],
+        [
+          0.0,
+          -0.06225774829854965
+        ]
+      ],
+      "spectral_radius": 0.06225774829854965,
+      "spectral_norm": 1.0,
+      "mu": 0.43580423808984764,
+      "stable_rank": 1.0000150235870349,
+      "nonnormality": 1.4032506665407456,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.0921720032766917,
+          "relative_operator_error": 0.0022620842844617733
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.0908851023547559,
+          "relative_operator_error": 1.4104771014180405e-05
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0908932353554803,
+          "relative_operator_error": 1.8248652586944531e-10
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0908932354623895,
+          "relative_operator_error": 1.0177192309333314e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.0908932354623895,
+          "relative_operator_error": 1.3034707793234572e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.306800355378587,
+          "relative_operator_error": 0.01696091961892806
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.293052903105089,
+          "relative_operator_error": 0.0003185812426773059
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.293309489467495,
+          "relative_operator_error": 3.721868745832827e-08
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.2933095198443454,
+          "relative_operator_error": 2.777956183532023e-16
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.293309519844345,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.5598652981704155,
+          "relative_operator_error": 0.039654622083408954
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.5164051033733543,
+          "relative_operator_error": 0.001246516681946263
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.5177359295190231,
+          "relative_operator_error": 4.058469581084142e-07
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.5177363678354647,
+          "relative_operator_error": 3.6706162061811e-15
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.5177363678354692,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "matched_eigenvalues_and_norm",
+      "parameter": 0.0,
+      "matrix": [
+        [
+          -0.25,
+          0.9375,
+          0.0
+        ],
+        [
+          0.0,
+          -0.25,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 1.0,
+      "mu": 0.21875,
+      "stable_rank": 1.06640625,
+      "nonnormality": 1.165560628329474,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.048364614648236,
+          "relative_operator_error": 0.008909708669165038
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.0444727215311755,
+          "relative_operator_error": 0.00022242394973204794
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0445782217401387,
+          "relative_operator_error": 4.64124739236427e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0445782455969623,
+          "relative_operator_error": 1.917632577712774e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.044578245596962,
+          "relative_operator_error": 2.1256866669488774e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.176572044015448,
+          "relative_operator_error": 0.07022575660233003
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.1328759265081554,
+          "relative_operator_error": 0.005343911747959102
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.1361692339778642,
+          "relative_operator_error": 1.0166542448308096e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.1361759579059034,
+          "relative_operator_error": 3.0977668922344036e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.1361759579080375,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.3531857311303066,
+          "relative_operator_error": 0.17246436273831045
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.2082700077914574,
+          "relative_operator_error": 0.022218042496862822
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.225083657723865,
+          "relative_operator_error": 0.00011890835173389352
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.2251800429281143,
+          "relative_operator_error": 2.8198291055150037e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.2251800431646689,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "matched_eigenvalues_and_norm",
+      "parameter": 0.19634954084936207,
+      "matrix": [
+        [
+          -0.25,
+          0.9362986145809993,
+          0.0
+        ],
+        [
+          0.0,
+          -0.25,
+          0.18624137400060053
+        ],
+        [
+          0.0,
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 1.0,
+      "mu": 0.22732089443474254,
+      "stable_rank": 1.0988409450559302,
+      "nonnormality": 1.1066143933599406,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.049897378937963,
+          "relative_operator_error": 0.009522390881806495
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.0462897368048352,
+          "relative_operator_error": 0.00027768872478378746
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0463789725261896,
+          "relative_operator_error": 8.320559051026332e-08
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0463789891827493,
+          "relative_operator_error": 5.57353903749383e-16
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.0463789891827493,
+          "relative_operator_error": 2.1554442282264432e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.1799432353263735,
+          "relative_operator_error": 0.07435157764716789
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.1395314599497446,
+          "relative_operator_error": 0.006609861353366747
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.1422778227865493,
+          "relative_operator_error": 1.809932522884631e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.142282425807145,
+          "relative_operator_error": 9.666662785993864e-12
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.1422824258079667,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.3567061859133485,
+          "relative_operator_error": 0.18085965842594737
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.2231801281826709,
+          "relative_operator_error": 0.027217827758447898
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.2368602568338027,
+          "relative_operator_error": 0.00021012274809223855
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.2369241287233161,
+          "relative_operator_error": 8.751522277212417e-10
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.2369241288048867,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "matched_eigenvalues_and_norm",
+      "parameter": 0.39269908169872414,
+      "matrix": [
+        [
+          -0.25,
+          0.9315809054324106,
+          0.0
+        ],
+        [
+          0.0,
+          -0.25,
+          0.3858734454779122
+        ],
+        [
+          0.0,
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 0.9999999999999998,
+      "mu": 0.2541679529906838,
+      "stable_rank": 1.2042412992912657,
+      "nonnormality": 0.9439564404927637,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.054813930408915,
+          "relative_operator_error": 0.011338450651570303
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.0519917545469208,
+          "relative_operator_error": 0.00040817628922337415
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0520358944031676,
+          "relative_operator_error": 1.490611043158438e-07
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0520358908846863,
+          "relative_operator_error": 1.0792953978823365e-15
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.052035890884686,
+          "relative_operator_error": 2.252743543073589e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.1912852093971071,
+          "relative_operator_error": 0.086524140646262
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.1602703820287161,
+          "relative_operator_error": 0.009555234340978791
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.161508441640947,
+          "relative_operator_error": 3.202714540035552e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.161507080425304,
+          "relative_operator_error": 1.8821188185036856e-11
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.1615070804224175,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.369104193166959,
+          "relative_operator_error": 0.2054883189377383
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.268607627198978,
+          "relative_operator_error": 0.03864479635215951
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.2738484721396215,
+          "relative_operator_error": 0.00036674985092604207
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.2738213490540402,
+          "relative_operator_error": 1.6822583629983923e-09
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.2738213486990715,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "matched_eigenvalues_and_norm",
+      "parameter": 0.5890486225480862,
+      "matrix": [
+        [
+          -0.25,
+          0.9164335062897149,
+          0.0
+        ],
+        [
+          0.0,
+          -0.25,
+          0.6123412919762689
+        ],
+        [
+          0.0,
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 0.9999999999999997,
+      "mu": 0.30109260322327586,
+      "stable_rank": 1.402312229309628,
+      "nonnormality": 0.7349048397388173,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.0637806372152157,
+          "relative_operator_error": 0.01415960793397138
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.0620011808476375,
+          "relative_operator_error": 0.0005749908918098328
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0619836304393162,
+          "relative_operator_error": 2.239488476941223e-07
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0619835986415622,
+          "relative_operator_error": 1.644776541499827e-15
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.0619835986415618,
+          "relative_operator_error": 2.226686119777127e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.2140130890276895,
+          "relative_operator_error": 0.10500045532580227
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.1963185227259798,
+          "relative_operator_error": 0.013171803970829378
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.1954897782603178,
+          "relative_operator_error": 4.7179857070305796e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.195479945757483,
+          "relative_operator_error": 2.8327790790990535e-11
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.195479945749266,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.3967039791104572,
+          "relative_operator_error": 0.24194352839204294
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.3450555278548937,
+          "relative_operator_error": 0.05205166128732755
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.338957100777132,
+          "relative_operator_error": 0.0005289443048886962
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.3388008215721852,
+          "relative_operator_error": 2.4794879837575513e-09
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.3388008205890933,
+          "relative_operator_error": 0.0
+        }
+      ]
+    },
+    {
+      "family": "matched_eigenvalues_and_norm",
+      "parameter": 0.7853981633974483,
+      "matrix": [
+        [
+          -0.25,
+          0.8385254915624212,
+          0.0
+        ],
+        [
+          0.0,
+          -0.25,
+          0.8385254915624211
+        ],
+        [
+          0.0,
+          0.0,
+          -0.25
+        ]
+      ],
+      "spectral_radius": 0.25,
+      "spectral_norm": 0.9999999999999999,
+      "mu": 0.3429270612815712,
+      "stable_rank": 1.5937500000000004,
+      "nonnormality": 0.6239177481057773,
+      "evaluations": [
+        {
+          "step": 0.2,
+          "order": 1,
+          "operator_norm": 1.072113559072835,
+          "relative_operator_error": 0.016396541270193417
+        },
+        {
+          "step": 0.2,
+          "order": 2,
+          "operator_norm": 1.070976665498584,
+          "relative_operator_error": 0.0006957394081637386
+        },
+        {
+          "step": 0.2,
+          "order": 4,
+          "operator_norm": 1.0709178519245726,
+          "relative_operator_error": 2.761586933234387e-07
+        },
+        {
+          "step": 0.2,
+          "order": 8,
+          "operator_norm": 1.0709178005271918,
+          "relative_operator_error": 2.0445034554118664e-15
+        },
+        {
+          "step": 0.2,
+          "order": "exact",
+          "operator_norm": 1.070917800527191,
+          "relative_operator_error": 2.269415618457077e-16
+        },
+        {
+          "step": 0.6,
+          "order": 1,
+          "operator_norm": 1.2373620063086783,
+          "relative_operator_error": 0.11908109175200907
+        },
+        {
+          "step": 0.6,
+          "order": 2,
+          "operator_norm": 1.228439580326997,
+          "relative_operator_error": 0.01565834541919983
+        },
+        {
+          "step": 0.6,
+          "order": 4,
+          "operator_norm": 1.2261992286572378,
+          "relative_operator_error": 5.719539124714799e-05
+        },
+        {
+          "step": 0.6,
+          "order": 8,
+          "operator_norm": 1.2261833746818862,
+          "relative_operator_error": 3.4537022614530065e-11
+        },
+        {
+          "step": 0.6,
+          "order": "exact",
+          "operator_norm": 1.2261833746698194,
+          "relative_operator_error": 0.0
+        },
+        {
+          "step": 1.0,
+          "order": 1,
+          "operator_norm": 1.4290578852646807,
+          "relative_operator_error": 0.26857985140243645
+        },
+        {
+          "step": 1.0,
+          "order": 2,
+          "operator_norm": 1.4115074232427598,
+          "relative_operator_error": 0.060764824555550254
+        },
+        {
+          "step": 1.0,
+          "order": 4,
+          "operator_norm": 1.3975860181445419,
+          "relative_operator_error": 0.0006301037745971792
+        },
+        {
+          "step": 1.0,
+          "order": 8,
+          "operator_norm": 1.397336832180939,
+          "relative_operator_error": 2.97070670764349e-09
+        },
+        {
+          "step": 1.0,
+          "order": "exact",
+          "operator_norm": 1.3973368307382559,
+          "relative_operator_error": 0.0
+        }
+      ]
+    }
+  ],
+  "note": "The norm-rescaled 2D family changes eigenvalues. The 3D family controls both spectral radius and spectral norm; other matrix properties still co-vary. These are mathematical examples, not evidence of improved generative performance."
+}
