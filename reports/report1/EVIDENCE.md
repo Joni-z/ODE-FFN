@@ -2,6 +2,8 @@
 
 This is a research progress report, not a claim of a validated architectural improvement. The report is an English draft for author review. The assistant checked the evidence below on 2026-10-20; no human verification or submission approval is claimed.
 
+The revised document follows the user-supplied NeuroMotion Report 1's layout and organization: a conventional title/author block, compact numbered sections, explicit purposes and observations for experiments, inline figures, and a final hypothesis/test/expected-outcome list. Its sole named author and PDF author metadata are **Zhizhe Zhang**. The reference project's scientific content, coauthor, and advisor attribution were not transferred to ODE-FFN.
+
 ## Scope and sources
 
 The evidence revision is `84ff784`. Paths below are relative to the repository root. `evidence_manifest.json` records SHA256 hashes; `data/report_values.json` contains the numeric values used in the figures. No training was launched while preparing this report.
@@ -35,6 +37,10 @@ Run `python reports/report1/make_figures.py` from the repository with NumPy and 
 4. `04-order.pdf`: generation and exponential-action discrepancy across separately trained orders.
 5. `05-p-trajectories.pdf`: descriptive six-layer means over training, with distinct markers and colors.
 6. `06-ring8-case.pdf`: time-resolved oracle error, long-baseline endpoint variation, and solver resolution. The dotted line is a fixed ODE endpoint.
+7. `07-main-ablations.pdf`: the main report's three-panel view of cap effects (percent changes relative to free P), gate SW2 differences, and exponential-action discrepancy.
+8. `08-main-trajectories.pdf`: the main report's three-panel view of K2 singular-value/stable-rank trajectories and Ring8 time-binned oracle error.
+
+Figures 7 and 8 are included in the revised PDF as Figures 1 and 2; the six earlier full-size figures remain separate supporting artifacts. The compact P panels show K2 only; the text's reported endpoint ranges still summarize all four input-gated orders, as stated in the caption.
 
 All training results use seed 0. There are no independent-seed error bars, p-values, or claims of statistical significance. The illustrative test-point selection is deterministic and does not select examples based on model performance.
 

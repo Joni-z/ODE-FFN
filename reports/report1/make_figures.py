@@ -183,6 +183,66 @@ def main():
         ax.grid(alpha=.15)
     save(fig, "06-ring8-case")
 
+    # Compact panels for the main report, following the supplied NeuroMotion layout.
+    # Full-size diagnostics above remain available separately.
+    fig, axes = plt.subplots(1, 3, figsize=(7.0, 1.8), layout="constrained")
+    for j, d in enumerate(DS):
+        for k, marker in [(1, "o"), (2, "s")]:
+            a, b = old(d, "ode_original", k), old(d, "ode_spectral_cap", k)
+            dx = 100*(layer(b, "full_layer_jacobian_norm")/layer(a, "full_layer_jacobian_norm")-1)
+            dy = 100*(b["sampling"]["32"]["sw2"]/a["sampling"]["32"]["sw2"]-1)
+            axes[0].scatter(dx, dy, marker=marker, s=30, color=COLORS[j],
+                            label=NAMES[j] if k == 1 else None)
+            if d == DS[1] and k == 2:
+                axes[0].annotate("Ring8 K2", (dx,dy), xytext=(5,5),
+                                 textcoords="offset points", fontsize=7)
+    axes[0].axhline(0, color=".45", lw=.7)
+    axes[0].set(title="(a) E1: spectral cap", xlabel="Change in layer J norm (%)",
+                ylabel="Change in SW2 (%)")
+    axes[0].legend(fontsize=7, loc="lower left", framealpha=.8)
+    for k, color, offset in [(1, COLORS[0], -.18), (2, COLORS[1], .18)]:
+        vals = [sw(d, f"gate_k{k}_time")-sw(d, f"gate_k{k}_input") for d in DS]
+        axes[1].bar(np.arange(3)+offset, vals, width=.34, color=color, label=f"K={k}")
+    axes[1].set_xticks(range(3), ["Gauss.", "Ring8", "Moons"])
+    axes[1].axhline(0, color=".45", lw=.7)
+    axes[1].set(title="(b) E3: time gate", ylabel="SW2: time minus input")
+    axes[1].legend(fontsize=7, loc="lower right")
+    for j, d in enumerate(DS):
+        axes[2].semilogy(K, [layer(row(d, label), "relative_action_truncation_error")
+                             for label in LABELS], "-o", ms=3, color=COLORS[j],
+                         label=NAMES[j])
+    axes[2].set(title="(c) E4: Taylor order", xlabel="Order K",
+                ylabel="Relative exp-action error")
+    axes[2].set_xscale("log", base=2)
+    axes[2].set_xticks(K, K)
+    for ax in axes:
+        ax.grid(alpha=.15)
+    save(fig, "07-main-ablations")
+
+    fig, axes = plt.subplots(1, 3, figsize=(7.0, 1.8), layout="constrained")
+    for j, d in enumerate(DS):
+        records = curves[d, "gate_k2_input"]
+        for ax, key in zip(axes[:2], ["sigma_max", "stable_rank"]):
+            ax.plot([r["step"] for r in records],
+                    [mean(l["effective"][key] for l in r["ode_layers"]) for r in records],
+                    "-o", ms=2, color=COLORS[j], label=NAMES[j])
+            ax.set_xticks([0,2500,5000], ["0","2.5k","5k"])
+    axes[0].set(title="(a) E5: leading direction", xlabel="Training updates",
+                ylabel=r"Mean $\sigma_{\max}(P)$")
+    axes[1].set(title="(b) E5: concentration", xlabel="Training updates", ylabel="Mean stable rank")
+    axes[0].legend(fontsize=7, loc="lower right")
+    for kind, order, label, color in [("ffn",None,"SiLU",COLORS[0]),
+                                     ("swiglu",None,"SwiGLU",COLORS[1]),
+                                     ("ode_original",2,"ODE K2",COLORS[2])]:
+        bins = old(DS[1],kind,order)["time_bins"]
+        axes[2].plot([(b["t_left"]+b["t_right"])/2 for b in bins],
+                     [b["oracle_mse"] for b in bins], "-o", ms=2, color=color, label=label)
+    axes[2].set(title="(c) Case study: Ring8", xlabel="Flow time t", ylabel="Oracle velocity MSE")
+    axes[2].legend(fontsize=7, loc="upper left")
+    for ax in axes:
+        ax.grid(alpha=.15)
+    save(fig, "08-main-trajectories")
+
     # Machine-readable values and a LaTeX table share the same source as the figures.
     (HERE / "data/report_values.json").write_text(json.dumps(dict(
         endpoints=endpoints, spectral_cap=cap_records, gate=gates,
@@ -205,13 +265,15 @@ def main():
                *[OLD / "diagnostics" / f"{d}.json" for d in DS]]
     provenance = {
         "report": "Report 1", "evidence_revision": "84ff784",
+        "author": "Zhizhe Zhang",
+        "format_reference": "User-supplied NeuroMotion Report 1; layout and organization only.",
         "review_status": "Assistant checked against repository evidence; author review pending.",
         "training_seed": 0, "new_training_performed_for_report": False,
         "target_examples": "First 1,000 x1 rows of each actual torch v1 test split; no resampling.",
         "sources": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
     }
     (HERE / "evidence_manifest.json").write_text(json.dumps(provenance, indent=2)+"\n")
-    print("Generated six figures, comparison table, report values, and evidence hashes.")
+    print("Generated six detailed figures, two compact report figures, table, values, and evidence hashes.")
 
 
 if __name__ == "__main__":
