@@ -1,47 +1,54 @@
-# Fixed-checkpoint diagnostics: execution status
+# Follow-up stage: complete and audited
 
-The original submission was Slurm job **20405164**. It was cancelled while pending after a successful numerical GPU preflight on host 145. The standalone evaluation subsequently completed **66/66 cells**, with all workers and the runner exiting successfully. See the [migration record](migration-145.md) and [completion record](completion-145.json). Full metric interpretation awaits archive collection and a local artifact audit.
+The scientific analysis is complete. [Report 1](../../reports/report1/report1.pdf)
+and the [analysis bundle](analysis-report.md) incorporate the results.
 
-The details below describe the original Slurm submission and its monitor; that cancelled job is no longer the active execution route.
+| Stage | Completed evidence | Execution |
+|---|---|---|
+| Frozen order | 66 finite cells, 66 sample hashes, 18 native checks | 145, one GPU, 114.5 seconds |
+| Matrix controls | 17 matrices × 3 durations × 5 modes = 255 evaluations | CPU |
+| Ring8 solver check | 48 cells, 48 sample hashes; all corresponding Heun32 arrays reproduced exactly | 145, one GPU, 279.4 seconds |
 
-- Frozen evaluation source: commit `1dd6a86daed8521bea71c5faf3df12107cff7d07`.
-- Frozen runtime: `/scratch/zz5070/ODE_FFN/experiments/stage_20261020_frozen_order/runtime`.
-- Outputs: `/scratch/zz5070/ODE_FFN/runs/synthetic/stage_20261020_frozen_order`.
-- [Checkpoint and source manifest](checkpoint-manifest.json): 18 existing seed-0 checkpoints and 17 frozen files, verified before submission.
-- [Submission receipt](submission.json): job ID and detached local monitor process.
-- Expected evaluations: 60 ODE interventions and six unchanged SiLU/SwiGLU controls, plus native precision/reproduction checks. No new training.
+All training checkpoints use seed 0 and update 5,000. No new training was added.
+Source, data and checkpoint hashes were checked before and after GPU evaluation.
+The original torch Slurm job **20405164** was cancelled while pending with zero
+runtime before the standalone run. There is no pending duplicate experiment.
 
-## GPU use
+## Results
 
-The job requests one GPU, six CPU cores, and 24 GB of host memory, with a two-hour time limit. Its feature expression allows A100, L40S, H100, H200, or RTX6000; actual eligibility also depends on the account and partitions.
+Low-order exact substitutions worsen generation in all six K1/K2 target pairs.
+K8 is near-exponential on these evaluations, but Ring8 frozen K4/K8 substitutions
+still change SW2 by about 3%; the direction persists at 256 Heun steps.
+Controlled matrices show that eigenvalues and spectral norm do not determine
+finite-time gain. See the complete matrices and qualified interpretation in
+`analysis-report.md`, not selected best cells.
 
-The first GPU computation measures aggregate throughput for one and two simultaneous workers on the same card. Two workers are selected only if the measured gain is at least 10%. The comparison uses the expensive matrix-exponential component, so it is not a claim about end-to-end training throughput. The three datasets then share that allocation at the selected concurrency.
+## Resources and provenance
 
-`throughput.json` records both measurements and the decision. `monitoring/gpu_usage.csv` records utilization, memory, and power every 10 seconds. CPU-only matrix controls, figure generation, and report writing do not require the GPU allocation. The job exits after evaluation and integrity checks.
+One RTX 6000 Ada was used. The initial short concurrency benchmark selected one
+worker because two improved measured throughput by only 8%, below the predefined
+10% threshold. It is not a robust speed benchmark.
 
-## Inspect live status
+The frozen-order trace has 11 ten-second observations: mean utilization 57.4%,
+median 82%, range 0–89%, including startup and phase boundaries. The longer solver
+check has 28 observations: mean 83.9%, median 94%, range 0–94%; maximum sampled
+GPU memory was 832 MiB. These are sampled observations, not exact time integrals.
+Both GPU computations have finished; plotting and report work run locally on CPU.
 
-On torch:
+- `collection-audit.json`: local verification of the full first-stage archive.
+- `solver-check-audit.json`: local verification of all finer-resolution arrays.
+- `manifest-145.json`: relocated frozen manifest, with original hashes retained.
+- `gpu-usage-145.csv`, `solver-check-gpu-usage.csv`: full telemetry traces.
+- `migration-145.md`: original queue, migration and connection history.
+- `protocol.md`, `solver-check-protocol.md`: prespecified and post hoc scopes.
 
-```bash
-/scratch/zz5070/ODE_FFN/envs/synthetic/bin/python \
-  /scratch/zz5070/ODE_FFN/experiments/stage_20261020_frozen_order/runtime/scripts/monitor_diagnostics.py \
-  probe --job 20405164 \
-  --output /scratch/zz5070/ODE_FFN/runs/synthetic/stage_20261020_frozen_order
-```
-
-The detached monitor is running on the Mac mini, not the MBP or the GPU node. Its current status is written to:
+Raw output directories on 145:
 
 ```text
-/Users/mr.z/ODE-FFN-report-work/docs/research-2026-10-20-followup/monitoring-local/latest.json
+/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/stage_20261020_frozen_order_145
+/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/stage_20261020_solver_check_145
 ```
 
-It checks every 60 seconds, retries connection failures, and records a warning after 15 minutes of running without a new cell. A warning alone does not establish a hang. Monitoring requires that the local machine remain running and able to reach torch. The monitor does not resubmit jobs. The GPU-side telemetry runs independently inside the Slurm allocation.
-
-Completion requires all 66 finite cells, successful worker exits, intact saved samples and input hashes, and Slurm `COMPLETED` with exit code `0:0`. Read `summary.json` and the monitor together. Do not infer completion from a disappeared process or an empty queue.
-
-## CPU control completed
-
-[Controlled-operator results](controlled-operators.json) contain 255 evaluations across 17 matrices, three hidden durations, and five evaluation modes. In the three-dimensional chain family, the eigenvalues remain -0.25 and the largest singular value remains 1. At hidden duration 1, the exponential's largest singular value varies from approximately 1.225 to 1.397 as the chain geometry changes.
-
-This demonstrates that eigenvalues and the largest singular value alone do not determine finite-time amplification. It is an illustrative mathematical example, not evidence that a particular constraint improves flow matching. The matrix-exponential and fixed-checkpoint comparisons remain separate tests; see the [protocol](protocol.md) for their interpretation.
+Local full archives are outside the repository under
+`/Users/mr.z/ode-workspace-prep/frozen-order-145-results` and
+`/Users/mr.z/ode-workspace-prep/solver-check-145-results`.

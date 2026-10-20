@@ -1,59 +1,72 @@
 # Report 1: evidence map
 
-This is a research progress report, not a claim of a validated architectural improvement. The report is an English draft for author review. The assistant checked the evidence below on 2026-10-20; no human verification or submission approval is claimed.
+This is a progress-report draft, not a validated image-architecture claim.
+The assistant checked source artifacts and rendered pages on 20 October 2026;
+no human verification or submission approval is claimed. The only named author
+and PDF author metadata are **Zhizhe Zhang**. The NeuroMotion report supplied
+layout and organization only; its scientific content and other authors were not
+transferred.
 
-The revised document follows the user-supplied NeuroMotion Report 1's layout and organization: a conventional title/author block, compact numbered sections, explicit purposes and observations for experiments, inline figures, and a final hypothesis/test/expected-outcome list. Its sole named author and PDF author metadata are **Zhizhe Zhang**. The reference project's scientific content, coauthor, and advisor attribution were not transferred to ODE-FFN.
+Main text occupies pages 1–3. Page 4 contains references and a numeric comparison;
+pages 5–6 contain supporting visualizations. The final main-text section gives
+uncompleted hypotheses for the next two weeks. H1/H2 from the earlier report
+are now completed diagnostics, not still-future promises.
 
-## Scope and sources
+## Source binding
 
-The evidence revision is `84ff784`. Paths below are relative to the repository root. `evidence_manifest.json` records SHA256 hashes; `data/report_values.json` contains the numeric values used in the figures. No training was launched while preparing this report.
+`evidence_manifest.json` records source hashes. Earlier evidence was assembled at
+commit `84ff784`; frozen scientific code came from
+`1dd6a86daed8521bea71c5faf3df12107cff7d07`. The follow-up uses the relocated manifest,
+whose scientific input hashes match the original. Curated figures can be rebuilt
+without GPUs using the commands in README.md.
 
-| Report claim | Source and locator | Interpretation limit |
+| Claim / display | Source and locator | Bound on interpretation |
 |---|---|---|
-| Original ODELayer, two solves, gate range, and capped operator | `synthetic/models.py`: `OriginalODELayer`, `operator`, `OriginalODEFFN` | Hidden dynamics, not the Jacobian of the generative velocity field |
-| Taylor series and complete layer derivative | Direct algebra from `OriginalODELayer.forward`: differentiate each term with the gate evaluated once | Standard identities, not new theoretical results; for time gates, take the hidden derivative at fixed external time |
-| Target parameters | `synthetic/data.py`: `suite`; `synthetic/geometry.py`: `GeometricTarget`, `available_suite` | Chosen settings, not an exact paper benchmark reproduction |
-| Dataset split sizes and seed | `configs/synthetic/data_v1.json` | Generation seed is 20260923, distinct from training seed 0 |
-| Model widths, optimizer, seed, steps, sample sizes, and budgets | `docs/research-2026-10-20/protocol.md`, `experiment-manifest.json`, and `configs/synthetic/train_v1.json` | Approximately matched parameters; forward linear MACs are not GPU runtime |
-| 30 trajectories and 54 diagnostics | `docs/research-2026-10-20/stage-summary.json`: `progress`, `diagnostics`, `curves`; `completion-audit.json` | Includes baseline prefix technical reruns; do not count stages/checkpoints as independent replications |
-| SW2 implementation and fixed target reference | `synthetic/train.py`: `sliced_w2`, `fixed_eval_data`, `evaluate` | Finite-sample projected distance; target-versus-target values are not hard lower bounds |
-| Experiment 1: cap and Jacobian | `docs/research-2026-10-19/diagnostics/{dataset}.json`: `runs`, filter `ode_original` / `ode_spectral_cap` and `orders=1,2`; `sampling.32.sw2`; mean of `layers[*].full_layer_jacobian_norm.mean` | All six lower Jacobian norms, only three lower SW2 scores; separately trained models |
-| Experiment 2: fixed-update and MAC comparisons | Stage summary: labels `silu_5000`, `swiglu_5000`, `gate_k2_input` at step 5000; `swiglu_budget` at step 6572; `parameters`, `forward_macs`, `sampling.32.sw2` | Fixed endpoints, no best-checkpoint selection |
-| Endpoint instability | Stage summary: diagnostics for Gaussian `swiglu_5000` at 5000 versus `swiglu_budget` at 5036, and Ring8 `silu_5000` at 5000 versus `silu_budget` at 5024 | Correlated checkpoints; no significance claim |
-| Experiment 3: gate changes | Stage summary: `gate_k{1,2}_{input,time}`, step 5000; `sampling.32.sw2`, `layers[*].gate_correction_norm.mean`, `full_layer_jacobian_norm.mean` | Initial weights/count match, but gate inputs and optimization differ |
-| Ring8 case study | Earlier Ring8 diagnostics: `final_oracle_mse`, `time_bins[0,7].oracle_mse`, `sampling.{32,256}.sw2` for `ffn`, `swiglu`, `ode_original` K2 | Measured on interpolated held-out points, not generated trajectories; error timing is not a causal explanation |
-| Experiment 4: order and exponential action | Stage summary: labels `gate_k1_input`, `gate_k2_input`, `order_k4_input`, `order_k8_input`; `forward_macs`, `sampling.32.sw2`, mean `layers[*].relative_action_truncation_error.mean` | Each order uses its own trained operator; K8 is not exact exponentiation |
-| Experiment 5: learned P | Stage summary: `curves` for the four input-gated orders; mean `records[*].ode_layers[*].effective.{sigma_max,stable_rank}` | Six-layer averages, not uncertainty estimates; stable rank is not algebraic rank |
-| Image limitations | `docs/legacy-overview.md`, `docs/research-2026-10-20/stage-report.md`, synthetic implementation | No new ImageNet/FID result is claimed |
-| Historical manifest correction | `docs/research-2026-10-20/data-content-audit.json` and the accompanying stage report | Preserve the frozen annotation and separate correction; do not rewrite the historical record |
+| ODELayer, two layers, duration range, capped operator | `synthetic/models.py`: OriginalODELayer/OriginalODEFFN | Hidden dynamics; P is not the full generative Jacobian |
+| Taylor remainder and full gated Jacobian | Direct differentiation of the implemented finite polynomial; `docs/research-2026-10-20-followup/mathematical-notes.md` | Standard identities, not new theory or a performance theorem |
+| Targets and splits | `synthetic/data.py`, `synthetic/geometry.py`, `configs/synthetic/data_v1.json` | Chosen settings; generation seed 20260923 differs from training seed 0 |
+| Width, blocks, optimizer, endpoint and budgets | `docs/research-2026-10-20/protocol.md`, `experiment-manifest.json`, `configs/synthetic/train_v1.json` | MAC proxy excludes backward/nonlinear/optimizer costs |
+| SW2 and oracle protocol | `synthetic/train.py`: sliced_w2, fixed_eval_data, generated_samples | Finite-sample projected metric; Heun uses two network evaluations per step |
+| E1: baseline table | `docs/research-2026-10-20/stage-summary.json`: diagnostics labels silu_5000, swiglu_5000, gate_k2_input at 5000; swiglu_budget at 6572 | Single fixed endpoints, no best-checkpoint selection |
+| Endpoint sensitivity | Same summary: Ring8 silu_5000 at 5000 vs silu_budget at 5024 | Correlated checkpoints, not separate seeds |
+| E2: complete order matrix | `docs/research-2026-10-20-followup/frozen-order-summary.json`: all 66 rows | Frozen parameters; downstream gates recompute |
+| Native and precision controls | `collection-audit.json`, `native-145.json`, same-order rows in frozen summary | Maximum native/reference SW2 drift 4.47e-8; tolerance 5e-4 |
+| Low-order exact effects | `exact-effects.json`, `exact-effects-table.md`, all K1/K2 rows | Six target/checkpoint comparisons, not six independent seeds |
+| K4/K8 adaptation versus saturation | Ring8 rows order_k4_input at eval4/8 and order_k8_input at eval8/4; all K8 exact rows | Initial <=1% flag is descriptive, not an equivalence test |
+| Local fixed-input accuracy, Figure 4 | `probes-145.json`: six layers × 16 native probes, by evaluation order | Local averages; not global bounds or full-network interventions |
+| Endpoint examples, Figure 2 | `data/ring8-frozen-examples.csv`; full arrays identified by hashes in frozen summary | First 1,000 actual target/source indices; not selected visually |
+| Solver check, Figure 3 | `solver-check-summary.json`, `solver-check-audit.json`; 48 cells | Post hoc Ring8 check; finite resolutions, no convergence theorem |
+| Ring8 K4 oracle/SW2 mismatch | Frozen summary, order_k4_input eval4 vs exact | Error timing/propagation is not causally isolated |
+| E3: spectral cap, Figure 6a | `docs/research-2026-10-19/diagnostics/{dataset}.json`: free/cap at K1/K2; mean full_layer_jacobian_norm | Six comparisons; norm averaged over inputs/layers, not a global bound |
+| E3: time gate, Figure 6b | Stage summary: gate_k{1,2}_{input,time}; gate_correction_norm and full_layer_jacobian_norm | Retraining changes gate inputs and learned operators |
+| P trajectories, Figure 5 | Stage summary: curves for four input-gated orders; six-layer means of effective sigma_max/stable_rank | Figure shows K2; text ranges span all orders; stable rank is not algebraic rank |
+| Constructed operator family, Figure 5 | `controlled-operators.json`: matched_eigenvalues_and_norm; `scripts/controlled_operators.py` | Same eigenvalues and largest singular value, not all singular values; illustrative examples |
+| Additional K8 compute | Stage summary: forward_macs for order_k4_input vs order_k8_input | 63.7% forward-linear-MAC increase, not measured wall time |
+| Training / diagnostic counts | Stage completion audit: 30 trajectories, 54 diagnostics | Includes baseline-prefix technical runs; not independent replications |
+| Collection / resources | `collection-audit.json`, `solver-check-audit.json`, full GPU CSV traces | GPU samples include startup; short concurrency benchmark is not robust speed evidence |
 
-## Visualizations
+Follow-up filenames without a directory prefix are under
+`docs/research-2026-10-20-followup/`. The analysis bundle includes an exact table,
+claim candidates, a statistical appendix and a figure catalog. Raw archives,
+checkpoints, datasets and complete generated arrays remain outside Git.
 
-Run `python reports/report1/make_figures.py` from the repository with NumPy and Matplotlib installed.
+## Literature
 
-1. `01-data-and-comparison.pdf`: actual target examples plus fixed-update and budget comparison. The CSV contains the first 1,000 `x1` rows from each actual torch test archive, exported without resampling. These are target points, not model-generated examples.
-2. `02-spectral-cap.pdf`: arrows connect independently trained free/capped models with the same order. Each dataset has its own axes.
-3. `03-gate-intervention.pdf`: time-minus-input differences, for both generation and full-layer sensitivity.
-4. `04-order.pdf`: generation and exponential-action discrepancy across separately trained orders.
-5. `05-p-trajectories.pdf`: descriptive six-layer means over training, with distinct markers and colors.
-6. `06-ring8-case.pdf`: time-resolved oracle error, long-baseline endpoint variation, and solver resolution. The dotted line is a fixed ODE endpoint.
-7. `07-main-ablations.pdf`: the main report's three-panel view of cap effects (percent changes relative to free P), gate SW2 differences, and exponential-action discrepancy.
-8. `08-main-trajectories.pdf`: the main report's three-panel view of K2 singular-value/stable-rank trajectories and Ring8 time-binned oracle error.
+The primary records were opened on 20 October 2026 during report preparation to
+verify titles, authors, identifiers and the limited background statements:
 
-Figures 7 and 8 are included in the revised PDF as Figures 1 and 2; the six earlier full-size figures remain separate supporting artifacts. The compact P panels show K2 only; the text's reported endpoint ranges still summarize all four input-gated orders, as stated in the caption.
+- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747): velocity-field regression.
+- [Back to Basics: Let Denoising Generative Models Denoise](https://arxiv.org/abs/2511.13720): JiT and clean-image prediction.
+- [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202): gated FFN variants.
 
-All training results use seed 0. There are no independent-seed error bars, p-values, or claims of statistical significance. The illustrative test-point selection is deterministic and does not select examples based on model performance.
+No external benchmark results are reproduced or claimed here. The main report
+explicitly limits conclusions to seed-0 synthetic velocity networks without attention.
 
-## Literature checks
+## Final verification
 
-The following primary records were opened on 2026-10-20 to verify titles, authors, identifiers, and the limited background claims cited in the report:
-
-- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747): simulation-free regression of velocity fields.
-- [Back to Basics: Let Denoising Generative Models Denoise](https://arxiv.org/abs/2511.13720): JiT and direct clean-image prediction.
-- [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202): gated feed-forward variants.
-
-The report does not reproduce results from those papers or claim that the synthetic protocol exactly follows any of them.
-
-## Proposed work
-
-H1, H2, and H3 are plans for discussion, not completed experiments. H1 is the first priority; H2 separates operator scale and geometry; H3 is conditional on the chosen direction. New training, if selected, should retain seed 0 and the baselines, and fix an endpoint policy before looking at new outcomes. This report does not authorize itself to launch those experiments.
+Verify all hashes in `evidence_manifest.json`, compile LaTeX, inspect extracted
+text for author and page boundaries, and render every page. Figure review includes
+axis labels, log-axis minor tick suppression, common scatter limits, and correct
+separation of trained order from evaluation order. Numerical values are generated
+from source JSON; intervals and p-values are deliberately absent because there
+are no independent training-seed replications.

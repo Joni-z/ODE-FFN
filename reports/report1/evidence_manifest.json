@@ -1,12 +1,19 @@
 {
   "report": "Report 1",
-  "evidence_revision": "84ff784",
+  "evidence_revision": "2026-10-20: training, frozen-order, controlled matrices, solver check",
+  "earlier_training_evidence_commit": "84ff784",
+  "frozen_scientific_source_commit": "1dd6a86daed8521bea71c5faf3df12107cff7d07",
   "author": "Zhizhe Zhang",
   "format_reference": "User-supplied NeuroMotion Report 1; layout and organization only.",
   "review_status": "Assistant checked against repository evidence; author review pending.",
   "training_seed": 0,
   "new_training_performed_for_report": false,
   "target_examples": "First 1,000 x1 rows of each actual torch v1 test split; no resampling.",
+  "generated_examples": "First 1,000 Ring8 source indices at Heun32; sample hashes in frozen-order-summary.json.",
+  "additional_evaluations": {
+    "frozen_order": 66,
+    "solver_resolution": 48
+  },
   "sources": {
     "docs/research-2026-10-20/stage-summary.json": "e5063a7d25a0a87a8bc51c85f92295ffd426f1e1fad6e61312de081ad210bdb5",
     "docs/research-2026-10-20/completion-audit.json": "c55b7bc6be1d40779ad60c19e123f8bc0dfc30a85f24916f99a62997703ae219",
@@ -21,6 +28,22 @@
     "reports/report1/data/target_examples.csv": "6bd56e923d15c393a99a31c74aedcad448b797e304583c298868ca5f5b98ee47",
     "docs/research-2026-10-19/diagnostics/gaussian_aniso_2d.json": "65e0f3492168e9f1f2834dc75f02ffe510fcfb4e5946334429970c0337f7b4f8",
     "docs/research-2026-10-19/diagnostics/gmm_ring8_2d.json": "461589740ff9c7e13d1ed695f5d57b026d5d9b37a8df1c81e3164c2ce79cffd6",
-    "docs/research-2026-10-19/diagnostics/two_moons_2d.json": "570b80b6823f62d795558adfa068f7e6767117802c145ceb13c3442ddd756f59"
+    "docs/research-2026-10-19/diagnostics/two_moons_2d.json": "570b80b6823f62d795558adfa068f7e6767117802c145ceb13c3442ddd756f59",
+    "docs/research-2026-10-20-followup/protocol.md": "e261716b3057f053ada98dc30ac86e5dec6c655292e4aeacbb20b61027d14332",
+    "docs/research-2026-10-20-followup/solver-check-protocol.md": "adeee5291705e54fc75b030a5b47f03a0429c5261a8e50287c2e72a7c0d5ba83",
+    "docs/research-2026-10-20-followup/frozen-order-summary.json": "07c170c4cf6e54f9b28ee3b992910ee0f71ddc5009a93cf80e027f4678750dd2",
+    "docs/research-2026-10-20-followup/manifest-145.json": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+    "docs/research-2026-10-20-followup/collection-audit.json": "7263bc0fd4edbca1d08345628d58665a212191940e3a5783ddbd7557e58624d3",
+    "docs/research-2026-10-20-followup/probes-145.json": "6aadb508ffee9b67b715acafa3ceff350f97a66fbefb0c63c852f1278b40297d",
+    "docs/research-2026-10-20-followup/controlled-operators.json": "4a4f33b494f01dff50d10f85d682a45f3c8299287ef7c7dd34bf6bc8c0c3f058",
+    "docs/research-2026-10-20-followup/solver-check-summary.json": "5fe8481a503b7d4d2bc5150b4c2ec8ff2f7cae7a43580f17173875c6d6db4ee4",
+    "docs/research-2026-10-20-followup/solver-check-audit.json": "4f701e8076873713d09cfe1b94dec86450e8cb20bf793f74da76f73caa14352e",
+    "docs/research-2026-10-20-followup/stats-appendix.md": "dbe6fe48623da860dfac396cd6f022fde6d57fe30942a397b0e0685eae472ed5",
+    "docs/research-2026-10-20-followup/mathematical-notes.md": "9d8ea1f85c7d82559836ec20076a4a594701677f210284d02688f9fe4f2fa2c0",
+    "reports/report1/data/ring8-frozen-examples.csv": "afacf20d6e284ebb0581f310217ff8cbabc2c033d68748fdb14c9f6249106749",
+    "reports/report1/report1.tex": "850986554ae8b6135bdcb2fe602d183f204c4a9c7d4df5b2cc85d8556f60ad8d",
+    "scripts/check_frozen_solver.py": "3ebf38ff70f08e56f31e7bcb0f650ac8ccb05e63734882495f963c8742d3616e",
+    "scripts/analyze_frozen_order.py": "a9a86630ced686d4af4f054345c287f5b577aef97837d7dbb80d166724cff797",
+    "synthetic/interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501"
   }
 }

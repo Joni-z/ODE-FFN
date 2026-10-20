@@ -1,189 +1,200 @@
 \documentclass[11pt]{article}
 \usepackage[margin=0.8in]{geometry}
 \usepackage{amsmath,amssymb,booktabs,graphicx}
-\usepackage{enumitem,microtype,needspace}
+\usepackage{enumitem,microtype,needspace,float}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={ODE-FFN: Progress Report 1},pdfauthor={Zhizhe Zhang}}
 \setlist{nosep,leftmargin=*}
-\setlength{\parskip}{1pt}
+\setlength{\parskip}{2pt}
 \makeatletter
 \renewcommand\section{\@startsection{section}{1}{\z@}%
-  {5pt\@plus2pt\@minus2pt}{1pt}{\normalfont\large\bfseries}}
+ {6pt\@plus2pt\@minus2pt}{2pt}{\normalfont\large\bfseries}}
 \makeatother
 \newcommand{\sw}{\mathrm{SW}_2}
 \newcommand{\norm}[1]{\lVert#1\rVert}
-
 \title{\vspace{-1.6em}\textbf{ODE-FFN: Progress Report 1}\\[3pt]
 \large Independent Study --- Deep Learning}
 \author{Zhizhe Zhang\\NYU Shanghai}
 \date{20 October 2026}
-
 \begin{document}
 \maketitle
-\vspace{-3em}
+\vspace{-2.8em}
 
-\section{The project, in short}
+\section{Project and main progress}
+This project asks whether a dynamical feed-forward block better supports flow
+matching, which learns a velocity field transporting noise to data~\cite{lipman}.
+The intended application is the FFN in JiT image generators~\cite{jit}; we first
+study the original ODELayer on interpretable unconditional synthetic problems.
 
-This project asks whether a feed-forward block built from a learned dynamical operator is
-better suited to flow matching, which learns a velocity field transporting noise to
-data~\cite{lipman}. The intended application is to replace the FFN in a JiT image
-generator~\cite{jit}. Before returning to images, we use small, unconditional synthetic
-problems to test what the original ODELayer actually contributes.
+Evidence now includes 30 training trajectories, 54 checkpoint diagnostics, earlier
+spectral-cap controls, \textbf{66 frozen-checkpoint evaluations}, and \textbf{48
+solver-resolution checks}. A better exponential approximation is not necessarily a
+better learned block: exact substitution worsens generation in all six low-order
+checkpoint--target pairs. K8 is nearly exponential, while similar separately
+trained K4/K8 scores conceal functional differences. Spectral caps lower measured
+sensitivity without consistently improving samples.
 
-The main progress is a controlled comparison of constraints on $P$, gating, Taylor order,
-and training budget, with SiLU and SwiGLU~\cite{swiglu} baselines. The latest stage completed
-\textbf{30 training trajectories and 54 checkpoint diagnostics}; earlier runs supply the
-spectral-cap comparison. The main result is mixed: ODE $K=2$ beats SwiGLU at equal updates
-on all three targets, but only on Moons after matching a compute proxy. A smaller internal
-Jacobian and a more accurate exponential approximation do not consistently improve generation.
-
-\section{Checking the layer before extending it}
-
-The professor's original layer uses a learned matrix $P$ and a scalar gate $s(h)$:
+\section{What the original layer computes}
+For hidden input $h$, the layer computes one scalar duration and reuses $P$:
 \begin{equation}
-F_K(h)=T_K(s(h)P)h,\qquad T_K(A)=\sum_{k=0}^{K}\frac{A^k}{k!},\qquad
+F_K(h)=T_K(s(h)P)h,\quad T_K(A)=\sum_{k=0}^{K}\frac{A^k}{k!},\quad
 s(h)=0.2+0.8\,\operatorname{sigmoid}(g(h)/10).
 \label{eq:layer}
 \end{equation}
-Here $g$ is a two-layer SiLU network. Each layer computes $s$ once and shares $P$ across
-Taylor terms. The FFN contains two such layers with SiLU between them; at $K=1$, one layer
-is simply $h+s(h)Ph$. For fixed $s$, $\exp(sP)h$ solves $dy/du=Py$ over duration $s$.
-This hidden duration is distinct from generation time $t$.
+Here $g$ is a two-layer SiLU network. ODEFFN applies two such layers with SiLU
+between them. At $K=1$, $F_1(h)=h+s(h)Ph$. Holding $s$ fixed,
+$\exp(sP)h$ solves $dy/du=Py$ for duration $s$. This hidden duration is distinct
+from the external flow-matching time $t$.
 
-\textbf{What needs control?} The exponential series converges for every finite $P$; the
-issue is finite-order error and amplification. Differentiating the layer gives
+\textbf{The mathematical distinction.} The exponential series converges for every
+finite $P$; the issue is truncation and sensitivity. For $r=s\norm{P}_2$,
+$\norm{\exp(sP)-T_K(sP)}_2\leq e^r r^{K+1}/(K+1)!$.
+However, differentiating the actual input-gated layer yields
 \begin{equation}
 J_{F_K}=T_K(sP)+[P\,T_{K-1}(sP)h]\,\nabla_hs^\top.
 \label{eq:jac}
 \end{equation}
-A bound on $P$ therefore does not by itself control the input gate or the full velocity
-network. This standard identity motivates measuring all three quantities rather than
-treating $P$ as the Jacobian of the generated flow.
+Controlling $P$ controls only part of the layer's sensitivity. A small remainder
+or hidden Jacobian need not minimize the generative error.
 
-\textbf{Data and controls.} We use an anisotropic Gaussian with mean $(1,-1)$ and covariance
-$\operatorname{diag}(0.09,4)$; eight equally weighted Gaussian modes on a radius-3 ring,
-each with covariance $0.04I$; and centered two moons with noise standard deviation $0.08$.
-These are specified toy distributions, not an exact paper benchmark reproduction. Each has
-100,000/10,000/10,000 train/validation/test points. Training predicts $x_1-x_0$ from
-$x_t=(1-t)x_0+tx_1$ and $t$, using independent Gaussian source noise, uniform $t$, and no labels.
-All runs use seed 0, width 64, three residual blocks, batch 512, AdamW at $3\times10^{-4}$,
-and a default endpoint of 5,000 updates.
+\section{Experimental setting}
+\textbf{Data.} The targets are a 2D Gaussian with mean $(1,-1)$ and covariance
+$\operatorname{diag}(0.09,4)$; eight equally weighted Gaussian modes on a radius-3
+ring with within-mode covariance $0.04I$; and centered two moons with noise
+standard deviation $0.08$. These are specified toy distributions, not an exact
+paper-benchmark reproduction. Each has 100,000/10,000/10,000 train/validation/test
+points. Independent source noise is standard Gaussian; $t$ is uniform. The target
+velocity is $x_1-x_0$ at $x_t=(1-t)x_0+tx_1$, with no class labels.
 
-\textbf{Evaluation.} The primary metric is sliced Wasserstein distance $\sw$ (lower is better):
-the root mean squared difference of sorted projections, using 128 fixed directions and
-2,048 fixed generated/target points. Sampling uses 32 Heun steps. Gaussian and Ring8 also
-have analytical velocity references; Moons does not. All results are single-seed observations.
+\textbf{Controls and metrics.} All training uses seed 0, width 64, three residual
+blocks, batch 512, and AdamW at $3\times10^{-4}$; the default endpoint is 5,000
+updates. Primary evaluation is $\sw$ (lower is better): the root mean squared
+difference of sorted projections on 128 fixed directions, using 2,048 fixed
+generated/target points and 32 Heun steps. Gaussian and Ring8 also have analytical
+velocity references. These are single-seed observations, not significance tests.
 
-\section{E1--E2: do constraints and extra computation help?}
+\newpage
+\section{E1: compare against standard FFNs at controlled budgets}
+\textbf{Purpose.} Control for computation. Parameter counts are close: ODE 82,056, SiLU 81,858 and
+SwiGLU~\cite{swiglu} 81,792. ODE $K=2$ uses 105,152 forward linear MACs per
+example, versus 80,000 for SwiGLU. At 6,572 updates, SwiGLU approximately matches
+the cumulative forward-MAC budget of ODE $K=2$ at 5,000 updates.
 
-\textbf{E1, spectral cap.} Purpose: test whether reducing internal amplification improves
-samples. We compared free $P$ with $P_{\rm eff}=P\min(1,1/\norm{P}_2)$ at $K=1,2$.
-The cap lowers the full-layer Jacobian norm in all six comparisons, but improves $\sw$
-in only three (Fig.~\ref{fig:ablations}a). On Ring8 at $K=2$, the Jacobian norm falls from
-$3.014$ to $2.099$, while $\sw$ worsens from $0.1848$ to $0.1889$. On Gaussian, the
-same intervention improves $\sw$ from $0.0674$ to $0.0656$. Thus smaller hidden-layer gain
-is not a reliable performance target. The norms average 16 observed inputs per layer and
-six layers; they are not global bounds.
 
-\begin{figure}[t]
+\textbf{Observation (Table~\ref{tab:baseline}).} ODE $K=2$ beats same-update SwiGLU on all targets,
+but SiLU is better on Ring8. After the MAC match, ODE remains better only
+on Moons. We retain fixed endpoints: Ring8 SiLU changes from $0.1631$ to
+$0.2258$ between updates 5,000 and 5,024, illustrating endpoint sensitivity.
+
+\section{E2: separate numerical accuracy from learned adaptation}
+\textbf{Purpose and intervention.} Freeze each input-gated $K=1,2,4,8$ checkpoint
+and evaluate every ODELayer at orders $1,2,4,8$ or with a direct matrix exponential.
+This gives 60 cells plus six unchanged controls. Operator actions use float64;
+the rest remains float32. All 18 native reproductions and same-order precision
+controls pass (maximum native/reference $\sw$ drift $4.47\times10^{-8}$).
+Parameters are frozen, but downstream hidden states and gates can change.
+Local tests separately hold native inputs and gates fixed (Fig.~\ref{fig:local}).
+
+\begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figures/07-main-ablations.pdf}
-\caption{(a) Change from free to capped $P$; circles: $K=1$, squares: $K=2$.
-(b) Time-gate minus input-gate $\sw$; negative is better.
-(c) Relative output discrepancy against $\exp(sP)h$; dataset colors follow (a).
-Orders are separately trained. All panels use seed 0 and 5,000 updates.}
-\label{fig:ablations}
+\includegraphics[width=\textwidth]{figures/09-frozen-order.pdf}
+\caption{Full frozen-checkpoint $\sw$ matrix. Rows: trained order; columns:
+evaluation order. Blue outlines mark the trained order. Shared logarithmic color
+scale; printed numbers are rounded. All use seed 0 and 5,000 updates.}
+\label{fig:frozen}
 \end{figure}
+\vspace{-0.6em}
+\textbf{Observation.} Exact substitution worsens $\sw$ in all six K1/K2 cases,
+by $16.1\%$--$238.9\%$. For Ring8 K2, $\sw$ rises from $0.18482$ to $0.38133$;
+oracle velocity MSE rises from $0.02871$ to $0.16944$. The latter change occurs
+before integration; endpoint mode structure also changes (Fig.~\ref{fig:examples}).
+The checkpoint is adapted to its polynomial. This does not imply that a model
+\emph{trained} with exponentials would perform poorly.
 
-\textbf{E2, baseline and budget.} Purpose: check whether an ODE advantage survives a
-competitive baseline and a computation control. Parameter counts are close: 82,056 for ODE,
-81,858 for SiLU, and 81,792 for SwiGLU. At 5,000 updates, ODE $K=2$ beats SwiGLU on all
-three targets, but SiLU is better on Ring8 (Table~\ref{tab:quality}). ODE $K=2$ costs 105,152
-forward linear multiply--accumulates (MACs) per example versus 80,000 for SwiGLU.
-At 6,572 updates, SwiGLU matches this cumulative MAC budget and has lower $\sw$ on Gaussian
-and Ring8; ODE remains better on Moons. This is not a uniform advantage. MACs exclude
-backward, nonlinear, and optimizer costs, so the comparison is not a GPU-time match.
+\textbf{K4/K8 case study.} Separately trained Ring8 K4/K8 scores differ by only
+$0.198\%$. Yet frozen K4-to-K8 worsens $\sw$ by $3.225\%$, and K8-to-K4 improves
+it by $2.672\%$. K8-to-exponential changes $\sw$ by at most $0.0030\%$ across
+the three targets. K8 saturates here, but K4/K8 are not interchangeable.
+Training K8 costs $63.7\%$ more forward linear MACs than K4.
 
-\begin{table}[t]
-\centering\small
-\input{comparison_table.tex}
-\caption{Fixed-endpoint $\sw$ at Heun32; seed 0. The final row matches ODE $K=2$'s
-forward-linear-MAC budget. These are individual runs, not means over training seeds.}
-\label{tab:quality}
-\end{table}
+\textbf{Solver check.} A post hoc Ring8 check repeats twelve modes at 32, 64, 128
+and 256 Heun steps (two velocity evaluations per step). At 256 steps, K2-to-exponential
+still changes $\sw$ from $0.18613$ to $0.38371$, and K4-to-K8 still worsens it by
+$3.1\%$. The intervention directions persist (Fig.~\ref{fig:solver}); this is
+finite-resolution evidence, not a proof of numerical convergence.
 
-\section{E3--E5: which part of ODELayer matters?}
+\newpage
+\section{E3: what should be constrained in $P$?}
+\textbf{Spectral cap: purpose and observation.} Earlier experiments compare free
+$P$ with $P_{\rm eff}=P\min(1,1/\norm{P}_2)$ at K1/K2. The cap lowers the
+measured full-layer Jacobian norm in all six comparisons but improves $\sw$ in
+only three (Fig.~\ref{fig:ablations}). Ring8 K2's Jacobian norm falls from
+$3.014$ to $2.099$, while $\sw$ worsens from $0.1848$ to $0.1889$.
+These norms average 16 observed inputs per layer and six layers; they are not
+global bounds. Smaller internal gain alone is an insufficient design objective.
 
-\textbf{E3, input versus time gating.} Purpose: test the input-dependent step size. Feeding
-the same-width time embedding to $g$ preserves parameter count and initial weights but
-removes the second term of Eq.~\eqref{eq:jac} at fixed $t$. The outcome is not uniformly
-better (Fig.~\ref{fig:ablations}b). On Moons at $K=2$, the full Jacobian norm rises from
-$2.334$ to $2.509$ despite the zero gate-derivative term; $\sw$ changes from $0.02708$
-to $0.02663$. Retrained $P$ and gate values can compensate. This changes gate inputs and
-optimization as well as the derivative term, so it is not a pure derivative intervention.
+\textbf{Gate control.} A time-conditioned gate removes the second term of
+Eq.~\eqref{eq:jac} at fixed external time, while preserving gate-network size.
+After retraining, this does not uniformly reduce sensitivity or improve samples.
+For Moons K2, the Jacobian norm rises from $2.334$ to $2.509$, while $\sw$
+improves slightly from $0.02708$ to $0.02663$. This is not a pure derivative
+intervention: gate inputs and optimization change, and learned operators can
+compensate. It argues for measuring the whole block instead of inferring its
+behavior from one removed term.
 
-\textbf{E4, Taylor order.} Purpose: test whether a more accurate hidden ODE solve helps.
-We trained input-gated models with $K=1,2,4,8$. Going from $K=4$ to $K=8$ adds
-\textbf{63.7\%} forward linear MACs, yet changes each target's $\sw$ by less than
-\textbf{0.2\%}. On Ring8, exponential-action discrepancy falls from $2.55\times10^{-3}$
-to $1.82\times10^{-6}$ (Fig.~\ref{fig:ablations}c), while $\sw$ only changes from
-$0.17518$ to $0.17483$.
+\textbf{Training trajectories.} Across targets and K1/K2/K4/K8, the six-layer
+mean largest singular value grows from about $1.109$ to $1.715$--$1.862$, while
+stable rank $\norm{P}_F^2/\norm{P}_2^2$ falls from $17.37$ to $8.31$--$9.40$.
+Figure~\ref{fig:geometry} shows K2. This means energy concentrates relative to the
+strongest direction, not that algebraic rank is lost. Flattening the spectrum
+could remove learned direction selection; its benefit must be tested rather than
+assumed.
 
-\Needspace{3\baselineskip}
-\noindent Gaussian $K=1$ also generates better than $K=2$ despite being less
-accurate against the exponential. Higher order can help---Ring8 improves from $K=1$ to
-$K=4$---but exponential accuracy alone does not explain the results.
+\textbf{Controlled matrix example: purpose and observation.} To separate scale
+from geometry, construct $P_\theta=-\tfrac14I+a_\theta N_\theta$ in three dimensions,
+with $(N_\theta)_{12}=\cos\theta$, $(N_\theta)_{23}=\sin\theta$, other entries zero,
+and choose $a_\theta>0$ so $\norm{P_\theta}_2=1$. Since $N_\theta^3=0$,
+\begin{equation}
+\exp(sP_\theta)=e^{-s/4}\left[I+sa_\theta N_\theta+
+\tfrac12(sa_\theta)^2N_\theta^2\right].
+\label{eq:example}
+\end{equation}
+All eigenvalues equal $-1/4$, but $\norm{\exp(P_\theta)}_2$ increases from
+$1.225180$ to $1.397337$ over five shapes between $0$ and $\pi/4$
+(Fig.~\ref{fig:geometry}). Eigenvalues and the largest singular value therefore
+do not determine finite-time gain. Other singular values and geometry co-vary;
+this standard illustrative construction does not prove a generative benefit from
+any particular constraint.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/08-main-trajectories.pdf}
-\caption{(a--b) Original $K=2$: six-layer means of the largest singular value and stable rank.
-E5's endpoint ranges cover all four orders; layers are not independent replicates.
-(c) Ring8 oracle velocity MSE on held-out interpolated points, not generated trajectories.
-All panels use seed 0.}
-\label{fig:trajectories}
-\end{figure}
+\section{Interpretation and limits}
+The evidence separates three questions: approximating a hidden linear flow,
+controlling a gated layer's sensitivity, and learning a useful generative velocity
+field. Improving one does not automatically improve the others. For example,
+Ring8 trained K4's exact substitution lowers oracle MSE from $0.03438$ to
+$0.03371$, yet worsens $\sw$. Error location and propagation are plausible
+explanations, not isolated causes.
 
-\Needspace{5\baselineskip}
-\textbf{E5, what $P$ learns.} Purpose: inspect training dynamics rather than only the final
-score. Across the three targets and four orders, the six-layer mean largest singular value
-rises from about $1.109$ to $1.715$--$1.862$, while stable rank
-$\norm{P}_F^2/\norm{P}_2^2$ falls from $17.37$ to $8.31$--$9.40$
-(Fig.~\ref{fig:trajectories}a--b shows $K=2$). The $K=4$ and $K=8$ trajectories nearly
-overlap. Energy concentrates relative to the strongest direction, without implying a loss
-of algebraic rank. Flattening the spectrum could therefore remove useful direction selection.
-
-\section{Case study: fitting error is not sample quality}
-
-On Ring8, SwiGLU has lower aggregate oracle velocity MSE than ODE $K=2$
-($0.01681$ versus $0.02871$), yet worse generation at equal updates. Relative to SiLU,
-it fits $t\in[0.7,0.8)$ better ($0.0256$ versus $0.0690$), but $t\in[0,0.1)$ worse
-($0.0250$ versus $0.0141$; Fig.~\ref{fig:trajectories}c). Error timing is a candidate
-explanation, not a demonstrated cause. Increasing Heun steps from 32 to 256 preserves
-the principal Ring8 ranking, weakening a solver-only explanation.
-
-Endpoint sensitivity also limits the budget comparison: Ring8 SiLU changes from $0.1631$
-at update 5,000 to $0.2258$ at 5,024. We retain preselected endpoints, not best test scores.
-One seed and repeated test-set inspection limit the conclusions. These toy models have no
-attention and predict velocity, unlike JiT's image prediction; image benefits remain untested.
+All training uses one seed; layers and checkpoints are correlated, and test sets
+have been repeatedly inspected. No statistical significance or independent-seed
+confidence interval is claimed. The toy networks have no attention and predict
+velocity, unlike JiT's clean-image prediction. There is no new image/FID evidence.
+These experiments support a mechanism-focused progress report, not a finished
+architectural contribution.
 
 \section{Hypotheses for the next two weeks}
-
+The next training direction remains to be selected. Two focused tests are proposed:
 \begin{enumerate}
-\item \textbf{Hypothesis:} $K=4$/$K=8$ similarity mainly reflects sufficient evaluation accuracy.
-\textbf{Test:} freeze checkpoints and vary only the evaluation order or use $\exp(sP)$.
-\textbf{Expected:} $K=4$ and $K=8$ substitutions have little effect on velocity and samples.
-Large changes would instead suggest compensation during training.
-\item \textbf{Hypothesis:} operator geometry matters beyond eigenvalue magnitude.
-\textbf{Test:} vary non-normality at matched spectral radius, then repeat after matching
-spectral norm; measure polynomial and exponential gain on common probes.
-\textbf{Expected:} some gain differences remain after norm matching; disappearance would
-favor scale as the simpler explanation.
-\item \textbf{Hypothesis:} input gating adds more than a learned scalar scale.
-\textbf{Test, if this direction is selected:} compare the original gate with fixed $s=0.6$
-and a learned scalar per layer, retaining seed 0, both baselines, and compute accounting.
-\textbf{Expected:} an input-gate benefit survives a validation-based endpoint rule fixed
-before training. These are proposed tests, not completed results.
+\item \textbf{Does input gating add more than a scalar duration?} Compare the
+original gate with fixed $s=0.6$ and one learned scalar per layer, first at K2.
+Retain both FFN baselines and seed 0; fix a validation endpoint rule before
+training. A consistent input-gate advantage would support adaptive duration;
+matching performance would favor the simpler scale explanation.
+\item \textbf{Is large $P$ gain harmful mainly where the gate correction is large?}
+Before adding a constraint, stratify held-out native probes by gate-correction
+norm and measure local input-perturbation amplification through the full block.
+Test whether the gate term explains additional variation beyond $\norm{P}_2$.
+If it does not, prioritize operator-only explanations. If it does, design one
+controlled gate or operator intervention rather than combining several tricks.
 \end{enumerate}
 \label{end-main}
 
@@ -197,4 +208,67 @@ Flow Matching for Generative Modeling. \emph{arXiv:2210.02747}, 2022; revised 20
 \bibitem{swiglu} N.~Shazeer. GLU Variants Improve Transformer.
 \emph{arXiv:2002.05202}, 2020. \url{https://arxiv.org/abs/2002.05202}.
 \end{thebibliography}
+
+\section*{Supporting numeric comparison}
+\begin{table}[H]
+\centering\small
+\input{comparison_table.tex}
+\caption{Fixed-endpoint $\sw$; seed 0. The last row matches the ODE $K=2$
+forward-linear-MAC budget. MACs exclude backward, nonlinear and optimizer costs;
+this is not a wall-clock match.}
+\label{tab:baseline}
+\end{table}
+
+\clearpage
+\section*{Additional visualizations and examples}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/11-ring8-examples.pdf}
+\caption{Ring8: first 1,000 target or generated points from fixed sample indices,
+with common axes. Model panels use the same source points, seed 0, update 5,000,
+and Heun32. The K2-to-exponential substitution alters the distribution; this is
+an inspection example, not a selected best/worst subset or a mode-coverage test.}
+\label{fig:examples}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/13-solver-check.pdf}
+\caption{All twelve Ring8 model/order combinations at four Heun resolutions.
+Low-order exact-substitution failures and K4/K8 differences persist; baseline
+ordering is preserved. Fixed checkpoints and samples, no retraining. Horizontal
+axis is steps; the number of velocity evaluations is twice this value.}
+\label{fig:solver}
+\end{figure}
+
+\clearpage
+\section*{Additional diagnostics}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/10-fixed-input-error.pdf}
+\caption{Local exponential-action discrepancy on identical captured native inputs
+and gates: means over 16 probes per layer and six layers, with a separate curve
+for each trained order. Higher evaluation order improves numerical accuracy;
+this does not imply better full-network generation. No independent-seed error
+bars are available.}
+\label{fig:local}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/12-geometry-and-training.pdf}
+\caption{Left: the constructed family holds every eigenvalue at $-0.25$ and
+$\norm{P}_2=1$; finite-time gains still differ. Right: K2 training trajectories
+show six-layer mean operator scale and stable rank for each target. Constructed
+matrices and learned networks are distinct analyses. Text ranges include all
+four trained orders.}
+\label{fig:geometry}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.94\textwidth]{figures/07-main-ablations.pdf}
+\caption{Earlier controls. (a) Free-to-capped changes; circles K1, squares K2.
+(b) Time-minus-input-gate $\sw$; negative is better. (c) Action discrepancy for
+separately trained orders. Panels use seed 0 and 5,000 updates. These comparisons
+include retraining, unlike the frozen-order matrix in Fig.~\ref{fig:frozen}.}
+\label{fig:ablations}
+\end{figure}
 \end{document}

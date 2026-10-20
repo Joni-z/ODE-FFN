@@ -197,7 +197,7 @@ def main():
                 axes[0].annotate("Ring8 K2", (dx,dy), xytext=(5,5),
                                  textcoords="offset points", fontsize=7)
     axes[0].axhline(0, color=".45", lw=.7)
-    axes[0].set(title="(a) E1: spectral cap", xlabel="Change in layer J norm (%)",
+    axes[0].set(title="(a) Spectral cap", xlabel="Change in layer J norm (%)",
                 ylabel="Change in SW2 (%)")
     axes[0].legend(fontsize=7, loc="lower left", framealpha=.8)
     for k, color, offset in [(1, COLORS[0], -.18), (2, COLORS[1], .18)]:
@@ -205,13 +205,13 @@ def main():
         axes[1].bar(np.arange(3)+offset, vals, width=.34, color=color, label=f"K={k}")
     axes[1].set_xticks(range(3), ["Gauss.", "Ring8", "Moons"])
     axes[1].axhline(0, color=".45", lw=.7)
-    axes[1].set(title="(b) E3: time gate", ylabel="SW2: time minus input")
+    axes[1].set(title="(b) Time gate", ylabel="SW2: time minus input")
     axes[1].legend(fontsize=7, loc="lower right")
     for j, d in enumerate(DS):
         axes[2].semilogy(K, [layer(row(d, label), "relative_action_truncation_error")
                              for label in LABELS], "-o", ms=3, color=COLORS[j],
                          label=NAMES[j])
-    axes[2].set(title="(c) E4: Taylor order", xlabel="Order K",
+    axes[2].set(title="(c) Trained Taylor order", xlabel="Order K",
                 ylabel="Relative exp-action error")
     axes[2].set_xscale("log", base=2)
     axes[2].set_xticks(K, K)
@@ -263,13 +263,32 @@ def main():
                ROOT / "configs/synthetic/data_v1.json", ROOT / "configs/synthetic/train_v1.json",
                HERE / "data/target_examples.csv",
                *[OLD / "diagnostics" / f"{d}.json" for d in DS]]
+    followup = ROOT / "docs/research-2026-10-20-followup"
+    sources += [
+        followup / name for name in [
+            "protocol.md", "solver-check-protocol.md", "frozen-order-summary.json",
+            "manifest-145.json", "collection-audit.json", "probes-145.json",
+            "controlled-operators.json", "solver-check-summary.json",
+            "solver-check-audit.json", "stats-appendix.md", "mathematical-notes.md",
+        ]
+    ]
+    sources += [
+        HERE / "data/ring8-frozen-examples.csv", HERE / "report1.tex",
+        ROOT / "scripts/check_frozen_solver.py", ROOT / "scripts/analyze_frozen_order.py",
+        ROOT / "synthetic/interventions.py",
+    ]
     provenance = {
-        "report": "Report 1", "evidence_revision": "84ff784",
+        "report": "Report 1",
+        "evidence_revision": "2026-10-20: training, frozen-order, controlled matrices, solver check",
+        "earlier_training_evidence_commit": "84ff784",
+        "frozen_scientific_source_commit": "1dd6a86daed8521bea71c5faf3df12107cff7d07",
         "author": "Zhizhe Zhang",
         "format_reference": "User-supplied NeuroMotion Report 1; layout and organization only.",
         "review_status": "Assistant checked against repository evidence; author review pending.",
         "training_seed": 0, "new_training_performed_for_report": False,
         "target_examples": "First 1,000 x1 rows of each actual torch v1 test split; no resampling.",
+        "generated_examples": "First 1,000 Ring8 source indices at Heun32; sample hashes in frozen-order-summary.json.",
+        "additional_evaluations": {"frozen_order": 66, "solver_resolution": 48},
         "sources": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
     }
     (HERE / "evidence_manifest.json").write_text(json.dumps(provenance, indent=2)+"\n")

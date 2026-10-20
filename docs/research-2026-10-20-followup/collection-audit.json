@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-10-20T11:44:57.503618+00:00",
+  "complete": true,
+  "cells": 66,
+  "checkpoints": 18,
+  "sample_hashes_verified": 66,
+  "seed": 0,
+  "new_training": false,
+  "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+  "archive_sha256": "d60c77f6877616f32337ce1cd279f0e0c50744186276c0a654689035edcf4555",
+  "runner": {
+    "pid": 929329,
+    "started_at": "2026-10-20T09:17:38.867139+00:00",
+    "gpu_uuid": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "python": "/data2/zz5070/miniconda3/envs/py312/bin/python",
+    "state": "SUCCEEDED",
+    "child_pid": 929439,
+    "exit_code": 0,
+    "completed_at": "2026-10-20T09:19:33.347620+00:00"
+  },
+  "throughput": {
+    "single": {
+      "workers": 1,
+      "seconds": 0.15651194378733635,
+      "examples": 4096,
+      "examples_per_second": 26170.52667600576,
+      "per_worker": [
+        {
+          "seconds": 0.15651194378733635,
+          "examples": 4096,
+          "peak_allocated_bytes": 236816384
+        }
+      ]
+    },
+    "dual": {
+      "workers": 2,
+      "seconds": 0.2897396720945835,
+      "examples": 8192,
+      "examples_per_second": 28273.65662692466,
+      "per_worker": [
+        {
+          "seconds": 0.28940080665051937,
+          "examples": 4096,
+          "peak_allocated_bytes": 236816384
+        },
+        {
+          "seconds": 0.2897396720945835,
+          "examples": 4096,
+          "peak_allocated_bytes": 236816384
+        }
+      ]
+    },
+    "selected_workers": 1,
+    "rule": "Choose two only for >=10% aggregate throughput gain; same single allocated GPU."
+  },
+  "max_native_reference_sw2_difference": 4.470348358154297e-08
+}

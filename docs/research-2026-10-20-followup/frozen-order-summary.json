@@ -1,0 +1,5368 @@
+{
+  "complete": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 1,
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.061060547828674316,
+      "pair_mse": 1.8160749673843384,
+      "oracle_mse": 0.004050464369356632,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.007057719863951206
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.004929975140839815
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.004710591398179531
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.003315325127914548
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.0020651735831052065
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.00202168058604002
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.0024344357661902905
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0026097986847162247
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.004107350017875433
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.007265644147992134
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 1.3151074540473928e-07,
+      "velocity_rms_from_native": 1.4316508156753116e-07,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k1_input--1.npz",
+      "samples_sha256": "d128c051ba9c40148e882fb0b697d5bd02e5c54acdd56007d7134b1f31e728f8",
+      "elapsed_seconds": 0.28688828460872173
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 2,
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.166880264878273,
+      "pair_mse": 1.8782259225845337,
+      "oracle_mse": 0.07148135453462601,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.12166046351194382
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.09164878726005554
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0693400427699089
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.05506887659430504
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.053308598697185516
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.04869195818901062
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.05338317155838013
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.06238021329045296
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.07596789300441742
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.08272480219602585
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.1058197170495987,
+      "endpoint_rms_from_native": 0.17530480027198792,
+      "velocity_rms_from_native": 0.27160707116127014,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k1_input--2.npz",
+      "samples_sha256": "1fe567071e9de8f2f812f8279a57c001e77f0594b1bf162d6f858d78bcd9ca80",
+      "elapsed_seconds": 0.3362766895443201
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 4,
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.1834908127784729,
+      "pair_mse": 1.8990659713745117,
+      "oracle_mse": 0.09135108441114426,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.1868041753768921
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.14328894019126892
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.10191574692726135
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.07513917982578278
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.06615110486745834
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.057872019708156586
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.057961106300354004
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0644795224070549
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.07584879547357559
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.08297708630561829
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.12243026494979858,
+      "endpoint_rms_from_native": 0.19158340990543365,
+      "velocity_rms_from_native": 0.3058272898197174,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k1_input--4.npz",
+      "samples_sha256": "4d2230931ad670c9e66f5dd5a837db8027d3539fa2b0a09fa66335d3391531de",
+      "elapsed_seconds": 0.43808372132480145
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 8,
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.1840735673904419,
+      "pair_mse": 1.8992798328399658,
+      "oracle_mse": 0.09153281152248383,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.18769165873527527
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.14392946660518646
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.10225214064121246
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.07533460110425949
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.06627625972032547
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.05795552581548691
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.0579310804605484
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.06434914469718933
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.07565899938344955
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.08287287503480911
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.12301301956176758,
+      "endpoint_rms_from_native": 0.19196239113807678,
+      "velocity_rms_from_native": 0.30612877011299133,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k1_input--8.npz",
+      "samples_sha256": "cb410621ff622be5a485224478042be925f96404820a5e027f74a9ffcd9edec0",
+      "elapsed_seconds": 0.6229324769228697
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": "exact",
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.18407347798347473,
+      "pair_mse": 1.8992798328399658,
+      "oracle_mse": 0.09153281152248383,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.18769173324108124
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.14392952620983124
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.10225218534469604
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.07533461600542068
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.06627625226974487
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.05795552209019661
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.05793106555938721
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.06434911489486694
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.07565896958112717
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.08287284523248672
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.12301293015480042,
+      "endpoint_rms_from_native": 0.1919623166322708,
+      "velocity_rms_from_native": 0.30612877011299133,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k1_input--exact.npz",
+      "samples_sha256": "0d1762b19a1d08da9b5023b406f91d7b34878bb391bcb3025323fb588009f6e5",
+      "elapsed_seconds": 4.942665211856365
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 1,
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6396504044532776,
+      "pair_mse": 2.064610004425049,
+      "oracle_mse": 0.24569176137447357,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.47323858737945557
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.3379907011985779
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.25384801626205444
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.22427231073379517
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.20877303183078766
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.20856525003910065
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.2050594687461853
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.1856578141450882
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.1691872626543045
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.18529416620731354
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.5722136199474335,
+      "endpoint_rms_from_native": 0.5985022187232971,
+      "velocity_rms_from_native": 0.4879394769668579,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k2_input--1.npz",
+      "samples_sha256": "23752efc2cef0eecc375bc531f9dae408e3549f7251c663e330f79d2b9e3d4de",
+      "elapsed_seconds": 0.2849266901612282
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 2,
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.06743678450584412,
+      "pair_mse": 1.8163120746612549,
+      "oracle_mse": 0.0042422679252922535,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008535453118383884
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005427025258541107
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.00321914697997272
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.002708692569285631
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.001999237574636936
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0022551934234797955
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.002804797375574708
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0025465202052146196
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.005011267028748989
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.007982595823705196
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 1.3439336044029915e-07,
+      "velocity_rms_from_native": 1.4991449859280692e-07,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k2_input--2.npz",
+      "samples_sha256": "336398a0e9d44a1bf1242052d1fe9260cc1215399d3944d8babb596c22ca168e",
+      "elapsed_seconds": 0.3354033771902323
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 4,
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.10749869048595428,
+      "pair_mse": 1.8267654180526733,
+      "oracle_mse": 0.015014993026852608,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.030297119170427322
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.022184768691658974
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.01807943917810917
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.014667357318103313
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.013369525782763958
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.011837306432425976
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.00950889103114605
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.009309539571404457
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.011170957237482071
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.009622940793633461
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.04006190598011017,
+      "endpoint_rms_from_native": 0.07679184526205063,
+      "velocity_rms_from_native": 0.12247494608163834,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k2_input--4.npz",
+      "samples_sha256": "26c4262f41836b7850ee11cd260758fe22d12dd54a780032f185ba43611ff681",
+      "elapsed_seconds": 0.4296972528100014
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 8,
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.10627728700637817,
+      "pair_mse": 1.82706618309021,
+      "oracle_mse": 0.015384560450911522,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.03079214133322239
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.02297602780163288
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.018695324659347534
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.015128347091376781
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.013733912259340286
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.01216033473610878
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.009744378738105297
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.009506836533546448
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.011302062310278416
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.00971287302672863
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.03884050250053406,
+      "endpoint_rms_from_native": 0.07643261551856995,
+      "velocity_rms_from_native": 0.1238284707069397,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k2_input--8.npz",
+      "samples_sha256": "734cc244537da78646e438d02b46170816452618eebf9d2c527bc25cf7096c6e",
+      "elapsed_seconds": 0.6219841167330742
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": "exact",
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.10627660900354385,
+      "pair_mse": 1.8270659446716309,
+      "oracle_mse": 0.015384500846266747,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.030791791155934334
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.022975921630859375
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.018695291131734848
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.01512832846492529
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.013733895495533943
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.012160321697592735
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.009744364768266678
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.009506822563707829
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.011302047409117222
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.009712869301438332
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.03883982449769974,
+      "endpoint_rms_from_native": 0.07643213123083115,
+      "velocity_rms_from_native": 0.12382811307907104,
+      "samples_relative_path": "samples/gaussian_aniso_2d/gate_k2_input--exact.npz",
+      "samples_sha256": "ccb2d28eae36bd69ecd338ead355fa27f91ec11169bfaee71038f04055a07c0d",
+      "elapsed_seconds": 4.854132143780589
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 1,
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.7259880304336548,
+      "pair_mse": 2.1747119426727295,
+      "oracle_mse": 0.3540671169757843,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.763072669506073
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.5522971153259277
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.3807069957256317
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.32263848185539246
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.285563200712204
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.2750105857849121
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.2577038109302521
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.23571115732192993
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.21559932827949524
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.2454749196767807
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.655678927898407,
+      "endpoint_rms_from_native": 0.6764726638793945,
+      "velocity_rms_from_native": 0.5839651226997375,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k4_input--1.npz",
+      "samples_sha256": "5e4591924404e024921e7db13ea2a8eeb49049eaf111d5f0deabd6bbde06499d",
+      "elapsed_seconds": 0.28370525874197483
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 2,
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.11317046731710434,
+      "pair_mse": 1.8403819799423218,
+      "oracle_mse": 0.026757653802633286,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.07475301623344421
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.04422667250037193
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0258658267557621
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.022101080045104027
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.01720532588660717
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.017140747979283333
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.016280539333820343
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.011350283399224281
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.013108971528708935
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.024974431842565536
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.04286136478185654,
+      "endpoint_rms_from_native": 0.07138114422559738,
+      "velocity_rms_from_native": 0.13617931306362152,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k4_input--2.npz",
+      "samples_sha256": "7f2bede7883591a46b6f2b8d2e7fb826f5836755666f86384baf971b1cde566f",
+      "elapsed_seconds": 0.3347051963210106
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 4,
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.0703091099858284,
+      "pair_mse": 1.8164796829223633,
+      "oracle_mse": 0.004186681471765041,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008367057889699936
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005128469783812761
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0029086866416037083
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.002604207256808877
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.0019694105722010136
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0023102920968085527
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.002805855358019471
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0024143473710864782
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.005125567317008972
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.00832405500113964
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 7.450580596923828e-09,
+      "endpoint_rms_from_native": 1.2990554409952892e-07,
+      "velocity_rms_from_native": 1.5491652050059201e-07,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k4_input--4.npz",
+      "samples_sha256": "ce42fd298190de5f376f4deb63c797be2d737a235aa0191ea6eb95a316bf36e6",
+      "elapsed_seconds": 0.4293423369526863
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 8,
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.06964252144098282,
+      "pair_mse": 1.8163714408874512,
+      "oracle_mse": 0.004117006901651621,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008011892437934875
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005049339961260557
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0028877572622150183
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.0025478911120444536
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.001955342711880803
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.002279217354953289
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.0027719009667634964
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.002438447903841734
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.005148627795279026
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.008175273425877094
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": -0.0006665810942649841,
+      "endpoint_rms_from_native": 0.0024517644196748734,
+      "velocity_rms_from_native": 0.004720452707260847,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k4_input--8.npz",
+      "samples_sha256": "f138b6cdfd49385a6fe70cad719020866d5e1351280d814dab7611719e7d0295",
+      "elapsed_seconds": 0.6206612158566713
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": "exact",
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.06964251399040222,
+      "pair_mse": 1.8163714408874512,
+      "oracle_mse": 0.004117005970329046,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008011899888515472
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005049337632954121
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0028877563308924437
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.0025478890165686607
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.001955341314896941
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0022792189847677946
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.002771899802610278
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0024384427815675735
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.005148621276021004
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.008175273425877094
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": -0.0006665885448455811,
+      "endpoint_rms_from_native": 0.0024516454432159662,
+      "velocity_rms_from_native": 0.0047202580608427525,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k4_input--exact.npz",
+      "samples_sha256": "c411c28a53cf68a24d991f06c1551b2deb6e3987ae697d5afcbeacc5d1ca4b02",
+      "elapsed_seconds": 4.84294837154448
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 1,
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.7266401648521423,
+      "pair_mse": 2.1769142150878906,
+      "oracle_mse": 0.35628044605255127,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.7707497477531433
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.5576873421669006
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.38341283798217773
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.32438012957572937
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.28680533170700073
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.2760269045829773
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.2583092153072357
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.2359737902879715
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.21592168509960175
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.2466091513633728
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.6564189121127129,
+      "endpoint_rms_from_native": 0.6772100329399109,
+      "velocity_rms_from_native": 0.585826575756073,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k8_input--1.npz",
+      "samples_sha256": "8b8bb56f17ddbe5beb8e862d0bdecdff7424e96cae089e0e420a4d94658b1295",
+      "elapsed_seconds": 0.28382022865116596
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 2,
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.11360793560743332,
+      "pair_mse": 1.8414582014083862,
+      "oracle_mse": 0.027820521965622902,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.078115314245224
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.046431247144937515
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0272036362439394
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.023098671808838844
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.01791287027299404
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.017766740173101425
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.01671314425766468
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0116108488291502
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.013292072340846062
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.025463148951530457
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.043386682868003845,
+      "endpoint_rms_from_native": 0.07273788750171661,
+      "velocity_rms_from_native": 0.13970966637134552,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k8_input--2.npz",
+      "samples_sha256": "4b42f24e1e10c9de9fd74878f38c2ab231d754a74ee2d957399e9163b6cdeee5",
+      "elapsed_seconds": 0.3334072809666395
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 4,
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.0709453672170639,
+      "pair_mse": 1.8166234493255615,
+      "oracle_mse": 0.004297119565308094,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008843276649713516
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.0053050462156534195
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.002990377601236105
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.002701756078749895
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.002011643024161458
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.002363007515668869
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.00285347830504179
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.002400458324700594
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.0051009636372327805
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.008486933074891567
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0007241144776344299,
+      "endpoint_rms_from_native": 0.002422598423436284,
+      "velocity_rms_from_native": 0.004677554126828909,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k8_input--4.npz",
+      "samples_sha256": "277314c39af7b1170d5245d7d07972a42b2ff4df9ce8ac4eb6352b89731a4b76",
+      "elapsed_seconds": 0.43086213804781437
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 8,
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.07022126019001007,
+      "pair_mse": 1.816473364830017,
+      "oracle_mse": 0.004185833036899567,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008372790180146694
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005138264037668705
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0029098938684910536
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.002604064764454961
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.0019673388451337814
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0023056380450725555
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.002800969872623682
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0024104323238134384
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.005113683640956879
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.008326392620801926
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 7.450580596923828e-09,
+      "endpoint_rms_from_native": 1.4464740161201917e-07,
+      "velocity_rms_from_native": 1.6358401921934274e-07,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k8_input--8.npz",
+      "samples_sha256": "4216f1d839622ca1a5dab1543fe9196d10ef127859d683a3da81e8390f38053a",
+      "elapsed_seconds": 0.6204870864748955
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": "exact",
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.07022125273942947,
+      "pair_mse": 1.816473364830017,
+      "oracle_mse": 0.004185835365206003,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.008372805081307888
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005138267297297716
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0029098973609507084
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.002604065230116248
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.001967339776456356
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0023056408390402794
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.002800970571115613
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.0024104281328618526
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.005113678518682718
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.00832639541476965
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 2.519551571822376e-07,
+      "velocity_rms_from_native": 3.497384568618145e-07,
+      "samples_relative_path": "samples/gaussian_aniso_2d/order_k8_input--exact.npz",
+      "samples_sha256": "42df594562235d232d1b3429e5ce0e3104fdd0eb452af272bd0d1af5999d5e5d",
+      "elapsed_seconds": 4.838220741599798
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_5000",
+      "trained_order": null,
+      "eval_order": "native",
+      "checkpoint_sha256": "b24424c691e46e8255a76c4af9ad9250be4e6c59eca6b696d5372b64b2bf58ed",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.08682243525981903,
+      "pair_mse": 1.8177404403686523,
+      "oracle_mse": 0.006205493584275246,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.010571958497166634
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006444771774113178
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0032897889614105225
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.0025197898503392935
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.002712840912863612
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.004060379229485989
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.005184419918805361
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.004943976178765297
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.008787003345787525
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.013634667731821537
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 0.0,
+      "velocity_rms_from_native": 0.0,
+      "samples_relative_path": "samples/gaussian_aniso_2d/silu_5000--native.npz",
+      "samples_sha256": "324f22e08357816bd8c26b7ed32c7350c3e4a61ea3d201847021cea9c9f55c93",
+      "elapsed_seconds": 0.005542716011404991
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_5000",
+      "trained_order": null,
+      "eval_order": "native",
+      "checkpoint_sha256": "2adbd9518661bed79b30d39b6f0214b01a50f4b8176214e085b52e01e359356e",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.07461067289113998,
+      "pair_mse": 1.8187332153320312,
+      "oracle_mse": 0.006256797816604376,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.012272585183382034
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.007476028986275196
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.004319057334214449
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.003211559262126684
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.002836136147379875
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0033496576361358166
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.004227768629789352
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.004742478020489216
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.007894677110016346
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.012263049371540546
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 0.0,
+      "velocity_rms_from_native": 0.0,
+      "samples_relative_path": "samples/gaussian_aniso_2d/swiglu_5000--native.npz",
+      "samples_sha256": "546c8fde9a830d34271b88f7a2179f76847e714b99fd712d43c9f62a4959711b",
+      "elapsed_seconds": 0.005474504083395004
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 1,
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.20082606375217438,
+      "pair_mse": 2.777308464050293,
+      "oracle_mse": 0.020474791526794434,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.015358973294496536
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.007391686085611582
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.009998784400522709
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.01026840414851904
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.013328121043741703
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.018390841782093048
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.0347675085067749
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.05272780358791351
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.02595326118171215
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.01298161968588829
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 1.4901161193847656e-08,
+      "endpoint_rms_from_native": 4.003531159924023e-07,
+      "velocity_rms_from_native": 2.948982569250802e-07,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k1_input--1.npz",
+      "samples_sha256": "130718b73892741fbc8cd8e46542065c1c314503926d69094d2962279500fbd3",
+      "elapsed_seconds": 0.28639149107038975
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 2,
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6044933199882507,
+      "pair_mse": 3.543503761291504,
+      "oracle_mse": 0.781075656414032,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.09344072639942169
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.02449091151356697
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0312033798545599
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.1741722971200943
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.362693727016449
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.8870711326599121
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.4994362592697144
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 2.094522476196289
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.741693377494812
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.8027437329292297
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.40366727113723755,
+      "endpoint_rms_from_native": 0.864900529384613,
+      "velocity_rms_from_native": 0.8821049332618713,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k1_input--2.npz",
+      "samples_sha256": "2b50bca473012a205b6f39079ac55577f27375c4e217a02f4c85458b00a478cb",
+      "elapsed_seconds": 0.3312829528003931
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 4,
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6777943968772888,
+      "pair_mse": 3.6290366649627686,
+      "oracle_mse": 0.8649024367332458,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.12168910354375839
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.025993864983320236
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.029264379292726517
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.2576836049556732
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.5605970025062561
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 1.0910820960998535
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.6353477239608765
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 2.1879990100860596
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.860912561416626
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.7842495441436768
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.47696834802627563,
+      "endpoint_rms_from_native": 0.8589417934417725,
+      "velocity_rms_from_native": 0.9339011907577515,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k1_input--4.npz",
+      "samples_sha256": "b888976442e1924e282aea99b0c341ded6707b6f5b73e7c031f5442fdf002e39",
+      "elapsed_seconds": 0.4322158955037594
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 8,
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6805530190467834,
+      "pair_mse": 3.636488199234009,
+      "oracle_mse": 0.8723905086517334,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.12167888134717941
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.025918014347553253
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.02911519631743431
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.2610211968421936
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.5701597332954407
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 1.1051547527313232
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.6496949195861816
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 2.2031643390655518
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.8772612810134888
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.7862766981124878
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.47972697019577026,
+      "endpoint_rms_from_native": 0.8595494031906128,
+      "velocity_rms_from_native": 0.9382057785987854,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k1_input--8.npz",
+      "samples_sha256": "89e54a457910e6f1e74fe9b04e2574aad9e669cdf1747bd4a1d5e365a8560fd0",
+      "elapsed_seconds": 0.6140258144587278
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": "exact",
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6805543899536133,
+      "pair_mse": 3.6364898681640625,
+      "oracle_mse": 0.8723922371864319,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.12167886644601822
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.025918006896972656
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.02911517396569252
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.2610228657722473
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.5701636672019958
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 1.1051594018936157
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.64969801902771
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 2.2031667232513428
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.8772637844085693
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.786276638507843
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.4797283411026001,
+      "endpoint_rms_from_native": 0.8595498204231262,
+      "velocity_rms_from_native": 0.9382067322731018,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k1_input--exact.npz",
+      "samples_sha256": "c998cd36166fbd357c99c0b310973a5d27ca6b8ccc9075b88065f34d201d86f7",
+      "elapsed_seconds": 5.015904212370515
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 1,
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6217581629753113,
+      "pair_mse": 3.565131187438965,
+      "oracle_mse": 0.8016981482505798,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.09673120826482773
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.03849839046597481
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.11422024667263031
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.34401482343673706
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.7595282793045044
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 1.1976981163024902
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.536678671836853
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 1.765698790550232
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.3232688903808594
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.7727621793746948
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.4369380623102188,
+      "endpoint_rms_from_native": 0.8047704696655273,
+      "velocity_rms_from_native": 0.8510738611221313,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k2_input--1.npz",
+      "samples_sha256": "b027899f1e990d85f5eb2c426c1d9d72c612d2af08657470a48ec16d2c774810",
+      "elapsed_seconds": 0.28547585010528564
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 2,
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.18482010066509247,
+      "pair_mse": 2.7854156494140625,
+      "oracle_mse": 0.02870716154575348,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.014160176739096642
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006268484517931938
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.008073433302342892
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.01250624842941761
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.01721658743917942
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.025874409824609756
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.055586691945791245
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.08018744736909866
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.04410462826490402
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.017884261906147003
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 2.7707287131306657e-07,
+      "velocity_rms_from_native": 3.2806644867378054e-07,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k2_input--2.npz",
+      "samples_sha256": "54b16dbe4b86bb6793e641e504d1eb2a75e6a205c626166d5ff759b8e5bfe345",
+      "elapsed_seconds": 0.33597716875374317
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 4,
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.37357214093208313,
+      "pair_mse": 2.9311811923980713,
+      "oracle_mse": 0.1667567491531372,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.014579632319509983
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005708067212253809
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.009290738962590694
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.038310255855321884
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.09264947474002838
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.1718098223209381
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.3437449336051941
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.44274869561195374
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.3498340845108032
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.1773047149181366
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.18875204026699066,
+      "endpoint_rms_from_native": 0.42857423424720764,
+      "velocity_rms_from_native": 0.3753165900707245,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k2_input--4.npz",
+      "samples_sha256": "382b5f95ac739b24143dadddf4a4806802006e203dc999f96e7946d044ea117a",
+      "elapsed_seconds": 0.432339446619153
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 8,
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.38132578134536743,
+      "pair_mse": 2.934030294418335,
+      "oracle_mse": 0.1694302260875702,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.014948861673474312
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005785140674561262
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.009344194084405899
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.04139016941189766
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.0999976173043251
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.18073000013828278
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.3480333685874939
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.4430140554904938
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.35145851969718933
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.17845968902111053
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.19650568068027496,
+      "endpoint_rms_from_native": 0.43260014057159424,
+      "velocity_rms_from_native": 0.3796258568763733,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k2_input--8.npz",
+      "samples_sha256": "f3565137bc1c5e0299f4597a2b3717ed23572f8ebc04269d514cbb487a628c65",
+      "elapsed_seconds": 0.6227041762322187
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": "exact",
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.3813333213329315,
+      "pair_mse": 2.934035539627075,
+      "oracle_mse": 0.1694353073835373,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.014948904514312744
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.005785147659480572
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.009344199672341347
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.04139378294348717
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.100006602704525
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.18074209988117218
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.3480429947376251
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.44302159547805786
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.3514653444290161
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.17846167087554932
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.19651322066783905,
+      "endpoint_rms_from_native": 0.4326060712337494,
+      "velocity_rms_from_native": 0.3796335756778717,
+      "samples_relative_path": "samples/gmm_ring8_2d/gate_k2_input--exact.npz",
+      "samples_sha256": "effe2d96833c9d1925e66f72ff92fc4a200a363b7a3b12d17aa5fe4456e143bc",
+      "elapsed_seconds": 4.904809629544616
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 1,
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.6942541003227234,
+      "pair_mse": 3.6925811767578125,
+      "oracle_mse": 0.9278374910354614,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.1388401985168457
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.05421463027596474
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.14957378804683685
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.4148671627044678
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.9495052099227905
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 1.4519822597503662
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.7552833557128906
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 1.941201090812683
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.490845799446106
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.8637099266052246
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.5190782099962234,
+      "endpoint_rms_from_native": 0.856907844543457,
+      "velocity_rms_from_native": 0.9036204218864441,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k4_input--1.npz",
+      "samples_sha256": "4fe89a2406c4f708581547b4697062b0a10c1de54d6509e4b8e4e2d2fab29990",
+      "elapsed_seconds": 0.2852527406066656
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 2,
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.24955607950687408,
+      "pair_mse": 2.966745138168335,
+      "oracle_mse": 0.21197617053985596,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.022971590980887413
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.007854045368731022
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.015272203832864761
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.06181944161653519
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.14969955384731293
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.2783363163471222
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.4334365427494049
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.5556134581565857
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.4102039933204651
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.15720941126346588
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.07438018918037415,
+      "endpoint_rms_from_native": 0.35876113176345825,
+      "velocity_rms_from_native": 0.40145260095596313,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k4_input--2.npz",
+      "samples_sha256": "0fbd160b6fb54f0d1ef479201681ecde3aaa68a1d78147cb7298fca65ae86fc8",
+      "elapsed_seconds": 0.33518645726144314
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 4,
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.17517590522766113,
+      "pair_mse": 2.7926599979400635,
+      "oracle_mse": 0.03437761217355728,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.012480692006647587
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006378892809152603
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.007513405755162239
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.014893275685608387
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.020020155236124992
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.029246861115098
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.06899277865886688
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.09990226477384567
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.057588301599025726
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.02043633908033371
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 1.4901161193847656e-08,
+      "endpoint_rms_from_native": 2.604363089631079e-07,
+      "velocity_rms_from_native": 3.6189516094964347e-07,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k4_input--4.npz",
+      "samples_sha256": "f8338df3019c7012a80f34fe108498c1029594806edcfd39791b7970f5e96996",
+      "elapsed_seconds": 0.4312975201755762
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 8,
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.18082605302333832,
+      "pair_mse": 2.7921433448791504,
+      "oracle_mse": 0.0337158665060997,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.01209860760718584
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006367137655615807
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.007455332670360804
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.014110652729868889
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.018849516287446022
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.027843881398439407
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.06835970282554626
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.09837858378887177
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.056428972631692886
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.02098715305328369
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.005650162696838379,
+      "endpoint_rms_from_native": 0.02128475531935692,
+      "velocity_rms_from_native": 0.021394552662968636,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k4_input--8.npz",
+      "samples_sha256": "94fc2ce174a489236c3019c6e8de4e7e7d3968e66ca8e34d1353c99dd568ea36",
+      "elapsed_seconds": 0.621037071570754
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": "exact",
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.18083210289478302,
+      "pair_mse": 2.7921416759490967,
+      "oracle_mse": 0.033714354038238525,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.012098412029445171
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006367136724293232
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.007455308455973864
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.014109853655099869
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.01884809508919716
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.02784196473658085
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.06835691630840302
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.09837454557418823
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.05642552301287651
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.02098683826625347
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.005656212568283081,
+      "endpoint_rms_from_native": 0.021306755021214485,
+      "velocity_rms_from_native": 0.021413413807749748,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k4_input--exact.npz",
+      "samples_sha256": "acd0fb7f2be49d9c80cefed6f5b3a8c5156d9d933f55ecc36a08fd99c1195dfe",
+      "elapsed_seconds": 4.900130411610007
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 1,
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.691775918006897,
+      "pair_mse": 3.681154489517212,
+      "oracle_mse": 0.917236328125,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.136544331908226
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.05396304279565811
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.14937293529510498
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.4177743196487427
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.9510665535926819
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 1.4357328414916992
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 1.7296946048736572
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 1.9151103496551514
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 1.4674582481384277
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.8487790822982788
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.5169468522071838,
+      "endpoint_rms_from_native": 0.8527824282646179,
+      "velocity_rms_from_native": 0.8978279232978821,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k8_input--1.npz",
+      "samples_sha256": "9e5ac113d8c5249fefcbee2e1e1f0b280540cc93fda1ee86e75baeef8156483a",
+      "elapsed_seconds": 0.2859362494200468
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 2,
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.2561994791030884,
+      "pair_mse": 2.973544120788574,
+      "oracle_mse": 0.21923963725566864,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.022926783189177513
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.0077425288036465645
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.015669573098421097
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.06728526204824448
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.16035445034503937
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.2927507758140564
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.4477912485599518
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.5700350999832153
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.4204443693161011
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.15968161821365356
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.08137041330337524,
+      "endpoint_rms_from_native": 0.3657918870449066,
+      "velocity_rms_from_native": 0.40950897336006165,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k8_input--2.npz",
+      "samples_sha256": "be42655f548eac0b0b590578a5cb56750f90c0edf8ff4c4557ab2e7b0eb577c0",
+      "elapsed_seconds": 0.3352866265922785
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 4,
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.17015767097473145,
+      "pair_mse": 2.794426202774048,
+      "oracle_mse": 0.03648271784186363,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.012799683026969433
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006393749732524157
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.007584729231894016
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.016380542889237404
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.021866928786039352
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0318988636136055
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.07290936261415482
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.1058993861079216
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.06158400699496269
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.02087920904159546
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": -0.0046713948249816895,
+      "endpoint_rms_from_native": 0.020624907687306404,
+      "velocity_rms_from_native": 0.021406395360827446,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k8_input--4.npz",
+      "samples_sha256": "3bcfcd683ab4c3eab9adb204699b4861eebc65a8af70d3722fadb1f28c58035f",
+      "elapsed_seconds": 0.4316335991024971
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 8,
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.17482906579971313,
+      "pair_mse": 2.7930092811584473,
+      "oracle_mse": 0.03490282967686653,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.01238243654370308
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006390472408384085
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.0075004748068749905
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.015311216935515404
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.02003178745508194
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.0291985385119915
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.07036345452070236
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.10197214037179947
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.05854811146855354
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.020855646580457687
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 3.0003886308804795e-07,
+      "velocity_rms_from_native": 4.065252312557277e-07,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k8_input--8.npz",
+      "samples_sha256": "e4aca09a97e04afd71b17de29816fda9e0a8ed8f2220ea7128906bb1654df995",
+      "elapsed_seconds": 0.6205708105117083
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": "exact",
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.1748342663049698,
+      "pair_mse": 2.793006658554077,
+      "oracle_mse": 0.03490036353468895,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.012382164597511292
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.006390470080077648
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.007500431966036558
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.015310152433812618
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.020029719918966293
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.029195206239819527
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.07035864889621735
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.10196554660797119
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.058542702347040176
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.020854882895946503
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 5.200505256652832e-06,
+      "endpoint_rms_from_native": 2.56790553976316e-05,
+      "velocity_rms_from_native": 2.398474680376239e-05,
+      "samples_relative_path": "samples/gmm_ring8_2d/order_k8_input--exact.npz",
+      "samples_sha256": "f0898fbaa79eb717f31cd91148416fe69ba6843284fd9616d273e6cc202532ad",
+      "elapsed_seconds": 4.896870777010918
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_5000",
+      "trained_order": null,
+      "eval_order": "native",
+      "checkpoint_sha256": "07f792193ab72a7e218d875ff32d1408bbf0ad49eae3017e6b7a0068b272d90f",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.1631251871585846,
+      "pair_mse": 2.7835922241210938,
+      "oracle_mse": 0.027150703594088554,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.014088466763496399
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.007240373641252518
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.014501300640404224
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.011294595897197723
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.014118632301688194
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.02757245860993862
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.0492488257586956
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.06903429329395294
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.03751093149185181
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.022342298179864883
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 0.0,
+      "velocity_rms_from_native": 0.0,
+      "samples_relative_path": "samples/gmm_ring8_2d/silu_5000--native.npz",
+      "samples_sha256": "f2d795642fbf44bd0a9a5f1132f8f7467cf083ab43057a17eec3193cb7dd0afb",
+      "elapsed_seconds": 0.005148701369762421
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_5000",
+      "trained_order": null,
+      "eval_order": "native",
+      "checkpoint_sha256": "dac037d2d74427a1da4c55600393a62d55474c06db4ff63f3751527c780bdb5b",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.20801781117916107,
+      "pair_mse": 2.7707760334014893,
+      "oracle_mse": 0.01680949330329895,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": 0.025044934824109077
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": 0.00991406012326479
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": 0.010088474489748478
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": 0.014164241962134838
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": 0.012064149603247643
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": 0.016511904075741768
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": 0.022097645327448845
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": 0.025647295638918877
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": 0.015179036185145378
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": 0.015804769471287727
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 0.0,
+      "velocity_rms_from_native": 0.0,
+      "samples_relative_path": "samples/gmm_ring8_2d/swiglu_5000--native.npz",
+      "samples_sha256": "b5749a7be30a0d21b4a6d062243e1ab114b08df7ad4b3c170c093e8a3d27d1b0",
+      "elapsed_seconds": 0.005168044939637184
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 1,
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.031507059931755066,
+      "pair_mse": 0.9604595303535461,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 7.334811868986435e-08,
+      "velocity_rms_from_native": 9.166776493430007e-08,
+      "samples_relative_path": "samples/two_moons_2d/gate_k1_input--1.npz",
+      "samples_sha256": "fc6cb9aa1c1a5f70958506835799c8aa9f613a059ca244d129c7dd7892c7caf9",
+      "elapsed_seconds": 0.293226869776845
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 2,
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.08091632276773453,
+      "pair_mse": 1.0140005350112915,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.04940926283597946,
+      "endpoint_rms_from_native": 0.1368110328912735,
+      "velocity_rms_from_native": 0.22542428970336914,
+      "samples_relative_path": "samples/two_moons_2d/gate_k1_input--2.npz",
+      "samples_sha256": "fc3c76f9a755ddf40aa26655cef1a1b9c84b503e0e0259c9c520c0debea0f789",
+      "elapsed_seconds": 0.34587213583290577
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 4,
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.08860024064779282,
+      "pair_mse": 1.0318069458007812,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.05709318071603775,
+      "endpoint_rms_from_native": 0.15438251197338104,
+      "velocity_rms_from_native": 0.26402485370635986,
+      "samples_relative_path": "samples/two_moons_2d/gate_k1_input--4.npz",
+      "samples_sha256": "c2e93dbdd2390a386d019dc889c822774b567ccbbab456c58afdc7d572fe2989",
+      "elapsed_seconds": 0.43152360804378986
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": 8,
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.08852701634168625,
+      "pair_mse": 1.0323374271392822,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.05701995640993118,
+      "endpoint_rms_from_native": 0.1546510010957718,
+      "velocity_rms_from_native": 0.26513394713401794,
+      "samples_relative_path": "samples/two_moons_2d/gate_k1_input--8.npz",
+      "samples_sha256": "25f2e004c78766951ebd50125b235131a432453b66caf9a9056e2e31cf550b39",
+      "elapsed_seconds": 0.6386632509529591
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "trained_order": 1,
+      "eval_order": "exact",
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.08852708339691162,
+      "pair_mse": 1.0323376655578613,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.057020023465156555,
+      "endpoint_rms_from_native": 0.15465112030506134,
+      "velocity_rms_from_native": 0.26513436436653137,
+      "samples_relative_path": "samples/two_moons_2d/gate_k1_input--exact.npz",
+      "samples_sha256": "88734fa27c32f4ddb960ceb70594158e143929a2627ec1cf5689f6379c6e36de",
+      "elapsed_seconds": 4.920632129535079
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 1,
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.05029524490237236,
+      "pair_mse": 0.9839993715286255,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.02321195974946022,
+      "endpoint_rms_from_native": 0.08405858278274536,
+      "velocity_rms_from_native": 0.1661851555109024,
+      "samples_relative_path": "samples/two_moons_2d/gate_k2_input--1.npz",
+      "samples_sha256": "c4949bff6efa6664e18a3fc788ffb0e411188628353978f143aec847ab9ea4f4",
+      "elapsed_seconds": 0.29495239816606045
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 2,
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.02708328701555729,
+      "pair_mse": 0.9605208039283752,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 1.862645149230957e-09,
+      "endpoint_rms_from_native": 5.058125651657974e-08,
+      "velocity_rms_from_native": 9.693239633179473e-08,
+      "samples_relative_path": "samples/two_moons_2d/gate_k2_input--2.npz",
+      "samples_sha256": "fcf3617a5a83abd99bc8e2f5d5f8da25cba04be3231c22550c5e962f4ec167c3",
+      "elapsed_seconds": 0.34493739157915115
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 4,
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.03135187178850174,
+      "pair_mse": 0.9642822742462158,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0042685866355896,
+      "endpoint_rms_from_native": 0.02996683679521084,
+      "velocity_rms_from_native": 0.04792267829179764,
+      "samples_relative_path": "samples/two_moons_2d/gate_k2_input--4.npz",
+      "samples_sha256": "d99fa0bee0220c6955d8b6f17e53f1b00708ee191abd0dd5415d29611f0157ac",
+      "elapsed_seconds": 0.4468990880995989
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": 8,
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.03144393116235733,
+      "pair_mse": 0.9644253849983215,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.00436064600944519,
+      "endpoint_rms_from_native": 0.03052963688969612,
+      "velocity_rms_from_native": 0.04936499521136284,
+      "samples_relative_path": "samples/two_moons_2d/gate_k2_input--8.npz",
+      "samples_sha256": "37dabcb12e599b0278b8202e7fae3cccae2adb6a73079f39bcae154eab034685",
+      "elapsed_seconds": 0.6412434410303831
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "trained_order": 2,
+      "eval_order": "exact",
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.03144394978880882,
+      "pair_mse": 0.9644254446029663,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.004360664635896683,
+      "endpoint_rms_from_native": 0.030529793351888657,
+      "velocity_rms_from_native": 0.04936559125781059,
+      "samples_relative_path": "samples/two_moons_2d/gate_k2_input--exact.npz",
+      "samples_sha256": "47933920ebc695d9df4c5d4c85266376b7fd3c73ef5da0f9c04bfad8bb583652",
+      "elapsed_seconds": 4.8802834674716
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 1,
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.06010677292943001,
+      "pair_mse": 0.9914454817771912,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.032425228506326675,
+      "endpoint_rms_from_native": 0.09635976701974869,
+      "velocity_rms_from_native": 0.19035430252552032,
+      "samples_relative_path": "samples/two_moons_2d/order_k4_input--1.npz",
+      "samples_sha256": "08c871584db8143d88cb44ba4ba44a742542c0ef2ca249fb913926bf828b9bef",
+      "elapsed_seconds": 0.2933632954955101
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 2,
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.02774348296225071,
+      "pair_mse": 0.9617539048194885,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 6.193853914737701e-05,
+      "endpoint_rms_from_native": 0.02325454168021679,
+      "velocity_rms_from_native": 0.04855389520525932,
+      "samples_relative_path": "samples/two_moons_2d/order_k4_input--2.npz",
+      "samples_sha256": "dd279a98bc54897d8e88e79a612c9c627be60e1ca24b7e685fae868fee4cd96a",
+      "elapsed_seconds": 0.3440873194485903
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 4,
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.027681542560458183,
+      "pair_mse": 0.9606704711914062,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": -1.862645149230957e-09,
+      "endpoint_rms_from_native": 6.479817216131778e-08,
+      "velocity_rms_from_native": 1.0538768435708334e-07,
+      "samples_relative_path": "samples/two_moons_2d/order_k4_input--4.npz",
+      "samples_sha256": "fa504c17d88a1f6ad6c376a8403bfcd2c07604f4d648f42d416009ccb92dac77",
+      "elapsed_seconds": 0.44526749663054943
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": 8,
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.027813933789730072,
+      "pair_mse": 0.9606953859329224,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0001323893666267395,
+      "endpoint_rms_from_native": 0.004984235391020775,
+      "velocity_rms_from_native": 0.0019096045289188623,
+      "samples_relative_path": "samples/two_moons_2d/order_k4_input--8.npz",
+      "samples_sha256": "b684be7ae5aafe2acc4f4d8f41a11af738bd19199d2863c751cdda9dadd32dca",
+      "elapsed_seconds": 0.6418199017643929
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "trained_order": 4,
+      "eval_order": "exact",
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.027813926339149475,
+      "pair_mse": 0.9606953859329224,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.00013238191604614258,
+      "endpoint_rms_from_native": 0.004984350875020027,
+      "velocity_rms_from_native": 0.0019102020887658,
+      "samples_relative_path": "samples/two_moons_2d/order_k4_input--exact.npz",
+      "samples_sha256": "bd56f0d5442d58bd1ce1312f31907d6c88e2fe18de5d49fcbd2348632d3d86c0",
+      "elapsed_seconds": 4.870375379920006
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 1,
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.05985986068844795,
+      "pair_mse": 0.9915809035301208,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.03219541721045971,
+      "endpoint_rms_from_native": 0.09625723212957382,
+      "velocity_rms_from_native": 0.19061541557312012,
+      "samples_relative_path": "samples/two_moons_2d/order_k8_input--1.npz",
+      "samples_sha256": "df1dbc74d9caa06947525f1ee5d42e3139cbe40885d4e0b5714027ac8eec4b68",
+      "elapsed_seconds": 0.2938397116959095
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 2,
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.027826910838484764,
+      "pair_mse": 0.9618729948997498,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.000162467360496521,
+      "endpoint_rms_from_native": 0.023482320830225945,
+      "velocity_rms_from_native": 0.04971405491232872,
+      "samples_relative_path": "samples/two_moons_2d/order_k8_input--2.npz",
+      "samples_sha256": "63ee0d2646ab8c51c2350eea5b76c2efb9af7e4e41375cefc694ec90142e2b79",
+      "elapsed_seconds": 0.3446957226842642
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 4,
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.027590444311499596,
+      "pair_mse": 0.9606583714485168,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": -7.399916648864746e-05,
+      "endpoint_rms_from_native": 0.0015957220457494259,
+      "velocity_rms_from_native": 0.0019053018186241388,
+      "samples_relative_path": "samples/two_moons_2d/order_k8_input--4.npz",
+      "samples_sha256": "5d6c71402ca6ec6b6aabdaba674b5a78b7dc2924a3be435d41c35615fb6eca81",
+      "elapsed_seconds": 0.4437772296369076
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": 8,
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.02766444720327854,
+      "pair_mse": 0.9606751799583435,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 3.725290298461914e-09,
+      "endpoint_rms_from_native": 3.0676213214064774e-07,
+      "velocity_rms_from_native": 1.14495037450979e-07,
+      "samples_relative_path": "samples/two_moons_2d/order_k8_input--8.npz",
+      "samples_sha256": "e927fa180c64b9882a1cac65a1925c42a1d544107a281031d269937715e3119e",
+      "elapsed_seconds": 0.642910661175847
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "trained_order": 8,
+      "eval_order": "exact",
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.027664437890052795,
+      "pair_mse": 0.9606751799583435,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": -5.587935447692871e-09,
+      "endpoint_rms_from_native": 4.91942387270683e-07,
+      "velocity_rms_from_native": 9.37265156153444e-07,
+      "samples_relative_path": "samples/two_moons_2d/order_k8_input--exact.npz",
+      "samples_sha256": "9f0ab4b5e33cbf2eeeb81eda4df51823d4ab42b97b7cccdb4ec37435109a61fa",
+      "elapsed_seconds": 4.863403821364045
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_5000",
+      "trained_order": null,
+      "eval_order": "native",
+      "checkpoint_sha256": "0aa61310e239c9b11560468c2aaa697d7cb6e8b2f4f18453f8d11866890ca4ea",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.04477498680353165,
+      "pair_mse": 0.9613644480705261,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 0.0,
+      "velocity_rms_from_native": 0.0,
+      "samples_relative_path": "samples/two_moons_2d/silu_5000--native.npz",
+      "samples_sha256": "4f6069416c720400101693773d4a6c554e9aa4039735d5abbade240bbafae2c4",
+      "elapsed_seconds": 0.005565706640481949
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_5000",
+      "trained_order": null,
+      "eval_order": "native",
+      "checkpoint_sha256": "a6184eb4c8c33644bb3476a373376a505a659a870f5642fa7adf34c85b9a8c15",
+      "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+      "seed": 0,
+      "sw2": 0.0302101019769907,
+      "pair_mse": 0.9603596329689026,
+      "oracle_mse": null,
+      "time_bins": [
+        {
+          "t_left": 0.0,
+          "t_right": 0.1,
+          "count": 1035,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.1,
+          "t_right": 0.2,
+          "count": 959,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.2,
+          "t_right": 0.3,
+          "count": 1030,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.3,
+          "t_right": 0.4,
+          "count": 983,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.4,
+          "t_right": 0.5,
+          "count": 961,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.5,
+          "t_right": 0.6,
+          "count": 985,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.6,
+          "t_right": 0.7,
+          "count": 1019,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.7,
+          "t_right": 0.8,
+          "count": 1089,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.8,
+          "t_right": 0.9,
+          "count": 958,
+          "oracle_mse": null
+        },
+        {
+          "t_left": 0.9,
+          "t_right": 1.0,
+          "count": 981,
+          "oracle_mse": null
+        }
+      ],
+      "status": "complete",
+      "delta_sw2_from_native": 0.0,
+      "endpoint_rms_from_native": 0.0,
+      "velocity_rms_from_native": 0.0,
+      "samples_relative_path": "samples/two_moons_2d/swiglu_5000--native.npz",
+      "samples_sha256": "12307e057bfaf930b55fadc1e18a6418819c8a47d9e3599bc9f6e89ba0cf99cb",
+      "elapsed_seconds": 0.005380440503358841
+    }
+  ],
+  "workers": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "exit_code": 0
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "exit_code": 0
+    },
+    {
+      "dataset": "two_moons_2d",
+      "exit_code": 0
+    }
+  ],
+  "manifest_sha256": "c3657dc9f0c17ce06b962b8f0652359d3761a99c89438dfd346543cee23a5609",
+  "completed_at": "2026-10-20T09:19:33.053094+00:00",
+  "new_training": false
+}

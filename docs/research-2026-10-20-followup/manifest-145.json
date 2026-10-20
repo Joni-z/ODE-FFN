@@ -1,0 +1,246 @@
+{
+  "stage": "stage_20261020_frozen_order",
+  "source_commit": "1dd6a86daed8521bea71c5faf3df12107cff7d07",
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d",
+    "two_moons_2d"
+  ],
+  "evaluation_orders": [
+    1,
+    2,
+    4,
+    8,
+    "exact"
+  ],
+  "exact_chunk": 512,
+  "expected_cells": 66,
+  "data_root": "/data1/zz5070/ODE_FFN/frozen_order_20261020/datasets/synthetic/v1",
+  "data_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+  "source_summary_sha256": "e5063a7d25a0a87a8bc51c85f92295ffd426f1e1fad6e61312de081ad210bdb5",
+  "source_sha256": {
+    "synthetic/__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic/data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+    "synthetic/diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "synthetic/geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic/grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic/interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic/models.py": "1d4ae2d9a1691a726722086b64285590c3106b42a1fb0f97a0b8329726277ef5",
+    "synthetic/prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+    "synthetic/train.py": "7c2dd0e6395f219430e77e1fe80af60f59d37f3c694dd03eb11eb0c1f252a611",
+    "synthetic/validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7",
+    "scripts/run_frozen_order.py": "27554ab57227ed279e2b401956e641118d89cbcaeb83f7e8a36311166383b1be",
+    "scripts/run_frozen_order.slurm": "d10ba2173c2eac5ef69f74fcbd8bd48bb08aa20c8ad67effef7e3769ef47bccf",
+    "scripts/monitor_stage.py": "16a7e9498a4145ea767c1abe28c156126c2dd0d3c8a1de6498290e3ed001367c",
+    "scripts/monitor_diagnostics.py": "a3d3b68237de66f07a6f92d57938f833b4952358384a9445d63233cb3cd5d910",
+    "scripts/controlled_operators.py": "bffd43940ca5fd6ee3b097b58320ce0169990b61870c84a46e479ee1e9109cda",
+    "docs/research-2026-10-20-followup/protocol.md": "e261716b3057f053ada98dc30ac86e5dec6c655292e4aeacbb20b61027d14332",
+    "tests/test_interventions.py": "cb7aed77f96e8e5c5182e67b7385a33a4918476460eaad3c302a1311a0b69e72"
+  },
+  "checkpoints": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "model": "ode_original",
+      "orders": 1,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k1_input/gaussian_aniso_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k1_input/gaussian_aniso_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9",
+      "config_sha256": "4aea6b54e2d1618d05c42d9c1240cddd37ec2d0b123b3d79fd76cf61ca0d4d2c",
+      "reference_sw2": 0.06106054410338402
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "model": "ode_original",
+      "orders": 2,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k2_input/gaussian_aniso_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k2_input/gaussian_aniso_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa",
+      "config_sha256": "05cf089f59e2bbf400bf46642d2fc43fe851a364cb599ea1b4b613144b1c73fb",
+      "reference_sw2": 0.06743679195642471
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "model": "ode_original",
+      "orders": 4,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k4_input/gaussian_aniso_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k4_input/gaussian_aniso_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a",
+      "config_sha256": "b1de299fc7521eda11c10dbbc4ea07b1167831360ea4ee9ea72ea1b8bbdb9391",
+      "reference_sw2": 0.0703091099858284
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "model": "ode_original",
+      "orders": 8,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k8_input/gaussian_aniso_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k8_input/gaussian_aniso_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a",
+      "config_sha256": "6a2cfb72f90b75421be1118f24907a305ac156ba96e51852eca3e17963d39465",
+      "reference_sw2": 0.07022124528884888
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_5000",
+      "model": "ffn",
+      "orders": null,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_silu_5000/gaussian_aniso_2d/ffn/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_silu_5000/gaussian_aniso_2d/ffn/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "b24424c691e46e8255a76c4af9ad9250be4e6c59eca6b696d5372b64b2bf58ed",
+      "config_sha256": "759e9f9f1219da655e97154ca194ae05bd28230ccd3ceec661277b8c2fb43439",
+      "reference_sw2": 0.08682245016098022
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_5000",
+      "model": "swiglu",
+      "orders": null,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_swiglu_5000/gaussian_aniso_2d/swiglu/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_swiglu_5000/gaussian_aniso_2d/swiglu/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "2adbd9518661bed79b30d39b6f0214b01a50f4b8176214e085b52e01e359356e",
+      "config_sha256": "f9c935118898a45854ba125c32d671b25a8cddf052b9dae7227df06211951add",
+      "reference_sw2": 0.07461066544055939
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "model": "ode_original",
+      "orders": 1,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k1_input/gmm_ring8_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k1_input/gmm_ring8_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7",
+      "config_sha256": "4aea6b54e2d1618d05c42d9c1240cddd37ec2d0b123b3d79fd76cf61ca0d4d2c",
+      "reference_sw2": 0.2008260190486908
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "model": "ode_original",
+      "orders": 2,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k2_input/gmm_ring8_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k2_input/gmm_ring8_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb",
+      "config_sha256": "05cf089f59e2bbf400bf46642d2fc43fe851a364cb599ea1b4b613144b1c73fb",
+      "reference_sw2": 0.18482010066509247
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "model": "ode_original",
+      "orders": 4,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k4_input/gmm_ring8_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k4_input/gmm_ring8_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b",
+      "config_sha256": "b1de299fc7521eda11c10dbbc4ea07b1167831360ea4ee9ea72ea1b8bbdb9391",
+      "reference_sw2": 0.17517589032649994
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "model": "ode_original",
+      "orders": 8,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k8_input/gmm_ring8_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k8_input/gmm_ring8_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64",
+      "config_sha256": "6a2cfb72f90b75421be1118f24907a305ac156ba96e51852eca3e17963d39465",
+      "reference_sw2": 0.17482903599739075
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_5000",
+      "model": "ffn",
+      "orders": null,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_silu_5000/gmm_ring8_2d/ffn/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_silu_5000/gmm_ring8_2d/ffn/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "07f792193ab72a7e218d875ff32d1408bbf0ad49eae3017e6b7a0068b272d90f",
+      "config_sha256": "759e9f9f1219da655e97154ca194ae05bd28230ccd3ceec661277b8c2fb43439",
+      "reference_sw2": 0.1631251871585846
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_5000",
+      "model": "swiglu",
+      "orders": null,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_swiglu_5000/gmm_ring8_2d/swiglu/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_swiglu_5000/gmm_ring8_2d/swiglu/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "dac037d2d74427a1da4c55600393a62d55474c06db4ff63f3751527c780bdb5b",
+      "config_sha256": "f9c935118898a45854ba125c32d671b25a8cddf052b9dae7227df06211951add",
+      "reference_sw2": 0.20801785588264465
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "model": "ode_original",
+      "orders": 1,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k1_input/two_moons_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k1_input/two_moons_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5",
+      "config_sha256": "4aea6b54e2d1618d05c42d9c1240cddd37ec2d0b123b3d79fd76cf61ca0d4d2c",
+      "reference_sw2": 0.03150706738233566
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "model": "ode_original",
+      "orders": 2,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k2_input/two_moons_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_gate_k2_input/two_moons_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d",
+      "config_sha256": "05cf089f59e2bbf400bf46642d2fc43fe851a364cb599ea1b4b613144b1c73fb",
+      "reference_sw2": 0.02708328515291214
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "model": "ode_original",
+      "orders": 4,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k4_input/two_moons_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k4_input/two_moons_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73",
+      "config_sha256": "b1de299fc7521eda11c10dbbc4ea07b1167831360ea4ee9ea72ea1b8bbdb9391",
+      "reference_sw2": 0.027681544423103333
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "model": "ode_original",
+      "orders": 8,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k8_input/two_moons_2d/ode_original/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_order_k8_input/two_moons_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb",
+      "config_sha256": "6a2cfb72f90b75421be1118f24907a305ac156ba96e51852eca3e17963d39465",
+      "reference_sw2": 0.02766444906592369
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_5000",
+      "model": "ffn",
+      "orders": null,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_silu_5000/two_moons_2d/ffn/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_silu_5000/two_moons_2d/ffn/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "0aa61310e239c9b11560468c2aaa697d7cb6e8b2f4f18453f8d11866890ca4ea",
+      "config_sha256": "759e9f9f1219da655e97154ca194ae05bd28230ccd3ceec661277b8c2fb43439",
+      "reference_sw2": 0.04477498680353165
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_5000",
+      "model": "swiglu",
+      "orders": null,
+      "run_dir": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_swiglu_5000/two_moons_2d/swiglu/seed000",
+      "checkpoint": "/data1/zz5070/ODE_FFN/frozen_order_20261020/runs/synthetic/odeffn_stage_20261020_swiglu_5000/two_moons_2d/swiglu/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "a6184eb4c8c33644bb3476a373376a505a659a870f5642fa7adf34c85b9a8c15",
+      "config_sha256": "f9c935118898a45854ba125c32d671b25a8cddf052b9dae7227df06211951add",
+      "reference_sw2": 0.0302101019769907
+    }
+  ],
+  "relocation": {
+    "origin_host": "torch",
+    "target_host": "145",
+    "origin_manifest_sha256": "6075d905e268fadb70123c6d849d3a9c21b12400ba64aa5cbe88e51e7b22e094",
+    "changes": "Absolute filesystem paths only; original source, checkpoints, configuration and data hashes preserved."
+  }
+}

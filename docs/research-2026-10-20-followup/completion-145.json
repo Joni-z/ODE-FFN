@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-10-20T09:19:52.204860+00:00",
-  "state": "EVALUATION_COMPLETE_RESULTS_COLLECTION_PENDING",
+  "state": "COMPLETE_AND_COLLECTED",
   "target_host": "145",
   "gateway": "mbp",
   "runner": {
@@ -41,5 +41,6 @@
   "source_job_state": "CANCELLED with zero runtime before the standalone launch",
   "controller_sha256": "90c8e5e908f49135ec17059f0dbb8c548e7cac78811aba9572caad28404dc434",
   "native_preflight_absolute_sw2_difference": 7.450580596923828e-09,
-  "evidence_limit": "Completion monitor and preflight/throughput records have been read locally. Complete metric tables and sample hash audit await archive collection."
+  "evidence_limit": "All 66 sample hashes and 18 native checks verified locally.",
+  "collection_checked_at": "2026-10-20T11:44:57.503618+00:00"
 }
