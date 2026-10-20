@@ -38,6 +38,11 @@ and progress every 10 seconds. Logs are in `logs/`; checkpoints and trajectory
 diagnostics in `runs/`; endpoint samples in `samples/`; full Jacobian diagnostics
 and scores in `evaluations/` and `summary.json`.
 
+For CPU execution, pass `--device cpu`. The runner hides CUDA from every child
+and uses at most two single-threaded training workers. This is the fallback
+registered before full training when the GPU owner's controller repeatedly
+reclaimed the card. All models, including both baselines, use the same backend.
+
 An existing output directory is rejected. An interrupted launch requires inspection
 before any restart; the runner never silently overwrites or resubmits it.
 

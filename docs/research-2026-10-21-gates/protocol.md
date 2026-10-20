@@ -54,8 +54,22 @@ not an immediate claim about flow matching or image generation.
 
 ## Execution
 
-Use one GPU. Benchmark equal numbers of real training updates with one and two
+Use one GPU when it can be held exclusively. Benchmark real training updates with one and two
 workers after warmup. Use two workers only if aggregate throughput improves by
 at least 10%. Record GPU utilization, memory and per-run progress every 10 seconds.
 Freeze source/config/data hashes before execution. Refuse to overwrite unfinished
 or completed runs. Do not change constraints on P or add regularizers this round.
+
+### Hardware amendment before full training
+
+GPU0 on 145 was reclaimed twice with the owner's authorized helper, but the
+owner's controller restarted its workers both times. Our resource guard stopped
+the second attempt during GPU smoke checks. No full training trajectory or
+benchmark was completed on the GPU.
+
+CPU execution is permitted if the real training-kernel benchmark makes this
+small study practical. Use at most two concurrent single-threaded training
+workers, chosen by the same 10% throughput criterion. Run all fifteen models on
+the same backend; do not mix historical GPU results into the new comparison.
+The same seed value does not imply identical CPU/CUDA random training batches.
+The GPU smoke outputs are software checks and are excluded from research results.

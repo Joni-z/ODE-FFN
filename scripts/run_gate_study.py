@@ -1,4 +1,4 @@
-"""One-GPU gate study: freeze inputs, benchmark concurrency, train and evaluate.
+"""Gate study: freeze inputs, benchmark concurrency, train and evaluate.
 
 Run from a dedicated immutable checkout with data/synthetic/v1 linked to the
 existing prepared dataset. The output directory must not already exist.
@@ -47,7 +47,7 @@ def select_checkpoint(rows: list[dict], candidates: list[int]) -> int:
     return min(candidates, key=lambda step: (scores[step], step))
 
 
-def freeze(output: Path, manifest: dict) -> dict:
+def freeze(output: Path, manifest: dict, device: str) -> dict:
     files = list((ROOT / "synthetic").glob("*.py"))
     files += [Path(__file__), ROOT / "scripts/diagnose_synthetic.py",
               ROOT / "scripts/monitor_stage.py", MANIFEST,
@@ -65,7 +65,8 @@ def freeze(output: Path, manifest: dict) -> dict:
         raise ValueError("Protocol changed after configuration registration")
     record = dict(created=now(), source_and_data_sha256=hashes,
                   manifest=manifest, python=sys.version, torch=torch.__version__,
-                  gpu=torch.cuda.get_device_name() if torch.cuda.is_available() else None)
+                  device=device, cpu_count=os.cpu_count(),
+                  gpu=torch.cuda.get_device_name() if device == "cuda" else None)
     write_json(output / "frozen-inputs.json", record)
     return hashes
 
@@ -198,13 +199,13 @@ def monitor(output: Path, manifest: dict, stop: threading.Event, device: str) ->
         stop.wait(10)
 
 
-def train_one(output: Path, dataset: str, entry: dict) -> None:
+def train_one(output: Path, dataset: str, entry: dict, device: str) -> None:
     log = output / "logs" / f"{dataset}-{entry['model']}.log"
     with log.open("w") as handle:
         result = subprocess.run(
             [sys.executable, "-m", "synthetic.train", "--config", entry["config"],
              "--dataset", dataset, "--model", entry["model"], "--seed", "0",
-             "--device", "cuda", "--output-root", str(output / "runs")],
+             "--device", device, "--output-root", str(output / "runs")],
             cwd=ROOT, stdout=handle, stderr=subprocess.STDOUT)
     if result.returncode:
         raise RuntimeError(f"Training failed; inspect {log}")
@@ -265,22 +266,25 @@ def evaluate_all(output: Path, manifest: dict, device: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--device", default="cuda")
+    parser.add_argument("--device", choices=("cuda", "cpu"), default="cuda")
     parser.add_argument("--benchmark-worker", type=int)
     args = parser.parse_args()
     torch.set_num_threads(1)
     if args.benchmark_worker is not None:
         benchmark_worker(args.output, args.benchmark_worker, args.device)
         return
-    if args.device != "cuda" or not torch.cuda.is_available():
-        raise ValueError("Full study requires one allocated CUDA GPU")
-    if torch.cuda.device_count() != 1:
+    if args.device == "cpu":
+        # Also prevent checkpoint RNG capture from initializing CUDA in children.
+        os.environ["CUDA_VISIBLE_DEVICES"] = ""
+    elif not torch.cuda.is_available():
+        raise ValueError("CUDA requested but unavailable")
+    elif torch.cuda.device_count() != 1:
         raise ValueError("Expose exactly one GPU using CUDA_VISIBLE_DEVICES")
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=False)
     (output / "logs").mkdir()
     manifest = json.loads(MANIFEST.read_text())
-    hashes = freeze(output, manifest)
+    hashes = freeze(output, manifest, args.device)
     stop = threading.Event()
     watcher = threading.Thread(target=monitor, args=(output, manifest, stop, args.device), daemon=True)
     watcher.start()
@@ -289,7 +293,7 @@ def main() -> None:
         workers = benchmark(output, args.device)
         write_json(output / "status.json", dict(state="TRAINING", time=now(), workers=workers, pid=os.getpid()))
         with ThreadPoolExecutor(max_workers=workers) as executor:
-            futures = [executor.submit(train_one, output, dataset, entry)
+            futures = [executor.submit(train_one, output, dataset, entry, args.device)
                        for dataset, entry in jobs(manifest)]
             for future in futures:
                 future.result()

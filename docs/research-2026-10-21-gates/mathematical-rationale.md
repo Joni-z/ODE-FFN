@@ -15,6 +15,27 @@ different optimization outcomes remain possible.
 
 This identity would need re-examination under a norm cap or a penalty on P.
 That is one reason not to combine gate ablation with spectral constraints now.
+It also means that raw ||P|| alone is not a comparable measure of amplification
+across learned-scalar models: compare sP and T_K(sP) as well.
+
+## With constant gates, the block is a reparameterized ordinary FFN
+
+Let B1 = T_K(s1 P1) and B2 = T_K(s2 P2). The two-solve block is exactly
+
+    output = B2 SiLU(B1 h)
+
+There is no input-dependent solve left. It is a width-preserving, bias-free
+two-linear-layer FFN whose matrices are polynomially parameterized.
+For K=1 every real B is attainable, since P=(B-I)/s. At higher K the attainable
+real matrices need separate analysis; calling this an unrestricted linear
+parameterization would be unjustified.
+
+The current SiLU baseline has hidden width 128, while the ODE intermediate width
+is 64. Its parameter count originally matches the input-gated ODE block because
+the latter also contains gate networks. If fixed ODE is competitive, a future
+width-64 bias-free SiLU control can distinguish polynomial parameterization from
+ordinary FFN capacity. That is a separate follow-up, not an extra factor silently
+added to the present gate comparison.
 
 ## Input-dependent duration changes the derivative
 
