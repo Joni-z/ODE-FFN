@@ -267,3 +267,5 @@ slurm-*.out
 /docs/**/monitoring/
 /docs/**/monitoring-local/
 # Keep reviewed JSON summaries, manifests, report figures and design PDFs.
+# Curated gate-study evidence; checkpoint/NPZ/JSONL ignores still apply.
+!/docs/research-2026-10-21-gates/results/

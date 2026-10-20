@@ -1,0 +1,99 @@
+{
+  "created": "2026-10-20T17:28:35.494228+00:00",
+  "source_and_data_sha256": {
+    "synthetic/__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic/data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+    "synthetic/diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "synthetic/geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic/grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic/interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic/models.py": "84d3bbc77f3a25b5562a1dd5bd074ee7f7af08c9b6764c16838aefd4afbc8060",
+    "synthetic/prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+    "synthetic/train.py": "bd09e4341e986bf0317212b2e8abfced5a974e597e224e997154d0fb6bf4364d",
+    "synthetic/validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7",
+    "scripts/run_gate_study.py": "6f40c36e1d2354d62242fb8de1e561b90950e292c8173f8d3211530807cfdad4",
+    "scripts/diagnose_synthetic.py": "02241203bca88844bcafe37adf9241f3d01e8b3e3e42cf68aba1c50c6a7698f3",
+    "scripts/monitor_stage.py": "16a7e9498a4145ea767c1abe28c156126c2dd0d3c8a1de6498290e3ed001367c",
+    "configs/synthetic/gates_20261021/manifest.json": "4d35994d034eb8aedbf5bb69093ae58cb79c268290fd97596b5cfe836f380d92",
+    "docs/research-2026-10-21-gates/protocol.md": "8eb2dd83c4dbeee0196cb61e8db7f6d6e05affcd9de17ba6ca46da465471ebe8",
+    "configs/synthetic/gates_20261021/ode_original.json": "e1e5ef0092b25ab4fefa8edb4a4408a64317a009920625cecc1ad1690f6fde8b",
+    "configs/synthetic/gates_20261021/ode_fixed.json": "56cbaa28f7fd4e43bf03f0c98efcf3b807a1c72c2f483cb43b57370fee2532e9",
+    "configs/synthetic/gates_20261021/ode_scalar.json": "5f217fa6e004f871e3f8bb29c06f1b6868798f4d8e62101b15c0e9ac62e4de08",
+    "configs/synthetic/gates_20261021/ffn.json": "042128e3770e17f8de66b7710e7f5e85880f51c17a9904075ca95ac5a92e567e",
+    "configs/synthetic/gates_20261021/swiglu.json": "b0ab3a45450f016b61cbbef74283246d4100a7e865e3e92030432da57ce709c5",
+    "data/synthetic/v1/manifest.json": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "data/synthetic/v1/gaussian_aniso_2d/train.npz": "a4dd081d156fe95aa2eb1d2d6ff4be67e6b54596cdf220c5a505f599998d606d",
+    "data/synthetic/v1/gaussian_aniso_2d/validation.npz": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e",
+    "data/synthetic/v1/gaussian_aniso_2d/test.npz": "bb0ff4f0f827e00052e11f4c82790d652df320083b97d8776efa53f7756e5d14",
+    "data/synthetic/v1/gaussian_aniso_2d/probe.npz": "8da99fb087c9a35dbc2bf2e16f8b985d2a16afc567ed51541bb64ed5d0a7f601",
+    "data/synthetic/v1/gmm_ring8_2d/train.npz": "1de0d52b5fd0f233b0b09de47e11a8c8eacd6ede43a0fb8eb371e2995a2b2975",
+    "data/synthetic/v1/gmm_ring8_2d/validation.npz": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963",
+    "data/synthetic/v1/gmm_ring8_2d/test.npz": "5c2e09a55e283e048618c23d8d59d5af595bb66af67711ee6b138ffbc7abf0f3",
+    "data/synthetic/v1/gmm_ring8_2d/probe.npz": "4bfe2ab79472d55d096a6db92264a71048e7ccbaa425a5dc2c80c7c63c61fc65",
+    "data/synthetic/v1/two_moons_2d/train.npz": "4f5482280d4cc0b1a7271c60a4112810e8702abd8423317a3938f9a409521dbc",
+    "data/synthetic/v1/two_moons_2d/validation.npz": "7a12a7c97da1d0f8bb889cbdb0d9d16ad7048784031e63edb2dac1ed76056564",
+    "data/synthetic/v1/two_moons_2d/test.npz": "e7ffc39521f98872434214e4fcc7e458825a97b858600051823df94be3855b92",
+    "data/synthetic/v1/two_moons_2d/probe.npz": "143a7ed1782eb71fea595d443a9fde10b76d9fde3d745e413edf2cebde2c67b2"
+  },
+  "manifest": {
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d",
+      "two_moons_2d"
+    ],
+    "seed": 0,
+    "entries": [
+      {
+        "model": "ode_original",
+        "config": "configs/synthetic/gates_20261021/ode_original.json",
+        "sha256": "e1e5ef0092b25ab4fefa8edb4a4408a64317a009920625cecc1ad1690f6fde8b",
+        "parameters": 82056,
+        "forward_macs": 105152
+      },
+      {
+        "model": "ode_fixed",
+        "config": "configs/synthetic/gates_20261021/ode_fixed.json",
+        "sha256": "56cbaa28f7fd4e43bf03f0c98efcf3b807a1c72c2f483cb43b57370fee2532e9",
+        "parameters": 56706,
+        "forward_macs": 80192
+      },
+      {
+        "model": "ode_scalar",
+        "config": "configs/synthetic/gates_20261021/ode_scalar.json",
+        "sha256": "5f217fa6e004f871e3f8bb29c06f1b6868798f4d8e62101b15c0e9ac62e4de08",
+        "parameters": 56712,
+        "forward_macs": 80192
+      },
+      {
+        "model": "ffn",
+        "config": "configs/synthetic/gates_20261021/ffn.json",
+        "sha256": "042128e3770e17f8de66b7710e7f5e85880f51c17a9904075ca95ac5a92e567e",
+        "parameters": 81858,
+        "forward_macs": 80192
+      },
+      {
+        "model": "swiglu",
+        "config": "configs/synthetic/gates_20261021/swiglu.json",
+        "sha256": "b0ab3a45450f016b61cbbef74283246d4100a7e865e3e92030432da57ce709c5",
+        "parameters": 81792,
+        "forward_macs": 80000
+      }
+    ],
+    "runs": 15,
+    "primary_step": 5000,
+    "selection_steps": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+    ],
+    "selection_rule": "minimum validation SW2, earlier step breaks ties",
+    "protocol_sha256": "8eb2dd83c4dbeee0196cb61e8db7f6d6e05affcd9de17ba6ca46da465471ebe8"
+  },
+  "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+  "torch": "2.8.0+cu128",
+  "device": "cpu",
+  "cpu_count": 64,
+  "gpu": null
+}

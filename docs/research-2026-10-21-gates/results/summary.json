@@ -1,0 +1,154 @@
+{
+  "table": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_original",
+      "primary_test_sw2": 0.07774411886930466,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.06657193601131439,
+      "primary_oracle_mse": 0.004448784685134888,
+      "parameters": 82056,
+      "forward_macs": 105152
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_fixed",
+      "primary_test_sw2": 0.07562606036663055,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.06864754110574722,
+      "primary_oracle_mse": 0.00431827003955841,
+      "parameters": 56706,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_scalar",
+      "primary_test_sw2": 0.07557021081447601,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.06857988238334656,
+      "primary_oracle_mse": 0.0043135430574417115,
+      "parameters": 56712,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ffn",
+      "primary_test_sw2": 0.060952089726924896,
+      "validation_selected_step": 5000,
+      "selected_test_sw2": 0.060952089726924896,
+      "primary_oracle_mse": 0.004265145444869995,
+      "parameters": 81858,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "swiglu",
+      "primary_test_sw2": 0.07129722088575363,
+      "validation_selected_step": 5000,
+      "selected_test_sw2": 0.07129722088575363,
+      "primary_oracle_mse": 0.003927979397773743,
+      "parameters": 81792,
+      "forward_macs": 80000
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_original",
+      "primary_test_sw2": 0.1728816032409668,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.2603224515914917,
+      "primary_oracle_mse": 0.03250243034362793,
+      "parameters": 82056,
+      "forward_macs": 105152
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_fixed",
+      "primary_test_sw2": 0.20019853115081787,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.27150630950927734,
+      "primary_oracle_mse": 0.07462480392456054,
+      "parameters": 56706,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_scalar",
+      "primary_test_sw2": 0.19980905950069427,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.2714667320251465,
+      "primary_oracle_mse": 0.07372522277832032,
+      "parameters": 56712,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ffn",
+      "primary_test_sw2": 0.2218819409608841,
+      "validation_selected_step": 1000,
+      "selected_test_sw2": 0.27281859517097473,
+      "primary_oracle_mse": 0.04800704345703125,
+      "parameters": 81858,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "swiglu",
+      "primary_test_sw2": 0.15129171311855316,
+      "validation_selected_step": 2000,
+      "selected_test_sw2": 0.14641863107681274,
+      "primary_oracle_mse": 0.016220699882507326,
+      "parameters": 81792,
+      "forward_macs": 80000
+    },
+    {
+      "dataset": "two_moons_2d",
+      "model": "ode_original",
+      "primary_test_sw2": 0.027704577893018723,
+      "validation_selected_step": 5000,
+      "selected_test_sw2": 0.027704577893018723,
+      "primary_oracle_mse": null,
+      "parameters": 82056,
+      "forward_macs": 105152
+    },
+    {
+      "dataset": "two_moons_2d",
+      "model": "ode_fixed",
+      "primary_test_sw2": 0.025904305279254913,
+      "validation_selected_step": 3000,
+      "selected_test_sw2": 0.0299084335565567,
+      "primary_oracle_mse": null,
+      "parameters": 56706,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "two_moons_2d",
+      "model": "ode_scalar",
+      "primary_test_sw2": 0.025914397090673447,
+      "validation_selected_step": 3000,
+      "selected_test_sw2": 0.02992745116353035,
+      "primary_oracle_mse": null,
+      "parameters": 56712,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "two_moons_2d",
+      "model": "ffn",
+      "primary_test_sw2": 0.02093416452407837,
+      "validation_selected_step": 3000,
+      "selected_test_sw2": 0.04119696468114853,
+      "primary_oracle_mse": null,
+      "parameters": 81858,
+      "forward_macs": 80192
+    },
+    {
+      "dataset": "two_moons_2d",
+      "model": "swiglu",
+      "primary_test_sw2": 0.028427744284272194,
+      "validation_selected_step": 3000,
+      "selected_test_sw2": 0.03735801577568054,
+      "primary_oracle_mse": null,
+      "parameters": 81792,
+      "forward_macs": 80000
+    }
+  ]
+}
