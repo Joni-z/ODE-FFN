@@ -1,0 +1,56 @@
+{
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d",
+    "two_moons_2d"
+  ],
+  "seed": 0,
+  "entries": [
+    {
+      "model": "ode_original",
+      "config": "configs/synthetic/gates_20261021/ode_original.json",
+      "sha256": "e1e5ef0092b25ab4fefa8edb4a4408a64317a009920625cecc1ad1690f6fde8b",
+      "parameters": 82056,
+      "forward_macs": 105152
+    },
+    {
+      "model": "ode_fixed",
+      "config": "configs/synthetic/gates_20261021/ode_fixed.json",
+      "sha256": "56cbaa28f7fd4e43bf03f0c98efcf3b807a1c72c2f483cb43b57370fee2532e9",
+      "parameters": 56706,
+      "forward_macs": 80192
+    },
+    {
+      "model": "ode_scalar",
+      "config": "configs/synthetic/gates_20261021/ode_scalar.json",
+      "sha256": "5f217fa6e004f871e3f8bb29c06f1b6868798f4d8e62101b15c0e9ac62e4de08",
+      "parameters": 56712,
+      "forward_macs": 80192
+    },
+    {
+      "model": "ffn",
+      "config": "configs/synthetic/gates_20261021/ffn.json",
+      "sha256": "042128e3770e17f8de66b7710e7f5e85880f51c17a9904075ca95ac5a92e567e",
+      "parameters": 81858,
+      "forward_macs": 80192
+    },
+    {
+      "model": "swiglu",
+      "config": "configs/synthetic/gates_20261021/swiglu.json",
+      "sha256": "b0ab3a45450f016b61cbbef74283246d4100a7e865e3e92030432da57ce709c5",
+      "parameters": 81792,
+      "forward_macs": 80000
+    }
+  ],
+  "runs": 15,
+  "primary_step": 5000,
+  "selection_steps": [
+    1000,
+    2000,
+    3000,
+    4000,
+    5000
+  ],
+  "selection_rule": "minimum validation SW2, earlier step breaks ties",
+  "protocol_sha256": "92880d1a2710d13fc82e3a0304c0c41750d10d8bfaf50076a396aca5038d228e"
+}

@@ -74,7 +74,10 @@ def sliced_w2(x,y,directions):
     return float(torch.sqrt((torch.sort(u,dim=0).values-torch.sort(v,dim=0).values).square().mean()).item())
 
 
-def fixed_eval_data(folder, distribution, dim, seed, device, sample_count, directions_count):
+def fixed_eval_data(folder, distribution, dim, seed, device, sample_count, directions_count,
+                    sampling_split='test'):
+    if sampling_split not in ('test', 'validation'):
+        raise ValueError('sampling_split must be test or validation')
     validation=load_targets(folder/'validation.npz',dim)
     rng=np.random.default_rng(seed+7761)
     vx,vt,vy=fm_batch(validation,rng)
@@ -82,10 +85,10 @@ def fixed_eval_data(folder, distribution, dim, seed, device, sample_count, direc
     with np.load(folder/'probe.npz',allow_pickle=False) as probe:
         px=probe['xt'][:256].copy()
         pt=probe['t'][:256].copy()
-    test=load_targets(folder/'test.npz',dim)
+    test=load_targets(folder/f'{sampling_split}.npz',dim)
     if len(test) < 2*sample_count:
         raise ValueError('test split must contain at least 2*sample_count targets')
-    rng=np.random.default_rng(seed+4427)
+    rng=np.random.default_rng(seed+(4427 if sampling_split=='test' else 14427))
     source=rng.standard_normal((sample_count,dim)).astype(np.float32)
     dirs=rng.standard_normal((directions_count,dim)).astype(np.float32)
     dirs/=np.linalg.norm(dirs,axis=1,keepdims=True).clip(min=1e-12)
@@ -174,7 +177,8 @@ def run(args):
     distribution=load_distribution(spec)
     train_target=torch.from_numpy(load_targets(folder/'train.npz',dimension)).to(device)
     fixed=fixed_eval_data(folder,distribution,dimension,args.seed,device,
-                          cfg['sample_count'],cfg['sliced_directions'])
+                          cfg['sample_count'],cfg['sliced_directions'],
+                          cfg.get('sampling_split','test'))
     steps=args.steps if args.steps is not None else cfg['steps']
     if steps<1:
         raise ValueError('steps must be positive')
@@ -293,7 +297,8 @@ def parse_args():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',default='configs/synthetic/train_v1.json')
     p.add_argument('--dataset',required=True)
-    p.add_argument('--model',required=True,choices=['ffn','swiglu','ode_original','ode_spectral_cap','ode_time'])
+    p.add_argument('--model',required=True,choices=['ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
+                                                  'ode_fixed','ode_scalar'])
     p.add_argument('--seed',type=int,required=True)
     p.add_argument('--device',default='auto')
     p.add_argument('--output-root',default='../runs/synthetic')

@@ -50,7 +50,8 @@ def layer_diagnostics(model,x,t):
     for name,layer in model.ode_layers():
         h=inputs[name][0].clone().requires_grad_(True)
         s=layer.step_size(h,inputs[name][1]).reshape(-1)
-        ds=torch.autograd.grad(s.sum(),h,allow_unused=True)[0]
+        ds=(torch.autograd.grad(s.sum(),h,allow_unused=True)[0]
+            if s.requires_grad else None)
         ds=(ds if ds is not None else torch.zeros_like(h)).detach().double()
         h=h.detach().double(); s=s.detach().double()
         p=layer.operator().detach().double()

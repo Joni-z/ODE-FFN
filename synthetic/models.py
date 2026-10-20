@@ -19,12 +19,18 @@ class OriginalODELayer(nn.Module):
             raise ValueError('spectral_cap must be positive')
         self.orders, self.tau, self.scale, self.shift = orders, tau, scale, shift
         self.spectral_cap = spectral_cap
-        if gate_source not in ('input', 'time'):
-            raise ValueError('gate_source must be input or time')
+        if gate_source not in ('input', 'time', 'fixed', 'scalar'):
+            raise ValueError('gate_source must be input, time, fixed or scalar')
         self.gate_source = gate_source
         self.t_func = nn.Sequential(nn.Linear(width, gate_hidden), nn.SiLU(),
                                     nn.Linear(gate_hidden, 1))
         self.proj = nn.Linear(width, width, bias=False)
+        # Consume the legacy initialization draws so all common weights stay paired.
+        # Remove the unused network rather than counting dormant parameters.
+        if gate_source in ('fixed', 'scalar'):
+            del self.t_func
+        if gate_source == 'scalar':
+            self.duration_logit = nn.Parameter(torch.zeros(()))
 
     def operator(self):
         weight = self.proj.weight
@@ -36,6 +42,11 @@ class OriginalODELayer(nn.Module):
         return weight * factor.to(weight.dtype)
 
     def step_size(self, x, context=None):
+        if self.gate_source == 'fixed':
+            return x.new_full((*x.shape[:-1], 1), self.shift + self.scale / 2)
+        if self.gate_source == 'scalar':
+            s = torch.sigmoid(self.duration_logit / self.tau) * self.scale + self.shift
+            return s.expand(*x.shape[:-1], 1)
         gate_input = x
         if self.gate_source == 'time':
             if context is None or context.shape != x.shape:
@@ -143,7 +154,8 @@ class VelocityNet(nn.Module):
                  ffn_hidden=128,orders=2,tau=10.0,scale=0.8,shift=0.2,
                  spectral_cap=1.0):
         super().__init__()
-        if kind not in ('ffn','swiglu','ode_original','ode_spectral_cap','ode_time'):
+        if kind not in ('ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
+                        'ode_fixed','ode_scalar'):
             raise ValueError(f'unsupported model kind: {kind}')
         self.dim,self.kind,self.width,self.depth=dim,kind,width,depth
         self.input=nn.Linear(dim,width)
@@ -157,7 +169,8 @@ class VelocityNet(nn.Module):
             else:
                 ffn=OriginalODEFFN(width,gate_hidden,orders=orders,tau=tau,
                                    scale=scale,shift=shift,
-                                   gate_source='time' if kind=='ode_time' else 'input',
+                                   gate_source={'ode_time':'time', 'ode_fixed':'fixed',
+                                                'ode_scalar':'scalar'}.get(kind, 'input'),
                                    spectral_cap=spectral_cap if kind=='ode_spectral_cap' else None)
             blocks.append(TimeConditionedBlock(width,width,ffn,1/math.sqrt(depth)))
         self.blocks=nn.ModuleList(blocks)
