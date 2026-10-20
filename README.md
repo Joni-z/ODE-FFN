@@ -16,6 +16,8 @@ Latest progress (2026-10-20): two waves of gating, Taylor-order, and compute-bud
 
 Follow-up diagnostics were submitted on 2026-10-20 as Slurm job `20405164`: 66 fixed-checkpoint evaluations test whether similar K=4/K=8 results reflect numerical saturation or training adaptation. A separate CPU-only matrix experiment is complete. This stage requests one GPU, benchmarks one versus two workers on that same GPU, and records utilization every 10 seconds. See the [prespecified protocol](docs/research-2026-10-20-followup/protocol.md) and [status and monitoring instructions](docs/research-2026-10-20-followup/status.md). Submission does not imply completion; consult the monitor before using new results.
 
+An alternative execution directory on host 145 has passed source/data verification and CPU tests. See the [migration record](docs/research-2026-10-20-followup/migration-145.md) for its current readiness and the [storage audit](docs/research-2026-10-20-followup/storage.md). Preparation does not imply that the GPU evaluation has started.
+
 For training waves, `scripts/submit_stage_monitored.py` includes monitoring. The fixed-checkpoint stage uses `scripts/run_frozen_order.slurm` and `scripts/monitor_diagnostics.py`. Freeze the manifest of the actual dataset on torch and use a new experiment directory for each stage. The monitors check Slurm and output artifacts every 60 seconds; see the [training-stage monitoring guide](docs/research-2026-10-20/monitoring.md). They record status and anomalies without automatically resubmitting jobs or sending external messages.
 
 ## Repository layout

@@ -1,0 +1,22 @@
+{
+  "prepared_at": "2026-10-20T08:09:57.159893+00:00",
+  "target_host": "145",
+  "target_path": "/data1/zz5070/ODE_FFN/frozen_order_20261020",
+  "controller_sha256": "0117351e78917693177d222ac284479e36654141fc40e01e4df0d014c8a28507",
+  "config_sha256": "5637b5b4cf0179a20927e5c8e6aef2eb3700ec8877f260b83774cb249a73d7bd",
+  "cpu_tests_passed": 4,
+  "routing_tests_passed": 4,
+  "preemption": {
+    "method": "Owner-provided stop helper, explicitly authorized by the user",
+    "gpu_index": 0,
+    "result": "Owner process exited; GPU memory dropped to 2 MiB"
+  },
+  "target_environment": {
+    "python": "3.12.11",
+    "pytorch": "2.8.0+cu128",
+    "numpy": "1.26.4",
+    "scipy": "1.17.1"
+  },
+  "note": "Original scientific source and checkpoint/data hashes preserved. Standalone backend differs from torch; native reproduction and FP64 precision controls remain required.",
+  "state": "PREPARED_NOT_RUNNING_SSH_RECONNECT_REQUIRED"
+}
