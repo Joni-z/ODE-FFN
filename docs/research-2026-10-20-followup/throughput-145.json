@@ -1,0 +1,35 @@
+{
+  "single": {
+    "workers": 1,
+    "seconds": 0.15651194378733635,
+    "examples": 4096,
+    "examples_per_second": 26170.52667600576,
+    "per_worker": [
+      {
+        "seconds": 0.15651194378733635,
+        "examples": 4096,
+        "peak_allocated_bytes": 236816384
+      }
+    ]
+  },
+  "dual": {
+    "workers": 2,
+    "seconds": 0.2897396720945835,
+    "examples": 8192,
+    "examples_per_second": 28273.65662692466,
+    "per_worker": [
+      {
+        "seconds": 0.28940080665051937,
+        "examples": 4096,
+        "peak_allocated_bytes": 236816384
+      },
+      {
+        "seconds": 0.2897396720945835,
+        "examples": 4096,
+        "peak_allocated_bytes": 236816384
+      }
+    ]
+  },
+  "selected_workers": 1,
+  "rule": "Choose two only for >=10% aggregate throughput gain; same single allocated GPU."
+}

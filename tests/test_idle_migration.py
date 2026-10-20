@@ -1,5 +1,6 @@
 """Exercise migration decisions without contacting hosts or allocating a GPU."""
 from pathlib import Path
+import shlex
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -8,6 +9,18 @@ from scripts import migrate_when_idle as migration
 
 
 class MigrationTests(unittest.TestCase):
+    def test_gateway_preserves_target_argument_boundaries(self):
+        cfg = dict(python="/path with spaces/python", remote_script="/path/script.py",
+                   remote_config="/path/a config.json", target_host="145", target_gateway="mbp")
+        with patch.object(migration, "command", return_value='{"ok": true}') as command:
+            self.assertEqual(migration.remote(cfg, "probe"), {"ok": True})
+            outer = command.call_args.args[0]
+            self.assertEqual(outer[-2], "mbp")
+            inner = shlex.split(outer[-1])
+            self.assertEqual(inner[-2], "145")
+            self.assertEqual(shlex.split(inner[-1]), [
+                cfg["python"], cfg["remote_script"], "probe", "--config", cfg["remote_config"]])
+
     def test_low_utilization_does_not_make_occupied_gpu_idle(self):
         gpu = dict(pids=[123], memory_mib=20, utilization=0)
         self.assertFalse(migration.idle(gpu))

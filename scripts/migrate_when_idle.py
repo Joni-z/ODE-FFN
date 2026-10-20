@@ -139,7 +139,17 @@ def remote(cfg, mode, gpu=None):
     args = [cfg["python"], cfg["remote_script"], mode, "--config", cfg["remote_config"]]
     if gpu:
         args += ["--gpu", gpu]
-    return json.loads(ssh(cfg["target_host"], args))
+    if cfg.get("target_gateway"):
+        # Authenticate on the gateway using its existing target SSH setup.
+        # ProxyJump alone would still use credentials from the local machine.
+        inner = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=15",
+                 cfg["target_host"], shlex.join(args)]
+        text = command(["ssh", "-o", "BatchMode=yes", "-o", "ControlPath=none",
+                        "-o", "ConnectTimeout=15", cfg["target_gateway"],
+                        shlex.join(inner)], timeout=60)
+    else:
+        text = ssh(cfg["target_host"], args)
+    return json.loads(text)
 
 
 def origin_status(cfg):

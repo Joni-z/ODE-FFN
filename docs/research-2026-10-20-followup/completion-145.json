@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-20T09:19:52.204860+00:00",
+  "state": "EVALUATION_COMPLETE_RESULTS_COLLECTION_PENDING",
+  "target_host": "145",
+  "gateway": "mbp",
+  "runner": {
+    "pid": 929329,
+    "started_at": "2026-10-20T09:17:38.867139+00:00",
+    "gpu_uuid": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "python": "/data2/zz5070/miniconda3/envs/py312/bin/python",
+    "state": "SUCCEEDED",
+    "child_pid": 929439,
+    "exit_code": 0,
+    "completed_at": "2026-10-20T09:19:33.347620+00:00"
+  },
+  "cells": 66,
+  "summary_complete": true,
+  "progress": {
+    "checked_at": "2026-10-20T09:19:33.011255+00:00",
+    "job_id": null,
+    "selected_workers": 1,
+    "active": [],
+    "finished": [
+      {
+        "dataset": "gaussian_aniso_2d",
+        "exit_code": 0
+      },
+      {
+        "dataset": "gmm_ring8_2d",
+        "exit_code": 0
+      },
+      {
+        "dataset": "two_moons_2d",
+        "exit_code": 0
+      }
+    ],
+    "cells": 66,
+    "expected_cells": 66
+  },
+  "source_job_id": "20405164",
+  "source_job_state": "CANCELLED with zero runtime before the standalone launch",
+  "controller_sha256": "90c8e5e908f49135ec17059f0dbb8c548e7cac78811aba9572caad28404dc434",
+  "native_preflight_absolute_sw2_difference": 7.450580596923828e-09,
+  "evidence_limit": "Completion monitor and preflight/throughput records have been read locally. Complete metric tables and sample hash audit await archive collection."
+}

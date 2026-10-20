@@ -6,21 +6,23 @@
 - [x] Complete CPU-only controlled-operator calculations.
 - [x] Freeze and verify 17 source files, dataset files, and 18 checkpoint/configuration pairs.
 - [x] Submit one-GPU job 20405164 and start a detached monitor.
-- [ ] Observe the actual GPU benchmark, worker choice, utilization, and evaluation progress.
-- [ ] Validate all 66 cells and Slurm exit status.
+- [x] Observe the actual GPU benchmark, worker choice, utilization, and evaluation progress.
+- [x] Confirm 66 completed cells, three successful workers, and a successful standalone runner.
+- [ ] Collect the complete archive and independently audit its local sample hashes and native controls.
 - [ ] Analyze within-checkpoint effects and update the evidence report on CPU.
 
-Submitted work is still pending at the initial status check. New GPU results must not be reported as completed evidence.
+The standalone run is complete. Full scientific interpretation awaits archive collection.
 
 ## Alternative host preparation
 
 - [x] Audit host 145 GPU occupancy, environment, and storage.
 - [x] Copy only the needed runtime, checkpoints/configurations, and small dataset version.
 - [x] Verify all input/source hashes and pass four CPU intervention tests on 145.
-- [x] Pass five local routing tests without allocating GPUs.
+- [x] Pass six local routing tests without allocating GPUs.
 - [x] Release one GPU through its owner's provided helper, with explicit user authorization.
-- [ ] Restore SSH access to 145 and refresh the controller.
-- [ ] Recheck availability, complete GPU numerical preflight, and reconcile the original Slurm job.
-- [ ] Start and monitor one execution route; validate all 66 results.
+- [x] Restore SSH access to 145 through MBP and refresh the controller.
+- [x] Recheck availability, complete GPU numerical preflight, and cancel the pending original Slurm job.
+- [x] Start and monitor one execution route; confirm remote completion of all 66 cells.
+- [x] Start a detached result collector after the gateway connection was lost again.
 
-The migration coordinator was stopped after Slurm rejected a hold. The subsequent 145 SSH session expired. No full standalone evaluation has started; the original torch job remains queued. See migration-145.md.
+The original job was cancelled before full standalone execution. Host 145 completed the stage in approximately 114.5 seconds. The completion monitor captured success; a later gateway outage delayed result transfer. See migration-145.md.

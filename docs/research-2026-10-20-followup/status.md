@@ -1,6 +1,8 @@
 # Fixed-checkpoint diagnostics: execution status
 
-Submitted on 2026-10-20 as Slurm job **20405164**. The initial scheduler checks show **PENDING**; no GPU is allocated while pending. This document records submission, not completed GPU results.
+The original submission was Slurm job **20405164**. It was cancelled while pending after a successful numerical GPU preflight on host 145. The standalone evaluation subsequently completed **66/66 cells**, with all workers and the runner exiting successfully. See the [migration record](migration-145.md) and [completion record](completion-145.json). Full metric interpretation awaits archive collection and a local artifact audit.
+
+The details below describe the original Slurm submission and its monitor; that cancelled job is no longer the active execution route.
 
 - Frozen evaluation source: commit `1dd6a86daed8521bea71c5faf3df12107cff7d07`.
 - Frozen runtime: `/scratch/zz5070/ODE_FFN/experiments/stage_20261020_frozen_order/runtime`.
