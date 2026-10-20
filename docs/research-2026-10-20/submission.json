@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-10-20T03:09:35.700712+00:00",
+  "training_array_job_id": "20378694",
+  "report_job_id": "20378698",
+  "report_dependency": "afterany:20378694",
+  "training_tasks": 3,
+  "max_concurrent_gpus": 2,
+  "training_trajectories": 30,
+  "diagnostic_checkpoints": 54,
+  "training_seed": 0,
+  "runtime_root": "/scratch/zz5070/ODE_FFN/experiments/stage_20261020/runtime",
+  "report_root": "/scratch/zz5070/ODE_FFN/jit-codebase/docs/research-2026-10-20",
+  "output_root": "/scratch/zz5070/ODE_FFN/runs/synthetic",
+  "source_manifest_sha256": "9dcc90928ddfc53712499c6810e70ea3cd51aed7d95a040d719d7406624af0d4",
+  "submission_commands": [
+    "sbatch --parsable scripts/run_stage_waves.slurm",
+    "sbatch --parsable --dependency=afterany:20378694 scripts/finalize_stage_report.slurm"
+  ],
+  "last_verified_state": {
+    "20378694_0": "COMPLETED (0:0)",
+    "20378694_1": "COMPLETED (0:0)",
+    "20378694_2": "COMPLETED (0:0)",
+    "20378698": "COMPLETED (0:0)"
+  },
+  "note": "Real submission IDs. New experimental results pending; prior test-only IDs are not jobs.",
+  "last_verified_at_utc": "2026-10-20T03:49:06.737188+00:00",
+  "completion_audit": "completion-audit.json",
+  "data_manifest_annotation_correction": {
+    "recorded_local": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+    "actual_execution_host": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "selected_data_arrays_bitwise_equal": true
+  }
+}

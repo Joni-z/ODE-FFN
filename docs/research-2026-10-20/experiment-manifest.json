@@ -1,0 +1,190 @@
+{
+  "protocol": "ODELayer gate and Taylor-order ablations, 2026-10-20",
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d",
+    "two_moons_2d"
+  ],
+  "seed": 0,
+  "entries": [
+    {
+      "label": "gate_k1_input",
+      "wave": "A",
+      "model": "ode_original",
+      "orders": 1,
+      "config": "configs/synthetic/stage_20261020/gate_k1_input.json",
+      "sha256": "4aea6b54e2d1618d05c42d9c1240cddd37ec2d0b123b3d79fd76cf61ca0d4d2c",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 82056,
+      "forward_macs": 80576
+    },
+    {
+      "label": "gate_k1_time",
+      "wave": "A",
+      "model": "ode_time",
+      "orders": 1,
+      "config": "configs/synthetic/stage_20261020/gate_k1_time.json",
+      "sha256": "6e30a8a379f618d48285c7996fec3cba277bcaec237b661787ebd863abed0290",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 82056,
+      "forward_macs": 80576
+    },
+    {
+      "label": "gate_k2_input",
+      "wave": "A",
+      "model": "ode_original",
+      "orders": 2,
+      "config": "configs/synthetic/stage_20261020/gate_k2_input.json",
+      "sha256": "05cf089f59e2bbf400bf46642d2fc43fe851a364cb599ea1b4b613144b1c73fb",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 82056,
+      "forward_macs": 105152
+    },
+    {
+      "label": "gate_k2_time",
+      "wave": "A",
+      "model": "ode_time",
+      "orders": 2,
+      "config": "configs/synthetic/stage_20261020/gate_k2_time.json",
+      "sha256": "ce09ed4cb9dc62da9733743814040b4c735e43a67fa6c6fe89f8efed51ba7376",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 82056,
+      "forward_macs": 105152
+    },
+    {
+      "label": "silu_5000",
+      "wave": "A",
+      "model": "ffn",
+      "orders": null,
+      "config": "configs/synthetic/stage_20261020/silu_5000.json",
+      "sha256": "759e9f9f1219da655e97154ca194ae05bd28230ccd3ceec661277b8c2fb43439",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 81858,
+      "forward_macs": 80192
+    },
+    {
+      "label": "swiglu_5000",
+      "wave": "A",
+      "model": "swiglu",
+      "orders": null,
+      "config": "configs/synthetic/stage_20261020/swiglu_5000.json",
+      "sha256": "f9c935118898a45854ba125c32d671b25a8cddf052b9dae7227df06211951add",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 81792,
+      "forward_macs": 80000
+    },
+    {
+      "label": "order_k4_input",
+      "wave": "B",
+      "model": "ode_original",
+      "orders": 4,
+      "config": "configs/synthetic/stage_20261020/order_k4_input.json",
+      "sha256": "b1de299fc7521eda11c10dbbc4ea07b1167831360ea4ee9ea72ea1b8bbdb9391",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 82056,
+      "forward_macs": 154304
+    },
+    {
+      "label": "order_k8_input",
+      "wave": "B",
+      "model": "ode_original",
+      "orders": 8,
+      "config": "configs/synthetic/stage_20261020/order_k8_input.json",
+      "sha256": "6a2cfb72f90b75421be1118f24907a305ac156ba96e51852eca3e17963d39465",
+      "steps": 5000,
+      "evaluate_steps": [
+        5000
+      ],
+      "parameters": 82056,
+      "forward_macs": 252608
+    },
+    {
+      "label": "silu_budget",
+      "wave": "B",
+      "model": "ffn",
+      "orders": null,
+      "config": "configs/synthetic/stage_20261020/silu_budget.json",
+      "sha256": "7c68b5283918ec66e5b716d33068de40d0f223638bbfaccdc8eda62e57a50226",
+      "steps": 15751,
+      "evaluate_steps": [
+        5000,
+        5024,
+        6557,
+        9621,
+        15751
+      ],
+      "parameters": 81858,
+      "forward_macs": 80192
+    },
+    {
+      "label": "swiglu_budget",
+      "wave": "B",
+      "model": "swiglu",
+      "orders": null,
+      "config": "configs/synthetic/stage_20261020/swiglu_budget.json",
+      "sha256": "082dffb854abfe8888d99d0aabe29f2dd4a87a5fbeba1430f0026b084400887d",
+      "steps": 15788,
+      "evaluate_steps": [
+        5000,
+        5036,
+        6572,
+        9644,
+        15788
+      ],
+      "parameters": 81792,
+      "forward_macs": 80000
+    }
+  ],
+  "ode_forward_macs": {
+    "1": 80576,
+    "2": 105152,
+    "4": 154304,
+    "8": 252608
+  },
+  "baseline_budgets": {
+    "silu": {
+      "model": "ffn",
+      "forward_macs": 80192,
+      "matched_steps": {
+        "1": 5024,
+        "2": 6557,
+        "4": 9621,
+        "8": 15751
+      }
+    },
+    "swiglu": {
+      "model": "swiglu",
+      "forward_macs": 80000,
+      "matched_steps": {
+        "1": 5036,
+        "2": 6572,
+        "4": 9644,
+        "8": 15788
+      }
+    }
+  },
+  "budget_definition": "Total network forward linear MACs per example, including time embedding and FiLM, excluding bias/nonlinear ops/backward/optimizer/evaluation. A proxy, not measured equal GPU time.",
+  "run_count": 30,
+  "eval_checkpoint_count": 54
+}

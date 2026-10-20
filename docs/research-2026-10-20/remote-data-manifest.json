@@ -1,0 +1,834 @@
+{
+  "config": {
+    "version": "synthetic-v1",
+    "seed": 20260923,
+    "train_size": 100000,
+    "validation_size": 10000,
+    "test_size": 10000,
+    "probe_size": 2048,
+    "datasets": [
+      "gaussian_iso_2d",
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d",
+      "gmm_aniso4_2d",
+      "gaussian_aniso_16d",
+      "two_moons_2d",
+      "checkerboard_2d"
+    ],
+    "source": "standard_normal",
+    "coupling": "independent",
+    "path": "x_t = (1-t)*x0 + t*x1",
+    "conditioning": "time_only_no_class_labels",
+    "initial_experiment_subset": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d",
+      "two_moons_2d"
+    ]
+  },
+  "numpy_version": "2.2.6",
+  "files": {
+    "checkerboard_2d/distribution.json": {
+      "bytes": 376,
+      "sha256": "8de6c6eebf870dbfa1f4905dfb08aeed2a59417dc565aea633adc627854fa704"
+    },
+    "checkerboard_2d/probe.npz": {
+      "bytes": 68722,
+      "sha256": "aaef0f3e7459433ea5606de999da73767c7d9b002fa23fb95a83a8a35136f52d"
+    },
+    "checkerboard_2d/test.npz": {
+      "bytes": 73236,
+      "sha256": "37c43c91b89cbc48666809e7e6fae4b22df16862171a8e9a73f525dbda52d6be"
+    },
+    "checkerboard_2d/train.npz": {
+      "bytes": 730622,
+      "sha256": "86543aa60b5edd2b5345da6c0f4b66afc81a8608c329924f09e521a60ee3da94"
+    },
+    "checkerboard_2d/validation.npz": {
+      "bytes": 73248,
+      "sha256": "999c7439f30c7e5b053b4e679471ef00a87efe9aff45a273a33494ba63886f49"
+    },
+    "gaussian_aniso_16d/distribution.json": {
+      "bytes": 4311,
+      "sha256": "79dc94bed6672860ed7e00ff51f0191f6a26be442bba114861bd060deabf4cbe"
+    },
+    "gaussian_aniso_16d/probe.npz": {
+      "bytes": 618771,
+      "sha256": "947e8b2f7e63eda369f419c2c9d0b150c61dc98063f3179f86374a7a1c48b251"
+    },
+    "gaussian_aniso_16d/test.npz": {
+      "bytes": 599567,
+      "sha256": "b654a3033f1dc085456fa70a511a9320df94f55bcfc3008a6e0cd392f97d4c8c"
+    },
+    "gaussian_aniso_16d/train.npz": {
+      "bytes": 5994092,
+      "sha256": "253bbbb519cd24de8a1199d4164e27a78f02d865c0dd1b3ee3efbc03d6f376b9"
+    },
+    "gaussian_aniso_16d/validation.npz": {
+      "bytes": 599544,
+      "sha256": "f5060e1c7c28c1617bb1e917659b7fb0fba725ce478f39432320979482530328"
+    },
+    "gaussian_aniso_2d/distribution.json": {
+      "bytes": 454,
+      "sha256": "d9056501f59333eb297f784d750da801dc4c4971d09a5d20eb8aa042781b6c57"
+    },
+    "gaussian_aniso_2d/probe.npz": {
+      "bytes": 83980,
+      "sha256": "8da99fb087c9a35dbc2bf2e16f8b985d2a16afc567ed51541bb64ed5d0a7f601"
+    },
+    "gaussian_aniso_2d/test.npz": {
+      "bytes": 73019,
+      "sha256": "bb0ff4f0f827e00052e11f4c82790d652df320083b97d8776efa53f7756e5d14"
+    },
+    "gaussian_aniso_2d/train.npz": {
+      "bytes": 727953,
+      "sha256": "a4dd081d156fe95aa2eb1d2d6ff4be67e6b54596cdf220c5a505f599998d606d"
+    },
+    "gaussian_aniso_2d/validation.npz": {
+      "bytes": 72978,
+      "sha256": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e"
+    },
+    "gaussian_iso_2d/distribution.json": {
+      "bytes": 452,
+      "sha256": "d25354ccbabf5f80a7924eb816e3591b7005a36a09b61aefbee3a75672c908aa"
+    },
+    "gaussian_iso_2d/probe.npz": {
+      "bytes": 84186,
+      "sha256": "8f1fde364be23d41708645f4fa922825e282a6565d4c71822818b68d0f60d8e0"
+    },
+    "gaussian_iso_2d/test.npz": {
+      "bytes": 74393,
+      "sha256": "1a7e4c79418e14bfe8e68ef6bf1442e58c2f50bf32e7e8f615b815f7fe86303d"
+    },
+    "gaussian_iso_2d/train.npz": {
+      "bytes": 741608,
+      "sha256": "cb70fbc23aeb3c2a42aff8a2808ae29e0bcf5150d86fb9ba4a7afe1d99426564"
+    },
+    "gaussian_iso_2d/validation.npz": {
+      "bytes": 74368,
+      "sha256": "d5c632121e21f5c25eb80b4a7be855d8688214503f6db0f57e4f47238e97e909"
+    },
+    "gmm_aniso4_2d/distribution.json": {
+      "bytes": 753,
+      "sha256": "b7dc4e95072412c3da7491a62b24524d124a1eab00bf19239499a2cd2df15729"
+    },
+    "gmm_aniso4_2d/probe.npz": {
+      "bytes": 83769,
+      "sha256": "b8bd51a5b3722aeff9c3713fb23344b8ca90ffe1859a7d10d881caa9341de340"
+    },
+    "gmm_aniso4_2d/test.npz": {
+      "bytes": 72837,
+      "sha256": "324413d01d49cb54329305201049dce41962b7193587ba19ccbbdea08750b3d3"
+    },
+    "gmm_aniso4_2d/train.npz": {
+      "bytes": 725889,
+      "sha256": "5f898f7d28c751e35336c8e9b9b958d31bb5224989420151dc62d535425e8347"
+    },
+    "gmm_aniso4_2d/validation.npz": {
+      "bytes": 72793,
+      "sha256": "71e19e66d9bf6ed613c58cdc13a6cdf0a234773a0aa8279725279ad4bbfa885b"
+    },
+    "gmm_ring8_2d/distribution.json": {
+      "bytes": 1403,
+      "sha256": "9389347bfee1f61e49f5131ebdd6c8e225c8483188f35e6b6775c8f1de31fe48"
+    },
+    "gmm_ring8_2d/probe.npz": {
+      "bytes": 84361,
+      "sha256": "4bfe2ab79472d55d096a6db92264a71048e7ccbaa425a5dc2c80c7c63c61fc65"
+    },
+    "gmm_ring8_2d/test.npz": {
+      "bytes": 73858,
+      "sha256": "5c2e09a55e283e048618c23d8d59d5af595bb66af67711ee6b138ffbc7abf0f3"
+    },
+    "gmm_ring8_2d/train.npz": {
+      "bytes": 736529,
+      "sha256": "1de0d52b5fd0f233b0b09de47e11a8c8eacd6ede43a0fb8eb371e2995a2b2975"
+    },
+    "gmm_ring8_2d/validation.npz": {
+      "bytes": 73855,
+      "sha256": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963"
+    },
+    "two_moons_2d/distribution.json": {
+      "bytes": 392,
+      "sha256": "1256fd4bbdec4048b1416c69f805be469958d16d4445c55c1c6c04380ac50771"
+    },
+    "two_moons_2d/probe.npz": {
+      "bytes": 68986,
+      "sha256": "143a7ed1782eb71fea595d443a9fde10b76d9fde3d745e413edf2cebde2c67b2"
+    },
+    "two_moons_2d/test.npz": {
+      "bytes": 74065,
+      "sha256": "e7ffc39521f98872434214e4fcc7e458825a97b858600051823df94be3855b92"
+    },
+    "two_moons_2d/train.npz": {
+      "bytes": 739253,
+      "sha256": "4f5482280d4cc0b1a7271c60a4112810e8702abd8423317a3938f9a409521dbc"
+    },
+    "two_moons_2d/validation.npz": {
+      "bytes": 74078,
+      "sha256": "7a12a7c97da1d0f8bb889cbdb0d9d16ad7048784031e63edb2dac1ed76056564"
+    }
+  },
+  "datasets": {
+    "gaussian_iso_2d": {
+      "distribution": {
+        "means": [
+          [
+            1.0,
+            -1.0
+          ]
+        ],
+        "variances": [
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "weights": [
+          1.0
+        ]
+      },
+      "dim": 2,
+      "family": "gaussian_mixture",
+      "has_velocity_oracle": true,
+      "mean": [
+        1.0,
+        -1.0
+      ],
+      "covariance": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    },
+    "gaussian_aniso_2d": {
+      "distribution": {
+        "means": [
+          [
+            1.0,
+            -1.0
+          ]
+        ],
+        "variances": [
+          [
+            0.09,
+            4.0
+          ]
+        ],
+        "weights": [
+          1.0
+        ]
+      },
+      "dim": 2,
+      "family": "gaussian_mixture",
+      "has_velocity_oracle": true,
+      "mean": [
+        1.0,
+        -1.0
+      ],
+      "covariance": [
+        [
+          0.09,
+          0.0
+        ],
+        [
+          0.0,
+          4.0
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    },
+    "gmm_ring8_2d": {
+      "distribution": {
+        "means": [
+          [
+            3.0,
+            0.0
+          ],
+          [
+            2.121320343559643,
+            2.1213203435596424
+          ],
+          [
+            1.8369701987210297e-16,
+            3.0
+          ],
+          [
+            -2.1213203435596424,
+            2.121320343559643
+          ],
+          [
+            -3.0,
+            3.6739403974420594e-16
+          ],
+          [
+            -2.121320343559643,
+            -2.1213203435596424
+          ],
+          [
+            -5.51091059616309e-16,
+            -3.0
+          ],
+          [
+            2.121320343559642,
+            -2.121320343559643
+          ]
+        ],
+        "variances": [
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ],
+          [
+            0.04,
+            0.04
+          ]
+        ],
+        "weights": [
+          0.125,
+          0.125,
+          0.125,
+          0.125,
+          0.125,
+          0.125,
+          0.125,
+          0.125
+        ]
+      },
+      "dim": 2,
+      "family": "gaussian_mixture",
+      "has_velocity_oracle": true,
+      "mean": [
+        -1.1102230246251565e-16,
+        1.1102230246251565e-16
+      ],
+      "covariance": [
+        [
+          4.54,
+          2.1075485666574374e-16
+        ],
+        [
+          2.1075485666574374e-16,
+          4.54
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    },
+    "gmm_aniso4_2d": {
+      "distribution": {
+        "means": [
+          [
+            -2.0,
+            -2.0
+          ],
+          [
+            -2.0,
+            2.0
+          ],
+          [
+            2.0,
+            -2.0
+          ],
+          [
+            2.0,
+            2.0
+          ]
+        ],
+        "variances": [
+          [
+            0.04,
+            0.64
+          ],
+          [
+            0.64,
+            0.04
+          ],
+          [
+            0.64,
+            0.04
+          ],
+          [
+            0.04,
+            0.64
+          ]
+        ],
+        "weights": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      },
+      "dim": 2,
+      "family": "gaussian_mixture",
+      "has_velocity_oracle": true,
+      "mean": [
+        0.0,
+        0.0
+      ],
+      "covariance": [
+        [
+          4.34,
+          0.0
+        ],
+        [
+          0.0,
+          4.34
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    },
+    "gaussian_aniso_16d": {
+      "distribution": {
+        "means": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "variances": [
+          [
+            0.04,
+            0.05437425563514103,
+            0.07391399189689164,
+            0.10047545726038323,
+            0.1365819549533441,
+            0.18566355334451118,
+            0.2523829377920774,
+            0.3430783594363577,
+            0.4663657604719328,
+            0.6339572769844455,
+            0.8617738760127536,
+            1.1714578258500947,
+            1.5924286822139897,
+            2.1646781061858555,
+            2.9425690178385664,
+            4.0
+          ]
+        ],
+        "weights": [
+          1.0
+        ]
+      },
+      "dim": 16,
+      "family": "gaussian_mixture",
+      "has_velocity_oracle": true,
+      "mean": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "covariance": [
+        [
+          0.04,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.05437425563514103,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.07391399189689164,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.10047545726038323,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1365819549533441,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.18566355334451118,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.2523829377920774,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.3430783594363577,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.4663657604719328,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.6339572769844455,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.8617738760127536,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.1714578258500947,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.5924286822139897,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.1646781061858555,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.9425690178385664,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4.0
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    },
+    "two_moons_2d": {
+      "distribution": {
+        "kind": "two_moons",
+        "noise_std": 0.08,
+        "dim": 2
+      },
+      "dim": 2,
+      "family": "geometric",
+      "has_velocity_oracle": false,
+      "mean": [
+        0.0,
+        0.0
+      ],
+      "covariance": [
+        [
+          0.7564,
+          -0.1933098861837907
+        ],
+        [
+          -0.1933098861837907,
+          0.2505901138162093
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    },
+    "checkerboard_2d": {
+      "distribution": {
+        "kind": "checkerboard",
+        "noise_std": 0.0,
+        "dim": 2
+      },
+      "dim": 2,
+      "family": "geometric",
+      "has_velocity_oracle": false,
+      "mean": [
+        0.0,
+        0.0
+      ],
+      "covariance": [
+        [
+          1.3333333333333333,
+          0.25
+        ],
+        [
+          0.25,
+          1.3333333333333333
+        ]
+      ],
+      "source": "standard_normal",
+      "coupling": "independent"
+    }
+  },
+  "generator_sha256": {
+    "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+    "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+    "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+  }
+}

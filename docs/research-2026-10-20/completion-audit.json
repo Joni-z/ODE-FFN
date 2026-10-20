@@ -1,0 +1,340 @@
+{
+  "checked_at_utc": "2026-10-20T03:43:26.292313+00:00",
+  "training_runs": 30,
+  "diagnostic_checkpoints": 54,
+  "frozen_source_files": 29,
+  "all_hashes_valid": true,
+  "actual_data_files_checked": 15,
+  "recorded_data_manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+  "actual_data_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+  "frozen_data_manifest_annotation_matches": false,
+  "annotation_note": "Frozen snapshot used a local-data manifest hash; actual run provenance is authoritative. See data-content-audit.json for local/remote array comparison. Do not rewrite frozen history.",
+  "baseline_prefix_max_abs_difference": 0,
+  "summary_sha256": "e5063a7d25a0a87a8bc51c85f92295ffd426f1e1fad6e61312de081ad210bdb5",
+  "checkpoints": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_input",
+      "step": 5000,
+      "checkpoint_sha256": "bea3f8b2b6f8e8761ba2576e05c6edbdc5df6d433cc0afb32acf18b8823f7fb9"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k1_time",
+      "step": 5000,
+      "checkpoint_sha256": "8c255ca1df5da652c6ae4ecafd4066a9733386ff75da5ee143b02e2ffe3c831b"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_input",
+      "step": 5000,
+      "checkpoint_sha256": "d132528428c653a317effcc52aeb729598df345c21ff169c88087559838d0eaa"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "gate_k2_time",
+      "step": 5000,
+      "checkpoint_sha256": "4a52bc1cbcb4b08859572252253871f01886e1088dc4204f17443243be2ce193"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_5000",
+      "step": 5000,
+      "checkpoint_sha256": "b24424c691e46e8255a76c4af9ad9250be4e6c59eca6b696d5372b64b2bf58ed"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_5000",
+      "step": 5000,
+      "checkpoint_sha256": "2adbd9518661bed79b30d39b6f0214b01a50f4b8176214e085b52e01e359356e"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k4_input",
+      "step": 5000,
+      "checkpoint_sha256": "bb9cb970e4beed0f3a0ab59ac3ab2ad6efad8c5b9baf1184876fe3e159e2309a"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "order_k8_input",
+      "step": 5000,
+      "checkpoint_sha256": "cf41da50205177ef71257fdc515ef62605c2ecf1d611a75884a1b9d400e6b37a"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_budget",
+      "step": 5000,
+      "checkpoint_sha256": "f419ad596f77abf97ca40edbd8f2e76b5398379fa8f18719dec4ce062976bb38"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_budget",
+      "step": 5024,
+      "checkpoint_sha256": "f4513286071e498e0713a737f556920ee1571fabab15706c28657aa2db73c087"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_budget",
+      "step": 6557,
+      "checkpoint_sha256": "ff5db777d06215a14271b5c997e9d20bef3567aa0c46a443f2ef7443e6f4a12c"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_budget",
+      "step": 9621,
+      "checkpoint_sha256": "e8c95ea69fbedf04aef81c5dd994f2c6f046083a4113054a13b9f0f579d92ca9"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "silu_budget",
+      "step": 15751,
+      "checkpoint_sha256": "ae5e4d675eaeebd0e01fdeab082c02b135c0f90c0970b50bdf917836bf545607"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "step": 5000,
+      "checkpoint_sha256": "793948ec65e1d2f92f2b0305f627502d7391faba32f1cedd4e7176709928d23a"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "step": 5036,
+      "checkpoint_sha256": "2f3b04ade2b4dc24632098b8ff315a7fe1532f8fb87729b7fa50dacb08ff755a"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "step": 6572,
+      "checkpoint_sha256": "979052c7b7b5521f8636666e0f11e0fff6022b95dad9e4138efd9b6cca594375"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "step": 9644,
+      "checkpoint_sha256": "92bbbbbf7915a15d04dbea8840891e90871a18132a9da43c7d22d56e7b6327c7"
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "step": 15788,
+      "checkpoint_sha256": "0f9f02a18ef866ada0c0661587b6be6bfdefd31b3cfea6d0e3fc987c46d93162"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_input",
+      "step": 5000,
+      "checkpoint_sha256": "ac5cd91bf32437025bd2fa1efe540e99ed01e835165c53f8749f073cb4784dd7"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k1_time",
+      "step": 5000,
+      "checkpoint_sha256": "0447d033848b43c6c084ee2fe2ef8cdbba5d4be99ccfc1e120e05300d5b619cd"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_input",
+      "step": 5000,
+      "checkpoint_sha256": "d7d81a148eebbeffdea7640b7813dcd99509a7085aa586d4cc82158acc1c5edb"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gate_k2_time",
+      "step": 5000,
+      "checkpoint_sha256": "d157dc9b87f63b9489b89c869674995f5fc7f6e2c88b2dc5dc4332d36d65806b"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_5000",
+      "step": 5000,
+      "checkpoint_sha256": "07f792193ab72a7e218d875ff32d1408bbf0ad49eae3017e6b7a0068b272d90f"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_5000",
+      "step": 5000,
+      "checkpoint_sha256": "dac037d2d74427a1da4c55600393a62d55474c06db4ff63f3751527c780bdb5b"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k4_input",
+      "step": 5000,
+      "checkpoint_sha256": "a23115f720aa0569a3c23d45532da2e8cfa897fceb0429adacdb205ed898d04b"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "order_k8_input",
+      "step": 5000,
+      "checkpoint_sha256": "5a4dbe1f46141981a72072660d3380dd5c8cd00616ebc1f43d410e4b5539ae64"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_budget",
+      "step": 5000,
+      "checkpoint_sha256": "a42cb70bd7b50250c5ec9f293ca9f62c41bb53a44d6d456308c794bcd26f5e7a"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_budget",
+      "step": 5024,
+      "checkpoint_sha256": "663270ebc3d19cf1e872d1716b7e7fc64fc5da51a697ce8eae2e45e2386f7661"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_budget",
+      "step": 6557,
+      "checkpoint_sha256": "34b1f5c2adc660d216a1b7aecca68b5a36e46e40da5ab1920e1abea5289d4995"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_budget",
+      "step": 9621,
+      "checkpoint_sha256": "3f6de1f2ab529818e78d5ba6ec6db32d74f94cae006de08442b31d9ca874db0d"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "silu_budget",
+      "step": 15751,
+      "checkpoint_sha256": "0efc1636fb368a35f0b280605d3a1e57166999d24db68cfcaeebca83c782ed45"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "step": 5000,
+      "checkpoint_sha256": "4d96d453c5540f2ef2f5a56b1ced93401d64e326f30a688bf9450c424c5b482f"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "step": 5036,
+      "checkpoint_sha256": "7ffbc9682fa49d68f060fdaff581075992af60e6a1f53ae011919cb606092c80"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "step": 6572,
+      "checkpoint_sha256": "1724515cb917566e13e6d798a6030c1ed5e56187f9a3652a18d02366c6ec8e8b"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "step": 9644,
+      "checkpoint_sha256": "74defe0d2442dcc0ce7f82de7bc5c0608653810c8e30adbc6e79a447cbe178e9"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "step": 15788,
+      "checkpoint_sha256": "5405a48e9e6ef5963e81764dc529452918d93e5a74618a474e8d8b90d4e223df"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_input",
+      "step": 5000,
+      "checkpoint_sha256": "cc7a804afd3e18a5fbc664a436d2cba835ebedfa54461d599e0f33593bd608a5"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k1_time",
+      "step": 5000,
+      "checkpoint_sha256": "1bceaad4c1749e46e0d90054bdaf18c217813e634d60582155126106b76c17ff"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_input",
+      "step": 5000,
+      "checkpoint_sha256": "b3bd3fa4d8b240a99cfcad3a88cd4052142bb122c8c8e423b5713fb6cd81f35d"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "gate_k2_time",
+      "step": 5000,
+      "checkpoint_sha256": "fc9f67b681c40b46ab3576662ed8557092c1780f80cecffb23cc3cd4c8cfd4de"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_5000",
+      "step": 5000,
+      "checkpoint_sha256": "0aa61310e239c9b11560468c2aaa697d7cb6e8b2f4f18453f8d11866890ca4ea"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_5000",
+      "step": 5000,
+      "checkpoint_sha256": "a6184eb4c8c33644bb3476a373376a505a659a870f5642fa7adf34c85b9a8c15"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k4_input",
+      "step": 5000,
+      "checkpoint_sha256": "d65b0b7aa49ef1aa2f2b7c8f2f631467d3a59bbe31646fe760279609aa53af73"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "order_k8_input",
+      "step": 5000,
+      "checkpoint_sha256": "a5df1cb986f831cc9ca093b0d77563f10642a1e3aac43818da267488613340bb"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_budget",
+      "step": 5000,
+      "checkpoint_sha256": "d1bb9356f14bba0ce40d1ac1b6743393c5f7c7475181a5c27a54ddad80b0a0b3"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_budget",
+      "step": 5024,
+      "checkpoint_sha256": "2c38a7288a2575f5c9636372f4cdcf0c99066950aa1aa798777d23b66a9ea2d7"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_budget",
+      "step": 6557,
+      "checkpoint_sha256": "4349bdea14d92517cc62ae3e701858e0af7bd7c126d338d5f378aca4645e4428"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_budget",
+      "step": 9621,
+      "checkpoint_sha256": "63b441700d9f025f4b231374cad14346099ed1cc50f9436339b768d7a21ff6c9"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "silu_budget",
+      "step": 15751,
+      "checkpoint_sha256": "239dd6d01014be5189710f8298558820f318778d4cdd494124e25d460d5fb8c0"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_budget",
+      "step": 5000,
+      "checkpoint_sha256": "5144d4bec98e2938e7476dfc9201e9806afd1f17b31a235435eb0295cdd99ae8"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_budget",
+      "step": 5036,
+      "checkpoint_sha256": "9a699795455bcd1adb0a44f3498ea8e2725d62279ed9e8c9a017828ef9c8a63f"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_budget",
+      "step": 6572,
+      "checkpoint_sha256": "86067e0b429908e1929d8dcfe6420b4e798aaded9ec865bb6e406c2fdbb827dc"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_budget",
+      "step": 9644,
+      "checkpoint_sha256": "22308bac26f0ddfab0c38dcde853fb578ef71fe82ca8ba41fae301fa3e27ba1d"
+    },
+    {
+      "dataset": "two_moons_2d",
+      "label": "swiglu_budget",
+      "step": 15788,
+      "checkpoint_sha256": "0333d1d128056da1637ebed98b79d52680e2ddedb9839cf2b3271ed8515ddae3"
+    }
+  ]
+}

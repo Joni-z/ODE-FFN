@@ -1,0 +1,20 @@
+{
+  "dataset": "gaussian_aniso_2d",
+  "job": "20378794",
+  "array_task": "0",
+  "gpu": "NVIDIA H200",
+  "run_order": [
+    "gate_k1_input",
+    "gate_k1_time",
+    "gate_k2_input",
+    "gate_k2_time",
+    "silu_5000",
+    "swiglu_5000",
+    "order_k4_input",
+    "order_k8_input",
+    "silu_budget",
+    "swiglu_budget"
+  ],
+  "manifest_sha256": "6fdf6aef03c323c0c11f7d00d5c23d27ade4fd2c6965f48a71230b0ce0b03537",
+  "runner_sha256": "0592b68df45556f3895a3f6674d00643611150ec39ccf11d040709f14bc2bcf9"
+}

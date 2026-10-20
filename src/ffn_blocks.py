@@ -1,0 +1,1716 @@
+from typing import Callable, Optional
+
+import torch
+import torch.nn.functional as F
+from torch import Tensor, nn
+
+from time_condition import build_time_mlp, resolve_time_scalar
+from util.compile_control import maybe_compile
+
+
+def _linear_param_count(in_features: int, out_features: int, bias: bool) -> int:
+    return in_features * out_features + (out_features if bias else 0)
+
+
+def _time_mlp_param_count(in_features: int, hidden_features: int, bias: bool) -> int:
+    return _linear_param_count(in_features, hidden_features, bias) + _linear_param_count(hidden_features, 1, bias)
+
+
+def _round_down_to_multiple(value: int, divisor: int) -> int:
+    return max(divisor, (value // divisor) * divisor)
+
+
+def _baseline_swiglu_param_budget(dim: int, hidden_dim: int, bias: bool) -> tuple[int, int]:
+    hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+    budget = _linear_param_count(dim, 2 * hidden_dim_eff, bias) + _linear_param_count(hidden_dim_eff, dim, bias)
+    return hidden_dim_eff, budget
+
+
+def _search_hidden_dim(
+    max_hidden_dim: int,
+    multiple: int,
+    budget: int,
+    core_param_count: Callable[[int], int],
+) -> int:
+    for hidden_dim_eff in range(max_hidden_dim, multiple - 1, -multiple):
+        if core_param_count(hidden_dim_eff) <= budget:
+            return hidden_dim_eff
+    return multiple
+
+
+def _cond_param_count(cond_dim: Optional[int], out_dim: int, bias: bool) -> int:
+    if cond_dim is None:
+        return 0
+    return _linear_param_count(cond_dim, out_dim, bias)
+
+
+def _swiglu_hidden_arg_from_eff(hidden_dim_eff: int) -> int:
+    return max(1, int(round(hidden_dim_eff * 3 / 2)))
+
+
+class BaseFFN(nn.Module):
+    def _condition_term(self, cond: Optional[Tensor], proj: Optional[nn.Module]) -> Optional[Tensor]:
+        if cond is None or proj is None or not torch.is_tensor(cond):
+            return None
+        if cond.dim() < 2 or cond.shape[-1] != proj.in_features:
+            return None
+        cond_term = proj(cond)
+        if cond_term.dim() == 2:
+            cond_term = cond_term.unsqueeze(1)
+        return cond_term
+
+    def _aux(
+        self,
+        x: Tensor,
+        out: Tensor,
+        *,
+        step: Optional[Tensor] = None,
+        gate: Optional[Tensor] = None,
+        alpha: Optional[Tensor] = None,
+        beta: Optional[Tensor] = None,
+    ) -> dict[str, Tensor]:
+        aux = {
+            "input_norm": x.detach().norm(dim=-1).mean(),
+            "output_norm": out.detach().norm(dim=-1).mean(),
+        }
+        if step is not None:
+            aux["step_mean"] = step.detach().mean()
+            aux["step_std"] = step.detach().std(unbiased=False)
+        if gate is not None:
+            aux["gate_mean"] = gate.detach().mean()
+            aux["gate_std"] = gate.detach().std(unbiased=False)
+        if alpha is not None:
+            aux["alpha_mean"] = alpha.detach().mean()
+            aux["alpha_std"] = alpha.detach().std(unbiased=False)
+        if beta is not None:
+            aux["beta_mean"] = beta.detach().mean()
+            aux["beta_std"] = beta.detach().std(unbiased=False)
+        return aux
+
+    def _maybe_return(self, out: Tensor, aux: dict[str, Tensor], return_aux: bool):
+        if return_aux:
+            return out, aux
+        return out
+
+
+class SwiGLUFFN(BaseFFN):
+    def __init__(self, dim: int, hidden_dim: int, drop: float = 0.0, bias: bool = True, **_: object) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.ffn_dropout = nn.Dropout(drop)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        del cond
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        gate = F.silu(x1)
+        hidden = gate * x2
+        out = self.w3(self.ffn_dropout(hidden))
+        return self._maybe_return(out, self._aux(x, out, gate=gate), return_aux)
+
+
+class MLP(BaseFFN):
+    def __init__(self, dim: int, hidden_dim: int, drop: float = 0.0, bias: bool = True, **_: object) -> None:
+        super().__init__()
+        self.fc1 = nn.Linear(dim, hidden_dim, bias=bias)
+        self.act = nn.GELU(approximate="tanh")
+        self.fc2 = nn.Linear(hidden_dim, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        del cond
+        hidden = self.drop(self.act(self.fc1(x)))
+        out = self.fc2(hidden)
+        return self._maybe_return(out, self._aux(x, out), return_aux)
+
+
+class ODELayer(nn.Module):
+    def __init__(
+        self,
+        in_features: int,
+        hidden_features: Optional[int] = None,
+        bias: bool = True,
+        tau: float = 10.0,
+        scale: float = 0.8,
+        shift: float = 0.2,
+        orders: int = 2,
+        t_embed_dim: Optional[int] = None,
+    ) -> None:
+        super().__init__()
+        hidden_features = hidden_features or in_features
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+        self.orders = orders
+        self.t_func = build_time_mlp(in_features, hidden_features, bias=bias)
+        self.t_from_embed = None
+        if t_embed_dim is not None:
+            self.t_from_embed = build_time_mlp(t_embed_dim, hidden_features, bias=bias)
+
+        self.proj = nn.Linear(in_features, in_features, bias=False)
+
+    @maybe_compile
+    def forward(self, x: Tensor, t: Optional[Tensor] = None) -> Tensor:
+        t_scalar = resolve_time_scalar(x, t, self.t_func, self.t_from_embed)
+        t_scalar = torch.sigmoid(t_scalar / self.tau) * self.scale + self.shift
+
+        approx = [x]
+        for i in range(self.orders):
+            term = (self.proj(approx[-1]) * t_scalar) / (i + 1)
+            approx.append(term)
+        return sum(approx)
+
+
+class ODEFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 10.0,
+        scale: float = 0.8,
+        shift: float = 0.2,
+        orders: int = 2,
+        ode_hidden_features: Optional[int] = None,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        del hidden_dim
+        ode_hidden_features = ode_hidden_features or dim
+        self.ode1 = ODELayer(
+            in_features=dim,
+            hidden_features=ode_hidden_features,
+            bias=bias,
+            tau=tau,
+            scale=scale,
+            shift=shift,
+            orders=orders,
+            t_embed_dim=t_embed_dim,
+        )
+        self.act = nn.SiLU()
+        self.ode2 = ODELayer(
+            in_features=dim,
+            hidden_features=ode_hidden_features,
+            bias=bias,
+            tau=tau,
+            scale=scale,
+            shift=shift,
+            orders=orders,
+            t_embed_dim=t_embed_dim,
+        )
+        self.drop = nn.Dropout(drop)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x1 = self.ode1(x, cond)
+        x2 = self.act(x1)
+        out = self.drop(self.ode2(x2, cond))
+        return self._maybe_return(out, self._aux(x, out), return_aux)
+
+
+class ODESwiGLUFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 10.0,
+        scale: float = 0.8,
+        shift: float = 0.2,
+        orders: int = 1,
+        ode_hidden_features: Optional[int] = None,
+        t_embed_dim: Optional[int] = None,
+        delta_normalize: bool = True,
+        gate_init_logit: float = 0.0,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        ode_hidden_features = ode_hidden_features or dim
+        self.ode = ODELayer(
+            in_features=dim,
+            hidden_features=ode_hidden_features,
+            bias=bias,
+            tau=tau,
+            scale=scale,
+            shift=shift,
+            orders=orders,
+            t_embed_dim=t_embed_dim,
+        )
+        self.ode_gate_logit = nn.Parameter(torch.tensor(gate_init_logit))
+        self.delta_normalize = delta_normalize
+
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.ffn_dropout = nn.Dropout(drop)
+
+    def _swiglu(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        gate = F.silu(x1)
+        hidden = self.ffn_dropout(gate * x2)
+        return self.w3(hidden), gate
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        base, swiglu_gate = self._swiglu(x)
+        delta = self.ode(x, cond) - x
+
+        if self.delta_normalize:
+            x_rms = torch.sqrt(torch.mean(x * x, dim=-1, keepdim=True) + 1e-6)
+            d_rms = torch.sqrt(torch.mean(delta * delta, dim=-1, keepdim=True) + 1e-6)
+            delta = delta * (x_rms / d_rms.clamp_min(1e-6))
+
+        ode_gate = torch.sigmoid(self.ode_gate_logit)
+        out = base + ode_gate * delta
+        aux = self._aux(x, out, gate=swiglu_gate)
+        aux["ode_gate"] = ode_gate.detach()
+        return self._maybe_return(out, aux, return_aux)
+
+
+class ODEOnlyFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 10.0,
+        scale: float = 0.8,
+        shift: float = 0.2,
+        orders: int = 1,
+        ode_hidden_features: Optional[int] = None,
+        t_embed_dim: Optional[int] = None,
+        delta_normalize: bool = True,
+        gate_init_logit: float = 0.0,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        del hidden_dim
+        ode_hidden_features = ode_hidden_features or dim
+        self.ode = ODELayer(
+            in_features=dim,
+            hidden_features=ode_hidden_features,
+            bias=bias,
+            tau=tau,
+            scale=scale,
+            shift=shift,
+            orders=orders,
+            t_embed_dim=t_embed_dim,
+        )
+        self.ode_gate_logit = nn.Parameter(torch.tensor(gate_init_logit))
+        self.delta_normalize = delta_normalize
+        self.ffn_dropout = nn.Dropout(drop)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        delta = self.ode(x, cond) - x
+        if self.delta_normalize:
+            x_rms = torch.sqrt(torch.mean(x * x, dim=-1, keepdim=True) + 1e-6)
+            d_rms = torch.sqrt(torch.mean(delta * delta, dim=-1, keepdim=True) + 1e-6)
+            delta = delta * (x_rms / d_rms.clamp_min(1e-6))
+        ode_gate = torch.sigmoid(self.ode_gate_logit)
+        out = self.ffn_dropout(ode_gate * delta)
+        aux = self._aux(x, out)
+        aux["ode_gate"] = ode_gate.detach()
+        return self._maybe_return(out, aux, return_aux)
+
+
+def _reshape_headwise_step(t_scalar: Tensor, batch_size: int, seq_len: int) -> Tensor:
+    if t_scalar.dim() == 1:
+        return t_scalar.view(batch_size, 1, 1, 1)
+    if t_scalar.dim() == 2:
+        if t_scalar.shape[0] != batch_size:
+            raise ValueError(f"Expected step batch {batch_size}, got shape {tuple(t_scalar.shape)}")
+        if t_scalar.shape[1] == seq_len:
+            return t_scalar.view(batch_size, seq_len, 1, 1)
+        return t_scalar.view(batch_size, 1, t_scalar.shape[1], 1)
+    if t_scalar.dim() == 3:
+        if t_scalar.shape[0] != batch_size:
+            raise ValueError(f"Expected step batch {batch_size}, got shape {tuple(t_scalar.shape)}")
+        if t_scalar.shape[1] not in (1, seq_len):
+            raise ValueError(f"Expected step sequence length 1 or {seq_len}, got shape {tuple(t_scalar.shape)}")
+        return t_scalar.unsqueeze(-1)
+    return t_scalar.view(batch_size, 1, 1, 1)
+
+
+class MultiHeadODELinear(nn.Module):
+    def __init__(
+        self,
+        d_in: int,
+        d_out: int,
+        num_heads: int = 8,
+        bias: bool = True,
+        orders: int = 1,
+    ) -> None:
+        super().__init__()
+        if d_out % num_heads != 0:
+            raise ValueError(f"d_out={d_out} must be divisible by num_heads={num_heads}")
+
+        self.d_out = d_out
+        self.num_heads = num_heads
+        self.head_dim = d_out // num_heads
+        self.orders = orders
+
+        self.proj_in = nn.Linear(d_in, d_out, bias=bias)
+        self.A = nn.Parameter(torch.randn(num_heads, self.head_dim, self.head_dim) * 0.02)
+
+    def forward(self, x: Tensor, t_scalar: Tensor) -> Tensor:
+        z = self.proj_in(x)
+        batch_size, seq_len, _ = z.shape
+        z = z.view(batch_size, seq_len, self.num_heads, self.head_dim)
+        t_scalar = _reshape_headwise_step(t_scalar, batch_size, seq_len)
+
+        out = z
+        term = z
+        for order in range(1, self.orders + 1):
+            term = torch.einsum("hij,bnhj->bnhi", self.A, term)
+            term = term * (t_scalar / float(order))
+            out = out + term
+
+        return out.reshape(batch_size, seq_len, self.d_out)
+
+
+def quota_aligned_hidden_dim(
+    dim: int,
+    hidden_dim: int,
+    num_heads: int,
+    bias: bool,
+    time_hidden_dim: int,
+    t_embed_dim: Optional[int],
+) -> int:
+    baseline_hidden_dim, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+    budget -= _time_mlp_param_count(dim, time_hidden_dim, bias)
+    if t_embed_dim is not None:
+        budget -= _time_mlp_param_count(t_embed_dim, time_hidden_dim, bias)
+
+    def _core(hidden_dim_eff: int) -> int:
+        head_dim = hidden_dim_eff // num_heads
+        dynamics_params = 2 * num_heads * head_dim * head_dim
+        return (
+            2 * _linear_param_count(dim, hidden_dim_eff, bias)
+            + _linear_param_count(hidden_dim_eff, dim, bias)
+            + dynamics_params
+        )
+
+    max_hidden_dim = _round_down_to_multiple(baseline_hidden_dim, num_heads)
+    return _search_hidden_dim(max_hidden_dim, num_heads, budget, _core)
+
+
+class MultiHeadODESwiGLUFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        num_heads: int = 8,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 10.0,
+        scale: float = 0.8,
+        shift: float = 0.2,
+        orders: int = 1,
+        t_embed_dim: Optional[int] = None,
+        time_hidden_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if num_heads <= 0:
+            raise ValueError("num_heads must be positive")
+
+        time_hidden_dim = time_hidden_dim or min(dim, 128)
+        hidden_dim_eff = quota_aligned_hidden_dim(
+            dim=dim,
+            hidden_dim=hidden_dim,
+            num_heads=num_heads,
+            bias=bias,
+            time_hidden_dim=time_hidden_dim,
+            t_embed_dim=t_embed_dim,
+        )
+
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+
+        self.t_func = build_time_mlp(dim, time_hidden_dim, bias=bias)
+        self.t_from_embed = None
+        if t_embed_dim is not None:
+            self.t_from_embed = build_time_mlp(t_embed_dim, time_hidden_dim, bias=bias)
+
+        self.ode_w1 = MultiHeadODELinear(dim, hidden_dim_eff, num_heads=num_heads, bias=bias, orders=orders)
+        self.ode_w2 = MultiHeadODELinear(dim, hidden_dim_eff, num_heads=num_heads, bias=bias, orders=orders)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def _time_scalar(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        t_scalar = resolve_time_scalar(x, cond, self.t_func, self.t_from_embed)
+        return torch.sigmoid(t_scalar / self.tau) * self.scale + self.shift
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        step = self._time_scalar(x, cond)
+        gate = self.ode_w1(x, step)
+        value = self.ode_w2(x, step)
+        hidden = self.drop(F.silu(gate) * value)
+        out = self.w3(hidden)
+        return self._maybe_return(out, self._aux(x, out, step=step, gate=gate), return_aux)
+
+
+def _headwise_value_param_count(
+    dim: int,
+    hidden_dim_eff: int,
+    num_heads: int,
+    bias: bool,
+    cond_dim: Optional[int],
+) -> int:
+    head_dim = hidden_dim_eff // num_heads
+    return (
+        _linear_param_count(dim, hidden_dim_eff, bias)
+        + _linear_param_count(dim, hidden_dim_eff, bias)
+        + _linear_param_count(hidden_dim_eff, dim, bias)
+        + num_heads * head_dim * head_dim
+        + _linear_param_count(dim, num_heads, True)
+        + _cond_param_count(cond_dim, num_heads, True)
+    )
+
+
+class HeadwiseODEValueGLU(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        num_heads: int = 8,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 4.0,
+        scale: float = 0.8,
+        shift: float = 0.1,
+        orders: int = 2,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if num_heads <= 0:
+            raise ValueError("num_heads must be positive")
+
+        baseline_hidden_dim, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        max_hidden_dim = _round_down_to_multiple(baseline_hidden_dim, num_heads)
+        hidden_dim_eff = _search_hidden_dim(
+            max_hidden_dim,
+            num_heads,
+            budget,
+            lambda value: _headwise_value_param_count(dim, value, num_heads, bias, t_embed_dim),
+        )
+
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+        self.step_from_x = nn.Linear(dim, num_heads, bias=True)
+        self.step_from_cond = nn.Linear(t_embed_dim, num_heads, bias=True) if t_embed_dim is not None else None
+        self.gate_proj = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.value_proj = MultiHeadODELinear(dim, hidden_dim_eff, num_heads=num_heads, bias=bias, orders=orders)
+        self.out_proj = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def _step(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        step_logits = self.step_from_x(x)
+        cond_term = self._condition_term(cond, self.step_from_cond)
+        if cond_term is not None:
+            step_logits = step_logits + cond_term
+        return torch.sigmoid(step_logits / self.tau) * self.scale + self.shift
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        step = self._step(x, cond)
+        gate = F.silu(self.gate_proj(x))
+        value = self.value_proj(x, step)
+        out = self.out_proj(self.drop(gate * value))
+        return self._maybe_return(out, self._aux(x, out, step=step, gate=gate), return_aux)
+
+
+def _lowrank_param_count(
+    dim: int,
+    hidden_dim_eff: int,
+    rank: int,
+    bias: bool,
+    cond_dim: Optional[int],
+) -> int:
+    return (
+        _linear_param_count(dim, hidden_dim_eff, bias)
+        + _linear_param_count(dim, hidden_dim_eff, True)
+        + _linear_param_count(dim, hidden_dim_eff, True)
+        + _linear_param_count(hidden_dim_eff, dim, bias)
+        + _linear_param_count(dim, rank, True)
+        + _linear_param_count(dim, 1, True)
+        + _cond_param_count(cond_dim, 1, True)
+        + 2 * hidden_dim_eff * rank
+    )
+
+
+class LowRankStateODEFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        rank: int = 32,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 4.0,
+        scale: float = 0.8,
+        shift: float = 0.1,
+        orders: int = 1,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden_dim, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        rank = max(1, min(rank, baseline_hidden_dim))
+        hidden_dim_eff = _search_hidden_dim(
+            baseline_hidden_dim,
+            1,
+            budget,
+            lambda value: _lowrank_param_count(dim, value, min(rank, value), bias, t_embed_dim),
+        )
+        rank = min(rank, hidden_dim_eff)
+
+        self.orders = orders
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+
+        self.in_proj = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.diag_head = nn.Linear(dim, hidden_dim_eff, bias=True)
+        self.rank_head = nn.Linear(dim, rank, bias=True)
+        self.step_from_x = nn.Linear(dim, 1, bias=True)
+        self.step_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.gate_proj = nn.Linear(dim, hidden_dim_eff, bias=True)
+        self.out_proj = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.U = nn.Parameter(torch.randn(hidden_dim_eff, rank) * 0.02)
+        self.V = nn.Parameter(torch.randn(hidden_dim_eff, rank) * 0.02)
+        self.drop = nn.Dropout(drop)
+
+    def apply_A(self, state: Tensor, diag: Tensor, rank_state: Tensor) -> Tensor:
+        low_rank = torch.einsum("bnm,mr->bnr", state, self.V)
+        low_rank = low_rank * rank_state
+        low_rank = torch.einsum("bnr,mr->bnm", low_rank, self.U)
+        return diag * state + low_rank
+
+    def _step(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        step_logits = self.step_from_x(x)
+        cond_term = self._condition_term(cond, self.step_from_cond)
+        if cond_term is not None:
+            step_logits = step_logits + cond_term
+        return torch.sigmoid(step_logits / self.tau) * self.scale + self.shift
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        diag = self.diag_head(x)
+        rank_state = self.rank_head(x)
+        step = self._step(x, cond)
+
+        out = self.in_proj(x)
+        term = out
+        for order in range(self.orders):
+            term = self.apply_A(term, diag, rank_state)
+            term = term * (step / float(order + 1))
+            out = out + term
+
+        gate = torch.sigmoid(self.gate_proj(x))
+        out = self.out_proj(self.drop(gate * out))
+        return self._maybe_return(out, self._aux(x, out, step=step, gate=gate), return_aux)
+
+
+class TiedFlowFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        steps: int = 2,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 4.0,
+        scale: float = 0.6,
+        shift: float = 0.1,
+        step_init: float = 0.0,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if steps <= 0:
+            raise ValueError("steps must be positive")
+
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.steps = steps
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+        self.step_logits = nn.Parameter(torch.full((steps,), step_init))
+        self.step_from_cond = nn.Linear(t_embed_dim, steps, bias=True) if t_embed_dim is not None else None
+
+        self.w1 = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w2 = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.wo = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def _field(self, z: Tensor) -> tuple[Tensor, Tensor]:
+        gate = F.silu(self.w1(z))
+        value = self.w2(z)
+        hidden = self.drop(gate * value)
+        return self.wo(hidden), gate
+
+    def _step(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        del x
+        step_logits = self.step_logits.view(1, 1, self.steps)
+        cond_term = self._condition_term(cond, self.step_from_cond)
+        if cond_term is not None:
+            step_logits = step_logits + cond_term
+        return torch.sigmoid(step_logits / self.tau) * self.scale + self.shift
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        steps = self._step(x, cond)
+        z = x
+        last_gate = None
+        for idx in range(self.steps):
+            dz, last_gate = self._field(z)
+            z = z + steps[..., idx : idx + 1] * dz
+        return self._maybe_return(z, self._aux(x, z, step=steps, gate=last_gate), return_aux)
+
+
+def _nav_branch_param_count(dim: int, num_heads: int, bias: bool, cond_dim: Optional[int]) -> int:
+    head_dim = dim // num_heads
+    return (
+        _linear_param_count(dim, dim, bias)
+        + _linear_param_count(dim, dim, bias)
+        + _linear_param_count(dim, dim, bias)
+        + num_heads * head_dim * head_dim
+        + _linear_param_count(dim, num_heads, True)
+        + _cond_param_count(cond_dim, num_heads, True)
+    )
+
+
+class HeadwiseODEResidualBranch(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        num_heads: int,
+        drop: float,
+        bias: bool,
+        tau: float,
+        scale: float,
+        shift: float,
+        orders: int,
+        cond_dim: Optional[int],
+    ) -> None:
+        super().__init__()
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+        self.step_from_x = nn.Linear(dim, num_heads, bias=True)
+        self.step_from_cond = nn.Linear(cond_dim, num_heads, bias=True) if cond_dim is not None else None
+        self.gate_proj = nn.Linear(dim, dim, bias=bias)
+        self.value_proj = MultiHeadODELinear(dim, dim, num_heads=num_heads, bias=bias, orders=orders)
+        self.out_proj = nn.Linear(dim, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        step_logits = self.step_from_x(x)
+        cond_term = self._condition_term(cond, self.step_from_cond)
+        if cond_term is not None:
+            step_logits = step_logits + cond_term
+        step = torch.sigmoid(step_logits / self.tau) * self.scale + self.shift
+        gate = F.silu(self.gate_proj(x))
+        value = self.value_proj(x, step)
+        out = self.out_proj(self.drop(gate * value))
+        return self._maybe_return(out, self._aux(x, out, step=step, gate=gate), return_aux)
+
+
+class NavRefineFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        num_heads: int = 8,
+        drop: float = 0.0,
+        bias: bool = True,
+        tau: float = 4.0,
+        scale: float = 0.8,
+        shift: float = 0.1,
+        orders: int = 2,
+        t_embed_dim: Optional[int] = None,
+        mix_hidden_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if dim % num_heads != 0:
+            raise ValueError(f"dim={dim} must be divisible by num_heads={num_heads}")
+
+        baseline_hidden_dim, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        mix_hidden_dim = mix_hidden_dim or max(32, dim // 8)
+        mix_params = (
+            _linear_param_count(t_embed_dim, mix_hidden_dim, True)
+            + _linear_param_count(mix_hidden_dim, 2, True)
+            if t_embed_dim is not None
+            else 2
+        )
+        nav_params = _nav_branch_param_count(dim, num_heads, bias, t_embed_dim)
+        refine_budget = max(num_heads, budget - nav_params - mix_params)
+        refine_hidden_dim_eff = _search_hidden_dim(
+            baseline_hidden_dim,
+            1,
+            refine_budget,
+            lambda value: _linear_param_count(dim, 2 * value, bias) + _linear_param_count(value, dim, bias),
+        )
+
+        self.nav = HeadwiseODEResidualBranch(
+            dim=dim,
+            num_heads=num_heads,
+            drop=drop,
+            bias=bias,
+            tau=tau,
+            scale=scale,
+            shift=shift,
+            orders=orders,
+            cond_dim=t_embed_dim,
+        )
+        self.ref = SwiGLUFFN(dim=dim, hidden_dim=_swiglu_hidden_arg_from_eff(refine_hidden_dim_eff), drop=drop, bias=bias)
+        self.mix = None
+        if t_embed_dim is not None:
+            self.mix = nn.Sequential(
+                nn.Linear(t_embed_dim, mix_hidden_dim, bias=True),
+                nn.SiLU(),
+                nn.Linear(mix_hidden_dim, 2, bias=True),
+            )
+        self.mix_bias = nn.Parameter(torch.zeros(2))
+
+    def _mix_weights(self, x: Tensor, cond: Optional[Tensor]) -> tuple[Tensor, Tensor]:
+        del x
+        logits = self.mix_bias.view(1, 1, 2)
+        if self.mix is not None and torch.is_tensor(cond) and cond.dim() >= 2 and cond.shape[-1] == self.mix[0].in_features:
+            logits = self.mix(cond)
+            if logits.dim() == 2:
+                logits = logits.unsqueeze(1)
+        alpha = torch.sigmoid(logits[..., 0:1])
+        beta = torch.sigmoid(logits[..., 1:2])
+        return alpha, beta
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        nav, nav_aux = self.nav(x, cond, return_aux=True)
+        ref = self.ref(x)
+        alpha, beta = self._mix_weights(x, cond)
+        out = alpha * nav + beta * ref
+        aux = self._aux(x, out, alpha=alpha, beta=beta)
+        aux["nav_step_mean"] = nav_aux["step_mean"]
+        aux["nav_step_std"] = nav_aux["step_std"]
+        return self._maybe_return(out, aux, return_aux)
+
+
+def _mean_pool_tokens(x: Tensor) -> Tensor:
+    return x.mean(dim=1, keepdim=True)
+
+
+def _split_low_high_tokens(x: Tensor, kernel_size: int) -> tuple[Tensor, Tensor]:
+    batch_size, seq_len, dim = x.shape
+    side = int(seq_len ** 0.5)
+    if side * side != seq_len:
+        low = _mean_pool_tokens(x).expand(-1, seq_len, -1)
+        return low, x - low
+
+    x_map = x.transpose(1, 2).reshape(batch_size, dim, side, side)
+    padding = kernel_size // 2
+    low_map = F.avg_pool2d(
+        x_map,
+        kernel_size=kernel_size,
+        stride=1,
+        padding=padding,
+        count_include_pad=False,
+    )
+    low = low_map.flatten(2).transpose(1, 2)
+    return low, x - low
+
+
+class TimeSplitFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        nav_ratio: float = 0.5,
+        gate_hidden_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden_dim, _ = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        nav_hidden_dim = max(1, min(baseline_hidden_dim - 1, int(round(baseline_hidden_dim * nav_ratio))))
+        ref_hidden_dim = max(1, baseline_hidden_dim - nav_hidden_dim)
+        gate_hidden_dim = gate_hidden_dim or min(dim, 128)
+
+        self.nav_in = nn.Linear(dim, nav_hidden_dim, bias=bias)
+        self.nav_ctx = nn.Linear(dim, nav_hidden_dim, bias=bias)
+        self.nav_out = nn.Linear(nav_hidden_dim, dim, bias=bias)
+
+        self.ref_w12 = nn.Linear(dim, 2 * ref_hidden_dim, bias=bias)
+        self.ref_w3 = nn.Linear(ref_hidden_dim, dim, bias=bias)
+
+        self.gate_from_x = nn.Sequential(
+            nn.Linear(dim, gate_hidden_dim, bias=True),
+            nn.SiLU(),
+            nn.Linear(gate_hidden_dim, 1, bias=True),
+        )
+        self.gate_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.gate_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _refine(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        ref12 = self.ref_w12(x)
+        ref_gate, ref_value = ref12.chunk(2, dim=-1)
+        ref_gate = F.silu(ref_gate)
+        ref_hidden = self.drop(ref_gate * ref_value)
+        return self.ref_w3(ref_hidden), ref_gate
+
+    def _mix_gate(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        pooled = _mean_pool_tokens(x)
+        gate_logits = self.gate_from_x(pooled) + self.gate_bias.view(1, 1, 1)
+        cond_term = self._condition_term(cond, self.gate_from_cond)
+        if cond_term is not None:
+            gate_logits = gate_logits + cond_term
+        return torch.sigmoid(gate_logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        pooled = _mean_pool_tokens(x)
+        nav_hidden = self.nav_in(x) + self.nav_ctx(pooled)
+        nav = self.nav_out(self.drop(F.silu(nav_hidden)))
+        ref, ref_gate = self._refine(x)
+        gate = self._mix_gate(x, cond)
+        out = gate * nav + (1.0 - gate) * ref
+        aux = self._aux(x, out, gate=gate)
+        aux["ref_gate_mean"] = ref_gate.detach().mean()
+        aux["ref_gate_std"] = ref_gate.detach().std(unbiased=False)
+        return self._maybe_return(out, aux, return_aux)
+
+
+class FrequencySplitFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        detail_ratio: float = 0.5,
+        gate_hidden_dim: Optional[int] = None,
+        lowpass_kernel_size: int = 3,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden_dim, _ = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        detail_hidden_dim = max(1, min(baseline_hidden_dim - 1, int(round(baseline_hidden_dim * detail_ratio))))
+        coarse_hidden_dim = max(1, baseline_hidden_dim - detail_hidden_dim)
+        gate_hidden_dim = gate_hidden_dim or min(dim, 128)
+
+        if lowpass_kernel_size < 1 or lowpass_kernel_size % 2 == 0:
+            raise ValueError("lowpass_kernel_size must be a positive odd integer")
+
+        self.lowpass_kernel_size = lowpass_kernel_size
+        # Coarse branch: larger hidden with depthwise conv for spatial mixing
+        self.depthwise_conv = nn.Conv2d(dim, dim, kernel_size=3, groups=dim, padding=1, bias=False)
+        self.coarse_w12 = nn.Linear(dim, 2 * coarse_hidden_dim, bias=bias)
+        self.coarse_w3 = nn.Linear(coarse_hidden_dim, dim, bias=bias)
+        # Detail branch: smaller hidden, no smoothing
+        self.detail_w12 = nn.Linear(dim, 2 * detail_hidden_dim, bias=bias)
+        self.detail_w3 = nn.Linear(detail_hidden_dim, dim, bias=bias)
+
+        self.gate_from_freq = nn.Sequential(
+            nn.Linear(2, gate_hidden_dim, bias=True),
+            nn.SiLU(),
+            nn.Linear(gate_hidden_dim, 1, bias=True),
+        )
+        self.gate_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.gate_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _coarse_branch(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        batch_size, seq_len, dim = x.shape
+        side = int(seq_len ** 0.5)
+        if side * side != seq_len:
+            # If not square, skip conv
+            x_conv = x
+        else:
+            x_map = x.transpose(1, 2).reshape(batch_size, dim, side, side)
+            x_conv_map = self.depthwise_conv(x_map)
+            x_conv = x_conv_map.flatten(2).transpose(1, 2)
+        
+        x12 = self.coarse_w12(x_conv)
+        gate, value = x12.chunk(2, dim=-1)
+        gate = F.silu(gate)
+        hidden = self.drop(gate * value)
+        return self.coarse_w3(hidden), gate
+
+    def _detail_branch(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        x12 = self.detail_w12(x)
+        gate, value = x12.chunk(2, dim=-1)
+        gate = F.silu(gate)
+        hidden = self.drop(gate * value)
+        return self.detail_w3(hidden), gate
+
+    def _mix_gate(self, low: Tensor, high: Tensor, cond: Optional[Tensor]) -> Tensor:
+        low_energy = low.pow(2).mean(dim=-1, keepdim=True)
+        high_energy = high.pow(2).mean(dim=-1, keepdim=True)
+        freq_stats = torch.cat([low_energy, high_energy], dim=-1)
+        gate_logits = self.gate_from_freq(freq_stats) + self.gate_bias.view(1, 1, 1)
+        cond_term = self._condition_term(cond, self.gate_from_cond)
+        if cond_term is not None:
+            gate_logits = gate_logits + cond_term
+        return torch.sigmoid(gate_logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        coarse_tokens, detail_tokens = _split_low_high_tokens(x, self.lowpass_kernel_size)
+        y_coarse, coarse_gate = self._coarse_branch(coarse_tokens)
+        delta_detail, detail_gate = self._detail_branch(detail_tokens)
+        gate = self._mix_gate(coarse_tokens, detail_tokens, cond)
+        out = y_coarse + gate * delta_detail
+
+        aux = self._aux(x, out, gate=gate)
+        aux["coarse_gate_mean"] = coarse_gate.detach().mean()
+        aux["coarse_gate_std"] = coarse_gate.detach().std(unbiased=False)
+        aux["detail_gate_mean"] = detail_gate.detach().mean()
+        aux["detail_gate_std"] = detail_gate.detach().std(unbiased=False)
+        aux["low_energy_mean"] = coarse_tokens.detach().pow(2).mean()
+        aux["high_energy_mean"] = detail_tokens.detach().pow(2).mean()
+        return self._maybe_return(out, aux, return_aux)
+
+
+class CleanTargetFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        tau: float = 4.0,
+        min_denom: float = 0.1,
+        alpha_init: float = -2.0,
+        max_update_rms_scale: float = 1.0,
+        apply_update_norm: bool = True,
+        time_hidden_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        time_hidden_dim = time_hidden_dim or min(dim, 128)
+
+        self.tau = tau
+        self.min_denom = min_denom
+        self.max_update_rms_scale = max_update_rms_scale
+        self.apply_update_norm = apply_update_norm
+
+        self.t_func = build_time_mlp(dim, time_hidden_dim, bias=bias)
+        self.t_from_embed = build_time_mlp(t_embed_dim, time_hidden_dim, bias=bias) if t_embed_dim is not None else None
+
+        self.pred_w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.pred_from_cond = nn.Linear(t_embed_dim, 2 * hidden_dim_eff, bias=True) if t_embed_dim is not None else None
+        self.pred_w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+
+        self.alpha_from_x = nn.Linear(dim, 1, bias=True)
+        self.alpha_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.alpha_bias = nn.Parameter(torch.tensor(alpha_init))
+        self.drop = nn.Dropout(drop)
+
+    def _time_fraction(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        time_logits = resolve_time_scalar(x, cond, self.t_func, self.t_from_embed)
+        return torch.sigmoid(time_logits / self.tau)
+
+    def _alpha(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        pooled = _mean_pool_tokens(x)
+        alpha_logits = self.alpha_from_x(pooled) + self.alpha_bias.view(1, 1, 1)
+        cond_term = self._condition_term(cond, self.alpha_from_cond)
+        if cond_term is not None:
+            alpha_logits = alpha_logits + cond_term
+        return torch.sigmoid(alpha_logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        pred12 = self.pred_w12(x)
+        cond_term = self._condition_term(cond, self.pred_from_cond)
+        if cond_term is not None:
+            pred12 = pred12 + cond_term
+        pred_gate, pred_value = pred12.chunk(2, dim=-1)
+        pred_gate = F.silu(pred_gate)
+        x0_hat = self.pred_w3(self.drop(pred_gate * pred_value))
+
+        time_fraction = self._time_fraction(x, cond)
+        denom = (1.0 - time_fraction).clamp_min(self.min_denom)
+        update = (x0_hat - x) / denom
+        if self.apply_update_norm:
+            x_rms = torch.sqrt(torch.mean(x * x, dim=-1, keepdim=True) + 1e-6)
+            update_rms = torch.sqrt(torch.mean(update * update, dim=-1, keepdim=True) + 1e-6)
+            limit = self.max_update_rms_scale * x_rms
+            scale = torch.clamp(limit / update_rms, max=1.0)
+            update = update * scale
+
+        alpha = self._alpha(x, cond)
+        out = alpha * update
+        aux = self._aux(x, out, step=time_fraction, alpha=alpha, gate=pred_gate)
+        aux["denom_mean"] = denom.detach().mean()
+        aux["denom_min"] = denom.detach().amin()
+        return self._maybe_return(out, aux, return_aux)
+
+
+class TimeMoEFFN(BaseFFN):
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        gate_hidden_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden_dim, _ = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        expert_hidden_dim = max(1, baseline_hidden_dim // 3)
+        gate_hidden_dim = gate_hidden_dim or min(dim, 128)
+
+        self.coarse_in = nn.Linear(dim, expert_hidden_dim, bias=bias)
+        self.coarse_ctx = nn.Linear(dim, expert_hidden_dim, bias=bias)
+        self.coarse_out = nn.Linear(expert_hidden_dim, dim, bias=bias)
+
+        self.mid_w12 = nn.Linear(dim, 2 * expert_hidden_dim, bias=bias)
+        self.mid_w3 = nn.Linear(expert_hidden_dim, dim, bias=bias)
+
+        self.ref_w12 = nn.Linear(dim, 2 * expert_hidden_dim, bias=bias)
+        self.ref_w3 = nn.Linear(expert_hidden_dim, dim, bias=bias)
+
+        self.router_from_x = nn.Sequential(
+            nn.Linear(dim, gate_hidden_dim, bias=True),
+            nn.SiLU(),
+            nn.Linear(gate_hidden_dim, 3, bias=True),
+        )
+        self.router_from_cond = nn.Linear(t_embed_dim, 3, bias=True) if t_embed_dim is not None else None
+        self.router_bias = nn.Parameter(torch.zeros(3))
+        self.drop = nn.Dropout(drop)
+
+    def _swiglu(self, x: Tensor, w12: nn.Linear, w3: nn.Linear) -> Tensor:
+        x12 = w12(x)
+        gate, value = x12.chunk(2, dim=-1)
+        hidden = self.drop(F.silu(gate) * value)
+        return w3(hidden)
+
+    def _router(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        pooled = _mean_pool_tokens(x)
+        logits = self.router_from_x(pooled) + self.router_bias.view(1, 1, 3)
+        cond_term = self._condition_term(cond, self.router_from_cond)
+        if cond_term is not None:
+            logits = logits + cond_term
+        return torch.softmax(logits, dim=-1)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        pooled = _mean_pool_tokens(x)
+        coarse = self.coarse_out(self.drop(F.silu(self.coarse_in(x) + self.coarse_ctx(pooled))))
+        balanced = self._swiglu(x, self.mid_w12, self.mid_w3)
+        refined = self._swiglu(x - pooled, self.ref_w12, self.ref_w3)
+
+        weights = self._router(x, cond)
+        out = (
+            weights[..., 0:1] * coarse
+            + weights[..., 1:2] * balanced
+            + weights[..., 2:3] * refined
+        )
+        aux = self._aux(x, out)
+        aux["expert0_mean"] = weights[..., 0].detach().mean()
+        aux["expert1_mean"] = weights[..., 1].detach().mean()
+        aux["expert2_mean"] = weights[..., 2].detach().mean()
+        return self._maybe_return(out, aux, return_aux)
+
+
+MHODESwiGLUFFN = MultiHeadODESwiGLUFFN
+
+
+# ─── Design 1: Timestep-Adaptive Gated SwiGLU ────────────────────────────
+
+
+class TimestepAdaptiveGatedSwiGLU(BaseFFN):
+    """Pre-linear timestep gate from the PDF redesign.
+
+    The gate is applied to the already-AdaLN-modulated FFN input before the
+    first linear projection, avoiding the old hidden-activation gate that was
+    mostly redundant with SwiGLU/AdaLN.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        gate_init_bias: float = 2.0,
+        gate_init_scale: float = 0.1,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.pre_gate = nn.Linear(t_embed_dim, dim, bias=True) if t_embed_dim is not None else None
+        self.gate_init_bias = float(gate_init_bias)
+        self.gate_init_scale = float(gate_init_scale)
+        self.drop = nn.Dropout(drop)
+
+    def reset_design_parameters(self) -> None:
+        if self.pre_gate is None:
+            return
+        nn.init.xavier_uniform_(self.pre_gate.weight)
+        self.pre_gate.weight.data.mul_(self.gate_init_scale)
+        nn.init.constant_(self.pre_gate.bias, self.gate_init_bias)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        g = None
+        if self.pre_gate is not None and cond is not None and torch.is_tensor(cond):
+            g = self.pre_gate(cond)
+            if g.dim() == 2:
+                g = g.unsqueeze(1)
+            g = torch.sigmoid(g)
+            x = x * g
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        hidden = F.silu(x1) * x2
+        out = self.w3(self.drop(hidden))
+        return self._maybe_return(out, self._aux(x, out, gate=g), return_aux)
+
+
+# ─── Design 2: Flow-Evolved Gate SwiGLU ──────────────────────────────────
+
+
+class FlowEvolvedGateSwiGLU(BaseFFN):
+    """Gate sees flow-evolved input via low-rank ODE:
+    x̃ = x + t·U(V⊤x),  y = W_o(SiLU(W_gate x̃) ⊙ W_value x).
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        rank: int = 32,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        tau: float = 4.0,
+        scale: float = 0.8,
+        shift: float = 0.1,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        rank = min(rank, dim)
+        self.tau = tau
+        self.scale = scale
+        self.shift = shift
+        self.U = nn.Parameter(torch.randn(dim, rank) * 0.02)
+        self.V = nn.Parameter(torch.randn(dim, rank) * 0.02)
+        self.step_from_x = nn.Linear(dim, 1, bias=True)
+        self.step_from_cond = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.w_gate = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_value = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_out = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def _step(self, x: Tensor, cond: Optional[Tensor]) -> Tensor:
+        logits = self.step_from_x(_mean_pool_tokens(x))
+        ct = self._condition_term(cond, self.step_from_cond)
+        if ct is not None:
+            logits = logits + ct
+        return torch.sigmoid(logits / self.tau) * self.scale + self.shift
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        t = self._step(x, cond)
+        x_tilde = x + t * ((x @ self.V) @ self.U.t())
+        gate = F.silu(self.w_gate(x_tilde))
+        value = self.w_value(x)
+        hidden = self.drop(gate * value)
+        out = self.w_out(hidden)
+        return self._maybe_return(out, self._aux(x, out, step=t, gate=gate), return_aux)
+
+
+# ─── Design 3: Spatial-Adaptive Value SwiGLU ─────────────────────────────
+
+
+class SpatialAdaptiveValueSwiGLU(BaseFFN):
+    """Class-conditioned spatial bias injected into the SwiGLU value branch.
+
+    A shared low-rank spatial bank turns the class embedding into a
+    per-position value bias. Prefix/in-context tokens receive zero spatial
+    bias so the prior is attached to image positions only.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        num_spatial_tokens: int = 256,
+        spatial_rank: int = 16,
+        null_class_id: Optional[int] = None,
+        spatial_init_scale: float = 0.02,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        if num_spatial_tokens < 1:
+            raise ValueError("num_spatial_tokens must be positive")
+        if spatial_rank < 1:
+            raise ValueError("spatial_rank must be positive")
+
+        self.w_gate = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_value = nn.Linear(dim, hidden_dim_eff, bias=bias)
+        self.w_out = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.num_spatial_tokens = int(num_spatial_tokens)
+        self.null_class_id = null_class_id
+        self.spatial_bank = nn.Parameter(torch.empty(self.num_spatial_tokens, spatial_rank))
+        self.class_to_rank = nn.Linear(t_embed_dim, spatial_rank, bias=True) if t_embed_dim is not None else None
+        self.spatial_to_value = nn.Linear(spatial_rank, hidden_dim_eff, bias=False)
+        self.spatial_init_scale = float(spatial_init_scale)
+        self.drop = nn.Dropout(drop)
+        self.uses_class_condition = True
+
+    def reset_design_parameters(self) -> None:
+        nn.init.normal_(self.spatial_bank, std=self.spatial_init_scale)
+        if self.class_to_rank is not None:
+            nn.init.xavier_uniform_(self.class_to_rank.weight)
+            nn.init.constant_(self.class_to_rank.bias, 0)
+        nn.init.xavier_uniform_(self.spatial_to_value.weight)
+        self.spatial_to_value.weight.data.mul_(self.spatial_init_scale)
+
+    def _spatial_bias(
+        self,
+        x: Tensor,
+        class_cond: Optional[Tensor],
+        class_labels: Optional[Tensor],
+    ) -> Tensor:
+        B, N, _ = x.shape
+        if self.class_to_rank is None or class_cond is None or not torch.is_tensor(class_cond):
+            return x.new_zeros(B, N, self.w_value.out_features)
+
+        coeff = torch.tanh(self.class_to_rank(class_cond))
+        if (
+            self.null_class_id is not None
+            and class_labels is not None
+            and torch.is_tensor(class_labels)
+        ):
+            null_mask = class_labels.eq(int(self.null_class_id)).view(B, 1)
+            coeff = coeff.masked_fill(null_mask, 0.0)
+
+        low_rank = self.spatial_bank.unsqueeze(0) * coeff.unsqueeze(1)
+        spatial_bias = self.spatial_to_value(low_rank)
+        if N == self.num_spatial_tokens:
+            return spatial_bias.to(dtype=x.dtype)
+        if N > self.num_spatial_tokens:
+            prefix = x.new_zeros(B, N - self.num_spatial_tokens, spatial_bias.shape[-1])
+            return torch.cat([prefix, spatial_bias.to(dtype=x.dtype)], dim=1)
+        return spatial_bias[:, -N:].to(dtype=x.dtype)
+
+    def forward(
+        self,
+        x: Tensor,
+        cond: Optional[Tensor] = None,
+        return_aux: bool = False,
+        class_cond: Optional[Tensor] = None,
+        class_labels: Optional[Tensor] = None,
+    ):
+        gate = F.silu(self.w_gate(x))
+        value = self.w_value(x) + self._spatial_bias(x, class_cond, class_labels)
+        hidden = self.drop(gate * value)
+        out = self.w_out(hidden)
+        return self._maybe_return(out, self._aux(x, out, gate=gate), return_aux)
+
+
+# ─── Design 4: Frequency-Split Dual FFN ──────────────────────────────────
+
+
+class FreqSplitDualFFN(BaseFFN):
+    """Input-stage frequency split FFN from the PDF redesign.
+
+    Image tokens are split spatially into low/high frequency inputs before
+    either branch sees a linear projection. Optional prefix tokens are carried
+    through both branches without spatial filtering.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        low_ratio: float = 0.5,
+        lowpass_kernel: Optional[int] = None,
+        pool_size: int = 2,
+        upsample_mode: str = "nearest",
+        num_spatial_tokens: int = 256,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if lowpass_kernel is not None:
+            pool_size = int(lowpass_kernel)
+        if not isinstance(pool_size, int) or pool_size < 1:
+            raise ValueError("pool_size must be a positive integer")
+        if num_spatial_tokens < 1:
+            raise ValueError("num_spatial_tokens must be positive")
+        if not (0.0 < low_ratio < 1.0):
+            raise ValueError("low_ratio must be between 0 and 1")
+
+        baseline_hidden, _ = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        low_hidden = max(1, int(baseline_hidden * low_ratio))
+        high_hidden = max(1, baseline_hidden - low_hidden)
+        self.pool_size = pool_size
+        self.lowpass_kernel = pool_size
+        self.upsample_mode = upsample_mode
+        self.num_spatial_tokens = int(num_spatial_tokens)
+        self.low_w12 = nn.Linear(dim, 2 * low_hidden, bias=bias)
+        self.low_w3 = nn.Linear(low_hidden, dim, bias=bias)
+        self.high_w12 = nn.Linear(dim, 2 * high_hidden, bias=bias)
+        self.high_w3 = nn.Linear(high_hidden, dim, bias=bias)
+        self.mix_proj = nn.Linear(t_embed_dim, 2, bias=True) if t_embed_dim is not None else None
+        self.mix_logits = nn.Parameter(torch.zeros(2))
+        self.drop = nn.Dropout(drop)
+
+    def reset_design_parameters(self) -> None:
+        if self.mix_proj is not None:
+            nn.init.constant_(self.mix_proj.weight, 0)
+            nn.init.constant_(self.mix_proj.bias, 0)
+
+    def _spatial_lowpass(self, x: Tensor) -> Tensor:
+        B, N, C = x.shape
+        side = int(N ** 0.5)
+        if side * side != N:
+            return x.mean(dim=1, keepdim=True).expand_as(x)
+        x_2d = x.transpose(1, 2).reshape(B, C, side, side)
+        pad_h = (self.pool_size - side % self.pool_size) % self.pool_size
+        pad_w = (self.pool_size - side % self.pool_size) % self.pool_size
+        if pad_h or pad_w:
+            x_2d = F.pad(x_2d, (0, pad_w, 0, pad_h), mode="replicate")
+        low = F.avg_pool2d(x_2d, kernel_size=self.pool_size, stride=self.pool_size)
+        interp_kwargs = {}
+        if self.upsample_mode in {"linear", "bilinear", "bicubic", "trilinear"}:
+            interp_kwargs["align_corners"] = False
+        low = F.interpolate(low, size=(side + pad_h, side + pad_w), mode=self.upsample_mode, **interp_kwargs)
+        low = low[:, :, :side, :side]
+        return low.flatten(2).transpose(1, 2)
+
+    def _frequency_inputs(self, x: Tensor) -> tuple[Tensor, Tensor]:
+        B, N, C = x.shape
+        if N > self.num_spatial_tokens:
+            prefix = x[:, : N - self.num_spatial_tokens]
+            spatial = x[:, -self.num_spatial_tokens :]
+        else:
+            prefix = None
+            spatial = x
+
+        low_spatial = self._spatial_lowpass(spatial)
+        high_spatial = spatial - low_spatial
+
+        if prefix is None:
+            return low_spatial, high_spatial
+        return (
+            torch.cat([prefix, low_spatial], dim=1),
+            torch.cat([prefix, high_spatial], dim=1),
+        )
+
+    def _swiglu(self, x: Tensor, w12: nn.Linear, w3: nn.Linear) -> Tensor:
+        x12 = w12(x)
+        g, v = x12.chunk(2, dim=-1)
+        return w3(self.drop(F.silu(g) * v))
+
+    def _mix_weights(self, cond: Optional[Tensor]) -> Tensor:
+        logits = self.mix_logits.view(1, 1, 2)
+        if self.mix_proj is not None and cond is not None and torch.is_tensor(cond):
+            m = self.mix_proj(cond)
+            if m.dim() == 2:
+                m = m.unsqueeze(1)
+            logits = logits + m
+        return torch.softmax(logits, dim=-1)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x_low, x_high = self._frequency_inputs(x)
+        h_low = self._swiglu(x_low, self.low_w12, self.low_w3)
+        h_high = self._swiglu(x_high, self.high_w12, self.high_w3)
+        weights = self._mix_weights(cond)
+        out = weights[..., :1] * h_low + weights[..., 1:] * h_high
+        return self._maybe_return(out, self._aux(x, out, gate=weights[..., :1]), return_aux)
+
+
+# ─── Design 5: Progressive Refinement FFN ────────────────────────────────
+
+
+class ProgressiveRefineFFN(BaseFFN):
+    """Main SwiGLU + small time-aware refinement head:
+    h1 = SwiGLU(x),  Δh = g_φ(h1, t_emb),  y = h1 + α(t)·Δh.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        refine_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        baseline_hidden, budget = _baseline_swiglu_param_budget(dim, hidden_dim, bias)
+        refine_dim = refine_dim or max(64, dim // 4)
+        refine_cost = (
+            _linear_param_count(dim, refine_dim, True)
+            + _cond_param_count(t_embed_dim, refine_dim, True)
+            + _linear_param_count(refine_dim, dim, True)
+            + _cond_param_count(t_embed_dim, 1, True)
+            + 1
+        )
+        main_hidden = _search_hidden_dim(
+            baseline_hidden, 1, budget - refine_cost,
+            lambda h: _linear_param_count(dim, 2 * h, bias) + _linear_param_count(h, dim, bias),
+        )
+        self.w12 = nn.Linear(dim, 2 * main_hidden, bias=bias)
+        self.w3 = nn.Linear(main_hidden, dim, bias=bias)
+        self.refine_in = nn.Linear(dim, refine_dim, bias=True)
+        self.refine_cond = nn.Linear(t_embed_dim, refine_dim, bias=True) if t_embed_dim is not None else None
+        self.refine_out = nn.Linear(refine_dim, dim, bias=True)
+        self.alpha_proj = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.alpha_bias = nn.Parameter(torch.tensor(0.0))
+        self.drop = nn.Dropout(drop)
+
+    def _alpha(self, cond: Optional[Tensor]) -> Tensor:
+        logits = self.alpha_bias.view(1, 1, 1)
+        if self.alpha_proj is not None and cond is not None and torch.is_tensor(cond):
+            a = self.alpha_proj(cond)
+            if a.dim() == 2:
+                a = a.unsqueeze(1)
+            logits = logits + a
+        return torch.sigmoid(logits)
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        gate = F.silu(x1)
+        h1 = self.w3(self.drop(gate * x2))
+        r = self.refine_in(h1)
+        cond_term = self._condition_term(cond, self.refine_cond)
+        if cond_term is not None:
+            r = r + cond_term
+        delta_h = self.refine_out(F.silu(r))
+        alpha = self._alpha(cond)
+        out = h1 + alpha * delta_h
+        return self._maybe_return(out, self._aux(x, out, alpha=alpha, gate=gate), return_aux)
+
+
+# ─── Design 6: Multi-Step Integrated FFN ─────────────────────────────────
+
+
+class MultiStepIntegratedFFN(BaseFFN):
+    """K shared-parameter integration steps inside one FFN block:
+    x_0 = x,  x_{k+1} = x_k + (1/K)·f_θ(x_k),  y = x_K.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        steps: int = 2,
+        drop: float = 0.0,
+        bias: bool = True,
+        t_embed_dim: Optional[int] = None,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if not isinstance(steps, int) or steps < 1:
+            raise ValueError("steps must be a positive integer")
+        hidden_dim_eff = max(1, int(hidden_dim * 2 / 3))
+        self.steps = steps
+        self.w12 = nn.Linear(dim, 2 * hidden_dim_eff, bias=bias)
+        self.w3 = nn.Linear(hidden_dim_eff, dim, bias=bias)
+        self.step_scale = nn.Linear(t_embed_dim, 1, bias=True) if t_embed_dim is not None else None
+        self.drop = nn.Dropout(drop)
+
+    def _field(self, z: Tensor) -> Tensor:
+        z12 = self.w12(z)
+        z1, z2 = z12.chunk(2, dim=-1)
+        return self.w3(self.drop(F.silu(z1) * z2))
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        dt: Tensor | float = 1.0 / self.steps
+        if self.step_scale is not None and cond is not None and torch.is_tensor(cond):
+            s = self.step_scale(cond)
+            if s.dim() == 2:
+                s = s.unsqueeze(1)
+            dt = dt * torch.sigmoid(s)
+        z = x
+        for _ in range(self.steps):
+            z = z + dt * self._field(z)
+        return self._maybe_return(z, self._aux(x, z), return_aux)
+
+
+# ─── Scheme C: DeepSeek-style Fine-Grained MoE with Shared Experts ───────
+
+
+class _SwiGLUExpert(nn.Module):
+    """Narrow SwiGLU building block for MoE experts."""
+
+    def __init__(self, dim: int, hidden_dim: int, bias: bool = True, drop: float = 0.0) -> None:
+        super().__init__()
+        self.w12 = nn.Linear(dim, 2 * hidden_dim, bias=bias)
+        self.w3 = nn.Linear(hidden_dim, dim, bias=bias)
+        self.drop = nn.Dropout(drop)
+
+    def forward(self, x: Tensor) -> Tensor:
+        g, v = self.w12(x).chunk(2, dim=-1)
+        return self.w3(self.drop(F.silu(g) * v))
+
+
+class DeepSeekMoEFFN(BaseFFN):
+    """Fine-grained MoE FFN with always-on shared experts + top-K routed experts.
+
+    Shared experts capture common token transformations; routed experts specialize
+    per token.  Bias-based EMA load balancing (DeepSeek-V3 style) prevents expert
+    collapse without an auxiliary loss that could conflict with the flow-matching
+    objective.
+
+    Default config: 1 shared + 16 routed experts, top-2 routing, hidden ratio 2×.
+    Total params ≈ 17 × 3·(2d)·d per block vs baseline 3·4d·d, keeping budgets
+    comparable while exploding expert-combination diversity from C(8,2)=28 to
+    C(16,2)=120 relative to a standard E8K2 MoE.
+    """
+
+    def __init__(
+        self,
+        dim: int,
+        hidden_dim: int,
+        drop: float = 0.0,
+        bias: bool = True,
+        num_shared_experts: int = 1,
+        num_routed_experts: int = 16,
+        top_k: int = 2,
+        expert_ratio: float = 2.0,
+        balance_bias_lr: float = 0.01,
+        **_: object,
+    ) -> None:
+        super().__init__()
+        if num_routed_experts < 1:
+            raise ValueError("num_routed_experts must be at least 1")
+        if top_k < 1 or top_k > num_routed_experts:
+            raise ValueError("top_k must be in [1, num_routed_experts]")
+        if num_shared_experts < 0:
+            raise ValueError("num_shared_experts must be non-negative")
+
+        expert_hidden = max(1, int(dim * expert_ratio))
+        self.top_k = top_k
+        self.num_routed_experts = num_routed_experts
+        self.balance_bias_lr = float(balance_bias_lr)
+
+        self.shared_experts = nn.ModuleList(
+            [_SwiGLUExpert(dim, expert_hidden, bias=bias, drop=drop) for _ in range(num_shared_experts)]
+        )
+        self.routed_experts = nn.ModuleList(
+            [_SwiGLUExpert(dim, expert_hidden, bias=bias, drop=drop) for _ in range(num_routed_experts)]
+        )
+        self.router = nn.Linear(dim, num_routed_experts, bias=False)
+        # EMA load-balancing bias: added to router logits, updated in-place during training.
+        # Overloaded experts get lower bias → less likely to be selected.
+        self.register_buffer("balance_bias", torch.zeros(num_routed_experts))
+
+    def forward(self, x: Tensor, cond: Optional[Tensor] = None, return_aux: bool = False):
+        del cond
+        B, N, C = x.shape
+        T = B * N
+        x_flat = x.reshape(T, C)
+
+        # Router: add EMA bias for soft load balancing
+        logits = self.router(x_flat) + self.balance_bias  # (T, E_r)
+        top_scores, top_ids = torch.topk(logits, self.top_k, dim=-1)  # (T, K)
+        gates = torch.softmax(top_scores.float(), dim=-1).to(x.dtype)  # (T, K)
+
+        # Accumulate weighted routed expert outputs via per-slot scatter
+        routed_out = x_flat.new_zeros(T, C)
+        for k in range(self.top_k):
+            expert_ids_k = top_ids[:, k]   # (T,)
+            gate_k = gates[:, k]            # (T,)
+            for e, expert in enumerate(self.routed_experts):
+                mask = expert_ids_k == e    # (T,) bool
+                if not mask.any():
+                    continue
+                out_e = expert(x_flat[mask])                             # (n_e, C)
+                routed_out[mask] = routed_out[mask] + gate_k[mask].unsqueeze(-1) * out_e
+
+        # Update load-balancing bias: bias decreases for overloaded experts.
+        # Use float32 counts to avoid dtype mismatch with the float32 buffer under bf16 training.
+        if self.training:
+            with torch.no_grad():
+                counts = torch.zeros(self.num_routed_experts, dtype=torch.float32, device=x.device)
+                for e in range(self.num_routed_experts):
+                    counts[e] = (top_ids == e).sum()
+                target = float(T * self.top_k) / self.num_routed_experts
+                self.balance_bias -= self.balance_bias_lr * (counts - target).sign()
+
+        # Shared experts always run on the full token sequence
+        shared_out = sum(exp(x_flat) for exp in self.shared_experts) if self.shared_experts else 0
+        out = (shared_out + routed_out).reshape(B, N, C)
+        return self._maybe_return(out, self._aux(x, out), return_aux)
+
+
+FFN_REGISTRY = {
+    "swiglu": SwiGLUFFN,
+    "mlp": MLP,
+    "ode": ODEOnlyFFN,
+    "ode_swiglu": ODESwiGLUFFN,
+    "mh_ode_swiglu": MultiHeadODESwiGLUFFN,
+    "headwise_ode_value_glu": HeadwiseODEValueGLU,
+    "lowrank_state_ode": LowRankStateODEFFN,
+    "tied_flow": TiedFlowFFN,
+    "nav_refine": NavRefineFFN,
+    "time_split": TimeSplitFFN,
+    "freq_split": FrequencySplitFFN,
+    "clean_target": CleanTargetFFN,
+    "time_moe": TimeMoEFFN,
+    "ta_gate": TimestepAdaptiveGatedSwiGLU,
+    "flow_evolved_gate": FlowEvolvedGateSwiGLU,
+    "spatial_adaptive": SpatialAdaptiveValueSwiGLU,
+    "freq_split_dual": FreqSplitDualFFN,
+    "progressive_refine": ProgressiveRefineFFN,
+    "multistep_ffn": MultiStepIntegratedFFN,
+    "deepseek_moe": DeepSeekMoEFFN,
+}
+
+
+FFN_ALIASES = {
+    "mhode_swiglu": "mh_ode_swiglu",
+    "multihead_ode_swiglu": "mh_ode_swiglu",
+    "headwise_ode_glu": "headwise_ode_value_glu",
+    "headwise_value_ode_glu": "headwise_ode_value_glu",
+    "lowrank_ode": "lowrank_state_ode",
+    "lowrank_state_ode_ffn": "lowrank_state_ode",
+    "tied_flow_ffn": "tied_flow",
+    "nav_refine_ffn": "nav_refine",
+    "time_split_dual_path": "time_split",
+    "time_split_ffn": "time_split",
+    "frequency_split": "freq_split",
+    "frequency_split_ffn": "freq_split",
+    "freq_split_ffn": "freq_split",
+    "clean_target_ffn": "clean_target",
+    "time_routed_moe": "time_moe",
+    "time_moe_ffn": "time_moe",
+    "timestep_adaptive_gate": "ta_gate",
+    "ta_gate_swiglu": "ta_gate",
+    "flow_evolved": "flow_evolved_gate",
+    "flow_evolved_gate_swiglu": "flow_evolved_gate",
+    "spatial_adaptive_value": "spatial_adaptive",
+    "spatial_adaptive_swiglu": "spatial_adaptive",
+    "freq_split_dual_ffn": "freq_split_dual",
+    "progressive_refine_ffn": "progressive_refine",
+    "multistep_integrated": "multistep_ffn",
+    "multi_step_ffn": "multistep_ffn",
+    "deepseek_moe_ffn": "deepseek_moe",
+    "ds_moe": "deepseek_moe",
+    "fine_grained_moe": "deepseek_moe",
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "single FFN, per hidden vector, matrix multiplication MACs only",
+  "width": 64,
+  "gate_hidden": 64,
+  "ffn_nominal_hidden": 128,
+  "swiglu_actual_hidden": 85,
+  "models": {
+    "silu_ffn": {"network_parameters": 81858, "ffn_macs": 16384},
+    "swiglu": {"network_parameters": 81792, "ffn_macs": 16320},
+    "ode_k1": {"network_parameters": 82056, "ffn_macs": 16512},
+    "ode_k2": {"network_parameters": 82056, "ffn_macs": 24704}
+  },
+  "limitations": "Counts exclude bias, activation, normalizations, common backbone and backward. Spectral-cap SVD cost is additional. These are arithmetic counts, not measured latency. Parameters matched does not imply compute matched."
+}

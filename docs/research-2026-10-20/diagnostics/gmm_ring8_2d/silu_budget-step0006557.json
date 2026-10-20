@@ -1,0 +1,325 @@
+{
+  "dataset": "gmm_ring8_2d",
+  "label": "silu_budget",
+  "model": "ffn",
+  "orders": null,
+  "step": 6557,
+  "seed": 0,
+  "parameters": 81858,
+  "forward_macs": 80192,
+  "checkpoint_sha256": "34b1f5c2adc660d216a1b7aecca68b5a36e46e40da5ab1920e1abea5289d4995",
+  "config_sha256": "7c68b5283918ec66e5b716d33068de40d0f223638bbfaccdc8eda62e57a50226",
+  "run_dir": "/scratch/zz5070/ODE_FFN/runs/synthetic/odeffn_stage_20261020_silu_budget/gmm_ring8_2d/ffn/seed000",
+  "training_gpu": "NVIDIA H200",
+  "training_job": "20378795",
+  "source_sha256": {
+    "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+    "diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "models.py": "1d4ae2d9a1691a726722086b64285590c3106b42a1fb0f97a0b8329726277ef5",
+    "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+    "train.py": "7c2dd0e6395f219430e77e1fe80af60f59d37f3c694dd03eb11eb0c1f252a611",
+    "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+  },
+  "evaluation_script_sha256": "0592b68df45556f3895a3f6674d00643611150ec39ccf11d040709f14bc2bcf9",
+  "helper_sha256": "a3dd82ab71ab98b7b793f9f2ff9b5bd951acf959af36767ae01bcf83f57a6fb7",
+  "final_oracle_mse": 0.025843751525878905,
+  "final_pair_mse": 2.777289404296875,
+  "sampling": {
+    "8": {
+      "nfe": 16,
+      "sw2": 0.19083786010742188,
+      "endpoint_rms_to_heun256": 0.04083886742591858
+    },
+    "16": {
+      "nfe": 32,
+      "sw2": 0.19033335149288177,
+      "endpoint_rms_to_heun256": 0.02838202565908432
+    },
+    "32": {
+      "nfe": 64,
+      "sw2": 0.1857658177614212,
+      "endpoint_rms_to_heun256": 0.012960389256477356
+    },
+    "64": {
+      "nfe": 128,
+      "sw2": 0.18437223136425018,
+      "endpoint_rms_to_heun256": 0.01016903854906559
+    },
+    "128": {
+      "nfe": 256,
+      "sw2": 0.18200361728668213,
+      "endpoint_rms_to_heun256": 0.001457552774809301
+    },
+    "256": {
+      "nfe": 512,
+      "sw2": 0.18202722072601318,
+      "endpoint_rms_to_heun256": 0.0
+    }
+  },
+  "time_bins": [
+    {
+      "t_left": 0.0,
+      "t_right": 0.1,
+      "count": 1035,
+      "pair_mse": 4.958477973937988,
+      "oracle_mse": 0.011438185349106789,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 0.8417158094234765,
+        "median": 0.8191249370574951,
+        "max": 1.5196260213851929,
+        "min": 0.5013579726219177
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.6671098393853754,
+        "median": -0.6491410136222839,
+        "max": -0.42939552664756775,
+        "min": -1.0528970956802368
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.05259767109797053,
+        "median": 0.04611296206712723,
+        "max": 0.17582403123378754,
+        "min": 3.287454092060216e-05
+      }
+    },
+    {
+      "t_left": 0.1,
+      "t_right": 0.2,
+      "count": 959,
+      "pair_mse": 5.36484432220459,
+      "oracle_mse": 0.011504852212965488,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 0.38371151534374803,
+        "median": 0.38081783056259155,
+        "max": 0.7217087745666504,
+        "min": 0.11084133386611938
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.1301401842993073,
+        "median": -0.14215850830078125,
+        "max": 0.447713166475296,
+        "min": -0.6617242097854614
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.051786985569378885,
+        "median": 0.05022139474749565,
+        "max": 0.13305169343948364,
+        "min": 0.0011079247342422605
+      }
+    },
+    {
+      "t_left": 0.2,
+      "t_right": 0.3,
+      "count": 1030,
+      "pair_mse": 5.335404872894287,
+      "oracle_mse": 0.013198831118643284,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 0.7523667513160035,
+        "median": 0.652900755405426,
+        "max": 2.2613232135772705,
+        "min": 0.2250428944826126
+      },
+      "velocity_jacobian_mu": {
+        "mean": 0.6859340601658914,
+        "median": 0.584343671798706,
+        "max": 2.260847568511963,
+        "min": 0.018218588083982468
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.05203554588183579,
+        "median": 0.052334535866975784,
+        "max": 0.13458125293254852,
+        "min": 0.00044533415348269045
+      }
+    },
+    {
+      "t_left": 0.3,
+      "t_right": 0.4,
+      "count": 983,
+      "pair_mse": 4.305664539337158,
+      "oracle_mse": 0.007860329002141953,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.893622708041221,
+        "median": 1.5498580932617188,
+        "max": 6.100182056427002,
+        "min": 0.8389483094215393
+      },
+      "velocity_jacobian_mu": {
+        "mean": 1.727773219521623,
+        "median": 1.5497004985809326,
+        "max": 6.100063323974609,
+        "min": -0.14141589403152466
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.062049413743807236,
+        "median": 0.05045837536454201,
+        "max": 0.22043180465698242,
+        "min": 0.0011595862451940775
+      }
+    },
+    {
+      "t_left": 0.4,
+      "t_right": 0.5,
+      "count": 961,
+      "pair_mse": 2.8802406787872314,
+      "oracle_mse": 0.008892121724784374,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 2.310173297300935,
+        "median": 2.0749547481536865,
+        "max": 5.773063659667969,
+        "min": 1.0573242902755737
+      },
+      "velocity_jacobian_mu": {
+        "mean": 2.002466918740538,
+        "median": 2.0742037296295166,
+        "max": 5.772505760192871,
+        "min": -0.40741392970085144
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.12864671303531328,
+        "median": 0.11243792623281479,
+        "max": 0.4841958284378052,
+        "min": 1.622653712729516e-06
+      }
+    },
+    {
+      "t_left": 0.5,
+      "t_right": 0.6,
+      "count": 985,
+      "pair_mse": 1.6217095851898193,
+      "oracle_mse": 0.018790971487760544,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 2.801649697124958,
+        "median": 2.1484434604644775,
+        "max": 11.21618366241455,
+        "min": 1.2410151958465576
+      },
+      "velocity_jacobian_mu": {
+        "mean": 1.460619897057768,
+        "median": 1.1632682085037231,
+        "max": 11.161572456359863,
+        "min": -2.117093324661255
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.24195317335033906,
+        "median": 0.1927286833524704,
+        "max": 1.3148280382156372,
+        "min": 0.0010680011473596096
+      }
+    },
+    {
+      "t_left": 0.6,
+      "t_right": 0.7,
+      "count": 1019,
+      "pair_mse": 0.8883805274963379,
+      "oracle_mse": 0.04230258986353874,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 3.3589775445871055,
+        "median": 2.528189182281494,
+        "max": 10.515412330627441,
+        "min": 0.9177330136299133
+      },
+      "velocity_jacobian_mu": {
+        "mean": 0.476742020342499,
+        "median": -1.4351136684417725,
+        "max": 10.515400886535645,
+        "min": -2.434278964996338
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.4234240938806124,
+        "median": 0.3075319528579712,
+        "max": 2.1124396324157715,
+        "min": 0.00028962260694243014
+      }
+    },
+    {
+      "t_left": 0.7,
+      "t_right": 0.8,
+      "count": 1089,
+      "pair_mse": 0.6164160370826721,
+      "oracle_mse": 0.07224047929048538,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 2.8894172748550773,
+        "median": 2.740396738052368,
+        "max": 9.184903144836426,
+        "min": 1.7467633485794067
+      },
+      "velocity_jacobian_mu": {
+        "mean": -1.6463228146894835,
+        "median": -2.203021764755249,
+        "max": 9.042037963867188,
+        "min": -2.9299378395080566
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.3113270342087162,
+        "median": 0.22259177267551422,
+        "max": 1.6722627878189087,
+        "min": 0.000186879129614681
+      }
+    },
+    {
+      "t_left": 0.8,
+      "t_right": 0.9,
+      "count": 958,
+      "pair_mse": 0.8357954621315002,
+      "oracle_mse": 0.045175787061452866,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 2.1701212115585804,
+        "median": 2.2029881477355957,
+        "max": 3.0517609119415283,
+        "min": 1.222919225692749
+      },
+      "velocity_jacobian_mu": {
+        "mean": -1.6745854457840323,
+        "median": -1.76423978805542,
+        "max": 1.5634007453918457,
+        "min": -2.580761194229126
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.1899430572784695,
+        "median": 0.1281365305185318,
+        "max": 0.7169094681739807,
+        "min": 0.0009747407166287303
+      }
+    },
+    {
+      "t_left": 0.9,
+      "t_right": 1.0,
+      "count": 981,
+      "pair_mse": 1.0453866720199585,
+      "oracle_mse": 0.022564003244042397,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 0.7401381335221231,
+        "median": 0.6131699085235596,
+        "max": 1.6598867177963257,
+        "min": 0.08179989457130432
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.3004109512967261,
+        "median": -0.2145451307296753,
+        "max": 0.7679949998855591,
+        "min": -1.5033464431762695
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.06717291439872497,
+        "median": 0.05307614803314209,
+        "max": 0.2677960693836212,
+        "min": 0.0004935079487040639
+      }
+    }
+  ],
+  "layers": []
+}

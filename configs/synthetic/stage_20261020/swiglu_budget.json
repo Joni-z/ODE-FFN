@@ -1,0 +1,44 @@
+{
+  "experiment_id": "odeffn_stage_20261020_swiglu_budget",
+  "data_root": "data/synthetic/v1",
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d",
+    "two_moons_2d"
+  ],
+  "models": [
+    "swiglu"
+  ],
+  "seeds": [
+    0
+  ],
+  "steps": 15788,
+  "batch_size": 512,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "eval_interval": 500,
+  "sample_interval": 1000,
+  "checkpoint_interval": 1000,
+  "sample_count": 2048,
+  "sliced_directions": 128,
+  "heun_steps": 32,
+  "model_options": {
+    "width": 64,
+    "depth": 3,
+    "gate_hidden": 64,
+    "ffn_hidden": 128,
+    "orders": 2,
+    "tau": 10.0,
+    "scale": 0.8,
+    "shift": 0.2,
+    "spectral_cap": 1.0
+  },
+  "milestone_steps": [
+    5000,
+    5036,
+    6572,
+    9644,
+    15788
+  ]
+}

@@ -1,0 +1,325 @@
+{
+  "dataset": "two_moons_2d",
+  "label": "silu_budget",
+  "model": "ffn",
+  "orders": null,
+  "step": 5024,
+  "seed": 0,
+  "parameters": 81858,
+  "forward_macs": 80192,
+  "checkpoint_sha256": "2c38a7288a2575f5c9636372f4cdcf0c99066950aa1aa798777d23b66a9ea2d7",
+  "config_sha256": "7c68b5283918ec66e5b716d33068de40d0f223638bbfaccdc8eda62e57a50226",
+  "run_dir": "/scratch/zz5070/ODE_FFN/runs/synthetic/odeffn_stage_20261020_silu_budget/two_moons_2d/ffn/seed000",
+  "training_gpu": "NVIDIA H200",
+  "training_job": "20378694",
+  "source_sha256": {
+    "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+    "diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "models.py": "1d4ae2d9a1691a726722086b64285590c3106b42a1fb0f97a0b8329726277ef5",
+    "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+    "train.py": "7c2dd0e6395f219430e77e1fe80af60f59d37f3c694dd03eb11eb0c1f252a611",
+    "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+  },
+  "evaluation_script_sha256": "0592b68df45556f3895a3f6674d00643611150ec39ccf11d040709f14bc2bcf9",
+  "helper_sha256": "a3dd82ab71ab98b7b793f9f2ff9b5bd951acf959af36767ae01bcf83f57a6fb7",
+  "final_oracle_mse": null,
+  "final_pair_mse": 0.9633414428710938,
+  "sampling": {
+    "8": {
+      "nfe": 16,
+      "sw2": 0.046650372445583344,
+      "endpoint_rms_to_heun256": 0.03579818084836006
+    },
+    "16": {
+      "nfe": 32,
+      "sw2": 0.045768819749355316,
+      "endpoint_rms_to_heun256": 0.02307393029332161
+    },
+    "32": {
+      "nfe": 64,
+      "sw2": 0.04199512302875519,
+      "endpoint_rms_to_heun256": 0.00736326863989234
+    },
+    "64": {
+      "nfe": 128,
+      "sw2": 0.04222741723060608,
+      "endpoint_rms_to_heun256": 0.010396549478173256
+    },
+    "128": {
+      "nfe": 256,
+      "sw2": 0.04206252470612526,
+      "endpoint_rms_to_heun256": 0.004252794664353132
+    },
+    "256": {
+      "nfe": 512,
+      "sw2": 0.041784197092056274,
+      "endpoint_rms_to_heun256": 0.0
+    }
+  },
+  "time_bins": [
+    {
+      "t_left": 0.0,
+      "t_right": 0.1,
+      "count": 1035,
+      "pair_mse": 0.572609543800354,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.0711583043448627,
+        "median": 1.072902798652649,
+        "max": 1.1999839544296265,
+        "min": 0.8783705830574036
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.941305622458458,
+        "median": -0.9669962525367737,
+        "max": -0.33788999915122986,
+        "min": -1.0924415588378906
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.0220261613258117,
+        "median": 0.02060049958527088,
+        "max": 0.05815507471561432,
+        "min": 0.000353274866938591
+      }
+    },
+    {
+      "t_left": 0.1,
+      "t_right": 0.2,
+      "count": 959,
+      "pair_mse": 0.6686435341835022,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.1367792054079473,
+        "median": 1.143655776977539,
+        "max": 1.2809736728668213,
+        "min": 0.866913914680481
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.9148723327089101,
+        "median": -0.9283403754234314,
+        "max": -0.37672027945518494,
+        "min": -1.0803924798965454
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.021822105345563614,
+        "median": 0.01992536336183548,
+        "max": 0.08384837955236435,
+        "min": 0.0011420083465054631
+      }
+    },
+    {
+      "t_left": 0.2,
+      "t_right": 0.3,
+      "count": 1030,
+      "pair_mse": 0.8231106400489807,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.2297114883549511,
+        "median": 1.2339284420013428,
+        "max": 1.3200162649154663,
+        "min": 0.9614824652671814
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.8468347261659801,
+        "median": -0.8375616073608398,
+        "max": -0.6300880312919617,
+        "min": -1.0879237651824951
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.02322177296832706,
+        "median": 0.020824389532208443,
+        "max": 0.075484998524189,
+        "min": 0.0001724754401948303
+      }
+    },
+    {
+      "t_left": 0.3,
+      "t_right": 0.4,
+      "count": 983,
+      "pair_mse": 1.015852928161621,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.307231480255723,
+        "median": 1.3117344379425049,
+        "max": 1.4174903631210327,
+        "min": 1.1578229665756226
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.6786168746184558,
+        "median": -0.6656102538108826,
+        "max": -0.32376646995544434,
+        "min": -1.0673884153366089
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.020514018257017597,
+        "median": 0.015284628607332706,
+        "max": 0.12013499438762665,
+        "min": 0.000266578805167228
+      }
+    },
+    {
+      "t_left": 0.4,
+      "t_right": 0.5,
+      "count": 961,
+      "pair_mse": 1.1553391218185425,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.3891692105680704,
+        "median": 1.3778403997421265,
+        "max": 1.597573161125183,
+        "min": 1.1698249578475952
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.37067348418117696,
+        "median": -0.320334792137146,
+        "max": 0.2972678244113922,
+        "min": -1.1212831735610962
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.035634377464418776,
+        "median": 0.02615557610988617,
+        "max": 0.14837941527366638,
+        "min": 0.00012037139822496101
+      }
+    },
+    {
+      "t_left": 0.5,
+      "t_right": 0.6,
+      "count": 985,
+      "pair_mse": 1.2196975946426392,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.472147736698389,
+        "median": 1.4141474962234497,
+        "max": 2.134361743927002,
+        "min": 1.065961241722107
+      },
+      "velocity_jacobian_mu": {
+        "mean": -0.055632441595662385,
+        "median": 0.06610093265771866,
+        "max": 1.297135829925537,
+        "min": -1.757365107536316
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.057008007850527065,
+        "median": 0.03631266951560974,
+        "max": 0.4111233651638031,
+        "min": 0.0007679050322622061
+      }
+    },
+    {
+      "t_left": 0.6,
+      "t_right": 0.7,
+      "count": 1019,
+      "pair_mse": 1.1950526237487793,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 1.8127915291115642,
+        "median": 1.7518304586410522,
+        "max": 3.7192208766937256,
+        "min": 0.8119248747825623
+      },
+      "velocity_jacobian_mu": {
+        "mean": 0.4582660491363413,
+        "median": 0.4941171407699585,
+        "max": 3.710554599761963,
+        "min": -2.4841837882995605
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.09533550091236975,
+        "median": 0.06014641746878624,
+        "max": 0.6245138049125671,
+        "min": 0.0003692748723551631
+      }
+    },
+    {
+      "t_left": 0.7,
+      "t_right": 0.8,
+      "count": 1089,
+      "pair_mse": 1.1084105968475342,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 2.966198862530291,
+        "median": 2.731227397918701,
+        "max": 12.690016746520996,
+        "min": 0.9721535444259644
+      },
+      "velocity_jacobian_mu": {
+        "mean": 0.90725681760523,
+        "median": 0.43479764461517334,
+        "max": 12.688233375549316,
+        "min": -2.303407669067383
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.14575983289887517,
+        "median": 0.10726676136255264,
+        "max": 0.8932075500488281,
+        "min": 0.0006558892782777548
+      }
+    },
+    {
+      "t_left": 0.8,
+      "t_right": 0.9,
+      "count": 958,
+      "pair_mse": 0.932723343372345,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 5.14593250118196,
+        "median": 5.095645904541016,
+        "max": 27.854534149169922,
+        "min": 1.3422147035598755
+      },
+      "velocity_jacobian_mu": {
+        "mean": 1.3143428740368108,
+        "median": 1.0170907974243164,
+        "max": 27.8541316986084,
+        "min": -3.916457176208496
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.20553473186009796,
+        "median": 0.14701056480407715,
+        "max": 1.3861886262893677,
+        "min": 0.0047816443257033825
+      }
+    },
+    {
+      "t_left": 0.9,
+      "t_right": 1.0,
+      "count": 981,
+      "pair_mse": 0.9409756660461426,
+      "oracle_mse": null,
+      "jacobian_probe_count": 128,
+      "velocity_jacobian_sigma": {
+        "mean": 4.309312290046364,
+        "median": 4.909083843231201,
+        "max": 7.177560806274414,
+        "min": 0.6118894815444946
+      },
+      "velocity_jacobian_mu": {
+        "mean": 0.6998441127725528,
+        "median": 0.7763298153877258,
+        "max": 6.735987663269043,
+        "min": -2.5154969692230225
+      },
+      "velocity_jacobian_skew_fro": {
+        "mean": 0.2083837626814784,
+        "median": 0.15193314850330353,
+        "max": 1.5817701816558838,
+        "min": 0.005393700674176216
+      }
+    }
+  ],
+  "layers": []
+}

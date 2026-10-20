@@ -1,0 +1,412 @@
+
+import os
+import math
+import wandb
+import shutil
+
+import torch
+import numpy as np
+from tqdm import tqdm
+
+import util.misc as misc
+import util.lr_sched as lr_sched
+# import torch_fidelity
+import copy
+
+from util.fid import calculate_fid, calculate_fid_path
+
+def _build_lr_args(cfg, base_lr):
+    """Mimic the old args object for lr_sched.adjust_learning_rate."""
+    class LRArgs:
+        pass
+    args = LRArgs()
+    args.lr = base_lr
+    args.min_lr = cfg["train"]["min_lr"]
+    args.epochs = cfg["train"]["epochs"]
+    args.warmup_epochs = cfg["train"]["warmup_epochs"]
+    args.lr_schedule = cfg["train"]["lr_schedule"]
+    return args
+
+
+def _prepare_batch(x, labels, device):
+    """
+    Move a batch to the target device and normalize images exactly once.
+
+    ImageFolder + PILToTensor yields uint8 images in [0, 255]. Keeping the
+    normalization here avoids device-string mismatches such as `cuda` vs
+    `cuda:0` causing accidental double normalization.
+    """
+    x = x.to(device, non_blocking=True)
+    if x.dtype == torch.uint8:
+        x = x.to(torch.float32).div_(255)
+        x = x * 2.0 - 1.0
+    else:
+        x = x.to(torch.float32)
+    labels = labels.to(device, non_blocking=True)
+    return x, labels
+
+
+def train_one_epoch(
+    accelerator,
+    model,
+    train_loader,
+    optimizer,
+    epoch,
+    cfg,
+    global_step: int,
+):
+    """One epoch of training with Accelerator + single EMA."""
+    metric_logger = misc.MetricLogger(delimiter="  ")
+    metric_logger.add_meter("lr", misc.SmoothedValue(window_size=1, fmt="{value:.6f}"))
+    header = f"Epoch: [{epoch}]"
+    print_freq = 20
+
+    base_lr = optimizer.param_groups[0]["lr"]
+    lr_args = _build_lr_args(cfg, base_lr)
+
+    model.train(True)
+    optimizer.zero_grad()
+
+    if accelerator.is_main_process:
+        print(f"Starting epoch {epoch}")
+
+    log_every = cfg["train"]["log_every"]
+
+    for data_iter_step, (x, labels) in enumerate(
+        metric_logger.log_every(train_loader, print_freq, header)
+    ):
+        # # Per-iteration LR scheduling
+        # it = data_iter_step / len(train_loader) + epoch
+        # lr_sched.adjust_learning_rate(optimizer, it, lr_args)
+
+        x, labels = _prepare_batch(x, labels, accelerator.device)
+
+        with accelerator.autocast():
+            loss_dict = model(x, labels, return_loss_dict=True)
+            loss = loss_dict["loss"]
+
+        loss_value = loss.detach().float()
+        loss_fm_value = loss_dict["loss_fm"].detach().float()
+        loss_lip_value = loss_dict["loss_lip"].detach().float()
+        loss_perc_value = loss_dict.get("loss_perc")
+        if loss_perc_value is None:
+            loss_perc_value = torch.zeros_like(loss_value)
+        else:
+            loss_perc_value = loss_perc_value.detach().float()
+
+        if not math.isfinite(loss_value.item()):
+            if accelerator.is_main_process:
+                print(f"Loss is {loss_value.item()}, stopping training.")
+            raise RuntimeError("Non-finite loss.")
+
+        optimizer.zero_grad()
+        accelerator.backward(loss)
+
+        optimizer.step()
+
+        # EMA update on unwrapped model
+        unwrapped = accelerator.unwrap_model(model)
+        unwrapped.update_ema()
+
+        # Metrics
+        lr = optimizer.param_groups[0]["lr"]
+        metric_logger.update(loss=loss_value.item())
+        metric_logger.update(loss_fm=loss_fm_value.item())
+        metric_logger.update(loss_lip=loss_lip_value.item())
+        metric_logger.update(loss_perc=loss_perc_value.item())
+        metric_logger.update(lr=lr)
+
+        # All-reduce mean loss across processes
+        loss_reduced = loss_value
+        loss_fm_reduced = loss_fm_value
+        loss_lip_reduced = loss_lip_value
+        loss_perc_reduced = loss_perc_value
+        # Use accelerator.gather for cross-process stats
+        with torch.no_grad():
+            loss_reduced = accelerator.gather(loss_reduced).mean()
+            loss_fm_reduced = accelerator.gather(loss_fm_reduced).mean()
+            loss_lip_reduced = accelerator.gather(loss_lip_reduced).mean()
+            loss_perc_reduced = accelerator.gather(loss_perc_reduced).mean()
+
+        global_step += 1
+
+        # Logging：主进程用 wandb.log（与 ODE_FFN 一致）
+        if accelerator.is_main_process and (data_iter_step % log_every == 0):
+            log_dict = {
+                "train/loss": loss_reduced.item(),
+                "train/loss_fm": loss_fm_reduced.item(),
+                "train/loss_lip": loss_lip_reduced.item(),
+                "train/loss_perc": loss_perc_reduced.item(),
+                "train/lr": lr,
+                "train/epoch": epoch,
+                "train/step": global_step,
+            }
+            try:
+                if wandb.run is not None:
+                    wandb.log(log_dict, step=global_step)
+            except Exception:
+                pass
+
+        # # debug
+        # if data_iter_step == 40:
+        #     break
+
+    return global_step
+
+def evaluate(
+    accelerator,
+    model,
+    cfg,
+    epoch: int,
+    global_step: int,
+    checkpoint_dir: str,
+):
+    """FID/IS evaluation with EMA weights."""
+    device = accelerator.device
+    world_size = accelerator.num_processes
+    local_rank = accelerator.process_index
+
+    unwrapped = accelerator.unwrap_model(model)
+    unwrapped.eval()
+
+    num_images = cfg["sample"]["num_images"]
+    batch_size = cfg["sample"]["gen_bsz"]
+    img_size = cfg["data"]["img_size"]
+    class_num = cfg["data"]["class_num"]
+    num_steps = num_images // (batch_size * world_size) + 1
+
+    # Swap to EMA weights
+    model_state_dict = copy.deepcopy(unwrapped.state_dict())
+    ema_state_dict = copy.deepcopy(unwrapped.state_dict())
+    for i, (name, _value) in enumerate(unwrapped.named_parameters()):
+        assert hasattr(unwrapped, "ema_params"), "ema_params not found on model."
+        ema_param = unwrapped.ema_params[i]
+        ema_state_dict[name] = ema_param.to(device)
+    if accelerator.is_main_process:
+        print("[Eval] Switching to EMA weights.")
+    unwrapped.load_state_dict(ema_state_dict)
+
+    # Ensure equal number of images per class
+    assert num_images % class_num == 0, "Number of images per class must be the same."
+    class_label_gen_world = np.arange(0, class_num).repeat(num_images // class_num)
+
+    val_images = []
+    for i in range(num_steps):
+        if accelerator.is_main_process:
+            print(f"[Eval] Generation step {i+1}/{num_steps}")
+
+        start_idx = world_size * batch_size * i + local_rank * batch_size
+        end_idx = start_idx + batch_size
+        labels_gen = class_label_gen_world[start_idx:end_idx]
+        labels_gen = torch.Tensor(labels_gen).long().to(device)
+        if labels_gen.numel() == 0:
+            continue
+
+        with accelerator.autocast():
+            sampled_images = unwrapped.generate(labels_gen, seed=i+local_rank*10000)
+
+        # Denormalize images from [-1, 1] to [0, 1]
+        sampled_images = ((sampled_images + 1) / 2).clamp(0, 1)
+        sampled_images = sampled_images.detach().cpu()
+        val_images.append(sampled_images)
+
+    val_images = torch.cat(val_images, dim=0)
+    # Gather from all processes for multi-GPU (gather requires same shape across ranks)
+    world_size = accelerator.num_processes
+    if world_size > 1:
+        target_per_rank = (num_images + world_size - 1) // world_size
+        n_local = val_images.shape[0]
+        if n_local < target_per_rank:
+            # Pad by repeating last image (avoid zeros which would skew FID)
+            n_pad = target_per_rank - n_local
+            pad = val_images[-1:].expand(n_pad, -1, -1, -1).clone() if n_local > 0 else torch.zeros(n_pad, *val_images.shape[1:], dtype=val_images.dtype, device=val_images.device)
+            val_images = torch.cat([val_images, pad], dim=0)
+        elif n_local > target_per_rank:
+            val_images = val_images[:target_per_rank]
+        val_images = accelerator.gather(val_images)
+    val_images = val_images[:num_images]  # trim to exact count
+    if accelerator.is_main_process:
+        print(f"[Eval] Generated images shape: {val_images.shape}")
+
+    # Switch back from EMA
+    if accelerator.is_main_process:
+        print("[Eval] Switching back from EMA weights.")
+    unwrapped.load_state_dict(model_state_dict)
+
+    # Compute FID / IS on main process（若 npz 不存在则跳过 FID，只打警告，不中断训练）
+    if accelerator.is_main_process:
+        if img_size == 256:
+            fid_statistics_file = cfg["sample"]["fid_stats_256"]
+        elif img_size == 512:
+            fid_statistics_file = cfg["sample"]["fid_stats_512"]
+        else:
+            raise NotImplementedError(f"No FID stats configured for img_size={img_size}")
+
+        n_demo = min(8, val_images.shape[0])
+        demo_step = max(1, (val_images.shape[0] - 1) // n_demo) if val_images.shape[0] > 0 else 1
+        demo_indices = list(range(0, val_images.shape[0], demo_step))[:n_demo]
+        demo_images = val_images[demo_indices]  # [N, 3, H, W]
+        # wandb.Image() does not accept batch; pass list of single images as uint8 [H,W,C]
+        demo_list = []
+        for i in range(demo_images.shape[0]):
+            img = (demo_images[i].clamp(0, 1) * 255).round().byte().permute(1, 2, 0).cpu().numpy()
+            demo_list.append(wandb.Image(img))
+        log_dict = {"val/epoch": epoch, "val/step": global_step, "val/images": demo_list}
+
+        if val_images.shape[0] > 0 and os.path.isfile(fid_statistics_file):
+            fid_score = calculate_fid(val_images, ref_path=fid_statistics_file)
+            log_dict["val/fid"] = fid_score
+            print(f"[Eval] FID: {fid_score:.2f}")
+        elif not os.path.isfile(fid_statistics_file):
+            print(f"[Eval] 跳过 FID（不存在 {fid_statistics_file}，请下载或生成该 npz 后重跑 eval）")
+
+        try:
+            if wandb.run is not None:
+                wandb.log(log_dict, step=global_step)
+        except Exception:
+            pass
+
+    # Back to train mode
+    unwrapped.train()
+
+# def evaluate(
+#     accelerator,
+#     model,
+#     cfg,
+#     epoch: int,
+#     global_step: int,
+#     checkpoint_dir: str,
+# ):
+#     """FID/IS evaluation with EMA weights."""
+#     device = accelerator.device
+#     world_size = accelerator.num_processes
+#     local_rank = accelerator.process_index
+
+#     unwrapped = accelerator.unwrap_model(model)
+#     unwrapped.eval()
+
+#     num_images = cfg["sample"]["num_images"]
+#     batch_size = cfg["sample"]["gen_bsz"]
+#     img_size = cfg["data"]["img_size"]
+#     class_num = cfg["data"]["class_num"]
+
+#     num_steps = num_images // (batch_size * world_size) + 1
+
+#     # Save folder for generated images (per evaluation)
+#     save_folder = os.path.join(
+#         cfg["sample"]["tmp_dir"],
+#         cfg["train"]["exp_name"],
+#         f"steps{unwrapped.steps}-cfg{unwrapped.cfg_scale}"
+#         f"-interval{unwrapped.cfg_interval[0]}-{unwrapped.cfg_interval[1]}"
+#         f"-image{num_images}-res{img_size}",
+#     )
+
+#     if accelerator.is_main_process:
+#         print(f"[Eval] Saving generated images to: {save_folder}")
+#         os.makedirs(save_folder, exist_ok=True)
+
+#     accelerator.wait_for_everyone()
+
+#     # Swap to EMA weights
+#     model_state_dict = copy.deepcopy(unwrapped.state_dict())
+#     ema_state_dict = copy.deepcopy(unwrapped.state_dict())
+#     for i, (name, _value) in enumerate(unwrapped.named_parameters()):
+#         assert hasattr(unwrapped, "ema_params"), "ema_params not found on model."
+#         ema_param = unwrapped.ema_params[i]
+#         ema_state_dict[name] = ema_param.to(device)
+#     if accelerator.is_main_process:
+#         print("[Eval] Switching to EMA weights.")
+#     unwrapped.load_state_dict(ema_state_dict)
+
+#     # Ensure equal number of images per class
+#     assert num_images % class_num == 0, "Number of images per class must be the same."
+#     class_label_gen_world = np.arange(0, class_num).repeat(num_images // class_num)
+#     # pad a bit to avoid OOB
+#     class_label_gen_world = np.hstack([class_label_gen_world, np.zeros(50000)])
+
+#     for i in range(num_steps):
+#         if accelerator.is_main_process:
+#             print(f"[Eval] Generation step {i+1}/{num_steps}")
+
+#         start_idx = world_size * batch_size * i + local_rank * batch_size
+#         end_idx = start_idx + batch_size
+#         labels_gen = class_label_gen_world[start_idx:end_idx]
+#         labels_gen = torch.Tensor(labels_gen).long().to(device)
+
+#         if labels_gen.numel() == 0:
+#             continue
+
+#         with accelerator.autocast():
+#             sampled_images = unwrapped.generate(labels_gen)
+
+#         accelerator.wait_for_everyone()
+
+#         # Denormalize images from [-1, 1] to [0, 255]
+#         sampled_images = (sampled_images + 1) / 2
+#         sampled_images = sampled_images.detach().cpu()
+
+#         for b_id in range(sampled_images.size(0)):
+#             img_id = i * sampled_images.size(0) * world_size + local_rank * sampled_images.size(0) + b_id
+#             if img_id >= num_images:
+#                 break
+#             gen_img = sampled_images[b_id].numpy().transpose(1, 2, 0)
+#             gen_img = np.round(np.clip(gen_img * 255, 0, 255)).astype(np.uint8)
+#             # BGR for OpenCV
+#             gen_img_bgr = gen_img[:, :, ::-1]
+#             cv2.imwrite(os.path.join(save_folder, f"{str(img_id).zfill(5)}.png"), gen_img_bgr)
+
+#     accelerator.wait_for_everyone()
+
+#     # Switch back from EMA
+#     if accelerator.is_main_process:
+#         print("[Eval] Switching back from EMA weights.")
+#     unwrapped.load_state_dict(model_state_dict)
+
+#     # Compute FID / IS on main process
+#     if accelerator.is_main_process:
+#         if img_size == 256:
+#             fid_statistics_file = cfg["sample"]["fid_stats_256"]
+#         elif img_size == 512:
+#             fid_statistics_file = cfg["sample"]["fid_stats_512"]
+#         else:
+#             raise NotImplementedError(f"No FID stats configured for img_size={img_size}")
+
+#         # metrics_dict = torch_fidelity.calculate_metrics(
+#         #     input1=save_folder,
+#         #     input2=None,
+#         #     fid_statistics_file=fid_statistics_file,
+#         #     cuda=torch.cuda.is_available(),
+#         #     isc=True,
+#         #     fid=True,
+#         #     kid=False,
+#         #     prc=False,
+#         #     verbose=False,
+#         # )
+#         # fid = metrics_dict["frechet_inception_distance"]
+#         # inception_score = metrics_dict["inception_score_mean"]
+
+#         # log_dict = {
+#         #     "val/fid": fid,
+#         #     "val/is": inception_score,
+#         #     "val/epoch": epoch,
+#         #     "val/step": global_step,
+#         # }
+#         # accelerator.log(log_dict, step=global_step)
+#         # print(f"[Eval] FID: {fid:.4f}, Inception Score: {inception_score:.4f}")
+
+#         fid_score = calculate_fid_path(save_folder, ref_path=fid_statistics_file)
+#         log_dict = {
+#             "val/fid": fid_score,
+#             "val/epoch": epoch,
+#             "val/step": global_step,
+#         }
+#         accelerator.log(log_dict, step=global_step)
+#         print(f"[Eval] FID: {fid_score:.2f}")
+
+#         # Optionally clean temp folder
+#         shutil.rmtree(save_folder, ignore_errors=True)
+
+#     accelerator.wait_for_everyone()
+
+#     # Back to train mode
+#     unwrapped.train()

@@ -1,0 +1,206 @@
+
+import torch
+import torch.nn as nn
+from model_jit import JiT_models
+from perceptual_loss import build_perceptual_loss
+
+
+class Denoiser(nn.Module):
+    def __init__(self, args):
+        super().__init__()
+        ffn_kwargs = getattr(args, "ffn_kwargs", None)
+        model_kwargs = dict(getattr(args, "model_kwargs", {}) or {})
+        attention_kwargs = getattr(args, "attention_kwargs", None)
+        topology_kwargs = getattr(args, "topology_kwargs", None)
+        patch_kwargs = getattr(args, "patch_kwargs", None)
+        if attention_kwargs is not None:
+            model_kwargs["attention_kwargs"] = attention_kwargs
+        if topology_kwargs is not None:
+            model_kwargs["topology_kwargs"] = topology_kwargs
+        if patch_kwargs is not None:
+            model_kwargs["patch_kwargs"] = patch_kwargs
+        self.net = JiT_models[args.model](
+            input_size=args.img_size,
+            in_channels=3,
+            num_classes=args.class_num,
+            attn_drop=args.attn_dropout,
+            proj_drop=args.proj_dropout,
+            ffn_type=getattr(args, "ffn_type", "swiglu"),
+            ffn_kwargs=ffn_kwargs,
+            **model_kwargs,
+        )
+        self.img_size = args.img_size
+        self.num_classes = args.class_num
+
+        self.label_drop_prob = args.label_drop_prob
+        self.P_mean = args.P_mean
+        self.P_std = args.P_std
+        self.t_eps = args.t_eps
+        self.noise_scale = args.noise_scale
+        self.soft_lipschitz_enabled = getattr(args, "soft_lipschitz_enabled", False)
+        self.soft_lipschitz_lambda = float(getattr(args, "soft_lipschitz_lambda", 0.0))
+        self.soft_lipschitz_eps = float(getattr(args, "soft_lipschitz_eps", 1.0e-2))
+        soft_lip_num_samples = getattr(args, "soft_lipschitz_num_samples", None)
+        self.soft_lipschitz_num_samples = None if soft_lip_num_samples is None else int(soft_lip_num_samples)
+        self.perceptual_cfg = dict(getattr(args, "perceptual_cfg", {}) or {})
+        self.perceptual_lambda = float(self.perceptual_cfg.get("lambda", 0.0))
+        self.perceptual_min_t = float(self.perceptual_cfg.get("min_t", 0.0))
+        self.perceptual_max_t = float(self.perceptual_cfg.get("max_t", 1.0))
+        self.perceptual_power = float(self.perceptual_cfg.get("power", 1.0))
+        if self.perceptual_max_t <= self.perceptual_min_t:
+            raise ValueError("perceptual.max_t must be greater than perceptual.min_t")
+        self.perceptual_loss = build_perceptual_loss(self.perceptual_cfg)
+
+        # Single EMA (use ema_decay1)
+        self.ema_decay = args.ema_decay1
+        self.ema_params = None  # initialized externally in main
+
+        # generation hyper params
+        self.method = args.sampling_method
+        self.steps = args.num_sampling_steps
+        self.cfg_scale = args.cfg
+        self.cfg_interval = (args.interval_min, args.interval_max)
+
+    def drop_labels(self, labels):
+        drop = torch.rand(labels.shape[0], device=labels.device) < self.label_drop_prob
+        out = torch.where(drop, torch.full_like(labels, self.num_classes), labels)
+        return out
+
+    def sample_t(self, n: int, device=None):
+        z = torch.randn(n, device=device) * self.P_std + self.P_mean
+        return torch.sigmoid(z)
+
+    def _flow_matching_losses(self, x, labels):
+        labels_dropped = self.drop_labels(labels) if self.training else labels
+
+        t = self.sample_t(x.size(0), device=x.device).view(-1, *([1] * (x.ndim - 1)))
+        e = torch.randn_like(x) * self.noise_scale
+
+        z = t * x + (1 - t) * e
+        v = (x - z) / (1 - t).clamp_min(self.t_eps)
+
+        x_pred = self.net(z, t.flatten(), labels_dropped)
+        v_pred = (x_pred - z) / (1 - t).clamp_min(self.t_eps)
+
+        mse_loss = (v - v_pred) ** 2
+        mse_loss = mse_loss.mean(dim=(1, 2, 3)).mean()
+
+        lip_loss = torch.zeros((), device=x.device, dtype=mse_loss.dtype)
+        perc_loss = torch.zeros((), device=x.device, dtype=mse_loss.dtype)
+        if self.soft_lipschitz_enabled and self.soft_lipschitz_lambda > 0.0:
+            lip_batch_size = z.shape[0]
+            if self.soft_lipschitz_num_samples is not None:
+                lip_batch_size = min(lip_batch_size, max(self.soft_lipschitz_num_samples, 0))
+
+            if lip_batch_size > 0:
+                if lip_batch_size < z.shape[0]:
+                    lip_indices = torch.randperm(z.shape[0], device=z.device)[:lip_batch_size]
+                    z_lip = z.index_select(0, lip_indices)
+                    t_lip = t.index_select(0, lip_indices)
+                    labels_lip = labels_dropped.index_select(0, lip_indices)
+                    v_pred_ref = v_pred.detach().index_select(0, lip_indices)
+                else:
+                    z_lip = z
+                    t_lip = t
+                    labels_lip = labels_dropped
+                    v_pred_ref = v_pred.detach()
+
+                direction = torch.randn_like(z_lip)
+                direction = direction / direction.flatten(1).norm(dim=1, keepdim=True).view(-1, 1, 1, 1).clamp_min(1.0e-6)
+                z_perturbed = z_lip + self.soft_lipschitz_eps * direction
+                x_pred_perturbed = self.net(z_perturbed, t_lip.flatten(), labels_lip)
+                v_pred_perturbed = (x_pred_perturbed - z_perturbed) / (1 - t_lip).clamp_min(self.t_eps)
+
+                local_diff = (v_pred_perturbed - v_pred_ref) / self.soft_lipschitz_eps
+                lip_loss = local_diff.pow(2).mean(dim=(1, 2, 3)).mean()
+
+        if self.perceptual_loss is not None and self.perceptual_lambda > 0.0:
+            t_flat = t.flatten()
+            time_weight = ((t_flat - self.perceptual_min_t) / (self.perceptual_max_t - self.perceptual_min_t)).clamp(0.0, 1.0)
+            time_weight = time_weight.pow(self.perceptual_power)
+            perc_per_sample = self.perceptual_loss(x_pred, x)
+            perc_loss = (perc_per_sample * time_weight).mean()
+
+        total_loss = mse_loss + self.soft_lipschitz_lambda * lip_loss + self.perceptual_lambda * perc_loss
+        loss_dict = {
+            "loss": total_loss,
+            "loss_fm": mse_loss,
+            "loss_lip": lip_loss,
+        }
+        if self.perceptual_loss is not None:
+            loss_dict["loss_perc"] = perc_loss
+        return loss_dict
+
+    def forward(self, x, labels, return_loss_dict: bool = False):
+        losses = self._flow_matching_losses(x, labels)
+        if return_loss_dict:
+            return losses
+        return losses["loss"]
+
+    @torch.no_grad()
+    def generate(self, labels, seed=None):
+        device = labels.device
+        bsz = labels.size(0)
+        gen = torch.Generator(device=device).manual_seed(seed) if seed is not None else None
+        z = self.noise_scale * torch.randn(bsz, 3, self.img_size, self.img_size, device=device, generator=gen)
+        timesteps = torch.linspace(0.0, 1.0, self.steps + 1, device=device).view(-1, *([1] * z.ndim)).expand(-1, bsz, -1, -1, -1)
+
+        if self.method == "euler":
+            stepper = self._euler_step
+        elif self.method == "heun":
+            stepper = self._heun_step
+        else:
+            raise NotImplementedError
+
+        # ODE integration
+        for i in range(self.steps - 1):
+            t = timesteps[i]
+            t_next = timesteps[i + 1]
+            z = stepper(z, t, t_next, labels)
+        # last step euler
+        z = self._euler_step(z, timesteps[-2], timesteps[-1], labels)
+        return z
+
+    @torch.no_grad()
+    def _forward_sample(self, z, t, labels):
+        # conditional
+        x_cond = self.net(z, t.flatten(), labels)
+        v_cond = (x_cond - z) / (1.0 - t).clamp_min(self.t_eps)
+
+        # unconditional
+        x_uncond = self.net(z, t.flatten(), torch.full_like(labels, self.num_classes))
+        v_uncond = (x_uncond - z) / (1.0 - t).clamp_min(self.t_eps)
+
+        # cfg interval
+        low, high = self.cfg_interval
+        interval_mask = (t < high) & ((low == 0) | (t > low))
+        cfg_scale_interval = torch.where(interval_mask, self.cfg_scale, 1.0)
+
+        return v_uncond + cfg_scale_interval * (v_cond - v_uncond)
+
+    @torch.no_grad()
+    def _euler_step(self, z, t, t_next, labels):
+        v_pred = self._forward_sample(z, t, labels)
+        z_next = z + (t_next - t) * v_pred
+        return z_next
+
+    @torch.no_grad()
+    def _heun_step(self, z, t, t_next, labels):
+        v_pred_t = self._forward_sample(z, t, labels)
+
+        z_next_euler = z + (t_next - t) * v_pred_t
+        v_pred_t_next = self._forward_sample(z_next_euler, t_next, labels)
+
+        v_pred = 0.5 * (v_pred_t + v_pred_t_next)
+        z_next = z + (t_next - t) * v_pred
+        return z_next
+
+    @torch.no_grad()
+    def update_ema(self):
+        if self.ema_params is None:
+            # initialize EMA on first call
+            self.ema_params = [p.detach().clone() for p in self.parameters()]
+            return
+        source_params = list(self.parameters())
+        for targ, src in zip(self.ema_params, source_params):
+            targ.detach().mul_(self.ema_decay).add_(src, alpha=1 - self.ema_decay)

@@ -1,0 +1,26 @@
+{
+  "version": "synthetic-v1",
+  "seed": 20260923,
+  "train_size": 100000,
+  "validation_size": 10000,
+  "test_size": 10000,
+  "probe_size": 2048,
+  "datasets": [
+    "gaussian_iso_2d",
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d",
+    "gmm_aniso4_2d",
+    "gaussian_aniso_16d",
+    "two_moons_2d",
+    "checkerboard_2d"
+  ],
+  "source": "standard_normal",
+  "coupling": "independent",
+  "path": "x_t = (1-t)*x0 + t*x1",
+  "conditioning": "time_only_no_class_labels",
+  "initial_experiment_subset": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d",
+    "two_moons_2d"
+  ]
+}

@@ -1,0 +1,49 @@
+logging:
+  project: "patch-ae"
+  use_wandb: true
+
+data:
+  data_path: "/vast/work/public/ml-datasets/imagenet"
+  img_size: 256
+
+model:
+  arch: "linear_ff"
+  img_size: 256
+  patch_size: 16
+  in_chans: 3
+  latent_dim: 128
+
+  # ffn-only knobs
+  ffn_ratio: 4
+  drop: 0.0
+  bias: true
+
+  # extra behavior
+  normalize_patches: false
+  clamp_output: true
+
+train:
+  exp_name: "patchae_p16_z128_linear_ff"
+  seed: 42
+  epochs: 3
+
+  per_device_batch_size: 64
+  num_workers: 8
+  pin_mem: true
+
+  lr: 1.0e-4
+  weight_decay: 0.01
+  beta2: 0.99
+  mixed_precision: "bf16"   # "no", "fp16", "bf16"
+  clip_grad_norm: 1.0
+
+  log_every: 100
+  val_every: 5000
+  save_every: 1
+
+  # optional: tiny regularizer so z doesn't explode
+  latent_l2_weight: 0.0
+
+checkpointing:
+  out_dir: "./results"
+  resume: ""

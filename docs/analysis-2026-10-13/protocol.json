@@ -1,0 +1,437 @@
+[
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "ffn",
+    "orders": null,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 81858,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19273875,
+    "array_task": 0
+  },
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "ode_original",
+    "orders": 2,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19273875,
+    "array_task": 1
+  },
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "ode_spectral_cap",
+    "orders": 2,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19273875,
+    "array_task": 2
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "ffn",
+    "orders": null,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 81858,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19283509,
+    "array_task": 3
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "ode_original",
+    "orders": 2,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19283509,
+    "array_task": 4
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "ode_spectral_cap",
+    "orders": 2,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19283509,
+    "array_task": 5
+  },
+  {
+    "dataset": "two_moons_2d",
+    "model": "ffn",
+    "orders": null,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 81858,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA A100-SXM4-80GB"
+      ]
+    },
+    "array_job": 19283509,
+    "array_task": 6
+  },
+  {
+    "dataset": "two_moons_2d",
+    "model": "ode_original",
+    "orders": 2,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19283509,
+    "array_task": 7
+  },
+  {
+    "dataset": "two_moons_2d",
+    "model": "ode_spectral_cap",
+    "orders": 2,
+    "seed": 0,
+    "config_sha256": "4e2745e2afa1fdea1810df5d03091e3f1f7d80596a887ab5b5602050345eef39",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19283509,
+    "array_task": 8
+  },
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "ode_original",
+    "orders": 1,
+    "seed": 0,
+    "config_sha256": "26a4fac9e2b397c2d837350014e4909498dc1035f7402149711805db6fe0fb1a",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA A100-SXM4-80GB"
+      ]
+    },
+    "array_job": 19469259,
+    "array_task": 0
+  },
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "ode_spectral_cap",
+    "orders": 1,
+    "seed": 0,
+    "config_sha256": "26a4fac9e2b397c2d837350014e4909498dc1035f7402149711805db6fe0fb1a",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA A100-SXM4-80GB"
+      ]
+    },
+    "array_job": 19469259,
+    "array_task": 1
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "ode_original",
+    "orders": 1,
+    "seed": 0,
+    "config_sha256": "26a4fac9e2b397c2d837350014e4909498dc1035f7402149711805db6fe0fb1a",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA A100-SXM4-80GB"
+      ]
+    },
+    "array_job": 19469259,
+    "array_task": 2
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "ode_spectral_cap",
+    "orders": 1,
+    "seed": 0,
+    "config_sha256": "26a4fac9e2b397c2d837350014e4909498dc1035f7402149711805db6fe0fb1a",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA L40S"
+      ]
+    },
+    "array_job": 19469259,
+    "array_task": 3
+  },
+  {
+    "dataset": "two_moons_2d",
+    "model": "ode_original",
+    "orders": 1,
+    "seed": 0,
+    "config_sha256": "26a4fac9e2b397c2d837350014e4909498dc1035f7402149711805db6fe0fb1a",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA H200"
+      ]
+    },
+    "array_job": 19469259,
+    "array_task": 4
+  },
+  {
+    "dataset": "two_moons_2d",
+    "model": "ode_spectral_cap",
+    "orders": 1,
+    "seed": 0,
+    "config_sha256": "26a4fac9e2b397c2d837350014e4909498dc1035f7402149711805db6fe0fb1a",
+    "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+    "source_sha256": {
+      "__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+      "data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+      "diagnostics.py": "a4ab7d84534a6adde4b7522105554b708be026bba15aa4d9a519c909b184f000",
+      "geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+      "grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+      "models.py": "3e691330aee54d73bf7906432041d1ff24e11dc336b6a46e80d05040e1f58024",
+      "prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+      "train.py": "3a4fc033697935d74eb52975f2f13ac6f0434f42fbbebe99657a9a6fcafef452",
+      "validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+    },
+    "parameters": 82056,
+    "hardware": {
+      "torch": "2.10.0+cu128",
+      "cuda": "12.8",
+      "visible_gpus": [
+        "NVIDIA H200"
+      ]
+    },
+    "array_job": 19469259,
+    "array_task": 5
+  }
+]

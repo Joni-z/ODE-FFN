@@ -1,0 +1,288 @@
+# JiT 4-21 三个宏观结构方案
+
+## 实现状态
+
+| 方案 | 配置文件 | 状态 | 一句话定位 |
+|---|---|---|---|
+| A. U-Net-style long skip | `configs/unet_skip.yaml` | 已落地 | 给 plain Transformer stack 补 encoder-decoder 式长连接 |
+| B. AdaLN-LoRA + depth reinvestment | `configs/adaln_lora.yaml` | 已落地 | 压缩 AdaLN，把省下的预算投回 depth |
+| C. DeepSeek-style MoE | `configs/time_moe.yaml` | 已落地，需关注 compile | 把 FFN 换成 shared experts + routed experts |
+
+前两轮实验主要在单个 block 内部做文章：换 FFN 形式、改条件注入、加一些局部动态结构。结果基本打平或略差，说明 JiT 的 block 内部已经比较紧。下一步更值得动的是 block 之间的关系和参数预算：A 改层间信息流，B 改参数分配，C 改 FFN 的 sparse scaling。
+
+这三个方案都已经接到 yaml，可以直接跑。下面重点讲每个方案到底改了什么、怎么实现、当前还有什么没做。
+
+---
+
+## 方案 A：U-Net-style Long Skip Connections
+
+### 核心想法
+
+JiT 原本是 plain Transformer stack：`x` 一层一层往前传，浅层的 pixel/detail 信息只能靠残差链慢慢传到深层。对 pixel-space flow matching 来说，这可能形成信息瓶颈，因为每一层其实都需要知道当前 noisy image 的细节，才能预测从 `x_t` 到 clean image 的方向。
+
+方案 A 借鉴 U-ViT / MDT 这类结构，把前半段 block 当成 encoder，后半段 block 当成 decoder。encoder 的中间输出不只沿主干继续往后走，还会跨层送到 decoder 的对应位置。这样深层 block 不必完全依赖残差链记住浅层细节，而是可以直接取到前半层保存的表征。
+
+### 结构设计
+
+设模型共有 `N` 个 block，hidden size 为 `d`。前半段 block 的输出保存为 skip feature，后半段 block 在进入当前 block 前做一次融合：
+
+```text
+main feature: x_l
+skip feature: s_m
+
+fused = Linear([x_l, s_m])     # 2d -> d
+out   = JiTBlock(fused)
+```
+
+这里用的是 concat + linear，而不是直接相加。原因是直接相加会强行假设主干和 skip 在同一个语义尺度上；concat + linear 则让模型自己学习当前 decoder 层该用多少浅层信息。
+
+### 当前实现
+
+对应配置：
+
+```yaml
+model:
+  name: "JiT-B/16"
+  ffn_type: "swiglu"
+  topology_kwargs:
+    long_shortcuts: true
+```
+
+实现位置在 `src/model_jit.py`，主要接在 `JiT.forward()` 的 block 循环里。
+
+初始化阶段：
+
+- `topology_kwargs.long_shortcuts` 打开后，`self.use_long_shortcuts = True`。
+- 自动计算 encoder/decoder 分界：
+  - `encoder_skip_depth = (depth + 1) // 2`
+  - `decoder_skip_start = depth - (depth // 2)`
+- 对 decoder 半段每一层创建一个 `Linear(2 * hidden_size, hidden_size)`，存在 `self.long_shortcut_projs` 里。
+- 每个 projection 都用 `_init_concat_identity` 初始化成 `[I | 0]`，也就是初始只保留主支，忽略 skip。
+
+forward 阶段：
+
+1. 进入 block 循环前，创建 `skip_features = []`。
+2. 每个 block 正常 forward。
+3. 如果当前层在 encoder 半段，就把 block 输出 append 到 `skip_features`。
+4. 如果当前层在 decoder 半段，就找到镜像位置的 encoder 输出。
+5. 如果 in-context token 导致 token 数不一致，用 `_pad_aux_tokens` 对齐。
+6. 执行 `torch.cat([x, skip], dim=-1)`，再过对应的 `long_shortcut_projs[str(i)]`。
+7. 融合后的 `x` 再送入当前 `JiTBlock`。
+
+这个实现有两个好处：一是不用手写固定的 0-5 / 6-11，depth 改成 14 或奇数时也能自动工作；二是 `[I | 0]` 初始化保证刚打开开关时模型行为接近原 baseline，不会因为随机 skip projection 破坏训练初期。
+
+### 当前没做
+
+- 没有在 skip feature 上额外加 RMSNorm。现在主要靠 `[I | 0]` 初始化保证稳定。
+- `dense_input_shortcuts` 的代码路径已经存在，但 `unet_skip.yaml` 没打开。这个可以作为 A 有效后的第二阶段。
+
+### 实验判断
+
+A 是三者里工程风险最低的。它不动 attention、不动 FFN、不动 AdaLN，只改 block 之间的信息通路。建议优先单独跑 `unet_skip.yaml`，确认 long skip 本身是否带来收益，再考虑和 B 叠加。
+
+---
+
+## 方案 B：AdaLN-LoRA + Depth Reinvestment
+
+### 核心想法
+
+JiT/DiT 这类模型里，每个 block 都有一套 AdaLN projection，用条件向量 `c = t_emb + y_emb` 生成 6 组调制参数：
+
+```text
+shift_msa, scale_msa, gate_msa, shift_mlp, scale_mlp, gate_mlp
+```
+
+原始做法是每个 block 一套独立 projection，参数量很大。方案 B 的想法是：不同 block 的 AdaLN 调制不一定需要完全独立，可以拆成“全局共享部分 + 每层低秩差异”。这样能省下一大块 AdaLN 参数。
+
+关键点是，省下来的参数不能白白丢掉。之前如果只做 AdaLN-LoRA、不加深 backbone，本质是在削模型容量，所以容易比 baseline 差。这次完整 recipe 是：先用 LoRA 压缩 AdaLN，再把 depth 从 12 加到 14，把预算投回主干深度。
+
+### 结构设计
+
+原始每层 AdaLN 可以理解为：
+
+```text
+adaln_l(x) = W_l silu(c)
+```
+
+方案 B 改成：
+
+```text
+adaln_l(x) = W_shared silu(c) + W_up_l W_down_l silu(c)
+```
+
+其中：
+
+- `W_shared` 是所有 block 共享的一套 AdaLN projection；
+- `W_down_l / W_up_l` 是每个 block 自己的 LoRA 分支；
+- rank 使用 `d / 16`，JiT-B/16 下 `d=768`，所以 rank=48；
+- `W_up_l` 零初始化，训练初期每层都等价于共享 AdaLN，后续再学习每层差异。
+
+### 当前实现
+
+对应配置：
+
+```yaml
+model:
+  name: "JiT-B/16"
+  depth: 14
+  ffn_type: "swiglu"
+  topology_kwargs:
+    adaln_lora_rank: "auto"
+```
+
+实现位置在 `src/model_jit.py`。
+
+初始化阶段：
+
+- `adaln_lora_rank: "auto"` 会转成 `hidden_size // 16`。
+- `JiT.__init__` 检测到 `adaln_lora_rank` 后，创建：
+  - `self.shared_adaln_linear = nn.Linear(hidden_size, 6 * hidden_size)`
+- 每个 `JiTBlock` 里创建 `AdaLNModulation`，但不再创建完整独立 AdaLN linear，而是复用 shared linear。
+- 每个 block 自己额外有：
+  - `lora_down: hidden_size -> rank`
+  - `lora_up: rank -> 6 * hidden_size`
+
+forward 阶段：
+
+1. `AdaLNModulation.forward(c)` 先对 `c` 做 `silu`。
+2. shared 分支生成全局调制：`shared_adaln_linear(hidden)`。
+3. LoRA 分支生成 block-specific 修正：`lora_up(lora_down(hidden))`。
+4. 两者相加后 chunk 成 6 组 AdaLN 参数。
+5. `JiTBlock.forward()` 继续按原逻辑调制 attention 和 MLP。
+
+depth 覆盖：
+
+- `configs/adaln_lora.yaml` 里直接写 `model.depth: 14`。
+- `main_jit.py::build_model_args()` 会把 `depth` 收进 `model_kwargs`。
+- `Denoiser` 把 `model_kwargs` 传给 `JiT_B_16(**overrides)`。
+- 所以不需要新建 `JiT-B/16-depth14` 这种模型名。
+
+初始化细节：
+
+- shared AdaLN linear weight/bias 置 0。
+- 每个 block 的 `lora_up.weight` 置 0。
+- QK-Norm 已经是 `Attention(..., qk_norm=True)` 默认行为，不需要额外配置。
+
+### 当前没做
+
+- 没有同时打开 long skip。当前 B 是纯 AdaLN-LoRA + depth。
+- 没有试 15/17 层。当前选择 14 层，是为了比 15/17 更保守，显存和总参数更接近 baseline。
+
+### 实验判断
+
+B 的关键不是“LoRA 是否单独有效”，而是“LoRA 省下的参数投回深度后是否有效”。所以这个方案必须看 `adaln_lora.yaml` 这套完整配置，不要只看以前单独 AdaLN-LoRA 的结果。
+
+如果 14 层能打平或变好，再考虑两条路：一是试 15 层，二是和 A 的 long skip 叠加。
+
+---
+
+## 方案 C：DeepSeek-style Fine-Grained MoE
+
+### 核心想法
+
+方案 C 改的是 `JiTBlock` 里的 FFN。原来的 dense/SwiGLU FFN 对所有 token 使用同一套参数；普通 MoE 会让 token 选择少数 experts，但很多 diffusion MoE 仍然是“若干个完整大 expert + top-k router”的老结构。
+
+这里改成 DeepSeek-style 的思路：把 FFN 拆成 shared experts 和 routed experts。shared expert 始终运行，负责所有 token 都需要的通用 channel mixing；routed experts 按 token 被 router 选择，负责更细的条件化变换。这样可以在相近激活计算下增加专家组合数，让不同 timestep、类别、空间位置的 token 有更细的处理路径。
+
+### 结构设计
+
+每个 expert 是一个窄版 SwiGLU：
+
+```text
+gate, value = Linear(x).chunk(2)
+expert(x)  = Linear(silu(gate) * value)
+```
+
+整个 MoE FFN 是：
+
+```text
+shared_out = sum(shared_expert_i(x))
+routed_out = sum(gate_j * routed_expert_j(x) for j in top_k(router(x)))
+out        = shared_out + routed_out
+```
+
+当前配置是 S1E16K2：
+
+- `S1`：1 个 shared expert；
+- `E16`：16 个 routed experts；
+- `K2`：每个 token 选择 2 个 routed experts；
+- `expert_ratio=2.0`：每个 expert 的 hidden width 是 `2d`，比标准 `4d` 更窄。
+
+### 当前实现
+
+对应配置：
+
+```yaml
+model:
+  name: "JiT-B/16"
+  ffn_type: "deepseek_moe"
+  ffn_kwargs:
+    num_shared_experts: 1
+    num_routed_experts: 16
+    top_k: 2
+    expert_ratio: 2.0
+    balance_bias_lr: 0.01
+```
+
+实现位置在 `src/ffn_blocks.py`。
+
+模块创建：
+
+- `_SwiGLUExpert` 是单个窄 expert。
+- `DeepSeekMoEFFN` 创建：
+  - `shared_experts`
+  - `routed_experts`
+  - `router = nn.Linear(dim, num_routed_experts, bias=False)`
+  - `balance_bias` buffer
+- `FFN_REGISTRY` 注册 `deepseek_moe`。
+- `FFN_ALIASES` 里加了 `ds_moe`、`fine_grained_moe` 等别名。
+
+forward 流程：
+
+1. 输入 `x` 是 `(B, N, C)`。
+2. 先 reshape 成 `(B * N, C)`，按 token 做 routing。
+3. router 计算 16 个 expert logits，并加上 `balance_bias`。
+4. 对每个 token 取 top-2 expert。
+5. top-2 分数 softmax 后作为 gate。
+6. routed 部分用 Python scatter 实现：
+   - 遍历 top-k slot；
+   - 遍历 16 个 experts；
+   - 用 mask 找到分给该 expert 的 token；
+   - 只对这些 token 跑 expert；
+   - 乘 gate 后累加到 `routed_out`。
+7. shared experts 对全部 token 运行。
+8. `shared_out + routed_out` reshape 回 `(B, N, C)`。
+
+load balancing：
+
+- `balance_bias` 是 float32 buffer，不参与反向传播。
+- 训练时统计当前 batch 每个 expert 被选中的次数。
+- 如果某个 expert 过载，bias 往下调；如果欠载，bias 往上调。
+- 这个做法不引入 auxiliary loss，避免额外 loss 和 flow matching 主目标打架。
+
+### 当前需要注意
+
+- `configs/time_moe.yaml` 文件名仍叫 `time_moe`，但实际 `ffn_type` 已经是 `deepseek_moe`，不是旧的 `TimeMoEFFN`。
+- `DeepSeekMoEFFN.forward()` 已经用 `reshape(T, C)`，可以处理 non-contiguous 输入，比原来的 `view` 安全。
+- 代码里仍有 `if not mask.any(): continue`。这是 data-dependent branch，`torch.compile` 下可能反复 recompile 或再次报错。
+- 当前 dispatch 是朴素 Python 循环，不是 Megablocks/Tutel 那种 kernel-level MoE；先适合功能验证，不一定是最终高效实现。
+- 2D RoPE 专门改造、router similarity loss 还没做。
+
+### 实验判断
+
+C 是三个方案里工程风险最高的。建议先确认它能稳定跑完，再看 FID/IS。若 compile 还有问题，先禁用 compile 做功能验证；如果指标有收益，再优化 dispatch 和 compile 兼容。
+
+---
+
+## 推荐实验顺序
+
+1. 先跑 `configs/unet_skip.yaml`。
+   这是最小扰动，只验证 block 间 long skip 是否补上了 plain stack 的信息瓶颈。
+
+2. 再跑 `configs/adaln_lora.yaml`。
+   重点看 AdaLN-LoRA + depth=14 的完整 recipe，而不是单独 AdaLN-LoRA。
+
+3. 最后跑 `configs/time_moe.yaml`。
+   先把 compile/runtime 稳定性确认清楚，再讨论是否继续优化 MoE dispatch。
+
+如果前两项已经有明显收益，后续最自然的组合是 A+B：long skip 负责信息流，AdaLN-LoRA+depth 负责预算重分配。C 可以作为更高风险、更高上限的单独分支推进。
