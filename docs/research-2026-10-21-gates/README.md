@@ -4,6 +4,10 @@ This follow-up keeps Report 1 unchanged. See [protocol.md](protocol.md) for
 the predeclared comparison and [mathematical-rationale.md](mathematical-rationale.md)
 for what the gate changes.
 
+**Completed:** read [findings.md](findings.md) for the results, case study and
+next proposed control. All 15 training runs, 27 original endpoint evaluations
+and 27 larger-sample checks have completed and been audited.
+
 | Model | Parameters | Forward linear MACs/example |
 |---|---:|---:|
 | Original input gate, K=2 | 82,056 | 105,152 |
@@ -37,6 +41,11 @@ run's last evaluation step and completion. `telemetry.jsonl` retains GPU reading
 and progress every 10 seconds. Logs are in `logs/`; checkpoints and trajectory
 diagnostics in `runs/`; endpoint samples in `samples/`; full Jacobian diagnostics
 and scores in `evaluations/` and `summary.json`.
+
+The completed CPU runtime is
+`/data2/zz5070/ODE_FFN/gates_20261021_cpu/runtime` on 145; sibling directories
+`output/` and `sampling_8192/` hold the original and larger-sample results.
+Curated metrics and figures are versioned under this directory's `results/`.
 
 For CPU execution, pass `--device cpu`. The runner hides CUDA from every child
 and uses at most two single-threaded training workers. This is the fallback
