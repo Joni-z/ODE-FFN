@@ -4,6 +4,12 @@ Development repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN). The
 
 Primary workspace on torch: `/scratch/zz5070/ODE_FFN/jit-codebase`.
 
+## Progress reports
+
+- [Report 1 (PDF)](reports/report1/report1.pdf): project motivation, controlled ODELayer experiments, case studies, and hypotheses for the next two weeks. [LaTeX source and build instructions](reports/report1/README.md).
+
+## Research status
+
 The current research stage uses **unconditional synthetic flow matching** to study the original ODELayer and the spectrum of its learned matrix P before returning to image experiments. Existing ImageNet experiments are exploratory; their saved checkpoints do not capture complete training trajectories.
 
 Latest progress (2026-10-20): two waves of gating, Taylor-order, and compute-budget experiments are complete, covering 30/30 training runs and 54/54 diagnostic tasks, all with seed 0. The [stage report](docs/research-2026-10-20/2026-10-20--odelayer--r00--ablation-report.md) documents the comparisons, training trajectories of P, and limitations. K=4 and K=8 perform similarly, while gains from gating and additional compute vary across settings. The next research direction remains open. The preceding 18 runs are preserved in the [SwiGLU comparison and diagnostics](docs/research-2026-10-19/results.md).
