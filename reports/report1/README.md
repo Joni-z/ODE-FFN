@@ -7,7 +7,7 @@ The title block and single-column organization follow the user-supplied NeuroMot
 Report 1. The report is a draft for author review.
 
 **Six PDF pages:** pages 1–3 are the main report, ending with hypotheses for the
-next two weeks. Page 4 contains references and a supporting numeric table;
+next two weeks. Page 4 contains a supporting numeric table;
 pages 5–6 contain additional data visualizations and examples. The main text
 includes the full frozen-order comparison figure. Body text remains 11 pt.
 

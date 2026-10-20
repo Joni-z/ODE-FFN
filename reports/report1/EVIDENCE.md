@@ -7,7 +7,7 @@ and PDF author metadata are **Zhizhe Zhang**. The NeuroMotion report supplied
 layout and organization only; its scientific content and other authors were not
 transferred.
 
-Main text occupies pages 1–3. Page 4 contains references and a numeric comparison;
+Main text occupies pages 1–3. Page 4 contains a numeric comparison;
 pages 5–6 contain supporting visualizations. The final main-text section gives
 uncompleted hypotheses for the next two weeks. H1/H2 from the earlier report
 are now completed diagnostics, not still-future promises.
@@ -49,18 +49,6 @@ Follow-up filenames without a directory prefix are under
 `docs/research-2026-10-20-followup/`. The analysis bundle includes an exact table,
 claim candidates, a statistical appendix and a figure catalog. Raw archives,
 checkpoints, datasets and complete generated arrays remain outside Git.
-
-## Literature
-
-The primary records were opened on 20 October 2026 during report preparation to
-verify titles, authors, identifiers and the limited background statements:
-
-- [Flow Matching for Generative Modeling](https://arxiv.org/abs/2210.02747): velocity-field regression.
-- [Back to Basics: Let Denoising Generative Models Denoise](https://arxiv.org/abs/2511.13720): JiT and clean-image prediction.
-- [GLU Variants Improve Transformer](https://arxiv.org/abs/2002.05202): gated FFN variants.
-
-No external benchmark results are reproduced or claimed here. The main report
-explicitly limits conclusions to seed-0 synthetic velocity networks without attention.
 
 ## Final verification
 

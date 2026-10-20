@@ -22,8 +22,8 @@
 
 \section{Project and main progress}
 This project asks whether a dynamical feed-forward block better supports flow
-matching, which learns a velocity field transporting noise to data~\cite{lipman}.
-The intended application is the FFN in JiT image generators~\cite{jit}; we first
+matching, which learns a velocity field transporting noise to data.
+The intended application is the FFN in JiT image generators; we first
 study the original ODELayer on interpretable unconditional synthetic problems.
 
 Evidence now includes 30 training trajectories, 54 checkpoint diagnostics, earlier
@@ -76,7 +76,7 @@ velocity references. These are single-seed observations, not significance tests.
 \newpage
 \section{E1: compare against standard FFNs at controlled budgets}
 \textbf{Purpose.} Control for computation. Parameter counts are close: ODE 82,056, SiLU 81,858 and
-SwiGLU~\cite{swiglu} 81,792. ODE $K=2$ uses 105,152 forward linear MACs per
+SwiGLU 81,792. ODE $K=2$ uses 105,152 forward linear MACs per
 example, versus 80,000 for SwiGLU. At 6,572 updates, SwiGLU approximately matches
 the cumulative forward-MAC budget of ODE $K=2$ at 5,000 updates.
 
@@ -199,16 +199,6 @@ controlled gate or operator intervention rather than combining several tricks.
 \label{end-main}
 
 \clearpage
-\begin{thebibliography}{9}\small
-\bibitem{lipman} Y.~Lipman, R.~T.~Q. Chen, H.~Ben-Hamu, M.~Nickel, M.~Le.
-Flow Matching for Generative Modeling. \emph{arXiv:2210.02747}, 2022; revised 2023.
-\url{https://arxiv.org/abs/2210.02747}.
-\bibitem{jit} T.~Li, K.~He. Back to Basics: Let Denoising Generative Models Denoise.
-\emph{arXiv:2511.13720}, 2025; revised 2026. \url{https://arxiv.org/abs/2511.13720}.
-\bibitem{swiglu} N.~Shazeer. GLU Variants Improve Transformer.
-\emph{arXiv:2002.05202}, 2020. \url{https://arxiv.org/abs/2002.05202}.
-\end{thebibliography}
-
 \section*{Supporting numeric comparison}
 \begin{table}[H]
 \centering\small
