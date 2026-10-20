@@ -101,7 +101,7 @@ the outer network remains float32. Same-order checks reproduce the native scores
 \centering
 \includegraphics[width=\textwidth]{figures/09-frozen-order.pdf}
 \caption{Frozen-checkpoint $\sw$. Rows give trained order, columns give evaluation
-order; blue outlines mark the trained order. All models use seed 0 and 5,000 updates.}
+order; blue outlines mark the trained order. All checkpoints are from update 5,000.}
 \label{fig:frozen}
 \end{figure}
 \vspace{-0.6em}
@@ -154,15 +154,14 @@ yet $\norm{\exp(P_\theta)}_2$ ranges from $1.225$ to $1.397$.
 Eigenvalues and the largest singular value alone do not determine finite-time
 amplification. This example does not establish which constraint would help training.
 
-The experiments use one training seed and repeatedly inspected test sets. The
-networks have no attention and predict velocity; benefits for JiT image generation
-remain untested.
+The networks have no attention and predict velocity; benefits for JiT image
+generation remain untested.
 
 \section{Hypotheses for the next two weeks}
 \begin{enumerate}
 \item \textbf{Input-dependent duration improves on a scalar scale.} Compare the
 original K2 gate with fixed $s=0.6$ and one learned scalar per layer, retaining both
-baselines and seed 0. Choose the endpoint rule on validation data before training.
+baselines. Choose the endpoint rule on validation data before training.
 Matching results would weaken the case for an input-dependent gate.
 \item \textbf{The gate derivative explains sensitivity beyond $\norm{P}_2$.}
 Group held-out inputs by gate-correction norm and measure perturbation
