@@ -6,17 +6,14 @@ English academic progress report by **Zhizhe Zhang**, dated 20 October 2026.
 The title block and single-column organization follow the user-supplied NeuroMotion
 Report 1. The report is a draft for author review.
 
-**Six PDF pages:** pages 1–3 are the main report, ending with hypotheses for the
-next two weeks. Page 4 contains a supporting numeric table;
-pages 5–6 contain additional data visualizations and examples. The main text
-includes the full frozen-order comparison figure. Body text remains 11 pt.
+**The entire PDF is three pages, including its table and two figures.** It has
+no bibliography or appendix. Body text remains 11 pt. The report ends with the
+hypotheses for the next two weeks.
 
-The report integrates the earlier training/cap/gating/budget experiments with
-66 frozen-checkpoint evaluations, controlled matrix examples, and 48 post hoc
-Ring8 solver-resolution checks. No new model training was needed for this
-follow-up. The central distinction is between numerical exponential accuracy,
-hidden sensitivity, and generative performance. Results are descriptive and
-restricted to the measured seed-0 synthetic models.
+The text covers the original layer, synthetic setup, baseline and compute-budget
+comparisons, frozen-order results, and the behavior of P. Detailed numerical
+checks and additional plots remain separate files for readers who need them.
+
 
 ## Files and evidence
 
