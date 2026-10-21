@@ -40,6 +40,7 @@ The checked-out source has a significant naming distinction:
 - [src/main_jit.py](../../src/main_jit.py) adds an embedding gate for `ode`; [src/model_jit.py](../../src/model_jit.py) passes the joint time/class condition. That path is not the professor's original input gate.
 - The default K1 ODEOnly delta is `s*P*h`. Ignoring epsilon, its RMS normalization cancels positive s exactly. With the actual epsilon the cancellation is approximate and fails near tiny delta norms. This makes the historical variant even less interchangeable with the professor block.
 - JiT predicts clean data and converts it into velocity; the toy model predicts velocity directly.
+- SwiGLU itself contains input-dependent coordinate gates. All toy baselines receive FiLM-conditioned inputs, and image baselines have outer AdaLN. The legacy overview's “static/time-agnostic FFN” language must not be interpreted as an unconditioned baseline network.
 
 The [checkpoint inventory](../checkpoints.csv) documents historical image checkpoints, but filenames alone do not establish which historical source, effective configuration and evaluation protocol produced them. The [legacy overview](../legacy-overview.md) itself says quantitative aggregation is pending and incorrectly expands JiT as “Joint image Transformer”; the official name is **Just image Transformer**. It should be treated as an archival orientation document, not a scientific record of every run.
 

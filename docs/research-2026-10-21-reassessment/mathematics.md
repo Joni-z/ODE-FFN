@@ -82,6 +82,14 @@ The coefficients are linked: the quadratic coefficient is the square of the line
 
 It does NOT mean the entire network's Jacobians commute, nor that hidden feature directions cannot change through SiLU, normalization or other layers.
 
+For comparison, SwiGLU is also input-gated. With `g=Wg h+bg`, `z=Wz h+bz`, its block is `Wo[SiLU(g) elementwise-multiply z]+bo`, so
+
+```text
+J_SwiGLU = Wo [diag(z * SiLU'(g)) Wg + diag(SiLU(g)) Wz].
+```
+
+It has coordinate-wise gates rather than one scalar driving linked powers of one matrix. Therefore “input dependence versus a static linear baseline” is not the ODE-versus-SwiGLU comparison. Nor is it “time-aware versus time-unaware”: all synthetic blocks receive time-conditioned features through the common FiLM path, and JiT has outer AdaLN conditioning. The question concerns the particular restriction on input adaptation, its cost and its optimization consequences.
+
 Differentiating gives
 
 ```text
