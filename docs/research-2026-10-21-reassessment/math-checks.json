@@ -1,0 +1,150 @@
+{
+  "layer_jacobian_max_error": 0.0,
+  "nonlinear_second_derivative_max_error": 2.7755575615628914e-17,
+  "nonlinear_term_missing_from_frozen_gate": [
+    -2.125596719096968e-06,
+    -7.847210667214369e-06,
+    2.6517480383548064e-06,
+    4.501678704233172e-05
+  ],
+  "exact_action_determinant_error": 3.3306690738754696e-16,
+  "block_correction_singular_values": [
+    0.007782839489944151,
+    0.001711728854633824,
+    8.548125118912955e-17,
+    7.814407939241455e-19
+  ],
+  "polynomial_differential_max_error": 0.0,
+  "polynomial_adjoint_error": 0.0,
+  "derivative_at_minus_identity_norm": 0.0,
+  "k2_singular_example_norm": 0.0,
+  "frozen_operator_commutator_norm": 1.6883948721335656e-16,
+  "ring_velocity_vs_repository_max_error": 2.6645352591003757e-15,
+  "ring_jacobian_vs_autograd_max_error": 2.842170943040401e-14,
+  "posterior_covariance_identity_max_error": 2.842170943040401e-14,
+  "ring8_cases": [
+    {
+      "t": 0.2,
+      "point": "center",
+      "x": [
+        0.0,
+        0.0
+      ],
+      "jacobian_eigenvalues": [
+        0.5146423218761073,
+        0.5146423218761075
+      ],
+      "posterior_component_entropy": 2.0794415416798357
+    },
+    {
+      "t": 0.2,
+      "point": "mode_0",
+      "x": [
+        0.6000000000000001,
+        0.0
+      ],
+      "jacobian_eigenvalues": [
+        0.3249277908768289,
+        0.44923563266463784
+      ],
+      "posterior_component_entropy": 2.0051238486547733
+    },
+    {
+      "t": 0.2,
+      "point": "between_0_1",
+      "x": [
+        0.5121320343559643,
+        0.21213203435596426
+      ],
+      "jacobian_eigenvalues": [
+        0.3507404003705674,
+        0.45840646574450705
+      ],
+      "posterior_component_entropy": 2.015484787708612
+    },
+    {
+      "t": 0.5,
+      "point": "center",
+      "x": [
+        0.0,
+        0.0
+      ],
+      "jacobian_eigenvalues": [
+        14.795857988165679,
+        14.795857988165679
+      ],
+      "posterior_component_entropy": 2.0794415416798357
+    },
+    {
+      "t": 0.5,
+      "point": "mode_0",
+      "x": [
+        1.5,
+        0.0
+      ],
+      "jacobian_eigenvalues": [
+        -1.4996361606970732,
+        0.44103773942441227
+      ],
+      "posterior_component_entropy": 0.49693284118848835
+    },
+    {
+      "t": 0.5,
+      "point": "between_0_1",
+      "x": [
+        1.2803300858899107,
+        0.5303300858899106
+      ],
+      "jacobian_eigenvalues": [
+        -1.7190763078750955,
+        3.335650319028878
+      ],
+      "posterior_component_entropy": 0.7630069959499868
+    },
+    {
+      "t": 0.8,
+      "point": "center",
+      "x": [
+        0.0,
+        0.0
+      ],
+      "jacobian_eigenvalues": [
+        164.75014872099925,
+        164.75014872099953
+      ],
+      "posterior_component_entropy": 2.0794415416798357
+    },
+    {
+      "t": 0.8,
+      "point": "mode_0",
+      "x": [
+        2.4000000000000004,
+        0.0
+      ],
+      "jacobian_eigenvalues": [
+        -2.5609756093670026,
+        -2.560975607488287
+      ],
+      "posterior_component_entropy": 3.6214043719778247e-10
+    },
+    {
+      "t": 0.8,
+      "point": "between_0_1",
+      "x": [
+        2.0485281374238573,
+        0.848528137423857
+      ],
+      "jacobian_eigenvalues": [
+        -2.5609756097560976,
+        46.44331813877661
+      ],
+      "posterior_component_entropy": 0.6931471805599453
+    }
+  ],
+  "gaussian_half_time_eigenvalues": [
+    -1.6697247706422018,
+    1.2
+  ],
+  "status": "PASS",
+  "scope": "deterministic mathematical checks; no learned checkpoint evaluation or new training"
+}
