@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-21T04:55:29.976947+00:00",
+  "pid": 663299,
+  "host": "hw3242-gpu1",
+  "command": [
+    "/data2/zz5070/miniconda3/envs/py312/bin/python",
+    "scripts/check_gate_geometry.py",
+    "--study",
+    "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output",
+    "--data-root",
+    "/data2/zz5070/ODE_FFN/datasets/synthetic/v1",
+    "--output",
+    "/data2/zz5070/ODE_FFN/gate_geometry_20261021/output",
+    "--threads",
+    "1"
+  ],
+  "runtime": "/data2/zz5070/ODE_FFN/gate_geometry_20261021/runtime",
+  "device": "cpu",
+  "threads": 1,
+  "source_commit": "fe0bd5d68672e47c64b0cfde681a2dcf7d5398d8",
+  "source_archive_sha256": "d9350a7081e1356a9dab3584245b1cbcfe35a079c54bf771f516967f25271b05",
+  "preflight_seconds": 0.4286294672638178,
+  "monitor": "/data2/zz5070/ODE_FFN/gate_geometry_20261021/output/monitor.json"
+}

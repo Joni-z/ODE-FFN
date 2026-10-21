@@ -1,0 +1,140 @@
+{
+  "time": "2026-10-21T04:55:31.432074+00:00",
+  "host": "hw3242-gpu1",
+  "device": "cpu",
+  "dtype": "float64",
+  "torch": "2.8.0+cu128",
+  "threads": 1,
+  "smoke": false,
+  "checkpoint_step": 5000,
+  "training_seed": 0,
+  "evaluation_seed": 0,
+  "times": [
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "interpolation_points": 512,
+  "trajectory_points": 128,
+  "heun_steps": 100,
+  "source_sha256": {
+    "scripts/check_gate_geometry.py": "479f2d3550149e8224d94d0fa242a7cdf31b03ea652aca04cb53ef857c142326",
+    "synthetic/__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic/data.py": "3ffd69ac4a3be3076f92fb7a16177553d084ac865e6065bbe5a84fe35f647ae3",
+    "synthetic/diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "synthetic/geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic/grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic/interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic/models.py": "84d3bbc77f3a25b5562a1dd5bd074ee7f7af08c9b6764c16838aefd4afbc8060",
+    "synthetic/prepare.py": "67a9d424c3de37cc3c82ce50612e7db0244ec814c326d902ab6f69dfeb13253e",
+    "synthetic/train.py": "bd09e4341e986bf0317212b2e8abfced5a974e597e224e997154d0fb6bf4364d",
+    "synthetic/validate.py": "2e393a2afcf4b06fcdddcac5c628e2aeb0550f80a4319fe087c27fee93347ad7"
+  },
+  "protocol_sha256": "764f3d2f1513e834d856316541fb957edc0fd3d8a946ee08261982002be1326c",
+  "study_summary_sha256": "d30dbaa7ac6bb560c1ba958cc078728e1dc8f1554ab4105f2b0ee460bb10e4f1",
+  "dataset_manifest_sha256": "523be42911b2e4dbdf6d9c6cc7cdf8deb0830f1dd7e59ffdc077a5c74f330266",
+  "inputs": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_original",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ode_original/gaussian_aniso_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "18c3b5ed58fa000dde2cb880841a94d815efb03f7258ae446ee6f226fcfdf3c3",
+      "config_sha256": "e1e5ef0092b25ab4fefa8edb4a4408a64317a009920625cecc1ad1690f6fde8b",
+      "inputs_sha256": "af41f0d82a61d30d18c4458308b36379e709b45dddfb5c8fa9d8d44826eef718",
+      "validation_sha256": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e",
+      "forward_float32_to_float64_max_drift": 2.2218728026324186e-06
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_fixed",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ode_fixed/gaussian_aniso_2d/ode_fixed/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "07177239320f47e94804baf76612a69a5eb30d4d75feb0c8161c4185b64c05b0",
+      "config_sha256": "56cbaa28f7fd4e43bf03f0c98efcf3b807a1c72c2f483cb43b57370fee2532e9",
+      "inputs_sha256": "af41f0d82a61d30d18c4458308b36379e709b45dddfb5c8fa9d8d44826eef718",
+      "validation_sha256": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e",
+      "forward_float32_to_float64_max_drift": 2.743816005512656e-06
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_scalar",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ode_scalar/gaussian_aniso_2d/ode_scalar/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "46eaf75a6ac29eac1eed21f7467eb0ef4087db977c876b07fe9bb12a1a4ad9bd",
+      "config_sha256": "5f217fa6e004f871e3f8bb29c06f1b6868798f4d8e62101b15c0e9ac62e4de08",
+      "inputs_sha256": "af41f0d82a61d30d18c4458308b36379e709b45dddfb5c8fa9d8d44826eef718",
+      "validation_sha256": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e",
+      "forward_float32_to_float64_max_drift": 2.8293243330423934e-06
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ffn",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ffn/gaussian_aniso_2d/ffn/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "e0c64efb63b9e4f459fe8ab019629a5492c5eeaaba24e54c4100952b1dbae426",
+      "config_sha256": "042128e3770e17f8de66b7710e7f5e85880f51c17a9904075ca95ac5a92e567e",
+      "inputs_sha256": "af41f0d82a61d30d18c4458308b36379e709b45dddfb5c8fa9d8d44826eef718",
+      "validation_sha256": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e",
+      "forward_float32_to_float64_max_drift": 1.7416630728739335e-06
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "swiglu",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_swiglu/gaussian_aniso_2d/swiglu/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "356ade3baa90c5716990225b639105f808509e979d24480af424b64029101b29",
+      "config_sha256": "b0ab3a45450f016b61cbbef74283246d4100a7e865e3e92030432da57ce709c5",
+      "inputs_sha256": "af41f0d82a61d30d18c4458308b36379e709b45dddfb5c8fa9d8d44826eef718",
+      "validation_sha256": "93a768edd1d55d21fd6ed7027a877c72cd8ba4ca78029385a38b7ccbd29e738e",
+      "forward_float32_to_float64_max_drift": 2.1969387241638216e-06
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_original",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ode_original/gmm_ring8_2d/ode_original/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "f4280e351f15745d6e8967cf74de1eb36054df060ea0e5ad92e56274d9787c75",
+      "config_sha256": "e1e5ef0092b25ab4fefa8edb4a4408a64317a009920625cecc1ad1690f6fde8b",
+      "inputs_sha256": "8157900edb4cdd81c58e8a6661f74f270f82645ff71875049c7b03a0039728e8",
+      "validation_sha256": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963",
+      "forward_float32_to_float64_max_drift": 5.053958843648232e-06
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_fixed",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ode_fixed/gmm_ring8_2d/ode_fixed/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "aca94aa2b5d773eea09f7d5a53dd3a7fc92427b4bbe5ee4b810c1c581bd3beda",
+      "config_sha256": "56cbaa28f7fd4e43bf03f0c98efcf3b807a1c72c2f483cb43b57370fee2532e9",
+      "inputs_sha256": "8157900edb4cdd81c58e8a6661f74f270f82645ff71875049c7b03a0039728e8",
+      "validation_sha256": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963",
+      "forward_float32_to_float64_max_drift": 5.6806398571751515e-06
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_scalar",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ode_scalar/gmm_ring8_2d/ode_scalar/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "dae627992271b189a87e665303dfa3924ebbf06742bf6edf792ea74d1e614f96",
+      "config_sha256": "5f217fa6e004f871e3f8bb29c06f1b6868798f4d8e62101b15c0e9ac62e4de08",
+      "inputs_sha256": "8157900edb4cdd81c58e8a6661f74f270f82645ff71875049c7b03a0039728e8",
+      "validation_sha256": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963",
+      "forward_float32_to_float64_max_drift": 4.792568510270101e-06
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ffn",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_ffn/gmm_ring8_2d/ffn/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "4e945122401716209297f52ed84a123f00920c85128314cef6572cb396b5efc5",
+      "config_sha256": "042128e3770e17f8de66b7710e7f5e85880f51c17a9904075ca95ac5a92e567e",
+      "inputs_sha256": "8157900edb4cdd81c58e8a6661f74f270f82645ff71875049c7b03a0039728e8",
+      "validation_sha256": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963",
+      "forward_float32_to_float64_max_drift": 3.925124310910633e-06
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "swiglu",
+      "checkpoint": "/data2/zz5070/ODE_FFN/gates_20261021_cpu/output/runs/gates_20261021_swiglu/gmm_ring8_2d/swiglu/seed000/checkpoints/step_0005000.pt",
+      "checkpoint_sha256": "792169df97fec38b2da9ecd0fffe04465a80f5a20ec1eef2c480693032bc38d2",
+      "config_sha256": "b0ab3a45450f016b61cbbef74283246d4100a7e865e3e92030432da57ce709c5",
+      "inputs_sha256": "8157900edb4cdd81c58e8a6661f74f270f82645ff71875049c7b03a0039728e8",
+      "validation_sha256": "b26c810ec346f5be2a80d1455e2da5e5858cfdfc32d934ee41a8d08ccc443963",
+      "forward_float32_to_float64_max_drift": 3.512542880779179e-06
+    }
+  ]
+}
