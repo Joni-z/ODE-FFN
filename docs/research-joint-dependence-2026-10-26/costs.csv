@@ -1,0 +1,11 @@
+law,family,reused,parameters,dense_forward_macs,dense_training_forward_backward_macs,matrix_count_scope
+product,ode_k2,True,83862,106944,317696,actual aten mm/addmm/bmm/mv; pointwise work excluded
+product,free_isru,True,58512,57408,169088,actual aten mm/addmm/bmm/mv; pointwise work excluded
+product,swiglu64,True,58572,57024,167936,actual aten mm/addmm/bmm/mv; pointwise work excluded
+product,swiglu128,True,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+product,swiglu160,True,95820,93888,278528,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,ode_k2,False,83862,106944,317696,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,free_isru,False,58512,57408,169088,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,swiglu64,False,58572,57024,167936,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,swiglu128,False,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,swiglu160,False,95820,93888,278528,actual aten mm/addmm/bmm/mv; pointwise work excluded

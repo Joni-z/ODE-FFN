@@ -16,7 +16,9 @@ Windows continuation workspace: `D:\Research\ODE-FFN\repo` on `lenovo` (RTX 4060
 
 The project tests whether a local ODE-inspired FFN can improve unconditional flow matching. The professor's original block uses two input-conditioned Taylor approximations to linear flows, separated by SiLU. Synthetic distributions provide analytic target velocities and Jacobians; these vector-model results do not establish an image-generation benefit.
 
-**Latest result, October 26:** a nonlinear cubic-field block improves the old ODE on the nonlinear tasks but fails the ordinary-baseline controls. A standard free-matrix ISRU network fits Product16 better; this is an ordinary nonlinear-response observation, not an ODE-specific gain.
+**Latest result, October 26:** the ordinary ISRU observation does not transfer after fresh training on a dependent-sign target law with matched latent marginals, covariance and radial laws. Field MSE is0.085073 for ISRU and0.039790 for SwiGLU160. Its lower SW2 coexists with worse joint sign-pattern and component-distance diagnostics. The [complete transfer report](docs/research-joint-dependence-2026-10-26/analysis-report.md) includes every control, P trajectory, generation case study and a scoped mathematical analysis. No useful final ODE architecture has yet been established.
+
+The preceding cubic-field comparison is preserved below. Its nonlinear local flow improved the old ODE on the nonlinear tasks but failed the ordinary-baseline controls; the free-ISRU Product16 observation motivated the transfer test.
 
 | Model | Gaussian2D field MSE | Ring8 field MSE | Product16 field MSE |
 |---|---:|---:|---:|
@@ -30,7 +32,7 @@ All rows use model seed 0 and 5000 updates. Original ODE and SwiGLU128 are expli
 
 Recent evidence:
 
-- [Joint-dependence transfer control](docs/research-joint-dependence-2026-10-26/protocol.md): a registered comparison of the ordinary ISRU observation on a dependent-sign mixture with matched latent marginals, covariance and radial laws. Distribution/oracle checks pass; training results are pending.
+- [Joint-dependence transfer control](docs/research-joint-dependence-2026-10-26/analysis-report.md): completed and independently audited. The ISRU field-risk ratio to the best SwiGLU changes from0.475 on independent signs to2.138 on dependent signs. Its [interaction analysis](docs/research-joint-dependence-2026-10-26/interaction-theory.md) distinguishes identical origin spectra from different higher-order target interactions, while showing why scalar-clock count alone is not a capacity explanation.
 - [P versus direct effective matrices](docs/research-effective-map-2026-10-26/analysis-report.md): freeing the linear maps does not close the nonlinear fitting gap.
 - [Hidden versus output bias](docs/research-bias-placement-2026-10-26/analysis-report.md): both placements learn, but neither materially closes that gap.
 - [Local FFN teacher fitting](docs/research-local-ffn-teacher-2026-10-26/analysis-report.md) and [actual-data curvature](docs/research-data-curvature-2026-10-26/analysis-report.md): measured local behavior, with explicit limits on expressivity explanations.

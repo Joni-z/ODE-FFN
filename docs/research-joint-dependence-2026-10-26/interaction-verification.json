@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "target_product_rank": 16,
+  "target_code_rank": 136,
+  "exact_modular_prime": 1000003,
+  "block_ranks": [
+    {
+      "xor_group": 0,
+      "rank": 16
+    },
+    {
+      "xor_group": 1,
+      "rank": 8
+    },
+    {
+      "xor_group": 2,
+      "rank": 8
+    },
+    {
+      "xor_group": 3,
+      "rank": 8
+    },
+    {
+      "xor_group": 4,
+      "rank": 8
+    },
+    {
+      "xor_group": 5,
+      "rank": 8
+    },
+    {
+      "xor_group": 6,
+      "rank": 8
+    },
+    {
+      "xor_group": 7,
+      "rank": 8
+    },
+    {
+      "xor_group": 8,
+      "rank": 8
+    },
+    {
+      "xor_group": 9,
+      "rank": 8
+    },
+    {
+      "xor_group": 10,
+      "rank": 8
+    },
+    {
+      "xor_group": 11,
+      "rank": 8
+    },
+    {
+      "xor_group": 12,
+      "rank": 8
+    },
+    {
+      "xor_group": 13,
+      "rank": 8
+    },
+    {
+      "xor_group": 14,
+      "rank": 8
+    },
+    {
+      "xor_group": 15,
+      "rank": 8
+    }
+  ],
+  "mixed_third_derivative": 0.16306387244670176,
+  "expected_mixed_third_derivative": 0.16306387244670173,
+  "generic_fixtures": [
+    {
+      "family": "plain",
+      "hidden": 3,
+      "rank": 3,
+      "bound": 3
+    },
+    {
+      "family": "swiglu",
+      "hidden": 3,
+      "rank": 6,
+      "bound": 6
+    }
+  ],
+  "scalar_ode_fixture_dimension": 4,
+  "scalar_ode_fixture_rank": 10,
+  "full_16d_scalar_clock_constructive_rank": 136,
+  "scope": "target third derivatives and single-FFN fixtures; not a complete-network lower bound"
+}

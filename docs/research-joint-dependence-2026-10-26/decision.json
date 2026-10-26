@@ -1,0 +1,18 @@
+{
+  "ordinary_isru_transfer": false,
+  "ratios": [
+    {
+      "law": "product",
+      "field_ratio": 0.4753149825457884,
+      "jacobian_ratio": 0.42816641246321013,
+      "sampling_ratio": 1.0015092615566341
+    },
+    {
+      "law": "sign_code",
+      "field_ratio": 2.1380395019165626,
+      "jacobian_ratio": 2.3970436048247046,
+      "sampling_ratio": 0.9384436524257014
+    }
+  ],
+  "scope": "architecture retrained from cold states on each law; no ODE advancement or checkpoint zero-shot claim"
+}
