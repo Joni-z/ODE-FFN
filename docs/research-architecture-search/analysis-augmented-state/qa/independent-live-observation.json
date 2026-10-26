@@ -1,0 +1,125 @@
+{
+  "observed_at": "2026-10-24T19:25:15.712665+00:00",
+  "state": "LIVE",
+  "queue_pid": 64832,
+  "processes": [
+    {
+      "pid": 64832,
+      "ppid": 20543,
+      "status": "sleeping",
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/configs/synthetic/architecture_search/augmented_state_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_queue_20261025_m1"
+      ],
+      "rss": 196476928
+    },
+    {
+      "pid": 64840,
+      "ppid": 64832,
+      "status": "running",
+      "cmdline": [
+        "caffeinate",
+        "-i",
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/configs/synthetic/architecture_search/augmented_state_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_queue_20261025_m1"
+      ],
+      "rss": 1490944
+    },
+    {
+      "pid": 64841,
+      "ppid": 64832,
+      "status": "running",
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/configs/synthetic/architecture_search/augmented_state_v1_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1"
+      ],
+      "rss": 209387520
+    },
+    {
+      "pid": 64908,
+      "ppid": 64841,
+      "status": "running",
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/configs/vector_parent.json",
+        "--dataset",
+        "gmm_ring8_2d",
+        "--model",
+        "ode_vector",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/runs"
+      ],
+      "rss": 314720256
+    },
+    {
+      "pid": 64912,
+      "ppid": 64841,
+      "status": "running",
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/configs/lowrank_budget.json",
+        "--dataset",
+        "gmm_ring8_2d",
+        "--model",
+        "ode_lowrank",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/runs"
+      ],
+      "rss": 313901056
+    }
+  ],
+  "monitor": [
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/monitor.json",
+      "time": "2026-10-24T19:25:15.244629+00:00",
+      "pid": 64841,
+      "state": "RUNNING",
+      "memory_available_gib": 5.1165008544921875,
+      "processes": [
+        {
+          "pid": 64908,
+          "name": "Python",
+          "rss_mib": 300.140625
+        },
+        {
+          "pid": 64912,
+          "name": "Python",
+          "rss_mib": 299.359375
+        }
+      ]
+    }
+  ],
+  "scope": "Actual process and telemetry only; no partial outcome decision."
+}

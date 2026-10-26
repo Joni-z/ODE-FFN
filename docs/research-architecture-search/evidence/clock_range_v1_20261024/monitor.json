@@ -1,0 +1,86 @@
+{
+  "time": "2026-10-24T06:39:13.982416+00:00",
+  "pid": 18004,
+  "cpu_percent": 4.4,
+  "memory_available_gib": 7.595607757568359,
+  "processes": [
+    {
+      "pid": 24880,
+      "name": "python.exe",
+      "rss_mib": 5.0859375
+    },
+    {
+      "pid": 15000,
+      "name": "python.exe",
+      "rss_mib": 510.2109375
+    }
+  ],
+  "state": "COMPLETE",
+  "phase": "complete",
+  "completed": 10,
+  "total": 10,
+  "active": [],
+  "training": [
+    {
+      "run": "runs\\clock_range_v1_20261024_swiglu\\gaussian_aniso_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.003927979969978333,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_swiglu\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 3500,
+      "oracle_mse": 0.023636366844177244,
+      "complete": false
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_swiglu_budget\\gaussian_aniso_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.004304380559921265,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_swiglu_budget\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.015184195137023926,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_vector_affine\\gaussian_aniso_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.003769178867340088,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_vector_affine\\gmm_ring8_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.01976812801361084,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_vector_k1\\gaussian_aniso_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.0037766563177108765,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_vector_k1\\gmm_ring8_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.019437553787231446,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_vector_wide\\gaussian_aniso_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.0037738201379776,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_range_v1_20261024_vector_wide\\gmm_ring8_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.01963767433166504,
+      "complete": true
+    }
+  ],
+  "gpu_csv": "0, 595, 8188, 36, 3.36"
+}

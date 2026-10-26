@@ -1,0 +1,26 @@
+{
+  "state": "PASS",
+  "final_checkpoints_reloaded": 2,
+  "validation_fields_replayed": 10,
+  "maximum_forward_difference": 0.0,
+  "maximum_derivative_difference": 0.0,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "scope": "Final common-validation velocity/Jacobian fields. No training, sampling-trajectory, or fresh-holdout replay.",
+  "script_sha256": "142bbe47e3ddf7f25befb1f0eda3b67d187122505805fcf94d4a5c62477640b7",
+  "files_sha256": {
+    "runs/silu_reference_v1_20261024_m1_ffn_silu/gaussian_aniso_2d/ffn/seed000/checkpoints/step_0005000.pt": "d12da7ee6c424c0c25aeedd2b3b39e34b311012832f56e6d2549990a71877ad0",
+    "diagnostics/gaussian_aniso_2d/ffn_silu/common-0.1.npz": "8a9bbd99621eee34c65ac5d68b408a623aa660c874a5c4e3a0db61f316bc0592",
+    "diagnostics/gaussian_aniso_2d/ffn_silu/common-0.3.npz": "86df9201d7b0b0a174e6f2cf15730ed6e646c26694eea665579019468fa9b144",
+    "diagnostics/gaussian_aniso_2d/ffn_silu/common-0.5.npz": "45f767e5a3585c3ecf1a7990047966faa44fb0bb66fc6b9f9f0eae7b44eb54d3",
+    "diagnostics/gaussian_aniso_2d/ffn_silu/common-0.7.npz": "a97cce21e7cf9ddf2aba57e8e490e501f84ee80c513ab7efad59b530680b37d9",
+    "diagnostics/gaussian_aniso_2d/ffn_silu/common-0.9.npz": "6c78d8638d9b82aaffdac88bc6e926f37a1127ef5fab1eb4594ba3dbdd1ed911",
+    "runs/silu_reference_v1_20261024_m1_ffn_silu/gmm_ring8_2d/ffn/seed000/checkpoints/step_0005000.pt": "6be5b53298947bb6b88319f272424a44c28dd0759be858f2e58137c092df99fc",
+    "diagnostics/gmm_ring8_2d/ffn_silu/common-0.1.npz": "9859eb40d66ba0d3af04312aae09d07a54058d6d6c800d24d2d120bb85d03ec6",
+    "diagnostics/gmm_ring8_2d/ffn_silu/common-0.3.npz": "711d81a63e184be97ea4fe2407b4af62399b6111ee02dc89a91276eecacb7ddf",
+    "diagnostics/gmm_ring8_2d/ffn_silu/common-0.5.npz": "93bc5433ec4721f049545f211fe59f1319dae156e3a41c679cf2f1394d73bf9a",
+    "diagnostics/gmm_ring8_2d/ffn_silu/common-0.7.npz": "343b502bba4da800964ed3e5b3cf883f04e831389c3c3786118902c8b3812e9b",
+    "diagnostics/gmm_ring8_2d/ffn_silu/common-0.9.npz": "372ae91c5ab0658ee1c0c7773bf3165df6a656c35dcb6badd5a05dd8362d0b39"
+  }
+}

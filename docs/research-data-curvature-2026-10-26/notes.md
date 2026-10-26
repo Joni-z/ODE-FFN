@@ -1,0 +1,23 @@
+# Execution and evidence notes
+
+The previous goal turn is progress: eighteen cold local-function fits, exact empirical error decomposition, native and analytic replay, and origin-jet checks were completed and sealed. Current revalidation passes the prior 33-file seal and confirms all recorded PIDs are absent. Goal status remains active and unachieved.
+
+This turn checks the missing relevance condition at actual data, using derivatives with respect to physical input x rather than arbitrary 64-dimensional feature directions. Lenovo remains unavailable after a real eight-second SSH attempt; two local CPU workers are feasible with 4.66 GiB initially available RAM. No training or GPU allocation is planned for this diagnostic.
+
+Preflight session 27165 exited 0. All 24 complete compositions pass native value, Jacobian and Hessian checks at the fixed middle-time first anchor. Maxima are 4.44e-15, 2.89e-15 and 3.11e-15. Reduced-space identity maximum is 1.22e-15; explicit frozen-clock native Hessian maximum is 2.44e-15. No scientific approximation ratios were selected or printed during preflight. Passing source is frozen without changes.
+
+Ready manifest SHA256 99a2c1bc506fd20bf5cb002c5655a2df0ee9dc25953e972d4d42f6ad439e209a binds 119 source/model/data/protocol files and preserves all 34 files of the preceding local-FFN documentation bundle. Formal session 21750/PID 2811 launched once and exited 0 after 6.0696 seconds. All six jobs completed. Eighty prefix states/Jacobians/Hessians are shared across all positions and models; each job evaluates its target and all three unchanged students. Five-second monitoring observed two actual CPU children with nonzero CPU time. No GPU or new training was used.
+
+Independent audit session 38499 uses actual full-backbone forward pre-hooks to reconstruct the prefix derivatives, then native automatic differentiation of complete and locally pulled-back functions. Audit source is separate from the frozen diagnostic source; scientific approximation ratios are not interpreted until it passes.
+
+Audit 38499/PID 2871 exited 0 after 46.0475 seconds. All 1920 native complete and 1920 local pullback Hessians, 720 frozen-clock complete Hessians and 720 reduced identities pass. Native hook-based prefix values/Jacobians/Hessians match the explicit prefix exactly. Maximum complete Hessian discrepancy is 1.78e-14. Audit SHA256 is 33c3660d7f6ea80fd89358c8ded871c122b3699bc5caf0e3e8a73fcf2b6aa659.
+
+Analyzer session 54307 exited 0 and saved nine primary/exploratory CSVs plus three PNG/PDF pairs. All three PNGs were visually inspected and readable, without a plot revision. Approximation claims remain conditional: only one of six ODE students meets the uniform frozen-clock criterion, although thirteen of fifteen SwiGLU-target position/time panels are below 10% RMS. Self-target clocks materially affect derivatives. No universal inactive-clock explanation is accepted.
+
+The post-result eigenpair question was written before inspecting actual clock-dependent eigenpair values. Read-only screen session 8904 exited 0. All nine ODE modules/both solves are included in the reproducible analyzer: minimum eigenmodulus 0.0154, maximum condition lower bound 128.6, no rows satisfying the declared combined severe screen. Full 64-by-64 eigenmatrix residuals are at most 5.72e-15. Saturation is descriptive, not a controller-gradient or causal diagnosis.
+
+The complete-prefix corollary was derived after registered analysis and recorded separately. Supplement session 32869 exited 0; all 720 native Jacobian and complete-Hessian identities pass. Maximum complete-Hessian residual is 6.73e-15 and third Jacobian-difference singular value 4.96e-15. It retains about 68% of the SwiGLU target's full curvature, with ODE reduced RMS errors about 80% and much smaller generic errors. Anchor-dependent frames prevent an architecture-wide lower-bound claim.
+
+The global upper-clock experiment was declared before its outputs were inspected. Session 60113 exited 0, preserving all parameters and all native bitwise validation replays. Nine modules × 20000 inputs were evaluated. On SwiGLU targets, clamping both clocks to 1 changes function RMS by 6.2%–8.8% and changes relative target MSE from 8.75/7.57/5.04% to 9.14/7.95/5.80%; it does not improve fit. Self-target functions change much more. Independent constant-map checks agree within 1.42e-14.
+
+Largest sampled summed RSS is 0.6958 GiB for formal diagnosis and 0.4944 GiB for independent audit. No GPU, new training or remote assignment was used. Previous sources, checkpoints and documentation remain unchanged. The next P-versus-W core question is recorded without selecting an optimizer, gate, width, spectral or other rescue.

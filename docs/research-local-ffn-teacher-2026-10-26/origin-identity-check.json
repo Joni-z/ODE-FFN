@@ -1,0 +1,227 @@
+{
+  "status": "PASS",
+  "subjects": 9,
+  "directional_checks": 36,
+  "maximum_jacobian_difference": 7.771561172376096e-16,
+  "maximum_hessian_difference": 3.3306690738754696e-16,
+  "scope": "Origin only. No claim about proximity of actual normalized inputs or approximation lower bounds.",
+  "source_sha256": "1b6caa3fbfb8f6838c14933313f959fde8a5f58d35dc424493e572b929cf711d",
+  "rows": [
+    {
+      "subject": "ODE-teacher-0",
+      "pair": 0,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 3.469446951953614e-18
+    },
+    {
+      "subject": "ODE-teacher-0",
+      "pair": 1,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 3.3306690738754696e-16
+    },
+    {
+      "subject": "ODE-teacher-0",
+      "pair": 2,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 1.3877787807814457e-17
+    },
+    {
+      "subject": "ODE-teacher-0",
+      "pair": 3,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 2.7755575615628914e-17
+    },
+    {
+      "subject": "ODE-teacher-1",
+      "pair": 0,
+      "jacobian_max_abs": 5.551115123125783e-16,
+      "hessian_directional_max_abs": 2.7755575615628914e-17
+    },
+    {
+      "subject": "ODE-teacher-1",
+      "pair": 1,
+      "jacobian_max_abs": 5.551115123125783e-16,
+      "hessian_directional_max_abs": 1.1102230246251565e-16
+    },
+    {
+      "subject": "ODE-teacher-1",
+      "pair": 2,
+      "jacobian_max_abs": 5.551115123125783e-16,
+      "hessian_directional_max_abs": 1.0408340855860843e-17
+    },
+    {
+      "subject": "ODE-teacher-1",
+      "pair": 3,
+      "jacobian_max_abs": 5.551115123125783e-16,
+      "hessian_directional_max_abs": 2.7755575615628914e-17
+    },
+    {
+      "subject": "ODE-teacher-2",
+      "pair": 0,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 2.0816681711721685e-17
+    },
+    {
+      "subject": "ODE-teacher-2",
+      "pair": 1,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 5.551115123125783e-17
+    },
+    {
+      "subject": "ODE-teacher-2",
+      "pair": 2,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 1.3010426069826053e-17
+    },
+    {
+      "subject": "ODE-teacher-2",
+      "pair": 3,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 2.42861286636753e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--0",
+      "pair": 0,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 1.0408340855860843e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--0",
+      "pair": 1,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 2.7755575615628914e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--0",
+      "pair": 2,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 1.0408340855860843e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--0",
+      "pair": 3,
+      "jacobian_max_abs": 4.440892098500626e-16,
+      "hessian_directional_max_abs": 2.0816681711721685e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--1",
+      "pair": 0,
+      "jacobian_max_abs": 7.771561172376096e-16,
+      "hessian_directional_max_abs": 1.3877787807814457e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--1",
+      "pair": 1,
+      "jacobian_max_abs": 7.771561172376096e-16,
+      "hessian_directional_max_abs": 2.220446049250313e-16
+    },
+    {
+      "subject": "ode_k2--ode_k2--1",
+      "pair": 2,
+      "jacobian_max_abs": 7.771561172376096e-16,
+      "hessian_directional_max_abs": 1.0408340855860843e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--1",
+      "pair": 3,
+      "jacobian_max_abs": 7.771561172376096e-16,
+      "hessian_directional_max_abs": 1.3877787807814457e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--2",
+      "pair": 0,
+      "jacobian_max_abs": 6.106226635438361e-16,
+      "hessian_directional_max_abs": 6.938893903907228e-18
+    },
+    {
+      "subject": "ode_k2--ode_k2--2",
+      "pair": 1,
+      "jacobian_max_abs": 6.106226635438361e-16,
+      "hessian_directional_max_abs": 5.551115123125783e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--2",
+      "pair": 2,
+      "jacobian_max_abs": 6.106226635438361e-16,
+      "hessian_directional_max_abs": 1.214306433183765e-17
+    },
+    {
+      "subject": "ode_k2--ode_k2--2",
+      "pair": 3,
+      "jacobian_max_abs": 6.106226635438361e-16,
+      "hessian_directional_max_abs": 2.7755575615628914e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--0",
+      "pair": 0,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 3.903127820947816e-18
+    },
+    {
+      "subject": "swiglu128--ode_k2--0",
+      "pair": 1,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 9.71445146547012e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--0",
+      "pair": 2,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 1.0842021724855044e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--0",
+      "pair": 3,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 1.3010426069826053e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--1",
+      "pair": 0,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 5.204170427930421e-18
+    },
+    {
+      "subject": "swiglu128--ode_k2--1",
+      "pair": 1,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 4.85722573273506e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--1",
+      "pair": 2,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 1.5612511283791264e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--1",
+      "pair": 3,
+      "jacobian_max_abs": 3.3306690738754696e-16,
+      "hessian_directional_max_abs": 3.469446951953614e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--2",
+      "pair": 0,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 2.7755575615628914e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--2",
+      "pair": 1,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 5.551115123125783e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--2",
+      "pair": 2,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 1.734723475976807e-17
+    },
+    {
+      "subject": "swiglu128--ode_k2--2",
+      "pair": 3,
+      "jacobian_max_abs": 2.7755575615628914e-16,
+      "hessian_directional_max_abs": 1.734723475976807e-17
+    }
+  ]
+}

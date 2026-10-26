@@ -1,0 +1,65 @@
+{
+  "experiment_id": "nonlinear_drift_product16_20261024",
+  "protocol": "docs/research-architecture-search/protocol-nonlinear-drift.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": [
+    "rotated_product_bimodal_16d"
+  ],
+  "arms": [
+    {
+      "label": "linear_reuse",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_clock_mode": "reuse"
+      }
+    },
+    {
+      "label": "drift_map",
+      "model": "ode_nonlinear",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_drift_return": "map"
+      }
+    },
+    {
+      "label": "drift_increment",
+      "model": "ode_nonlinear",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_drift_return": "increment"
+      }
+    },
+    {
+      "label": "drift_fixed",
+      "model": "ode_nonlinear",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_drift_return": "increment",
+        "ode_drift_gate": "fixed"
+      }
+    },
+    {
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      }
+    },
+    {
+      "label": "swiglu",
+      "model": "swiglu"
+    }
+  ]
+}

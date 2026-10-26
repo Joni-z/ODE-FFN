@@ -1,0 +1,14 @@
+{
+  "scope": "Preflight metadata-only race; formal source, configs, command, training state unchanged.",
+  "late_metadata_copy": "Reconstructed from the exact append operation after restoration because the preservation request arrived after ready.json was restored; not an earlier captured snapshot.",
+  "restored_ready_sha256": "f1646a90143705ab6cb7cfdd3394a14dd80768ea2bc6f3a0e21c10398c651861",
+  "augmented_ready_sha256": "cb8a3b355473289a6064c693c2a0fc23c3ff96b2e4bab2128dfba3d8339c19df",
+  "dependency_check_sha256": "4a00f90b3f6c6bedf7405c0dcb68344c2cf446aedd9e0a174a6b8f60c4f48cd5",
+  "launch_review_bound_fields": [
+    "preflight_summary_sha256",
+    "source_manifest_sha256",
+    "code_review_sha256"
+  ],
+  "formal_output_nonempty_assertion": "Expected after root launched once; no preflight rerun or formal restart.",
+  "environment_check": "NumPy2.2.6/SciPy1.18.1/psutil7.2.2 verified."
+}

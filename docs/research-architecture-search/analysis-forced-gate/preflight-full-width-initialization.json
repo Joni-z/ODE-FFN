@@ -1,0 +1,167 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "swiglu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 81792,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "forced_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 82047,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "forced_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 82047,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "forced_exact",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 82047,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "swiglu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83598,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "forced_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83853,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "forced_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83853,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "forced_exact",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83853,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "swiglu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 81792,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "forced_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 82047,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "forced_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 82047,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "forced_exact",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 82047,
+      "dense_macs": 80000
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "swiglu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83598,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "forced_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83853,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "forced_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83853,
+      "dense_macs": 81792
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "forced_exact",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_and_raw_gradients_equal": true,
+      "parameters": 83853,
+      "dense_macs": 81792
+    }
+  ],
+  "construction": "Native float32 initialization, common conversion to probe dtype, then common reference copy.",
+  "interpretation": "Raw common gradients equal baseline; whole gradient clipping can differ after adding eta. Adaptive K2/exact complete initial gradients agree."
+}

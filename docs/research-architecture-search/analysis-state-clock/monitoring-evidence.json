@@ -1,0 +1,214 @@
+[
+  {
+    "study": "state_clock_v1_20261025_m1",
+    "rows": 20,
+    "first": {
+      "time": "2026-10-24T16:46:38.252407+00:00",
+      "pid": 56293,
+      "cpu_percent": 25.0,
+      "memory_available_gib": 5.0166168212890625,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 12,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T16:49:48.736832+00:00",
+      "pid": 56293,
+      "cpu_percent": 24.3,
+      "memory_available_gib": 5.098297119140625,
+      "processes": [
+        {
+          "pid": 56472,
+          "name": "Python",
+          "rss_mib": 310.46875
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 11,
+      "total": 12,
+      "active": [
+        "gmm_ring8_2d/swiglu_compute"
+      ],
+      "training": [
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.015296290397644043,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272540807724,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_frozen/gmm_ring8_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.023842772674560548,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_frozen/gaussian_aniso_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0044030996799469,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_compute/gmm_ring8_2d/swiglu/seed000",
+          "step": 4500,
+          "oracle_mse": 0.02098282585144043,
+          "complete": false
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_compute/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0044684611320495605,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_budget/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.018257763481140138,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_budget/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004188221096992493,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_euler/gmm_ring8_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.019929635620117188,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_euler/gaussian_aniso_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.003771548891067505,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_midpoint/gmm_ring8_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.02326525592803955,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_midpoint/gaussian_aniso_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004331943488121033,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "minimum_available_gib": 4.865875244140625,
+    "terminal": {
+      "time": "2026-10-24T16:49:49.857959+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 12,
+      "total": 12,
+      "active": []
+    }
+  },
+  {
+    "study": "state_clock_product16_20261025_m1",
+    "rows": 12,
+    "first": {
+      "time": "2026-10-24T16:49:53.729080+00:00",
+      "pid": 56505,
+      "cpu_percent": 16.7,
+      "memory_available_gib": 5.180084228515625,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 6,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T16:51:43.990299+00:00",
+      "pid": 56505,
+      "cpu_percent": 15.5,
+      "memory_available_gib": 5.158966064453125,
+      "processes": [
+        {
+          "pid": 56647,
+          "name": "Python",
+          "rss_mib": 177.21875
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 5,
+      "total": 6,
+      "active": [
+        "rotated_product_bimodal_16d/swiglu_compute"
+      ],
+      "training": [
+        {
+          "run": "runs/state_clock_product16_20261025_m1_state_euler/rotated_product_bimodal_16d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.26615520095825196,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_swiglu/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.09232576999664306,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_swiglu_compute/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.05866959466934204,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_swiglu_budget/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.10916076774597168,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_state_frozen/rotated_product_bimodal_16d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.30184908142089845,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_state_midpoint/rotated_product_bimodal_16d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.32116510009765625,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "minimum_available_gib": 4.91668701171875,
+    "terminal": {
+      "time": "2026-10-24T16:51:44.756896+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 6,
+      "total": 6,
+      "active": []
+    }
+  }
+]

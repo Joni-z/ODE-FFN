@@ -1,0 +1,132 @@
+{
+  "state": "REFERENCE_ONLY_NO_ODE_NOMINATION",
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": "vector_parent",
+      "validation_oracle_mse_ratio": 1.1624159126633613,
+      "jacobian_error_ratio": 1.2102004086695803,
+      "validation_sw2_ratio": 0.811081277375967
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": "vector_shared",
+      "validation_oracle_mse_ratio": 1.173499734342573,
+      "jacobian_error_ratio": 1.2711878571026582,
+      "validation_sw2_ratio": 0.814356167458328
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": "vector_untied64",
+      "validation_oracle_mse_ratio": 1.147190627114179,
+      "jacobian_error_ratio": 1.1661150540677563,
+      "validation_sw2_ratio": 0.8109030598205836
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": "swiglu_budget",
+      "validation_oracle_mse_ratio": 1.046771424696396,
+      "jacobian_error_ratio": 0.7033395227280532,
+      "validation_sw2_ratio": 0.9161341180749163
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": "swiglu",
+      "validation_oracle_mse_ratio": 1.1163296477573665,
+      "jacobian_error_ratio": 0.7620371580990587,
+      "validation_sw2_ratio": 0.8822670806265988
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": "swiglu_large",
+      "validation_oracle_mse_ratio": 1.0417673138686332,
+      "jacobian_error_ratio": 0.730646416654161,
+      "validation_sw2_ratio": 0.8907363282889842
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": "vector_parent",
+      "validation_oracle_mse_ratio": 1.6916408442537023,
+      "jacobian_error_ratio": 1.5213632586997385,
+      "validation_sw2_ratio": 1.1601108409608714
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": "vector_shared",
+      "validation_oracle_mse_ratio": 1.2866349863074593,
+      "jacobian_error_ratio": 1.086900297427307,
+      "validation_sw2_ratio": 1.0411885661354563
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": "vector_untied64",
+      "validation_oracle_mse_ratio": 1.6414493603966571,
+      "jacobian_error_ratio": 1.7684790473326732,
+      "validation_sw2_ratio": 1.1464810293402272
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": "swiglu_budget",
+      "validation_oracle_mse_ratio": 1.846545170529759,
+      "jacobian_error_ratio": 2.4777944001243886,
+      "validation_sw2_ratio": 1.1944782757087629
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": "swiglu",
+      "validation_oracle_mse_ratio": 2.2040497469874505,
+      "jacobian_error_ratio": 2.018093925043733,
+      "validation_sw2_ratio": 1.2028565763477985
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": "swiglu_large",
+      "validation_oracle_mse_ratio": 2.182457594894029,
+      "jacobian_error_ratio": 2.4735693443951177,
+      "validation_sw2_ratio": 1.1658510892496592
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": "vector_parent",
+      "validation_oracle_mse_ratio": 0.5782047416878444,
+      "jacobian_error_ratio": 0.6715245609896812,
+      "validation_sw2_ratio": 0.82620094142855
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": "vector_shared",
+      "validation_oracle_mse_ratio": 0.48727497139388437,
+      "jacobian_error_ratio": 0.5926641854378618,
+      "validation_sw2_ratio": 0.8483295023287224
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": "vector_untied64",
+      "validation_oracle_mse_ratio": 0.6093583101866211,
+      "jacobian_error_ratio": 0.7012251766302027,
+      "validation_sw2_ratio": 0.7328583074513322
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": "swiglu_budget",
+      "validation_oracle_mse_ratio": 1.4097756688976208,
+      "jacobian_error_ratio": 1.2550524357701307,
+      "validation_sw2_ratio": 1.029369077836116
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": "swiglu",
+      "validation_oracle_mse_ratio": 1.6668390025022326,
+      "jacobian_error_ratio": 1.4015260212807332,
+      "validation_sw2_ratio": 1.041331767584532
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": "swiglu_large",
+      "validation_oracle_mse_ratio": 2.1852685646366847,
+      "jacobian_error_ratio": 1.8044959729330945,
+      "validation_sw2_ratio": 1.075171025523074
+    }
+  ],
+  "scope": "Descriptive necessary baseline. Previous architecture decisions remain unchanged; plain SiLU performance does not fulfill the ODELayer goal."
+}

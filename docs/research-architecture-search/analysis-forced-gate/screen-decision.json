@@ -1,0 +1,81 @@
+{
+  "state": "STOP_FAMILY",
+  "nominated": [],
+  "comparisons": {
+    "forced_k2": {
+      "passes": false,
+      "qualifying_nonlinear_leads": [],
+      "all_primary_within_5pct": true,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "higher_terms_passes": false,
+      "higher_terms_qualifying_nonlinear_leads": [],
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 0.9993722232399366,
+            "jacobian_error": 1.0019039861373096,
+            "validation_sw2": 1.0387939283108072
+          },
+          "oracle_ratio_to_static": 0.9993640206406265,
+          "oracle_ratio_to_K2": 1.0
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.0068518852073742,
+            "jacobian_error": 1.202396204095436,
+            "validation_sw2": 1.006812491162398
+          },
+          "oracle_ratio_to_static": 1.0068578299368678,
+          "oracle_ratio_to_K2": 1.0
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.002345365398292,
+            "jacobian_error": 1.0021271921086168,
+            "validation_sw2": 1.0009178420095945
+          },
+          "oracle_ratio_to_static": 1.0015792183233239,
+          "oracle_ratio_to_K2": 1.0
+        }
+      }
+    },
+    "forced_exact": {
+      "passes": false,
+      "qualifying_nonlinear_leads": [],
+      "all_primary_within_5pct": true,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "higher_terms_passes": false,
+      "higher_terms_qualifying_nonlinear_leads": [],
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 0.9993345595483513,
+            "jacobian_error": 1.0020951042819692,
+            "validation_sw2": 1.0388403807351871
+          },
+          "oracle_ratio_to_static": 0.9993263572581753,
+          "oracle_ratio_to_K2": 0.9999623126491717
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.0073060315575664,
+            "jacobian_error": 1.2022700655897531,
+            "validation_sw2": 1.0072902812312634
+          },
+          "oracle_ratio_to_static": 1.0073119789684644,
+          "oracle_ratio_to_K2": 1.0004510557678485
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.0024511513495984,
+            "jacobian_error": 1.0022353589257844,
+            "validation_sw2": 1.0006593486824351
+          },
+          "oracle_ratio_to_static": 1.0016849234166745,
+          "oracle_ratio_to_K2": 1.0001055384251358
+        }
+      }
+    }
+  },
+  "scope": "Registered engineering screen on exposed validation. A nomination is a generic adaptive-gate lead, not confirmation. Exact needs its additional K2 comparison for a higher-terms interpretation; this does not isolate solver order. Fresh holdout, transfer and practical cost/budget checks remain required. No rescue sweep."
+}

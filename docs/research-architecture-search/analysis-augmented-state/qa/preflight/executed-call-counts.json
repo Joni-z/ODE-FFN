@@ -1,0 +1,116 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "label": "lowrank_budget",
+      "calls": {
+        "blocks.0.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.0.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        }
+      },
+      "actual_dense_macs": 81984,
+      "parameters": 83664
+    },
+    {
+      "label": "lowrank_narrow",
+      "calls": {
+        "blocks.0.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.0.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        }
+      },
+      "actual_dense_macs": 65088,
+      "parameters": 66702
+    },
+    {
+      "label": "lowrank_augmented",
+      "calls": {
+        "blocks.0.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.0.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode1": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode2": {
+          "left": 1,
+          "right": 1,
+          "controller": 1
+        }
+      },
+      "actual_dense_macs": 81216,
+      "parameters": 83022
+    }
+  ]
+}

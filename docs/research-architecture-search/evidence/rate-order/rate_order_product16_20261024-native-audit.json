@@ -1,0 +1,119 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T09:52:40.558864+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 4,
+    "total": 4,
+    "active": []
+  },
+  "arrays_checked": 20,
+  "checkpoints_checked": 24,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.2952414192199707,
+      "validation_sw2": 0.11427346616983414,
+      "field_mse": 0.28592379355983705,
+      "jacobian_error": 53.73663247913792,
+      "wall_seconds": 54.625,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.2952414192199707
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_before",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.3016839889526367,
+      "validation_sw2": 0.11115262657403946,
+      "field_mse": 0.2925752810318768,
+      "jacobian_error": 54.85177598961079,
+      "wall_seconds": 54.61000000000058,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.3016839889526367
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.09083060035705566,
+      "validation_sw2": 0.0982232615351677,
+      "field_mse": 0.0879150829759902,
+      "jacobian_error": 22.596273206750002,
+      "wall_seconds": 36.35899999999674,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.09083060035705566
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.10823417320251465,
+      "validation_sw2": 0.09462358802556992,
+      "field_mse": 0.10622378250186419,
+      "jacobian_error": 25.27258671421557,
+      "wall_seconds": 40.07799999999406,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.10823417320251465
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-rate-order.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "arms": [
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "vector_before",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_rate_placement": "before_projection"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ],
+    "experiment_id": "rate_order_product16_20261024",
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

@@ -1,0 +1,16 @@
+{
+  "experiment_id": "composition_20261024",
+  "protocol": "docs/research-architecture-search/protocol-composition.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": ["gaussian_aniso_2d", "gmm_ring8_2d"],
+  "arms": [
+    {"label": "scalar_k1", "model": "ode_original", "options": {"orders": 1, "gate_hidden": 64}},
+    {"label": "scalar_identity", "model": "ode_original", "options": {"orders": 1, "gate_hidden": 64, "ode_middle_activation": "identity"}},
+    {"label": "vector_k1", "model": "ode_vector", "options": {"orders": 1, "gate_hidden": 32, "gate_reference_hidden": 64}},
+    {"label": "vector_identity", "model": "ode_vector", "options": {"orders": 1, "gate_hidden": 32, "gate_reference_hidden": 64, "ode_middle_activation": "identity"}},
+    {"label": "swiglu", "model": "swiglu"}
+  ]
+}

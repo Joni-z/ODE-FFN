@@ -1,0 +1,19 @@
+# Execution notes
+
+The previous goal turn is concrete progress: actual-data curvature measurements, independent native derivative checks, an any-input reduced identity and complete-prefix corollary, a bounded spectral-differential screen, and a fixed-weight global clock intervention were completed and sealed. Current revalidation passes all 39 listed artifacts; previous process handles are terminal. The goal remains active and unachieved.
+
+This study tests the next specified ambiguity using same-function cold initialization and a known representable target. The direct-map arm is a diagnostic ordinary SiLU core, not a method nomination. Historical controls are reused only after equivalence checks. Mac initially has 4.95 GiB available memory and 83 GiB disk; no GPU allocation is planned.
+
+Lenovo SSH session 10416 returned Operation timed out; no remote work is launched. Preflight session 65159 exited 0. All three initial functions and input Jacobians are bitwise paired, six native P-gradient adjoint checks have maximum difference zero, all nine exact representers pass, and every new-cell resume and historical three-step replay is exact. A scalar-conversion warning arises only in the determinant fixture; numerical source is preserved unchanged after passing.
+
+Actual batch-512 forward/backward matrix MACs: P 4718592/12058624; W 4194304/10485760; SwiGLU128 8355840/19496960. P/W each have 8192 parameters, versus 16554 for SwiGLU128. The constant-duration P core can fold to 8192 inference MACs per input, equal to W; raw formation cost is recorded separately. This is not a runtime-speed claim.
+
+Formal session 95672/PID 3612 launched once and exited 0 after 41.1573 seconds. All fifteen new cells finished; the three identical historical SwiGLU-on-SwiGLU controls are recorded separately. Ready SHA256 bf634f77b2c15c76984f538d1c5612dae7793490603ada1198ea7eb443a8399b binds 178 files and preserves 74 previous-bundle files.
+
+Audit attempt 1 exited 1 before any numeric check or monitor started: a local `time` loop variable shadowed the imported timer module, raising UnboundLocalError. The original audit source and its manifest remain in runtime audit-source/. Rename the loop variable to clock and run the corrected audit from audit-source-v2/. No training, data, constructor, numerical method or scientific criterion is changed; no training cell is restarted.
+
+Corrected audit session 11767/PID 3729 exited 0 after 9.539 seconds. It passes all 72 checkpoint forwards, 90 time panels, eighteen endpoint Jacobians, 192 matrix records, twelve endpoint gradient-adjoint checks and all six complete consumed streams. Maximum separate forward/Jacobian discrepancies are 1.78e-14/2.89e-15; adjoint maximum is zero. All 178 bindings and 74 prior files are unchanged. Audit SHA256 will be bound by the final artifact seal.
+
+Analyzer 95675 exited 0. All seven CSVs and three PNG/PDF pairs are saved and visually inspected. The known-representer P error is 0.00255%–0.00522%, versus W 0.00987%–0.02909%; the declared large P-difficulty pattern does not occur. On SwiGLU targets, P errors are 7.25/7.72/4.58% and W errors 9.40/6.98/4.20%; W derivative errors are worse in all three positions. Final W functions at positions 2 and 3 have negative origin-Jacobian determinants, showing extra class freedom without recovery of the measured fit. This does not support an orientation constraint as a sufficient explanation.
+
+The final-window clipping fraction is zero in all eighteen cells; it is not a full-history causal diagnosis. Largest observed summed supervisor/children RSS is 1.04375 GiB. A post-result next question isolates hidden-versus-output bias in the generic free core with one same-sized vector and identical starting functions; no original ODE setting is changed or nominated.

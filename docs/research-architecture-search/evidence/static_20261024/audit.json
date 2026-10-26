@@ -1,0 +1,134 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T04:34:55.762629+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 6,
+    "total": 6,
+    "active": []
+  },
+  "arrays_checked": 30,
+  "checkpoints_checked": 36,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "fixed_k2",
+      "model": "ode_fixed",
+      "step": 5000,
+      "validation_oracle_mse": 0.004318270492553711,
+      "validation_sw2": 0.08370419591665268,
+      "field_mse": 0.0035999860238684006,
+      "jacobian_error": 0.016966125027741516,
+      "wall_seconds": 33.07800000000134,
+      "parameters": 56706,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.004318268203735352
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "collapsed",
+      "model": "ffn_poly_init",
+      "step": 5000,
+      "validation_oracle_mse": 0.003770866560935974,
+      "validation_sw2": 0.0831846222281456,
+      "field_mse": 0.0032508323762918496,
+      "jacobian_error": 0.01733303029672418,
+      "wall_seconds": 25.14100000000326,
+      "parameters": 56706,
+      "forward_macs": 55616,
+      "audited_validation_oracle_mse": 0.0037708638668060303
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.003927979969978333,
+      "validation_sw2": 0.07621428370475769,
+      "field_mse": 0.0034529762914109106,
+      "jacobian_error": 0.023583350827866945,
+      "wall_seconds": 33.78100000000268,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.003927981114387512
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "fixed_k2",
+      "model": "ode_fixed",
+      "step": 5000,
+      "validation_oracle_mse": 0.0746247673034668,
+      "validation_sw2": 0.26927685737609863,
+      "field_mse": 0.07651916608669035,
+      "jacobian_error": 2.519223583095998,
+      "wall_seconds": 33.92199999999866,
+      "parameters": 56706,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.0746247745513916
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "collapsed",
+      "model": "ffn_poly_init",
+      "step": 5000,
+      "validation_oracle_mse": 0.029027894592285157,
+      "validation_sw2": 0.26102128624916077,
+      "field_mse": 0.028900699214521618,
+      "jacobian_error": 1.2282605856619435,
+      "wall_seconds": 25.359000000004016,
+      "parameters": 56706,
+      "forward_macs": 55616,
+      "audited_validation_oracle_mse": 0.029027898979187013
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.016220698165893555,
+      "validation_sw2": 0.23958292603492737,
+      "field_mse": 0.013890559571362593,
+      "jacobian_error": 0.5710265912657431,
+      "wall_seconds": 31.718999999997322,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.016220698642730715
+    }
+  ],
+  "plan": {
+    "experiment_id": "static_20261024",
+    "protocol": "docs/research-architecture-search/protocol-static.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "fixed_k2",
+        "model": "ode_fixed",
+        "options": {
+          "orders": 2
+        }
+      },
+      {
+        "label": "collapsed",
+        "model": "ffn_poly_init",
+        "options": {
+          "orders": 2
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+[
+  {
+    "study": "forced_gate_v1_20261024_m1",
+    "rows": 17,
+    "first": {
+      "time": "2026-10-24T15:29:46.077160+00:00",
+      "pid": 53012,
+      "cpu_percent": 33.3,
+      "memory_available_gib": 4.9331512451171875,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 10,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T15:32:26.472511+00:00",
+      "pid": 53012,
+      "cpu_percent": 26.6,
+      "memory_available_gib": 4.9418487548828125,
+      "processes": [
+        {
+          "pid": 53221,
+          "name": "Python",
+          "rss_mib": 319.75
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 9,
+      "total": 10,
+      "active": [
+        "gmm_ring8_2d/forced_exact"
+      ],
+      "training": [
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_static/gmm_ring8_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.01529620008468628,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_static/gaussian_aniso_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272863149642945,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu_budget/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.018257763481140138,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu_budget/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004188221096992493,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.015296290397644043,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272540807724,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_exact/gmm_ring8_2d/ode_forced_gate/seed000",
+          "step": 4500,
+          "oracle_mse": 0.021122425842285155,
+          "complete": false
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_exact/gaussian_aniso_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039246407270431515,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_k2/gmm_ring8_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.015401098823547362,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_k2/gaussian_aniso_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.003924788641929627,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "minimum_available_gib": 4.8261566162109375,
+    "terminal": {
+      "time": "2026-10-24T15:32:28.579558+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 10,
+      "total": 10,
+      "active": []
+    }
+  },
+  {
+    "study": "forced_gate_product16_20261024_m1",
+    "rows": 10,
+    "first": {
+      "time": "2026-10-24T15:32:31.477387+00:00",
+      "pid": 53226,
+      "cpu_percent": 37.5,
+      "memory_available_gib": 5.0460968017578125,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 5,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T15:34:01.683501+00:00",
+      "pid": 53226,
+      "cpu_percent": 15.9,
+      "memory_available_gib": 4.9553985595703125,
+      "processes": [
+        {
+          "pid": 53288,
+          "name": "Python",
+          "rss_mib": 259.625
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 4,
+      "total": 5,
+      "active": [
+        "rotated_product_bimodal_16d/forced_exact"
+      ],
+      "training": [
+        {
+          "run": "runs/forced_gate_product16_20261024_m1_swiglu/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.09232576999664306,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_product16_20261024_m1_swiglu_budget/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.10916076774597168,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_product16_20261024_m1_forced_static/rotated_product_bimodal_16d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.09239639358520507,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_product16_20261024_m1_forced_exact/rotated_product_bimodal_16d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.09255207443237305,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_product16_20261024_m1_forced_k2/rotated_product_bimodal_16d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.09254230766296387,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "minimum_available_gib": 4.7939605712890625,
+    "terminal": {
+      "time": "2026-10-24T15:34:01.804716+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 5,
+      "total": 5,
+      "active": []
+    }
+  }
+]

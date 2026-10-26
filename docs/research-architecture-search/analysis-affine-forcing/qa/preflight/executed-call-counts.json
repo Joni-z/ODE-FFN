@@ -1,0 +1,101 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "label": "vector_parent",
+      "gate_hidden": 32,
+      "parameters": 83664,
+      "actual_dense_macs": 81984,
+      "calls": {
+        "blocks.0.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.0.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        }
+      }
+    },
+    {
+      "label": "static_bias",
+      "gate_hidden": 32,
+      "parameters": 84048,
+      "actual_dense_macs": 81984,
+      "calls": {
+        "blocks.0.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.0.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        }
+      }
+    },
+    {
+      "label": "affine_forcing",
+      "gate_hidden": 32,
+      "parameters": 84048,
+      "actual_dense_macs": 81984,
+      "calls": {
+        "blocks.0.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.0.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.1.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode1": {
+          "projection": 1,
+          "controller": 1
+        },
+        "blocks.2.ffn.ode2": {
+          "projection": 1,
+          "controller": 1
+        }
+      }
+    }
+  ]
+}

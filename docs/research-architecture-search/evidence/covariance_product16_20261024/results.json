@@ -1,0 +1,80 @@
+[
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "vector_k1",
+    "model": "ode_vector",
+    "step": 5000,
+    "validation_oracle_mse": 0.2952414192199707,
+    "validation_sw2": 0.11427346616983414,
+    "field_mse": 0.28592379355983705,
+    "jacobian_error": 53.73663247913792,
+    "wall_seconds": 48.25,
+    "parameters": 83664,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "cov_tied",
+    "model": "ode_covariance",
+    "step": 5000,
+    "validation_oracle_mse": 0.3212726921081543,
+    "validation_sw2": 0.09940550476312637,
+    "field_mse": 0.3119978322205846,
+    "jacobian_error": 54.641101142706326,
+    "wall_seconds": 66.78100000000268,
+    "parameters": 71382,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "cov_untied",
+    "model": "ode_covariance",
+    "step": 5000,
+    "validation_oracle_mse": 0.2977323944091797,
+    "validation_sw2": 0.10556888580322266,
+    "field_mse": 0.28848712134517074,
+    "jacobian_error": 51.21012804627244,
+    "wall_seconds": 67.70299999999406,
+    "parameters": 83670,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "cov_linear",
+    "model": "ode_covariance",
+    "step": 5000,
+    "validation_oracle_mse": 0.3059387130737305,
+    "validation_sw2": 0.11090724915266037,
+    "field_mse": 0.29919740743704326,
+    "jacobian_error": 54.090051196334606,
+    "wall_seconds": 62.31199999999808,
+    "parameters": 71382,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "swiglu_budget",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.09083060035705566,
+    "validation_sw2": 0.0982232615351677,
+    "field_mse": 0.0879150829759902,
+    "jacobian_error": 22.596273206750002,
+    "wall_seconds": 31.9059999999954,
+    "parameters": 71376,
+    "forward_macs": 69696
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "swiglu",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.10823417320251465,
+    "validation_sw2": 0.09462358802556992,
+    "field_mse": 0.10622378250186419,
+    "jacobian_error": 25.27258671421557,
+    "wall_seconds": 32.89100000000326,
+    "parameters": 83598,
+    "forward_macs": 81792
+  }
+]

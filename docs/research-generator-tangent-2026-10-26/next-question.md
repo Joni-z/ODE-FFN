@@ -1,0 +1,13 @@
+# Next discriminating question: a realizable teacher control
+
+This is a post-result research question, not a registered or launched experiment and not an architectural nomination.
+
+The current K2 pullbacks show no severe route cancellation, and the P-to-Q polynomial differential has a positive uniform local certificate at this checkpoint. Existing noiseless population regression still leaves an ODE gap, but the population oracle is not known to be representable by the tested finite ODE network. Frozen feature/head probes and small-anchor kernels do not resolve that ambiguity either.
+
+A useful next distinction is therefore learnability of a function known to be inside the original ODE hypothesis class. A frozen original-ODE checkpoint itself supplies such a target. A cold original-ODE student of identical architecture has an exact representer: the teacher's actual weights and buffers. This differs from training against the analytic posterior mean. If a same-budget SwiGLU student fits that function much better, poor performance on this target cannot be explained by its absence from the ODE class. It would establish a finite-budget learning difficulty for this function, not identify the optimizer cause or guarantee a useful reparameterization.
+
+A matched frozen SwiGLU128 teacher supplies a second function family; SwiGLU128 and192 students retain parameter and executed-compute controls. The full teacher-by-student table is necessary: an ODE student fitting only its own smoother teacher would not prove it can fit the true field or natural images. Teacher fields are deterministic regression targets, not privileged information available to a deployable method. Their complexity and target energy need to be shown rather than assuming equivalent tasks.
+
+Before such a study, fix the two actual teacher checkpoints, three cold student constructors, one shared input stream, seed0, training budget, normalized teacher-risk measures, native-buffer replay, exact teacher-representer zero-risk check, immutable source/data bindings, monitored execution and interpretation rules. No new activation, clock, loss penalty, width sweep or teacher-based method should be added. Every training cell needs its own independent cold initialization and cannot be relabeled from an old FM run. Lenovo remains unassigned until current connectivity and native preflight actually succeed.
+
+This question is motivated by the remaining ambiguity, not evidence that a new ODE architecture is already useful. A result against a realizable diagnostic teacher cannot replace subsequent ordinary FM training, strong-baseline, cost and transfer requirements.

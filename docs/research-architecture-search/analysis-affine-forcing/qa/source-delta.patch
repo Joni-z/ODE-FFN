@@ -1,0 +1,987 @@
+--- prior/synthetic/models.py
++++ source/synthetic/models.py
+@@ -17,7 +17,8 @@
+     def __init__(self, width, gate_hidden, orders=2, tau=10.0, scale=0.8,
+                  shift=0.2, spectral_cap=None, gate_source='input',
+                  clock_curvature=1.0, gate_center=0.6,gate_transform='sigmoid',
+-                 rate_placement='after_projection',solve_return='map',operator_mode='multiplicative'):
++                 rate_placement='after_projection',solve_return='map',operator_mode='multiplicative',
++                 forcing_mode='none'):
+         super().__init__()
+         if orders < 1 or tau <= 0 or scale <= 0 or not 0 <= shift < shift + scale:
+             raise ValueError('invalid ODELayer settings')
+@@ -50,6 +51,14 @@
+                 solve_return!='map'):
+             raise ValueError('additive-generator study requires the plain K1 map with input sigmoid controls')
+         self.operator_mode=operator_mode
++        if forcing_mode not in ('none','static','conditional'):
++            raise ValueError('forcing mode must be none, static or conditional')
++        if forcing_mode!='none' and (orders!=1 or gate_source!='input' or
++                spectral_cap is not None or clock_curvature!=1. or gate_transform!='sigmoid' or
++                rate_placement!='after_projection' or solve_return!='map' or
++                operator_mode!='multiplicative'):
++            raise ValueError('bias completeness retains the original input-clock K1 map')
++        self.forcing_mode=forcing_mode
+         if gate_transform not in ('sigmoid','affine'):
+             raise ValueError('gate transform must be sigmoid or affine')
+         if gate_transform=='affine' and clock_curvature!=1.:
+@@ -61,6 +70,10 @@
+         self.t_func = nn.Sequential(nn.Linear(width, gate_hidden), nn.SiLU(),
+                                     nn.Linear(gate_hidden, 1))
+         self.proj = nn.Linear(width, width, bias=False)
++        if forcing_mode!='none':
++            # Add no random draws; all inherited tensors and surrounding draws
++            # remain paired with the homogeneous reference.
++            self.forcing=nn.Parameter(torch.zeros(width))
+         # Consume the legacy initialization draws so all common weights stay paired.
+         # Remove the unused network rather than counting dormant parameters.
+         if gate_source in ('fixed', 'scalar', 'provided'):
+@@ -113,6 +126,9 @@
+             else:
+                 term = F.linear(term, p) * s / order
+             total = term if total is None else total + term
++        if self.forcing_mode!='none':
++            coefficient=s if self.forcing_mode=='conditional' else self.shift+self.scale/2
++            total=total+coefficient*self.forcing
+         if self.clock_curvature != 1.0:
+             # term = s^2 P^2 x/2. Reuse it to keep the matrix MAC budget unchanged.
+             if s.shape[-1]==1:
+@@ -173,6 +189,33 @@
+             stats[f'term{order}_rms_over_input'] = rms(term)/denominator
+             out = out+term
+         stats['output_rms_over_input'] = rms(self(x, context))/denominator
++        if self.forcing_mode!='none':
++            center=self.shift+self.scale/2
++            static=center*self.forcing
++            conditional=((s-center)*self.forcing if self.forcing_mode=='conditional'
++                         else torch.zeros_like(s)*self.forcing)
++            actual=s*self.forcing if self.forcing_mode=='conditional' else static
++            # The logged first term must describe the actual biased update.
++            stats['homogeneous_term1_rms_over_input']=stats['term1_rms_over_input']
++            stats['term1_rms_over_input']=rms(s*F.linear(x,p)+actual)/denominator
++            mean=conditional.reshape(-1,x.shape[-1]).mean(dim=0)
++            stats.update(forcing_mode=self.forcing_mode,
++                forcing_parameter_norm=float(self.forcing.norm()),
++                forcing_rms_over_input=rms(actual)/denominator,
++                static_bias_rms_over_input=rms(static)/denominator,
++                conditional_bias_rms_over_input=rms(conditional)/denominator,
++                conditional_bias_mean_rms_over_input=rms(mean)/denominator,
++                conditional_bias_centered_rms_over_input=rms(conditional-mean)/denominator)
++            local_sensitivity=0.
++            if self.forcing_mode=='conditional':
++                hidden=self.t_func[0](x)
++                probability=torch.sigmoid(hidden)
++                derivative=probability*(1+hidden*(1-probability))
++                logit_jacobian=(self.t_func[-1].weight*derivative.unsqueeze(-2))@self.t_func[0].weight
++                clock_probability=(s-self.shift)/self.scale
++                row_scale=self.forcing*(self.scale/self.tau)*clock_probability*(1-clock_probability)
++                local_sensitivity=float(torch.linalg.matrix_norm(row_scale.unsqueeze(-1)*logit_jacobian,ord='fro').mean())
++            stats['conditional_bias_local_jacobian_frobenius_mean']=local_sensitivity
+         if self.orders == 2:
+             delta=s-self.gate_center
+             curvature = 0.5*delta*F.linear(delta*F.linear(x,p),p)
+@@ -209,6 +252,7 @@
+                 options.get('clock_curvature',1.)!=1. or options.get('gate_transform','sigmoid')!='sigmoid' or
+                 options.get('rate_placement','after_projection')!='after_projection' or
+                 options.get('solve_return','map')!='map' or options.get('operator_mode','multiplicative')!='multiplicative' or
++                options.get('forcing_mode','none')!='none' or
+                 (options.get('tau',10.),options.get('scale',.8),options.get('shift',.2))!=(10.,.8,.2)):
+             raise ValueError('feature sharing requires width-sized original sigmoid K1 map controllers')
+         gate_state=torch.get_rng_state()
+@@ -534,13 +578,23 @@
+                  ode_solve_pattern=None,ode_operator_mode='multiplicative',ode_feature_mode='independent',
+                  diagonal_solver='k2',diagonal_clock='adaptive',diagonal_beta=1.,
+                  forced_gate_solver='exact',forced_gate_clock='adaptive',
+-                 state_clock_solver='midpoint'):
++                 state_clock_solver='midpoint',ode_forcing_mode='none'):
+         super().__init__()
+         if kind not in ('ffn','swiglu','glu','ode_original','ode_spectral_cap','ode_time',
+                         'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+                         'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'):
+             raise ValueError(f'unsupported model kind: {kind}')
+         self.dim,self.kind,self.width,self.depth=dim,kind,width,depth
++        if ode_forcing_mode not in ('none','static','conditional'):
++            raise ValueError('unsupported forcing mode')
++        if ode_forcing_mode!='none' and (kind!='ode_vector' or orders!=1 or
++                ode_solve_init!='constant_paired' or ode_feature_mode!='independent' or
++                ode_operator_mode!='multiplicative' or ode_middle_activation!='silu' or
++                ode_clock_mode!='independent' or ode_gate_transform!='sigmoid' or
++                ode_gate_reparam!=1. or ode_rate_placement!='after_projection' or
++                ode_solve_return!='map' or ode_solve_pattern not in (None,'map_map') or
++                (tau,scale,shift)!=(10.,.8,.2) or spectral_cap!=1.):
++            raise ValueError('bias completeness retains the paired original vector K1 composition')
+         if kind!='ode_state_clock' and state_clock_solver!='midpoint':
+             raise ValueError('state-clock solver requires its own vector-field family')
+         if kind=='ode_state_clock' and (ode_feature_mode!='independent' or ode_operator_mode!='multiplicative' or
+@@ -635,7 +689,8 @@
+                     middle_activation=ode_middle_activation,clock_mode=ode_clock_mode,
+                     feature_mode=ode_feature_mode,
+                     gate_transform=ode_gate_transform,rate_placement=ode_rate_placement,
+-                    solve_return=ode_solve_return,solve_returns=solve_returns,operator_mode=ode_operator_mode)
++                    solve_return=ode_solve_return,solve_returns=solve_returns,operator_mode=ode_operator_mode,
++                    forcing_mode=ode_forcing_mode)
+             elif kind=='ode_nonlinear':
+                 ffn=NonlinearDriftFFN(width,gate_hidden,gate_reference_hidden,orders=orders,
+                     tau=tau,scale=scale,shift=shift,return_mode=ode_drift_return,gate_source=ode_drift_gate)
+--- /dev/null
++++ source/tests/test_affine_forcing.py
+@@ -0,0 +1,218 @@
++"""Mathematical and comparison invariants for the single bias-completeness test."""
++import copy
++import json
++import unittest
++from unittest.mock import patch
++
++import torch
++from torch.nn import functional as F
++
++from scripts.run_architecture_study import macs
++from synthetic.models import VectorODELayer, VelocityNet
++
++
++class AffineForcingTests(unittest.TestCase):
++    def setUp(self):
++        torch.manual_seed(0)
++        torch.set_num_threads(1)
++
++    def models(self, dim=2, dtype=torch.float64):
++        models, rng = [], []
++        for mode in ('none', 'static', 'conditional'):
++            torch.manual_seed(0)
++            models.append(VelocityNet(dim, 'ode_vector', gate_hidden=32, orders=1,
++                          ode_solve_init='constant_paired', ode_forcing_mode=mode).to(dtype))
++            rng.append(torch.get_rng_state().clone())
++        for state in rng[1:]:torch.testing.assert_close(state, rng[0], atol=0, rtol=0)
++        return models
++
++    def active(self, mode='conditional'):
++        layer = VectorODELayer(3, 4, reference_gate_hidden=4, orders=1,
++                               forcing_mode=mode).double()
++        with torch.no_grad():
++            layer.proj.weight.copy_(torch.tensor([[.4, -.2, .1], [.1, .5, -.1], [-.2, .1, .6]]))
++            layer.t_func[0].weight.copy_(torch.tensor([[.7, -.2, .3], [-.1, .8, .2], [.4, .3, -.6], [-.2, .5, .7]]))
++            layer.t_func[0].bias.copy_(torch.tensor([.1, -.3, .2, .4]))
++            layer.t_func[-1].weight.copy_(torch.tensor([[3., -2., 1., .4], [-1., 2., 4., -.2], [.7, -3., .8, 2.]]))
++            layer.t_func[-1].bias.copy_(torch.tensor([.4, -.3, .2]))
++            layer.forcing.copy_(torch.tensor([.8, -.5, .3]))
++        return layer
++
++    def test_native_common_tensors_buffers_rng_and_executed_cost(self):
++        original_linear = F.linear
++        for dim in (2, 16):
++            parent, static, affine = self.models(dim, torch.float32)
++            state, buffers = parent.state_dict(), dict(parent.named_buffers())
++            self.assertFalse(any(name.endswith('.forcing') for name in state))
++            expected_parameters, expected_macs = ((81858, 80192) if dim == 2 else (83664, 81984))
++            self.assertEqual(parent.parameter_count(), expected_parameters)
++            for model in (static, affine):
++                new = model.state_dict()
++                extra = set(new)-set(state)
++                self.assertEqual(len(extra), 6)
++                self.assertTrue(all(name.endswith('.forcing') and new[name].shape == (64,) for name in extra))
++                self.assertTrue(all(torch.count_nonzero(new[name]) == 0 for name in extra))
++                for name in state:torch.testing.assert_close(new[name], state[name], atol=0, rtol=0)
++                other_buffers = dict(model.named_buffers())
++                self.assertEqual(set(buffers), set(other_buffers))
++                for name in buffers:torch.testing.assert_close(buffers[name], other_buffers[name], atol=0, rtol=0)
++                self.assertEqual(model.parameter_count(), expected_parameters+384)
++            for model in (parent, static, affine):
++                count = [0]
++                def counted(x, weight, bias=None):
++                    count[0] += (x.numel()//x.shape[-1])*weight.numel()
++                    return original_linear(x, weight, bias)
++                with patch.object(F, 'linear', counted), torch.no_grad():
++                    prediction = model(torch.zeros(1, dim), torch.zeros(1, 1))
++                self.assertEqual(int(torch.count_nonzero(prediction)), 0)
++                self.assertEqual(count[0], expected_macs)
++                self.assertEqual(count[0], macs(model, dim))
++
++    def test_whole_model_initial_full_parameter_responses_with_nonzero_head(self):
++        # Every scalar output response is checked for every parameter, rather
++        # than relying on one cotangent or the formal zero-head masking.
++        for dtype, atol, rtol in ((torch.float32, 2e-6, 2e-5), (torch.float64, 2e-13, 2e-12)):
++            parent, static, affine = self.models(dtype=dtype)
++            x = torch.tensor([[-.8, .3], [.7, -.2]], dtype=dtype)
++            t = torch.tensor([[.2], [.7]], dtype=dtype)
++            for model in (parent, static, affine):
++                with torch.no_grad():
++                    model.output.weight.copy_(torch.linspace(-.2, .3, 128, dtype=dtype).reshape(2, 64))
++            outputs = [model(x, t) for model in (parent, static, affine)]
++            for y in outputs[1:]:torch.testing.assert_close(y, outputs[0], atol=0, rtol=0)
++            parameter_maps = [dict(model.named_parameters()) for model in (parent, static, affine)]
++            self.assertEqual(set(parameter_maps[1]), set(parameter_maps[2]))
++            active_bias = False
++            for index in range(outputs[0].numel()):
++                gradients = [dict(zip(parameters, torch.autograd.grad(y.flatten()[index], tuple(parameters.values()), retain_graph=True)))
++                             for parameters, y in zip(parameter_maps, outputs)]
++                for name, value in gradients[0].items():
++                    torch.testing.assert_close(gradients[1][name], value, atol=atol, rtol=rtol)
++                for name, value in gradients[1].items():
++                    torch.testing.assert_close(gradients[2][name], value, atol=atol, rtol=rtol)
++                    if name.endswith('.forcing') and float(value.norm()) > 1e-5:active_bias = True
++            self.assertTrue(active_bias, 'nonzero head must expose the added parameter responses')
++            jacobians = [torch.autograd.functional.jacobian(lambda z: model(z, t), x) for model in (static, affine)]
++            torch.testing.assert_close(jacobians[0], jacobians[1], atol=atol, rtol=rtol)
++
++    def test_active_input_and_all_parameter_derivatives(self):
++        affine = self.active(); static = copy.deepcopy(affine); static.forcing_mode = 'static'
++        x = torch.tensor([.8, -.4, .6], dtype=torch.float64, requires_grad=True)
++        r = torch.tensor([.3, -.7, .4], dtype=x.dtype)
++        jacobians = []
++        for layer in (static, affine):
++            first, _, last = layer.t_func
++            u = first(x); hidden = F.silu(u); inner = torch.sigmoid(u)
++            inner_slope = inner+u*inner*(1-inner)
++            probability = torch.sigmoid(last(hidden)/layer.tau)
++            s = layer.shift+layer.scale*probability
++            slope = layer.scale/layer.tau*probability*(1-probability)
++            gate_j = torch.diag(slope)@last.weight@torch.diag(inner_slope)@first.weight
++            ph = layer.proj.weight@x
++            receiving = ph+(layer.forcing if layer.forcing_mode == 'conditional' else 0)
++            expected_j = torch.eye(3, dtype=x.dtype)+torch.diag(s)@layer.proj.weight+torch.diag(receiving)@gate_j
++            actual_j = torch.autograd.functional.jacobian(layer, x)
++            torch.testing.assert_close(actual_j, expected_j, atol=3e-16, rtol=2e-14)
++            jacobians.append(actual_j)
++            gate_cotangent = r*receiving*slope
++            first_cotangent = (last.weight.T@gate_cotangent)*inner_slope
++            expected = {'proj.weight': (r*s)[:, None]*x[None, :],
++                        'forcing': r*(s if layer.forcing_mode == 'conditional' else layer.shift+layer.scale/2),
++                        't_func.2.weight': gate_cotangent[:, None]*hidden[None, :],
++                        't_func.2.bias': gate_cotangent,
++                        't_func.0.weight': first_cotangent[:, None]*x[None, :],
++                        't_func.0.bias': first_cotangent}
++            parameters = dict(layer.named_parameters())
++            gradients = torch.autograd.grad((layer(x)*r).sum(), (x, *parameters.values()))
++            torch.testing.assert_close(gradients[0], expected_j.T@r, atol=3e-16, rtol=2e-14)
++            self.assertEqual(set(parameters), set(expected))
++            for name, value in zip(parameters, gradients[1:]):
++                torch.testing.assert_close(value, expected[name], atol=3e-16, rtol=2e-14)
++        torch.testing.assert_close(jacobians[1]-jacobians[0], torch.diag(affine.forcing)@gate_j, atol=3e-16, rtol=2e-14)
++
++    def test_zero_bias_alone_does_not_pair_new_parameter_columns(self):
++        affine = self.active(); static = copy.deepcopy(affine); static.forcing_mode = 'static'
++        with torch.no_grad():affine.forcing.zero_(); static.forcing.zero_()
++        x = torch.tensor([[.8, -.4, .6]], dtype=torch.float64)
++        torch.testing.assert_close(affine(x), static(x), atol=0, rtol=0)
++        ga = torch.autograd.grad(affine(x).sum(), affine.forcing)[0]
++        gb = torch.autograd.grad(static(x).sum(), static.forcing)[0]
++        self.assertGreater(float((ga-gb).norm()), 1e-3)
++        torch.testing.assert_close(ga-gb, (affine.step_size(x)-(affine.shift+affine.scale/2)).sum(0), atol=0, rtol=0)
++
++    def test_active_statistics_mean_variance_and_no_state_mutation(self):
++        x = torch.linspace(-1.1, 1.4, 18, dtype=torch.float64).reshape(2, 3, 3)
++        rms = lambda value: float(value.detach().square().mean().sqrt())
++        for mode in ('static', 'conditional'):
++            layer = self.active(mode); before = copy.deepcopy(layer.state_dict())
++            stats = layer.activation_stats(x); json.dumps(stats, allow_nan=False)
++            for name in before:torch.testing.assert_close(before[name], layer.state_dict()[name], atol=0, rtol=0)
++            s = layer.step_size(x); c = layer.shift+layer.scale/2
++            static = c*layer.forcing
++            correction = (s-c)*layer.forcing if mode == 'conditional' else torch.zeros_like(x)
++            actual = s*layer.forcing if mode == 'conditional' else static
++            mean = correction.reshape(-1, 3).mean(0); denominator = rms(x)
++            homogeneous = s*F.linear(x, layer.proj.weight)
++            expected = {'forcing_parameter_norm': float(layer.forcing.detach().norm()),
++                        'forcing_rms_over_input': rms(actual)/denominator,
++                        'static_bias_rms_over_input': rms(static)/denominator,
++                        'conditional_bias_rms_over_input': rms(correction)/denominator,
++                        'conditional_bias_mean_rms_over_input': rms(mean)/denominator,
++                        'conditional_bias_centered_rms_over_input': rms(correction-mean)/denominator,
++                        'homogeneous_term1_rms_over_input': rms(homogeneous)/denominator,
++                        'term1_rms_over_input': rms(homogeneous+actual)/denominator,
++                        'output_rms_over_input': rms(x+homogeneous+actual)/denominator}
++            self.assertEqual(stats['forcing_mode'], mode)
++            for name, value in expected.items():self.assertAlmostEqual(stats[name], value, places=14, msg=name)
++            self.assertAlmostEqual(rms(correction)**2, rms(mean)**2+rms(correction-mean)**2, places=14)
++            if mode == 'conditional':
++                self.assertGreater(stats['conditional_bias_centered_rms_over_input'], 1e-4)
++                self.assertNotAlmostEqual(stats['term1_rms_over_input'], stats['homogeneous_term1_rms_over_input'])
++                frozen = copy.deepcopy(layer); frozen.forcing_mode = 'static'
++                differences = [torch.autograd.functional.jacobian(layer, point)
++                               -torch.autograd.functional.jacobian(frozen, point)
++                               for point in x.reshape(-1, 3)]
++                sensitivity = float(torch.linalg.matrix_norm(torch.stack(differences), ord='fro').mean())
++                self.assertAlmostEqual(stats['conditional_bias_local_jacobian_frobenius_mean'], sensitivity, places=14)
++                self.assertGreater(sensitivity, 1e-4)
++            else:
++                self.assertEqual(stats['conditional_bias_rms_over_input'], 0.)
++                self.assertEqual(stats['conditional_bias_local_jacobian_frobenius_mean'], 0.)
++
++    def test_single_layer_translation_conjugacy_with_shifted_controller(self):
++        # This is a local existence identity, not a full LayerNorm/FiLM/SiLU
++        # backbone equivalence or an oracle-derived training initializer.
++        affine = self.active()
++        homogeneous = VectorODELayer(3, 4, reference_gate_hidden=4, orders=1).double()
++        homogeneous.load_state_dict({k: v for k, v in affine.state_dict().items() if k != 'forcing'})
++        translation = torch.linalg.solve(affine.proj.weight.detach(), affine.forcing.detach())
++        with torch.no_grad():
++            homogeneous.t_func[0].bias.sub_(homogeneous.t_func[0].weight@translation)
++        x = torch.tensor([[.4, -.7, .2], [-.3, .1, .8]], dtype=torch.float64)
++        translated = lambda z: homogeneous(z+translation)-translation
++        torch.testing.assert_close(affine(x), translated(x), atol=6e-16, rtol=3e-15)
++        torch.testing.assert_close(torch.autograd.functional.jacobian(affine, x),
++                                   torch.autograd.functional.jacobian(translated, x), atol=3e-16, rtol=3e-14)
++
++    def test_unsupported_combinations_are_rejected(self):
++        valid = dict(gate_hidden=32, orders=1, ode_solve_init='constant_paired', ode_forcing_mode='conditional')
++        for change in (dict(ode_forcing_mode='affine'), dict(orders=2), dict(ode_solve_init='legacy'),
++                       dict(ode_feature_mode='shared_projection'), dict(ode_operator_mode='additive'),
++                       dict(ode_middle_activation='identity'), dict(ode_clock_mode='tied'),
++                       dict(ode_gate_transform='affine'), dict(ode_gate_reparam=2.),
++                       dict(ode_rate_placement='before_projection'), dict(ode_solve_return='increment'),
++                       dict(ode_solve_pattern='increment_increment'), dict(tau=1.), dict(scale=1.), dict(shift=0.),
++                       dict(spectral_cap=.5)):
++            with self.subTest(change=change), self.assertRaises(ValueError):
++                VelocityNet(2, 'ode_vector', **dict(valid, **change))
++        for kind in ('swiglu', 'glu', 'ode_original', 'ode_state_clock'):
++            with self.subTest(kind=kind), self.assertRaises(ValueError):VelocityNet(2, kind, **valid)
++        for change in (dict(orders=2), dict(gate_source='fixed'), dict(spectral_cap=1.),
++                       dict(clock_curvature=0.), dict(gate_transform='affine'), dict(rate_placement='before_projection'),
++                       dict(solve_return='increment'), dict(operator_mode='additive')):
++            options = dict(orders=1, forcing_mode='conditional'); options.update(change)
++            with self.subTest(layer=change), self.assertRaises(ValueError):VectorODELayer(3, 4, **options)
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- /dev/null
++++ source/docs/research-architecture-search/protocol-affine-forcing.md
+@@ -0,0 +1,136 @@
++# One bias-completeness test of the original ODELayer
++
++Status: design registered before implementation and before any new training.
++Selected for one bounded falsification after Stage22's native/replay/source
++audits passed and both independent reviews gave conditional GO. Launch still
++requires code review and full preflight. Date: 2026-10-25.
++
++## Question and limits
++
++The original projection is bias-free, although both practical GLU value
++projections and the shared backbone contain biases. None of the earlier original
++ODELayer controls added an independent value bias inside a solve. This is an
++uncontrolled component difference worth testing once. It is not a new ODE
++mechanism or evidence that this difference causes the existing performance gap.
++
++Stage22's ordinary sigmoid GLU is worse than SwiGLU on both nonlinear tasks.
++Its fixed-time raw-input mixture representation theorem did not imply an
++optimization advantage for the complete normalized, time-conditioned network.
++In particular, the present test is not justified by claiming that posterior
++ambiguity, sigmoid features, or missing mode offsets explain the earlier errors.
++
++Keep the original two K1 maps and their middle SiLU. For each map compare:
++
++```text
++parent:       F(h) = h + D(h) P h
++static bias:  F(h) = h + D(h) P h + c b
++affine drift: F(h) = h + D(h) P h + D(h) b
++c = shift + scale/2 = 0.6
++```
++
++Here `D(h)=diag(.2+.8*sigmoid(g(h)/10))`. Both new arms start with `b=0`
++and the already used constant-paired `D=cI` initialization. They have identical
++initial functions and complete parameter Jacobians, including with a nonzero
++receiving head. The parent lacks the new bias parameter columns. Common
++parameters, buffers and RNG draws must match the current homogeneous parent.
++Use `c=shift+scale/2` in code, rather than a separately rounded constant.
++
++The difference is precisely `(D-cI)b`; its matched-input Jacobian is
++`diag(b) J_s`. At the paired start the difference and its first parameter
++derivatives vanish. An initial tangent-kernel advantage cannot explain an
++affine-versus-static difference. A nonzero trained bias or conditional term
++does not establish that this term caused a training benefit.
++
++For input-frozen D, the affine arm is the K1 step of `z'=DP z+Db`.
++If `Pr=b` is solvable, every Taylor order is a translation of the homogeneous
++solve: `T_K(DP)(h+r)-r`, with a correspondingly shifted controller input.
++The full two-solve/SiLU/LayerNorm network has no established equivalence or
++strict capacity separation. The augmented spectrum adds a zero eigenvalue;
++this does not bound the forcing magnitude or the complete network Jacobian.
++
++## Fixed comparison
++
++Run exactly six arms on Gaussian2D, Ring8 and Product16:
++
++| Label | Model | Change |
++|---|---|---|
++| vector_parent | original vector K1 | Current homogeneous parent |
++| static_bias | same | Add `c*b` in each solve |
++| affine_forcing | same | Add `D(h)*b` in each solve |
++| swiglu_budget | SwiGLU96 | Established smaller generic control |
++| swiglu | SwiGLU128 | Established near-budget generic control |
++| sigmoid_glu | GLU128 | Stage22 known generic control |
++
++Use training seed0, 5,000 updates, batch512, AdamW learning rate3e-4,
++weight decay0, gradient clipping1, the existing cached data banks and pair
++velocity labels, uniform time sampling, the original direct-velocity head,
++and the same non-FFN initialization references. No labels, oracle coefficients,
++rotation, or analytic weights enter training or initialization. Validation uses
++the unchanged native oracle MSE, sliced-W2 and five-time/512-anchor field and
++Jacobian diagnostics; sampling remains Heun32.
++
++Width64/depth3/gate-hidden32 adds 384 parameters in either bias arm, without extra dense MACs.
++The Product16 counts are parent83,664/81,984 MACs, new84,048/81,984,
++SwiGLU128 and GLU128 each83,598/81,792. These are close budgets, not identical
++parameter counts or elapsed time. Rerunning established methods is an exact
++compatibility control, not independent evidence of robustness.
++
++## Registered decision
++
++Evaluate only after all18 cells are terminal and independently audited. For
++either new arm, a practical lead requires all of the following:
++
++1. On at least one nonlinear task, oracle MSE is at least10% below the parent
++   and the better of all three generic controls.
++2. On every task, oracle MSE is no more than5% above the better generic control.
++3. On each nonlinear task, Jacobian error and sliced-W2 are each no more than10%
++   above the best generic control for that metric.
++
++A static arm meeting these conditions is a **BIAS_COMPLETION_LEAD**, which may
++be useful without supporting conditional forcing. An affine arm meeting them
++is a practical bias-completion lead too. Attribute an additional conditional
++mechanism only if affine MSE is at least5% below static on a qualifying nonlinear
++task and no more than5% worse than static on any primary task. Do not promote a
++Gaussian-only improvement, a train-loss gain, active new parameters, or a
++conditional-versus-static gain that still loses to the generic frontier.
++
++These are engineering screening margins on exposed validation data, not a
++statistical significance test. Any lead still needs isolated timing, a fresh
++independent holdout, and nonlinear transfer evidence before architecture
++acceptance. This study alone cannot complete the architecture goal.
++
++## Required evidence and failure boundary
++
++Before launch, verify analytic input/parameter derivatives, whole-model initial
++functions and all parameter responses for the static/affine pair, no-RNG bias
++construction, actual dense MACs, truthful statistics, short full-trainer/resume
++identity, old-family compatibility, config propagation and real monitoring.
++Freeze source, protocol, reviews and plans before exposing the final ready
++receipt; never edit that receipt after it can be consumed.
++
++Save initial and every1,000-update checkpoints, all native trajectories and
++five-time endpoint arrays. Independently replay all18 endpoints and audit
++108 checkpoints/90 arrays, the established generic histories, data RNG pairing,
++and every reported aggregate. Monitor at10s with two one-thread CPU workers and
++idle-sleep prevention; reserve no GPU for this tiny study.
++
++For every original solve log P spectra and actual hidden-input quantities:
++`DPh`, total bias contribution, `c*b`, `(D-cI)b`, the latter's mean and centered
++RMS, input-normalized scales, bias norm and duration summaries. Total first-term
++statistics must include the actual bias. Raw P spectra exclude forcing and
++clock derivatives and cannot certify the full map.
++Also log the analytic local `||diag(b) J_s||_F` contribution; it is zero in the
++static arm and is not the complete network's Jacobian norm.
++
++At each final affine checkpoint, additionally evaluate replacing every
++`D(h)*b` by `c*b` with all trained tensors fixed, on the same five native
++anchor sets. Report original and counterfactual field/Jacobian errors and
++prediction/Jacobian changes. This is an output-dependence diagnostic; the
++separately trained static arm is the training control. A fixed-c replacement
++removes a possible mean shift as well as sample dependence, so do not interpret
++its difference as a pure state-dependence effect.
++
++Failure closes this fixed bias-completeness setting. No K2/order/stage, clock
++range/temperature, forcing strength, initializer, width, head or objective
++rescue is permitted. It does not reopen the rejected forced-gate or state-clock
++families. Submitted Report1 is untouched; the work is local and not pushed.
+--- /dev/null
++++ source/docs/research-architecture-search/affine-forcing-design-review.md
+@@ -0,0 +1,116 @@
++# Affine forcing: one omitted-component falsification
++
++**Conditional GO for at most one bounded bias-completeness comparison, pending the completed Stage22 audit and a separate selection decision.** The question is whether the original bias-free receiving projection omitted a useful component. The existing results do not identify that omission as the cause of the ODE gap. This is familiar conditional-bias algebra, not a newly established ODE mechanism. A useful static-bias result should be retained as bias completion rather than discarded for lacking that mechanism. This review authorizes no implementation or training.
++
++The [prior review](affine-forcing-prior-review.md) establishes that earlier additive-generator, identity-placement and clock experiments did not insert an independent forcing vector. The [posterior-basis review](posterior-basis-design-review.md) explains why population mixture velocities have signed offsets, but neither that formula nor the confident-region error breakdown proves that a hidden bias is missing. Plain GLU already supplies biased value features; its completed result must enter the practical comparison, whichever way that result goes.
++
++## Exact local comparison
++
++Keep vector K1, two original solves with their middle SiLU, width64 and gate-hidden32. Write `s(h)=.2+.8*sigmoid(g(h)/10)`, `D=diag(s)`, and `c=.6`. One solve is
++
++```text
++H(h) = h + D(h)Ph                         homogeneous parent
++A(h) = h + D(h)(Ph+b)                     affine forcing
++B(h) = h + D(h)Ph + c*b                   matched static bias
++A(h)-B(h) = (D(h)-cI)b.
++```
++
++Both new arms learn one independent64-vector b per solve, initialized to zero. P and the existing controller stay independent. Adding b to the frozen internal field `z'=DPz+Db` gives A as its first Euler/Taylor step. This is a change to the professor's homogeneous field, not a correction of a numerical error. Higher orders, state-clock changes and alternate forcing placements are outside this test.
++
++For the same input and shared parameter values, let `J_s=ds/dh`. Exact input derivatives are
++
++```text
++J_H = J_B = I + DP + diag(Ph) J_s
++J_A = I + DP + diag(Ph+b) J_s
++J_A-J_B = diag(b) J_s.
++```
++
++Here `J_B=J_H` is a **same-input local identity**. Two fully composed networks generally feed different inputs to later layers. It is not an equality of their complete velocity Jacobians.
++
++For a receiving loss derivative r at this layer, the parameter differentials are
++
++```text
++dA/db = D,                     dB/db = cI
++dA/dP[dP] = dB/dP[dP] = D*dP*h
++dA/dtheta[dtheta] = diag(Ph+b)*J_s,theta*dtheta
++dB/dtheta[dtheta] = diag(Ph)*J_s,theta*dtheta
++
++grad_b L_A = sum_samples D(h)^T*r(h)
++grad_b L_B = c*sum_samples r(h).
++```
++
++Thus a zero b alone does not pair the new parameter columns if the clocks vary. Require the same constant-clock initialization in all three ODE arms: zero the controller's final affine map, so `D(h)=cI` for every h, and set b=0 without consuming RNG. Then A and B have identical functions, input derivatives and **all** parameter Jacobians. Their complete-network Jacobians and initial Euclidean parameter kernels also agree, including with a shared nonzero output head. Their common old-parameter responses equal H's, but H has no b columns and hence is not a fully kernel-matched comparator. Adding those columns can also affect gradient clipping once their gradients are nonzero.
++
++Near this paired point,
++
++```text
++A-B = (D-cI)b
++    = diag(J_s,theta * delta_theta)*delta_b + higher-order terms.
++```
++
++The first difference is a controller-bias interaction. At b=0 after clocks have moved, the two bias gradients can already differ, while their native outputs and old-parameter responses still agree at matched parameters. The controller's first affine weights initially have zero response because its final weights are zero; the final controller affine parameters need not. A formal zero velocity head hides all backbone responses initially, so it cannot replace the nonzero-head pairing check.
++
++This constant initialization is already used by the established Stage17 `vector_parent`; it is not a proposed new rescue. Stage21 Euler is an algebraic reference with that same initialization. Reuse its evidence only under its recorded state/config/RNG checks, and preserve the reported small finite-arithmetic trajectory differences rather than asserting bit equality from algebra alone. An unrelated native random-clock parent would not be the correct causal control.
++
++## Translation, existing biases and symmetry
++
++If `Pr=b` has a solution, define `z=h+r` and shift the controller to `D_tilde(z)=D(z-r)`. Then
++
++```text
++A(h) = H_tilde(h+r)-r,
++H_tilde(z) = z+D_tilde(z)Pz.
++```
++
++The two-linear controller absorbs the input translation exactly in its first bias. Invertible P always permits this; singular P with b outside its range does not. The same conjugacy holds for every frozen-clock Taylor polynomial or exact affine solve. Affine forcing therefore does not automatically create new internal orbit geometry.
++
++For the two-solve FFN the conjugacy becomes
++
++```text
++T_-r2 H2 T_r2 SiLU T_-r1 H1 T_r1,   T_r(h)=h+r.
++```
++
++Translations appear on both sides of the middle SiLU. One outer FiLM input shift does not remove them. In the actual backbone, LayerNorm, time-conditioned FiLM shifts, controller biases, embeddings and depth already provide substantial offset flexibility. They may make the intervention redundant in practice. Conversely, a proposed single-layer translation does not establish exact equivalence of the complete backbone: arbitrary channel translations do not commute through LayerNorm, SiLU or the outer residual. The isolated homogeneous FFN maps zero to zero while its biased version need not, but FiLM already shifts its input, so that witness proves no complete-network separation.
++
++Ring8 and Product16 are centered symmetric **populations**, so their optimal population velocity is odd. A nonzero global constant drift is not the missing target feature. The proposed branch decomposes as
++
++```text
++D(h)b = c*b + .4*tanh(g(h)/20)*b.
++```
++
++The second term can supply signed variation while the first creates an offset that other parameters may cancel. Learned hidden coordinates need not be centered or odd, and the finite cached target bank is not exactly symmetric. Neither population symmetry nor a large learned b identifies success or failure. The noncentered Gaussian control checks ordinary affine fitting; improvement there alone is insufficient.
++
++The augmented generator `[[DP,Db],[0,0]]` has eigenvalues `spectrum(DP) union {0}`, independent of b. That observation bounds neither forcing magnitude nor the full input derivative above. No stability, invertibility or flow-matching-specific guarantee follows.
++
++## Smallest comparison and practical decision
++
++The three mathematical arms are H, B and A. Keep the same six original P/controller pairs and all backbone tensors, clocks, data, uniform-time pair-velocity loss, head, optimizer and seed0. Allocation of zero b must consume no random draws. Preserve the existing Stage15 hash-bound non-FFN initialization and all training/sampling settings. Do not insert an additional output projection, analytic initialization or teacher information.
++
++Parent and generic counts below were checked with the current native constructors and MAC counter; the unimplemented bias-arm rows add the derived384 parameters:
++
++| Model | 2D parameters | 2D dense MACs | Product16 parameters | Product16 dense MACs |
++|---|---:|---:|---:|---:|
++| Homogeneous vector K1 | 81,858 | 80,192 | 83,664 | 81,984 |
++| Either new bias arm | 82,242 | 80,192 | 84,048 | 81,984 |
++| SwiGLU96 | 69,570 | 67,904 | 71,376 | 69,696 |
++| SwiGLU128 / GLU128 | 81,792 | 80,000 | 83,598 | 81,792 |
++
++Each new arm adds `depth*2*width=384` parameters and no dense matrix MACs. Elementwise work and actual latency still differ. These are close budgets, not exactly matched budgets.
++
++Run the three ODE arms on the existing three tasks: nine ODE cells. Both established SwiGLUs and GLU128 remain mandatory practical comparators. Their already audited trajectories can be hash-bound references if data, objective, backbone initialization, optimizer and sampling contracts are unchanged; a rerun is a compatibility check, not independent evidence. If that reuse cannot be verified, rerun the required controls rather than altering their initialization. The minimal scientific comparison has six model settings; not every immutable reference needs another training execution.
++
++Before any launch, register two separate decisions. Let G be the better of SwiGLU96, SwiGLU128 and GLU128 for the relevant task and metric.
++
++1. **Bias-completion lead:** either A or B must improve primary oracle MSE by at least10% versus H and versus G on the same nonlinear task. On all other tasks its primary MSE must be within5% of G; on both nonlinear tasks its Jacobian error and validation SW2 must each be within10% of the best generic value. A static-bias lead is a useful improvement of the original block, with no conditional-forcing claim.
++2. **Conditional-bias evidence:** A must pass that practical screen, beat B by at least5% primary MSE on the same qualifying nonlinear task, and have no primary regression over5% against B on any task. This distinguishes the trained placement comparison from generic extra bias. It still does not establish ODE uniqueness or a posterior-probability mechanism.
++
++Use the entire fixed-time and task readout, not selected examples or entropy bins. A lead would still require independent evaluation and timing before an architecture claim. If neither bias arm passes the practical screen, stop this setting. If only ordinary bias completion passes, retain that result under its actual interpretation; do not tune A until its conditional story wins. No order, clock range, temperature, initialization, width, head or loss rescue follows failure.
++
++## Measurements that identify the added term
++
++At each existing saved checkpoint and standard fixed-time anchors, record each layer's b, `D*b`, `c*b`, and `delta=(D-cI)b`, with absolute RMS and ratios to input and native increment. Also report the mean and centered RMS of delta across anchors. A nonzero mean can be a constant offset; only its centered component demonstrates state variation on that panel. Record `||diag(b)J_s||_F` analytically alongside native complete-field Jacobian errors. It is a hidden local sensitivity, not a full-model stability certificate.
++
++Prespecify one final-checkpoint intervention: replace every `D*b` by `c*b`, keeping P, all controllers, b and other weights fixed. Recompute the whole downstream network and its input derivative on all standard anchors. Report the velocity/output difference and change in oracle field/Jacobian errors. This measures dependence on the added conditional correction at that trained checkpoint; it is not a lower bound on a retrained static model and cannot be inferred by summing local corrections.
++
++The c-replacement also removes delta's mean. If state variation needs to be separated from that mean, a clearly descriptive supplementary probe can replace `D*b` by each layer's native panel mean `mean(D)*b`, with those means frozen before the intervention. This is an evaluation-panel-dependent constant, not the trained static arm or a new train-time center. Recompute downstream gates and label the use of panel activations. Neither intervention supplies oracle labels or changes training, and neither determines the practical screen after outcomes.
++
++These checks can show whether the added term is present, affects the learned function and accompanies a controlled improvement. They cannot establish that missing forcing caused the old gap, or turn a differential-equation rewriting of a gated bias into a novel mechanism.
+--- /dev/null
++++ source/docs/research-architecture-search/affine-forcing-prior-review.md
+@@ -0,0 +1,71 @@
++# Affine forcing in the original ODELayer: a bias-completeness question
++
++Read-only review, 2026-10-25. Stage22 has been launched; its outcomes are not used here. **Conditional GO for one bounded bias-completeness falsification; NO claim of a new ODE mechanism or selection of implementation/training.** Adding a missing value bias is a distinct, inexpensive axis in the original block. The evidence supports asking whether that omission matters, not expecting it to repair the existing gap. Finish and audit the generic GLU comparison before deciding whether to run this control.
++
++## What has actually been omitted
++
++Current `synthetic/models.py:63` constructs `proj=Linear(width,width,bias=False)`. Its additive-generator branch is `h+cPh+(D-cI)h`; it adds no independent vector. The map/increment and identity-location variants change only the identity terms or shift P by `I/c` at paired initialization. Their production recurrence still applies a bias-free P. Thus these experiments did not test `Ph+b`. Controller biases and the outer FiLM/input/output biases already exist; the complete trained model is not bias-free or forced to vanish at the raw data origin.
++
++Keep both original K1 solves and the intervening SiLU. For each solve compare
++
++```text
++homogeneous: F_hom(h) = h + D(h)Ph
++affine:      F_aff(h) = h + D(h)(Ph+b)
++static bias: F_static(h) = h + D(h)Ph + c*b,       c=.6.
++
++F_aff(h)-F_static(h) = (D(h)-cI)b.
++```
++
++The controlled difference is a state-dependent bias. At `b=0,D=cI`, the two enlarged models share their functions and all parameter Jacobians, including through a nonzero receiving head: the new b-response is `cI` and all old responses agree. Their first difference around this point is a mixed controller–bias term, not an initially larger kernel. The homogeneous parent has fewer parameter columns, so its full kernel need not equal theirs. This pairing requires constant-clock initialization; zero b alone does not suffice with varying clocks.
++
++Each enlarged FFN adds `2d` parameters and no dense MACs. With the current Product16 width64/depth3 setup, the parent has 83,664 parameters/81,984 dense MACs; either addition gives 84,048 parameters. SwiGLU128 and GLU128 have 83,598 parameters/81,792 MACs. These are close budgets, not exactly identical budgets or elapsed times.
++
++## The exact ODE interpretation and coordinate caveat
++
++For fixed input h, freeze D(h). The affine field is `z'=A*z+q`, where `A=DP,q=Db`. Homogeneous augmentation gives `[[A,q],[0,0]]`. Its K1 map is the proposal; its K2 map would be `h+D(Ph+b)+.5*DPD(Ph+b)`. The latter is mathematical context only, not a proposed next arm.
++
++If `Pr=b` has a solution, as it does for invertible P, every Taylor order obeys
++
++```text
++F_aff,K(h) = T_K(D(h)P)*(h+r)-r.
++```
++
++Thus a single affine solve is a translated homogeneous solve with controller `D_tilde(z)=D(z-r)`. The existing controller MLP represents this shift exactly by changing its first bias. This is a learned origin, not intrinsically new orbit geometry. If b lies outside the range of a singular P, that translation is unavailable.
++
++This does not establish whole-backbone equivalence. With translations `T_r(h)=h+r`, the two-solve block becomes
++
++```text
++T_-r2 H2 T_r2 SiLU T_-r1 H1 T_r1.
++```
++
++The internal shifts around SiLU cannot simply be discarded. FiLM can translate the first solve input, but that alone contributes `r+DPr`, rather than the required `Db`; a fixed r does not generally match varying D. The outer residual and LayerNorm also prevent freely moving arbitrary channel translations through the network. Conversely, embeddings, FiLM, controller biases and depth may already synthesize equivalent features. Neither an isolated `F_aff(0)!=0` witness nor failure of this simple reparameterization proves a full-network capacity increase.
++
++The augmented spectrum is `spectrum(DP) union {0}`, independent of b. This gives no forcing-norm bound: P=0 permits arbitrarily large translation. Moreover, the complete input Jacobian gains `diag(b)J_s`, which is absent from frozen-generator spectra. No stability or FM-time guarantee follows.
++
++## Prior art and evidence boundary
++
++This is familiar gated-bias algebra. Shazeer's [GLU Eq.4](https://arxiv.org/html/2002.05202v1#S2) explicitly includes a bias in the value projection. Here `Db=.2b+.8*sigmoid(g(h))*b`: a constant plus gated constant-value features. The two-layer gate, residual structure and composition differ from ordinary GLU, but naming this term affine forcing does not make those features novel.
++
++[FiLM, Section2.1 Eq.2](https://arxiv.org/html/1709.07871v2#S2.SS1) already defines conditional scale plus shift and allows conditioning on the same input. Our outer modulation is time-conditioned, whereas the proposed bias depends on hidden state through D. That distinguishes their placement and conditioning, not the general idea of conditional bias. These are exact relevant precedents; no unrelated recent architecture is needed to justify the algebra.
++
++The population mixture's affine slope plus signed mode offset motivates testing offset features. The registered confident-region excess does **not** identify a missing bias, and its centered population velocity is odd; an uncontrolled constant offset can hurt. Hidden coordinates are learned, so raw-mixture formulas do not identify a hidden forcing vector or justify oracle initialization.
++
++## What one admissible test could establish
++
++If selected later, retain homogeneous vector K1, affine forcing, identically initialized static bias, both established SwiGLU budgets and the known GLU128 control. Preserve objective, paired backbone, clocks, widths and training budget. Adaptive forcing must beat the static-bias control and the practical generic baselines under predefined cross-task/Jacobian/sampling guards. If static bias explains the gain, the result is bias completion; if generic baselines still win, stop. Record actual conditional correction and complete derivatives, without treating a nonzero b as causal proof. Do not follow failure with K2, clock, initialization, width or head rescue. This tests one previously omitted component; it does not reopen the stopped Stage20 gate-response or Stage21 recurrence families.
++
++## Reassessment after Stage22 terminal metrics
++
++Appended 2026-10-25, after the initial review above. The root agent independently checked these terminal summaries; the complete Stage22 audit was still pending at the time of this reassessment. I also read the two terminal `results.json` files directly. The values below preserve their full stored decimal precision for primary validation oracle MSE at step5000; they are not a replacement for checkpoint replay or the completion audit.
++
++| Task | GLU128 | SwiGLU128 |
++|---|---:|---:|
++| Gaussian2D | 0.0037171965837478637 | 0.0039272540807724 |
++| Ring8 | 0.027148163986206054 | 0.015296290397644043 |
++| Product16 | 0.15806039810180664 | 0.09232576999664306 |
++
++Sources: [Gaussian2D/Ring8 terminal results](/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/output/sigmoid_glu_v1_20261025_m1/results.json) and [Product16 terminal results](/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/output/sigmoid_glu_product16_20261025_m1/results.json). The same summaries also show worse GLU Jacobian error and SW2 on both nonlinear tasks. The Gaussian improvement does not satisfy the registered nonlinear-task criterion.
++
++This materially weakens the posterior/sigmoid-basis motivation. It supplies no evidence that missing sigmoid features or a missing signed-offset basis caused the original ODE gap. The remaining **conditional GO is only for one original-bias completeness falsification**: `Ph` omitted an independent value bias while the practical GLU/SwiGLU projections have one, and that omission has never been directly controlled. The full ODE backbone already has other biases; neither its capacity nor the expected sign of this change follows from the omission. Keep the failed GLU visible in the six fixed controls rather than removing it after outcomes.
++
++A static-bias lead could be a useful practical correction to the original block, labeled bias completion. A conditional-forcing interpretation additionally requires improvement over the paired static-bias control and strong generic baselines. This remains distinct from the stopped phi1 and recurrent-clock families, but a follow-up clock/order/width/initialization/forcing-strength rescue after failure would turn it into the unbounded search the review rejects. No implementation or formal training was selected by this reassessment, and no frozen Stage22 document was changed.
+--- /dev/null
++++ source/docs/research-architecture-search/affine-forcing-code-review.md
+@@ -0,0 +1,45 @@
++# Independent affine-forcing code review
++
++Reviewed 2026-10-25 before formal training. **No blocking issue found in the stable implementation, focused tests or registered plans.** The intervention is bias completion in the original K1 block; this review establishes neither an improvement nor a novel ODE mechanism.
++
++## Source and mathematical checks
++
++Compared `synthetic/models.py` with the actual frozen Stage22 source at `/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/source`. The new `forcing_mode` defaults to `none`. That path adds no parameter or RNG draw and preserves the old forward arithmetic. The trainer, diagnostic collector and study runner are byte-identical to that source. Full historical optimizer-trajectory compatibility remains a separate preflight obligation.
++
++For either added mode, each original solve allocates one zero vector without RNG use. The existing K1 computation remains `h+DPh`, followed by exactly `D*b` for conditional forcing or `(shift+scale/2)*b` for static bias. The latter uses the same numerical midpoint as the clock. Both independent solves and their middle SiLU are retained. Whole-model guards require the original vector family, K1, constant-paired initialization and independent original controllers; they reject combinations with changed order, clock range, reparameterization, rate order, solve returns, shared features, additive generator or nondefault spectral cap. No extra dense operator is introduced.
++
++The affine/static pair shares initial functions and **all** parameter responses at `D=cI,b=0`, including under a nonzero receiving head. The old parent has no b columns and is not a fully matched initial kernel. A zero bias with nonconstant clocks is also insufficient to pair the new columns. These distinctions are tested, not hidden by the native zero output head.
++
++The statistics retain homogeneous `DPh` separately and replace the reported first-term RMS with the actual biased increment. Conditional correction, mean and centered RMS describe `(D-cI)b`; static mode reports zero conditional correction. The closed-form local sensitivity is `diag(b)J_s`, with the SiLU controller and outer sigmoid derivatives included. Its scalar/vector broadcasting is correct. Raw/effective P spectrum records still concern P, not an augmented forcing operator or the full velocity Jacobian.
++
++## Independent verification and plans
++
++```text
++/Users/mr.z/ode-workspace-prep/.venv-test/bin/python -m unittest tests.test_affine_forcing -v
++```
++
++**Seven tests passed independently in 0.115 seconds.** Coverage includes exact common tensors/buffers/RNG, executed `F.linear` MACs, every output-coordinate response to every parameter with a nonzero head in float32/float64, active analytic input and parameter derivatives, truthful nonmutating statistics, single-layer translation conjugacy and unsupported-setting rejection. The translation test makes no full-backbone equivalence claim and supplies no training initializer.
++
++An additional active width64/gate32 probe compared the logged local sensitivity against CPU float32 autograd: both gave `0.013011190108954906`. Actual MPS float32 forward/backward and statistics also passed, with finite gradients for all parameters and the same reported norm. This is a focused device check, not a formal MPS training result.
++
++Both task plans and the queue were inspected. They specify exactly six arms across three tasks, seed0, 5,000 updates, two CPU workers and **gate_hidden32** for all original ODE arms. Merging each arm with the actual base configuration reproduces Product16 counts: parent83,664 parameters/81,984 MACs; either bias arm84,048/81,984; SwiGLU96 71,376/69,696; SwiGLU128 and GLU128 each83,598/81,792. Actual functional P work is counted once per K1 solve, rather than relying on a hook for its unused module forward. The budgets are close, not identical.
++
++All18 initialization-reference occurrences were checked against the three actual step-zero checkpoint hashes. No analytic teacher or new initializer enters the plans. The protocol distinguishes a practical static-bias lead from additional conditional-bias evidence, retains the failed generic GLU and fixes the stop rules. Its final fixed-weight conditional-to-static replay is an output-dependence diagnostic, not a retraining result or pure state-variation isolation.
++
++Full trainer/checkpoint/resume compatibility, monitor operation, frozen-runtime integrity and final endpoint/counterfactual audits remain separately required; these seven tests do not certify them. This review performed no formal training and changed no source or frozen runtime.
++
++## Reviewed SHA256 values
++
++| Repository-relative file | SHA256 |
++|---|---|
++| `synthetic/models.py` | `9fe326f400862597ac28a392b797f51b406955fdfaf5d373eed3907e71caf337` |
++| `synthetic/train.py` | `7164d98ea2bd870c8d4fcc98b48d8e9b8938dfa1ac33fa69f708fbdc9766f90b` |
++| `synthetic/diagnostics.py` | `11ecc22b36132680780b52cdfa42e18f8cfb57e60d06a3c47a112ae1a13762c6` |
++| `scripts/run_architecture_study.py` | `57f40bbf6bb91687f41116348c0ba3018ad1e8ea04c33ff0e2a38e8ea37da8d5` |
++| `tests/test_affine_forcing.py` | `b26116ed339658c908b8a291204dc275cc8fbc225279cdfac8bc192759ea0059` |
++| `docs/research-architecture-search/protocol-affine-forcing.md` | `a2c145c90224d2b7dd95cd6d468216b8972e6d9bb5eca4b3598e19c6ad5d03cb` |
++| `docs/research-architecture-search/affine-forcing-design-review.md` | `5115e72e139173158abe3041c2df21b44f477c0584fef1d7efd50bd2fff4c994` |
++| `docs/research-architecture-search/affine-forcing-prior-review.md` | `0a69515ebbbbdac17b033a178bb7bcce03c1d724d68318468f1f37c87ad646d8` |
++| `configs/synthetic/architecture_search/affine_forcing_v1_20261025_m1.json` | `20acdd4bc194f35bbba461fe6a369de5f0c1cbb74258c202dec4f9697aa00990` |
++| `configs/synthetic/architecture_search/affine_forcing_product16_20261025_m1.json` | `72bfefed2835eabb0d33d9695c7c1263ca478a7bcc59cbd08c9beddfa1d83c4d` |
++| `configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json` | `530542c440e2e4c977ca49925fc6fed7309ee0896f537540085b06f4f9475163` |
+--- /dev/null
++++ source/configs/synthetic/architecture_search/affine_forcing_v1_20261025_m1.json
+@@ -0,0 +1,131 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-affine-forcing.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "vector_parent",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "none"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "static_bias",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "static"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "affine_forcing",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "conditional"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "sigmoid_glu",
++      "model": "glu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    }
++  ],
++  "experiment_id": "affine_forcing_v1_20261025_m1",
++  "datasets": [
++    "gaussian_aniso_2d",
++    "gmm_ring8_2d"
++  ]
++}
+--- /dev/null
++++ source/configs/synthetic/architecture_search/affine_forcing_product16_20261025_m1.json
+@@ -0,0 +1,106 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-affine-forcing.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "vector_parent",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "none"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "static_bias",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "static"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "affine_forcing",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "conditional"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "sigmoid_glu",
++      "model": "glu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    }
++  ],
++  "experiment_id": "affine_forcing_product16_20261025_m1",
++  "datasets": [
++    "rotated_product_bimodal_16d"
++  ]
++}
+--- /dev/null
++++ source/configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json
+@@ -0,0 +1,15 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-affine-forcing.md",
++  "seed": 0,
++  "stages": [
++    {
++      "plan": "configs/synthetic/architecture_search/affine_forcing_v1_20261025_m1.json",
++      "output_name": "affine_forcing_v1_20261025_m1"
++    },
++    {
++      "plan": "configs/synthetic/architecture_search/affine_forcing_product16_20261025_m1.json",
++      "output_name": "affine_forcing_product16_20261025_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1"
++    }
++  ]
++}

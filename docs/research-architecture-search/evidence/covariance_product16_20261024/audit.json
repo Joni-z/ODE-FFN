@@ -1,0 +1,165 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T07:29:17.842852+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 6,
+    "total": 6,
+    "active": []
+  },
+  "arrays_checked": 30,
+  "checkpoints_checked": 36,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.2952414192199707,
+      "validation_sw2": 0.11427346616983414,
+      "field_mse": 0.28592379355983705,
+      "jacobian_error": 53.73663247913792,
+      "wall_seconds": 48.25,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.2952414192199707
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "cov_tied",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.3212726921081543,
+      "validation_sw2": 0.09940550476312637,
+      "field_mse": 0.3119978322205846,
+      "jacobian_error": 54.641101142706326,
+      "wall_seconds": 66.78100000000268,
+      "parameters": 71382,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.3212726921081543
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "cov_untied",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.2977323944091797,
+      "validation_sw2": 0.10556888580322266,
+      "field_mse": 0.28848712134517074,
+      "jacobian_error": 51.21012804627244,
+      "wall_seconds": 67.70299999999406,
+      "parameters": 83670,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.2977323944091797
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "cov_linear",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.3059387130737305,
+      "validation_sw2": 0.11090724915266037,
+      "field_mse": 0.29919740743704326,
+      "jacobian_error": 54.090051196334606,
+      "wall_seconds": 62.31199999999808,
+      "parameters": 71382,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.3059387130737305
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.09083060035705566,
+      "validation_sw2": 0.0982232615351677,
+      "field_mse": 0.0879150829759902,
+      "jacobian_error": 22.596273206750002,
+      "wall_seconds": 31.9059999999954,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.09083060035705566
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.10823417320251465,
+      "validation_sw2": 0.09462358802556992,
+      "field_mse": 0.10622378250186419,
+      "jacobian_error": 25.27258671421557,
+      "wall_seconds": 32.89100000000326,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.10823417320251465
+    }
+  ],
+  "plan": {
+    "experiment_id": "covariance_product16_20261024",
+    "protocol": "docs/research-architecture-search/protocol-covariance.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ],
+    "arms": [
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "cov_tied",
+        "model": "ode_covariance",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_covariance_mode": "tied"
+        }
+      },
+      {
+        "label": "cov_untied",
+        "model": "ode_covariance",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_covariance_mode": "untied"
+        }
+      },
+      {
+        "label": "cov_linear",
+        "model": "ode_covariance",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_covariance_mode": "linearized"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

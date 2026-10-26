@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "inputs": 256,
+  "protocol_sha256": "f4c0f987efa469e0e31e19a4430c3da2aa6d69e709632f108d63855bae15f156",
+  "input_sha256": "165f5b96d08ed4414963cccdda8477d5252b2e6c6151989a92bba4defd073643",
+  "checkpoints": {
+    "ode_k2_accumulating_final": {
+      "sha256": "84a5a33733b08bbb2934a2203ea2e7f3e5aff4a93e35cf15d9dcb3055e92a869",
+      "fraction_residual_down_and_error_up": 0.1328125,
+      "residual_name": "next-state change"
+    },
+    "swiglu192_accumulating_final": {
+      "sha256": "765cd8cea1eb59f52083670d66e6be1638b76140e6ba7c052296b9f56985089e",
+      "fraction_residual_down_and_error_up": 0.5390625,
+      "residual_name": "next-state change"
+    },
+    "swiglu128_accumulating_final": {
+      "sha256": "8c239255a90a4c1ae8afe46bd6e3e4739a5e06aa6304e0c62c80e7b3f56a6285",
+      "fraction_residual_down_and_error_up": 0.29296875,
+      "residual_name": "next-state change"
+    },
+    "ode_k2_anchored_final": {
+      "sha256": "a147ae5792a7e0e2878b26c5246adea8289d0bf544076f26c7d88bcc3239e338",
+      "fraction_residual_down_and_error_up": 0.98828125,
+      "residual_name": "fixed-point residual"
+    },
+    "swiglu192_anchored_final": {
+      "sha256": "ccf4a55069d626090e25055894f1cbf6dc04059f08a04cc0f93a23811d6d3b29",
+      "fraction_residual_down_and_error_up": 0.9765625,
+      "residual_name": "fixed-point residual"
+    },
+    "swiglu128_anchored_final": {
+      "sha256": "27476aec1df9cb9f30e4ecb6e98405faf04551b50b85fe19446298579fd82d48",
+      "fraction_residual_down_and_error_up": 0.3203125,
+      "residual_name": "fixed-point residual"
+    }
+  },
+  "script_sha256": "5935574af6712a30e72ee25aac0fa2e798c60644f5d05f51c3dd7a98693c6922",
+  "architecture_nomination": false
+}

@@ -1,0 +1,20 @@
+# Evidence and competing explanations
+
+Existing evidence: paired mean-target supervision leaves an ODE deficit, so conditional-label noise alone is insufficient. Internal covariance/gradient fields were tested previously, but the subsequent gates/composition do not make the complete velocity conservative. Native derivative error is mainly symmetric, so eliminating curl is not established as the main remedy. Frozen final-mean/radial/K2-return deletions also supply no training candidate. Those settings remain stopped.
+
+New question: can explicitly restricting the complete learned velocity to a potential gradient improve fitting/generalization of the unchanged original ODEFFN, relative to applying exactly the same readout to SwiGLU? This is a cold-training inductive-bias test, not a posthoc claim that a harmful frozen ablation cannot retrain.
+
+Rivals: the gradient constraint helps both families equally; ODE retains its feature deficit; nested differentiation worsens training/cost as prior papers suggest; or it improves ODE prediction enough to matter at measured cost. A zero antisymmetric Jacobian verifies the implementation, not quality or an ODE-specific mechanism.
+
+Literature search 2026-10-26: built-in web fallback; queries `"conservative" "diffusion" "energy" architecture 2025 2026`, `"gradient" "potential" "flow matching" architecture`, `"energy-based" "diffusion models" parameterization gradient denoising`, `"conservative" "score" "parameterization" diffusion`. Only primary papers/proceedings support claims. This is a focused methods check, not a systematic review.
+
+- [Du et al., Reduce, Reuse, Recycle, ICML 2023; inspected arXiv v6](https://arxiv.org/html/2302.11552), section 4.2 and appendix D: scalar/DAE/L2/inner-product energy parameterizations; the inner-product gradient includes the transpose input Jacobian. Their 1k-sample ImageNet comparison favors standard unconstrained prediction over the tested energy choices. Relevant negative precedent, not an architecture success claim or novelty source.
+- [Thornton et al., AISTATS 2025 official record](https://proceedings.mlr.press/v258/thornton25a.html), [primary text](https://arxiv.org/html/2502.12786), sections 3.1–3.3 and appendix E.4: energy-model training instability and distillation from pretrained diffusions. The paper's distillation, preconditioning and controllable MCMC methods are not adopted. It supports the feasibility and expected cost/failure risk of a conservative readout, not its superiority in ordinary FM.
+
+The candidate uses a known inner-product potential, with a fixed factor 1/2 to preserve a symmetric homogeneous linear map. There is no novelty claim for energy parameterization or whole-field symmetry. Raw vector-network training targets change implicitly through this architecture; the pair-velocity loss and sampled labels do not change.
+
+All research inputs are the user's authorized local synthetic data and code. No weights, validation examples or unpublished measurements are sent to external services. Workflow skills used: planning-with-files, hypothesis-generation, experimental-design and daily-coding; their source attribution is in the prior normalized-geometry report.
+
+Completed cold-training result: ODE gradient Ring8/Product16 MSE .014462/.037320, versus its unchanged direct parent .032503/.325527. The full generic frontier still prevents nomination. Independent replay passed all21 endpoints, all36 direct-control historical states and all3 actually regenerated input streams. Exact symmetry is verified with a separate complete-Jacobian implementation; it does not establish the causal source of the gain. No formal run was restarted, and no acceptance criterion was changed.
+
+Reporting correction before finalization: two draft Product16 intermediate values had been inferred incorrectly from the plot. They were replaced with the actual saved curve values .450340718 at1000 and .132459030 at2500. Endpoints, raw data, decisions and plots were unaffected. Final prose numbers must come from the exported arrays/tables, not visual estimates.

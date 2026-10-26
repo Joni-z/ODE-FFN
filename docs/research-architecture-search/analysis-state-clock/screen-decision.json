@@ -1,0 +1,44 @@
+{
+  "state": "STOP_SETTING",
+  "candidate": "state_midpoint",
+  "nominated": [],
+  "qualifying_nonlinear_leads": [],
+  "all_primary_within_5pct": false,
+  "nonlinear_Jacobian_SW2_within_10pct": false,
+  "details": {
+    "gaussian_aniso_2d": {
+      "ratio_to_better_of_three_swiglus": {
+        "validation_oracle_mse": 1.1030464031675384,
+        "jacobian_error": 0.7037692722187849,
+        "validation_sw2": 1.1090323111871985
+      },
+      "oracle_ratio_to_ODE_controls": {
+        "state_euler": 1.1485847362023491,
+        "state_frozen": 0.9838395228366201
+      }
+    },
+    "gmm_ring8_2d": {
+      "ratio_to_better_of_three_swiglus": {
+        "validation_oracle_mse": 1.520973734365222,
+        "jacobian_error": 1.927978339543657,
+        "validation_sw2": 1.0989747591498313
+      },
+      "oracle_ratio_to_ODE_controls": {
+        "state_euler": 1.1673698592138508,
+        "state_frozen": 0.9757781213450402
+      }
+    },
+    "rotated_product_bimodal_16d": {
+      "ratio_to_better_of_three_swiglus": {
+        "validation_oracle_mse": 5.474131906104372,
+        "jacobian_error": 3.5690541729346204,
+        "validation_sw2": 1.426248646918586
+      },
+      "oracle_ratio_to_ODE_controls": {
+        "state_euler": 1.206683540059895,
+        "state_frozen": 1.0639923056443679
+      }
+    }
+  },
+  "scope": "Only midpoint is a candidate. Registered engineering screen on exposed validation; no significance, full-flow stability or uniquely ODE mechanism claim. A nominee still requires fresh holdout, transfer and isolated cost checks. Failure stops this setting without rescue."
+}

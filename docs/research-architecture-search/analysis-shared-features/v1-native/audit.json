@@ -1,0 +1,316 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T13:42:42.457134+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 12,
+    "total": 12,
+    "active": []
+  },
+  "arrays_checked": 60,
+  "checkpoints_checked": 72,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.0037715503692626953,
+      "validation_sw2": 0.08478563278913498,
+      "field_mse": 0.0032789291752145905,
+      "jacobian_error": 0.01663770918818248,
+      "wall_seconds": 28.393983707996085,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.0037715503692626953
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.003735927700996399,
+      "validation_sw2": 0.08444467186927795,
+      "field_mse": 0.0032192451386576825,
+      "jacobian_error": 0.015839486151760823,
+      "wall_seconds": 28.537402667105198,
+      "parameters": 82050,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.003735927700996399
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.003821605634689331,
+      "validation_sw2": 0.08480426669120789,
+      "field_mse": 0.0033172451404718016,
+      "jacobian_error": 0.017266703134161017,
+      "wall_seconds": 29.927950457902625,
+      "parameters": 106626,
+      "forward_macs": 104768,
+      "audited_validation_oracle_mse": 0.003821605634689331
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.004188221096992493,
+      "validation_sw2": 0.07506328821182251,
+      "field_mse": 0.0038738760284126456,
+      "jacobian_error": 0.028627656783407108,
+      "wall_seconds": 16.533831709064543,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.004188221096992493
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.0039272540807724,
+      "validation_sw2": 0.07794469594955444,
+      "field_mse": 0.003659149130111561,
+      "jacobian_error": 0.02642254678117243,
+      "wall_seconds": 19.354117083130404,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.0039272540807724
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_large",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.0042083391427993775,
+      "validation_sw2": 0.07720358669757843,
+      "field_mse": 0.003953760137544182,
+      "jacobian_error": 0.027557737915239255,
+      "wall_seconds": 21.648080541053787,
+      "parameters": 106818,
+      "forward_macs": 104768,
+      "audited_validation_oracle_mse": 0.0042083391427993775
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.01992963523864746,
+      "validation_sw2": 0.23470066487789154,
+      "field_mse": 0.016598457981811383,
+      "jacobian_error": 0.8285812947318008,
+      "wall_seconds": 28.716446458827704,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.01992963523864746
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.02620306873321533,
+      "validation_sw2": 0.26150766015052795,
+      "field_mse": 0.024166007118627125,
+      "jacobian_error": 1.1597872791410562,
+      "wall_seconds": 28.513491250108927,
+      "parameters": 82050,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.02620306873321533
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.020539034461975098,
+      "validation_sw2": 0.23749087750911713,
+      "field_mse": 0.017636081464531966,
+      "jacobian_error": 0.7128007202302415,
+      "wall_seconds": 30.08762937504798,
+      "parameters": 106626,
+      "forward_macs": 104768,
+      "audited_validation_oracle_mse": 0.020539034461975098
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.018257763481140138,
+      "validation_sw2": 0.2279478758573532,
+      "field_mse": 0.018921247644792454,
+      "jacobian_error": 0.5087480779630217,
+      "wall_seconds": 16.457304999930784,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.018257763481140138
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.015296290397644043,
+      "validation_sw2": 0.22636014223098755,
+      "field_mse": 0.01444753842958869,
+      "jacobian_error": 0.6246355152293042,
+      "wall_seconds": 19.24358387500979,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.015296290397644043
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_large",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.0154476243019104,
+      "validation_sw2": 0.23354507982730865,
+      "field_mse": 0.013817717844025251,
+      "jacobian_error": 0.5096170606686911,
+      "wall_seconds": 21.16878870804794,
+      "parameters": 106818,
+      "forward_macs": 104768,
+      "audited_validation_oracle_mse": 0.0154476243019104
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-shared-features.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "arms": [
+      {
+        "label": "vector_parent",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_solve_init": "constant_paired",
+          "ode_feature_mode": "independent"
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "vector_shared",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 64,
+          "gate_reference_hidden": 64,
+          "ode_solve_init": "constant_paired",
+          "ode_feature_mode": "shared_projection"
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "vector_untied64",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 64,
+          "gate_reference_hidden": 64,
+          "ode_solve_init": "constant_paired",
+          "ode_feature_mode": "paired_untied"
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "swiglu_large",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 192
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      }
+    ],
+    "experiment_id": "shared_features_v1_20261024_m1",
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

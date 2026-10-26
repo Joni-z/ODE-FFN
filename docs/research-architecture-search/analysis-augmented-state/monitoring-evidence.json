@@ -1,0 +1,226 @@
+[
+  {
+    "study": "augmented_state_v1_20261025_m1",
+    "rows": 18,
+    "first": {
+      "time": "2026-10-24T19:23:35.015664+00:00",
+      "pid": 64841,
+      "cpu_percent": 28.6,
+      "memory_available_gib": 5.2197113037109375,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 12,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T19:26:25.431686+00:00",
+      "pid": 64841,
+      "cpu_percent": 40.6,
+      "memory_available_gib": 5.108154296875,
+      "processes": [
+        {
+          "pid": 64963,
+          "name": "Python",
+          "rss_mib": 287.734375
+        },
+        {
+          "pid": 64966,
+          "name": "Python",
+          "rss_mib": 238.375
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 10,
+      "total": 12,
+      "active": [
+        "gmm_ring8_2d/swiglu",
+        "gmm_ring8_2d/silu128"
+      ],
+      "training": [
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_silu128/gmm_ring8_2d/ffn/seed000",
+          "step": 2500,
+          "oracle_mse": 0.12270850143432617,
+          "complete": false
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_silu128/gaussian_aniso_2d/ffn/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004384110164642334,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_vector_parent/gmm_ring8_2d/ode_vector/seed000",
+          "step": 5000,
+          "oracle_mse": 0.01992963523864746,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_vector_parent/gaussian_aniso_2d/ode_vector/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0037715503692626953,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_lowrank_narrow/gmm_ring8_2d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.03869486846923828,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_lowrank_narrow/gaussian_aniso_2d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004014487338066101,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_lowrank_augmented/gmm_ring8_2d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.03795243377685547,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_lowrank_augmented/gaussian_aniso_2d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.00399228515625,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_lowrank_budget/gmm_ring8_2d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.032344062042236325,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_lowrank_budget/gaussian_aniso_2d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0043021377563476565,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_swiglu/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.015296290397644043,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_v1_20261025_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272540807724,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "minimum_available_gib": 5.0848236083984375,
+    "terminal": {
+      "time": "2026-10-24T19:26:33.630607+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 12,
+      "total": 12,
+      "active": []
+    }
+  },
+  {
+    "study": "augmented_state_product16_20261025_m1",
+    "rows": 10,
+    "first": {
+      "time": "2026-10-24T19:26:35.431599+00:00",
+      "pid": 64972,
+      "cpu_percent": 25.0,
+      "memory_available_gib": 5.3083038330078125,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 6,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T19:28:05.640205+00:00",
+      "pid": 64972,
+      "cpu_percent": 42.5,
+      "memory_available_gib": 5.1914215087890625,
+      "processes": [
+        {
+          "pid": 65011,
+          "name": "Python",
+          "rss_mib": 331.5
+        },
+        {
+          "pid": 65021,
+          "name": "Python",
+          "rss_mib": 154.890625
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 4,
+      "total": 6,
+      "active": [
+        "rotated_product_bimodal_16d/swiglu",
+        "rotated_product_bimodal_16d/silu128"
+      ],
+      "training": [
+        {
+          "run": "runs/augmented_state_product16_20261025_m1_swiglu/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.09232576999664306,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_product16_20261025_m1_silu128/rotated_product_bimodal_16d/ffn/seed000",
+          "step": 3500,
+          "oracle_mse": 0.26205313873291014,
+          "complete": false
+        },
+        {
+          "run": "runs/augmented_state_product16_20261025_m1_lowrank_augmented/rotated_product_bimodal_16d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.3588787010192871,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_product16_20261025_m1_vector_parent/rotated_product_bimodal_16d/ode_vector/seed000",
+          "step": 5000,
+          "oracle_mse": 0.26615519256591796,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_product16_20261025_m1_lowrank_budget/rotated_product_bimodal_16d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.31004601058959963,
+          "complete": true
+        },
+        {
+          "run": "runs/augmented_state_product16_20261025_m1_lowrank_narrow/rotated_product_bimodal_16d/ode_lowrank/seed000",
+          "step": 5000,
+          "oracle_mse": 0.3466693695068359,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "minimum_available_gib": 5.037628173828125,
+    "terminal": {
+      "time": "2026-10-24T19:28:10.729547+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 6,
+      "total": 6,
+      "active": []
+    }
+  }
+]

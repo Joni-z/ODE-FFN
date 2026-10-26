@@ -1,0 +1,19 @@
+param(
+    [string]$Base = 'D:\Research\ODE-FFN',
+    [ValidatePattern('^[A-Za-z0-9_-]+$')]
+    [string]$OutputName = 'clock_20261024'
+)
+$ErrorActionPreference = 'Stop'
+$env:PATH = "$Base\tools\git\cmd;" + $env:PATH
+$env:OMP_NUM_THREADS = '1'
+$env:MKL_NUM_THREADS = '1'
+$env:OPENBLAS_NUM_THREADS = '1'
+$env:PYTHONUNBUFFERED = '1'
+$env:PYTHONUTF8 = '1'
+$process = Start-Process -FilePath "$Base\envs\synthetic\Scripts\python.exe" `
+    -ArgumentList @('-u', "$Base\repo\scripts\run_clock_study.py", '--data-root',
+        "$Base\datasets\synthetic\v1", '--output', "$Base\runs\$OutputName") `
+    -WorkingDirectory "$Base\repo" -NoNewWindow -Wait -PassThru `
+    -RedirectStandardOutput "$Base\logs\$OutputName.out.log" `
+    -RedirectStandardError "$Base\logs\$OutputName.err.log"
+exit $process.ExitCode

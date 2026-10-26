@@ -1,0 +1,67 @@
+[
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "vector_k1",
+    "model": "ode_vector",
+    "step": 5000,
+    "validation_oracle_mse": 0.2952414192199707,
+    "validation_sw2": 0.11427346616983414,
+    "field_mse": 0.28592379355983705,
+    "jacobian_error": 53.73663247913792,
+    "wall_seconds": 45.96899999999732,
+    "parameters": 83664,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "vector_wide",
+    "model": "ode_vector",
+    "step": 5000,
+    "validation_oracle_mse": 0.2928493865966797,
+    "validation_sw2": 0.11359868198633194,
+    "field_mse": 0.283566091801556,
+    "jacobian_error": 53.16720100883511,
+    "wall_seconds": 46.21899999999732,
+    "parameters": 83664,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "swiglu_budget",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.09083060035705566,
+    "validation_sw2": 0.0982232615351677,
+    "field_mse": 0.0879150829759902,
+    "jacobian_error": 22.596273206750002,
+    "wall_seconds": 31.687999999994645,
+    "parameters": 71376,
+    "forward_macs": 69696
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "vector_affine",
+    "model": "ode_vector",
+    "step": 5000,
+    "validation_oracle_mse": 0.3018345420837402,
+    "validation_sw2": 0.11474032700061798,
+    "field_mse": 0.29251627072888675,
+    "jacobian_error": 54.719809513234964,
+    "wall_seconds": 42.312000000005355,
+    "parameters": 83664,
+    "forward_macs": 81984
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "label": "swiglu",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.10823417320251465,
+    "validation_sw2": 0.09462358802556992,
+    "field_mse": 0.10622378250186419,
+    "jacobian_error": 25.27258671421557,
+    "wall_seconds": 29.375,
+    "parameters": 83598,
+    "forward_macs": 81792
+  }
+]

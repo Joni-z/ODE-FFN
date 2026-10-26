@@ -1,0 +1,69 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "state": "PASS",
+      "checkpoint_sha256": "d55ce3ea52a6d0a17fd173969e515ce9c89ebbfe6ebbc8f38beb39259b7a197b",
+      "config_sha256": "c827a001a1f3ae42ca65c9cb51b55e3f95d62fb9e3296239e34fec7554f3c9cd",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_sha256": "6d4f58fa3c5cf93065ed1af37f1b555e842c9707cdaccb96c2119193109cfcca",
+      "panels": 5,
+      "arrays_sha256": {
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gaussian_aniso_2d/common-0.1.npz": "bc4fd3717f03bf00d48875719c10e9b2bd7976cccf03af015238228c82ef6166",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gaussian_aniso_2d/common-0.3.npz": "b546a3e6e92a26443158775b40cb4995a6d54001e64b8b7fed2c9334b712032c",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gaussian_aniso_2d/common-0.5.npz": "8ba9c19d1c2d0324d413c4c11cd755546e201360c61161ebc81eefca11ef161f",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gaussian_aniso_2d/common-0.7.npz": "fd76d121c05f5fca2b6cd7982ec94895cb233496c290919fb05e97b25041f0cc",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gaussian_aniso_2d/common-0.9.npz": "367e6dccb3668c2b83130c5d5a05a2e24d30c068a626b4e3587f2cf6ade0e9c2"
+      },
+      "runtime_buffers_restored": true,
+      "model_tensors_unchanged": true,
+      "maximum_original_prediction_replay_difference": 0.0,
+      "maximum_original_jacobian_replay_difference": 0.0,
+      "scope": "All six Db terms replaced by c*b; downstream gates and complete input Jacobians recomputed. Fixed-checkpoint dependence only, including removal of a possible mean shift. No retraining, sampling or primary uniform-time validation claim."
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "state": "PASS",
+      "checkpoint_sha256": "b5ce13b9ddeeaded0517d064883fa9ae07c63ff6689594da7b10c2525eda89e0",
+      "config_sha256": "c827a001a1f3ae42ca65c9cb51b55e3f95d62fb9e3296239e34fec7554f3c9cd",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_sha256": "63cb7eefa352714477ca7e35d3093b8f45fa764c71b0b5ab918fbb0857b2abf0",
+      "panels": 5,
+      "arrays_sha256": {
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gmm_ring8_2d/common-0.1.npz": "9636b491a8e764c22e08a9e4fdb0d782e52965d957fc51a2f77f0cc8bab1b371",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gmm_ring8_2d/common-0.3.npz": "5f37825543394ff501735990ecaf5755e3811d8c44d7c26341d60f1e9bbc0593",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gmm_ring8_2d/common-0.5.npz": "e23a346386f1ea5083b5f55d2aa6492fbedf29d1960c200dab917d7f004cd1e2",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gmm_ring8_2d/common-0.7.npz": "cf0f5566e06ae7863a43ddb10b88909d184651775aee6c50fcb24c5d53ff9564",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/gmm_ring8_2d/common-0.9.npz": "f1ab30d1c7c2c226251cf391010c9d94befab775db4f4f12eff6ed756835bbeb"
+      },
+      "runtime_buffers_restored": true,
+      "model_tensors_unchanged": true,
+      "maximum_original_prediction_replay_difference": 0.0,
+      "maximum_original_jacobian_replay_difference": 0.0,
+      "scope": "All six Db terms replaced by c*b; downstream gates and complete input Jacobians recomputed. Fixed-checkpoint dependence only, including removal of a possible mean shift. No retraining, sampling or primary uniform-time validation claim."
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "state": "PASS",
+      "checkpoint_sha256": "31195faad3a3d0ebbb64dd46971dde8788f41bb7a63a24777607944a039d7ef7",
+      "config_sha256": "51845ff172a2b67018c563c5410a04a9a2f26fd1a10f4517d334a070539b0c71",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+      "validation_sha256": "8052dc077447c452b80a6821a734ba6416c1fd1d03e14ed623552595068f77a3",
+      "panels": 5,
+      "arrays_sha256": {
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/rotated_product_bimodal_16d/common-0.1.npz": "1e7bdd7dce4ebbe7c3f47fc7de3838e64d186c3803d89e5be15560606249626b",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/rotated_product_bimodal_16d/common-0.3.npz": "3360cf9f050f69a3644b23c18755cd33b09501d50d1144e71bd3156ddfb160a5",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/rotated_product_bimodal_16d/common-0.5.npz": "830ff5aec367096a748db1182cd8257ae977779c501f90234a91873ecaeb6463",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/rotated_product_bimodal_16d/common-0.7.npz": "a04ab6812148c894e2a8a9710bf0d4d6b737c7bf12eb7b5e46751df1f6f27b1a",
+        "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-affine-forcing/affine-to-static-arrays/rotated_product_bimodal_16d/common-0.9.npz": "0d5c15f429356d90e6b14b7ccad7a259947fa69536698b69357e715e0d5fd392"
+      },
+      "runtime_buffers_restored": true,
+      "model_tensors_unchanged": true,
+      "maximum_original_prediction_replay_difference": 0.0,
+      "maximum_original_jacobian_replay_difference": 0.0,
+      "scope": "All six Db terms replaced by c*b; downstream gates and complete input Jacobians recomputed. Fixed-checkpoint dependence only, including removal of a possible mean shift. No retraining, sampling or primary uniform-time validation claim."
+    }
+  ],
+  "total_panels": 15
+}

@@ -1,0 +1,17 @@
+# Notes
+
+Previous goal turn: progress. All62 internal sites were evaluated, all1280 risks independently reconstructed, and the extra4960 hybrid hook/manual tensors checked bitwise. The primary controller-reservoir account failed; no architecture was nominated.
+
+The next test is motivated by exact SiLU/GLU/SwiGLU identities, not a selected activation substitution. Natural images need not be centrally symmetric; the current analytic Product16 evaluation population is. The actual network has clocks, biases, FiLM shifts and normalization, so bias-free formulas are not assumed to describe its learned global field.
+
+Read-only compatibility before the new protocol: the historical sigmoid-GLU replays all five native float64 panels with zero error. Its paired historical Swi128 model and runtime buffers match current Swi128 bitwise. The full key sets will be checked in preflight. No new negative-input or activation-parity outcomes have been inspected.
+
+Current host check: Lenovo and Lenovo-WSL remain offline; no previous local task is alive. Use one CPU thread and no reserved GPU. Preserve all existing artifacts, training seeds and submitted Report1. No external messages or approval are needed for this authorized local diagnosis.
+
+Continuation after the literature request: the previous goal turn made progress by verifying and saving a focused primary-source architecture review. Current direct SSH to Lenovo timed out; a process scan found no architecture-search task alive. Resume this already specified frozen diagnostic locally.
+
+Preflight implementation issue, before negative-input outcomes: recreating a gated product from copied contiguous arrays changed 8 of 21760 float64 entries by at most 1.11e-16 relative to the live strided activation. The native model was unchanged. Capture the reconstructed product from the live gate/value views instead, and retain the bitwise equality requirement. The failed preflight session8337 terminated with exit1; the subsequent run will be a corrected pre-outcome preflight, not a restarted model experiment. A malformed orchestration call also failed before any nested tool executed and was corrected.
+
+Corrected preflight passed all25 native panels, the alias key/value check, seven constructed identities, and positive hook/manual traversals. First frozen main session42094 (PID99775) failed with exit1 after0.051seconds during input binding: the historical GLU summary lives below diagnostics/DATASET/sigmoid_glu, not the study root. No negative inputs, fields, or bootstrap outcomes were evaluated. Preserve that failed root; correct the single metadata path and freeze a new root parity_20261026_v2. Reuse the unchanged successful positive preflight receipt, with its original root retained.
+
+Completed main session69018/PID99806 and independent audit session77905/PID99835 both exited0. The finite-panel nonlinear component explains99.14–100.05% of ODE-minus-Swi error, while the local uniformly-small SiLU departure account fails (eta.531–.993). The GLU control also prevents treating the idealized intrinsic-odd formula as a complete-network ranking. These findings do not select a replacement activation or architecture. The resampled projection ratios have raw percentile intervals below their full-panel estimates; report the unaltered ranges as conditional sensitivity diagnostics, without a calibrated population-coverage claim. No bootstrap rerun or altered decision rule.

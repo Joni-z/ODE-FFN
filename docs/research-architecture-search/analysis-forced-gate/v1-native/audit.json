@@ -1,0 +1,265 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T15:32:28.579558+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 10,
+    "total": 10,
+    "active": []
+  },
+  "arrays_checked": 50,
+  "checkpoints_checked": 60,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.004188221096992493,
+      "validation_sw2": 0.07506328821182251,
+      "field_mse": 0.0038738760284126456,
+      "jacobian_error": 0.028627656783407108,
+      "wall_seconds": 16.96393020800315,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.004188221096992493
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.0039272540807724,
+      "validation_sw2": 0.07794469594955444,
+      "field_mse": 0.003659149130111561,
+      "jacobian_error": 0.02642254678117243,
+      "wall_seconds": 18.88223679200746,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.0039272540807724
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "forced_static",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.0039272863149642945,
+      "validation_sw2": 0.07794560492038727,
+      "field_mse": 0.0036588680431762547,
+      "jacobian_error": 0.026449686689399544,
+      "wall_seconds": 37.454601333942264,
+      "parameters": 82047,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.0039272863149642945
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "forced_k2",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.003924788641929627,
+      "validation_sw2": 0.07797528803348541,
+      "field_mse": 0.0036569345923073053,
+      "jacobian_error": 0.0264728549439562,
+      "wall_seconds": 24.357821041950956,
+      "parameters": 82047,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.003924788641929627
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "forced_exact",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.0039246407270431515,
+      "validation_sw2": 0.07797877490520477,
+      "field_mse": 0.00365692768470179,
+      "jacobian_error": 0.0264779047720742,
+      "wall_seconds": 37.918024957878515,
+      "parameters": 82047,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.0039246407270431515
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.018257763481140138,
+      "validation_sw2": 0.2279478758573532,
+      "field_mse": 0.018921247644792454,
+      "jacobian_error": 0.5087480779630217,
+      "wall_seconds": 16.707904333015904,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.018257763481140138
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.015296290397644043,
+      "validation_sw2": 0.22636014223098755,
+      "field_mse": 0.01444753842958869,
+      "jacobian_error": 0.6246355152293042,
+      "wall_seconds": 19.332138041965663,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.015296290397644043
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "forced_static",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.01529620008468628,
+      "validation_sw2": 0.22672095894813538,
+      "field_mse": 0.014417313584873808,
+      "jacobian_error": 0.6194624876606158,
+      "wall_seconds": 36.35537895793095,
+      "parameters": 82047,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.01529620008468628
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "forced_k2",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.015401098823547362,
+      "validation_sw2": 0.22790221869945526,
+      "field_mse": 0.014527833998942835,
+      "jacobian_error": 0.6117167577835861,
+      "wall_seconds": 23.65169725008309,
+      "parameters": 82047,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.015401098823547362
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "forced_exact",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.015408045578002929,
+      "validation_sw2": 0.2280103713274002,
+      "field_mse": 0.014534653923248889,
+      "jacobian_error": 0.611652585061263,
+      "wall_seconds": 30.981253416044638,
+      "parameters": 82047,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.015408045578002929
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-forced-gate.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "arms": [
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "forced_static",
+        "model": "ode_forced_gate",
+        "options": {
+          "ffn_hidden": 128,
+          "forced_gate_solver": "exact",
+          "forced_gate_clock": "static"
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "forced_k2",
+        "model": "ode_forced_gate",
+        "options": {
+          "ffn_hidden": 128,
+          "forced_gate_solver": "k2",
+          "forced_gate_clock": "adaptive"
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      },
+      {
+        "label": "forced_exact",
+        "model": "ode_forced_gate",
+        "options": {
+          "ffn_hidden": 128,
+          "forced_gate_solver": "exact",
+          "forced_gate_clock": "adaptive"
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      }
+    ],
+    "experiment_id": "forced_gate_v1_20261024_m1",
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

@@ -1,0 +1,83 @@
+{
+  "time": "2026-10-24T08:27:45.308754+00:00",
+  "host": "Lenovo",
+  "python": "3.12.13 (main, Jun 23 2026, 15:23:43) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.8.0+cu126",
+  "device": "cpu",
+  "workers": 2,
+  "plan": {
+    "experiment_id": "clock_coordinates_v1_20261024",
+    "protocol": "docs/research-architecture-search/protocol-clock-coordinates.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "vector_reparam",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_gate_reparam": 8.0
+        }
+      },
+      {
+        "label": "vector_tau",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "tau": 1.25
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  },
+  "source_sha256": {
+    "synthetic\\__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic\\covariance.py": "8361e697c89fdca65d365bdffa7e087d380527bfd519b4199281b6ea1d829f20",
+    "synthetic\\data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5",
+    "synthetic\\diagnostics.py": "f159a8521b980fc6dec7a62252645641a7faa2e8188580e8d349ec18f103e378",
+    "synthetic\\geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic\\grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic\\interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic\\models.py": "9bf55738b9489e87d99c44611c0c24898a880054950cdae84f4d4cb7f51e1066",
+    "synthetic\\population.py": "969ec57cb250b60ccd572c51912c92e8f37f3ee8509ec33d7f8183235df2968f",
+    "synthetic\\prepare.py": "7305828cf15ae5b9b7447a16a170463c7b0b70bf5620ea8a980415331844554c",
+    "synthetic\\train.py": "a162a47e98a618e9e0ff18ef06e82d42b0f30b06cdfe153ac788592ef8fc91d1",
+    "synthetic\\validate.py": "564a2d63584f5f413f04bd10850b04e3fa50f7a613ee878857d9d749cdc99f25",
+    "scripts\\run_architecture_study.py": "ec0fb509d3c9f0f94da2e22d6c7d5e7d06e76cbd0d6e3df69ccf8a5ca064eaf5",
+    "scripts\\check_vector_field.py": "6262f6e6c77d6f5827951a73abcf35781c6019ed851bb8bbc6fa7e83913491c7",
+    "scripts\\check_gate_geometry.py": "d466ef319b26a8967ea913df335fb7f4405b3dc89e9bd7f02632def839628978",
+    "scripts\\run_clock_study.py": "1391b39e058bce2c2e1d58bcf48942b32f1ff41375b02b3ed1388c60029a0f9b",
+    "configs\\synthetic\\architecture_search\\clock_coordinates_v1_20261024.json": "f3ddde18da57077c1f95b3abbd262d604e2097fec85f743fc914f05fdf1f83e3",
+    "docs\\research-architecture-search\\protocol-clock-coordinates.md": "7336c804c5795d470f619f0fd0aa48c50430600a173fd551794f1890fea3a712"
+  },
+  "dataset_manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+}

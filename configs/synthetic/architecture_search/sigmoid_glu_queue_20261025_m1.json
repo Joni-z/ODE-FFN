@@ -1,0 +1,16 @@
+{
+  "seed": 0,
+  "stages": [
+    {
+      "plan": "configs/synthetic/architecture_search/sigmoid_glu_v1_20261025_m1.json",
+      "output_name": "sigmoid_glu_v1_20261025_m1",
+      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/v1"
+    },
+    {
+      "plan": "configs/synthetic/architecture_search/sigmoid_glu_product16_20261025_m1.json",
+      "output_name": "sigmoid_glu_product16_20261025_m1",
+      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1"
+    }
+  ],
+  "protocol": "docs/research-architecture-search/protocol-sigmoid-glu.md"
+}

@@ -1,0 +1,28 @@
+{
+  "state": "PREFLIGHT_PASS_AWAITING_PARENT_REVIEW",
+  "formal_training_started": false,
+  "formal_cells": 18,
+  "runtime": "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source",
+  "launch_command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+    "--plan",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_queue_20261025_m1"
+  ],
+  "cwd": "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "preflight_summary_sha256": "e5e996e184c93efb315540cef36bd5f199b6674ec52023de2a0949bb4c672be8",
+  "source_manifest_sha256": "47e833e60e63c5fffb820ce5939f15ee9f595ba5c5fdc6e5a906ea39fa0dbb5c",
+  "source_delta_sha256": "a24dd761473fd10d52e0f53d84bb633379e8df6f52f96c03a98d92277ae49d3b",
+  "dependency_check_sha256": "9dd113b17ffb365abc5580ea145b717a7b5d3394f406a5e98bfc5cba812c5259"
+}

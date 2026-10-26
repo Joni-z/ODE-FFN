@@ -1,0 +1,62 @@
+{
+  "time": "2026-10-24T14:12:16.534126+00:00",
+  "session_id": 93048,
+  "launch_count": 1,
+  "queue": {
+    "time": "2026-10-24T14:11:53.680272+00:00",
+    "state": "COMPLETE",
+    "completed": 2,
+    "total": 2,
+    "active": null,
+    "pid": 50124
+  },
+  "monitor": {
+    "time": "2026-10-24T14:11:29.917550+00:00",
+    "pid": 50101,
+    "cpu_percent": 40.5,
+    "memory_available_gib": 5.3021392822265625,
+    "processes": [
+      {
+        "pid": 50119,
+        "name": "Python",
+        "rss_mib": 165.0625
+      },
+      {
+        "pid": 50120,
+        "name": "Python",
+        "rss_mib": 85.3125
+      }
+    ],
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 2,
+    "total": 2,
+    "active": [],
+    "training": [
+      {
+        "run": "runs/silu_reference_v1_20261024_m1_ffn_silu/gmm_ring8_2d/ffn/seed000",
+        "step": 5000,
+        "oracle_mse": 0.033713784980773924,
+        "complete": true
+      },
+      {
+        "run": "runs/silu_reference_v1_20261024_m1_ffn_silu/gaussian_aniso_2d/ffn/seed000",
+        "step": 5000,
+        "oracle_mse": 0.004384110164642334,
+        "complete": true
+      }
+    ],
+    "gpu_csv": null,
+    "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+  },
+  "observed_processes": [
+    {
+      "pid": 50119,
+      "status": "exited_after_monitor_sample"
+    },
+    {
+      "pid": 50120,
+      "status": "exited_after_monitor_sample"
+    }
+  ]
+}

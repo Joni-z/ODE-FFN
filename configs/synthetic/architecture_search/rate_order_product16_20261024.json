@@ -1,0 +1,43 @@
+{
+  "protocol": "docs/research-architecture-search/protocol-rate-order.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "arms": [
+    {
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64
+      }
+    },
+    {
+      "label": "vector_before",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_rate_placement": "before_projection"
+      }
+    },
+    {
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      }
+    },
+    {
+      "label": "swiglu",
+      "model": "swiglu"
+    }
+  ],
+  "experiment_id": "rate_order_product16_20261024",
+  "datasets": [
+    "rotated_product_bimodal_16d"
+  ]
+}

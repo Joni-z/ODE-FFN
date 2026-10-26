@@ -1,0 +1,16 @@
+{
+  "experiment_id": "clock_reuse_20261024",
+  "protocol": "docs/research-architecture-search/protocol-clock-reuse.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": ["gaussian_aniso_2d", "gmm_ring8_2d", "gaussian_aniso_16d"],
+  "arms": [
+    {"label": "vector_k1", "model": "ode_vector", "options": {"orders": 1, "gate_hidden": 32, "gate_reference_hidden": 64}},
+    {"label": "vector_tied", "model": "ode_vector", "options": {"orders": 1, "gate_hidden": 32, "gate_reference_hidden": 64, "ode_clock_mode": "tied"}},
+    {"label": "vector_reuse", "model": "ode_vector", "options": {"orders": 1, "gate_hidden": 32, "gate_reference_hidden": 64, "ode_clock_mode": "reuse"}},
+    {"label": "swiglu_budget", "model": "swiglu", "options": {"ffn_hidden": 96}},
+    {"label": "swiglu", "model": "swiglu"}
+  ]
+}

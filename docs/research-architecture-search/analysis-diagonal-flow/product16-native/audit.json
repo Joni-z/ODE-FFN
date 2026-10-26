@@ -1,0 +1,234 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T14:42:37.984824+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 7,
+    "total": 7,
+    "active": []
+  },
+  "arrays_checked": 35,
+  "checkpoints_checked": 42,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "ffn_silu",
+      "model": "ffn",
+      "step": 5000,
+      "validation_oracle_mse": 0.15389219436645507,
+      "validation_sw2": 0.09967787563800812,
+      "field_mse": 0.1487976164277351,
+      "jacobian_error": 33.57752885738769,
+      "wall_seconds": 19.71667108288966,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.15389219436645507
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "diagonal_static",
+      "model": "ode_diagonal",
+      "step": 5000,
+      "validation_oracle_mse": 0.15276343154907226,
+      "validation_sw2": 0.10071952641010284,
+      "field_mse": 0.14692111134985042,
+      "jacobian_error": 33.47517977588808,
+      "wall_seconds": 31.016316582914442,
+      "parameters": 84432,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.15276343154907226
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "diagonal_k1",
+      "model": "ode_diagonal",
+      "step": 5000,
+      "validation_oracle_mse": 0.1618260887145996,
+      "validation_sw2": 0.10307995229959488,
+      "field_mse": 0.15613869050511459,
+      "jacobian_error": 35.40240491257621,
+      "wall_seconds": 32.668346707941964,
+      "parameters": 84432,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.1618260887145996
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "diagonal_k2",
+      "model": "ode_diagonal",
+      "step": 5000,
+      "validation_oracle_mse": 0.16306566162109376,
+      "validation_sw2": 0.10372599214315414,
+      "field_mse": 0.15727133641843477,
+      "jacobian_error": 35.645797610608156,
+      "wall_seconds": 38.69967041700147,
+      "parameters": 84432,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.16306566162109376
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "diagonal_exp",
+      "model": "ode_diagonal",
+      "step": 5000,
+      "validation_oracle_mse": 0.16319260101318359,
+      "validation_sw2": 0.10378696769475937,
+      "field_mse": 0.15739079209261395,
+      "jacobian_error": 35.669586635714225,
+      "wall_seconds": 34.928657667012885,
+      "parameters": 84432,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.16319260101318359
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.10916076774597168,
+      "validation_sw2": 0.09683395177125931,
+      "field_mse": 0.10657170214633323,
+      "jacobian_error": 26.753885256422535,
+      "wall_seconds": 18.283779375022277,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.10916076774597168
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.09232576999664306,
+      "validation_sw2": 0.095721535384655,
+      "field_mse": 0.08892084274503113,
+      "jacobian_error": 23.957834779766767,
+      "wall_seconds": 17.288842833135277,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.09232576999664306
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-diagonal-flow.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "arms": [
+      {
+        "label": "ffn_silu",
+        "model": "ffn",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "diagonal_static",
+        "model": "ode_diagonal",
+        "options": {
+          "ffn_hidden": 128,
+          "diagonal_solver": "k2",
+          "diagonal_clock": "static",
+          "diagonal_beta": 1.0
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "diagonal_k1",
+        "model": "ode_diagonal",
+        "options": {
+          "ffn_hidden": 128,
+          "diagonal_solver": "k1",
+          "diagonal_clock": "adaptive",
+          "diagonal_beta": 1.0
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "diagonal_k2",
+        "model": "ode_diagonal",
+        "options": {
+          "ffn_hidden": 128,
+          "diagonal_solver": "k2",
+          "diagonal_clock": "adaptive",
+          "diagonal_beta": 1.0
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "diagonal_exp",
+        "model": "ode_diagonal",
+        "options": {
+          "ffn_hidden": 128,
+          "diagonal_solver": "exp",
+          "diagonal_clock": "adaptive",
+          "diagonal_beta": 1.0
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      }
+    ],
+    "experiment_id": "diagonal_flow_product16_20261024_m1",
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

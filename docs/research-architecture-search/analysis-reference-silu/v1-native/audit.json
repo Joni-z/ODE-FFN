@@ -1,0 +1,79 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T14:11:29.917168+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 2,
+    "total": 2,
+    "active": []
+  },
+  "arrays_checked": 10,
+  "checkpoints_checked": 12,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "ffn_silu",
+      "model": "ffn",
+      "step": 5000,
+      "validation_oracle_mse": 0.004384110164642334,
+      "validation_sw2": 0.06876803934574127,
+      "field_mse": 0.0036336708520934556,
+      "jacobian_error": 0.02013496245886407,
+      "wall_seconds": 18.01644774992019,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.004384110164642334
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "ffn_silu",
+      "model": "ffn",
+      "step": 5000,
+      "validation_oracle_mse": 0.033713784980773924,
+      "validation_sw2": 0.2722787857055664,
+      "field_mse": 0.025649879352892924,
+      "jacobian_error": 1.260573138650821,
+      "wall_seconds": 17.62636616686359,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.033713784980773924
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-reference-silu.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "experiment_id": "silu_reference_v1_20261024_m1",
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "ffn_silu",
+        "model": "ffn",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "gaussian_aniso_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+          },
+          "gmm_ring8_2d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+          }
+        }
+      }
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

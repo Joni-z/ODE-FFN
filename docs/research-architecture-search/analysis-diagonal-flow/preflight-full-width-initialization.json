@@ -1,0 +1,186 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "ffn_silu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 81858
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "diagonal_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "diagonal_k1",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "diagonal_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "label": "diagonal_exp",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "ffn_silu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 83664
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "diagonal_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "diagonal_k1",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "diagonal_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "label": "diagonal_exp",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": null,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "ffn_silu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 81858
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "diagonal_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "diagonal_k1",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "diagonal_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "label": "diagonal_exp",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 82626
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "ffn_silu",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 83664
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "diagonal_static",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "diagonal_k1",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "diagonal_k2",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "label": "diagonal_exp",
+      "forward_difference": 0.0,
+      "input_jacobian_max_difference": 0.0,
+      "common_projections_buffers_rng_equal": true,
+      "parameters": 84432
+    }
+  ],
+  "construction": "Native float32 initialization, common conversion to probe dtype, then common reference copy."
+}

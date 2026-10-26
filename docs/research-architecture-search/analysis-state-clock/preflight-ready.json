@@ -1,0 +1,31 @@
+{
+  "state": "PREFLIGHT_PASS_AWAITING_PARENT_REVIEW",
+  "formal_training_started": false,
+  "formal_cells": 18,
+  "runtime": "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source",
+  "launch_command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source/scripts/run_architecture_study.py",
+    "--plan",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source/configs/synthetic/architecture_search/state_clock_queue_20261025_m1.json",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_queue_20261025_m1"
+  ],
+  "cwd": "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "psutil": "7.2.2",
+  "memory_available_gib": 4.994598388671875,
+  "preflight_summary_sha256": "7765c28f52f6cd94c4e2e56c36887e06d51551ef5e59dabd12769d3412770559",
+  "source_manifest_sha256": "49c0ea603d96ef26b80542d5a2bd55d01495ea2813bf8d6d9094d1887d90338f",
+  "source_delta_sha256": "f81ed100d07916abbfc8c2f354162b14d668fff18fa32c6923061a7e03ba5d7b"
+}

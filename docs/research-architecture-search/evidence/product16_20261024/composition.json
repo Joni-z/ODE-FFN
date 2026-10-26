@@ -1,0 +1,1149 @@
+{
+  "state": "COMPLETE",
+  "split": "validation",
+  "points": 1024,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9978664517402649,
+      "s_std": 0.0019213252235203981,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.9775390625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.406890869140625,
+      "weak_derivative_fraction": 0.2398681640625,
+      "derivative_quantiles": [
+        -0.09983932226896286,
+        -0.08058273792266846,
+        0.5720707774162292,
+        1.0585403442382812,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.8613877296447754,
+      "s_std": 0.03966500237584114,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.8427717685699463,
+      "s_std": 0.05759096145629883,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.3876800537109375,
+      "weak_derivative_fraction": 0.179290771484375,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        -0.08883072435855865,
+        0.53211510181427,
+        1.0550400018692017,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9874088168144226,
+      "s_std": 0.009370721876621246,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.3544921875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9991432428359985,
+      "s_std": 0.00042526048491708934,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.3103485107421875,
+      "weak_derivative_fraction": 0.1495513916015625,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        -0.08043011277914047,
+        1.0,
+        1.0726139545440674,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.1,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.8891521096229553,
+      "s_std": 0.025412529706954956,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9906039237976074,
+      "s_std": 0.004906317684799433,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.482421875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.0757904052734375,
+      "weak_derivative_fraction": 0.0323486328125,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        0.16927920281887054,
+        1.0175602436065674,
+        1.093464732170105,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.2852921783924103,
+      "s_std": 0.055039916187524796,
+      "low_saturation_fraction": 0.015625,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6074544787406921,
+      "s_std": 0.08973006159067154,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.0545654296875,
+      "weak_derivative_fraction": 0.0192413330078125,
+      "derivative_quantiles": [
+        -0.09983932226896286,
+        0.4210878014564514,
+        1.0280910730361938,
+        1.0966823101043701,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.994933545589447,
+      "s_std": 0.015519239939749241,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.8759765625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9919067621231079,
+      "s_std": 0.0025618900544941425,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.54296875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.13299560546875,
+      "weak_derivative_fraction": 0.1012115478515625,
+      "derivative_quantiles": [
+        -0.09983925521373749,
+        -0.0014161962317302823,
+        1.0051376819610596,
+        1.0841621160507202,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.3,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9999178051948547,
+      "s_std": 0.00015533238183707,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9883215427398682,
+      "s_std": 0.005059665534645319,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.228515625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.115142822265625,
+      "weak_derivative_fraction": 0.069091796875,
+      "derivative_quantiles": [
+        -0.09983929246664047,
+        -0.0031613954342901707,
+        1.0170443058013916,
+        1.0914173126220703,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.23276126384735107,
+      "s_std": 0.03194176033139229,
+      "low_saturation_fraction": 0.4345703125,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.5032769441604614,
+      "s_std": 0.0792384073138237,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.071807861328125,
+      "weak_derivative_fraction": 0.046173095703125,
+      "derivative_quantiles": [
+        -0.09983930736780167,
+        0.37711039185523987,
+        1.0469069480895996,
+        1.0974459648132324,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9985771179199219,
+      "s_std": 0.003880073083564639,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.9580078125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9522985816001892,
+      "s_std": 0.017952602356672287,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1517486572265625,
+      "weak_derivative_fraction": 0.1291046142578125,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        -3.626026682468364e-06,
+        1.0006067752838135,
+        1.0530710220336914,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.5,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9999998807907104,
+      "s_std": 8.33414560474921e-07,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9871745109558105,
+      "s_std": 0.004767719656229019,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.1181640625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1417236328125,
+      "weak_derivative_fraction": 0.0947418212890625,
+      "derivative_quantiles": [
+        -0.09983915835618973,
+        -0.009863946586847305,
+        1.0114829540252686,
+        1.0875887870788574,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.2211461067199707,
+      "s_std": 0.02025267668068409,
+      "low_saturation_fraction": 0.47265625,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.5480398535728455,
+      "s_std": 0.052214350551366806,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.0875091552734375,
+      "weak_derivative_fraction": 0.058868408203125,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        0.35571610927581787,
+        1.0404119491577148,
+        1.0964795351028442,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9997986555099487,
+      "s_std": 0.00043088136590085924,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9532816410064697,
+      "s_std": 0.019358564168214798,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1761322021484375,
+      "weak_derivative_fraction": 0.143463134765625,
+      "derivative_quantiles": [
+        -0.09983928501605988,
+        -1.8955004179588286e-06,
+        1.0001164674758911,
+        1.041153073310852,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.7,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 1.0,
+      "s_std": 4.806923925571027e-08,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.9676891565322876,
+      "s_std": 0.00852989498525858,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1407012939453125,
+      "weak_derivative_fraction": 0.0645294189453125,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        -0.02882727049291134,
+        1.0193430185317993,
+        1.0914332866668701,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.22786398231983185,
+      "s_std": 0.02450246922671795,
+      "low_saturation_fraction": 0.47265625,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.5912746787071228,
+      "s_std": 0.038332756608724594,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.0803375244140625,
+      "weak_derivative_fraction": 0.053863525390625,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        0.25737422704696655,
+        1.0430597066879272,
+        1.0965784788131714,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9998316764831543,
+      "s_std": 0.00036767913843505085,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.97472083568573,
+      "s_std": 0.008600825443863869,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.199859619140625,
+      "weak_derivative_fraction": 0.1538543701171875,
+      "derivative_quantiles": [
+        -0.09983928501605988,
+        -0.00028036197181791067,
+        1.0001006126403809,
+        1.0374219417572021,
+        1.099839210510254
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "time": 0.9,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 1.0,
+      "s_std": 2.099094409402369e-08,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 1.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.7746511101722717,
+      "s_std": 0.23900605738162994,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.1270904541015625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.3344879150390625,
+      "weak_derivative_fraction": 0.1790924072265625,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        -0.08087795972824097,
+        0.8320603370666504,
+        1.0450403690338135,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.755028247833252,
+      "s_std": 0.2911810576915741,
+      "low_saturation_fraction": 0.051666259765625,
+      "high_saturation_fraction": 0.215576171875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6935436725616455,
+      "s_std": 0.20137256383895874,
+      "low_saturation_fraction": 0.00250244140625,
+      "high_saturation_fraction": 0.0
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.2339935302734375,
+      "weak_derivative_fraction": 0.1295013427734375,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        -0.058721743524074554,
+        1.0,
+        1.0667738914489746,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.7662938237190247,
+      "s_std": 0.2941976487636566,
+      "low_saturation_fraction": 0.0158843994140625,
+      "high_saturation_fraction": 0.310638427734375
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6926052570343018,
+      "s_std": 0.2610672414302826,
+      "low_saturation_fraction": 0.0001220703125,
+      "high_saturation_fraction": 0.0728607177734375
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.403167724609375,
+      "weak_derivative_fraction": 0.2143096923828125,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        -0.08355668187141418,
+        0.9292356967926025,
+        1.0191086530685425,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.1,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.76301109790802,
+      "s_std": 0.2776557505130768,
+      "low_saturation_fraction": 0.0420074462890625,
+      "high_saturation_fraction": 0.22344970703125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.7211582660675049,
+      "s_std": 0.18030086159706116,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.009979248046875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.0509490966796875,
+      "weak_derivative_fraction": 0.02581787109375,
+      "derivative_quantiles": [
+        -0.09983933717012405,
+        0.473521888256073,
+        1.019326090812683,
+        1.093248724937439,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.7004427909851074,
+      "s_std": 0.2549431324005127,
+      "low_saturation_fraction": 0.0200958251953125,
+      "high_saturation_fraction": 0.0788726806640625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6901773810386658,
+      "s_std": 0.15820707380771637,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.000732421875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.061859130859375,
+      "weak_derivative_fraction": 0.040252685546875,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        0.5584926605224609,
+        1.0042941570281982,
+        1.082355260848999,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.7920014262199402,
+      "s_std": 0.2432907223701477,
+      "low_saturation_fraction": 0.000213623046875,
+      "high_saturation_fraction": 0.2541961669921875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.8102363348007202,
+      "s_std": 0.204448401927948,
+      "low_saturation_fraction": 0.0017852783203125,
+      "high_saturation_fraction": 0.09600830078125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.108184814453125,
+      "weak_derivative_fraction": 0.0626678466796875,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        -0.0008427355205640197,
+        1.0001187324523926,
+        1.078627347946167,
+        1.099839448928833
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.3,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.8725185394287109,
+      "s_std": 0.21514414250850677,
+      "low_saturation_fraction": 0.0368499755859375,
+      "high_saturation_fraction": 0.347625732421875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6854261159896851,
+      "s_std": 0.22224079072475433,
+      "low_saturation_fraction": 1.52587890625e-05,
+      "high_saturation_fraction": 0.0203094482421875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.0903778076171875,
+      "weak_derivative_fraction": 0.0606231689453125,
+      "derivative_quantiles": [
+        -0.0998389795422554,
+        0.08201972395181656,
+        1.0134458541870117,
+        1.0908149480819702,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.6813464760780334,
+      "s_std": 0.25260016322135925,
+      "low_saturation_fraction": 0.0184783935546875,
+      "high_saturation_fraction": 0.0794830322265625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6976512670516968,
+      "s_std": 0.17293374240398407,
+      "low_saturation_fraction": 4.57763671875e-05,
+      "high_saturation_fraction": 0.0030517578125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.093505859375,
+      "weak_derivative_fraction": 0.0763397216796875,
+      "derivative_quantiles": [
+        -0.09983912855386734,
+        0.07703180611133575,
+        1.0021889209747314,
+        1.0676352977752686,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.8133950233459473,
+      "s_std": 0.22099460661411285,
+      "low_saturation_fraction": 0.001617431640625,
+      "high_saturation_fraction": 0.257598876953125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.8320801258087158,
+      "s_std": 0.23307867348194122,
+      "low_saturation_fraction": 0.0109100341796875,
+      "high_saturation_fraction": 0.171051025390625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.105194091796875,
+      "weak_derivative_fraction": 0.0775604248046875,
+      "derivative_quantiles": [
+        -0.09983932971954346,
+        -1.1062799981642613e-10,
+        1.0000475645065308,
+        1.0327773094177246,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.5,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9248550534248352,
+      "s_std": 0.2052503377199173,
+      "low_saturation_fraction": 0.0391387939453125,
+      "high_saturation_fraction": 0.6566162109375
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6790918707847595,
+      "s_std": 0.2450008988380432,
+      "low_saturation_fraction": 0.0023345947265625,
+      "high_saturation_fraction": 0.0552520751953125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1328277587890625,
+      "weak_derivative_fraction": 0.095458984375,
+      "derivative_quantiles": [
+        -0.09983930736780167,
+        -0.0007154971826821566,
+        1.005138874053955,
+        1.0837907791137695,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.678102433681488,
+      "s_std": 0.2610350549221039,
+      "low_saturation_fraction": 0.0274658203125,
+      "high_saturation_fraction": 0.0929718017578125
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.7068853974342346,
+      "s_std": 0.19042566418647766,
+      "low_saturation_fraction": 3.0517578125e-05,
+      "high_saturation_fraction": 0.00885009765625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1182708740234375,
+      "weak_derivative_fraction": 0.090179443359375,
+      "derivative_quantiles": [
+        -0.09983927011489868,
+        -1.0650779103116292e-07,
+        1.0009870529174805,
+        1.0608220100402832,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.8219863772392273,
+      "s_std": 0.2215508669614792,
+      "low_saturation_fraction": 0.00836181640625,
+      "high_saturation_fraction": 0.2815399169921875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.8377330899238586,
+      "s_std": 0.2471010982990265,
+      "low_saturation_fraction": 0.015380859375,
+      "high_saturation_fraction": 0.254364013671875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.11236572265625,
+      "weak_derivative_fraction": 0.0943450927734375,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        -5.036131017419065e-13,
+        1.0000079870224,
+        1.0339229106903076,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.7,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9319880604743958,
+      "s_std": 0.20210334658622742,
+      "low_saturation_fraction": 0.04962158203125,
+      "high_saturation_fraction": 0.7662811279296875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.0.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.6711565256118774,
+      "s_std": 0.23291517794132233,
+      "low_saturation_fraction": 0.000518798828125,
+      "high_saturation_fraction": 0.02752685546875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.0.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1282196044921875,
+      "weak_derivative_fraction": 0.0860748291015625,
+      "derivative_quantiles": [
+        -0.09983927011489868,
+        -0.0019531252328306437,
+        1.0096795558929443,
+        1.0887730121612549,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.0.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.6651255488395691,
+      "s_std": 0.2440919429063797,
+      "low_saturation_fraction": 0.0106353759765625,
+      "high_saturation_fraction": 0.0626373291015625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.1.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.7032092809677124,
+      "s_std": 0.1814470887184143,
+      "low_saturation_fraction": 0.0,
+      "high_saturation_fraction": 0.0045318603515625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.1.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.11395263671875,
+      "weak_derivative_fraction": 0.088775634765625,
+      "derivative_quantiles": [
+        -0.09983931481838226,
+        -4.632796844816767e-06,
+        1.0017268657684326,
+        1.0627756118774414,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.1.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.8203364014625549,
+      "s_std": 0.21759502589702606,
+      "low_saturation_fraction": 0.0057220458984375,
+      "high_saturation_fraction": 0.2517547607421875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.2.ffn.ode1",
+      "quantity": "clock",
+      "s_mean": 0.8254079818725586,
+      "s_std": 0.23372240364551544,
+      "low_saturation_fraction": 0.0065765380859375,
+      "high_saturation_fraction": 0.163299560546875
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.2.ffn",
+      "quantity": "intermediate_silu",
+      "negative_derivative_fraction": 0.1092987060546875,
+      "weak_derivative_fraction": 0.0897216796875,
+      "derivative_quantiles": [
+        -0.09983932226896286,
+        -1.1714970660214874e-10,
+        1.0000669956207275,
+        1.042982816696167,
+        1.0998393297195435
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "time": 0.9,
+      "block": "blocks.2.ffn.ode2",
+      "quantity": "clock",
+      "s_mean": 0.9292603731155396,
+      "s_std": 0.19536258280277252,
+      "low_saturation_fraction": 0.0350799560546875,
+      "high_saturation_fraction": 0.660888671875
+    }
+  ],
+  "source_sha256": "de6d6302b515d33aa875d4013baf49155a7c000c7d5d53f7d1b4e9066af973af",
+  "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+}

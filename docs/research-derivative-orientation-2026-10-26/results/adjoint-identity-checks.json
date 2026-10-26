@@ -1,0 +1,271 @@
+{
+  "status": "PASS",
+  "layer_parameter_sets": 36,
+  "probe_inputs_per_layer": 3,
+  "scope": "actual learned weights; deterministic algebra probes, not task-quality outcomes",
+  "maximum_forward_error": 4.440892098500626e-16,
+  "maximum_adjoint_error": 1.7763568394002505e-15,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.0.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 3.0531133177191805e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.0.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 3.885780586188048e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.1.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.1.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.579669976578771e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.2.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.996003610813204e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.2.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 6.106226635438361e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.0.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.0.ffn.ode2",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.1.ffn.ode1",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 4.996003610813204e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.1.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.2.ffn.ode1",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 6.661338147750939e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "gradient",
+      "layer": "raw.blocks.2.ffn.ode2",
+      "forward_error": 3.3306690738754696e-16,
+      "adjoint_error": 8.604228440844963e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "gradient",
+      "layer": "raw.blocks.0.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "gradient",
+      "layer": "raw.blocks.0.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 3.885780586188048e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "gradient",
+      "layer": "raw.blocks.1.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 7.494005416219807e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "gradient",
+      "layer": "raw.blocks.1.ffn.ode2",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 7.771561172376096e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "gradient",
+      "layer": "raw.blocks.2.ffn.ode1",
+      "forward_error": 2.7755575615628914e-16,
+      "adjoint_error": 1.7763568394002505e-15
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "gradient",
+      "layer": "raw.blocks.2.ffn.ode2",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 6.661338147750939e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.0.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 2.7755575615628914e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.0.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 5.551115123125783e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.1.ffn.ode1",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 4.579669976578771e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.1.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 6.661338147750939e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.2.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 3.3306690738754696e-16
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.2.ffn.ode2",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.0.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.0.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 5.551115123125783e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.1.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 6.661338147750939e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.1.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.510281037539698e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.2.ffn.ode1",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 6.38378239159465e-16
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "trained": "directional",
+      "layer": "raw.blocks.2.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "directional",
+      "layer": "raw.blocks.0.ffn.ode1",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 5.551115123125783e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "directional",
+      "layer": "raw.blocks.0.ffn.ode2",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 6.106226635438361e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "directional",
+      "layer": "raw.blocks.1.ffn.ode1",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 5.551115123125783e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "directional",
+      "layer": "raw.blocks.1.ffn.ode2",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 4.440892098500626e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "directional",
+      "layer": "raw.blocks.2.ffn.ode1",
+      "forward_error": 4.440892098500626e-16,
+      "adjoint_error": 7.216449660063518e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "trained": "directional",
+      "layer": "raw.blocks.2.ffn.ode2",
+      "forward_error": 2.220446049250313e-16,
+      "adjoint_error": 6.661338147750939e-16
+    }
+  ],
+  "checkpoint_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/gaussian_aniso_2d/ode_k2_gradient/step_0005000.pt": "9d72368effd9972adf482a841c74266583cb793960064682231b3a52e377ce3c",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/gmm_ring8_2d/ode_k2_gradient/step_0005000.pt": "ca0074bb5a10ba76478011ee13659d66c2b1693dbfd07f279d779731f3d86fc2",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/rotated_product_bimodal_16d/ode_k2_gradient/step_0005000.pt": "c83b6e9660054d9d514f7674f86c7992b061afbf1503996648cdf1f1e5524abd",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/derivative_orientation_20261026/output/runs/gaussian_aniso_2d/ode_k2_directional/step_0005000.pt": "6053ac19f9e2343a12e76b812dbd275508202306091e035cc09777f831f12ff8",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/derivative_orientation_20261026/output/runs/gmm_ring8_2d/ode_k2_directional/step_0005000.pt": "df2fe71deabd10ea48b2a909bc5de0c675f0da16384ecff884713ca7d9a2226e",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/derivative_orientation_20261026/output/runs/rotated_product_bimodal_16d/ode_k2_directional/step_0005000.pt": "c8207e17900fa2fed6b1e03d197a02a5320218ea821a13f17567ed466aa702db"
+  },
+  "script_sha256": "d593f96925ed7aacfc7598b04c41f86bb9cb2dd7aaf7634f2dafaf5594e36fe8"
+}

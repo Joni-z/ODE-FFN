@@ -1,0 +1,12 @@
+# Figure catalog
+
+Three PNG/PDF pairs were generated with Matplotlib from audited arrays and exported tables. Every PNG was visually inspected and is readable. No error bars or training replicates are invented.
+
+## clock-approximation
+Purpose: test whether two simplifying descriptions are accurate at actual input states. Rows include all six ODE students and three ODE teachers; columns include every fixed time. Left: anchor-frozen clocks. Right: omission of single-solve Hessian terms vanishing at zero. Values are relative RMS Hessian discrepancies in percent; color is logarithmic. Notice target-dependent behavior and early-time exceptions. Caption must state the complete data prefix is differentiated and the 10% criterion is descriptive. A small value concerns local derivatives at that anchor, not global constant clocks or fitted function risk. This figure rejects a universal frozen-clock or origin explanation.
+
+## data-composed-fit
+Purpose: check whether the local fitting gap appears in derivatives along actual data changes. Six panels fix target and position; each shows all three student families across five times. The y axis is logarithmic relative RMS error of the complete Hessian in physical input coordinates. Straight segments connect fixed-time measurements and are not interpolation evidence. Notice opposite own-family preferences and the remaining ODE gap on SwiGLU targets. Caption must distinguish derivative error from the earlier function-MSE percentages and state the fixed eighty-anchor scope. This supports locating the gap on the data-composed function, without proving an architecture lower bound.
+
+## reduced-local-fit
+Purpose: examine the exact registered reduced-space identity's relevance to target curvature. Frames remove two input clock directions and two output vectors, using the current ODE student only. Each panel shows all three students and states the fraction of teacher local-curvature energy retained. Bar labels are relative RMS error. Notice that the projection retains substantial target response and the current ODE gap. Axes begin at zero but vary by panel. Caption must say this is the local Hessian term, with prefix curvature added separately; the complete-prefix extension is a post-result supplementary table, not the plotted metric. The anchor-dependent frames can change under retraining, so this is not a universal class-capacity certificate.

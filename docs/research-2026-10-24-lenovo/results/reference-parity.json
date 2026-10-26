@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "ode_original",
+    "max_forward_difference": 2.623183927852324e-07,
+    "max_jacobian_difference": 3.361202975948885e-07
+  },
+  {
+    "dataset": "gaussian_aniso_2d",
+    "model": "swiglu",
+    "max_forward_difference": 2.169845352284483e-07,
+    "max_jacobian_difference": 2.2543646105432913e-07
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "ode_original",
+    "max_forward_difference": 9.856325270174437e-06,
+    "max_jacobian_difference": 3.689602695367e-05
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "model": "swiglu",
+    "max_forward_difference": 1.6574418018056036e-06,
+    "max_jacobian_difference": 1.4478396426653717e-05
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "experiment_id": "clock_coordinates_v1_20261024",
+  "protocol": "docs/research-architecture-search/protocol-clock-coordinates.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d"
+  ],
+  "arms": [
+    {
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64
+      }
+    },
+    {
+      "label": "vector_reparam",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_gate_reparam": 8.0
+      }
+    },
+    {
+      "label": "vector_tau",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "tau": 1.25
+      }
+    },
+    {
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      }
+    },
+    {
+      "label": "swiglu",
+      "model": "swiglu"
+    }
+  ]
+}

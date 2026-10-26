@@ -14,7 +14,7 @@ import subprocess
 import time
 import numpy as np
 import torch
-from synthetic.data import GaussianMixture, fm_batch
+from synthetic.data import GaussianMixture,RotatedGaussianMixture,RotatedProductMixture,fm_batch
 from synthetic.diagnostics import collect
 from synthetic.models import VelocityNet
 
@@ -26,6 +26,10 @@ def sha256(path):
 def load_distribution(spec):
     if spec['family'] == 'gaussian_mixture':
         return GaussianMixture(**spec['distribution'])
+    if spec['family'] == 'rotated_gaussian_mixture':
+        return RotatedGaussianMixture(**spec['distribution'])
+    if spec['family'] == 'rotated_product_mixture':
+        return RotatedProductMixture(**spec['distribution'])
     return None
 
 
@@ -46,7 +50,10 @@ def json_line(path, record):
 
 def git_info(root):
     def run(*args):
-        result = subprocess.run(['git','-C',str(root),*args],capture_output=True,text=True)
+        try:
+            result = subprocess.run(['git','-C',str(root),*args],capture_output=True,text=True)
+        except FileNotFoundError:
+            return None
         return result.stdout.strip() if result.returncode == 0 else None
     return {'head':run('rev-parse','HEAD'), 'status':run('status','--short')}
 
@@ -129,21 +136,35 @@ def evaluate(model, fixed, step, train_loss, grad_norm, do_sampling, sample_step
     return record
 
 
-def capture_state(model,optimizer,data_rng,step,config_hash,manifest_hash,identity):
-    return {'model':model.state_dict(),'optimizer':optimizer.state_dict(),'step':step,
+def capture_state(model,optimizer,data_rng,step,config_hash,manifest_hash,identity,training_stream=None):
+    state={'model':model.state_dict(),'optimizer':optimizer.state_dict(),'step':step,
+            'runtime_buffers':{name:value.detach().cpu().clone() for name,value in model.named_buffers()},
             'identity':identity,
             'data_rng':data_rng.get_state(),'torch_rng':torch.get_rng_state(),
             'cuda_rng':torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None,
             'numpy_rng':np.random.get_state(),'python_rng':random.getstate(),
             'config_sha256':config_hash,'dataset_manifest_sha256':manifest_hash}
+    if training_stream is not None:state['training_stream']=dict(training_stream)
+    return state
 
 
-def save_snapshot(directory,model,optimizer,data_rng,step,config_hash,manifest_hash,identity):
+def restore_model(model,state):
+    """Restore weights and nonpersistent constants used by the actual runtime."""
+    model.load_state_dict(state['model'],strict=True)
+    buffers=dict(model.named_buffers())
+    with torch.no_grad():
+        for name,value in state.get('runtime_buffers',{}).items():
+            if name not in buffers or buffers[name].shape!=value.shape:
+                raise ValueError(f'checkpoint runtime buffer mismatch: {name}')
+            buffers[name].copy_(value)
+
+
+def save_snapshot(directory,model,optimizer,data_rng,step,config_hash,manifest_hash,identity,training_stream=None):
     path=directory/f'step_{step:07d}.pt'
     if path.exists():
         raise FileExistsError(f'refusing to overwrite checkpoint: {path}')
     temporary=path.with_suffix('.pt.tmp')
-    torch.save(capture_state(model,optimizer,data_rng,step,config_hash,manifest_hash,identity),temporary)
+    torch.save(capture_state(model,optimizer,data_rng,step,config_hash,manifest_hash,identity,training_stream),temporary)
     os.replace(temporary,path)
     return path
 
@@ -171,10 +192,29 @@ def run(args):
     if device.type=='cuda':
         torch.cuda.manual_seed_all(args.seed)
     model=VelocityNet(dimension,args.model,**cfg['model_options']).to(device)
+    backbone_initialization=None
+    if 'backbone_initialization' in cfg:
+        from synthetic.initialization import copy_common_backbone
+        references=cfg['backbone_initialization']
+        if not isinstance(references,dict) or args.dataset not in references:
+            raise ValueError('missing dataset in backbone_initialization')
+        reference=references[args.dataset]
+        if not isinstance(reference,dict) or set(reference)!={'checkpoint','sha256'}:
+            raise ValueError('backbone initialization requires checkpoint and sha256')
+        backbone_initialization=copy_common_backbone(model,root/Path(reference['checkpoint']),reference['sha256'])
     optimizer=torch.optim.AdamW(model.parameters(),lr=cfg['learning_rate'],weight_decay=cfg['weight_decay'])
     data_rng=torch.Generator(device=device)
     data_rng.manual_seed(args.seed+100000)
     distribution=load_distribution(spec)
+    training_targets=cfg.get('training_targets','bank_pair')
+    if training_targets not in ('bank_pair','population_pair','population_mean'):
+        raise ValueError('unsupported training target law')
+    population=None
+    stream=None
+    if training_targets!='bank_pair':
+        from synthetic.population import PopulationStream,fingerprint_batch
+        population=PopulationStream(distribution,device)
+        stream=dict(mode=training_targets,batches=0,digest=hashlib.sha256(b'').hexdigest())
     train_target=torch.from_numpy(load_targets(folder/'train.npz',dimension)).to(device)
     fixed=fixed_eval_data(folder,distribution,dimension,args.seed,device,
                           cfg['sample_count'],cfg['sliced_directions'],
@@ -199,16 +239,22 @@ def run(args):
                 'dataset_manifest_sha256':manifest_hash,'dataset_specification':spec,
                 'git':git_info(root),'torch_version':torch.__version__,
                 'numpy_version':np.__version__,
+                'runtime_buffers':{name:value.detach().cpu().tolist() for name,value in model.named_buffers()},
                 'source_sha256':{p.name:sha256(p) for p in sorted((root/'synthetic').glob('*.py'))},
                 'train_parameters':cfg}
+    if backbone_initialization is not None:
+        provenance['backbone_initialization']=backbone_initialization
     if args.dry_run:
         model.train()
-        idx=torch.randint(len(train_target),(min(16,cfg['batch_size']),),generator=data_rng,device=device)
-        target=train_target[idx]
+        if population is None:
+            idx=torch.randint(len(train_target),(min(16,cfg['batch_size']),),generator=data_rng,device=device)
+            target=train_target[idx]
+        else:target=population.sample(min(16,cfg['batch_size']),data_rng)
         x0=torch.randn(target.shape,generator=data_rng,device=device)
         t=torch.rand((len(target),1),generator=data_rng,device=device)
         xt=(1-t)*x0+t*target
-        loss=(model(xt,t)-(target-x0)).square().mean()
+        label=population.velocity(xt,t) if training_targets=='population_mean' else target-x0
+        loss=(model(xt,t)-label).square().mean()
         loss.backward()
         if not torch.isfinite(loss) or not all(p.grad is None or torch.isfinite(p.grad).all() for p in model.parameters()):
             raise FloatingPointError('nonfinite dry-run loss or gradient')
@@ -232,7 +278,7 @@ def run(args):
                 checkpoint['dataset_manifest_sha256']!=manifest_hash or
                 checkpoint['identity']!=identity):
             raise ValueError('resume configuration, dataset, model, or seed differs')
-        model.load_state_dict(checkpoint['model'])
+        restore_model(model,checkpoint)
         optimizer.load_state_dict(checkpoint['optimizer'])
         data_rng.set_state(checkpoint['data_rng'])
         torch.set_rng_state(checkpoint['torch_rng'].cpu())
@@ -241,27 +287,42 @@ def run(args):
         np.random.set_state(checkpoint['numpy_rng'])
         random.setstate(checkpoint['python_rng'])
         start_step=checkpoint['step']
+        if stream is not None:
+            stream=checkpoint.get('training_stream')
+            if stream is None or stream['mode']!=training_targets or stream['batches']!=start_step:
+                raise ValueError('missing or incompatible population stream checkpoint')
         if start_step>=steps:
             raise ValueError('resume checkpoint already reached configured steps')
         json_line(run_dir/'resumes.jsonl',{'checkpoint':str(Path(args.resume).resolve()),
-                  'from_step':start_step,'requested_total_steps':steps,'unix_time':time.time()})
+                  'from_step':start_step,'requested_total_steps':steps,'unix_time':time.time(),
+                  'provenance':provenance})
+        (run_dir/'COMPLETE').unlink(missing_ok=True)
     if start_step==0:
         record=evaluate(model,fixed,0,None,None,True,cfg['heun_steps'])
         record['wall_seconds']=0.0
+        if stream is not None:
+            record.update(training_target_mode=training_targets,train_target_mse=None,
+                          training_stream=dict(stream),gradient_clip_fraction=None)
         json_line(run_dir/'metrics.jsonl',record)
-        save_snapshot(checkpoints,model,optimizer,data_rng,0,config_hash,manifest_hash,identity)
+        save_snapshot(checkpoints,model,optimizer,data_rng,0,config_hash,manifest_hash,identity,stream)
     aggregate_loss=0.0
     aggregate_grad=0.0
     aggregate_count=0
+    aggregate_clipped=0
     started=time.monotonic()
     model.train()
     for step in range(start_step+1,steps+1):
-        idx=torch.randint(len(train_target),(cfg['batch_size'],),generator=data_rng,device=device)
-        x1=train_target[idx]
+        if population is None:
+            idx=torch.randint(len(train_target),(cfg['batch_size'],),generator=data_rng,device=device)
+            x1=train_target[idx]
+        else:x1=population.sample(cfg['batch_size'],data_rng)
         x0=torch.randn(x1.shape,generator=data_rng,device=device)
         t=torch.rand((len(x1),1),generator=data_rng,device=device)
         xt=(1-t)*x0+t*x1
-        target_velocity=x1-x0
+        target_velocity=population.velocity(xt,t) if training_targets=='population_mean' else x1-x0
+        if stream is not None:
+            stream['digest']=fingerprint_batch(stream['digest'],x1,x0,t)
+            stream['batches']+=1
         optimizer.zero_grad(set_to_none=True)
         loss=(model(xt,t)-target_velocity).square().mean()
         if not torch.isfinite(loss):
@@ -274,22 +335,30 @@ def run(args):
         aggregate_loss+=float(loss.detach().item())
         aggregate_grad+=float(grad_norm.detach().item())
         aggregate_count+=1
+        if stream is not None:aggregate_clipped+=int(grad_norm>cfg['grad_clip'])
         final=step==steps
         if step%cfg['eval_interval']==0 or final or step in milestones:
-            record=evaluate(model,fixed,step,aggregate_loss/aggregate_count,
+            recorded_pair_loss=None if training_targets=='population_mean' else aggregate_loss/aggregate_count
+            record=evaluate(model,fixed,step,recorded_pair_loss,
                             aggregate_grad/aggregate_count,
                             step%cfg['sample_interval']==0 or final or step in milestones,cfg['heun_steps'])
             record['wall_seconds']=time.monotonic()-started
+            if stream is not None:
+                record.update(training_target_mode=training_targets,train_target_mse=aggregate_loss/aggregate_count,
+                    training_stream=dict(stream),gradient_clip_fraction=aggregate_clipped/aggregate_count)
             json_line(run_dir/'metrics.jsonl',record)
-            print(json.dumps({'dataset':args.dataset,'model':args.model,'seed':args.seed,
+            brief={'dataset':args.dataset,'model':args.model,'seed':args.seed,
                               'step':step,'train_pair_mse':record['train_pair_mse'],
                               'validation_pair_mse':record['validation_pair_mse'],
                               'validation_oracle_mse':record['validation_oracle_mse'],
-                              'sliced_w2':record.get('sample',{}).get('sliced_w2')}),flush=True)
+                              'sliced_w2':record.get('sample',{}).get('sliced_w2')}
+            if stream is not None:brief.update(training_target_mode=training_targets,train_target_mse=record['train_target_mse'])
+            print(json.dumps(brief),flush=True)
             aggregate_loss=aggregate_grad=0.0
             aggregate_count=0
+            aggregate_clipped=0
         if step%cfg['checkpoint_interval']==0 or final or step in milestones:
-            save_snapshot(checkpoints,model,optimizer,data_rng,step,config_hash,manifest_hash,identity)
+            save_snapshot(checkpoints,model,optimizer,data_rng,step,config_hash,manifest_hash,identity,stream)
     (run_dir/'COMPLETE').write_text(f'{steps}\n')
 
 
@@ -297,8 +366,9 @@ def parse_args():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--config',default='configs/synthetic/train_v1.json')
     p.add_argument('--dataset',required=True)
-    p.add_argument('--model',required=True,choices=['ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
-                                                  'ode_fixed','ode_scalar'])
+    p.add_argument('--model',required=True,choices=['ffn','swiglu','glu','ode_original','ode_spectral_cap','ode_time',
+                                                  'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+                                                  'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock','ode_lowrank'])
     p.add_argument('--seed',type=int,required=True)
     p.add_argument('--device',default='auto')
     p.add_argument('--output-root',default='../runs/synthetic')

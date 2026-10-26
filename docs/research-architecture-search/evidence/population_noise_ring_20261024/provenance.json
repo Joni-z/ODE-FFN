@@ -1,0 +1,90 @@
+{
+  "time": "2026-10-24T08:07:45.625116+00:00",
+  "host": "Lenovo",
+  "python": "3.12.13 (main, Jun 23 2026, 15:23:43) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.8.0+cu126",
+  "device": "cpu",
+  "workers": 2,
+  "plan": {
+    "experiment_id": "population_noise_ring_20261024",
+    "protocol": "docs/research-architecture-search/protocol-population-noise.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "vector_pair",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        },
+        "training_targets": "population_pair"
+      },
+      {
+        "label": "vector_mean",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        },
+        "training_targets": "population_mean"
+      },
+      {
+        "label": "swiglu_budget_pair",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "training_targets": "population_pair"
+      },
+      {
+        "label": "swiglu_budget_mean",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "training_targets": "population_mean"
+      },
+      {
+        "label": "swiglu_pair",
+        "model": "swiglu",
+        "options": {},
+        "training_targets": "population_pair"
+      },
+      {
+        "label": "swiglu_mean",
+        "model": "swiglu",
+        "options": {},
+        "training_targets": "population_mean"
+      }
+    ]
+  },
+  "source_sha256": {
+    "synthetic\\__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic\\covariance.py": "8361e697c89fdca65d365bdffa7e087d380527bfd519b4199281b6ea1d829f20",
+    "synthetic\\data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5",
+    "synthetic\\diagnostics.py": "f159a8521b980fc6dec7a62252645641a7faa2e8188580e8d349ec18f103e378",
+    "synthetic\\geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic\\grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic\\interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic\\models.py": "afc33655da4f0b40e97f627460a535b8b5450118c98e8c6c9a3ca150f9fe5089",
+    "synthetic\\population.py": "969ec57cb250b60ccd572c51912c92e8f37f3ee8509ec33d7f8183235df2968f",
+    "synthetic\\prepare.py": "7305828cf15ae5b9b7447a16a170463c7b0b70bf5620ea8a980415331844554c",
+    "synthetic\\train.py": "a162a47e98a618e9e0ff18ef06e82d42b0f30b06cdfe153ac788592ef8fc91d1",
+    "synthetic\\validate.py": "564a2d63584f5f413f04bd10850b04e3fa50f7a613ee878857d9d749cdc99f25",
+    "scripts\\run_architecture_study.py": "ec0fb509d3c9f0f94da2e22d6c7d5e7d06e76cbd0d6e3df69ccf8a5ca064eaf5",
+    "scripts\\check_vector_field.py": "6262f6e6c77d6f5827951a73abcf35781c6019ed851bb8bbc6fa7e83913491c7",
+    "scripts\\check_gate_geometry.py": "d466ef319b26a8967ea913df335fb7f4405b3dc89e9bd7f02632def839628978",
+    "scripts\\run_clock_study.py": "1391b39e058bce2c2e1d58bcf48942b32f1ff41375b02b3ed1388c60029a0f9b",
+    "configs\\synthetic\\architecture_search\\population_noise_ring_20261024.json": "db9f4605478c0e8cbd4776e8f007fd58e8e91c5ebc2350f74e6c76472961c4b9",
+    "docs\\research-architecture-search\\protocol-population-noise.md": "ff6a5fe7a3f2f8d0d54ab61d0ac7c658d9d35e64e79e27f35834480c51610975"
+  },
+  "dataset_manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+}

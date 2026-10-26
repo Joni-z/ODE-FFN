@@ -1,0 +1,79 @@
+{
+  "state": "STOP_BIAS_COMPLETENESS_SETTING",
+  "practical_leads": [],
+  "conditional_bias_evidence": false,
+  "conditional_qualifying_tasks": [],
+  "affine_primary_ratio_to_static": {
+    "gaussian_aniso_2d": 1.000033128469227,
+    "gmm_ring8_2d": 0.9967919806303814,
+    "rotated_product_bimodal_16d": 0.9996039476623189
+  },
+  "decisions": {
+    "static_bias": {
+      "practical_lead": false,
+      "qualifying_nonlinear_tasks": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.0127632114637546,
+            "jacobian_error": 0.8969556070358194,
+            "validation_sw2": 1.151943296257706
+          },
+          "primary_ratio_to_parent": 0.9981677509810211
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.3152601640356019,
+            "jacobian_error": 1.6499024478886584,
+            "validation_sw2": 1.0392490914879111
+          },
+          "primary_ratio_to_parent": 1.0094816677089806
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 2.9155241664448295,
+            "jacobian_error": 2.1096155858785086,
+            "validation_sw2": 1.2337990027185777
+          },
+          "primary_ratio_to_parent": 1.0113573626566508
+        }
+      }
+    },
+    "affine_forcing": {
+      "practical_lead": false,
+      "qualifying_nonlinear_tasks": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.0127967627586398,
+            "jacobian_error": 0.8961784946794852,
+            "validation_sw2": 1.151911957645513
+          },
+          "primary_ratio_to_parent": 0.9982008187506428
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.3110407839532878,
+            "jacobian_error": 1.645454701336222,
+            "validation_sw2": 1.0392409286374649
+          },
+          "primary_ratio_to_parent": 1.0062432309656952
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 2.9143694662831434,
+            "jacobian_error": 2.1084158957818913,
+            "validation_sw2": 1.2343397293502478
+          },
+          "primary_ratio_to_parent": 1.0109568122089396
+        }
+      }
+    }
+  },
+  "architecture_goal_complete": false,
+  "scope": "Engineering screen on exposed validation. A static lead is useful bias completion; conditional evidence additionally requires the registered affine/static contrast. Neither is novel ODE proof, holdout evidence or architecture-goal completion. Failure stops this fixed setting without rescue."
+}

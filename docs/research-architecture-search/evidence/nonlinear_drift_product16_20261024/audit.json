@@ -1,0 +1,167 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T06:19:38.988068+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 6,
+    "total": 6,
+    "active": []
+  },
+  "arrays_checked": 30,
+  "checkpoints_checked": 36,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "linear_reuse",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.30115735931396487,
+      "validation_sw2": 0.11168746650218964,
+      "field_mse": 0.2920544688934358,
+      "jacobian_error": 54.907751439293676,
+      "wall_seconds": 39.79700000000594,
+      "parameters": 71088,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.30115735931396487
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "drift_map",
+      "model": "ode_nonlinear",
+      "step": 5000,
+      "validation_oracle_mse": 0.3045780303955078,
+      "validation_sw2": 0.11678392440080643,
+      "field_mse": 0.2991521869995138,
+      "jacobian_error": 56.86763622355878,
+      "wall_seconds": 38.2190000000046,
+      "parameters": 71088,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.3045780303955078
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "drift_increment",
+      "model": "ode_nonlinear",
+      "step": 5000,
+      "validation_oracle_mse": 0.14813975105285646,
+      "validation_sw2": 0.11522034555673599,
+      "field_mse": 0.1406674921926448,
+      "jacobian_error": 32.21485344343623,
+      "wall_seconds": 34.56199999999808,
+      "parameters": 71088,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.14813975105285646
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "drift_fixed",
+      "model": "ode_nonlinear",
+      "step": 5000,
+      "validation_oracle_mse": 0.15629324798583985,
+      "validation_sw2": 0.11339940130710602,
+      "field_mse": 0.15130969557654567,
+      "jacobian_error": 34.000178084062156,
+      "wall_seconds": 28.281999999999243,
+      "parameters": 58512,
+      "forward_macs": 57408,
+      "audited_validation_oracle_mse": 0.15629324798583985
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.09083060035705566,
+      "validation_sw2": 0.0982232615351677,
+      "field_mse": 0.0879150829759902,
+      "jacobian_error": 22.596273206750002,
+      "wall_seconds": 32.34399999999732,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.09083060035705566
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.10823417320251465,
+      "validation_sw2": 0.09462358802556992,
+      "field_mse": 0.10622378250186419,
+      "jacobian_error": 25.27258671421557,
+      "wall_seconds": 35.95300000000134,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.10823417320251465
+    }
+  ],
+  "plan": {
+    "experiment_id": "nonlinear_drift_product16_20261024",
+    "protocol": "docs/research-architecture-search/protocol-nonlinear-drift.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ],
+    "arms": [
+      {
+        "label": "linear_reuse",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_clock_mode": "reuse"
+        }
+      },
+      {
+        "label": "drift_map",
+        "model": "ode_nonlinear",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_drift_return": "map"
+        }
+      },
+      {
+        "label": "drift_increment",
+        "model": "ode_nonlinear",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_drift_return": "increment"
+        }
+      },
+      {
+        "label": "drift_fixed",
+        "model": "ode_nonlinear",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_drift_return": "increment",
+          "ode_drift_gate": "fixed"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "protocol": "docs/research-architecture-search/protocol-augmented-state.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "arms": [
+    {
+      "label": "vector_parent",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_init": "constant_paired",
+        "ode_feature_mode": "independent",
+        "ode_forcing_mode": "none"
+      },
+      "backbone_initialization": {
+        "rotated_product_bimodal_16d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+        }
+      }
+    },
+    {
+      "label": "lowrank_budget",
+      "model": "ode_lowrank",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_init": "legacy",
+        "lowrank_state_width": 64,
+        "lowrank_rank": 32,
+        "lowrank_gate_hidden": 32
+      },
+      "backbone_initialization": {
+        "rotated_product_bimodal_16d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+        }
+      }
+    },
+    {
+      "label": "lowrank_narrow",
+      "model": "ode_lowrank",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_init": "legacy",
+        "lowrank_state_width": 64,
+        "lowrank_rank": 21,
+        "lowrank_gate_hidden": 21
+      },
+      "backbone_initialization": {
+        "rotated_product_bimodal_16d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+        }
+      }
+    },
+    {
+      "label": "lowrank_augmented",
+      "model": "ode_lowrank",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_init": "legacy",
+        "lowrank_state_width": 128,
+        "lowrank_rank": 21,
+        "lowrank_gate_hidden": 21
+      },
+      "backbone_initialization": {
+        "rotated_product_bimodal_16d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+        }
+      }
+    },
+    {
+      "label": "swiglu",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 128
+      },
+      "backbone_initialization": {
+        "rotated_product_bimodal_16d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+        }
+      }
+    },
+    {
+      "label": "silu128",
+      "model": "ffn",
+      "options": {
+        "ffn_hidden": 128
+      },
+      "backbone_initialization": {
+        "rotated_product_bimodal_16d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+        }
+      }
+    }
+  ],
+  "experiment_id": "augmented_state_product16_20261025_m1",
+  "datasets": [
+    "rotated_product_bimodal_16d"
+  ]
+}

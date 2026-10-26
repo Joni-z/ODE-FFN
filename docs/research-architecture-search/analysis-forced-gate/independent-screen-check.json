@@ -1,0 +1,85 @@
+{
+  "state": "STOP_FAMILY",
+  "decisions": {
+    "forced_k2": {
+      "passes": false,
+      "qualifying_tasks": [],
+      "higher_terms_passes": false,
+      "changes": {
+        "gaussian_aniso_2d": {
+          "oracle_percent_vs_each_swiglu": {
+            "swiglu_budget": -6.289841175100175,
+            "swiglu": -0.06277767600634254
+          },
+          "oracle_percent_vs_static": -0.06359793593735397,
+          "oracle_percent_vs_K2": 0.0,
+          "jacobian_percent_vs_better": 0.19039861373095768,
+          "SW2_percent_vs_better": 3.879392831080719
+        },
+        "gmm_ring8_2d": {
+          "oracle_percent_vs_each_swiglu": {
+            "swiglu_budget": -15.646301150431963,
+            "swiglu": 0.6851885207374231
+          },
+          "oracle_percent_vs_static": 0.6857829936867788,
+          "oracle_percent_vs_K2": 0.0,
+          "jacobian_percent_vs_better": 20.23962040954359,
+          "SW2_percent_vs_better": 0.6812491162397905
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_percent_vs_each_swiglu": {
+            "swiglu_budget": -15.223839504024628,
+            "swiglu": 0.23453653982921097
+          },
+          "oracle_percent_vs_static": 0.1579218323323861,
+          "oracle_percent_vs_K2": 0.0,
+          "jacobian_percent_vs_better": 0.21271921086167822,
+          "SW2_percent_vs_better": 0.09178420095945494
+        }
+      }
+    },
+    "forced_exact": {
+      "passes": false,
+      "qualifying_tasks": [],
+      "higher_terms_passes": false,
+      "changes": {
+        "gaussian_aniso_2d": {
+          "oracle_percent_vs_each_swiglu": {
+            "swiglu_budget": -6.293372862731983,
+            "swiglu": -0.06654404516487356
+          },
+          "oracle_percent_vs_static": -0.06736427418246871,
+          "oracle_percent_vs_K2": -0.003768735082831931,
+          "jacobian_percent_vs_better": 0.209510428196924,
+          "SW2_percent_vs_better": 3.884038073518714
+        },
+        "gmm_ring8_2d": {
+          "oracle_percent_vs_each_swiglu": {
+            "swiglu_budget": -15.6082529280265,
+            "swiglu": 0.7306031557566373
+          },
+          "oracle_percent_vs_static": 0.7311978968464361,
+          "oracle_percent_vs_K2": 0.04510557678485405,
+          "jacobian_percent_vs_better": 20.22700655897531,
+          "SW2_percent_vs_better": 0.7290281231263407
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_percent_vs_each_swiglu": {
+            "swiglu_budget": -15.21489236155682,
+            "swiglu": 0.24511513495983905
+          },
+          "oracle_percent_vs_static": 0.16849234166744775,
+          "oracle_percent_vs_K2": 0.010553842513583156,
+          "jacobian_percent_vs_better": 0.22353589257844142,
+          "SW2_percent_vs_better": 0.06593486824351125
+        }
+      }
+    }
+  },
+  "input_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_v1_20261024_m1/results.json": "0ebbb8d56c7e54dcd7b92fcbf0cb49bd5881bb1e4e2fea9bde51bf3746e0ecae",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_product16_20261024_m1/results.json": "b6ffc858fa6a83067a05dfaa170217f139e27946b8e61ac6d5fadb0728fe3bea"
+  },
+  "script_sha256": "ea858e5c3074fee9809af5b0c16c0e3b1357ea3b82d383a4e43bfb7b78014e0e",
+  "scope": "Independent arithmetic from COMPLETE raw results; integrity requires separate native audits/replays."
+}

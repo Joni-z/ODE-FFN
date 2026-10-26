@@ -1,0 +1,218 @@
+{
+  "state": "PASS",
+  "delta_files_verified": 12,
+  "native_tests": 20,
+  "reference_trajectory": {
+    "state": "PASS",
+    "models": 8,
+    "updates_per_model": 3,
+    "bit_identical": true
+  },
+  "paired_initialization": [
+    {
+      "state": "PASS",
+      "device": "cpu",
+      "rows": [
+        {
+          "model": "ode_original",
+          "pattern": "map_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_original",
+          "pattern": "map_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.220446049250313e-15
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.6645352591003757e-15
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.9976021664879227e-15
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.220446049250313e-15
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.6645352591003757e-15
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.9976021664879227e-15
+        },
+        {
+          "model": "ode_original",
+          "pattern": "map_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_original",
+          "pattern": "map_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.000001430511474609375
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000016689300537109375
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000016689300537109375
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.000001430511474609375
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000016689300537109375
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000016689300537109375
+        }
+      ]
+    },
+    {
+      "state": "PASS",
+      "device": "cuda",
+      "rows": [
+        {
+          "model": "ode_original",
+          "pattern": "map_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_original",
+          "pattern": "map_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.220446049250313e-15
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.6645352591003757e-15
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.6645352591003757e-15
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.220446049250313e-15
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_map",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.6645352591003757e-15
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_increment",
+          "dtype": "torch.float64",
+          "maximum_forward_difference": 2.6645352591003757e-15
+        },
+        {
+          "model": "ode_original",
+          "pattern": "map_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_original",
+          "pattern": "map_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.000001430511474609375
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000013113021850585938
+        },
+        {
+          "model": "ode_original",
+          "pattern": "increment_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000011920928955078125
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "map_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.000001430511474609375
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_map",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000013113021850585938
+        },
+        {
+          "model": "ode_vector",
+          "pattern": "increment_increment",
+          "dtype": "torch.float32",
+          "maximum_forward_difference": 0.0000011920928955078125
+        }
+      ]
+    }
+  ],
+  "scope": "Eight common initial nonzero-head functions; immutable-source CPU/CUDA preflight."
+}

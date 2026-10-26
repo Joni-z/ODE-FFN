@@ -1,0 +1,13 @@
+# Observation and rival explanations
+
+The completed normalized-geometry study verified that uniform shifts at complete FFN outputs are unobservable to the pre-LayerNorm backbone. Its large ODE uniform energy therefore cannot by itself motivate an architecture. Radial removal failed. None of those measurements examined the uniform intermediate state between the two multiplications of a single K2 solve.
+
+The algebra in ../research-normalized-geometry-2026-10-26/mathematics.md identifies a centered rank-one return term in the second solve: a²/2 (CPu)(u^T Pz). Deleting it is equivalent, for the whole normalized function, to replacing that second generator with CP. The first-order centered action is preserved. This is a new internal intervention, distinct from projecting the complete FFN output or changing zero-order identities.
+
+Candidates/rivals: (1) the return path interferes with useful centered feature evolution; (2) it provides useful conditional rank-one feature mixing and its deletion damages the trained predictor; (3) changing a trained operator is disruptive even if a constrained family might retrain; (4) a large local term can cancel another term and is not a measure of task harm. All are hypotheses, not conclusions. No component-magnitude threshold selects a model.
+
+All data and code are the user's authorized local synthetic project. No unpublished checkpoints/data are sent to external AI or web services. Local processing only. The prior literature review supplies the general source boundary; these algebraic identities claim no novelty. Workflow methods: hypothesis-generation, experimental-design, daily-coding, planning-with-files; attribution is documented in the previous report.
+
+Outcome: actual CP-matrix replay and explicit centered rank-one subtraction agree, including complete derivatives. Removing the path worsens each full validation field. No candidate. The preserved pre-outcome protocol has SHA256 44e5a2608de18f3933c8b29355a528aba2c579dbf32694ef31525b44259b2b9c. The 30-file source is frozen separately; raw outputs are terminal and the session exited 0. The analysis report is results/analysis-report.md.
+
+This continuation made concrete progress: completed the prior geometry report, derived a previously untested K2 boundary, and executed its fixed-checkpoint intervention with independent actual-model replay. The previous goal turn also counts as progress because it revised the authoritative literature synthesis and the action it supports. No user confirmation is needed for these authorized local synthetic analyses. Lenovo's continued unavailability is not a blocker while local research work remains.

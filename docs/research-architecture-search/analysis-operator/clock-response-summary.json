@@ -1,0 +1,65 @@
+{
+  "state": "COMPLETE",
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "time": 0.1,
+      "response_rank_max": 6,
+      "actual_error": 0.24431511666274355,
+      "rank_only_floor": 0.025583308717243253,
+      "fixed_response_floor": 0.13490330115654625,
+      "response_floor_share": 0.5521692762988911,
+      "correction_projection_max_error": 9.84455572616838e-16
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "time": 0.3,
+      "response_rank_max": 6,
+      "actual_error": 1.5757628799748455,
+      "rank_only_floor": 0.17742569167982766,
+      "fixed_response_floor": 0.8027447398738693,
+      "response_floor_share": 0.5094324470231738,
+      "correction_projection_max_error": 1.2212453270876722e-15
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "time": 0.5,
+      "response_rank_max": 6,
+      "actual_error": 14.287445986665203,
+      "rank_only_floor": 1.688316563515467,
+      "fixed_response_floor": 8.239338456326212,
+      "response_floor_share": 0.5766837868724874,
+      "correction_projection_max_error": 6.217248937900877e-15
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "time": 0.7,
+      "response_rank_max": 6,
+      "actual_error": 71.71839446357836,
+      "rank_only_floor": 5.210534279682625,
+      "fixed_response_floor": 56.675783236008556,
+      "response_floor_share": 0.790254489938295,
+      "correction_projection_max_error": 3.552713678800501e-15
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "time": 0.9,
+      "response_rank_max": 6,
+      "actual_error": 28.554302801914915,
+      "rank_only_floor": 2.5073550892608982,
+      "fixed_response_floor": 24.389894483946847,
+      "response_floor_share": 0.8541582910688755,
+      "correction_projection_max_error": 2.220446049250313e-15
+    }
+  ],
+  "source_sha256": "0ddcd8253d7b55587c2f06954613b887a895963502855f1222cc07d051398aaf",
+  "rank_summary_sha256": "27b8f620103f35b6bd5b350a616e03aac9a6d98ee0fc28587d5153fae1830c2c",
+  "interpretation": "Fixed weights, clock values and response subspace. Allows arbitrary total clock derivatives; not a retrained-architecture lower bound.",
+  "files_sha256": {
+    "common-0.1.npz": "5467665146578a8033fec2bb389e09a6f23665ad1d7cff814b1e49ff6f459cf8",
+    "common-0.3.npz": "cd39c9e4cb9eb7b3a4f95970c066d3beade556de654135142bf710b09c06effc",
+    "common-0.5.npz": "bda51de2830db219ca0994a5abbd560fde0e44c8af085a5f31def237d0f8822f",
+    "common-0.7.npz": "747d7a169a4475493b68767c9753f027cef066ea403dd82f02f37814c4619190",
+    "common-0.9.npz": "89738587e63e9e80aa51b2df240ddc7d9f728fa5d27faf2e4da6889bcc32b6fd"
+  }
+}

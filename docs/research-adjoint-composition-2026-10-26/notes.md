@@ -1,0 +1,20 @@
+# Evidence and primary-source scope
+
+The previous cold gate-path test is terminal PASS with no extension. Original ODE full/omitted Product16 field errors are.037320394/.064382605, compared to Swi128 .042770378/.175888836 and Swi192 .033825494/.088348247. No useful ODE architecture is established. Frozen sources and submitted Report1 are preserved.
+
+The existing prediction-space experiment is also complete and negative. Its actual report filename is `research-prediction-bridge-2026-10-25/results/results.md`, not analysis-report.md; a lookup of the latter returned no file. The results directory exists and is ignored by the default rg file listing. The protocol already compared x/v heads under the same JiT-style time/loss recipe, so a new head-only rescue would repeat a stopped setting.
+
+## Primary literature
+
+- Chaudhari, Pranav and Moura, *Gradient Networks*, IEEE TSP73:324–339 (2025), https://arxiv.org/html/2404.07361v3, DOI10.1109/TSP.2024.3496692. Full text Sections3–6 reopened. Proposition0.1 gives `W^T sigma(Wx+a)+b` as a gradient when sigma is a gradient activation. The guarantees concern the complete constructed map, not arbitrary compositions of such blocks. Its universal-approximation results have specified function classes and parameterization conditions; they do not predict an ODE-versus-SwiGLU generation gain. This is relevant architecture theory, not a new frontier recommendation.
+- *Generative Associative Memory via Equilibrium Matching*, NFAM workshop at ICLR2026: indexed primary OpenReview PDF discovered. The direct fetch encounters a browser-verification page; no full-text experimental claim from it is used here. It changes the training objective to EqM and is not selected as a JiT/FM architecture experiment. Search-result summaries are not treated as verified main-conference evidence.
+
+Discovery queries include `"Gradient Networks" "GradNet" neural 2024 2025`, `"conservative" "transformer" "gradient" 2025 2026 architecture`, `"gradient network" "flow matching" architecture`, `"ODE" "cotangent" "neural" architecture`, and primary arXiv searches for flow matching/conservative architectures. Generic conservation laws for parameter-training dynamics, outer guidance/control, caching and application-only hits are excluded from this mechanism question.
+
+The next new measurement is an exact cross-block adjoint expansion. It is not a claim that local gradient blocks are impossible or that a large backward component is uniquely responsible for a trained model's accuracy.
+
+Implementation preparation: four focused unit cases pass. They explicitly enumerate all eight residual paths at small width and compare every component and its input/time/parameter loss gradients, not only the sum. A nonuniform output head avoids an accidentally zero normalization readout in the batch test. A patch-format error interrupted one file-add attempt before the script was created or executed; it was corrected, and compilation passed before source freezing. No measurement existed at that point.
+
+Execution42571 completed normally with exit0. PASS on18 learned states,72 partial fields,360 partial panels and360 finite differences. Product16 A-trained ODE degree0/≤1/≤2/full MSE:1.2251205/.9037017/.2026645/.0373204. The corresponding degree2/full ratios for Swi128/192 are5.11/5.20, so the cross-block dependency is not unique to ODE. B-trained cases sometimes improve upon A-evaluation by truncating a component, while remaining poor native candidates. No degree is selected for cold training.
+
+At Product16 t=.5, ODE component skew energies2.39214/.27272/.93222/.25360 cancel to4.94e-30 in the complete sum. The analogous generic cancellations remain visible. The report-only plotter corrects the original colorbar overlap without changing the immutable33-file source or numerical arrays. This goal turn is progress through new mathematical counterexamples and complete saved-weight evidence; no job remains live, Lenovo remains offline, and the goal is neither complete nor blocked.

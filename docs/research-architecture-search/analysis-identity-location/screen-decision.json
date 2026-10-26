@@ -1,0 +1,435 @@
+{
+  "factorial_contrasts": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "family": "scalar",
+      "metric": "validation_oracle_mse",
+      "mm": 0.0038228069067001345,
+      "mi": 0.00377797589302063,
+      "im": 0.0037981343984603883,
+      "ii": 0.00378747775554657,
+      "remove_first": -7.5853228569031615e-06,
+      "remove_second": -2.7743828296661506e-05,
+      "interaction": 3.4174370765686045e-05,
+      "interaction_over_mm": 0.008939601606816582
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "family": "scalar",
+      "metric": "jacobian_error",
+      "mm": 0.01735373269542742,
+      "mi": 0.017877895421312212,
+      "im": 0.018282958172038268,
+      "ii": 0.018449621382918696,
+      "remove_first": 0.0007504757191086654,
+      "remove_second": 0.00034541296838261,
+      "interaction": -0.0003574995150043628,
+      "interaction_over_mm": -0.020600727306267733
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "family": "scalar",
+      "metric": "validation_sw2",
+      "mm": 0.08487337082624435,
+      "mi": 0.08530617505311966,
+      "im": 0.0842176154255867,
+      "ii": 0.08473600447177887,
+      "remove_first": -0.0006129629909992218,
+      "remove_second": 0.0004755966365337372,
+      "interaction": 8.558481931686401e-05,
+      "interaction_over_mm": 0.0010083824700691593
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "family": "vector",
+      "metric": "validation_oracle_mse",
+      "mm": 0.0037715492486953737,
+      "mi": 0.0038605379104614257,
+      "im": 0.0037174794673919677,
+      "ii": 0.0038331832885742188,
+      "remove_first": -4.071220159530646e-05,
+      "remove_second": 0.00010234624147415156,
+      "interaction": 2.6715159416199064e-05,
+      "interaction_over_mm": 0.007083338345758092
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "family": "vector",
+      "metric": "jacobian_error",
+      "mm": 0.016637741816729446,
+      "mi": 0.015710444412963192,
+      "im": 0.01606759040709621,
+      "ii": 0.015350364904924623,
+      "remove_first": -0.0004651154588359019,
+      "remove_second": -0.0008222614529689205,
+      "interaction": 0.00021007190159466615,
+      "interaction_over_mm": 0.012626226798605348
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "family": "vector",
+      "metric": "validation_sw2",
+      "mm": 0.084785595536232,
+      "mi": 0.08437246084213257,
+      "im": 0.08581432700157166,
+      "ii": 0.08477383106946945,
+      "remove_first": 0.0007150508463382721,
+      "remove_second": -0.0007268153131008148,
+      "interaction": -0.0006273612380027771,
+      "interaction_over_mm": -0.00739938469541896
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "scalar",
+      "metric": "validation_oracle_mse",
+      "mm": 0.02508905792236328,
+      "mi": 0.028212643814086915,
+      "im": 0.02463874683380127,
+      "ii": 0.02627034454345703,
+      "remove_first": -0.0011963051795959474,
+      "remove_second": 0.002377591800689697,
+      "interaction": -0.0014919881820678743,
+      "interaction_over_mm": -0.05946768454538031
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "scalar",
+      "metric": "jacobian_error",
+      "mm": 1.024264346457097,
+      "mi": 1.0173590701781956,
+      "im": 0.9659242657432529,
+      "ii": 1.078081914201924,
+      "remove_first": 0.001191381654942092,
+      "remove_second": 0.05262618608988484,
+      "interaction": 0.11906292473757263,
+      "interaction_over_mm": 0.11624237937150511
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "scalar",
+      "metric": "validation_sw2",
+      "mm": 0.2630939483642578,
+      "mi": 0.26903146505355835,
+      "im": 0.2617836892604828,
+      "ii": 0.2548222839832306,
+      "remove_first": -0.007759720087051392,
+      "remove_second": -0.0005119442939758301,
+      "interaction": -0.012898921966552734,
+      "interaction_over_mm": -0.04902781704691272
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "vector",
+      "metric": "validation_oracle_mse",
+      "mm": 0.019929680633544923,
+      "mi": 0.020086033630371095,
+      "im": 0.0205943416595459,
+      "ii": 0.021198120307922362,
+      "remove_first": 0.0008883738517761215,
+      "remove_second": 0.00038006582260131754,
+      "interaction": 0.0004474256515502907,
+      "interaction_over_mm": 0.022450216828723283
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "vector",
+      "metric": "jacobian_error",
+      "mm": 0.8285804962159796,
+      "mi": 0.8286208650663006,
+      "im": 0.8485159370841551,
+      "ii": 0.8206443404610185,
+      "remove_first": 0.00597945813144668,
+      "remove_second": -0.013915613886407774,
+      "interaction": -0.027911965473457534,
+      "interaction_over_mm": -0.03368648622665858
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "vector",
+      "metric": "validation_sw2",
+      "mm": 0.23470087349414825,
+      "mi": 0.2320786863565445,
+      "im": 0.23979772627353668,
+      "ii": 0.24202696979045868,
+      "remove_first": 0.007522568106651306,
+      "remove_second": -0.00019647181034088135,
+      "interaction": 0.004851430654525757,
+      "interaction_over_mm": 0.02067069705493327
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "scalar",
+      "metric": "validation_oracle_mse",
+      "mm": 0.29809590835571287,
+      "mi": 0.2859698310852051,
+      "im": 0.3585286834716797,
+      "ii": 0.35876796798706057,
+      "remove_first": 0.06661545600891117,
+      "remove_second": -0.00594339637756347,
+      "interaction": 0.012365361785888651,
+      "interaction_over_mm": 0.04148115233817055
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "scalar",
+      "metric": "jacobian_error",
+      "mm": 53.9493937747002,
+      "mi": 52.95717781736157,
+      "im": 62.97545259383012,
+      "ii": 63.46633957119941,
+      "remove_first": 9.767610286483883,
+      "remove_second": -0.2506644899846684,
+      "interaction": 1.4831029347079223,
+      "interaction_over_mm": 0.027490632070891405
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "scalar",
+      "metric": "validation_sw2",
+      "mm": 0.1253615766763687,
+      "mi": 0.11620759218931198,
+      "im": 0.122565858066082,
+      "ii": 0.13221199810504913,
+      "remove_first": 0.00660434365272522,
+      "remove_second": 0.0002460777759552002,
+      "interaction": 0.018800124526023865,
+      "interaction_over_mm": 0.1499671990769384
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "vector",
+      "metric": "validation_oracle_mse",
+      "mm": 0.26615522079467774,
+      "mi": 0.2007340358734131,
+      "im": 0.20802594528198243,
+      "ii": 0.1680495361328125,
+      "remove_first": -0.04540688762664795,
+      "remove_second": -0.05269879703521728,
+      "interaction": 0.025444775772094724,
+      "interaction_over_mm": 0.0956012649164744
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "vector",
+      "metric": "jacobian_error",
+      "mm": 50.00192584807856,
+      "mi": 39.955128460632764,
+      "im": 40.98668718264645,
+      "ii": 35.394134204220606,
+      "remove_first": -6.788116460922133,
+      "remove_second": -7.819675182935818,
+      "interaction": 4.45424440901995,
+      "interaction_over_mm": 0.08908145703334173
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "vector",
+      "metric": "validation_sw2",
+      "mm": 0.12064617872238159,
+      "mi": 0.12465418130159378,
+      "im": 0.11950759589672089,
+      "ii": 0.1106857880949974,
+      "remove_first": -0.00755348801612854,
+      "remove_second": -0.0024069026112556458,
+      "interaction": -0.012829810380935669,
+      "interaction_over_mm": -0.10634245126369307
+    }
+  ],
+  "state": "STOP",
+  "selected": null,
+  "eligible": [],
+  "comparisons": {
+    "scalar_mi": {
+      "parent": "scalar_mm",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.00377797589302063,
+          "forward_macs": 80576,
+          "oracle_over_parent": 0.9882727496382487,
+          "oracle_over_better_swiglu": 0.9618113946343443,
+          "jacobian_over_better_swiglu": 0.7580727417321478,
+          "sw2_over_better_swiglu": 1.1192937977818245
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.028212643814086915,
+          "forward_macs": 80576,
+          "oracle_over_parent": 1.1244999274739371,
+          "oracle_over_better_swiglu": 1.8580269523338424,
+          "jacobian_over_better_swiglu": 2.58411129969126,
+          "sw2_over_better_swiglu": 1.1677269697684098
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.2859698310852051,
+          "forward_macs": 82368,
+          "oracle_over_parent": 0.9593215574900211,
+          "oracle_over_better_swiglu": 3.1483864464294617,
+          "jacobian_over_better_swiglu": 2.3436244257102583,
+          "sw2_over_better_swiglu": 1.2281038440215295
+        }
+      }
+    },
+    "scalar_im": {
+      "parent": "scalar_mm",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.0037981343984603883,
+          "forward_macs": 80576,
+          "oracle_over_parent": 0.9935459705808045,
+          "oracle_over_better_swiglu": 0.9669434232072571,
+          "jacobian_over_better_swiglu": 0.7752485346753379,
+          "sw2_over_better_swiglu": 1.105010915694395
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.02463874683380127,
+          "forward_macs": 80576,
+          "oracle_over_parent": 0.9820514947211062,
+          "oracle_over_better_swiglu": 1.6226574152570077,
+          "jacobian_over_better_swiglu": 2.4534659226225073,
+          "sw2_over_better_swiglu": 1.1362681095093539
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.3585286834716797,
+          "forward_macs": 82368,
+          "oracle_over_parent": 1.202729300946504,
+          "oracle_over_better_swiglu": 3.947223535485852,
+          "jacobian_over_better_swiglu": 2.786984031287866,
+          "sw2_over_better_swiglu": 1.2952992020653593
+        }
+      }
+    },
+    "scalar_ii": {
+      "parent": "scalar_mm",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.00378747775554657,
+          "forward_macs": 80576,
+          "oracle_over_parent": 0.9907583218258699,
+          "oracle_over_better_swiglu": 0.9642304147410055,
+          "jacobian_over_better_swiglu": 0.7823155207070046,
+          "sw2_over_better_swiglu": 1.1118126465641665
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.02627034454345703,
+          "forward_macs": 80576,
+          "oracle_over_parent": 1.047083737649663,
+          "oracle_over_better_swiglu": 1.7301110994946005,
+          "jacobian_over_better_swiglu": 2.738348473163967,
+          "sw2_over_better_swiglu": 1.1060522361054113
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.35876796798706057,
+          "forward_macs": 82368,
+          "oracle_over_parent": 1.2035320107746958,
+          "oracle_over_better_swiglu": 3.9498579396892834,
+          "jacobian_over_better_swiglu": 2.808708276382524,
+          "sw2_over_better_swiglu": 1.3972414369799822
+        }
+      }
+    },
+    "vector_mi": {
+      "parent": "vector_mm",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.0038605379104614257,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0235947235202707,
+          "oracle_over_better_swiglu": 0.9828303453601167,
+          "jacobian_over_better_swiglu": 0.6661667600856431,
+          "sw2_over_better_swiglu": 1.1070426269303848
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.020086033630371095,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0078452334335455,
+          "oracle_over_better_swiglu": 1.3228250459844868,
+          "jacobian_over_better_swiglu": 2.10471268536754,
+          "sw2_over_better_swiglu": 1.0073339975790927
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.2007340358734131,
+          "forward_macs": 81984,
+          "oracle_over_parent": 0.7541991296434759,
+          "oracle_over_better_swiglu": 2.2099824848049705,
+          "jacobian_over_better_swiglu": 1.7682176213331184,
+          "sw2_over_better_swiglu": 1.3173689975475118
+        }
+      }
+    },
+    "vector_im": {
+      "parent": "vector_mm",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.0037174794673919677,
+          "forward_macs": 80192,
+          "oracle_over_parent": 0.9856637742906024,
+          "oracle_over_better_swiglu": 0.9464099857445235,
+          "jacobian_over_better_swiglu": 0.6813107486027881,
+          "sw2_over_better_swiglu": 1.1259612087151936
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.0205943416595459,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0333503099333283,
+          "oracle_over_better_swiglu": 1.3563011719554567,
+          "jacobian_over_better_swiglu": 2.1552465449619747,
+          "sw2_over_better_swiglu": 1.0408383725784862
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.20802594528198243,
+          "forward_macs": 81984,
+          "oracle_over_parent": 0.7815963356302582,
+          "oracle_over_better_swiglu": 2.2902628020097975,
+          "jacobian_over_better_swiglu": 1.8138693406487414,
+          "sw2_over_better_swiglu": 1.2629789082234615
+        }
+      }
+    },
+    "vector_ii": {
+      "parent": "vector_mm",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.0038331832885742188,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0163418361566312,
+          "oracle_over_better_swiglu": 0.9758663022396632,
+          "jacobian_over_better_swiglu": 0.6508983823785581,
+          "sw2_over_better_swiglu": 1.1123089655722558
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.021198120307922362,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0636457601955973,
+          "oracle_over_better_swiglu": 1.3960647974178468,
+          "jacobian_over_better_swiglu": 2.0844521618523135,
+          "sw2_over_better_swiglu": 1.0505143700547404
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.1680495361328125,
+          "forward_macs": 81984,
+          "oracle_over_parent": 0.6313967301902085,
+          "oracle_over_better_swiglu": 1.850142303058757,
+          "jacobian_over_better_swiglu": 1.566370431104878,
+          "sw2_over_better_swiglu": 1.1697483725208881
+        }
+      }
+    }
+  },
+  "audit_inputs_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/identity_location_20261024/small-output/identity_location_product16_20261024/audit/audit.json": "f5cd3fda5353daa1f5cb904808a2ea0f012ce7c01dfefed1f09244be640ac4d6",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/identity_location_20261024/small-output/identity_location_v1_20261024/audit/audit.json": "b3e6e7ec64a2cd7a73b6512286eed87b5163e2cf9e4fedbc3d071f816a0c67c5"
+  },
+  "script_sha256": "8ca805a39f4b09276cab510dd532ce628725dab1fa829cc006d8ef8df576038b",
+  "scope": "Predeclared practical screen, not an inferential test or full architecture completion."
+}

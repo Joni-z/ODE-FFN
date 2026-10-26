@@ -1,0 +1,13 @@
+{
+  "state": "PASS",
+  "delta_files_verified": 11,
+  "native_tests": 16,
+  "reference_models": 3,
+  "reference_updates_per_model": 3,
+  "reference_bit_identical": true,
+  "cuda": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "cuda_check": "new candidate forward and backward finite",
+  "D_free_bytes": 605683421184,
+  "transcript": "...............Prepared gaussian_aniso_2d: train=64, validation=64, test=64\r\n{\"dataset\": \"gaussian_aniso_2d\", \"model\": \"ode_original\", \"seed\": 11, \"step\": 1, \"train_pair_mse\": 3.5804805755615234, \"validation_pair_mse\": 3.4630069732666016, \"validation_oracle_mse\": 1.8975001573562622, \"sliced_w2\": null}\r\n{\"dataset\": \"gaussian_aniso_2d\", \"model\": \"ode_original\", \"seed\": 11, \"step\": 2, \"train_pair_mse\": 4.45302152633667, \"validation_pair_mse\": 3.459541082382202, \"validation_oracle_mse\": 1.8940318822860718, \"sliced_w2\": 1.1712696552276611}\r\n{\"dataset\": \"gaussian_aniso_2d\", \"model\": \"ode_original\", \"seed\": 11, \"step\": 3, \"train_pair_mse\": 5.271498203277588, \"validation_pair_mse\": 3.4563241004943848, \"validation_oracle_mse\": 1.8908190727233887, \"sliced_w2\": 1.1703693866729736}\r\n{\"dataset\": \"gaussian_aniso_2d\", \"model\": \"ode_original\", \"seed\": 11, \"step\": 1, \"train_pair_mse\": 3.5804805755615234, \"validation_pair_mse\": 3.4630069732666016, \"validation_oracle_mse\": 1.8975001573562622, \"sliced_w2\": null}\r\n{\"dataset\": \"gaussian_aniso_2d\", \"model\": \"ode_original\", \"seed\": 11, \"step\": 2, \"train_pair_mse\": 4.45302152633667, \"validation_pair_mse\": 3.459541082382202, \"validation_oracle_mse\": 1.8940318822860718, \"sliced_w2\": 1.1712696552276611}\r\n{\"dataset\": \"gaussian_aniso_2d\", \"model\": \"ode_original\", \"seed\": 11, \"step\": 3, \"train_pair_mse\": 5.271498203277588, \"validation_pair_mse\": 3.4563241004943848, \"validation_oracle_mse\": 1.8908190727233887, \"sliced_w2\": 1.1703693866729736}\r\n.\r\n----------------------------------------------------------------------\r\nRan 16 tests in 0.790s\r\n\r\nOK\r\n{\"state\": \"PASS\", \"models\": 3, \"updates_per_model\": 3, \"bit_identical\": true}\r\n{'device': 'NVIDIA GeForce RTX 4060 Laptop GPU', 'state': 'RATE_BEFORE_CUDA_FORWARD_BACKWARD_PASS'}\r\n{\"Name\":\"D\",\"Free\":605683421184}\r\nPREFLIGHT_PASS_TRAINING_NOT_STARTED\r\n",
+  "scope": "Native deployment preflight only. Formal experiments remain training seed0; legacy temporary resume-test fixture is not an experimental run."
+}

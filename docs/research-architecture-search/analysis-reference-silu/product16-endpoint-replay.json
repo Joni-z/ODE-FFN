@@ -1,0 +1,20 @@
+{
+  "state": "PASS",
+  "final_checkpoints_reloaded": 1,
+  "validation_fields_replayed": 5,
+  "maximum_forward_difference": 0.0,
+  "maximum_derivative_difference": 0.0,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "scope": "Final common-validation velocity/Jacobian fields. No training, sampling-trajectory, or fresh-holdout replay.",
+  "script_sha256": "142bbe47e3ddf7f25befb1f0eda3b67d187122505805fcf94d4a5c62477640b7",
+  "files_sha256": {
+    "runs/silu_reference_product16_20261024_m1_ffn_silu/rotated_product_bimodal_16d/ffn/seed000/checkpoints/step_0005000.pt": "a6ab0b731523397724e3a1bef13235ff3e83831ea22b255973d228f40d2143e4",
+    "diagnostics/rotated_product_bimodal_16d/ffn_silu/common-0.1.npz": "c03d22dc8cb12e53f8d89eba378bde7eac8230ad0973d96b55eb4c4442e38aac",
+    "diagnostics/rotated_product_bimodal_16d/ffn_silu/common-0.3.npz": "56cd5204c857f9f9070d08cb60d00b9da3cb6268d73bc166f6de0aa66950679a",
+    "diagnostics/rotated_product_bimodal_16d/ffn_silu/common-0.5.npz": "f1915ff3c0d8bb0e4b559491f80d2929ec9560856ef0c52d055b593344457f2d",
+    "diagnostics/rotated_product_bimodal_16d/ffn_silu/common-0.7.npz": "7e352256313d3ea93c0d93bb1bcf8ba69f54547494d9d807ed135914dfd75893",
+    "diagnostics/rotated_product_bimodal_16d/ffn_silu/common-0.9.npz": "1bfbf4036f959c42cf3fb02934f97abab39fd6669b238209ba6d11d782447915"
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T06:39:13.982416+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 10,
+    "total": 10,
+    "active": []
+  },
+  "arrays_checked": 50,
+  "checkpoints_checked": 60,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.0037766563177108765,
+      "validation_sw2": 0.08459556847810745,
+      "field_mse": 0.0033026817011498856,
+      "jacobian_error": 0.016496402367007963,
+      "wall_seconds": 44.29699999999866,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.0037766563177108765
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_wide",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.0037738201379776,
+      "validation_sw2": 0.08451071381568909,
+      "field_mse": 0.003304921222167361,
+      "jacobian_error": 0.01652025992663252,
+      "wall_seconds": 44.46800000000076,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.0037738201379776
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_affine",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.003769178867340088,
+      "validation_sw2": 0.08442863821983337,
+      "field_mse": 0.003306802058352501,
+      "jacobian_error": 0.01654585808967273,
+      "wall_seconds": 39.29699999999866,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.003769178867340088
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.004304380559921265,
+      "validation_sw2": 0.07668042182922363,
+      "field_mse": 0.003742156891035125,
+      "jacobian_error": 0.027034346591290098,
+      "wall_seconds": 30.64100000000326,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.004304380559921265
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.003927979969978333,
+      "validation_sw2": 0.07621428370475769,
+      "field_mse": 0.0034529762914109106,
+      "jacobian_error": 0.023583350827866945,
+      "wall_seconds": 34.45300000000134,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.003927979969978333
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.019437553787231446,
+      "validation_sw2": 0.24277861416339874,
+      "field_mse": 0.017143430352655767,
+      "jacobian_error": 0.9153161976292582,
+      "wall_seconds": 43.35899999999674,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.019437553787231446
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_wide",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.01963767433166504,
+      "validation_sw2": 0.23659537732601166,
+      "field_mse": 0.017584443062960118,
+      "jacobian_error": 0.9703658296515144,
+      "wall_seconds": 43.90600000000268,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.01963767433166504
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_affine",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.01976812801361084,
+      "validation_sw2": 0.2379552721977234,
+      "field_mse": 0.017628245828562605,
+      "jacobian_error": 0.9866383337855819,
+      "wall_seconds": 40.875,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.01976812801361084
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.015184195137023926,
+      "validation_sw2": 0.23038901388645172,
+      "field_mse": 0.01707782108479224,
+      "jacobian_error": 0.393697852836194,
+      "wall_seconds": 28.922000000005937,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.015184195137023926
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.016220698165893555,
+      "validation_sw2": 0.23958292603492737,
+      "field_mse": 0.013890559571362593,
+      "jacobian_error": 0.5710265912657431,
+      "wall_seconds": 31.015999999995984,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.016220698165893555
+    }
+  ],
+  "plan": {
+    "experiment_id": "clock_range_v1_20261024",
+    "protocol": "docs/research-architecture-search/protocol-clock-range.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "vector_wide",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "shift": 0.0,
+          "scale": 1.2,
+          "tau": 15.0
+        }
+      },
+      {
+        "label": "vector_affine",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_gate_transform": "affine"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

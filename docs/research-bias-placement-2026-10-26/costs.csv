@@ -1,0 +1,5 @@
+student,parameters,batch1_forward_macs,batch1_forward_backward_macs,batch512_forward_macs,batch512_forward_backward_macs,scope
+w_map,8192,8192,20480,4194304,10485760,actual dense matrix MACs; offset/activation pointwise work excluded
+hidden_bias,8256,8192,20480,4194304,10485760,actual dense matrix MACs; offset/activation pointwise work excluded
+output_bias,8256,8192,20480,4194304,10485760,actual dense matrix MACs; offset/activation pointwise work excluded
+swiglu128,16554,16320,38080,8355840,19496960,actual dense matrix MACs; offset/activation pointwise work excluded

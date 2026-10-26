@@ -1,0 +1,29 @@
+{
+  "state": "PASS",
+  "method": "Both complete PNG figures visually inspected using view_image. Text, axes, legends, row/column labels and footnotes readable, with no clipping or overlap. Corresponding PDFs exported from the same figure objects; PDF rendering not separately inspected.",
+  "figures": {
+    "all-ridge-curves": {
+      "png_pixels": [
+        3420,
+        2250
+      ],
+      "png_sha256": "7abd01bcc327c9a5bf37fdae3b3a9cbc7abb9d317b4c26b811d7bee33f8c74d6",
+      "pdf_sha256": "6faf65dc156307b43242158f8506080e7b90be0e8080e37694f0a587fec6dc51"
+    },
+    "native-response-geometry": {
+      "png_pixels": [
+        2790,
+        1710
+      ],
+      "png_sha256": "839eebc02f42d3eee9b970db17a58fa34c6aaaa0210d26df385128c869471110",
+      "pdf_sha256": "7905a4cc3ba39d7857465f4abe3e43c31c2a303c74a755497ec5ed93cf10ee39"
+    }
+  },
+  "coverage": {
+    "ridge_panels": 24,
+    "native_geometry_panels": 12,
+    "ridge_rows": 432,
+    "fixed_penalties_per_kernel": 6
+  },
+  "limitations": "Native P and full-FFN curves can overlap; exact values remain separate in CSV and numeric appendix. Near-zero calibration values are compressed below the symlog threshold .05, declared on figure."
+}

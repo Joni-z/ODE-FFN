@@ -1,0 +1,141 @@
+{
+  "state": "STOP_FIXED_STATE_ALLOCATION",
+  "practical_leads": [],
+  "augmentation_allocation_evidence": false,
+  "augmentation_qualifying_tasks": [],
+  "augmented_primary_ratios_to_factor_controls": {
+    "gaussian_aniso_2d": {
+      "lowrank_budget": 0.9279770621848452,
+      "lowrank_narrow": 0.9944694851555326
+    },
+    "gmm_ring8_2d": {
+      "lowrank_budget": 1.17339725997605,
+      "lowrank_narrow": 0.98081309688459
+    },
+    "rotated_product_bimodal_16d": {
+      "lowrank_budget": 1.1575014312773277,
+      "lowrank_narrow": 1.0352189509266998
+    }
+  },
+  "decisions": {
+    "lowrank_budget": {
+      "practical_lead": false,
+      "qualifying_nonlinear_tasks": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "at_least_20pct_full_model_cost_savings": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.1573608388529255,
+            "jacobian_error": 0.9310357213779203,
+            "validation_sw2": 1.1507205394647173
+          },
+          "primary_ratio_to_parent": 1.1406815063134597,
+          "parameter_ratio_to_Swi128": 1.000806924882629,
+          "MAC_ratio_to_Swi128": 1.0024
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 2.114503660784186,
+            "jacobian_error": 2.5033568337140415,
+            "validation_sw2": 1.1233937287716516
+          },
+          "primary_ratio_to_parent": 1.6229128960431178,
+          "parameter_ratio_to_Swi128": 1.000806924882629,
+          "MAC_ratio_to_Swi128": 1.0024
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 3.358174111094582,
+            "jacobian_error": 2.3171405894770123,
+            "validation_sw2": 1.2827096607775177
+          },
+          "primary_ratio_to_parent": 1.1649068635503377,
+          "parameter_ratio_to_Swi128": 1.0007894925715926,
+          "MAC_ratio_to_Swi128": 1.0023474178403755
+        }
+      }
+    },
+    "lowrank_narrow": {
+      "practical_lead": false,
+      "qualifying_nonlinear_tasks": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "at_least_20pct_full_model_cost_savings": true,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.0799771407350465,
+            "jacobian_error": 0.949956797661316,
+            "validation_sw2": 1.19342473203906
+          },
+          "primary_ratio_to_parent": 1.0644130251536048,
+          "parameter_ratio_to_Swi128": 0.7934272300469484,
+          "MAC_ratio_to_Swi128": 0.7912
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 2.529689713212958,
+            "jacobian_error": 2.5877531735097734,
+            "validation_sw2": 1.101433554529026
+          },
+          "primary_ratio_to_parent": 1.941574344230915,
+          "parameter_ratio_to_Swi128": 0.7934272300469484,
+          "MAC_ratio_to_Swi128": 0.7912
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 3.754849480480268,
+            "jacobian_error": 2.52072177596628,
+            "validation_sw2": 1.4388753571017987
+          },
+          "primary_ratio_to_parent": 1.3025083830403843,
+          "parameter_ratio_to_Swi128": 0.7978899016722888,
+          "MAC_ratio_to_Swi128": 0.795774647887324
+        }
+      }
+    },
+    "lowrank_augmented": {
+      "practical_lead": false,
+      "qualifying_nonlinear_tasks": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "at_least_20pct_full_model_cost_savings": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 1.0740043111265258,
+            "jacobian_error": 0.9251869244294822,
+            "validation_sw2": 1.188988709507914
+          },
+          "primary_ratio_to_parent": 1.0585262731173484,
+          "parameter_ratio_to_Swi128": 0.9929577464788732,
+          "MAC_ratio_to_Swi128": 0.9928
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 2.4811528017734914,
+            "jacobian_error": 2.265711126272065,
+            "validation_sw2": 1.1526379304488277
+          },
+          "primary_ratio_to_parent": 1.9043215453967908,
+          "parameter_ratio_to_Swi128": 0.9929577464788732,
+          "MAC_ratio_to_Swi128": 0.9928
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_best_generic": {
+            "validation_oracle_mse": 3.8870913400704463,
+            "jacobian_error": 2.568554245678678,
+            "validation_sw2": 1.4029076568587868
+          },
+          "primary_ratio_to_parent": 1.3483813618642986,
+          "parameter_ratio_to_Swi128": 0.9931098830115553,
+          "MAC_ratio_to_Swi128": 0.9929577464788732
+        }
+      }
+    }
+  },
+  "architecture_goal_complete": false,
+  "scope": "Exposed validation screen. All useful controls are retained. A narrow lead needs SwiGLU84; every lead needs separately registered timing and fresh evaluation/transfer. This is not augmentation-only causality, ODE novelty, or goal completion."
+}

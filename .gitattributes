@@ -1,0 +1,8 @@
+# Keep hashed evidence bytes intact across Unix and Windows checkouts.
+docs/** -text whitespace=cr-at-eol,-blank-at-eof
+*.csv -text whitespace=cr-at-eol
+*.json -text whitespace=cr-at-eol
+*.png -text
+*.pdf -text
+# Frozen diffs contain intentional single-space context lines.
+*.patch -text -whitespace

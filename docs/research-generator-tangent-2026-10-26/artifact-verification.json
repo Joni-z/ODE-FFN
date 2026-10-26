@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "prior_sealed_document_files_unchanged": 105,
+  "parity_raw_files_unchanged": 66,
+  "input_bindings_verified": 66,
+  "frozen_source_files": 8,
+  "local_links_verified": 8,
+  "table_rows_verified": {
+    "aggregate-routes.csv": 12,
+    "all-time-routes.csv": 60,
+    "spectral-context.csv": 90,
+    "clock-statistics.csv": 30,
+    "uniform-differential-bounds.csv": 6
+  },
+  "numeric_report_table": "PASS",
+  "uniform_bounds_independent_Torch_replay": "PASS",
+  "figures_visually_inspected": 1,
+  "main_exit_code": 0,
+  "independent_audit_exit_code": 0,
+  "independent_audit_sha256": "44f6e8c6978ac1d66a6c7575c555e4786b87016d9726a07fe20619852e50597d",
+  "files_sha256": {
+    "aggregate-routes.csv": "a74297e30a5007a186acf1683ecd290ce6edd78786c63d3468f0ea42bedb9e2a",
+    "all-time-routes.csv": "93cd2be8da84f0fc59823ed0e91ae6d058057e6c889beb599d71a6a95365bc47",
+    "analysis-receipt.json": "037f8289a399ab7bec21d67e9e59575e9a801eab9c58ae40749c06269dd84b4a",
+    "analysis-report.md": "ec232d83aa3910ebd35c130c66a42ece3a774cb46fb334051e4ecb9351c2e921",
+    "analyze_and_plot.py": "5e76c198bad6a147af3de838eda0b3cf2760af063120b13ee7a0db666315086c",
+    "audit_independent.py": "7bc04fbb9815e3780a08a6bfb13254b378af1fff57a0ec823d666664b19c9873",
+    "clock-statistics.csv": "bfbd835ce161e09866f5b395a0873542393df792cf4ff3ed261019a6716c4be1",
+    "figures/P-gradient-routes.pdf": "f38a4bdc8c313edf8c6bf1ff62175a77abba39c7f758690bc19b34c44bb12772",
+    "figures/P-gradient-routes.png": "6829d5ec4132f38581fd67eb6e89d110b374ed4cf774fee4c970854a2b9cc5e5",
+    "mathematics.md": "3dc04276f8c85d83742f398b5c5fa2f719d4abdffca912f406a99112eb31997f",
+    "next-question.md": "db20e936501100a2d94419b937a9cd03dec90cda5f7b9d3afb8ddf02f9512d17",
+    "notes.md": "e6f011982e48664ad44b814756dcedc56c92c028a0fb0f636b40652cc79f3a8f",
+    "preflight.py": "6002d9ce1536457383c2340185becbfa4a094f84212188cc12a4451c8e0a6c1c",
+    "protocol.md": "aea3fd4ad53e3caac718de98dabe989e36415373d362c13b47ef0ff434ee08cb",
+    "run_diagnosis.py": "4a8070d5e23202e47301ad138f16ca22fd603e22842cd7148032c726039f69b5",
+    "spectral-context.csv": "25ae7ef30f58b3a1aec5e7b551f6e7c02ec871c4a794d3e2f8bfc6aec05a2db7",
+    "study_support.py": "560da74f2400f74ea0ceac963eca5ee70ea64386dfcded9f3985e056bb4577a6",
+    "tangent_math.py": "f57277ff8dd759dc47a2df5644d21580a3842975a9d6ce3076508fb4f18c47c0",
+    "task_plan.md": "ea37e6ce9c6ed4796e212e337422979c73f39b5838fbc43615ebfd550ab8de70",
+    "uniform-differential-bounds.csv": "1f6db6e91d5b2029b6dd9c81cf73318aa451c9ba8191e459d64b93af533b2d13"
+  },
+  "output_files_sha256": {
+    "aggregates.json": "e938f70f66cfcc22fffc71f736ced87d80e028610d7c3a82a979810b762cbe4f",
+    "audit.json": "1b8ed72a72096f861c34fd87cf0b51290b0eaf2c59cec2e02b7ea31e020f5e4b",
+    "clocks.json": "ab452a72f78e27642799db0ec28438dc4f542227f6025825542280425d3b6e4d",
+    "decision.json": "2c947fd25fa2d4cc993ee5fdd9e03691c17da7887b7456d7fff54b5173c7311e",
+    "input-bindings.json": "5bad4901d10726bddc6b5ea28668a7bbe6be4822c7bd31dbb9b233e20bc6cad5",
+    "matrices.npz": "16552dc2beb523f90ef65b637202b59c5036435634281548d2674e36c1a2b141",
+    "panels.json": "9640b2ba0cb9c4129a9351046c351c92d414d75697921113fbf68da47c2c5844",
+    "spectral-context.json": "728a59fd0f10d7847f12090b64810e78a8a91e47e8d98aa82877cae903f7790e",
+    "status.json": "e7b29a3c51a2725c2ca1aea91f39a170f71f7bdd16cce87a6ada09ffed1f22f9",
+    "telemetry.jsonl": "c82d909177fb6d1ac46c1ce6461c240d534ba8e35c4383723b652b17c3495b69"
+  },
+  "audit_files_sha256": {
+    "audit.json": "44f6e8c6978ac1d66a6c7575c555e4786b87016d9726a07fe20619852e50597d",
+    "status.json": "0561cd123e43cfa4b55fe1a54989c88a1c756ad2e1a7b583b37da6025f5ba69c"
+  }
+}

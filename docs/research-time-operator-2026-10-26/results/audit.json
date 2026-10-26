@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "calibrations": 24,
+  "risks": 720,
+  "independently_recomputed_full_gradients": 120,
+  "functional_prediction_arrays": 360,
+  "max_gradient_absolute_error": 0.0,
+  "max_prediction_absolute_error": 0.0,
+  "receipts": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "ode_k2_native_final",
+      "teacher": "oracle",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "ode_k2_native_final",
+      "teacher": "oracle",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "ode_k2_native_final",
+      "teacher": "pair",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "ode_k2_native_final",
+      "teacher": "pair",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu192_native_final",
+      "teacher": "oracle",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu192_native_final",
+      "teacher": "oracle",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu192_native_final",
+      "teacher": "pair",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu192_native_final",
+      "teacher": "pair",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "oracle",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "oracle",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "pair",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "pair",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "ode_k2_native_final",
+      "teacher": "oracle",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "ode_k2_native_final",
+      "teacher": "oracle",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "ode_k2_native_final",
+      "teacher": "pair",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "ode_k2_native_final",
+      "teacher": "pair",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu192_native_final",
+      "teacher": "oracle",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu192_native_final",
+      "teacher": "oracle",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu192_native_final",
+      "teacher": "pair",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu192_native_final",
+      "teacher": "pair",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "oracle",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "oracle",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "pair",
+      "fold": 0,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu128_native_deep",
+      "teacher": "pair",
+      "fold": 1,
+      "gradient": "PASS",
+      "finite_functional_replay": "bitwise PASS"
+    }
+  ],
+  "input_provenance_sha256": "5dd33931c1f9c91c936c0254141c26256eb43753b53f2a24ac5f738568f25f98",
+  "script_sha256": "0bbf16e4266ebecac880361371bd4ef535c6b18547e9ae932c63f22d4a235421"
+}

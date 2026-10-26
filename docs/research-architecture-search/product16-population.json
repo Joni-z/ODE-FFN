@@ -1,0 +1,53 @@
+{
+  "dataset": "rotated_product_bimodal_16d",
+  "scope": "Population-only calibration; no model outcomes",
+  "validation_points": 20000,
+  "rows": [
+    {
+      "time": 0.1,
+      "participation_median": 10.831523830000293,
+      "participation_quantiles": [
+        10.66271088855206,
+        11.210402053259733
+      ],
+      "active_direction_count_median": 15.0
+    },
+    {
+      "time": 0.3,
+      "participation_median": 10.220071465847198,
+      "participation_quantiles": [
+        8.727576408840973,
+        11.822450078598797
+      ],
+      "active_direction_count_median": 15.0
+    },
+    {
+      "time": 0.5,
+      "participation_median": 5.978148745970734,
+      "participation_quantiles": [
+        4.15152185167612,
+        7.750198821990676
+      ],
+      "active_direction_count_median": 8.0
+    },
+    {
+      "time": 0.7,
+      "participation_median": 1.7204109946512474,
+      "participation_quantiles": [
+        1.079689721632906,
+        2.833957803118614
+      ],
+      "active_direction_count_median": 2.0
+    },
+    {
+      "time": 0.9,
+      "participation_median": 1.0186298707209176,
+      "participation_quantiles": [
+        1.0000056143504388,
+        1.8169108309837816
+      ],
+      "active_direction_count_median": 1.0
+    }
+  ],
+  "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+}

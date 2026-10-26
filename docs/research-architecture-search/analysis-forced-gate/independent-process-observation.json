@@ -1,0 +1,196 @@
+{
+  "time": "2026-10-24T15:31:08.067094+00:00",
+  "statuses": {
+    "output/forced_gate_queue_20261024_m1/status.json": {
+      "time": "2026-10-24T15:31:05.623993+00:00",
+      "state": "RUNNING",
+      "completed": 0,
+      "total": 2,
+      "active": "forced_gate_v1_20261024_m1",
+      "pid": 53012
+    },
+    "output/forced_gate_v1_20261024_m1/status.json": {
+      "time": "2026-10-24T15:31:06.016792+00:00",
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 5,
+      "total": 10,
+      "active": [
+        "gaussian_aniso_2d/forced_exact",
+        "gmm_ring8_2d/swiglu"
+      ]
+    }
+  },
+  "monitors": {
+    "output/forced_gate_v1_20261024_m1/monitor.json": {
+      "time": "2026-10-24T15:31:06.267934+00:00",
+      "pid": 53012,
+      "cpu_percent": 40.8,
+      "memory_available_gib": 4.8756561279296875,
+      "processes": [
+        {
+          "pid": 53087,
+          "name": "Python",
+          "rss_mib": 319.140625
+        },
+        {
+          "pid": 53162,
+          "name": "Python",
+          "rss_mib": 131.265625
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 5,
+      "total": 10,
+      "active": [
+        "gaussian_aniso_2d/forced_exact",
+        "gmm_ring8_2d/swiglu"
+      ],
+      "training": [
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_static/gaussian_aniso_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272863149642945,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu_budget/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.018257763481140138,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu_budget/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004188221096992493,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272540807724,
+          "complete": true
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_exact/gaussian_aniso_2d/ode_forced_gate/seed000",
+          "step": 3500,
+          "oracle_mse": 0.005892324781417847,
+          "complete": false
+        },
+        {
+          "run": "runs/forced_gate_v1_20261024_m1_forced_k2/gaussian_aniso_2d/ode_forced_gate/seed000",
+          "step": 5000,
+          "oracle_mse": 0.003924788641929627,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    }
+  },
+  "processes": [
+    {
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source/configs/synthetic/architecture_search/forced_gate_queue_20261024_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_queue_20261024_m1"
+      ],
+      "ppid": 20543,
+      "memory_info": {
+        "rss": 196460544,
+        "vms": 475824553984,
+        "pfaults": 23466,
+        "pageins": 5
+      },
+      "status": "sleeping",
+      "pid": 53003,
+      "create_time": 1792855784.772732
+    },
+    {
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source/configs/synthetic/architecture_search/forced_gate_v1_20261024_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_v1_20261024_m1"
+      ],
+      "ppid": 53003,
+      "memory_info": {
+        "rss": 208044032,
+        "vms": 476145729536,
+        "pfaults": 28166,
+        "pageins": 1
+      },
+      "status": "running",
+      "pid": 53012,
+      "create_time": 1792855785.447488
+    },
+    {
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_v1_20261024_m1/configs/forced_exact.json",
+        "--dataset",
+        "gaussian_aniso_2d",
+        "--model",
+        "ode_forced_gate",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_v1_20261024_m1/runs"
+      ],
+      "ppid": 53012,
+      "memory_info": {
+        "rss": 337068032,
+        "vms": 476488368128,
+        "pfaults": 44813,
+        "pageins": 2
+      },
+      "status": "running",
+      "pid": 53087,
+      "create_time": 1792855835.160368
+    },
+    {
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_v1_20261024_m1/configs/swiglu.json",
+        "--dataset",
+        "gmm_ring8_2d",
+        "--model",
+        "swiglu",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_v1_20261024_m1/runs"
+      ],
+      "ppid": 53012,
+      "memory_info": {
+        "rss": 306069504,
+        "vms": 476370452480,
+        "pfaults": 42862,
+        "pageins": 4
+      },
+      "status": "running",
+      "pid": 53162,
+      "create_time": 1792855866.017227
+    }
+  ]
+}

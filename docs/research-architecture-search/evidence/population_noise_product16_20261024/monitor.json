@@ -1,0 +1,72 @@
+{
+  "time": "2026-10-24T08:12:36.620702+00:00",
+  "pid": 16812,
+  "cpu_percent": 6.9,
+  "memory_available_gib": 7.153587341308594,
+  "processes": [
+    {
+      "pid": 29680,
+      "name": "python.exe",
+      "rss_mib": 5.05078125
+    },
+    {
+      "pid": 29624,
+      "name": "python.exe",
+      "rss_mib": 5.046875
+    },
+    {
+      "pid": 19064,
+      "name": "python.exe",
+      "rss_mib": 519.8359375
+    },
+    {
+      "pid": 24164,
+      "name": "python.exe",
+      "rss_mib": 520.5859375
+    }
+  ],
+  "state": "COMPLETE",
+  "phase": "complete",
+  "completed": 6,
+  "total": 6,
+  "active": [],
+  "training": [
+    {
+      "run": "runs\\population_noise_product16_20261024_swiglu_budget_mean\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.01808341312408447,
+      "complete": true
+    },
+    {
+      "run": "runs\\population_noise_product16_20261024_swiglu_budget_pair\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.0868415075302124,
+      "complete": true
+    },
+    {
+      "run": "runs\\population_noise_product16_20261024_swiglu_mean\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 4500,
+      "oracle_mse": 0.015690286922454832,
+      "complete": false
+    },
+    {
+      "run": "runs\\population_noise_product16_20261024_swiglu_pair\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 4500,
+      "oracle_mse": 0.10647468395233155,
+      "complete": false
+    },
+    {
+      "run": "runs\\population_noise_product16_20261024_vector_mean\\rotated_product_bimodal_16d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.18311354217529296,
+      "complete": true
+    },
+    {
+      "run": "runs\\population_noise_product16_20261024_vector_pair\\rotated_product_bimodal_16d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.27082129669189453,
+      "complete": true
+    }
+  ],
+  "gpu_csv": "0, 595, 8188, 36, 3.26"
+}

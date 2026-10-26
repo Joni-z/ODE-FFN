@@ -1,0 +1,56 @@
+{
+  "experiment_id": "clock_range_v1_20261024",
+  "protocol": "docs/research-architecture-search/protocol-clock-range.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d"
+  ],
+  "arms": [
+    {
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64
+      }
+    },
+    {
+      "label": "vector_wide",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "shift": 0.0,
+        "scale": 1.2,
+        "tau": 15.0
+      }
+    },
+    {
+      "label": "vector_affine",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_gate_transform": "affine"
+      }
+    },
+    {
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      }
+    },
+    {
+      "label": "swiglu",
+      "model": "swiglu"
+    }
+  ]
+}

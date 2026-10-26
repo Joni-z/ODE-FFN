@@ -1,0 +1,1110 @@
+--- stage20/synthetic/models.py
++++ state_clock/synthetic/models.py
+@@ -10,6 +10,7 @@
+ from synthetic.covariance import CovarianceField
+ from synthetic.diagonal import DiagonalFlow,DiagonalODEFFN
+ from synthetic.forced_gate import ForcedGateResponse
++from synthetic.state_clock import StateClockLayer
+ 
+ 
+ class OriginalODELayer(nn.Module):
+@@ -473,6 +474,19 @@
+         return self.w3(self.flow(gate)*value)
+ 
+ 
++class StateClockFFN(nn.Module):
++    """Original vector fields with a fixed within-solve clock convention."""
++    def __init__(self,width,gate_hidden,reference_gate_hidden=64,solver='midpoint'):
++        super().__init__()
++        reference=VectorODEFFN(width,gate_hidden,reference_gate_hidden,orders=2)
++        self.ode1=StateClockLayer(reference.ode1,solver=solver)
++        self.act=reference.act
++        self.ode2=StateClockLayer(reference.ode2,solver=solver)
++
++    def forward(self,x):
++        return self.ode2(self.act(self.ode1(x)))
++
++
+ class TimeEmbedding(nn.Module):
+     def __init__(self,width):
+         super().__init__()
+@@ -512,13 +526,22 @@
+                  ode_rate_placement='after_projection',ode_solve_return='map',ode_solve_init='legacy',
+                  ode_solve_pattern=None,ode_operator_mode='multiplicative',ode_feature_mode='independent',
+                  diagonal_solver='k2',diagonal_clock='adaptive',diagonal_beta=1.,
+-                 forced_gate_solver='exact',forced_gate_clock='adaptive'):
++                 forced_gate_solver='exact',forced_gate_clock='adaptive',
++                 state_clock_solver='midpoint'):
+         super().__init__()
+         if kind not in ('ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
+                         'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+-                        'ode_covariance','ode_diagonal','ode_forced_gate'):
++                        'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'):
+             raise ValueError(f'unsupported model kind: {kind}')
+         self.dim,self.kind,self.width,self.depth=dim,kind,width,depth
++        if kind!='ode_state_clock' and state_clock_solver!='midpoint':
++            raise ValueError('state-clock solver requires its own vector-field family')
++        if kind=='ode_state_clock' and (ode_feature_mode!='independent' or ode_operator_mode!='multiplicative' or
++                ode_middle_activation!='silu' or ode_clock_mode!='independent' or ode_gate_transform!='sigmoid' or
++                ode_gate_reparam!=1. or ode_rate_placement!='after_projection' or ode_solve_return!='map' or
++                ode_solve_pattern is not None or ode_solve_init!='legacy' or
++                (tau,scale,shift)!=(10.,.8,.2) or spectral_cap!=1. or orders!=2):
++            raise ValueError('state-clock family retains the original vector field, two maps and SiLU')
+         if kind!='ode_forced_gate' and (forced_gate_solver!='exact' or forced_gate_clock!='adaptive'):
+             raise ValueError('forced-gate settings require the forced-gate family')
+         if kind=='ode_forced_gate' and (ode_feature_mode!='independent' or ode_operator_mode!='multiplicative' or
+@@ -592,6 +615,8 @@
+             elif kind=='ode_forced_gate':
+                 ffn=ForcedGateSwiGLUFFN(width,ffn_hidden,
+                     solver=forced_gate_solver,clock=forced_gate_clock)
++            elif kind=='ode_state_clock':
++                ffn=StateClockFFN(width,gate_hidden,gate_reference_hidden,solver=state_clock_solver)
+             elif kind=='ffn_poly_init':
+                 ffn=CollapsedODEFFN(OriginalODEFFN(width,gate_hidden,orders=orders,
+                     tau=tau,scale=scale,shift=shift,gate_source='fixed'))
+@@ -675,6 +700,10 @@
+         for name,module in self.named_modules():
+             if isinstance(module,ForcedGateResponse):yield name,module
+ 
++    def state_clock_layers(self):
++        for name,module in self.named_modules():
++            if isinstance(module,StateClockLayer):yield name,module
++
+     def covariance_layers(self):
+         for name,module in self.named_modules():
+             if isinstance(module,CovarianceODELayer):yield name,module
+--- stage20/synthetic/train.py
++++ state_clock/synthetic/train.py
+@@ -368,7 +368,7 @@
+     p.add_argument('--dataset',required=True)
+     p.add_argument('--model',required=True,choices=['ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
+                                                   'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+-                                                  'ode_covariance','ode_diagonal','ode_forced_gate'])
++                                                  'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'])
+     p.add_argument('--seed',type=int,required=True)
+     p.add_argument('--device',default='auto')
+     p.add_argument('--output-root',default='../runs/synthetic')
+--- stage20/synthetic/diagnostics.py
++++ state_clock/synthetic/diagnostics.py
+@@ -25,14 +25,15 @@
+     covariance=list(model.covariance_layers()) if hasattr(model,'covariance_layers') else []
+     diagonal=list(model.diagonal_layers()) if hasattr(model,'diagonal_layers') else []
+     forced=list(model.forced_gate_layers()) if hasattr(model,'forced_gate_layers') else []
+-    if not list(model.ode_layers()) and not nonlinear and not covariance and not diagonal and not forced:
++    state_clock=list(model.state_clock_layers()) if hasattr(model,'state_clock_layers') else []
++    if not list(model.ode_layers()) and not nonlinear and not covariance and not diagonal and not forced and not state_clock:
+         return []
+     inputs={}
+     hooks=[]
+     for name,layer in model.ode_layers():
+         hooks.append(layer.register_forward_pre_hook(lambda module,args,key=name:inputs.__setitem__(key,
+             (args[0].detach(), args[1].detach() if len(args)>1 and args[1] is not None else None))))
+-    for name,layer in nonlinear+covariance+diagonal+forced:
++    for name,layer in nonlinear+covariance+diagonal+forced+state_clock:
+         hooks.append(layer.register_forward_pre_hook(lambda module,args,key=name:
+             inputs.__setitem__(key,args[0].detach())))
+     try:
+@@ -81,6 +82,10 @@
+             forcing_abs_max=float(torch.nn.functional.silu(hidden).abs().max()),
+             activation=layer.activation_stats(hidden),
+             interpretation='P=diag(lambda); augmented generator has rates lambda*s and forcing SiLU(a). Bounded eigenvalues do not bound its shear norm or the full velocity Jacobian.'))
++    for name,layer in state_clock:
++        records.append(dict(layer=name,operator_type='state_clock_vector_field',solver=layer.solver,
++            raw=spectrum(layer.proj.weight),activation=layer.activation_stats(inputs[name]),
++            interpretation='Raw P is shared by internal stages. D(h)P and D(h_mid)P are conditional field generators; neither P spectrum nor a midpoint rule certifies the complete velocity Jacobian.'))
+     for name,layer in covariance:
+         hidden=inputs[name]
+         field=layer.field
+--- stage20/scripts/run_architecture_study.py
++++ state_clock/scripts/run_architecture_study.py
+@@ -62,6 +62,8 @@
+     count[0]+=sum(m.matrix1.numel()+m.matrix2.numel() for m in model.modules() if isinstance(m,CollapsedODEFFN))
+     if hasattr(model,'covariance_layers'):
+         count[0]+=sum(layer.field.linear_macs() for _,layer in model.covariance_layers())
++    if hasattr(model,'state_clock_layers'):
++        count[0]+=sum(layer.projection_calls*layer.proj.weight.numel() for _,layer in model.state_clock_layers())
+     return count[0]
+ 
+ 
+--- stage20/requirements-synthetic.txt
++++ state_clock/requirements-synthetic.txt
+@@ -1,3 +1,5 @@
+-# Data generation and plotting. Training/model tests also require a platform-appropriate PyTorch build (validated: 2.10.0).
++# Data generation, plotting, monitoring and ODE reference tests. Training/model tests also require a platform-appropriate PyTorch build (validated: 2.10.0).
+ numpy==2.2.6
+ matplotlib==3.10.9
++psutil==7.2.2
++scipy==1.18.1
+--- stage20/synthetic/state_clock.py
++++ state_clock/synthetic/state_clock.py
+@@ -0,0 +1,125 @@
++"""The original vector clock, frozen or re-evaluated at one internal midpoint.
++
++These solve different auxiliary ODEs. No claim concerns the complete external
++FM field's stability, invertibility, or solver accuracy.
++"""
++from __future__ import annotations
++
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++
++class StateClockLayer(nn.Module):
++    """Take ownership of a plain vector reference's P/controller, without RNG."""
++
++    def __init__(self, reference: nn.Module, solver: str = 'midpoint'):
++        super().__init__()
++        if solver not in ('euler', 'frozen', 'midpoint'):
++            raise ValueError('solver must be euler, frozen, or midpoint')
++        required = dict(feature_mode='independent', gate_source='input',
++                        spectral_cap=None, clock_curvature=1., gate_transform='sigmoid',
++                        rate_placement='after_projection', solve_return='map',
++                        operator_mode='multiplicative')
++        if any(not hasattr(reference, name) or getattr(reference, name) != value
++               for name, value in required.items()):
++            raise ValueError('state clock requires the plain independent input-vector layer')
++        if (reference.tau, reference.scale, reference.shift) != (10., .8, .2):
++            raise ValueError('state clock retains the original clock constants')
++        controller, projection = reference.t_func, reference.proj
++        if (not isinstance(projection, nn.Linear) or projection.bias is not None or
++                projection.in_features != projection.out_features or
++                not isinstance(controller, nn.Sequential) or len(controller) != 3 or
++                not isinstance(controller[0], nn.Linear) or not isinstance(controller[1], nn.SiLU) or
++                not isinstance(controller[2], nn.Linear) or controller[0].bias is None or controller[2].bias is None or
++                controller[0].in_features != projection.in_features or
++                controller[0].out_features != controller[2].in_features or
++                controller[2].out_features != projection.out_features):
++            raise ValueError('expected square bias-free P and a two-linear vector controller')
++        parameters = list(reference.named_parameters(remove_duplicate=False))
++        if len({id(parameter) for _, parameter in parameters}) != len(parameters):
++            raise ValueError('state clock does not accept internally aliased parameters')
++        self.proj, self.t_func = projection, controller
++        self.tau, self.scale, self.shift = reference.tau, reference.scale, reference.shift
++        self.width, self.solver = projection.in_features, solver
++        self.projection_calls = 1 if solver == 'euler' else 2
++        self.controller_calls = 2 if solver == 'midpoint' else 1
++        # This declared paired initialization consumes no random draws. The
++        # caller discards the reference; do not register it as another child.
++        with torch.no_grad():
++            self.t_func[-1].weight.zero_()
++            self.t_func[-1].bias.zero_()
++
++    def _validate(self, x):
++        if x.ndim < 1 or x.shape[-1] != self.width or not x.is_floating_point():
++            raise ValueError('expected floating input with matching final dimension')
++
++    def operator(self):
++        return self.proj.weight
++
++    def step_size(self, x):
++        self._validate(x)
++        return torch.sigmoid(self.t_func(x)/self.tau)*self.scale+self.shift
++
++    def forward(self, x):
++        s = self.step_size(x)
++        ph = F.linear(x, self.proj.weight)
++        first = ph*s
++        if self.solver == 'euler':
++            return x+first
++        pfirst = F.linear(first, self.proj.weight)
++        base = x+first+(pfirst*s)/2
++        if self.solver == 'frozen':
++            return base
++        middle = x+first/2
++        smid = self.step_size(middle)
++        return base+(smid-s)*(ph+pfirst/2)
++
++    def clock_jvp(self, x, direction):
++        """Analytic J_s(x)*direction for diagnostics, never used by forward."""
++        self._validate(x)
++        if direction.shape != x.shape:
++            raise ValueError('clock direction must match the input')
++        first, _, last = self.t_func
++        u = first(x)
++        probability = torch.sigmoid(u)
++        slope = probability+u*probability*(1-probability)
++        logit = last(F.silu(u))
++        clock_probability = torch.sigmoid(logit/self.tau)
++        tangent = F.linear(slope*F.linear(direction, first.weight), last.weight)
++        return (self.scale/self.tau)*clock_probability*(1-clock_probability)*tangent
++
++    @torch.no_grad()
++    def activation_stats(self, x):
++        """Native-stage statistics plus explicitly labelled counterfactual probes."""
++        self._validate(x)
++        if not x.numel():
++            raise ValueError('statistics require nonempty inputs')
++        s = self.step_size(x)
++        ph = F.linear(x, self.proj.weight)
++        first = s*ph
++        middle = x+first/2
++        smid = self.step_size(middle)
++        pfirst = F.linear(first, self.proj.weight)
++        quadratic = (s*pfirst)/2
++        correction = (smid-s)*(ph+pfirst/2)
++        clock_taylor = .5*ph*self.clock_jvp(x, first)
++        cpu = lambda value: value.detach().cpu().double()
++        rms = lambda value: float(cpu(value).square().mean().sqrt())
++        denominator = max(rms(x), 1e-12)
++        stats = dict(scope='internal_state_clock_probes_only', solver=self.solver,
++                     projection_calls=self.projection_calls, controller_calls=self.controller_calls,
++                     midpoint_clock_is_executed_stage=self.solver == 'midpoint',
++                     controller_tau=self.tau, clock_scale=self.scale, clock_shift=self.shift,
++                     input_rms=rms(x), gate_change_rms=rms(smid-s),
++                     gate_change_abs_max=float((smid-s).abs().max()))
++        for name, value in (('initial_clock', s), ('midpoint_clock_probe', smid)):
++            tensor = cpu(value)
++            stats.update({name+'_mean': float(tensor.mean()), name+'_std': float(tensor.std(unbiased=False)),
++                          name+'_min': float(tensor.min()), name+'_max': float(tensor.max())})
++        for name, value in (('first_term', first), ('frozen_quadratic_probe', quadratic),
++                            ('midpoint_correction_probe', correction), ('clock_taylor_probe', clock_taylor),
++                            ('output', self(x))):
++            stats[name+'_rms'] = rms(value)
++            stats[name+'_rms_over_input'] = rms(value)/denominator
++        return stats
+--- stage20/tests/test_state_clock.py
++++ state_clock/tests/test_state_clock.py
+@@ -0,0 +1,190 @@
++import copy
++import io
++import json
++import unittest
++from unittest.mock import patch
++
++import numpy as np
++from scipy.integrate import solve_ivp
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++from synthetic.models import OriginalODELayer, VectorODELayer
++from synthetic.state_clock import StateClockLayer
++
++
++class StateClockTests(unittest.TestCase):
++    def setUp(self):
++        torch.manual_seed(0)
++        torch.set_num_threads(1)
++
++    def layer(self, solver='midpoint', width=3, hidden=4):
++        return StateClockLayer(VectorODELayer(width, hidden, reference_gate_hidden=hidden,
++                                             orders=1), solver).double()
++
++    def active(self, solver='midpoint'):
++        layer = self.layer(solver, 2, 3)
++        with torch.no_grad():
++            layer.proj.weight.copy_(torch.tensor([[.3, -.2], [.1, -.4]]))
++            layer.t_func[0].weight.copy_(torch.tensor([[1., -.4], [.3, .8], [-.6, .2]]))
++            layer.t_func[0].bias.copy_(torch.tensor([.2, -.1, .3]))
++            layer.t_func[-1].weight.copy_(torch.tensor([[3., -2., 1.], [-1., 2., 4.]]))
++            layer.t_func[-1].bias.copy_(torch.tensor([.2, -.3]))
++        return layer
++
++    def test_reference_state_rng_and_frozen_polynomial(self):
++        reference = VectorODELayer(3, 4, reference_gate_hidden=4, orders=2).double()
++        before = torch.get_rng_state().clone()
++        expected = copy.deepcopy(reference)
++        with torch.no_grad():
++            expected.t_func[-1].weight.zero_(); expected.t_func[-1].bias.zero_()
++        layer = StateClockLayer(reference, 'frozen')
++        torch.testing.assert_close(torch.get_rng_state(), before, atol=0, rtol=0)
++        self.assertEqual(set(layer.state_dict()), set(expected.state_dict()))
++        self.assertEqual(set(layer._modules), {'proj', 't_func'})
++        self.assertIs(layer.proj, reference.proj)
++        self.assertIs(layer.t_func, reference.t_func)
++        x = torch.randn(7, 3, dtype=torch.float64)
++        torch.testing.assert_close(layer(x), expected(x), atol=0, rtol=0)
++        # Frozen identity also holds after a genuinely input-dependent clock.
++        with torch.no_grad():
++            layer.t_func[-1].weight.fill_(.7)
++            expected.load_state_dict(layer.state_dict())
++        torch.testing.assert_close(layer(x), expected(x), atol=0, rtol=0)
++
++    def test_constant_clock_matrix_exponential_and_error_order(self):
++        x = torch.tensor([[.8, -.5]], dtype=torch.float64)
++        matrix = torch.tensor([[.3, -.2], [.1, -.4]], dtype=torch.float64)
++        errors = {name: [] for name in ('euler', 'frozen', 'midpoint')}
++        for epsilon in (.2, .1, .05):
++            for name in errors:
++                layer = self.layer(name, 2)
++                with torch.no_grad():layer.proj.weight.copy_(epsilon*matrix)
++                generator = .6*epsilon*matrix
++                exact = F.linear(x, torch.matrix_exp(generator))
++                polynomial = torch.eye(2, dtype=x.dtype)+generator
++                if name != 'euler':polynomial = polynomial+.5*generator@generator
++                torch.testing.assert_close(layer(x), F.linear(x, polynomial), atol=2e-16, rtol=2e-15)
++                errors[name].append(float((layer(x)-exact).norm().detach()))
++        for name, values in errors.items():
++            target = 4 if name == 'euler' else 8
++            self.assertTrue(all(.85*target < left/right < 1.15*target for left, right in zip(values, values[1:])))
++
++    def test_dynamic_explicit_midpoint_values_and_all_gradients(self):
++        layer = self.active()
++        x = torch.randn(4, 2, dtype=torch.float64, requires_grad=True)
++        f = lambda z: layer.step_size(z)*F.linear(z, layer.proj.weight)
++        explicit = x+f(x+.5*f(x))
++        actual = layer(x)
++        torch.testing.assert_close(actual, explicit, atol=3e-16, rtol=3e-15)
++        parameters = (x, *layer.parameters())
++        cotangent = torch.tensor([[.1, -.3], [.7, .8], [-.2, .4], [.9, -.6]], dtype=x.dtype)
++        first = torch.autograd.grad((actual*cotangent).sum(), parameters)
++        second = torch.autograd.grad((explicit*cotangent).sum(), parameters)
++        for a, b in zip(first, second):
++            torch.testing.assert_close(a, b, atol=2e-15, rtol=2e-13)
++
++    def test_clock_taylor_coefficient_and_complete_input_jacobian(self):
++        layer = self.active()
++        x = torch.tensor([.8, -.5], dtype=torch.float64)
++        p = layer.proj.weight
++        s = layer.step_size(x)
++        first = s*(p@x)
++        gate_j = torch.autograd.functional.jacobian(layer.step_size, x)
++        jvp = layer.clock_jvp(x, first)
++        torch.testing.assert_close(jvp, gate_j@first, atol=1e-16, rtol=2e-14)
++        f = lambda z: layer.step_size(z)*(p@z)
++        jf = lambda z: torch.diag(layer.step_size(z))@p+torch.diag(p@z)@torch.autograd.functional.jacobian(layer.step_size, z)
++        taylor = .5*(s*(p@first)+(p@x)*jvp)
++        torch.testing.assert_close(taylor, .5*torch.autograd.functional.jvp(f, x, first)[1], atol=1e-16, rtol=2e-14)
++        midpoint = x+.5*first
++        expected = torch.eye(2, dtype=x.dtype)+jf(midpoint)@(torch.eye(2, dtype=x.dtype)+.5*jf(x))
++        torch.testing.assert_close(torch.autograd.functional.jacobian(layer, x), expected, atol=3e-16, rtol=2e-14)
++        frozen = copy.deepcopy(layer); frozen.solver = 'frozen'
++        a = torch.diag(s)@p
++        b = torch.diag(p@x)@gate_j
++        expected_fr = torch.eye(2, dtype=x.dtype)+a+b+.5*(torch.diag(p@first)@gate_j+a@(a+b))
++        torch.testing.assert_close(torch.autograd.functional.jacobian(frozen, x), expected_fr, atol=3e-16, rtol=2e-14)
++
++    def test_local_error_vs_actual_state_dependent_ode(self):
++        layer = self.active()
++        x = torch.tensor([.8, -.5], dtype=torch.float64)
++        matrix = layer.proj.weight.detach().clone()
++        errors = {'frozen': [], 'midpoint': []}
++        for epsilon in (.2, .1, .05, .025):
++            with torch.no_grad():layer.proj.weight.copy_(epsilon*matrix)
++            def rhs(_, state):
++                with torch.no_grad():
++                    z = torch.from_numpy(state)
++                    return (layer.step_size(z)*F.linear(z, layer.proj.weight)).numpy()
++            result = solve_ivp(rhs, (0., 1.), x.numpy(), method='DOP853', rtol=2e-13, atol=2e-15)
++            self.assertTrue(result.success)
++            exact = torch.from_numpy(result.y[:, -1])
++            for solver in errors:
++                layer.solver = solver
++                errors[solver].append(float((layer(x)-exact).norm().detach()))
++        for solver, values in errors.items():
++            target = 4 if solver == 'frozen' else 8
++            self.assertTrue(all(.8*target < a/b < 1.2*target for a, b in zip(values[-3:], values[-2:])), (solver, values))
++
++    def test_paired_functions_P_input_and_controller_tangents(self):
++        frozen = self.layer('frozen')
++        dynamic = copy.deepcopy(frozen); dynamic.solver = 'midpoint'; dynamic.controller_calls = 2
++        x = torch.randn(5, 3, dtype=torch.float64, requires_grad=True)
++        # A nonzero receiving head exposes controller responses hidden by the
++        # complete VelocityNet's formally zero initial output head.
++        head = torch.tensor([.4, -.7, .2], dtype=x.dtype)
++        torch.testing.assert_close(frozen(x), dynamic(x), atol=0, rtol=0)
++        a = torch.autograd.grad((frozen(x)*head).sum(), (x, frozen.proj.weight, *frozen.t_func.parameters()))
++        b = torch.autograd.grad((dynamic(x)*head).sum(), (x, dynamic.proj.weight, *dynamic.t_func.parameters()))
++        for index in (0, 1, 2, 3, 5):
++            torch.testing.assert_close(a[index], b[index], atol=2e-16, rtol=2e-14)
++        self.assertGreater(float((a[4]-b[4]).norm()), 1e-6)
++        self.assertEqual(int(torch.count_nonzero(a[2])), 0)
++        # Exact linearized difference: diag(P*h_mid)[q(h_mid)-q(h)].
++        ph = F.linear(x.detach(), frozen.proj.weight.detach())
++        middle = x.detach()+.3*ph
++        receiving = F.linear(middle, frozen.proj.weight.detach())*head
++        features = F.silu(frozen.t_func[0](middle))-F.silu(frozen.t_func[0](x.detach()))
++        expected = (.8/(4*10))*(receiving.T@features)
++        torch.testing.assert_close(b[4]-a[4], expected, atol=2e-16, rtol=3e-13)
++
++    def test_executed_dense_cost_statistics_and_roundtrip(self):
++        original_linear = F.linear
++        for solver, expected in (('euler', 8192), ('frozen', 12288), ('midpoint', 16384)):
++            layer = self.layer(solver, 64, 32)
++            count = [0]
++            def counted(x, weight, bias=None):
++                count[0] += (x.numel()//x.shape[-1])*weight.numel()
++                return original_linear(x, weight, bias)
++            x = torch.randn(1, 64, dtype=torch.float64)
++            with patch.object(F, 'linear', counted), torch.no_grad():layer(x)
++            self.assertEqual(count[0], expected)
++            self.assertEqual(sum(p.numel() for p in layer.parameters()), 8288)
++            before = copy.deepcopy(layer.state_dict())
++            stats = layer.activation_stats(x)
++            json.dumps(stats, allow_nan=False)
++            self.assertEqual(stats['gate_change_rms'], 0.)
++            self.assertEqual(stats['clock_taylor_probe_rms'], 0.)
++            self.assertEqual(stats['midpoint_clock_is_executed_stage'], solver == 'midpoint')
++            for key, value in before.items():torch.testing.assert_close(layer.state_dict()[key], value, atol=0, rtol=0)
++            buffer = io.BytesIO(); torch.save(before, buffer); buffer.seek(0)
++            restored = self.layer(solver, 64, 32)
++            restored.load_state_dict(torch.load(buffer, weights_only=True))
++            torch.testing.assert_close(restored(x), layer(x), atol=0, rtol=0)
++
++    def test_invalid_references_solver_and_inputs(self):
++        with self.assertRaises(ValueError):StateClockLayer(OriginalODELayer(3, 4))
++        with self.assertRaises(ValueError):self.layer('rk4')
++        for kwargs in (dict(gate_transform='affine'), dict(operator_mode='additive'), dict(spectral_cap=1.)):
++            reference = VectorODELayer(3, 4, orders=1, **kwargs)
++            with self.assertRaises(ValueError):StateClockLayer(reference)
++        layer = self.layer()
++        for x in (torch.zeros(2, 4), torch.zeros(3, dtype=torch.int64), torch.tensor(0.)):
++            with self.assertRaises(ValueError):layer(x)
++        with self.assertRaises(ValueError):layer.activation_stats(torch.zeros(0, 3))
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- stage20/tests/test_state_clock_integration.py
++++ state_clock/tests/test_state_clock_integration.py
+@@ -0,0 +1,127 @@
++import unittest
++from unittest.mock import patch
++
++import torch
++from torch.nn import functional as F
++
++from scripts.run_architecture_study import macs
++from synthetic.diagnostics import collect
++from synthetic.models import VelocityNet
++
++
++class StateClockIntegrationTests(unittest.TestCase):
++    def setUp(self):
++        torch.manual_seed(0)
++        torch.set_num_threads(1)
++
++    @staticmethod
++    def options():
++        return dict(width=12, depth=2, gate_hidden=6, gate_reference_hidden=12, ffn_hidden=24)
++
++    def test_legacy_constant_clock_states_rng_functions_and_gradients(self):
++        for dtype in (torch.float32, torch.float64):
++            for solver, order in [('euler', 1), ('frozen', 2)]:
++                with self.subTest(dtype=dtype, solver=solver):
++                    torch.manual_seed(0)
++                    old = VelocityNet(3, 'ode_vector', orders=order, **self.options()).to(dtype)
++                    rng = torch.get_rng_state().clone()
++                    with torch.no_grad():
++                        for _, layer in old.ode_layers():
++                            layer.t_func[-1].weight.zero_()
++                            layer.t_func[-1].bias.zero_()
++                        old.output.weight.normal_(std=.2)
++                    x, t = torch.randn(7, 3, dtype=dtype), torch.rand(7, 1, dtype=dtype)
++                    torch.manual_seed(0)
++                    new = VelocityNet(3, 'ode_state_clock', state_clock_solver=solver,
++                                      **self.options()).to(dtype)
++                    torch.testing.assert_close(torch.get_rng_state(), rng, atol=0, rtol=0)
++                    with torch.no_grad():
++                        new.output.weight.copy_(old.output.weight)
++                    for name, value in old.state_dict().items():
++                        torch.testing.assert_close(new.state_dict()[name], value, atol=0, rtol=0)
++                    torch.testing.assert_close(new(x, t), old(x, t), atol=0, rtol=0)
++                    old(x, t).square().sum().backward()
++                    new(x, t).square().sum().backward()
++                    for name, parameter in old.named_parameters():
++                        torch.testing.assert_close(dict(new.named_parameters())[name].grad,
++                                                   parameter.grad, atol=0, rtol=0)
++
++    def test_frozen_midpoint_zero_head_pair_and_nonzero_head_tangent_limit(self):
++        for dtype in (torch.float32, torch.float64):
++            torch.manual_seed(0)
++            frozen = VelocityNet(3, 'ode_state_clock', state_clock_solver='frozen', **self.options()).to(dtype)
++            rng = torch.get_rng_state().clone()
++            torch.manual_seed(0)
++            dynamic = VelocityNet(3, 'ode_state_clock', state_clock_solver='midpoint', **self.options()).to(dtype)
++            torch.testing.assert_close(torch.get_rng_state(), rng, atol=0, rtol=0)
++            for name, value in frozen.state_dict().items():
++                torch.testing.assert_close(dynamic.state_dict()[name], value, atol=0, rtol=0)
++            x, t = torch.randn(7, 3, dtype=dtype), torch.rand(7, 1, dtype=dtype)
++            target = torch.randn(7, 3, dtype=dtype)
++            for model in (frozen, dynamic):
++                (model(x, t)-target).square().sum().backward()
++            for name, parameter in frozen.named_parameters():
++                torch.testing.assert_close(dict(dynamic.named_parameters())[name].grad,
++                                           parameter.grad, atol=0, rtol=0)
++            with torch.no_grad():
++                frozen.output.weight.normal_(std=.2)
++                dynamic.output.weight.copy_(frozen.output.weight)
++            torch.testing.assert_close(dynamic(x, t), frozen(x, t), atol=0, rtol=0)
++            for model in (frozen, dynamic):
++                model.zero_grad()
++                (model(x, t)-target).square().sum().backward()
++            controller_difference = 0.
++            for name, parameter in frozen.named_parameters():
++                current = dict(dynamic.named_parameters())[name]
++                if '.t_func.2.weight' in name:
++                    controller_difference = max(controller_difference,
++                                                float((current.grad-parameter.grad).detach().abs().max()))
++                elif '.t_func.' not in name:
++                    tolerance = 3e-6 if dtype == torch.float32 else 3e-13
++                    torch.testing.assert_close(current.grad, parameter.grad, atol=tolerance, rtol=tolerance)
++            self.assertGreater(controller_difference, 1e-8)
++            if dtype == torch.float64:
++                a = torch.autograd.functional.jacobian(lambda z: frozen(z[None], t[:1])[0], x[0])
++                b = torch.autograd.functional.jacobian(lambda z: dynamic(z[None], t[:1])[0], x[0])
++                torch.testing.assert_close(a, b, atol=3e-13, rtol=3e-13)
++
++    def test_actual_macs_parameter_sharing_and_stage_logging(self):
++        models = {solver: VelocityNet(16, 'ode_state_clock', gate_hidden=32, state_clock_solver=solver)
++                  for solver in ['euler', 'frozen', 'midpoint']}
++        for solver, expected in [('euler', 81984), ('frozen', 106560), ('midpoint', 131136)]:
++            model = models[solver]
++            self.assertEqual(model.parameter_count(), 83664)
++            self.assertEqual(macs(model, 16), expected)
++            executed, linear = [0], F.linear
++            def instrument(x, weight, bias=None):
++                executed[0] += (x.numel()//x.shape[-1])*weight.numel()
++                return linear(x, weight, bias)
++            with patch.object(F, 'linear', instrument), torch.no_grad():
++                model(torch.zeros(1, 16), torch.zeros(1, 1))
++            self.assertEqual(executed[0], expected)
++            self.assertEqual(len(list(model.ode_layers())), 0)
++            self.assertEqual(len(list(model.state_clock_layers())), 6)
++            self.assertEqual(len(list(model.parameters())), len({id(p) for p in model.parameters()}))
++            with torch.no_grad():
++                for _, layer in model.state_clock_layers():
++                    layer.t_func[-1].weight.normal_(std=.1)
++            stats = collect(model, torch.randn(8, 16), torch.rand(8, 1))
++            self.assertEqual(len(stats), 6)
++            for row in stats:
++                self.assertEqual(row['operator_type'], 'state_clock_vector_field')
++                self.assertEqual(row['solver'], solver)
++                self.assertEqual(row['activation']['midpoint_clock_is_executed_stage'], solver == 'midpoint')
++                self.assertGreater(row['activation']['gate_change_abs_max'], 0.)
++
++    def test_unused_solver_and_legacy_interventions_rejected(self):
++        for change in [dict(state_clock_solver='unknown'), dict(orders=1), dict(ode_gate_reparam=8.),
++                       dict(ode_middle_activation='identity'), dict(ode_clock_mode='reuse'),
++                       dict(diagonal_solver='exp'), dict(forced_gate_clock='static')]:
++            with self.subTest(change=change), self.assertRaises(ValueError):
++                VelocityNet(2, 'ode_state_clock', **change)
++        with self.assertRaises(ValueError):
++            VelocityNet(2, 'swiglu', state_clock_solver='frozen')
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- stage20/docs/research-architecture-search/protocol-state-clock.md
++++ state_clock/docs/research-architecture-search/protocol-state-clock.md
+@@ -0,0 +1,110 @@
++# Original vector field: frozen versus state-dependent clocks
++
++Registered before any state-clock training. The head-envelope/time-panel
++diagnostics do not support a tail-range repair, and the coupled SwiGLU proposal
++is stopped. This study returns to the original P and controller. It asks one
++untested question about where the same controller is evaluated inside a solve.
++The mathematical and experiment reviews state the limited rationale; they do
++not predict a quality gain or claim a uniquely ODE-specific mechanism.
++
++## Exact operators
++
++```text
++s(z) = .2+.8*sigmoid(t_func(z)/10),  D(z)=diag(s(z))
++f(z) = D(z)Pz
++first = f(h)
++
++Euler:        h+first
++Frozen K2:    h+first+.5*D(h)P*first
++Midpoint:     h+f(h+.5*first).
++```
++
++Frozen K2 is the professor's correct Taylor polynomial for the conditional
++linear field with D(h) held fixed. Midpoint instead approximates the nonlinear
++field f(z), with controller reevaluation. Its second coefficient includes
++`diag(Ph)*Js(h)*f(h)` in addition to `D(h)P*f(h)`. Neither model is relabeled as
++an erroneous implementation of the other. Stage5 shared controllers across
++two solves; Stage7 used a different nonlinear drift with a frozen clock. Those
++studies did not test this exact contrast.
++
++Use vector clocks only: scalar positive clocks change time along a fixed
++linear orbit, whereas vector clock feedback can change directions. The FFN
++retains two original maps separated by SiLU; there is no new controller,
++spectral constraint, rate bound, temperature, loss or prediction head.
++
++## Initialization and six arms
++
++All ODE arms use width64, depth3, gate-hidden32, reference gate-hidden64 and
++the same P/controller tensors and RNG construction. Zero only each final
++controller affine to make D=.6I initially; do not zero P. Frozen K2 and midpoint
++then have identical initial hidden/full functions and input/P derivatives.
++Their controller-parameter responses with a nonzero output head generally
++differ because intermediate controller features differ. The formal zero
++velocity head masks these backbone responses initially. Euler's hidden
++features and output-head Jacobian are not equal to the K2 pair.
++
++| Arm | Operator | Dense MACs per FFN |
++|---|---|---:|
++| state_euler | original vector Euler, constant-clock initialization |16384|
++| state_frozen | cached-clock K2, same initialization |24576|
++| state_midpoint | nonlinear midpoint, same initialization |32768|
++| swiglu_budget | SwiGLU nominal96, actual64 |12288|
++| swiglu | SwiGLU nominal128, actual85 |16320|
++| swiglu_compute | SwiGLU nominal256, actual170 |32640|
++
++All three ODE arms have the same parameter count. Midpoint executes a second
++controller evaluation as well as a second P application; cached K2 does not.
++SwiGLU256 is a close computation control, with0.39% fewer dense FFN MACs than
++midpoint and more parameters. Actual operations, parameters and runtime must
++be reported separately; no dead computation is added to equalize cost. Cached
++K2 is a mechanism control, not a proposed compute-efficient architecture.
++
++Implement midpoint as the shared frozen expression plus
++`(s(h+first/2)-s(h))*(Ph+P*first/2)`. This is algebraically identical to explicit
++midpoint and bit-pairs its constant-clock forward path with frozen K2. All
++controller/state derivatives remain live. Independent tests must compare it
++against the explicit two-stage expression, not just its own decomposition.
++
++## Fixed training and diagnostics
++
++Eighteen cells: the six arms on Gaussian2D, Ring8 and product16. Training seed0,
++5000updates, batch512, AdamW3e-4, weight decay0, clip1 and original cached-bank
++pair velocity supervision remain unchanged. Keep the existing time sampler,
++data versions, five-time diagnostics and Heun32 generation. No JiT-head,
++endpoint clipping, Gaussian-reference or extra-label intervention is combined.
++
++Copy every non-FFN initial tensor and runtime buffer from the same hash-bound
++Stage15 step0 references. Both established SwiGLU reruns must reproduce their
++historical saved states. The larger SwiGLU is newly trained under this same
++protocol. Record every fixed checkpoint/curve, raw P spectra, first/midpoint
++clocks, clock changes, finite midpoint correction and the omitted clock
++Taylor term. These internal statistics do not establish a full-field property.
++
++Use two one-thread Mac CPU workers, actual10s resource telemetry and idle-sleep
++prevention. Reserve no GPU and freeze a new source/config/protocol runtime.
++All previous runtimes, results and submitted Report1 remain unchanged.
++
++## Decision before outcomes
++
++Only state_midpoint can be nominated for this state-feedback hypothesis. It
++must lower primary validation oracle MSE by at least10% against all three
++SwiGLUs and at least5% against each ODE control on a nonlinear task. On every
++other primary task it must be within5% of the better SwiGLU; on both nonlinear
++tasks its full velocity Jacobian error and validation SW2 must each be within
++10% of the better SwiGLU. These are practical screening rules, not significance
++tests. Every control and endpoint remains visible even if it is unexpectedly
++strong; a control gain does not establish midpoint's mechanism.
++
++A nominee still needs an independent fresh holdout, matched-cost/parameter
++interpretation, isolated timing and broader transfer before the goal can be
++achieved. If midpoint fails, stop this setting without another step size,
++solver stage/order, clock range/slope/temperature, controller width, initializer
++or output-head rescue. Do not reopen the stopped SwiGLU gate family.
++
++Before launch verify nonlinear Taylor/JVP and local-order identities, explicit
++midpoint values/gradients, constant-clock legacy compatibility, initialization
++pairing and its tangent limitation, actual dense work, full trainer/sampling/
++checkpoint/resume and a real monitor heartbeat. Default predecessor models
++must retain identical three-update trajectories. After completion audit every
++checkpoint/diagnostic, snapshot data RNG, source/data/config/reference hash
++and native final field/Jacobian replay before deciding on a candidate.
+--- stage20/docs/research-architecture-search/state-clock-design-review.md
++++ state_clock/docs/research-architecture-search/state-clock-design-review.md
+@@ -0,0 +1,105 @@
++# Re-evaluating the original clock inside one solve
++
++**Conditional GO for one vector-clock comparison.** This tests a distinct, previously untrained interpretation of the original layer: the same clock/controller is evaluated at an internal midpoint. It does not repair a mathematical bug in the professor's conditional linear flow. Its empirical prior is weak; no result predicts a gain over SwiGLU. Only the dynamic-midpoint arm could be nominated, after implementation checks and a registered comparison. There is no order, clock-range, width or temperature rescue attached to failure.
++
++## Two different differential equations
++
++Let D(z)=diag(s(z)), with the unchanged sigmoid clock in (.2,1), and let f(z)=D(z)Pz. At input h define
++
++```text
++D0=D(h), f0=D0*P*h, h_mid=h+f0/2.
++frozen K2: F_fr=h+D0*P*h_mid
++dynamic midpoint: F_dyn=h+D(h_mid)*P*h_mid.
++```
++
++F_fr is exactly the professor's second-order polynomial `h+D0Ph+.5D0PD0Ph`, including the vector generalization's multiplication order. It approximates the conditional linear ODE z'=D(h)Pz, whose clock is selected by the initial input and held fixed. F_dyn is explicit midpoint applied to the different autonomous ODE z'=D(z)Pz. Both share the same learned P and controller; the latter evaluates that controller twice.
++
++The exact finite difference is
++
++```text
++F_dyn-F_fr = diag[s(h_mid)-s(h)] * P*h_mid.
++```
++
++No extra learned matrix is involved. In exact arithmetic, a bit-paired implementation can use the original frozen output plus `(s_mid-s)*(Ph+P*f0/2)`; this equals the explicit-midpoint expression and requires two P products. Canonical integration terminology does not make the resulting tied two-stage neural block novel or uniquely ODE-based.
++
++## The missing term belongs to the nonlinear ODE, not the original one
++
++With J_s the vector clock Jacobian,
++
++```text
++J_f(z)=D(z)P+diag(Pz)J_s(z)
++exact nonlinear second-order expansion:
++h+f0+.5D0*P*f0+.5diag(Ph)*J_s(h)*f0.
++```
++
++For a precise asymptotic claim, set P=epsilon*P0 while keeping the controller fixed, and write g(z)=D(z)P0z. On compact input sets and sufficiently small epsilon, smoothness gives
++
++```text
++Phi_dynamic(h)=h+epsilon*g+.5epsilon^2*J_g*g+O(epsilon^3)
++F_dyn-Phi_dynamic=O(epsilon^3)
++F_fr-Phi_dynamic=-.5epsilon^2*diag(P0h)*J_s(h)*g+O(epsilon^3).
++```
++
++The last error is generically order epsilon^2 when its coefficient is nonzero. In contrast, F_fr approximates its **own conditional linear** exact flow to order epsilon^3. Re-evaluating the clock is therefore a change of vector field, not a solver-order correction to the professor's intended flow. These local statements do not establish small error at a learned unit-size step.
++
++For reference, the leading explicit-midpoint error for the nonlinear field is `-epsilon^3*(D²g[g,g]/24+J_g*J_g*g/6)`. This permits an independent small-epsilon numerical check rather than an assumed error order.
++
++## Scalar clocks do not create new exact orbits
++
++If s is one positive scalar, z'=s(z)Pz has solution `z(u)=exp(r(u)P)h`, where `r'(u)=s(z(u))>0`. It follows the same P-linear orbit with a different clock, and r(1) remains in (.2,1). A sufficiently general conditional scalar clock could select that effective time directly. A changed finite-controller parameterization or midpoint polynomial may behave differently, but it does not establish new scalar exact-flow orbit geometry. This statement is per internal solve, not an expressivity theorem for the complete two-solve network.
++
++Vector clocks can change direction because D(z) need not be scalar. Along a trajectory, the matrices D(z(u))P need not commute. The earlier free-clock tangent result still applies: a nondegenerate vector gate already has a full pointwise receiving span. The new hypothesis concerns composition and state feedback of the **shared controller**, not the discovery of another missing pointwise direction.
++
++Stage5 shared or reused controllers across ode1/ode2; it did not re-evaluate one controller within an integration stage. Stage7 used the different field `D0*P2*SiLU(P1z)` with D0 frozen; its trained arms were K1. These distinctions are explicit in [the clock-reuse protocol](protocol-clock-reuse.md), [the nonlinear-drift protocol](protocol-nonlinear-drift.md) and `synthetic/models.py`. This comparison is not a continuation of Stage20's stopped forced-SwiGLU-gate family.
++
++## Derivatives and stability limits
++
++The full midpoint input derivative is
++
++```text
++J_Fdyn = I+J_f(h_mid)*(I+.5J_f(h)).
++```
++
++All clock responses at both stages remain live. For comparison, with A=D0P and B=diag(Ph)J_s(h), the complete frozen-map derivative is
++
++```text
++J_Ffr=I+A+B+.5[diag(P*f0)J_s(h)+A*(A+B)].
++```
++
++Freezing the clock during the auxiliary solve does not mean detaching it from network backpropagation.
++
++Finite parameters and bounded clocks imply `||f(z)||<=||P||*||z||`. Together with local smoothness this gives a global exact autonomous flow. It does not make f globally Lipschitz with constant ||P||: a local bound includes `||Pz||_infinity*||J_s(z)||`. Large hidden inputs, controller derivatives or P can make the feedback term and numerical step large despite the clock's bounded range.
++
++Explicit midpoint is not unconditionally stable or invertible. For constant A=-3I its amplification is 2.5 while exp(A) contracts. For the real two-dimensional matrix A=[[-1,-1],[1,-1]], `I+A+A²/2=0`, whereas exp(A) is invertible. Setting D=.6I and P=A/.6 realizes this inside the proposed layer. Neither a hidden numerical flow nor its exact counterpart automatically satisfies the complete FM Jacobian constraints derived earlier.
++
++## Pairing initialization, including its limitation
++
++Zero the final controller affine weights and biases in **all three new solver arms**, after constructing the same native tensors without consuming extra RNG. Then D(z)=cI with c=.6 everywhere. Frozen K2 and midpoint have identical forward functions and P/input derivatives. This is a declared change from the old random controller initialization; the Euler reference must be rerun with it.
++
++Their controller tangents are different. If a controller perturbation produces q(z)=delta s(z), then at this constant initialization
++
++```text
++delta F_dyn-delta F_fr = diag(P*h_mid)*[q(h_mid)-q(h)].
++```
++
++The final controller bias has constant q and hence no difference; final controller weights see different hidden features at h and h_mid. First-layer controller gradients are initially zero because the final affine weights are zero. This is the intended state-feedback response, not a matched local controller kernel.
++
++The complete VelocityNet has a zero output head. It therefore initially masks both backbone/controller tangents. Frozen K2 and midpoint have identical complete initial parameter Jacobians because their hidden features also agree; a nonzero output-head probe exposes the local controller difference. Euler generally has different hidden features and output-head gradients, so its complete initial kernel is not claimed to match the K2 pair.
++
++## Cost, controls and decision boundary
++
++At width64 with the retained vector-controller hidden32, each controller costs4096 dense MACs and each P product costs4096. For the retained two-solve FFN:
++
++| Solver | Controller evaluations | P products | Dense MACs |
++|---|---:|---:|---:|
++| Euler K1 | 2 | 2 | 16384 |
++| Frozen K2 | 2 | 4 | 24576 |
++| Dynamic midpoint | 4 | 4 | 32768 |
++
++All three have the same learned tensors. Nominal128 SwiGLU costs16320 MACs per FFN and is nearly parameter-matched; nominal256 costs32640 and is nearly midpoint-compute-matched, with more parameters. Actual pointwise work, runtime and memory still need measurement.
++
++The bounded grid is six arms: paired Euler/frozen-K2/midpoint plus SwiGLU96/128/256. Swi96 retains the stronger cheap Ring reference. Swi192 is unnecessary when frozen K2 is only a mechanism control, not a nominee. The candidate must materially outperform both frozen K2 and the relevant SwiGLU frontier under the registered task/transfer guards; beating Euler alone could simply reflect extra evaluation cost. The original loss, coupling, time sampler, output head, P parameterization and clock bounds remain fixed.
++
++Before training, verify the conditional polynomial identity, explicit-midpoint values and full gradients, the nonlinear Taylor clock term and local error orders, exact constant-clock forward/P/input pairing, the nonzero-head controller-tangent difference, and actual executed dense MACs. Log both stage clocks and their change, the extra correction, frozen quadratic term and nonlinear clock-Taylor term separately. None is a whole-network stability certificate.
++
++A positive result would support one state-feedback implementation at its measured budget; it would not prove that approximate integration is uniquely responsible. A negative result stops this fixed state-clock setting. No scalar variant, extra stage, modified gate slope or new loss follows automatically.
+--- stage20/docs/research-architecture-search/state-clock-experiment-review.md
++++ state_clock/docs/research-architecture-search/state-clock-experiment-review.md
+@@ -0,0 +1,48 @@
++# Review: recompute the original clock inside one solve?
++
++**Decision: GO for one bounded, preregistered falsification screen, conditional on mathematical and implementation checks; no architecture is selected by this review.** This asks a previously untested question about the professor block, with a direct cached-clock control. It is not a continuation of the rejected forced-SwiGLU family. The evidence does not predict success, identify clock freezing as the existing failure's cause, or support repeated rescue if the screen fails.
++
++## What changes, and what was already tested
++
++The professor's scalar clock, and its later vector extension, are legitimate input-conditioned linear solves. [OriginalODELayer](../../synthetic/models.py) computes the clock once before its Taylor recurrence. Writing `D(h)=diag(s(h))`, the frozen second-order map is
++
++```text
++f = D(h) P h
++frozen_K2(h) = h + f + .5 D(h) P f.
++```
++
++The proposed field instead recomputes its clock from the evolving state: `f(z)=D(z)Pz`. One explicit midpoint step of duration one is
++
++```text
++m = h + .5 f(h)
++state_midpoint(h) = h + D(m) P m.
++```
++
++Replacing D(m) by the original D(h) gives exactly frozen_K2. The cached clock must retain its gradient; detaching it changes the training problem. The new second Taylor coefficient includes `.5 diag(P h) J_s(h) f(h)`, absent from the frozen conditional system. This is a different nonlinear field, not a correction of an erroneous original expansion. At unit horizon, midpoint also contains higher state-composition terms; it is not exactly the full second Taylor polynomial.
++
++The source/protocol audit found no implementation or completed training of this exact contrast:
++
++- [Stage5](protocol-clock-reuse.md) tied or reused controllers **between** two solves with different P1/P2 and a middle SiLU. Its [negative result](clock-reuse-readout.md) is relevant caution, but does not test an internal midpoint stage.
++- [Stage7](protocol-nonlinear-drift.md) changed the field to `D0 P2 SiLU(P1 z)` with D0 frozen. Its [readout](nonlinear-drift-readout.md) confirms all trained arms were K1. The implemented K2/JVP test also freezes D0. Reopening that failed nonlinear-field family at higher order remains excluded.
++- [Stage20](protocol-forced-gate.md) changed the scalar activation inside SwiGLU and prohibited its coupling/order rescues. None of that block, its lambda parameters, or its forced-response activation belongs in this question.
++
++## What this can actually explain
++
++For the original positive **scalar** clock, the exact autonomous trajectory satisfies `z(u)=exp(alpha(u)P)h`, where `alpha'=s(exp(alpha P)h)`. It follows the same linear orbit with different elapsed time. It creates no new orbit geometry. Vector clocks can change direction, but that observation is not a full-network expressivity or efficiency theorem.
++
++The testable hypothesis is narrower: evaluating the **same** controller on the midpoint state may supply useful shared-parameter features that evaluating it only on h does not supply at this budget. The existing vector free-clock diagnostic already has essentially zero pointwise residual floor; this is not a claim that vector clocks lack pointwise control directions. It changes their shared functional dependence and optimization.
++
++Neither an internal auxiliary-time ODE nor a better numerical approximation establishes compatibility with FM time, the complete velocity Jacobian, or the Gaussian-source covariance identity. A midpoint model beating cached K2 would support this architecture-level reevaluation choice on the tested tasks. It would not establish uniquely ODE-specific gains: the same computation is a tied two-stage residual network.
++
++## Controls that make the screen interpretable
++
++1. **Cached-clock K2 is indispensable.** Keep the same P, controller, middle SiLU, surrounding backbone, loss and horizon. This isolates reevaluating the clock at m. K1 alone conflates that change with a second projection stage.
++2. **Pay for every evaluation.** For width d and vector-controller hidden width r, one field evaluation costs `d^2+2dr` dense MACs. Across the two solves, K1 costs `2d^2+4dr`, cached K2 `4d^2+4dr`, and midpoint `4d^2+8dr`. At d=64,r=32 these are 16,384, 24,576 and 32,768 per FFN. Nominal SwiGLU256 has actual hidden170 and 32,640 MACs: a close, not exact, inference-budget comparator. Count the common backbone and measure runtime separately. Longer training of ordinary SwiGLU is the distinct training-budget comparison; parameter sharing does not make repeated work free.
++3. **Pair initial functions without claiming equal tangents.** Zero final controller weights/bias give constant D=cI, so cached K2 and midpoint initially agree. If a controller perturbation produces q(z), their first-order difference is `diag(Pm)[q(m)-q(h)]`. Last-layer controller weight features therefore differ; bias-only directions coincide. A zero final velocity head masks hidden-parameter tangents initially, so use a nonzero-head or local-FFN check. This constant-clock initialization also differs from legacy initialization: rerun the cached comparator rather than attributing all differences from historical K1 to state feedback.
++4. **Keep a practical rejection rule.** An improvement only over cached K2, while losing to compute-matched SwiGLU, is not an architectural lead. Report all fixed task endpoints, field/Jacobian errors, sampling quality and actual costs. Failure ends this question without changing horizon, temperature, order, width or adding constraints.
++
++## Direct literature scope
++
++No new broad search is needed to establish midpoint mathematics. The Neural-ODE authors' [torchdiffeq Midpoint implementation](https://github.com/rtqichen/torchdiffeq/blob/master/torchdiffeq/_impl/fixed_grid.py#L13-L19), inspected directly, computes the initial field, constructs the half-step state, and evaluates the field there. This supports the numerical interpretation only. Smoothness gives the usual small-step order; it does not guarantee accuracy, invertibility, stability or learning benefits for one learned unit-size step.
++
++[Geiping et al., *Scaling up Test-Time Compute with Latent Reasoning*, Section3](https://arxiv.org/html/2502.05171v2#S3) explicitly reapply a shared recurrent block to updated hidden states, including gated SiLU MLPs. It is directly relevant prior art for spending compute through state-dependent recurrence. Its language-model architecture, normalization and training differ from this two-stage FFN. It neither predicts our outcome nor makes gate reevaluation novel. The defensible contribution of the proposed screen is resolving an untested distinction in this project's original construction, not claiming a new solver or an established FM mechanism.
+--- stage20/configs/synthetic/architecture_search/state_clock_v1_20261025_m1.json
++++ state_clock/configs/synthetic/architecture_search/state_clock_v1_20261025_m1.json
+@@ -0,0 +1,125 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-state-clock.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "state_euler",
++      "model": "ode_state_clock",
++      "options": {
++        "orders": 2,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "state_clock_solver": "euler"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "state_frozen",
++      "model": "ode_state_clock",
++      "options": {
++        "orders": 2,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "state_clock_solver": "frozen"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "state_midpoint",
++      "model": "ode_state_clock",
++      "options": {
++        "orders": 2,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "state_clock_solver": "midpoint"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu_compute",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 256
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    }
++  ],
++  "experiment_id": "state_clock_v1_20261025_m1",
++  "datasets": [
++    "gaussian_aniso_2d",
++    "gmm_ring8_2d"
++  ]
++}
+--- stage20/configs/synthetic/architecture_search/state_clock_product16_20261025_m1.json
++++ state_clock/configs/synthetic/architecture_search/state_clock_product16_20261025_m1.json
+@@ -0,0 +1,100 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-state-clock.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "state_euler",
++      "model": "ode_state_clock",
++      "options": {
++        "orders": 2,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "state_clock_solver": "euler"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "state_frozen",
++      "model": "ode_state_clock",
++      "options": {
++        "orders": 2,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "state_clock_solver": "frozen"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "state_midpoint",
++      "model": "ode_state_clock",
++      "options": {
++        "orders": 2,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "state_clock_solver": "midpoint"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu_compute",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 256
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    }
++  ],
++  "experiment_id": "state_clock_product16_20261025_m1",
++  "datasets": [
++    "rotated_product_bimodal_16d"
++  ]
++}
+--- stage20/configs/synthetic/architecture_search/state_clock_queue_20261025_m1.json
++++ state_clock/configs/synthetic/architecture_search/state_clock_queue_20261025_m1.json
+@@ -0,0 +1,16 @@
++{
++  "seed": 0,
++  "stages": [
++    {
++      "plan": "configs/synthetic/architecture_search/state_clock_v1_20261025_m1.json",
++      "output_name": "state_clock_v1_20261025_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/v1"
++    },
++    {
++      "plan": "configs/synthetic/architecture_search/state_clock_product16_20261025_m1.json",
++      "output_name": "state_clock_product16_20261025_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1"
++    }
++  ],
++  "protocol": "docs/research-architecture-search/protocol-state-clock.md"
++}

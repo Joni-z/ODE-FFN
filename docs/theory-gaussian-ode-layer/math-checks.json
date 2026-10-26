@@ -1,0 +1,731 @@
+{
+  "status": "PASS",
+  "scope": "Symbolic identities and deterministic matrix examples; no training, no optimizer run, no GPU job.",
+  "not_proved_by_checks": [
+    "Global representability restrictions are proved with assumptions in derivation.md, not by numerical examples.",
+    "No comparison of whole neural-network expressivity or empirical generation quality is asserted.",
+    "No ODE-FFN superiority over SwiGLU is established."
+  ],
+  "completed_utc": "2026-10-25T09:26:31.438795+00:00",
+  "python": "3.12.4",
+  "numpy": "2.2.6",
+  "sympy": "1.14.0",
+  "check_count": 107,
+  "symbolic_check_count": 48,
+  "checks": [
+    {
+      "name": "posterior_residual_uncorrelated",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "posterior_covariance",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "image_to_velocity",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "posterior_pair_label_variance",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "image_risk_decomposition",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "velocity_is_log_variance_derivative",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "denoiser_gain_time_derivative",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "denoiser_posterior_jacobian_identity",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "isotropic_subspace_velocity_factorization",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "covariance_ode",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "gaussian_continuity_equation",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "positive_variance_velocity_sign_crossing",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "normal_image_gain",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "normal_velocity",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "normal_flow_ode",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "gaussian_velocity_time_derivative",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "normal_external_second_order_term_cancels",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "normal_frozen_K2_differs_from_exact_flow",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "normalized_denoising_gain",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "at_source_optimal_image_zero",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "at_source_velocity_minus_identity",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "principal_example_image_0",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "principal_example_velocity_0",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "principal_example_image_1",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "principal_example_velocity_1",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "principal_example_image_2",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "principal_example_velocity_2",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "thickened_normal_gain",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "scalar_K2_floor",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "negative_rate_polynomial_-1",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "negative_rate_polynomial_-2",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "negative_rate_polynomial_-4",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "real_K2_complex_pair_can_annihilate",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "real_K2_matrix_square_identity",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "K2_velocity_bridge_quadratic_equation",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "even_multiplicity_K2_preimage",
+      "kind": "symbolic",
+      "entries": 25,
+      "passed": true
+    },
+    {
+      "name": "odd_dimensional_negative_square_determinant_obstruction",
+      "kind": "example",
+      "passed": true,
+      "zero_gain_square_rhs": -1,
+      "thickened_gain_square_rhs": "-97/101"
+    },
+    {
+      "name": "input_dependent_gate_jacobian_K1",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "gate_jacobian_at_origin_K1",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "input_dependent_gate_jacobian_K2",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "gate_jacobian_at_origin_K2",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "state_dependent_exponential_can_have_zero_jacobian",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "state_dependent_exponential_has_strict_local_maximum",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "state_dependent_exponential_determinant_formula",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "K2_scalar_loss_derivative",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "K2_stationary_parameterization_at_minus_identity",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "K2_frechet_derivative",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "K2_frechet_degeneracy",
+      "kind": "symbolic",
+      "entries": 4,
+      "passed": true
+    },
+    {
+      "name": "finite_clock_determinant_is_nonzero_polynomial_at_zero",
+      "kind": "symbolic",
+      "entries": 1,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_residual_cross_covariance_t=0",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_covariance_t=0",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_image_velocity_bridge_t=0",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_velocity_covariance_ode_t=0",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_population_risk_decomposition_t=0",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_image_formula_t=0",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_velocity_formula_t=0",
+      "kind": "numeric",
+      "max_abs_error": 2.7755575615628914e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_residual_cross_covariance_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 2.7755575615628914e-17,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_covariance_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 2.220446049250313e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_image_velocity_bridge_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 3.3306690738754696e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_velocity_covariance_ode_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_jacobian_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 5.551115123125783e-17,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_population_risk_decomposition_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 7.105427357601002e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_image_formula_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 2.7755575615628914e-17,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_velocity_formula_t=0.1",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_residual_cross_covariance_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 1.1102230246251565e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_covariance_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 2.220446049250313e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_image_velocity_bridge_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 2.220446049250313e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_velocity_covariance_ode_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_jacobian_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 5.551115123125783e-17,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_population_risk_decomposition_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_image_formula_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 1.1102230246251565e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_velocity_formula_t=0.25",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_residual_cross_covariance_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 2.220446049250313e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_covariance_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_image_velocity_bridge_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_velocity_covariance_ode_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 3.3306690738754696e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_jacobian_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 8.881784197001252e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_population_risk_decomposition_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 3.552713678800501e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_image_formula_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 6.661338147750939e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_velocity_formula_t=0.5",
+      "kind": "numeric",
+      "max_abs_error": 7.771561172376096e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_residual_cross_covariance_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 1.5543122344752192e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_covariance_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 8.326672684688674e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_image_velocity_bridge_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 1.0547118733938987e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_velocity_covariance_ode_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 3.1086244689504383e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_jacobian_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 9.769962616701378e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_population_risk_decomposition_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 3.552713678800501e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_image_formula_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 1.8318679906315083e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_velocity_formula_t=0.75",
+      "kind": "numeric",
+      "max_abs_error": 3.6914915568786455e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_residual_cross_covariance_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 4.4853010194856324e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_covariance_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 5.206945985491984e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_image_velocity_bridge_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 5.08759701034478e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_velocity_covariance_ode_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 3.597122599785507e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_posterior_jacobian_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 1.9795796946109334e-11,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_population_risk_decomposition_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 7.105427357601002e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_image_formula_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 3.353740896105961e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "rotated_independent_eigenbasis_velocity_formula_t=0.95",
+      "kind": "numeric",
+      "max_abs_error": 7.105427357601002e-13,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "exact_flow_covariance_transport",
+      "kind": "numeric",
+      "max_abs_error": 6.661338147750939e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "exact_flow_composition",
+      "kind": "numeric",
+      "max_abs_error": 2.220446049250313e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "exact_flow_identity",
+      "kind": "numeric",
+      "max_abs_error": 2.7755575615628914e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "exact_flow_independent_finite_difference_ode",
+      "kind": "numeric",
+      "max_abs_error": 1.590547693552935e-10,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    {
+      "name": "source_to_endpoint_target_covariance",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "denoiser_is_not_endpoint_flow",
+      "kind": "example",
+      "passed": true,
+      "image_prediction_at_source": "zero",
+      "endpoint_flow_frobenius_norm": 2.244994432064365
+    },
+    {
+      "name": "signal_changes_sign_while_normal_stays_negative",
+      "kind": "example",
+      "passed": true,
+      "early_rates": [
+        -0.588235294117647,
+        -1.1111111111111112
+      ],
+      "late_rates": [
+        1.2,
+        -2.0
+      ]
+    },
+    {
+      "name": "nonnormal_K2_same_bounded_eigenvalues",
+      "kind": "numeric",
+      "max_abs_error": 0.0,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "nonnormal_K2_can_amplify_with_bounded_eigenvalues",
+      "kind": "example",
+      "passed": true,
+      "operator_norm": 25.015615246562994,
+      "generator_eigenvalues": [
+        -1,
+        -1
+      ]
+    },
+    {
+      "name": "K2_frechet_frobenius_adjoint",
+      "kind": "numeric",
+      "max_abs_error": 4.440892098500626e-16,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    {
+      "name": "K2_induced_preconditioner_psd_identity",
+      "kind": "numeric",
+      "max_abs_error": 1.7763568394002505e-15,
+      "tolerance": 2e-11,
+      "passed": true
+    }
+  ],
+  "inputs": {
+    "verify_math.py": "642d5153ef1521931827b68823df716b738077f3b20b77ba0b6746d3bedf5a16",
+    "derivation.md": "7ec60a74200e9b1aa8df9bc10dcaa3a867463ec4cb5b49c9442a82651d21aa16"
+  }
+}

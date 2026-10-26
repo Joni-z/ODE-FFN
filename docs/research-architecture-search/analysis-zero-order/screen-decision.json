@@ -1,0 +1,106 @@
+{
+  "state": "STOP",
+  "selected": null,
+  "eligible": [],
+  "comparisons": {
+    "scalar_increment": {
+      "parent": "scalar_k1",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.004720639371871949,
+          "forward_macs": 80576,
+          "oracle_over_parent": 1.2416944198149875,
+          "oracle_over_better_swiglu": 1.201798229102983,
+          "jacobian_over_better_swiglu": 1.2678580005816527,
+          "sw2_over_better_swiglu": 1.0847453219709486
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.027708128929138185,
+          "forward_macs": 80576,
+          "oracle_over_parent": 1.2338247057085103,
+          "oracle_over_better_swiglu": 1.824800635074618,
+          "jacobian_over_better_swiglu": 2.3148424533884513,
+          "sw2_over_better_swiglu": 1.081426893027651
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.13138823928833007,
+          "forward_macs": 82368,
+          "oracle_over_parent": 0.4485279157520537,
+          "oracle_over_better_swiglu": 1.446519551471003,
+          "jacobian_over_better_swiglu": 1.2791198266591188,
+          "sw2_over_better_swiglu": 1.0167273443655802
+        }
+      }
+    },
+    "vector_increment": {
+      "parent": "vector_k1",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.0045853528022766115,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.214130282592382,
+          "oracle_over_better_swiglu": 1.1673564624368247,
+          "jacobian_over_better_swiglu": 1.3322065582384948,
+          "sw2_over_better_swiglu": 1.0928619022909467
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.025616610336303712,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.3178927048490687,
+          "oracle_over_better_swiglu": 1.6870575032220325,
+          "jacobian_over_better_swiglu": 2.0741428377109608,
+          "sw2_over_better_swiglu": 1.0894802422459655
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.1686883560180664,
+          "forward_macs": 81984,
+          "oracle_over_parent": 0.5713573538013124,
+          "oracle_over_better_swiglu": 1.8571753941397657,
+          "jacobian_over_better_swiglu": 1.5045612373662758,
+          "sw2_over_better_swiglu": 1.1855173039905078
+        }
+      }
+    },
+    "vector_const_increment": {
+      "parent": "vector_const_map",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.0038331832885742188,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0163418361566312,
+          "oracle_over_better_swiglu": 0.9758663022396632,
+          "jacobian_over_better_swiglu": 0.6508983823785581,
+          "sw2_over_better_swiglu": 1.1123089655722558
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.021198120307922362,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0636457601955973,
+          "oracle_over_better_swiglu": 1.3960647974178468,
+          "jacobian_over_better_swiglu": 2.0844521618523135,
+          "sw2_over_better_swiglu": 1.0505143700547404
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.1680495361328125,
+          "forward_macs": 81984,
+          "oracle_over_parent": 0.6313967301902085,
+          "oracle_over_better_swiglu": 1.850142303058757,
+          "jacobian_over_better_swiglu": 1.566370431104878,
+          "sw2_over_better_swiglu": 1.1697483725208881
+        }
+      }
+    }
+  },
+  "audit_inputs_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/zero_order_20261024/small-output/zero_order_product16_20261024/audit/audit.json": "d4f01edbbe2f0da54c3f98fd002e0dcdbaf8a307e590f289111db4467e686dab",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/zero_order_20261024/small-output/zero_order_v1_20261024/audit/audit.json": "b9c88dc6a6c3724881576a0d55c25c8d2345601e017603dcfacdea60d57f97fd"
+  },
+  "script_sha256": "c67eddd3079c372d06b735391c91402c3c7a48d22d2ac435c4c9697efa0db2bd",
+  "scope": "Predeclared practical screen, not an inferential test or full architecture completion."
+}

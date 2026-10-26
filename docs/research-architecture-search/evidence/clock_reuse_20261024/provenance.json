@@ -1,0 +1,82 @@
+{
+  "time": "2026-10-24T05:43:18.610378+00:00",
+  "host": "Lenovo",
+  "python": "3.12.13 (main, Jun 23 2026, 15:23:43) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.8.0+cu126",
+  "device": "cpu",
+  "workers": 2,
+  "plan": {
+    "experiment_id": "clock_reuse_20261024",
+    "protocol": "docs/research-architecture-search/protocol-clock-reuse.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d",
+      "gaussian_aniso_16d"
+    ],
+    "arms": [
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "vector_tied",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_clock_mode": "tied"
+        }
+      },
+      {
+        "label": "vector_reuse",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_clock_mode": "reuse"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  },
+  "source_sha256": {
+    "synthetic\\__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic\\data.py": "84833eddc60a491c3e7b0db0adf6d7304b2af480529538ae69c216904e476110",
+    "synthetic\\diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "synthetic\\geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic\\grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic\\interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic\\models.py": "cb45c3701f3c80f0828af301431d702805d1456323c17b5932ea26a846ef4dbd",
+    "synthetic\\prepare.py": "c1a6527512eee308c589e69a5f8b0468d96dd5beb5faceb6777c2c1e48ba04d3",
+    "synthetic\\train.py": "9d3f0c6de9164a4fa8fc0bcf3b6750142460cec5397a50ef5c09ecf449884e8e",
+    "synthetic\\validate.py": "c3b97b54759d4e5226267e6ff26f68d60de18d47e57536a2f0240eff65bfd536",
+    "scripts\\run_architecture_study.py": "03ce6a45b3e4dee01d369226ab8e103ba046f9a9b4abec913beaf08e66263558",
+    "scripts\\check_vector_field.py": "6262f6e6c77d6f5827951a73abcf35781c6019ed851bb8bbc6fa7e83913491c7",
+    "scripts\\check_gate_geometry.py": "783901ecc8f463303a83a7f877ae58bdd6ecd2e75af17500705e0cf89cb1c73a",
+    "scripts\\run_clock_study.py": "1391b39e058bce2c2e1d58bcf48942b32f1ff41375b02b3ed1388c60029a0f9b",
+    "configs\\synthetic\\architecture_search\\clock_reuse_20261024.json": "9ae493048e2f31617a1d71ac5d2270448b1b3b25d386fc5ed798ccf557be7ca4",
+    "docs\\research-architecture-search\\protocol-clock-reuse.md": "588813016cb1bf31d29571a4a9bd3dee9c930adc78da11de14b14be6187e1f93"
+  },
+  "dataset_manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+}

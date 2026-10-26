@@ -1,0 +1,506 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "common_tensors_and_RNG_exact": true,
+      "native_zero_head_kernel_paired": true,
+      "nonzero_head_functions_and_input_Jacobians_paired_with_tolerance": true,
+      "nonzero_head_extra_receiver_response_squared": 0.11042005992790625,
+      "nonzero_head_full_response_difference": 0.11042249659018921,
+      "nonzero_head_full_NTK_not_paired": true,
+      "forward_difference": 2.384185791015625e-07,
+      "response_energy_identity_checked_in_float64_only": false,
+      "input_Jacobian_difference": 1.1920928955078125e-07,
+      "atol": 3e-06,
+      "rtol": 5e-05,
+      "reference_SVD": [
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 1.030250054712134e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 1.3722527308912547e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 9.620384822106587e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 1.144222186444388e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 1.0707875905402453e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 9.839468686004271e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0286422783001292e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.2360159742930144e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.669248027255328e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0997090016395816e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 8.190423644860445e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0133964295977113e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0286422783001292e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.2360159742930144e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.669248027255328e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0997090016395816e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 8.190423644860445e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0133964295977113e-08
+        }
+      ]
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "common_tensors_and_RNG_exact": true,
+      "native_zero_head_kernel_paired": true,
+      "nonzero_head_functions_and_input_Jacobians_paired_with_tolerance": true,
+      "nonzero_head_extra_receiver_response_squared": 0.22067958051072978,
+      "nonzero_head_full_response_difference": 0.2206965473812943,
+      "nonzero_head_full_NTK_not_paired": true,
+      "forward_difference": 4.172325134277344e-07,
+      "response_energy_identity_checked_in_float64_only": false,
+      "input_Jacobian_difference": 2.682209014892578e-07,
+      "atol": 3e-06,
+      "rtol": 5e-05,
+      "reference_SVD": [
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 9.908284553938884e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 1.0119532808938736e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 1.2333416166826483e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 9.589151042654898e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 9.917936846792763e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 9.442679554938493e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0199844940883551e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.566382380699068e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.243579984774541e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.575811296680392e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.815434326432282e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 8.66690333389819e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0199844940883551e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.566382380699068e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.243579984774541e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.575811296680392e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.815434326432282e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 8.66690333389819e-09
+        }
+      ]
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "common_tensors_and_RNG_exact": true,
+      "native_zero_head_kernel_paired": true,
+      "nonzero_head_functions_and_input_Jacobians_paired_with_tolerance": true,
+      "nonzero_head_extra_receiver_response_squared": 0.14828481240881383,
+      "nonzero_head_full_response_difference": 0.14828481240881786,
+      "nonzero_head_full_NTK_not_paired": true,
+      "forward_difference": 8.881784197001252e-16,
+      "response_energy_identity_checked_in_float64_only": true,
+      "input_Jacobian_difference": 6.661338147750939e-16,
+      "atol": 3e-13,
+      "rtol": 3e-12,
+      "reference_SVD": [
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 1.030250054712134e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 1.3722527308912547e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 9.620384822106587e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 1.144222186444388e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 1.0707875905402453e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 9.839468686004271e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0286422783001292e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.2360159742930144e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.669248027255328e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0997090016395816e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 8.190423644860445e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0133964295977113e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0286422783001292e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.2360159742930144e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.669248027255328e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0997090016395816e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 8.190423644860445e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 1.0133964295977113e-08
+        }
+      ]
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "common_tensors_and_RNG_exact": true,
+      "native_zero_head_kernel_paired": true,
+      "nonzero_head_functions_and_input_Jacobians_paired_with_tolerance": true,
+      "nonzero_head_extra_receiver_response_squared": 0.22166303960923917,
+      "nonzero_head_full_response_difference": 0.22166303960912614,
+      "nonzero_head_full_NTK_not_paired": true,
+      "forward_difference": 8.881784197001252e-16,
+      "response_energy_identity_checked_in_float64_only": true,
+      "input_Jacobian_difference": 3.885780586188048e-16,
+      "atol": 3e-13,
+      "rtol": 3e-12,
+      "reference_SVD": [
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 9.908284553938884e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 1.0119532808938736e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 1.2333416166826483e-08
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 9.589151042654898e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 32,
+          "maximum_product_residual": 9.917936846792763e-09
+        },
+        {
+          "label": "lowrank_budget",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 32,
+          "maximum_product_residual": 9.442679554938493e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0199844940883551e-08
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.566382380699068e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.243579984774541e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.575811296680392e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.815434326432282e-09
+        },
+        {
+          "label": "lowrank_narrow",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 8.66690333389819e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 1.0199844940883551e-08
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.0.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.566382380699068e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.243579984774541e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.1.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 9.575811296680392e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode1",
+          "rank": 21,
+          "maximum_product_residual": 9.815434326432282e-09
+        },
+        {
+          "label": "lowrank_augmented",
+          "layer": "blocks.2.ffn.ode2",
+          "rank": 21,
+          "maximum_product_residual": 8.66690333389819e-09
+        }
+      ]
+    }
+  ],
+  "scope": "Original random P supplies truncated core, not teacher weights. Narrow/expanded functions pair within GEMM tolerance; nonzero-head parameter tangents differ."
+}

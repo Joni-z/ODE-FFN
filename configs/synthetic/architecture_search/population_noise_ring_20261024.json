@@ -1,0 +1,61 @@
+{
+  "experiment_id": "population_noise_ring_20261024",
+  "protocol": "docs/research-architecture-search/protocol-population-noise.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": [
+    "gmm_ring8_2d"
+  ],
+  "arms": [
+    {
+      "label": "vector_pair",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64
+      },
+      "training_targets": "population_pair"
+    },
+    {
+      "label": "vector_mean",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64
+      },
+      "training_targets": "population_mean"
+    },
+    {
+      "label": "swiglu_budget_pair",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      },
+      "training_targets": "population_pair"
+    },
+    {
+      "label": "swiglu_budget_mean",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      },
+      "training_targets": "population_mean"
+    },
+    {
+      "label": "swiglu_pair",
+      "model": "swiglu",
+      "options": {},
+      "training_targets": "population_pair"
+    },
+    {
+      "label": "swiglu_mean",
+      "model": "swiglu",
+      "options": {},
+      "training_targets": "population_mean"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "nominees": [],
+  "extended_sampling_eligible": [],
+  "candidates": [
+    {
+      "arm": "ode_k2_native_final",
+      "quality_nominee": false,
+      "parameter_efficiency_nominee": false,
+      "extended_sampling_eligible": false,
+      "comparisons": {
+        "rotated_product_bimodal_16d": {
+          "primary_ratio": 7.958600089191628,
+          "primary_baseline": "swiglu128_native_deep",
+          "mac_ratio": 1.307511737089202,
+          "jacobian_ratio": 5.05445871621756,
+          "sw2_ratio": 1.3417819404236861,
+          "parameter_ratio_to_dense": 1.0031579702863704,
+          "shared_generic_ratio": 3.6334497493643405
+        },
+        "gmm_ring8_2d": {
+          "primary_ratio": 2.236094351991262,
+          "primary_baseline": "swiglu192_cloned_final",
+          "mac_ratio": 1.003665241295052,
+          "jacobian_ratio": 3.005826635567974,
+          "sw2_ratio": 1.1947315872339939,
+          "parameter_ratio_to_dense": 0.7681851373364039,
+          "shared_generic_ratio": 2.124906174155987
+        },
+        "gaussian_aniso_2d": {
+          "primary_ratio": 1.1327980493611691,
+          "primary_baseline": "swiglu128_native_final",
+          "mac_ratio": 1.3144,
+          "jacobian_ratio": 1.07229821983336,
+          "sw2_ratio": 1.0630279289574698,
+          "parameter_ratio_to_dense": 1.0032276995305165,
+          "shared_generic_ratio": 0.9620162460007782
+        }
+      }
+    },
+    {
+      "arm": "ode_k2_native_deep",
+      "quality_nominee": false,
+      "parameter_efficiency_nominee": false,
+      "extended_sampling_eligible": false,
+      "comparisons": {
+        "rotated_product_bimodal_16d": {
+          "primary_ratio": 8.532380934595807,
+          "primary_baseline": "swiglu128_native_deep",
+          "mac_ratio": 1.307511737089202,
+          "jacobian_ratio": 5.313784939219776,
+          "sw2_ratio": 1.4314958062222076,
+          "parameter_ratio_to_dense": 1.0031579702863704,
+          "shared_generic_ratio": 5.683077181060154
+        },
+        "gmm_ring8_2d": {
+          "primary_ratio": 2.8029066550541537,
+          "primary_baseline": "swiglu192_cloned_final",
+          "mac_ratio": 1.003665241295052,
+          "jacobian_ratio": 3.560660831991632,
+          "sw2_ratio": 1.1855952574365651,
+          "parameter_ratio_to_dense": 0.7681851373364039,
+          "shared_generic_ratio": 2.337588879322023
+        },
+        "gaussian_aniso_2d": {
+          "primary_ratio": 1.289493804726367,
+          "primary_baseline": "swiglu128_native_final",
+          "mac_ratio": 1.3144,
+          "jacobian_ratio": 1.4129735889931518,
+          "sw2_ratio": 0.9926315846265621,
+          "parameter_ratio_to_dense": 1.0032276995305165,
+          "shared_generic_ratio": 1.143331735528557
+        }
+      }
+    },
+    {
+      "arm": "ode_k2_cloned_final",
+      "quality_nominee": false,
+      "parameter_efficiency_nominee": false,
+      "extended_sampling_eligible": false,
+      "comparisons": {
+        "rotated_product_bimodal_16d": {
+          "primary_ratio": 8.822475060128374,
+          "primary_baseline": "swiglu128_native_deep",
+          "mac_ratio": 1.307511737089202,
+          "jacobian_ratio": 5.427169047571571,
+          "sw2_ratio": 1.1319340558345188,
+          "parameter_ratio_to_dense": 1.0031579702863704,
+          "shared_generic_ratio": 4.027846535414067
+        },
+        "gmm_ring8_2d": {
+          "primary_ratio": 2.045067985564332,
+          "primary_baseline": "swiglu192_cloned_final",
+          "mac_ratio": 1.003665241295052,
+          "jacobian_ratio": 2.286247119412838,
+          "sw2_ratio": 1.199531136156505,
+          "parameter_ratio_to_dense": 0.7681851373364039,
+          "shared_generic_ratio": 1.9433784559334981
+        },
+        "gaussian_aniso_2d": {
+          "primary_ratio": 1.2197239028236604,
+          "primary_baseline": "swiglu128_native_final",
+          "mac_ratio": 1.3144,
+          "jacobian_ratio": 1.1077117967486858,
+          "sw2_ratio": 1.0376399433147283,
+          "parameter_ratio_to_dense": 1.0032276995305165,
+          "shared_generic_ratio": 1.035837068057771
+        }
+      }
+    },
+    {
+      "arm": "ode_k2_cloned_deep",
+      "quality_nominee": false,
+      "parameter_efficiency_nominee": false,
+      "extended_sampling_eligible": false,
+      "comparisons": {
+        "rotated_product_bimodal_16d": {
+          "primary_ratio": 9.386461715043858,
+          "primary_baseline": "swiglu128_native_deep",
+          "mac_ratio": 1.307511737089202,
+          "jacobian_ratio": 5.793489618734121,
+          "sw2_ratio": 1.3170605939730808,
+          "parameter_ratio_to_dense": 1.0031579702863704,
+          "shared_generic_ratio": 6.251946179215861
+        },
+        "gmm_ring8_2d": {
+          "primary_ratio": 2.907350566445017,
+          "primary_baseline": "swiglu192_cloned_final",
+          "mac_ratio": 1.003665241295052,
+          "jacobian_ratio": 3.409844126510944,
+          "sw2_ratio": 1.2592521112423345,
+          "parameter_ratio_to_dense": 0.7681851373364039,
+          "shared_generic_ratio": 2.4246937871290437
+        },
+        "gaussian_aniso_2d": {
+          "primary_ratio": 1.3272524246913329,
+          "primary_baseline": "swiglu128_native_final",
+          "mac_ratio": 1.3144,
+          "jacobian_ratio": 1.1768881998355538,
+          "sw2_ratio": 0.9766309796312135,
+          "parameter_ratio_to_dense": 1.0032276995305165,
+          "shared_generic_ratio": 1.176810476052532
+        }
+      }
+    },
+    {
+      "arm": "ode_k2_shared_final",
+      "quality_nominee": false,
+      "parameter_efficiency_nominee": false,
+      "extended_sampling_eligible": false,
+      "comparisons": {
+        "rotated_product_bimodal_16d": {
+          "primary_ratio": 9.712303864886119,
+          "primary_baseline": "swiglu128_native_deep",
+          "mac_ratio": 1.307511737089202,
+          "jacobian_ratio": 5.782942157404601,
+          "sw2_ratio": 1.3918836304390787,
+          "parameter_ratio_to_dense": 0.402904375702768,
+          "shared_generic_ratio": 4.434092384104851
+        },
+        "gmm_ring8_2d": {
+          "primary_ratio": 4.808544782189519,
+          "primary_baseline": "swiglu192_cloned_final",
+          "mac_ratio": 1.003665241295052,
+          "jacobian_ratio": 4.646814172947518,
+          "sw2_ratio": 1.4132175398594402,
+          "parameter_ratio_to_dense": 0.2984141249602127,
+          "shared_generic_ratio": 4.569443363282549
+        },
+        "gaussian_aniso_2d": {
+          "primary_ratio": 1.4079031429896658,
+          "primary_baseline": "swiglu128_native_final",
+          "mac_ratio": 1.3144,
+          "jacobian_ratio": 1.144814765401394,
+          "sw2_ratio": 0.9912788277610003,
+          "parameter_ratio_to_dense": 0.3897202660406886,
+          "shared_generic_ratio": 1.195646211710402
+        }
+      }
+    },
+    {
+      "arm": "ode_k2_shared_deep",
+      "quality_nominee": false,
+      "parameter_efficiency_nominee": false,
+      "extended_sampling_eligible": false,
+      "comparisons": {
+        "rotated_product_bimodal_16d": {
+          "primary_ratio": 9.827642920978498,
+          "primary_baseline": "swiglu128_native_deep",
+          "mac_ratio": 1.307511737089202,
+          "jacobian_ratio": 5.768458259604939,
+          "sw2_ratio": 1.4919686098361298,
+          "parameter_ratio_to_dense": 0.402904375702768,
+          "shared_generic_ratio": 6.545799309236541
+        },
+        "gmm_ring8_2d": {
+          "primary_ratio": 2.3258029352219105,
+          "primary_baseline": "swiglu192_cloned_final",
+          "mac_ratio": 1.003665241295052,
+          "jacobian_ratio": 2.4837541138717776,
+          "sw2_ratio": 1.2645771048647172,
+          "parameter_ratio_to_dense": 0.2984141249602127,
+          "shared_generic_ratio": 1.9396903807216568
+        },
+        "gaussian_aniso_2d": {
+          "primary_ratio": 1.5525521757545193,
+          "primary_baseline": "swiglu128_native_final",
+          "mac_ratio": 1.3144,
+          "jacobian_ratio": 1.0419447593345075,
+          "sw2_ratio": 1.0182833238558242,
+          "parameter_ratio_to_dense": 0.3897202660406886,
+          "shared_generic_ratio": 1.3765728591311281
+        }
+      }
+    }
+  ],
+  "additional_acceptance_control": "shared SwiGLU128 required before accepting any nominee"
+}

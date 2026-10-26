@@ -1,0 +1,174 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T15:34:01.804716+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 5,
+    "total": 5,
+    "active": []
+  },
+  "arrays_checked": 25,
+  "checkpoints_checked": 30,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.10916076774597168,
+      "validation_sw2": 0.09683395177125931,
+      "field_mse": 0.10657170214633323,
+      "jacobian_error": 26.753885256422535,
+      "wall_seconds": 17.36869233381003,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.10916076774597168
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.09232576999664306,
+      "validation_sw2": 0.095721535384655,
+      "field_mse": 0.08892084274503113,
+      "jacobian_error": 23.957834779766767,
+      "wall_seconds": 19.570232124999166,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.09232576999664306
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "forced_static",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.09239639358520507,
+      "validation_sw2": 0.09566210955381393,
+      "field_mse": 0.08903759439385298,
+      "jacobian_error": 23.977229615643928,
+      "wall_seconds": 38.347135124960914,
+      "parameters": 83853,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.09239639358520507
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "forced_k2",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.09254230766296387,
+      "validation_sw2": 0.09580939263105392,
+      "field_mse": 0.08920585594645629,
+      "jacobian_error": 24.00879769684983,
+      "wall_seconds": 25.35607683402486,
+      "parameters": 83853,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.09254230766296387
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "forced_exact",
+      "model": "ode_forced_gate",
+      "step": 5000,
+      "validation_oracle_mse": 0.09255207443237305,
+      "validation_sw2": 0.09578464925289154,
+      "field_mse": 0.08921492191376779,
+      "jacobian_error": 24.01138913958419,
+      "wall_seconds": 34.966041875071824,
+      "parameters": 83853,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.09255207443237305
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-forced-gate.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "arms": [
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "forced_static",
+        "model": "ode_forced_gate",
+        "options": {
+          "ffn_hidden": 128,
+          "forced_gate_solver": "exact",
+          "forced_gate_clock": "static"
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "forced_k2",
+        "model": "ode_forced_gate",
+        "options": {
+          "ffn_hidden": 128,
+          "forced_gate_solver": "k2",
+          "forced_gate_clock": "adaptive"
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "forced_exact",
+        "model": "ode_forced_gate",
+        "options": {
+          "ffn_hidden": 128,
+          "forced_gate_solver": "exact",
+          "forced_gate_clock": "adaptive"
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      }
+    ],
+    "experiment_id": "forced_gate_product16_20261024_m1",
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

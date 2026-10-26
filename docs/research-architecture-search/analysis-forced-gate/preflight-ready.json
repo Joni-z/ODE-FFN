@@ -1,0 +1,31 @@
+{
+  "state": "PREFLIGHT_PASS_AWAITING_PARENT_REVIEW",
+  "formal_training_started": false,
+  "formal_cells": 15,
+  "runtime": "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source",
+  "launch_command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source/scripts/run_architecture_study.py",
+    "--plan",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source/configs/synthetic/architecture_search/forced_gate_queue_20261024_m1.json",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/output/forced_gate_queue_20261024_m1"
+  ],
+  "cwd": "/Users/mr.z/ode-workspace-prep/architecture-search/forced_gate_20261024_m1/source",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "psutil": "7.2.2",
+  "memory_available_gib": 4.9866790771484375,
+  "preflight_summary_sha256": "dbf3346457d1f805e9d9881043809221d5a0246d7174f2e6b1600f528baa6ab5",
+  "source_manifest_sha256": "bdfc1be52e9e636ac7d2e1eacacd05c29f17d5b0c9befc9e03b3f348d9573dc1",
+  "source_delta_sha256": "2096caf1c97529f10481be7569466598cd7e4318f5dc2e127c49dc47feb1d2e6"
+}

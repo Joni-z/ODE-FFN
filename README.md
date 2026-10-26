@@ -4,21 +4,56 @@ Development repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN). The
 
 Primary workspace on torch: `/scratch/zz5070/ODE_FFN/jit-codebase`.
 
+Current synthetic development worktree on Mac mini: `/Users/mr.z/ODE-FFN-report-work`. Frozen Mac experiments live under `/Users/mr.z/ode-workspace-prep/architecture-search/`. The M1 supports PyTorch MPS GPU training; current tiny-model studies use CPU because the measured updates are faster there.
+
+Windows continuation workspace: `D:\Research\ODE-FFN\repo` on `lenovo` (RTX 4060 Laptop, 8 GB). See the [Windows workspace guide](docs/research-2026-10-24-lenovo/README.md) for the isolated environment, training command and monitoring files.
+
 ## Progress reports
 
 - [Report 1 (PDF)](reports/report1/report1.pdf): project motivation, controlled ODELayer experiments, case studies, and hypotheses for the next two weeks. [LaTeX source and build instructions](reports/report1/README.md).
 
 ## Research status
 
-The current research stage uses **unconditional synthetic flow matching** to study the original ODELayer and the spectrum of its learned matrix P before returning to image experiments. Existing ImageNet experiments are exploratory; their saved checkpoints do not capture complete training trajectories.
+The project tests whether a local ODE-inspired FFN can improve unconditional flow matching. The professor's original block uses two input-conditioned Taylor approximations to linear flows, separated by SiLU. Synthetic distributions provide analytic target velocities and Jacobians; these vector-model results do not establish an image-generation benefit.
 
-Latest progress (2026-10-20): two waves of gating, Taylor-order, and compute-budget experiments are complete, covering 30/30 training runs and 54/54 diagnostic tasks, all with seed 0. The [stage report](docs/research-2026-10-20/2026-10-20--odelayer--r00--ablation-report.md) documents the comparisons, training trajectories of P, and limitations. K=4 and K=8 perform similarly, while gains from gating and additional compute vary across settings. The next research direction remains open. The preceding 18 runs are preserved in the [SwiGLU comparison and diagnostics](docs/research-2026-10-19/results.md).
+**Latest result, October 26:** a nonlinear cubic-field block improves the old ODE on the nonlinear tasks but fails the ordinary-baseline controls. A standard free-matrix ISRU network fits Product16 better; this is an ordinary nonlinear-response observation, not an ODE-specific gain.
 
-Follow-up diagnostics are complete and locally audited: **66 frozen-checkpoint evaluations**, **48 Ring8 solver-resolution checks**, and CPU-only controlled matrix examples. Replacing trained K1/K2 layers by exact matrix exponentials worsens generation in all six target/checkpoint comparisons; K8 is near-exponential, while Ring8 K4/K8 substitutions retain about 3% effects at finer solver resolution. These are seed-0 observations, not claims of uniform baseline superiority or image benefits. See the [analysis bundle](docs/research-2026-10-20-followup/analysis-report.md), [execution summary](docs/research-2026-10-20-followup/status.md), and updated [Report 1](reports/report1/report1.pdf). Both GPU stages used one GPU on 145; the pending torch duplicate was cancelled before execution.
+| Model | Gaussian2D field MSE | Ring8 field MSE | Product16 field MSE |
+|---|---:|---:|---:|
+| Original ODE | 0.004449 | 0.032503 | 0.325527 |
+| Cubic-field split | 0.005900 | 0.018883 | 0.092938 |
+| Ordinary free ISRU | 0.005429 | 0.016694 | 0.037159 |
+| SwiGLU128 | 0.003927 | 0.015296 | 0.092326 |
+| SwiGLU160 | 0.004557 | 0.013921 | 0.078178 |
 
-The [migration record](docs/research-2026-10-20-followup/migration-145.md) documents the environment change, numerical preflight, completion, and collection status. The [storage audit](docs/research-2026-10-20-followup/storage.md) separates historical image outputs from the small synthetic workload.
+All rows use model seed 0 and 5000 updates. Original ODE and SwiGLU128 are explicitly reused historical controls. The [complete cubic-field report](docs/research-cubic-split-2026-10-26/analysis-report.md) includes matched controls, costs, full Jacobians, generated-sample comparisons and P trajectories. The registered ODE candidate is stopped; no useful final ODE architecture has yet been established.
 
-For training waves, `scripts/submit_stage_monitored.py` includes monitoring. The fixed-checkpoint stage uses `scripts/run_frozen_order.slurm` and `scripts/monitor_diagnostics.py`. Freeze the manifest of the actual dataset on torch and use a new experiment directory for each stage. The monitors check Slurm and output artifacts every 60 seconds; see the [training-stage monitoring guide](docs/research-2026-10-20/monitoring.md). They record status and anomalies without automatically resubmitting jobs or sending external messages.
+Recent evidence:
+
+- [P versus direct effective matrices](docs/research-effective-map-2026-10-26/analysis-report.md): freeing the linear maps does not close the nonlinear fitting gap.
+- [Hidden versus output bias](docs/research-bias-placement-2026-10-26/analysis-report.md): both placements learn, but neither materially closes that gap.
+- [Local FFN teacher fitting](docs/research-local-ffn-teacher-2026-10-26/analysis-report.md) and [actual-data curvature](docs/research-data-curvature-2026-10-26/analysis-report.md): measured local behavior, with explicit limits on expressivity explanations.
+- [ODE architecture literature synthesis](docs/literature-ode-synthesis-2026-10-26/review.md): continuous hidden depth, local flow maps, numerical composition and trained recurrence, based on primary sources.
+
+Earlier comparisons and negative results remain in the [architecture evidence ledger](docs/research-architecture-search/task_plan.md), [October 20 stage report](docs/research-2026-10-20/2026-10-20--odelayer--r00--ablation-report.md) and [frozen-checkpoint follow-up](docs/research-2026-10-20-followup/analysis-report.md). Frozen study scripts retain original machine paths as provenance; use the portable training entry point below for a fresh setup.
+
+## GitHub and machine synchronization
+
+`main` is the shared code version. Completed, verified changes are pushed promptly so GitHub reflects current development. Check for local changes before updating another machine:
+
+```bash
+git status --short
+git pull --ff-only origin main
+```
+
+Use this project identity for commits:
+
+```bash
+git config --local user.name "Zhizhe Zhang"
+git config --local user.email "195848701+Joni-z@users.noreply.github.com"
+```
+
+Code and curated reports are synchronized through Git. Datasets, environments, checkpoints and raw logs remain local and are excluded by `.gitignore`. A Git checkout does not download external runtime archives.
 
 ## Repository layout
 

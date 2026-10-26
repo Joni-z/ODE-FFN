@@ -1,0 +1,19 @@
+dataset,family,method,parameters,dense_forward_macs,dense_training_forward_backward_macs,matrix_count_scope
+gaussian_aniso_2d,ode_k2,autograd,82056,179520,536192,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,ode_k2,explicit,82056,179136,535040,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,swiglu128,autograd,81792,129216,385280,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,swiglu128,explicit,81792,129216,385280,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,swiglu192,autograd,106818,178752,533888,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,swiglu192,explicit,106818,178752,533888,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,ode_k2,autograd,82056,179520,536192,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,ode_k2,explicit,82056,179136,535040,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,swiglu128,autograd,81792,129216,385280,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,swiglu128,explicit,81792,129216,385280,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,swiglu192,autograd,106818,178752,533888,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,swiglu192,explicit,106818,178752,533888,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,ode_k2,autograd,83862,183104,545152,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,ode_k2,explicit,83862,182720,544000,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,swiglu128,autograd,83598,132800,394240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,swiglu128,explicit,83598,132800,394240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,swiglu192,autograd,108624,182336,542848,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,swiglu192,explicit,108624,182336,542848,actual aten mm/addmm/bmm/mv; pointwise work excluded

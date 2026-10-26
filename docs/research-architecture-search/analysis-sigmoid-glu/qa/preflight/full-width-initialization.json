@@ -1,0 +1,50 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "full_native_tensor_buffer_RNG_equal": true,
+      "initial_formal_output_zero": true,
+      "hidden_feature_max_difference": 0.9977741241455078,
+      "zero_head_output_weight_gradient_max_difference": 3.2896251678466797,
+      "nonzero_head_function_max_difference": 0.7884379625320435,
+      "parameters": 81792,
+      "forward_macs": 80000
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "full_native_tensor_buffer_RNG_equal": true,
+      "initial_formal_output_zero": true,
+      "hidden_feature_max_difference": 1.288704514503479,
+      "zero_head_output_weight_gradient_max_difference": 11.435250282287598,
+      "nonzero_head_function_max_difference": 2.449380874633789,
+      "parameters": 83598,
+      "forward_macs": 81792
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "full_native_tensor_buffer_RNG_equal": true,
+      "initial_formal_output_zero": true,
+      "hidden_feature_max_difference": 1.0500911594066291,
+      "zero_head_output_weight_gradient_max_difference": 3.2625291320225456,
+      "nonzero_head_function_max_difference": 1.0084583859440475,
+      "parameters": 81792,
+      "forward_macs": 80000
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "full_native_tensor_buffer_RNG_equal": true,
+      "initial_formal_output_zero": true,
+      "hidden_feature_max_difference": 0.9885056664955886,
+      "zero_head_output_weight_gradient_max_difference": 10.402941301075124,
+      "nonzero_head_function_max_difference": 1.307118250401443,
+      "parameters": 83598,
+      "forward_macs": 81792
+    }
+  ],
+  "interpretation": "Identical native tensors and RNG; functions and head tangents differ. No initial NTK equivalence is claimed."
+}

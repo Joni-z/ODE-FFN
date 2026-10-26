@@ -1,0 +1,96 @@
+{
+  "state": "PASS",
+  "method": "Independent Gram matrix eigendecomposition and safeguarded Newton root; no import of diagnostic implementation.",
+  "reviewed_source_sha256": "3ca5d33cec2a96c10df11bf3aaa994dc711487e34da8599062f5b7aceb1df8b6",
+  "reviewed_protocol_sha256": "97103b8517987259f56e2e80700a2ff602e5e3d6b9c33748d8a2a76c28258d4b",
+  "independent_source_sha256": "9187760be50037c8912d2487bedbcfd1d4a78691d86778f3b88f7661894ef16b",
+  "panels_checked": 30,
+  "aggregates": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "vector_parent",
+      "field_mse": 0.016598457981811383,
+      "envelope_floor": 0.0,
+      "floor_fraction": 0.0,
+      "target_outside_fraction": 0.0
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu_budget",
+      "field_mse": 0.018921247644792454,
+      "envelope_floor": 1.5351640890267783e-06,
+      "floor_fraction": 8.113440074599359e-05,
+      "target_outside_fraction": 0.000390625
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "swiglu",
+      "field_mse": 0.01444753842958869,
+      "envelope_floor": 8.559808984418107e-06,
+      "floor_fraction": 0.0005924752528698965,
+      "target_outside_fraction": 0.000390625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "vector_parent",
+      "field_mse": 0.25648765202523294,
+      "envelope_floor": 0.00025437107073882217,
+      "floor_fraction": 0.0009917478238437671,
+      "target_outside_fraction": 0.016015625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu_budget",
+      "field_mse": 0.10657170214633323,
+      "envelope_floor": 0.000441213975862734,
+      "floor_fraction": 0.004140066893713537,
+      "target_outside_fraction": 0.030859375
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "swiglu",
+      "field_mse": 0.08892084274503113,
+      "envelope_floor": 0.0003710165728128256,
+      "floor_fraction": 0.004172436532980991,
+      "target_outside_fraction": 0.0265625
+    }
+  ],
+  "designated_2D_16D_panels": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "arm": "vector_parent",
+      "time": 0.5,
+      "field_mse": 0.015504025390809292,
+      "envelope_floor": 0.0,
+      "floor_fraction": 0.0,
+      "target_outside_fraction": 0.0,
+      "prediction_radius_max": 0.43171545042909293,
+      "minimum_semiaxis": 5.47578871603255,
+      "maximum_semiaxis": 5.599520402095971
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "arm": "vector_parent",
+      "time": 0.5,
+      "field_mse": 0.29854232910122824,
+      "envelope_floor": 0.0,
+      "floor_fraction": 0.0,
+      "target_outside_fraction": 0.0,
+      "prediction_radius_max": 0.579228407184065,
+      "minimum_semiaxis": 5.687585315702507,
+      "maximum_semiaxis": 10.288114536304699
+    }
+  ],
+  "maximum_numeric_difference": 5.329070518200751e-15,
+  "prediction_radius_max": 0.9048663774783983,
+  "sphere_squared_distances": [
+    0.0,
+    9.0
+  ],
+  "input_hashes_verified": 53,
+  "review": {
+    "math": "Mean-zero normalized z has norm<=sqrt(width); center Wbeta+b includes both affine biases. BB^T=w AA^T-(A1)(A1)^T for A=Wdiag(gamma).",
+    "numerics": "Saved states promoted to double; positive singular axes verified. Diagnostic bisection upper=max(1,sum(axis^2*y^2)) brackets the root. Independent safeguarded Newton solve confirms all panel/aggregate values.",
+    "scope": "Conditional fixed-trained-head outer-envelope distance only. Network need not realize the whole ellipsoid; retraining changes the head. Not a global architecture approximation bound or proof of a cause."
+  }
+}

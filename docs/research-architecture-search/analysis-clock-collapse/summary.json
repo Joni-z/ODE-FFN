@@ -1,0 +1,54 @@
+{
+  "state": "PASS",
+  "checkpoints": 3,
+  "native_panels_replayed": 15,
+  "collapsed_panels": 15,
+  "risk_rows": 18,
+  "clock_mean_rows": 18,
+  "calibration_vectors": 18,
+  "calibration_dtype": "float32",
+  "evaluation_dtype": "float64",
+  "receipts": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "state": "PASS",
+      "panels": 5,
+      "checkpoint_sha256": "fbe9e6b71a9fd7d9208329f176cd3f3b905d63ecdfd74ef9fb62521f52e7bb76",
+      "config_sha256": "b282d84879229360e1eb8090dfde4860fe528e0a1e1a640d0d453a3a6f88456c",
+      "means_sha256": "6d276c54bae1adf040210528091500572eb8d5ade1f9e7bf1454d07fbff2b483",
+      "maximum_clock_mean_log_difference": 0.0,
+      "maximum_native_prediction_replay_difference": 0.0,
+      "maximum_native_jacobian_replay_difference": 0.0,
+      "parameters_buffers_modes_unchanged": true,
+      "runtime_buffers_restored": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "state": "PASS",
+      "panels": 5,
+      "checkpoint_sha256": "a9339e4db2e19d0801dcb9a5f07c7e098d1bff99b3cac373b3ac07adfe48f629",
+      "config_sha256": "b282d84879229360e1eb8090dfde4860fe528e0a1e1a640d0d453a3a6f88456c",
+      "means_sha256": "ebe4f3e880ab6718eb384da14d1b20cf2bc9fe8bc50777859b638bd0cf1f269d",
+      "maximum_clock_mean_log_difference": 0.0,
+      "maximum_native_prediction_replay_difference": 0.0,
+      "maximum_native_jacobian_replay_difference": 0.0,
+      "parameters_buffers_modes_unchanged": true,
+      "runtime_buffers_restored": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "state": "PASS",
+      "panels": 5,
+      "checkpoint_sha256": "6e4c02882924ac7e79c142ade974fe925992b16625ceb21ea0df94168084a572",
+      "config_sha256": "49558fb30b8589dfa5946db0fe5f1e3656427ca53d8d3fadd375a60480a1c23a",
+      "means_sha256": "b50c46304e6821c0579f0370d71031928fa64c02a6cf217bdb085619696dd45d",
+      "maximum_clock_mean_log_difference": 0.0,
+      "maximum_native_prediction_replay_difference": 0.0,
+      "maximum_native_jacobian_replay_difference": 0.0,
+      "parameters_buffers_modes_unchanged": true,
+      "runtime_buffers_restored": true
+    }
+  ],
+  "architecture_goal_complete": false,
+  "interpretation": "Frozen function dependence only; independent folded-matrix verification is still required."
+}

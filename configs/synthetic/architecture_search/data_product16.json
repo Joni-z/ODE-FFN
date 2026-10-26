@@ -1,0 +1,13 @@
+{
+  "version": "architecture-product16-v1",
+  "seed": 0,
+  "train_size": 100000,
+  "validation_size": 20000,
+  "test_size": 20000,
+  "probe_size": 2048,
+  "datasets": ["rotated_product_bimodal_16d"],
+  "source": "standard_normal",
+  "coupling": "independent",
+  "path": "x_t = (1-t)*x0 + t*x1",
+  "conditioning": "time_only_no_class_labels"
+}

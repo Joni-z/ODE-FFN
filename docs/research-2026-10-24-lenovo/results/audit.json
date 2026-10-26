@@ -1,0 +1,151 @@
+{
+  "state": "PASS",
+  "training_cells": 6,
+  "checkpoints_checked": 36,
+  "diagnostic_arrays_checked": 100,
+  "common_states_match": true,
+  "native_control_initial_parameters_identical": true,
+  "source_and_protocol_match": true,
+  "status": {
+    "time": "2026-10-23T20:23:04.313528+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 6,
+    "active": []
+  },
+  "decision": {
+    "time": "2026-10-23T20:22:17.565195+00:00",
+    "trigger_threshold": 0.01,
+    "run_gate_linear_control": true,
+    "evidence": [
+      {
+        "dataset": "gaussian_aniso_2d",
+        "aggregate": {
+          "velocity_mse": 0.004712155453444674,
+          "jacobian_mse": 0.020929912496450404,
+          "field_change_squared": 0.0009310925849004692,
+          "field_reference_squared": 2.3905667116022324,
+          "jacobian_change_squared": 0.0010481296221360474,
+          "jacobian_reference_squared": 2.825265800030123,
+          "field_relative_rms_change": 0.01973540304379871,
+          "jacobian_relative_rms_change": 0.0192609561003225
+        }
+      },
+      {
+        "dataset": "gmm_ring8_2d",
+        "aggregate": {
+          "velocity_mse": 0.03542429044856531,
+          "jacobian_mse": 1.5785087056489644,
+          "field_change_squared": 0.02658350599381535,
+          "field_reference_squared": 2.608244955527063,
+          "jacobian_change_squared": 0.14677773577360273,
+          "jacobian_reference_squared": 6.565148013048213,
+          "field_relative_rms_change": 0.10095595487220575,
+          "jacobian_relative_rms_change": 0.14952294111852302
+        }
+      }
+    ]
+  },
+  "benchmark": {
+    "rows": [
+      {
+        "device": "cpu",
+        "workers": 1,
+        "updates_per_second": 147.1670345846061,
+        "measured_seconds": 1.3589999999967404,
+        "total_wall_seconds": 3.5940000000009604
+      },
+      {
+        "device": "cpu",
+        "workers": 2,
+        "updates_per_second": 278.35768963154817,
+        "measured_seconds": 1.4369999999980791,
+        "total_wall_seconds": 3.797000000002299
+      },
+      {
+        "device": "cuda",
+        "workers": 1,
+        "updates_per_second": 123.07692307692308,
+        "measured_seconds": 1.625,
+        "total_wall_seconds": 4.234000000000378
+      },
+      {
+        "device": "cuda",
+        "workers": 2,
+        "updates_per_second": 239.37761819291995,
+        "measured_seconds": 1.6709999999984575,
+        "total_wall_seconds": 4.437999999998283
+      }
+    ],
+    "selected": {
+      "device": "cpu",
+      "workers": 2,
+      "updates_per_second": 278.35768963154817,
+      "measured_seconds": 1.4369999999980791,
+      "total_wall_seconds": 3.797000000002299
+    },
+    "note": "Kernel timings exclude warmup; CUDA also benchmarked with two independent processes."
+  },
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_original",
+      "step": 5000,
+      "validation_oracle_mse": 0.00444878716468811,
+      "validation_sw2": 0.07972320169210434,
+      "common_field_mse": 0.0037216951929472893,
+      "common_jacobian_error": 0.01867632410215058,
+      "training_wall_seconds": 38.56299999999828
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "ode_gate_linear",
+      "step": 5000,
+      "validation_oracle_mse": 0.00442396342754364,
+      "validation_sw2": 0.08021479845046997,
+      "common_field_mse": 0.003697089453028147,
+      "common_jacobian_error": 0.01840546053408256,
+      "training_wall_seconds": 42.5
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.003927979969978333,
+      "validation_sw2": 0.07621428370475769,
+      "common_field_mse": 0.0034529762914109106,
+      "common_jacobian_error": 0.023583350827866945,
+      "training_wall_seconds": 26.875
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_original",
+      "step": 5000,
+      "validation_oracle_mse": 0.03250236206054687,
+      "validation_sw2": 0.27043965458869934,
+      "common_field_mse": 0.03218322497693549,
+      "common_jacobian_error": 1.485386905625557,
+      "training_wall_seconds": 38.75
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "ode_gate_linear",
+      "step": 5000,
+      "validation_oracle_mse": 0.032133444786071774,
+      "validation_sw2": 0.2823716104030609,
+      "common_field_mse": 0.031493278385094164,
+      "common_jacobian_error": 1.5581896785694354,
+      "training_wall_seconds": 42.28199999999924
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.016220698165893555,
+      "validation_sw2": 0.23958292603492737,
+      "common_field_mse": 0.013890559571362593,
+      "common_jacobian_error": 0.5710265912657431,
+      "training_wall_seconds": 27.0470000000023
+    }
+  ]
+}

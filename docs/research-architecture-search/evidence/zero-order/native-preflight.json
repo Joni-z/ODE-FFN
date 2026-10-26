@@ -1,0 +1,18 @@
+{
+  "state": "PASS",
+  "delta_files_verified": 12,
+  "native_tests": 18,
+  "reference_models": 4,
+  "reference_updates_per_model": 3,
+  "reference_bit_identical": true,
+  "paired_cpu_max_double": 3.1086244689504383e-15,
+  "paired_cpu_max_single": 1.9073486328125e-06,
+  "paired_cuda_max_double": 2.6645352591003757e-15,
+  "paired_cuda_max_single": 1.430511474609375e-06,
+  "paired_absolute_relative_tolerances": {
+    "float64": 2e-13,
+    "float32": 3e-06
+  },
+  "D_free_bytes": 605490696192,
+  "scope": "Full nonzero-head paired-function and finite-gradient checks; immutable-source preflight. Formal training seed0."
+}

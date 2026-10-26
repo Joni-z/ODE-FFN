@@ -1,0 +1,32 @@
+{
+  "state": "STOP",
+  "reason": "Fails both nonlinear primary-MSE screens and derivative controls; no continuation, sweep or K2 rescue.",
+  "datasets": {
+    "gaussian_aniso_2d": {
+      "candidate_over_parent_oracle": 0.9828201477197165,
+      "candidate_over_better_swiglu_oracle": 0.9449574459209065,
+      "candidate_over_better_swiglu_jacobian": 0.6849790116966896,
+      "candidate_over_better_swiglu_sw2": 1.1206771758167806,
+      "exact_parameter_budget_match": true,
+      "exact_linear_macs_match": true
+    },
+    "gmm_ring8_2d": {
+      "candidate_over_parent_oracle": 1.3154653473270532,
+      "candidate_over_better_swiglu_oracle": 1.6839502004002995,
+      "candidate_over_better_swiglu_jacobian": 2.6968834706647993,
+      "candidate_over_better_swiglu_sw2": 1.1097185881123293,
+      "exact_parameter_budget_match": true,
+      "exact_linear_macs_match": true
+    },
+    "rotated_product_bimodal_16d": {
+      "candidate_over_parent_oracle": 1.0218213614799958,
+      "candidate_over_better_swiglu_oracle": 3.3213915549023683,
+      "candidate_over_better_swiglu_jacobian": 2.4274700295810447,
+      "candidate_over_better_swiglu_sw2": 1.174682009986801,
+      "exact_parameter_budget_match": true,
+      "exact_linear_macs_match": true
+    }
+  },
+  "native_checkpoints_checked": 72,
+  "native_arrays_checked": 60
+}

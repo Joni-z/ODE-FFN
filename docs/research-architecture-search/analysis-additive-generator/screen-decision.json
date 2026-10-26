@@ -1,0 +1,81 @@
+{
+  "state": "STOP",
+  "selected": null,
+  "eligible": [],
+  "comparisons": {
+    "scalar_add": {
+      "parent": "scalar_mul",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.003770223617553711,
+          "forward_macs": 80576,
+          "oracle_over_parent": 0.9862442146932966,
+          "oracle_over_better_swiglu": 0.95983793084316,
+          "jacobian_over_better_swiglu": 0.7067764602122569,
+          "sw2_over_better_swiglu": 1.1246421437521195,
+          "wall_over_parent": 1.0570588054582546
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.023277674293518066,
+          "forward_macs": 80576,
+          "oracle_over_parent": 0.9278022636975699,
+          "oracle_over_better_swiglu": 1.533020513558383,
+          "jacobian_over_better_swiglu": 2.189959166190092,
+          "sw2_over_better_swiglu": 1.0029636850592747,
+          "wall_over_parent": 1.0294099221574267
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.31571604537963865,
+          "forward_macs": 82368,
+          "oracle_over_parent": 1.0591079798325878,
+          "oracle_over_better_swiglu": 3.4758774268261887,
+          "jacobian_over_better_swiglu": 2.5203075960303054,
+          "sw2_over_better_swiglu": 1.1575327106218223,
+          "wall_over_parent": 1.013663254441002
+        }
+      }
+    },
+    "vector_add": {
+      "parent": "vector_mul",
+      "leads": [],
+      "passes": false,
+      "datasets": {
+        "gaussian_aniso_2d": {
+          "oracle_mse": 0.003794718265533447,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.00614280441793,
+          "oracle_over_better_swiglu": 0.9660738718956052,
+          "jacobian_over_better_swiglu": 0.6620708691230818,
+          "sw2_over_better_swiglu": 1.1112862178383953,
+          "wall_over_parent": 1.005099810046166
+        },
+        "gmm_ring8_2d": {
+          "oracle_mse": 0.02028303871154785,
+          "forward_macs": 80192,
+          "oracle_over_parent": 1.0177325610162233,
+          "oracle_over_better_swiglu": 1.3357998754523435,
+          "jacobian_over_better_swiglu": 2.2749305548732695,
+          "sw2_over_better_swiglu": 1.0963245506141617,
+          "wall_over_parent": 1.0241274736687411
+        },
+        "rotated_product_bimodal_16d": {
+          "oracle_mse": 0.18321461715698242,
+          "forward_macs": 81984,
+          "oracle_over_parent": 0.6883751370419201,
+          "oracle_over_better_swiglu": 2.017102270728076,
+          "jacobian_over_better_swiglu": 1.675058859754465,
+          "sw2_over_better_swiglu": 1.1379142114474814,
+          "wall_over_parent": 1.007536025362508
+        }
+      }
+    }
+  },
+  "audit_inputs_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/audit/audit.json": "c187966d9dfd71ae562e9c0f78be73b71bb5e0cb7171a1b2d7ac5898b616a1d7",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/audit/audit.json": "3fec0889b6a69ea4c4787ba8b61add214c378bf361ec25d5b8f4bca83208e761"
+  },
+  "script_sha256": "31af90c5810ccb00d774c6246d2b43339722ca807806b3cd709cb2cc4e4cd040",
+  "scope": "Registered practical engineering screen; no inference, fresh-holdout claim or full architecture completion."
+}

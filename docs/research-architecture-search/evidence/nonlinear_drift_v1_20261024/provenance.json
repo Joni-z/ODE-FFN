@@ -1,0 +1,93 @@
+{
+  "time": "2026-10-24T06:13:36.435930+00:00",
+  "host": "Lenovo",
+  "python": "3.12.13 (main, Jun 23 2026, 15:23:43) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.8.0+cu126",
+  "device": "cpu",
+  "workers": 2,
+  "plan": {
+    "experiment_id": "nonlinear_drift_v1_20261024",
+    "protocol": "docs/research-architecture-search/protocol-nonlinear-drift.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "linear_reuse",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_clock_mode": "reuse"
+        }
+      },
+      {
+        "label": "drift_map",
+        "model": "ode_nonlinear",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_drift_return": "map"
+        }
+      },
+      {
+        "label": "drift_increment",
+        "model": "ode_nonlinear",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_drift_return": "increment"
+        }
+      },
+      {
+        "label": "drift_fixed",
+        "model": "ode_nonlinear",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_drift_return": "increment",
+          "ode_drift_gate": "fixed"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  },
+  "source_sha256": {
+    "synthetic\\__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic\\data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5",
+    "synthetic\\diagnostics.py": "69786646165abafdcb1c00689735d07c5c58b4369e214718f36293b14958fd70",
+    "synthetic\\geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic\\grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic\\interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic\\models.py": "6441b1a079ec9c7252c2b8311735b20c427c7b77826fc8e6d9c4b36811a80d23",
+    "synthetic\\prepare.py": "7305828cf15ae5b9b7447a16a170463c7b0b70bf5620ea8a980415331844554c",
+    "synthetic\\train.py": "46d0c87ef3666dac93c716831cece23a35f5ad4ec7c681abeacb2ddab0564a81",
+    "synthetic\\validate.py": "564a2d63584f5f413f04bd10850b04e3fa50f7a613ee878857d9d749cdc99f25",
+    "scripts\\run_architecture_study.py": "03ce6a45b3e4dee01d369226ab8e103ba046f9a9b4abec913beaf08e66263558",
+    "scripts\\check_vector_field.py": "6262f6e6c77d6f5827951a73abcf35781c6019ed851bb8bbc6fa7e83913491c7",
+    "scripts\\check_gate_geometry.py": "d466ef319b26a8967ea913df335fb7f4405b3dc89e9bd7f02632def839628978",
+    "scripts\\run_clock_study.py": "1391b39e058bce2c2e1d58bcf48942b32f1ff41375b02b3ed1388c60029a0f9b",
+    "configs\\synthetic\\architecture_search\\nonlinear_drift_v1_20261024.json": "2010df7b8966912960d1ad29f401bfcc7ce1af7651244303a086ab8b41c74071",
+    "docs\\research-architecture-search\\protocol-nonlinear-drift.md": "c88f95ff4a50a7e297ba0095f6a2d73c81654345c2ba761b951a43f71462c1ef"
+  },
+  "dataset_manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+}

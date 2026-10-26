@@ -1,0 +1,14 @@
+{
+  "experiment_id": "static_20261024",
+  "protocol": "docs/research-architecture-search/protocol-static.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "datasets": ["gaussian_aniso_2d", "gmm_ring8_2d"],
+  "arms": [
+    {"label": "fixed_k2", "model": "ode_fixed", "options": {"orders": 2}},
+    {"label": "collapsed", "model": "ffn_poly_init", "options": {"orders": 2}},
+    {"label": "swiglu", "model": "swiglu"}
+  ]
+}

@@ -1,0 +1,822 @@
+{
+  "state": "PASS",
+  "initial_checkpoints": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_large",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_large",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 30,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_large",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_tensors": 22,
+      "native_ffn_state_entries": 12,
+      "buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true
+    }
+  ],
+  "checkpoint_alias_checks": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": true,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "step": 0,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "step": 1000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "step": 2000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "step": 3000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "step": 4000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "step": 5000,
+      "layers": 6,
+      "shared_alias_expected": false,
+      "all_aliases_correct": true,
+      "optimizer_deduplicated": true
+    }
+  ],
+  "shared_untied_initial_complete_states_equal": true,
+  "initial_function_checks": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_shared",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_untied64",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_shared",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_untied64",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_shared",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_untied64",
+      "nonzero_head_forward_max_error": 0.0,
+      "input_jacobian_max_error": 0.0,
+      "declared_jacobian_atol": 2e-13,
+      "declared_jacobian_rtol": 2e-13
+    }
+  ],
+  "snapshot_data_rng_comparisons": 90,
+  "scope": "Each of five other arms compared to parent at every one of six snapshots on each task; all six arms have the same data RNG."
+}

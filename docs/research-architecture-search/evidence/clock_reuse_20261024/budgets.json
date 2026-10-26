@@ -1,0 +1,62 @@
+{
+  "gaussian_aniso_2d/vector_k1": {
+    "parameters": 81858,
+    "forward_macs": 80192
+  },
+  "gmm_ring8_2d/vector_k1": {
+    "parameters": 81858,
+    "forward_macs": 80192
+  },
+  "gaussian_aniso_16d/vector_k1": {
+    "parameters": 83664,
+    "forward_macs": 81984
+  },
+  "gaussian_aniso_2d/vector_tied": {
+    "parameters": 69282,
+    "forward_macs": 80192
+  },
+  "gmm_ring8_2d/vector_tied": {
+    "parameters": 69282,
+    "forward_macs": 80192
+  },
+  "gaussian_aniso_16d/vector_tied": {
+    "parameters": 71088,
+    "forward_macs": 81984
+  },
+  "gaussian_aniso_2d/vector_reuse": {
+    "parameters": 69282,
+    "forward_macs": 67904
+  },
+  "gmm_ring8_2d/vector_reuse": {
+    "parameters": 69282,
+    "forward_macs": 67904
+  },
+  "gaussian_aniso_16d/vector_reuse": {
+    "parameters": 71088,
+    "forward_macs": 69696
+  },
+  "gaussian_aniso_2d/swiglu_budget": {
+    "parameters": 69570,
+    "forward_macs": 67904
+  },
+  "gmm_ring8_2d/swiglu_budget": {
+    "parameters": 69570,
+    "forward_macs": 67904
+  },
+  "gaussian_aniso_16d/swiglu_budget": {
+    "parameters": 71376,
+    "forward_macs": 69696
+  },
+  "gaussian_aniso_2d/swiglu": {
+    "parameters": 81792,
+    "forward_macs": 80000
+  },
+  "gmm_ring8_2d/swiglu": {
+    "parameters": 81792,
+    "forward_macs": 80000
+  },
+  "gaussian_aniso_16d/swiglu": {
+    "parameters": 83598,
+    "forward_macs": 81792
+  }
+}

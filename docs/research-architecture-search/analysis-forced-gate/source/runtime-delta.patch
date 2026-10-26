@@ -1,0 +1,1106 @@
+--- stage19/synthetic/models.py
++++ forced_gate/synthetic/models.py
+@@ -9,6 +9,7 @@
+ from torch.nn import functional as F
+ from synthetic.covariance import CovarianceField
+ from synthetic.diagonal import DiagonalFlow,DiagonalODEFFN
++from synthetic.forced_gate import ForcedGateResponse
+ 
+ 
+ class OriginalODELayer(nn.Module):
+@@ -461,6 +462,17 @@
+         return self.w3(F.silu(gate) * value)
+ 
+ 
++class ForcedGateSwiGLUFFN(SwiGLUFFN):
++    """Preserve SwiGLU projections and perturb only its gate response."""
++    def __init__(self,width,hidden,solver='exact',clock='adaptive'):
++        super().__init__(width,hidden)
++        self.flow=ForcedGateResponse(self.w3.in_features,solver=solver,clock=clock)
++
++    def forward(self,x):
++        gate,value=self.w12(x).chunk(2,dim=-1)
++        return self.w3(self.flow(gate)*value)
++
++
+ class TimeEmbedding(nn.Module):
+     def __init__(self,width):
+         super().__init__()
+@@ -499,13 +511,21 @@
+                  ode_covariance_atoms=8,ode_covariance_temperature=1.,ode_gate_reparam=1.,
+                  ode_rate_placement='after_projection',ode_solve_return='map',ode_solve_init='legacy',
+                  ode_solve_pattern=None,ode_operator_mode='multiplicative',ode_feature_mode='independent',
+-                 diagonal_solver='k2',diagonal_clock='adaptive',diagonal_beta=1.):
++                 diagonal_solver='k2',diagonal_clock='adaptive',diagonal_beta=1.,
++                 forced_gate_solver='exact',forced_gate_clock='adaptive'):
+         super().__init__()
+         if kind not in ('ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
+                         'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+-                        'ode_covariance','ode_diagonal'):
++                        'ode_covariance','ode_diagonal','ode_forced_gate'):
+             raise ValueError(f'unsupported model kind: {kind}')
+         self.dim,self.kind,self.width,self.depth=dim,kind,width,depth
++        if kind!='ode_forced_gate' and (forced_gate_solver!='exact' or forced_gate_clock!='adaptive'):
++            raise ValueError('forced-gate settings require the forced-gate family')
++        if kind=='ode_forced_gate' and (ode_feature_mode!='independent' or ode_operator_mode!='multiplicative' or
++                ode_middle_activation!='silu' or ode_clock_mode!='independent' or ode_gate_transform!='sigmoid' or
++                ode_gate_reparam!=1. or ode_rate_placement!='after_projection' or ode_solve_return!='map' or
++                ode_solve_pattern is not None or ode_solve_init!='legacy' or (tau,scale,shift)!=(10.,.8,.2)):
++            raise ValueError('forced gate preserves native SwiGLU without legacy ODE interventions')
+         if kind!='ode_diagonal' and (diagonal_solver!='k2' or diagonal_clock!='adaptive' or diagonal_beta!=1.):
+             raise ValueError('diagonal settings require the diagonal-ODE family')
+         if kind=='ode_diagonal' and (ode_feature_mode!='independent' or ode_operator_mode!='multiplicative' or
+@@ -569,6 +589,9 @@
+                     clock=diagonal_clock,beta=diagonal_beta)
+             elif kind=='swiglu':
+                 ffn=SwiGLUFFN(width,ffn_hidden)
++            elif kind=='ode_forced_gate':
++                ffn=ForcedGateSwiGLUFFN(width,ffn_hidden,
++                    solver=forced_gate_solver,clock=forced_gate_clock)
+             elif kind=='ffn_poly_init':
+                 ffn=CollapsedODEFFN(OriginalODEFFN(width,gate_hidden,orders=orders,
+                     tau=tau,scale=scale,shift=shift,gate_source='fixed'))
+@@ -648,6 +671,10 @@
+         for name,module in self.named_modules():
+             if isinstance(module,DiagonalFlow):yield name,module
+ 
++    def forced_gate_layers(self):
++        for name,module in self.named_modules():
++            if isinstance(module,ForcedGateResponse):yield name,module
++
+     def covariance_layers(self):
+         for name,module in self.named_modules():
+             if isinstance(module,CovarianceODELayer):yield name,module
+--- stage19/synthetic/train.py
++++ forced_gate/synthetic/train.py
+@@ -368,7 +368,7 @@
+     p.add_argument('--dataset',required=True)
+     p.add_argument('--model',required=True,choices=['ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
+                                                   'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+-                                                  'ode_covariance','ode_diagonal'])
++                                                  'ode_covariance','ode_diagonal','ode_forced_gate'])
+     p.add_argument('--seed',type=int,required=True)
+     p.add_argument('--device',default='auto')
+     p.add_argument('--output-root',default='../runs/synthetic')
+--- stage19/synthetic/diagnostics.py
++++ forced_gate/synthetic/diagnostics.py
+@@ -24,14 +24,15 @@
+     nonlinear=list(model.nonlinear_layers()) if hasattr(model,'nonlinear_layers') else []
+     covariance=list(model.covariance_layers()) if hasattr(model,'covariance_layers') else []
+     diagonal=list(model.diagonal_layers()) if hasattr(model,'diagonal_layers') else []
+-    if not list(model.ode_layers()) and not nonlinear and not covariance and not diagonal:
++    forced=list(model.forced_gate_layers()) if hasattr(model,'forced_gate_layers') else []
++    if not list(model.ode_layers()) and not nonlinear and not covariance and not diagonal and not forced:
+         return []
+     inputs={}
+     hooks=[]
+     for name,layer in model.ode_layers():
+         hooks.append(layer.register_forward_pre_hook(lambda module,args,key=name:inputs.__setitem__(key,
+             (args[0].detach(), args[1].detach() if len(args)>1 and args[1] is not None else None))))
+-    for name,layer in nonlinear+covariance+diagonal:
++    for name,layer in nonlinear+covariance+diagonal+forced:
+         hooks.append(layer.register_forward_pre_hook(lambda module,args,key=name:
+             inputs.__setitem__(key,args[0].detach())))
+     try:
+@@ -68,6 +69,18 @@
+             conditional_generator_eigen_max=float(conditional.max()),
+             activation=layer.activation_stats(inputs[name]),
+             interpretation='Spectrum of latent P=diag(lambda). The conditional diag(s)*P and complete velocity Jacobian are distinct.'))
++    for name,layer in forced:
++        eigen=layer.eigenvalues().detach().cpu()
++        hidden=inputs[name]
++        conditional=layer.duration(hidden)*layer.eigenvalues()
++        records.append(dict(layer=name,operator_type='conditional_forced_gate',
++            solver=layer.solver,clock=layer.clock,
++            eigenvalue_coordinates=layer.raw_eigenvalues.detach().cpu().tolist(),
++            P_eigenvalues=eigen.tolist(),P_sigma_max=float(eigen.abs().max()),
++            conditional_rate_min=float(conditional.min()),conditional_rate_max=float(conditional.max()),
++            forcing_abs_max=float(torch.nn.functional.silu(hidden).abs().max()),
++            activation=layer.activation_stats(hidden),
++            interpretation='P=diag(lambda); augmented generator has rates lambda*s and forcing SiLU(a). Bounded eigenvalues do not bound its shear norm or the full velocity Jacobian.'))
+     for name,layer in covariance:
+         hidden=inputs[name]
+         field=layer.field
+--- stage19/synthetic/forced_gate.py
++++ forced_gate/synthetic/forced_gate.py
+@@ -0,0 +1,116 @@
++"""Conditional forced-linear responses for an otherwise unchanged SwiGLU gate.
++
++For a fixed gate preactivation a, b=SiLU(a) and c=tanh(eta)*duration(a),
++the solution of y'=c*y+b, y(0)=0, at unit internal time is b*phi1(c).
++This internal time is not generation time. Bounds on c control response
++gain relative to b, not the augmented matrix norm or complete network.
++"""
++from __future__ import annotations
++
++from numbers import Integral
++
++import torch
++from torch import Tensor, nn
++from torch.nn import functional as F
++
++
++def phi1(z: Tensor) -> Tensor:
++    """Stable expm1(z)/z with value 1 and derivative 1/2 at zero.
++
++    Degree-eight Horner evaluation is used below |z|=.05. Its value and
++    first-derivative truncation errors there are below 5.66e-19 and 1.02e-16.
++    These are analytic truncation bounds, not floating-point error bounds.
++    The inactive quotient never divides by zero, including during autograd.
++    """
++    if not z.is_floating_point():
++        raise ValueError('phi1 requires a floating-point tensor')
++    small = z.abs() < .05
++    denominator = torch.where(small, torch.ones_like(z), z)
++    quotient = torch.expm1(z) / denominator
++    polynomial = torch.full_like(z, 1 / 362880)
++    for coefficient in (1/40320, 1/5040, 1/720, 1/120, 1/24, 1/6, .5, 1.):
++        polynomial = polynomial * z + coefficient
++    return torch.where(small, polynomial, quotient)
++
++
++class ForcedGateResponse(nn.Module):
++    """K2 or exact forced response, with one bounded rate per gate feature."""
++
++    def __init__(self, features: int, solver: str = 'exact',
++                 clock: str = 'adaptive') -> None:
++        super().__init__()
++        if isinstance(features, bool) or not isinstance(features, Integral) or features < 1:
++            raise ValueError('features must be a positive integer')
++        if solver not in ('k2', 'exact'):
++            raise ValueError("solver must be 'k2' or 'exact'")
++        if clock not in ('adaptive', 'static'):
++            raise ValueError("clock must be 'adaptive' or 'static'")
++        self.features, self.solver, self.clock = int(features), solver, clock
++        # Zero allocation does not consume RNG or change SwiGLU initialization.
++        self.raw_eigenvalues = nn.Parameter(torch.zeros(self.features))
++
++    def _validate_input(self, a: Tensor) -> None:
++        if a.ndim < 1 or a.shape[-1] != self.features or not a.is_floating_point():
++            raise ValueError('floating input with matching last feature dimension required')
++
++    def eigenvalues(self) -> Tensor:
++        return self.raw_eigenvalues.tanh()
++
++    def duration(self, a: Tensor) -> Tensor:
++        self._validate_input(a)
++        return a.sigmoid() if self.clock == 'adaptive' else torch.full_like(a, .5)
++
++    def _gain_from_rate(self, c: Tensor) -> Tensor:
++        return 1 + .5*c if self.solver == 'k2' else phi1(c)
++
++    def gain(self, a: Tensor) -> Tensor:
++        return self._gain_from_rate(self.eigenvalues() * self.duration(a))
++
++    def forward(self, a: Tensor) -> Tensor:
++        gain = self.gain(a)  # Validate before applying the SiLU kernel.
++        return F.silu(a) * gain
++
++    def derivative(self, a: Tensor) -> Tensor:
++        """Input derivative including the adaptive duration's contribution."""
++        duration = self.duration(a)
++        probability = a.sigmoid()
++        sigmoid_derivative = probability*(1-probability)
++        c = self.eigenvalues()*duration
++        gain = self._gain_from_rate(c)
++        if self.clock == 'static':
++            return (probability+a*sigmoid_derivative)*gain
++        response_factor = 1+c if self.solver == 'k2' else c.exp()
++        return probability*gain + a*sigmoid_derivative*response_factor
++
++    @torch.no_grad()
++    def activation_stats(self, a: Tensor) -> dict[str, float | int | str]:
++        """Observed scalar gate statistics; no complete-network bound implied."""
++        self._validate_input(a)
++        if a.numel() == 0:
++            raise ValueError('activation statistics require nonempty inputs')
++        duration = self.duration(a)
++        eigenvalues = self.eigenvalues()
++        conditional_rate = eigenvalues*duration
++        gain = self._gain_from_rate(conditional_rate)
++        baseline = F.silu(a)
++        response = baseline*gain
++        derivative = self.derivative(a)
++        # MPS does not support float64. Monitoring reductions run on CPU;
++        # the gate's forward and derivative remain on their native device.
++        rms = lambda x: float(x.detach().cpu().double().square().mean().sqrt())
++        baseline_rms = rms(baseline)
++        correction_rms = rms(response-baseline)
++        return dict(
++            scope='observed_gate_response_only', solver=self.solver, clock=self.clock,
++            features=self.features, eigenvalue_min=float(eigenvalues.min()),
++            eigenvalue_max=float(eigenvalues.max()), eigenvalue_abs_max=float(eigenvalues.abs().max()),
++            duration_min=float(duration.min()), duration_max=float(duration.max()),
++            duration_mean=float(duration.detach().cpu().double().mean()),
++            conditional_rate_min=float(conditional_rate.min()), conditional_rate_max=float(conditional_rate.max()),
++            gain_min=float(gain.min()), gain_max=float(gain.max()), gain_mean=float(gain.detach().cpu().double().mean()),
++            derivative_min=float(derivative.min()), derivative_max=float(derivative.max()),
++            negative_derivative_fraction=float((derivative < 0).detach().cpu().double().mean()),
++            baseline_gate_rms=baseline_rms, response_gate_rms=rms(response),
++            correction_rms=correction_rms,
++            correction_rms_over_baseline=correction_rms/max(baseline_rms, 1e-12),
++        )
+--- stage19/tests/test_forced_gate.py
++++ forced_gate/tests/test_forced_gate.py
+@@ -0,0 +1,147 @@
++import copy
++import io
++import json
++import math
++import unittest
++
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++from synthetic.forced_gate import ForcedGateResponse, phi1
++
++
++class ForcedGateTests(unittest.TestCase):
++    def setUp(self):
++        torch.manual_seed(0)
++        torch.set_num_threads(1)
++
++    def test_phi1_zero_boundary_values_first_and_second_derivatives(self):
++        locations = [-1., -.050001, -.05, -.049999, -1e-7, -1e-15,
++                     0., 1e-15, 1e-7, .049999, .05, .050001, 1.]
++        # High-order series is an independent reference on this bounded interval.
++        for dtype in (torch.float32, torch.float64):
++            z = torch.tensor(locations, dtype=dtype, requires_grad=True)
++            value = phi1(z)
++            first = torch.autograd.grad(value.sum(), z, create_graph=True)[0]
++            second = torch.autograd.grad(first.sum(), z)[0]
++            zz = z.detach().double()
++            ref = sum(zz.pow(k)*(1/math.factorial(k+1)) for k in range(24))
++            ref_first = sum(zz.pow(k)*((k+1)/math.factorial(k+2)) for k in range(23))
++            ref_second = sum(zz.pow(k)*((k+2)*(k+1)/math.factorial(k+3)) for k in range(22))
++            # Float32 quotient Hessians lose precision just outside .05
++            # (observed maximum error 4.81e-5); values/first derivatives keep
++            # stricter tolerances. At zero the series gives the exact limit.
++            tolerances = (2e-7, 8e-6, 8e-5) if dtype == torch.float32 else (3e-12,)*3
++            for (actual, expected), tolerance in zip(
++                    ((value, ref), (first, ref_first), (second, ref_second)), tolerances):
++                self.assertTrue(torch.isfinite(actual).all())
++                torch.testing.assert_close(actual.double(), expected, atol=tolerance, rtol=tolerance)
++            index = locations.index(0.)
++            self.assertEqual(float(value[index].detach()), 1.)
++            self.assertEqual(float(first[index].detach()), .5)
++            self.assertAlmostEqual(float(second[index]), 1/3, places=6 if dtype == torch.float32 else 15)
++
++    def test_augmented_matrix_response_and_input_derivatives(self):
++        a = torch.tensor([[-8., -.7, .1], [1., 3., 8.]], dtype=torch.float64)
++        for solver in ('k2', 'exact'):
++            for clock in ('adaptive', 'static'):
++                model = ForcedGateResponse(3, solver, clock).double()
++                with torch.no_grad():
++                    model.raw_eigenvalues.copy_(torch.tensor([-1.3, .4, 1.1]))
++                baseline = F.silu(a)
++                c = model.eigenvalues()*model.duration(a)
++                matrix = torch.zeros(*a.shape, 2, 2, dtype=a.dtype)
++                matrix[..., 0, 0] = c
++                matrix[..., 0, 1] = baseline
++                reference = (torch.matrix_exp(matrix) if solver == 'exact'
++                             else torch.eye(2, dtype=a.dtype)+matrix+.5*matrix@matrix)[..., 0, 1]
++                torch.testing.assert_close(model(a), reference, atol=2e-14, rtol=2e-13)
++                xx = a.clone().requires_grad_(True)
++                actual = torch.autograd.grad(model(xx).sum(), xx)[0]
++                torch.testing.assert_close(actual, model.derivative(a), atol=3e-13, rtol=3e-13)
++
++    def test_initial_baseline_input_gradient_rng_and_new_eta_tangent(self):
++        for dtype in (torch.float32, torch.float64):
++            for solver, clock in (('k2', 'adaptive'), ('exact', 'adaptive'), ('exact', 'static')):
++                before = torch.get_rng_state().clone()
++                model = ForcedGateResponse(4, solver, clock).to(dtype)
++                torch.testing.assert_close(torch.get_rng_state(), before, atol=0, rtol=0)
++                a = torch.randn(7, 4, dtype=dtype, requires_grad=True)
++                output = model(a)
++                torch.testing.assert_close(output, F.silu(a), atol=0, rtol=0)
++                actual = torch.autograd.grad(output.sum(), a, retain_graph=True)[0]
++                expected = torch.autograd.grad(F.silu(a).sum(), a)[0]
++                torch.testing.assert_close(actual, expected, atol=0, rtol=0)
++                eta_gradient = torch.autograd.grad(output.sum(), model.raw_eigenvalues)[0]
++                target = (.5*F.silu(a.detach())*model.duration(a.detach())).sum(0)
++                tolerance = 2e-7 if dtype == torch.float32 else 2e-15
++                torch.testing.assert_close(eta_gradient, target, atol=tolerance, rtol=tolerance)
++
++    def test_adaptive_initial_full_parameter_jacobians_match(self):
++        class ToySwi(nn.Module):
++            def __init__(self, solver):
++                super().__init__()
++                self.w12 = nn.Linear(3, 8)
++                self.w3 = nn.Linear(4, 2)
++                self.response = ForcedGateResponse(4, solver)
++            def forward(self, x):
++                gate, value = self.w12(x).chunk(2, -1)
++                return self.w3(self.response(gate)*value)
++        models = []
++        for solver in ('k2', 'exact'):
++            torch.manual_seed(0)
++            models.append(ToySwi(solver).double())
++        x = torch.randn(3, 3, dtype=torch.float64)
++        jacobians = []
++        for model in models:
++            values = model(x).reshape(-1)
++            parameters = tuple(model.parameters())
++            rows = [torch.cat([g.reshape(-1) for g in torch.autograd.grad(
++                value, parameters, retain_graph=True)]) for value in values]
++            jacobians.append(torch.stack(rows))
++        torch.testing.assert_close(models[0](x), models[1](x), atol=0, rtol=0)
++        torch.testing.assert_close(jacobians[0], jacobians[1], atol=0, rtol=0)
++        torch.testing.assert_close(jacobians[0]@jacobians[0].T,
++                                   jacobians[1]@jacobians[1].T, atol=0, rtol=0)
++
++    def test_relative_gains_statistics_and_state_round_trip(self):
++        a = torch.linspace(-40, 40, 103, dtype=torch.float64)[:, None].expand(-1, 3)
++        for solver in ('k2', 'exact'):
++            model = ForcedGateResponse(3, solver).double()
++            with torch.no_grad():model.raw_eigenvalues.copy_(torch.tensor([-30., 0., 30.]))
++            gain = model.gain(a)
++            lower, upper = ((.5, 1.5) if solver == 'k2' else (1-math.exp(-1), math.e-1))
++            self.assertGreaterEqual(float(gain.min().detach()), lower-1e-15)
++            self.assertLessEqual(float(gain.max().detach()), upper+1e-15)
++            before = copy.deepcopy(model.state_dict())
++            stats = model.activation_stats(a)
++            json.dumps(stats, allow_nan=False)
++            self.assertEqual(stats['scope'], 'observed_gate_response_only')
++            torch.testing.assert_close(model.state_dict()['raw_eigenvalues'], before['raw_eigenvalues'], atol=0, rtol=0)
++            buffer = io.BytesIO();torch.save(before, buffer);buffer.seek(0)
++            restored = ForcedGateResponse(3, solver).double()
++            restored.load_state_dict(torch.load(buffer, weights_only=True))
++            torch.testing.assert_close(restored(a), model(a), atol=0, rtol=0)
++
++    def test_invalid_settings_and_input_shapes(self):
++        for options in (dict(features=0), dict(features=True), dict(features=2.5),
++                        dict(features=3, solver='k1'), dict(features=3, clock='time')):
++            with self.assertRaises(ValueError):ForcedGateResponse(**options)
++        model = ForcedGateResponse(3)
++        for value in (torch.zeros(2, 4), torch.zeros(3, dtype=torch.int64), torch.tensor(0.)):
++            with self.assertRaises(ValueError):model(value)
++        with self.assertRaises(ValueError):model.activation_stats(torch.zeros(0, 3))
++
++    @unittest.skipUnless(torch.backends.mps.is_available(), 'MPS unavailable')
++    def test_mps_float32_statistics_do_not_require_device_float64(self):
++        model = ForcedGateResponse(3).to('mps')
++        a = torch.linspace(-3, 3, 12, device='mps').reshape(4, 3).requires_grad_(True)
++        value = model(a)
++        gradients = torch.autograd.grad(value.sum(), (a, model.raw_eigenvalues))
++        self.assertTrue(all(torch.isfinite(g).all() for g in gradients))
++        json.dumps(model.activation_stats(a), allow_nan=False)
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- stage19/tests/test_forced_gate_integration.py
++++ forced_gate/tests/test_forced_gate_integration.py
+@@ -0,0 +1,113 @@
++import unittest
++from unittest.mock import patch
++
++import torch
++from torch.nn import functional as F
++from torch.func import functional_call, jacrev
++
++from scripts.run_architecture_study import macs
++from synthetic.diagnostics import collect
++from synthetic.models import ForcedGateSwiGLUFFN, SwiGLUFFN, VelocityNet
++
++
++class ForcedGateIntegrationTests(unittest.TestCase):
++    def setUp(self):
++        torch.set_num_threads(1)
++        torch.manual_seed(0)
++
++    def test_initial_full_functions_common_gradients_and_rng_match_swiglu(self):
++        for dtype in (torch.float32, torch.float64):
++            torch.manual_seed(0)
++            base = VelocityNet(3, 'swiglu', width=12, depth=2, ffn_hidden=24).to(dtype)
++            rng = torch.get_rng_state().clone()
++            with torch.no_grad():
++                base.output.weight.normal_(std=.2)
++            x, t = torch.randn(7, 3, dtype=dtype), torch.rand(7, 1, dtype=dtype)
++            base(x, t).square().sum().backward()
++            for solver, clock in [('exact', 'adaptive'), ('k2', 'adaptive'), ('exact', 'static')]:
++                with self.subTest(dtype=dtype, solver=solver, clock=clock):
++                    torch.manual_seed(0)
++                    model = VelocityNet(3, 'ode_forced_gate', width=12, depth=2, ffn_hidden=24,
++                                        forced_gate_solver=solver, forced_gate_clock=clock).to(dtype)
++                    torch.testing.assert_close(torch.get_rng_state(), rng, atol=0, rtol=0)
++                    with torch.no_grad():
++                        model.output.weight.copy_(base.output.weight)
++                    for name, value in base.state_dict().items():
++                        torch.testing.assert_close(model.state_dict()[name], value, atol=0, rtol=0)
++                    torch.testing.assert_close(model(x, t), base(x, t), atol=0, rtol=0)
++                    model(x, t).square().sum().backward()
++                    for name, parameter in base.named_parameters():
++                        torch.testing.assert_close(dict(model.named_parameters())[name].grad,
++                                                   parameter.grad, atol=0, rtol=0)
++                    if dtype == torch.float64:
++                        jb = torch.autograd.functional.jacobian(lambda z: base(z[None], t[:1])[0], x[0])
++                        jm = torch.autograd.functional.jacobian(lambda z: model(z[None], t[:1])[0], x[0])
++                        torch.testing.assert_close(jm, jb, atol=2e-13, rtol=2e-13)
++
++    def test_k2_exact_complete_initial_parameter_jacobians(self):
++        torch.manual_seed(0)
++        low = ForcedGateSwiGLUFFN(3, 6, solver='k2').double()
++        torch.manual_seed(0)
++        exact = ForcedGateSwiGLUFFN(3, 6, solver='exact').double()
++        x = torch.randn(5, 3, dtype=torch.float64)
++        def parameter_jacobian(model):
++            return jacrev(lambda p: functional_call(model, p, (x,)))(dict(model.named_parameters()))
++        a, b = parameter_jacobian(low), parameter_jacobian(exact)
++        self.assertEqual(set(a), set(b))
++        for name in a:
++            torch.testing.assert_close(a[name], b[name], atol=2e-13, rtol=2e-13)
++        self.assertGreater(float(a['flow.raw_eigenvalues'].detach().abs().max()), 0.)
++
++    def test_static_gain_absorbs_into_output_columns_and_bias(self):
++        model = ForcedGateSwiGLUFFN(5, 12, clock='static').double()
++        with torch.no_grad():
++            model.flow.raw_eigenvalues.copy_(torch.linspace(-2, 2, 8))
++        base = SwiGLUFFN(5, 12).double()
++        base.w12.load_state_dict(model.w12.state_dict())
++        with torch.no_grad():
++            gain = model.flow.gain(torch.zeros(1, 8, dtype=torch.float64))[0]
++            base.w3.weight.copy_(model.w3.weight * gain)
++            base.w3.bias.copy_(model.w3.bias)
++        x = torch.randn(13, 5, dtype=torch.float64)
++        torch.testing.assert_close(base(x), model(x), atol=2e-13, rtol=2e-13)
++        jb = torch.autograd.functional.jacobian(base, x)
++        jm = torch.autograd.functional.jacobian(model, x)
++        torch.testing.assert_close(jm, jb, atol=2e-13, rtol=2e-13)
++
++    def test_actual_dense_work_counts_and_live_forced_statistics(self):
++        base = VelocityNet(16, 'swiglu')
++        model = VelocityNet(16, 'ode_forced_gate')
++        self.assertEqual(model.parameter_count() - base.parameter_count(), 3 * 85)
++        self.assertEqual(macs(model, 16), macs(base, 16))
++        executed, linear = [0], F.linear
++        def instrument(x, weight, bias=None):
++            executed[0] += (x.numel() // x.shape[-1]) * weight.numel()
++            return linear(x, weight, bias)
++        with patch.object(F, 'linear', instrument), torch.no_grad():
++            model(torch.zeros(1, 16), torch.zeros(1, 1))
++        self.assertEqual(executed[0], macs(model, 16))
++        self.assertEqual(len(list(model.ode_layers())), 0)
++        self.assertEqual(len(list(model.forced_gate_layers())), 3)
++        with torch.no_grad():
++            for _, flow in model.forced_gate_layers():
++                flow.raw_eigenvalues.fill_(.1)
++        records = collect(model, torch.randn(8, 16), torch.rand(8, 1))
++        self.assertEqual(len(records), 3)
++        for record in records:
++            self.assertEqual(record['operator_type'], 'conditional_forced_gate')
++            self.assertGreater(record['P_sigma_max'], 0.)
++            self.assertEqual(len(record['P_eigenvalues']), 85)
++            self.assertGreater(record['forcing_abs_max'], 0.)
++
++    def test_rejects_unused_or_combined_interventions(self):
++        for change in [dict(forced_gate_solver='unknown'), dict(forced_gate_clock='unknown'),
++                       dict(ode_gate_reparam=8.), dict(ode_middle_activation='identity'),
++                       dict(ode_operator_mode='additive'), dict(diagonal_solver='exp')]:
++            with self.subTest(change=change), self.assertRaises(ValueError):
++                VelocityNet(2, 'ode_forced_gate', **change)
++        with self.assertRaises(ValueError):
++            VelocityNet(2, 'swiglu', forced_gate_clock='static')
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- stage19/docs/research-architecture-search/protocol-forced-gate.md
++++ forced_gate/docs/research-architecture-search/protocol-forced-gate.md
+@@ -0,0 +1,117 @@
++# Forced-response correction of the SwiGLU gate
++
++Registered after the audited Stage19 rejection, before any forced-gate training.
++The mathematical and experiment reviews permit one fixed operator comparison;
++the literature review supplies interpretation and novelty limits. Existing
++evidence supports preserving SwiGLU's independent gate/value features. It does
++not predict that this particular response will improve them.
++
++## Operator and relation to the original layer
++
++```text
++a, v = unchanged independent SwiGLU projections of h
++b = SiLU(a); s = sigmoid(a); lambda = tanh(eta), eta initially0
++dy/du = (lambda*s)*y + b, y(0)=0, u in[0,1]
++gate_exact = b*phi1(lambda*s)
++phi1(c) = expm1(c)/c, phi1(0)=1
++FFN(h) = unchanged_output_projection(gate*v).
++```
++
++The input selects coefficients which remain frozen during this auxiliary
++solve. The professor's homogeneous Taylor construction applied to augmented
++matrix `[[lambda*s,b],[0,0]]` and state `(0,1)` returns b at K1, and
++`b*(1+lambda*s/2)` at K2. K1 is ordinary SwiGLU. The exact response retains
++all terms. This extends the original conditional-flow construction to an
++affine forced system; it changes the old two-solve dense FFN substantially.
++The auxiliary solve time is distinct from FM time. No external solver accuracy,
++full-network stability or FM-specific approximation theorem is claimed.
++
++One eta per gate channel is the only added trainable object. There is no new
++projection, controller, clock slope, temperature, loss or rate-bound setting.
++The new arms use nominal hidden128, actual85, with255 extra parameters across
++three blocks and exactly the baseline dense MACs. Pointwise cost is additional.
++
++## Five arms
++
++| Label | Gate | Nominal hidden |
++|---|---|---:|
++| swiglu_budget | ordinary SiLU |96|
++| swiglu | ordinary SiLU |128|
++| forced_static | b*phi1(.5*lambda) |128|
++| forced_k2 | b*(1+.5*lambda*sigmoid(a)) |128|
++| forced_exact | b*phi1(lambda*sigmoid(a)) |128|
++
++Static gains absorb exactly into columns of the output projection. They retain
++the ordinary SwiGLU function class while adding active redundant parameters.
++Adaptive K2 is the generic multiplicative-gate control. K2 and exact have the
++same complete initial parameter Jacobian, including their eta directions;
++both preserve every ordinary SwiGLU parameter and its initial derivative.
++The new eta tangent is `.5*b*sigmoid(a)*v` before output projection. Modulo
++ordinary output gains and gate-bias tangents, this is a generic GLU feature.
++Thus K2 success alone cannot establish a uniquely ODE or all-orders mechanism.
++
++Exact relative gate gain is in `[1-exp(-1),exp(1)-1]`; K2 gain is in `[.5,1.5]`.
++They have different response curves and ranges, both positive. This comparison
++tests those response terms, not a pure numerical solver-order intervention.
++Bounded conditional rates do not bound the augmented generator norm because
++the forcing makes a shear, nor the whole SwiGLU product/Jacobian.
++
++## Fixed training and initialization
++
++Fifteen cells: all five arms on Gaussian2D, Ring8 and product16. Use training
++seed0,5000updates,batch512,AdamW3e-4,weight decay0,gradient clip1, original
++cached-bank pair supervision and existing data versions. Keep width64/depth3,
++the five diagnostic times, validation field/Jacobian measures and Heun32 SW2.
++Do not use exact-mean supervision or a changed optimizer.
++
++Construct ordinary SwiGLU projections before allocating zero eta vectors,
++without extra random draws. Pair every shared initial tensor, buffer and RNG
++with nominal128 SwiGLU, using a nonzero probe output head as well as formal
++zero-head initialization. Use the same hash-bound Stage15 step0 references
++for non-FFN initialization in every arm. These contain no trained weights.
++Both baseline reruns must reproduce their historical trajectories; they are
++compatibility checks, not independent replications.
++
++Freeze new source/config/protocol, use two one-thread Mac CPU workers and
++actual10s telemetry, and prevent idle sleep. Reserve no GPU. Preserve all old
++runtimes and the submitted Report1. Stop failed settings without width, slope,
++rate-bound, temperature, coupling or additional-order rescue.
++
++## Decisions fixed before outcomes
++
++An adaptive arm is a lead only if, on at least one nonlinear task, its primary
++validation oracle MSE is at least10% lower than both SwiGLUs and at least5%
++lower than static. On every other primary task it must be within5% of the
++better SwiGLU. On both nonlinear tasks, its full velocity Jacobian error and
++validation SW2 must each be within10% of the better SwiGLU. These engineering
++thresholds do not establish statistical significance.
++
++K2 passing establishes at most a generic adaptive-gate lead. Exact passing
++establishes at most the same unless it also improves K2 primary MSE by at
++least5% on its qualifying nonlinear task, with the same other-task guards.
++A static-only gain supports redundant reparameterization. If both adaptive
++arms fail, stop the family as specified. Report every fixed endpoint and curve.
++
++Any nominated lead still needs a fresh independent holdout, nonlinear transfer,
++isolated CPU/MPS timing where supported, and a budget guard against a slightly
++wider ordinary SwiGLU (nominal129,actual86, which has more parameters/MACs than
++the new nominal128 model). Existing exposed validation paths do not count as
++that confirmation. If both adaptive arms pass, prefer lower measured practical
++cost at comparable quality; do not credit indistinguishable higher terms.
++
++## Required verification
++
++Before formal launch: safe phi1 value/first/second derivative at zero and
++near the series boundary in float32/float64; augmented matrix-exponential and
++clock-dependent derivative identities; static output-column absorption;
++complete initial functions and common-parameter gradients; adaptive full
++initial Jacobian equality; actual linear MACs/parameter counts; CLI/config
++propagation; nonzero trained eta; full trainer/checkpoint/resume/sampling and
++real monitor heartbeat. Default predecessor trajectories must remain exact.
++
++After completion: native source/data/config/reference hashes and all checkpoint
++states; all-arm snapshot data RNG pairing; exact native final field/Jacobian
++replays; complete curves and every recorded eta/lambda channel. Log latent
++P, conditional rates, forcing, relative response, gate derivatives and input
++projection trajectories separately from the full velocity Jacobian. Final
++endpoint replay alone does not verify a fresh holdout or sampling trajectory.
+--- stage19/docs/research-architecture-search/literature-forced-gate.md
++++ forced_gate/docs/research-architecture-search/literature-forced-gate.md
+@@ -0,0 +1,80 @@
++# Forced-response SwiGLU gate: prior art and claim boundary
++
++Review date: 2026-10-24. This is a bounded mathematical and primary-source review, not a training result.
++
++**Decision:** a controlled test is admissible, but its defensible question is whether a particular higher-order activation shape improves an otherwise unchanged SwiGLU. The literature does not supply an FM-specific mechanism. Neither the forced linear solve nor learnable Swish-like activation is new. No verified exact prior-art match for the complete proposed gate was found; this limited search cannot establish novelty.
++
++The [completed diagonal study](analysis-diagonal-flow/analysis-report.md) remains negative. On Product16, adaptive diagonal K2/exp gave oracle MSE 0.163066/0.163193, versus SiLU 0.153892 and SwiGLU128 0.092326. Keeping SwiGLU's separate gate and value projections is therefore a sensible control against the earlier architectural change. It is not evidence that adding a forced solve will help.
++
++## What the proposed gate actually is
++
++For one hidden channel, let `a=Wg*x+bg`, `v=Wv*x+bv`, `q=sigmoid(a)`, `b=a*q`, and `lambda=tanh(eta)`, initially zero. Preserve the usual output projection U:
++
++```text
++FFN(x) = U [g_lambda(a) * v] + bU
++
++g_lambda(a) = b * phi1(lambda*q)
++           = a * expm1(lambda*q) / lambda,  lambda != 0
++g_0(a)     = a*q
++
++phi1(z) = integral_0^1 exp(t*z) dt,  phi1(0)=1.
++```
++
++This is the exact endpoint of `y'=lambda*q*y+b`, `y(0)=0`, at auxiliary time 1, with both q and b frozen from the input. It is also exactly an ordinary learned scalar activation inside SwiGLU. The solve has no carried state, evolving controller, or identified relationship to the physical time in flow matching.
++
++Our algebra gives
++
++```text
++g_lambda(a) = a*q + (lambda/2)*a*q^2
++                   + (lambda^2/6)*a*q^3 + ...
++
++K1:   a*q
++K2:   a*q + (lambda/2)*a*q^2
++exact: all terms above.
++```
++
++Thus K2 already tests a generic learned mixture of two activation functions. K2 and exact have the same complete initial parameter Jacobian when all projections and biases are paired; their distinction starts beyond the local tangent. Static `q=1/2` in the generator gives `g=b*phi1(lambda/2)`, which can be absorbed exactly into U's columns. That control changes parameterization without enlarging the SwiGLU function class.
++
++For adaptive q and nonzero lambda, the multiplier varies with a, so it cannot be removed by a single constant output-column rescaling while those features are fixed. This is a narrow statement, not a finite-width separation theorem against all reparameterized SwiGLUs. Since `abs(lambda*q)<1`, its positive gain lies between `1-exp(-1)` and `exp(1)-1`, approximately 0.632 and 1.718. This does not bound the full network Jacobian or sampling error.
++
++## Directly relevant prior art
++
++**Forced linear response is standard algebra.** Mamba's Section 2, Eq. (4), writes the zero-order-hold input response as `(Delta*A)^(-1)*(exp(Delta*A)-I)*Delta*B`, with the removable-zero extension represented by phi1. Our scalar endpoint is precisely this familiar affine-response operation with zero initial state. Mamba carries state across a sequence; the proposed activation resets it at each invocation. Its memory mechanism, efficiency results and sequence benchmarks do not transfer. The full primary text was inspected. [Gu and Dao, Mamba, arXiv v2 (2024), Eq. (4)](https://arxiv.org/html/2312.00752v2#S2).
++
++**The exponential deformation already has an activation antecedent.** Godfrey and Gashler's Eq. (2) defines `G(alpha,x)=(exp(alpha*x)-1)/alpha+alpha`. Our gate is exactly `a*(G(lambda,q)-lambda)`, continuously extended at zero. Their final soft-exponential activation, Eq. (4), instead uses a logarithmic branch for negative alpha; our negative-lambda gate retains the exponential branch. This is an exact algebraic predecessor, not an assertion that the whole SwiGLU construction is identical. The full PDF was inspected; its age is justified here solely by the exact expression. [A continuum among logarithmic, linear, and exponential functions (2016 preprint), Eqs. (2)–(4)](https://arxiv.org/pdf/1602.01321).
++
++**A close generic Swish modification already exists.** RoSwish defines `(a+alpha)*sigmoid(beta*a)-alpha/2`, with learned channel parameters. Its sigmoid direction is directly relevant to the local analysis below. The centering term matters: with beta fixed to 1, its alpha derivative is `q-1/2`, not q. Multiplication by v consequently adds a linear-value correction `-v/2`; it is not identical to an uncentered offset-SiLU control. The paper is in *Neural Networks* 192 (2025), article 107892. The publisher abstract/formula and the authors' full implementation were checked; the complete journal article was not accessible. No performance claim is imported. [Paper DOI](https://doi.org/10.1016/j.neunet.2025.107892); [authors' implementation, `RoSwish`](https://github.com/weirdoZHANG/RoSwish/blob/main/deep_network_18_26_32.py#L125).
++
++**Current SwiGLU work already treats this as activation design.** The May 2026 preprint *More Expressive Feedforward Layers: Part I* studies learned linear combinations and input-dependent mixtures of activations while preserving the projections of SwiGLU-type FFNs, especially Eqs. (4)–(7). Our one-parameter sigmoid-power series is not their specified dictionary or router. Their finite-width separation theorem therefore does not prove a separation for this candidate. The direct implication is the appropriate comparison class: learnable activation modifications, not only alternative ODE architectures. Full primary HTML and method equations were inspected; this review makes no venue claim. [Wang et al., Sections 3.2–4.2](https://arxiv.org/html/2605.26647v1#S3.SS2).
++
++## The new initial direction has a simple non-ODE explanation
++
++The following identity is our derivation, rather than a claim taken from those papers. Write `b(a)=a*q`. Then
++
++```text
++b'(a) = q + a*q*(1-q)
++a*q^2 = b(a) + q - b'(a)
++
++d g / d eta at eta=0 = (1/2)*a*q^2.
++```
++
++For each channel, baseline output-column scaling supplies the `b*v` direction, and a gate-bias perturbation supplies `b'*v`. The current SwiGLU implementation has gate biases. After allowing those existing tangent directions, the new direction is equivalent to adding `q*v`, the familiar GLU feature. A generic offset gate `(a+c)*sigmoid(a)`, initialized with c=0, supplies exactly that direction. Conversely, the displayed identity expresses its added direction using the forced-gate tangent plus baseline directions.
++
++This establishes equality of the enlarged **tangent spans** for those paired biased models. It does not establish equal NTK matrices, equal parameter norms, equal optimizer trajectories, or equivalence at finite parameter changes. It also does not mean the added direction is necessarily independent on our data. RoSwish is a relevant nearby prior art, with the centering distinction above.
++
++No extra offset arm is required for the narrowly scoped decision currently proposed: K2 already includes exactly the forced gate's new initial parameter direction, and exact versus K2 asks whether the higher terms help beyond it. An offset comparison would become relevant to a broader claim that this ODE construction is uniquely effective relative to generic activation adaptation. The present review does not recommend expanding the registered test.
++
++## What a bounded comparison could establish
++
++Preserve the same gate/value/output projections, initialization, width, objective and training protocol. Interpret the planned controls in this order:
++
++| Observation | Supported interpretation |
++|---|---|
++| Static response improves | A different parameterization may help; no larger function class. |
++| K2 improves over baseline/static | The constrained `a*q^2` activation correction may help. This does not identify an ODE-specific mechanism. |
++| Exact improves over K2 as well as practical controls | Evidence for useful higher-order gate shape under this protocol, beyond their identical initial parameter Jacobians. |
++| Exact ties K2 or loses practical controls | No supported reason to retain the exponential response for this task. |
++
++Even the third outcome would not prove that physical flow geometry, semigroup consistency, or a velocity-Jacobian constraint caused the gain. None of the reviewed sources relates these particular hidden sigmoid powers to the FM population target. Exact integration of an invented frozen auxiliary system is a valid derivation, but it is not that missing connection. Architectural acceptance and a novelty claim would still need separate evidence.
++
++Search scope: primary arXiv/publisher texts and authors' code; queries included `activation expm1`, `activation phi_1 exponential`, `forced linear ODE sigmoid activation`, `exponential Swish`, `SwiGLU learnable activation 2025 2026`, `exponentiated sigmoid`, `soft exponential Godfrey Gashler`, and `RoSwish`. Exact-formula searches did not identify a verified full-gate match. Unrelated exponential activations and generic performance analogies were excluded. No source, configuration, or training job was changed for this review.
+--- stage19/docs/research-architecture-search/forced-gate-design-review.md
++++ forced_gate/docs/research-architecture-search/forced-gate-design-review.md
+@@ -0,0 +1,130 @@
++# Forced-response gate inside SwiGLU: design review
++
++**Conditional PASS for one minimal controlled operator comparison.** The mathematics is clean, and the proposal preserves the independently projected gate/value structure of the strongest existing baseline. That is a useful distinction from the failed rebuilt FFNs. The evidence does not specifically favor the phi1 response, however. Its research status is a weak-prior hypothesis about a cheap adaptive gate, not a demonstrated FM mechanism or an advance obtained merely by embedding the baseline at initialization.
++
++No code or training is performed by this review. Keep the proposed operator, fixed rate bound and existing width; do not add a slope, temperature, solver-order or width search.
++
++## Exact conditional forced response
++
++For each ordinary SwiGLU unit, let
++
++```text
++a = gate projection of h
++v = independent value projection of h
++s = sigmoid(a), b = a*s
++lambda = tanh(eta), eta initially zero
++c = lambda*s.
++```
++
++Hold a,b,s,c fixed during the internal solve `dy/du=c*y+b`, starting from y(0)=0 and ending at u=1. Its output is
++
++```text
++Psi = b*phi1(c)
++phi1(c) = expm1(c)/c,  phi1(0)=1
++         = integral_0^1 exp(t*c) dt.
++```
++
++Use the ordinary SwiGLU output projection on `Psi*v`. The forcing is the existing SiLU gate, not a new dense controller. This is a conditional linear solve in an auxiliary state, not the external flow-matching trajectory.
++
++The augmented generator and its exponential are
++
++```text
++M = [[c,b],[0,0]]
++exp(M) = [[exp(c),b*phi1(c)],[0,1]].
++```
++
++Applying the professor's Taylor-polynomial operation to initial augmented state `(0,1)` yields:
++
++```text
++K1: b                          ordinary SwiGLU gate
++K2: b*(1+.5*lambda*s)           first adaptive correction
++exact: b*phi1(lambda*s).
++```
++
++This is a valid extension from homogeneous to forced conditional dynamics. M now depends on the current input through b and s, so it is not the original globally fixed dense P. The construction supplies a reproducible operator family; it does not establish novelty or FM-specific necessity.
++
++## Derivatives, bounds and stable evaluation
++
++Let primes denote derivatives with respect to the scalar argument. Then
++
++```text
++phi1'(c) = [c*exp(c)-expm1(c)]/c^2,    phi1'(0)=.5
++phi1(c)+c*phi1'(c)=exp(c)
++Psi'(a)=s*phi1(c)+a*s'(a)*exp(c)
++partial Psi/partial eta
++  = b*s*phi1'(c)*(1-lambda^2).
++```
++
++The complete FFN input Jacobian is
++
++```text
++Wout [diag(v*Psi'(a))*Wgate + diag(Psi)*Wvalue].
++```
++
++This keeps both projection paths and includes the state-dependent clock derivative. For K2, replace phi1 by `1+c/2` and the exp(c) term in the displayed Psi' identity by `1+c`.
++
++Since phi1 is increasing on the real line and |c|<=1,
++
++```text
++1-exp(-1) <= phi1(c) <= exp(1)-1.
++```
++
++This bounds the gate's gain relative to b, including its continuous interpretation at b=0. K2's relative gain lies between .5 and 1.5, so the exact and truncated arms have different permitted gain ranges. Both remain positive. Any exact-versus-K2 effect includes the response-curve and range difference; it is not evidence about numerical accuracy of the external generative ODE.
++
++The augmented matrix has eigenvalues c and 0, but its norm can grow with b. Even at c=0 its exponential is a shear with off-diagonal b. Bounded eigenvalues therefore do not certify an augmented operator norm, and neither the relative-gain bound nor a scalar gate derivative bound controls the complete SwiGLU product or velocity network.
++
++For evaluation near zero, use a polynomial branch, for example
++
++```text
++phi1(c)=1+c/2+c^2/6+c^3/24+c^4/120+...
++phi1'(c)=.5+c/3+c^2/8+c^3/30+...
++```
++
++The degree-4 value remainder on |c|<=delta is bounded by `exp(delta)*delta^5/720`. Select numerical order/threshold from dtype error requirements and test derivatives near zero. Crucially, form a safe denominator for the non-series branch *before* division. Writing an inactive `expm1(c)/c` branch inside a selection still creates 0/0 and can contaminate autograd. Initial value and derivative must be exactly 1 and .5. This is numerical implementation hygiene, not a new architectural hyperparameter to sweep.
++
++A concrete adequate proposal is degree-8 Horner evaluation for |c|<.05 and the safe-denominator ratio elsewhere. Its value remainder is at most `exp(.05)*.05^9/10!`, below 5.66e-19; the derivative remainder is at most `exp(.05)*.05^8/(10*8!)`, below 1.02e-16. These are mathematical truncation bounds, not floating-point error bounds. Test float32/float64 forward and backward behavior at zero, small positive/negative inputs, and both sides of the branch boundary. The quotient backward can suffer cancellation even when it is finite, so checking only NaNs is insufficient. No custom autograd is needed.
++
++## Initialization and what the extra tangent really is
++
++At eta=0, Psi=b exactly. All ordinary SwiGLU parameters, complete functions, input Jacobians and common-parameter derivatives therefore match the baseline. Zero-initialized extra vectors consume no RNG draws. The new eigenparameter response is
++
++```text
++partial output/partial eta_i
++  = .5*Wout[:,i]*a_i*sigmoid(a_i)^2*v_i.
++```
++
++Adaptive K2 and exact phi1 have the same complete initial parameter Jacobian and NTK. Plain SwiGLU lacks these extra directions; its full NTK is not identical. A common nonzero probe head is necessary when verifying backbone responses because formal zero velocity-head initialization masks them.
++
++This new direction has a generic interpretation. With b=SiLU(a),
++
++```text
++a*sigmoid(a)^2 = b + sigmoid(a) - b'(a).
++```
++
++Modulo ordinary output-column scaling and gate-bias directions, the added feature is a sigmoid-gated value, `sigmoid(a)*v`. Thus this is not an intrinsically ODE-specific tangent direction. The K2 arm already supplies the relevant generic control; another offset-gate arm is unnecessary for the initial comparison.
++
++The direction is not universally redundant. For a single unit with independent a and v, its v-linear ordinary tangent span contains `b,b',a*b'`. Their negative-tail terms are polynomials times exp(a), whereas `a*sigmoid(a)^2` starts as `a*exp(2a)`; cancelling all exp(a) coefficients forces the putative combination to zero. Conversely, redundancy can occur: with scalar a=v=x at unit weights,
++
++```text
++.5*x^2*sigmoid(x)^2
++ = .5*(value-bias tangent + value-weight tangent - gate-bias tangent).
++```
++
++A wide trained network may have further dependencies. Neither a universal new-capacity claim nor universal redundancy follows from the one-unit calculation.
++
++## Static control and minimal fair comparison
++
++The static gate is `b*phi1(.5*lambda)`, with the same extra parameter count and initialization. Its constant positive channel gains can be absorbed into Wout, including unchanged output bias. Its function class is exactly ordinary same-width SwiGLU; its extra eta direction at initialization is `.25*Wout[:,i]*b_i*v_i`, an output-column scaling direction. It can still alter optimization geometry.
++
++Use only the proposed five arms: the two established SwiGLU widths, and static/K2/exact variants at one fixed existing width. Keep independent gate/value projections, output projection, biases, backbone and FiLM paired with the matching SwiGLU reference. Each new variant adds one gate-hidden parameter per block, with no extra dense matrix MACs; exact phi1 has additional pointwise cost and must be timed. Ordinary SwiGLU itself is the K1 control; do not count dormant eigenparameters in a fictitious K1 arm as useful capacity.
++
++The hypotheses and rejection rules should be explicit before outcomes:
++
++- A gain over the failed old ODE models says nothing here; the matching strong SwiGLU and better existing budget are the actual references.
++- Adaptive K2 must materially improve those references and the static control before it is a useful generic adaptive-gate lead. Its success alone is not evidence for an ODE-unique or all-orders mechanism.
++- Exact phi1 must additionally show a material advantage over K2 before crediting its higher response terms. A tie favors the simpler generic interpretation.
++- Static-only improvement supports redundant reparameterization, not state-dependent forced dynamics.
++- Passing the initial screen still needs the declared independent holdout, matched-budget/isolated timing check and transfer guards. Existing validation comparisons are not independent confirmation.
++- Failure stops this operator setting; no rate-bound, gate-scale, width or extra-order rescue follows.
++
++The controlled question is therefore narrow but meaningful: **can a canonical forced-response correction improve useful gate shapes inside an otherwise unchanged strong SwiGLU, and do its higher terms outperform their matched generic first correction?** Current evidence motivates preserving the baseline; it does not favor the answer. That distinction is the condition for treating this as one admissible operator experiment rather than another unconstrained gating sweep.
+--- stage19/docs/research-architecture-search/forced-gate-experiment-review.md
++++ forced_gate/docs/research-architecture-search/forced-gate-experiment-review.md
+@@ -0,0 +1,45 @@
++# Forced SwiGLU gate: bounded experiment review
++
++**Conditional GO for one fixed five-arm comparison, after the separate mathematics/prior-art review.** The question is whether a small, function-matched perturbation of the stronger SwiGLU reference is useful. Existing evidence does not justify expecting a gain, but it does not already answer this contrast. No code or training was changed for this review.
++
++## Why this is a different, still unproved question
++
++The [SiLU reference](analysis-reference-silu/analysis-report.md) has Product16 MSE0.153892 versus SwiGLU128's0.092326, and Ring8 MSE0.033714 versus0.015296. The [diagonal sandwich](analysis-diagonal-flow/analysis-report.md) failed to improve that weaker SiLU base. Its independent feature/value product was absent. The proposed gate retains the actual SwiGLU computation `U[SiLU(a)*v]+bU`, including independent affine gate/value projections. Thus neither Stage19 nor the failed [shared-P study](analysis-shared-features/analysis-report.md) directly rules it out. These results support preserving the stronger reference, not choosing phi1 by an FM theorem.
++
++## Minimal controls
++
++Use nominal128, actual hidden85, for every modified arm. Keep the existing SwiGLU96 reference; do not sweep modified widths.
++
++| Arm | Gate replacing b=SiLU(a) | Role |
++|---|---|---|
++| SwiGLU96 | b | Established smaller baseline |
++| SwiGLU128 | b | Exact K1 limit and matched baseline |
++| Static | b*phi1(.5*lambda) | Active redundant parameterization |
++| Generic K2 | b*(1+.5*lambda*sigmoid(a)) | Same initial adaptive direction without higher terms |
++| Exact forced gate | b*phi1(lambda*sigmoid(a)) | Higher-term contrast |
++
++Here lambda=tanh(eta), eta starts at zero, and phi1(z)=expm1(z)/z with its smooth extension at zero. K1 is already the unmodified SwiGLU arm: do not allocate unused eta or run a renamed duplicate. No extra generic offset arm is needed in this first comparison. K2 already supplies the exact leading adaptive perturbation and initial eta tangent; a further generic activation grid would answer a broader question.
++
++Static phi1 is a positive per-channel gain absorbable exactly into U's columns. It has the same function class as SwiGLU, while its extra trainable coordinates change optimizer geometry. Static eta's initial response is `.25*b*v*U[:,i]`, redundant with output-column scaling. It is an active control, not dead parameter padding.
++
++## Initialization, tangent and implementation fairness
++
++Construct the existing fused `w12` and `w3` in precisely their current order, then add only a zero eta vector without RNG draws. Keep the native `F.silu(a)` evaluation; rewriting it as `a*sigmoid(a)` can change floating-point results. Do not replace fused w12 by separately constructed Linear modules. Preserve biases, state keys, independent a/v rows and existing non-FFN reference copying. All modified arms must match SwiGLU128's initial function, input Jacobian and **unclipped common-parameter gradients**, checked with a common nonzero output head. The formal zero velocity head otherwise hides all initial backbone gradients.
++
++Exact and K2 have the same initial extra response:
++
++```text
++d output/d eta_i = .5 * U[:,i] * v_i * a_i * sigmoid(a_i)^2.
++```
++
++They therefore share the complete initial parameter Jacobian. This is not universally redundant with baseline parameters when a and v are independent. It can be redundant in special cases: at a=v=x, the scalar response is half of `d/value_bias + d/value_weight - d/gate_bias`. No wide-network approximation or full-dataset rank claim follows from the one-unit distinction.
++
++Adding eta changes the total gradient norm seen by the trainer's global clipping. Common raw gradients matching the baseline does not imply identical clipped Adam updates. Exact/K2 should match each other's initial full gradients; static and baseline need not match their full kernels.
++
++**Critical numerical check:** phi1's zero branch must preserve phi1'(0)=1/2 and phi1''(0)=1/3. A constant `where(z==0,1,expm1(z)/z)` branch can suppress eta's starting gradient and leak NaNs from the unused division. Use a smooth local series with safe denominators, then verify zero/near-zero derivatives and nonzero eta updates in a short trainer/resume smoke. Forward equality alone is insufficient.
++
++At width64/hidden85, baseline FFN parameters/MACs are16554/16320; each modified FFN adds85 parameters and no dense matrix MACs. Product16 totals become83853/81792 versus baseline83598/81792. Extra sigmoid, tanh, polynomial or exponential work remains real; equal dense MACs are not a speed claim. Preserve the current training/data/reference protocol and monitoring. Use the established audit machinery rather than expanding the preflight into another research project.
++
++## Predeclare the practical distinction
++
++One five-arm run on the three current tasks is enough for the first decision. Preserve all curves and fixed endpoints. A substantial K2 or exact gain over both SwiGLU sizes **and static** may nominate a generic ODE-inspired activation lead, subject to the existing cross-task/Jacobian/SW2 safeguards and subsequent fresh-holdout and timing confirmation. Only an additional exact-versus-K2 gain supports a benefit from higher terms; register a margin before training. K2 alone succeeding is not evidence for exponentiation. Neither succeeding closes these settings without a clock, lambda-range, width or order rescue. No architecture is accepted from this review, an initial tangent, or a forced-ODE interpretation.
+--- stage19/configs/synthetic/architecture_search/forced_gate_v1_20261024_m1.json
++++ forced_gate/configs/synthetic/architecture_search/forced_gate_v1_20261024_m1.json
+@@ -0,0 +1,105 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-forced-gate.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "forced_static",
++      "model": "ode_forced_gate",
++      "options": {
++        "ffn_hidden": 128,
++        "forced_gate_solver": "exact",
++        "forced_gate_clock": "static"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "forced_k2",
++      "model": "ode_forced_gate",
++      "options": {
++        "ffn_hidden": 128,
++        "forced_gate_solver": "k2",
++        "forced_gate_clock": "adaptive"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "forced_exact",
++      "model": "ode_forced_gate",
++      "options": {
++        "ffn_hidden": 128,
++        "forced_gate_solver": "exact",
++        "forced_gate_clock": "adaptive"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    }
++  ],
++  "experiment_id": "forced_gate_v1_20261024_m1",
++  "datasets": [
++    "gaussian_aniso_2d",
++    "gmm_ring8_2d"
++  ]
++}
+--- stage19/configs/synthetic/architecture_search/forced_gate_product16_20261024_m1.json
++++ forced_gate/configs/synthetic/architecture_search/forced_gate_product16_20261024_m1.json
+@@ -0,0 +1,84 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-forced-gate.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "forced_static",
++      "model": "ode_forced_gate",
++      "options": {
++        "ffn_hidden": 128,
++        "forced_gate_solver": "exact",
++        "forced_gate_clock": "static"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "forced_k2",
++      "model": "ode_forced_gate",
++      "options": {
++        "ffn_hidden": 128,
++        "forced_gate_solver": "k2",
++        "forced_gate_clock": "adaptive"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "forced_exact",
++      "model": "ode_forced_gate",
++      "options": {
++        "ffn_hidden": 128,
++        "forced_gate_solver": "exact",
++        "forced_gate_clock": "adaptive"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    }
++  ],
++  "experiment_id": "forced_gate_product16_20261024_m1",
++  "datasets": [
++    "rotated_product_bimodal_16d"
++  ]
++}
+--- stage19/configs/synthetic/architecture_search/forced_gate_queue_20261024_m1.json
++++ forced_gate/configs/synthetic/architecture_search/forced_gate_queue_20261024_m1.json
+@@ -0,0 +1,16 @@
++{
++  "seed": 0,
++  "stages": [
++    {
++      "plan": "configs/synthetic/architecture_search/forced_gate_v1_20261024_m1.json",
++      "output_name": "forced_gate_v1_20261024_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/v1"
++    },
++    {
++      "plan": "configs/synthetic/architecture_search/forced_gate_product16_20261024_m1.json",
++      "output_name": "forced_gate_product16_20261024_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1"
++    }
++  ],
++  "protocol": "docs/research-architecture-search/protocol-forced-gate.md"
++}

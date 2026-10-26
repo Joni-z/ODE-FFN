@@ -1,0 +1,102 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dtype": "torch.float32",
+      "dim": 2,
+      "gate_hidden": 32,
+      "outputs_checked": 4,
+      "common_initial_tensors_buffers_RNG_equal": true,
+      "nonzero_head_forward_bit_equal": true,
+      "max_common_parameter_response_difference": 0.0,
+      "max_static_conditional_parameter_response_difference": 0.0,
+      "maximum_input_Jacobian_difference": 0.0,
+      "maximum_bias_parameter_response_norm": 0.43555447459220886,
+      "atol": 2e-06,
+      "rtol": 2e-05,
+      "parameters": [
+        81858,
+        82242,
+        82242
+      ],
+      "dense_macs": [
+        80192,
+        80192,
+        80192
+      ]
+    },
+    {
+      "dtype": "torch.float32",
+      "dim": 16,
+      "gate_hidden": 32,
+      "outputs_checked": 32,
+      "common_initial_tensors_buffers_RNG_equal": true,
+      "nonzero_head_forward_bit_equal": true,
+      "max_common_parameter_response_difference": 0.0,
+      "max_static_conditional_parameter_response_difference": 0.0,
+      "maximum_input_Jacobian_difference": 0.0,
+      "maximum_bias_parameter_response_norm": 0.8466326594352722,
+      "atol": 2e-06,
+      "rtol": 2e-05,
+      "parameters": [
+        83664,
+        84048,
+        84048
+      ],
+      "dense_macs": [
+        81984,
+        81984,
+        81984
+      ]
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 2,
+      "gate_hidden": 32,
+      "outputs_checked": 4,
+      "common_initial_tensors_buffers_RNG_equal": true,
+      "nonzero_head_forward_bit_equal": true,
+      "max_common_parameter_response_difference": 0.0,
+      "max_static_conditional_parameter_response_difference": 0.0,
+      "maximum_input_Jacobian_difference": 0.0,
+      "maximum_bias_parameter_response_norm": 0.48281648964213325,
+      "atol": 2e-13,
+      "rtol": 2e-12,
+      "parameters": [
+        81858,
+        82242,
+        82242
+      ],
+      "dense_macs": [
+        80192,
+        80192,
+        80192
+      ]
+    },
+    {
+      "dtype": "torch.float64",
+      "dim": 16,
+      "gate_hidden": 32,
+      "outputs_checked": 32,
+      "common_initial_tensors_buffers_RNG_equal": true,
+      "nonzero_head_forward_bit_equal": true,
+      "max_common_parameter_response_difference": 0.0,
+      "max_static_conditional_parameter_response_difference": 0.0,
+      "maximum_input_Jacobian_difference": 0.0,
+      "maximum_bias_parameter_response_norm": 0.7924220536748244,
+      "atol": 2e-13,
+      "rtol": 2e-12,
+      "parameters": [
+        83664,
+        84048,
+        84048
+      ],
+      "dense_macs": [
+        81984,
+        81984,
+        81984
+      ]
+    }
+  ],
+  "scope": "Formal hidden32 controllers. Static/conditional initial full functions and parameter responses pair; parent has no added bias columns."
+}

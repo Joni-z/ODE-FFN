@@ -1,0 +1,149 @@
+{
+  "state": "PASS",
+  "initials": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "non_ffn_state_tensors": 22,
+      "native_ffn_state_tensors": 12,
+      "runtime_buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "exact_budget_match_to_vector_parent": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "non_ffn_state_tensors": 22,
+      "native_ffn_state_tensors": 12,
+      "runtime_buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "exact_budget_match_to_vector_parent": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "non_ffn_state_tensors": 22,
+      "native_ffn_state_tensors": 12,
+      "runtime_buffers": [
+        "time.frequencies"
+      ],
+      "native_ffn_and_torch_rng_unchanged": true,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "exact_budget_match_to_vector_parent": true
+    }
+  ],
+  "snapshots": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 0,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 1000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 2000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 3000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 4000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 5000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 0,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 1000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 2000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 3000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 4000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 5000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 0,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 1000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 2000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 3000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 4000,
+      "data_rng_matches_all_six_historical_arms": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 5000,
+      "data_rng_matches_all_six_historical_arms": true
+    }
+  ],
+  "data_rng_exact_comparisons": 108,
+  "inherited_source_files_byte_identical": 547,
+  "new_source_files_verified": 551,
+  "scope": "Historical controls reused after identical implementation hashes, matching configuration/common initialization and every saved data RNG state. No training-trajectory regeneration."
+}

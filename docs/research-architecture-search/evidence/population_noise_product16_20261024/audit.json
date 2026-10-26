@@ -1,0 +1,165 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T08:12:36.620702+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 6,
+    "total": 6,
+    "active": []
+  },
+  "arrays_checked": 30,
+  "checkpoints_checked": 36,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_pair",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.27082129669189453,
+      "validation_sw2": 0.10474257171154022,
+      "field_mse": 0.2648391703658764,
+      "jacobian_error": 51.537647702042044,
+      "wall_seconds": 53.14100000000326,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.27082129669189453
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_mean",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.18311354217529296,
+      "validation_sw2": 0.09530503302812576,
+      "field_mse": 0.17830872509775478,
+      "jacobian_error": 37.468500307597175,
+      "wall_seconds": 54.09399999999732,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.18311354217529296
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget_pair",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.0868415075302124,
+      "validation_sw2": 0.09717436879873276,
+      "field_mse": 0.0847279387159063,
+      "jacobian_error": 22.081049625389742,
+      "wall_seconds": 36.203999999997905,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.0868415075302124
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget_mean",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.01808341312408447,
+      "validation_sw2": 0.07603015005588531,
+      "field_mse": 0.017173240135028956,
+      "jacobian_error": 7.859571863279723,
+      "wall_seconds": 37.23399999999674,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.01808341312408447
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_pair",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.08358915004730225,
+      "validation_sw2": 0.10164898633956909,
+      "field_mse": 0.08121574391174097,
+      "jacobian_error": 21.46302818820417,
+      "wall_seconds": 39.92199999999866,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.08358915004730225
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_mean",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.012699118900299072,
+      "validation_sw2": 0.0781877338886261,
+      "field_mse": 0.011207446683723303,
+      "jacobian_error": 6.219570726168538,
+      "wall_seconds": 40.859000000004016,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.012699118900299072
+    }
+  ],
+  "plan": {
+    "experiment_id": "population_noise_product16_20261024",
+    "protocol": "docs/research-architecture-search/protocol-population-noise.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ],
+    "arms": [
+      {
+        "label": "vector_pair",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        },
+        "training_targets": "population_pair"
+      },
+      {
+        "label": "vector_mean",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        },
+        "training_targets": "population_mean"
+      },
+      {
+        "label": "swiglu_budget_pair",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "training_targets": "population_pair"
+      },
+      {
+        "label": "swiglu_budget_mean",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "training_targets": "population_mean"
+      },
+      {
+        "label": "swiglu_pair",
+        "model": "swiglu",
+        "options": {},
+        "training_targets": "population_pair"
+      },
+      {
+        "label": "swiglu_mean",
+        "model": "swiglu",
+        "options": {},
+        "training_targets": "population_mean"
+      }
+    ]
+  },
+  "population_stream_regenerated": true,
+  "population_stream_replay_batches": 5000
+}

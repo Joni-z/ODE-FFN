@@ -1,0 +1,62 @@
+{
+  "state": "PASS",
+  "arms": [
+    {
+      "label": "state_euler",
+      "state": "PASS",
+      "resume_bit_identical": true,
+      "learned_controller_norms": [
+        0.011390866711735725,
+        0.010048756375908852,
+        0.010518834926187992,
+        0.010130868293344975,
+        0.009886810556054115,
+        0.009508118964731693
+      ],
+      "finite_live_stage_statistics": true,
+      "sampling_checkpoints_valid": true,
+      "checkpoint_sha256": {
+        "uninterrupted": "4e46dde940e05252a4bfb3ddab72e5c5c4793e78b6f86da5d00e72c4fb6b7e04",
+        "resumed": "67fb645812d8a326d3efe9d707cddda3bb02ecbaea7dbcfb2f47ef05bcd62657"
+      }
+    },
+    {
+      "label": "state_frozen",
+      "state": "PASS",
+      "resume_bit_identical": true,
+      "learned_controller_norms": [
+        0.011340186931192875,
+        0.010292280465364456,
+        0.010767986066639423,
+        0.010271653532981873,
+        0.009899652563035488,
+        0.00950662698596716
+      ],
+      "finite_live_stage_statistics": true,
+      "sampling_checkpoints_valid": true,
+      "checkpoint_sha256": {
+        "uninterrupted": "bab2cda9033d818fd91562a7f48b77742b851b074ce9a568e5d68b7a9ff5e609",
+        "resumed": "f4cf04612a8b0f4c1ba0212f00a3a9daab0ef30e28f3dd46720ec3ebbd82b0b8"
+      }
+    },
+    {
+      "label": "state_midpoint",
+      "state": "PASS",
+      "resume_bit_identical": true,
+      "learned_controller_norms": [
+        0.011338518001139164,
+        0.01032583974301815,
+        0.010849781334400177,
+        0.010364502668380737,
+        0.00984180811792612,
+        0.009560068137943745
+      ],
+      "finite_live_stage_statistics": true,
+      "sampling_checkpoints_valid": true,
+      "checkpoint_sha256": {
+        "uninterrupted": "94142188806bb5aa665d7ce30e79a3a94c5677adb03b591e9ee63c709b0a0e3b",
+        "resumed": "1a7bbb5b4d6563bf11304e74179d2b8a7439c145f4f453104a433b4f1d26fd33"
+      }
+    }
+  ]
+}

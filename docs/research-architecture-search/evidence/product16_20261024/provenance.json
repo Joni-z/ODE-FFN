@@ -1,0 +1,68 @@
+{
+  "time": "2026-10-24T05:51:49.767739+00:00",
+  "host": "Lenovo",
+  "python": "3.12.13 (main, Jun 23 2026, 15:23:43) [MSC v.1944 64 bit (AMD64)]",
+  "torch": "2.8.0+cu126",
+  "device": "cpu",
+  "workers": 2,
+  "plan": {
+    "experiment_id": "product16_20261024",
+    "protocol": "docs/research-architecture-search/protocol-product16.md",
+    "seed": 0,
+    "steps": 20000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ],
+    "arms": [
+      {
+        "label": "scalar_k1",
+        "model": "ode_original",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 64
+        }
+      },
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  },
+  "source_sha256": {
+    "synthetic\\__init__.py": "5d462c6d591ebd6b508d7cd2f7bcdb7c3118c12bf63dfc58177d9a5b8caf4062",
+    "synthetic\\data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5",
+    "synthetic\\diagnostics.py": "9029a01615eddf4cdb1392f636164d2467530165d845a1c7726e38fb513c1133",
+    "synthetic\\geometry.py": "64640cc70b60098933a0213619b05e0572aa2f28f3778e0bf9ba1ecc3dd25f08",
+    "synthetic\\grid.py": "46a2d890f97cf24e62795e85d16135094a2540ee011b8c8b6cff16640bb21dd8",
+    "synthetic\\interventions.py": "17a62c9f9e6dabf86d72c82388a77ca55e475ca6944df92b753007a77b8d0501",
+    "synthetic\\models.py": "cb45c3701f3c80f0828af301431d702805d1456323c17b5932ea26a846ef4dbd",
+    "synthetic\\prepare.py": "7305828cf15ae5b9b7447a16a170463c7b0b70bf5620ea8a980415331844554c",
+    "synthetic\\train.py": "3edcdd3fae5bdc5e396a74115708baf4947ba96090ac12f656f5e6f3613019e9",
+    "synthetic\\validate.py": "564a2d63584f5f413f04bd10850b04e3fa50f7a613ee878857d9d749cdc99f25",
+    "scripts\\run_architecture_study.py": "03ce6a45b3e4dee01d369226ab8e103ba046f9a9b4abec913beaf08e66263558",
+    "scripts\\check_vector_field.py": "6262f6e6c77d6f5827951a73abcf35781c6019ed851bb8bbc6fa7e83913491c7",
+    "scripts\\check_gate_geometry.py": "d466ef319b26a8967ea913df335fb7f4405b3dc89e9bd7f02632def839628978",
+    "scripts\\run_clock_study.py": "1391b39e058bce2c2e1d58bcf48942b32f1ff41375b02b3ed1388c60029a0f9b",
+    "configs\\synthetic\\architecture_search\\product16_20261024.json": "b8c2eae06f95aa93195b2e92940ec7c506a50d140199fde62607ecbfec7ce504",
+    "docs\\research-architecture-search\\protocol-product16.md": "e427d57c12390e355d1ca5972cc9a1fe7efdb3c61a71274c47db42796f3b6422"
+  },
+  "dataset_manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+}

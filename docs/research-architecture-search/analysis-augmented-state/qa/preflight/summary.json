@@ -1,0 +1,42 @@
+{
+  "state": "PASS",
+  "authoritative_attempt": 3,
+  "earlier_attempts": [
+    {
+      "attempt": 1,
+      "session": 85736,
+      "exit_code": 1,
+      "scope": "Harness-only overstrict float32 difference-of-norm identity; preserved script/log. F64 identity and unchanged F32 component tolerances are authoritative."
+    },
+    {
+      "attempt": 2,
+      "session": 19879,
+      "exit_code": 1,
+      "scope": "Harness-only three-entry padding tuple in independent reconstruction; frozen helper uses correct four-entry padding. Preserved script/log."
+    }
+  ],
+  "relevant_tests": 72,
+  "formal_cells": 18,
+  "common_backbone_initializations": 18,
+  "full_width_initialization_cases": 4,
+  "historical_execution_count": 18,
+  "historical_distinct_effective_settings": 17,
+  "historical_3update_trajectories": "BIT_IDENTICAL",
+  "three_lowrank_fulltrainer_resumes": "BIT_IDENTICAL",
+  "learned_factors_controllers_extra_branches_active": true,
+  "both_generic_fulltrainers": "BIT_IDENTICAL",
+  "historical_frontier_checkpoints": 36,
+  "historical_frontier_arrays": 30,
+  "actual_psutil_heartbeat": true,
+  "all_runner_workers_intercepted": true,
+  "native_spectral_and_hidden_capture_checked": true,
+  "source_files_verified": 604,
+  "historical_source": "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source",
+  "historical_source_files": 595,
+  "explicit_predecessor_and_manifest_verified": true,
+  "prior_source_unchanged": true,
+  "reference_hashes_unchanged": true,
+  "formal_training_started": false,
+  "formal_outputs_absent": true,
+  "preflight_script_sha256": "7f405f1a8cefc129cabcac89ab46b8a3fae18167e7355e3a3add42f887f1cff9"
+}

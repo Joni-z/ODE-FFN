@@ -1,0 +1,130 @@
+{
+  "state": "NO_CANDIDATE",
+  "comparisons": {
+    "scalar_add": {
+      "original": {
+        "passes": false,
+        "leads": [],
+        "details": {
+          "gaussian_aniso_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 0.95983793084316,
+              "jacobian_error": 0.7067764602122569,
+              "validation_sw2": 1.1246421437521195
+            },
+            "parent_oracle_ratio": 0.9862442146932966
+          },
+          "gmm_ring8_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 1.533020513558383,
+              "jacobian_error": 2.189959166190092,
+              "validation_sw2": 1.0029636850592747
+            },
+            "parent_oracle_ratio": 0.9278022636975699
+          },
+          "rotated_product_bimodal_16d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 3.4758774268261887,
+              "jacobian_error": 2.5203075960303054,
+              "validation_sw2": 1.1575327106218223
+            },
+            "parent_oracle_ratio": 1.0591079798325878
+          }
+        }
+      },
+      "paired": {
+        "passes": false,
+        "leads": [],
+        "details": {
+          "gaussian_aniso_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 0.960015201464173,
+              "jacobian_error": 0.6308335072547284,
+              "validation_sw2": 1.1418880369523081
+            },
+            "parent_oracle_ratio": 0.9862442146932966
+          },
+          "gmm_ring8_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 1.5217855890800378,
+              "jacobian_error": 1.6947226531875397,
+              "validation_sw2": 1.020815729444165
+            },
+            "parent_oracle_ratio": 0.9278022636975699
+          },
+          "rotated_product_bimodal_16d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 3.419587460696163,
+              "jacobian_error": 2.3770751336948104,
+              "validation_sw2": 1.14425492158919
+            },
+            "parent_oracle_ratio": 1.0591079798325878
+          }
+        }
+      }
+    },
+    "vector_add": {
+      "original": {
+        "passes": false,
+        "leads": [],
+        "details": {
+          "gaussian_aniso_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 0.9660738718956052,
+              "jacobian_error": 0.6620708691230818,
+              "validation_sw2": 1.1112862178383953
+            },
+            "parent_oracle_ratio": 1.00614280441793
+          },
+          "gmm_ring8_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 1.3357998754523435,
+              "jacobian_error": 2.2749305548732695,
+              "validation_sw2": 1.0963245506141617
+            },
+            "parent_oracle_ratio": 1.0177325610162233
+          },
+          "rotated_product_bimodal_16d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 2.017102270728076,
+              "jacobian_error": 1.675058859754465,
+              "validation_sw2": 1.1379142114474814
+            },
+            "parent_oracle_ratio": 0.6883751370419201
+          }
+        }
+      },
+      "paired": {
+        "passes": false,
+        "leads": [],
+        "details": {
+          "gaussian_aniso_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 0.9662522942205751,
+              "jacobian_error": 0.5909315206885507,
+              "validation_sw2": 1.1283273037821802
+            },
+            "parent_oracle_ratio": 1.00614280441793
+          },
+          "gmm_ring8_2d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 1.3260103060459596,
+              "jacobian_error": 1.7604786451244618,
+              "validation_sw2": 1.1158383523892006
+            },
+            "parent_oracle_ratio": 1.0177325610162233
+          },
+          "rotated_product_bimodal_16d": {
+            "ratio_to_better_swiglu": {
+              "validation_oracle_mse": 1.984436383943985,
+              "jacobian_error": 1.579863017224205,
+              "validation_sw2": 1.124861461664957
+            },
+            "parent_oracle_ratio": 0.6883751370419201
+          }
+        }
+      }
+    }
+  },
+  "scope": "Descriptive reapplication of the unchanged screen; does not revise earlier STOP decisions or select a winner through baseline weakening."
+}

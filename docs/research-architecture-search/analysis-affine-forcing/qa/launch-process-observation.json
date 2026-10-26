@@ -1,0 +1,61 @@
+{
+  "observed_at": "2026-10-24T17:57:59.883425+00:00",
+  "processes": [
+    {
+      "ppid": 20543,
+      "name": "Python",
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_queue_20261025_m1"
+      ],
+      "pid": 60655,
+      "create_time": 1792864678.612382,
+      "is_running": true,
+      "status": "sleeping"
+    },
+    {
+      "ppid": 60655,
+      "name": "caffeinate",
+      "cmdline": [
+        "caffeinate",
+        "-i",
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_queue_20261025_m1"
+      ],
+      "pid": 60663,
+      "create_time": 1792864678.640763,
+      "is_running": true,
+      "status": "running"
+    },
+    {
+      "ppid": 60655,
+      "name": "Python",
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_v1_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1"
+      ],
+      "pid": 60664,
+      "create_time": 1792864679.379035,
+      "is_running": true,
+      "status": "running"
+    }
+  ]
+}

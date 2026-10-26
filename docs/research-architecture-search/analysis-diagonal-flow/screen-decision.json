@@ -1,0 +1,83 @@
+{
+  "state": "NO_HIGHER_ORDER_CANDIDATE",
+  "nominated": [],
+  "comparisons": {
+    "diagonal_k2": {
+      "passes": false,
+      "qualifying_nonlinear_leads": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.117356736141223,
+            "jacobian_error": 0.8106321907873482,
+            "validation_sw2": 0.9074776889402733
+          },
+          "oracle_ratio_to_K1": 1.0000799348480183,
+          "oracle_ratio_to_SiLU": 1.000920058323202,
+          "oracle_ratio_to_static": 0.9966675400923848
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 2.231573963564422,
+            "jacobian_error": 2.5292856281715657,
+            "validation_sw2": 1.2351370950732459
+          },
+          "oracle_ratio_to_K1": 0.9205745623965726,
+          "oracle_ratio_to_SiLU": 1.0124880196622568,
+          "oracle_ratio_to_static": 1.0163794212854136
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.7661987723148453,
+            "jacobian_error": 1.487855556993501,
+            "validation_sw2": 1.0836223189100906
+          },
+          "oracle_ratio_to_K1": 1.007659907721556,
+          "oracle_ratio_to_SiLU": 1.059609698155284,
+          "oracle_ratio_to_static": 1.0674391113603134
+        }
+      }
+    },
+    "diagonal_exp": {
+      "passes": false,
+      "qualifying_nonlinear_leads": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.117396306086702,
+            "jacobian_error": 0.8113874624812156,
+            "validation_sw2": 0.907463395886618
+          },
+          "oracle_ratio_to_K1": 1.0001153515660786,
+          "oracle_ratio_to_SiLU": 1.0009555047933003,
+          "oracle_ratio_to_static": 0.9967028359642819
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 2.231749033297727,
+            "jacobian_error": 2.5294482769031292,
+            "validation_sw2": 1.2355107429694818
+          },
+          "oracle_ratio_to_K1": 0.9206467826078485,
+          "oracle_ratio_to_SiLU": 1.0125674505977629,
+          "oracle_ratio_to_static": 1.0164591575061828
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_better_swiglu": {
+            "validation_oracle_mse": 1.767573679798362,
+            "jacobian_error": 1.488848510877888,
+            "validation_sw2": 1.0842593286630182
+          },
+          "oracle_ratio_to_K1": 1.0084443263100427,
+          "oracle_ratio_to_SiLU": 1.0604345573537146,
+          "oracle_ratio_to_static": 1.0682700654100006
+        }
+      }
+    }
+  },
+  "scope": "Exact registered engineering screen. K1 is a generic activation control, not a higher-order nominee. No beta/clock/width/order rescue."
+}

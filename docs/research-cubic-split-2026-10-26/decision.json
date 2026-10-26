@@ -1,0 +1,45 @@
+{
+  "eligible": false,
+  "guards": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "field_ratio": 1.5022818537932225,
+      "jacobian_ratio": 1.5267744605103621,
+      "sampling_ratio": 0.9969249739292574,
+      "original_ratio": 1.3261689848796723,
+      "silu_ratio": 1.2297337485436128,
+      "free_isru_ratio": 1.0868000576775918,
+      "field_pass": false,
+      "jacobian_pass": false,
+      "sampling_pass": true,
+      "mechanism_pass": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "field_ratio": 1.3564076118707742,
+      "jacobian_ratio": 2.332273842381232,
+      "sampling_ratio": 1.208799544357859,
+      "original_ratio": 0.5809743652047139,
+      "silu_ratio": 0.28044236345439183,
+      "free_isru_ratio": 1.1311408848276667,
+      "field_pass": false,
+      "jacobian_pass": false,
+      "sampling_pass": false,
+      "mechanism_pass": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "field_ratio": 1.1888033060122751,
+      "jacobian_ratio": 1.1872539807155043,
+      "sampling_ratio": 1.0362902302744375,
+      "original_ratio": 0.28550090017426716,
+      "silu_ratio": 0.24114579015872584,
+      "free_isru_ratio": 2.5010852795866887,
+      "field_pass": false,
+      "jacobian_pass": false,
+      "sampling_pass": true,
+      "mechanism_pass": false
+    }
+  ],
+  "scope": "fixed synthetic screen; descriptive operational gates"
+}

@@ -1,0 +1,545 @@
+--- prior/synthetic/models.py
++++ source/synthetic/models.py
+@@ -463,6 +463,13 @@
+         return self.w3(F.silu(gate) * value)
+ 
+ 
++class SigmoidGLUFFN(SwiGLUFFN):
++    """Known sigmoid GLU control with exactly the native SwiGLU projections."""
++    def forward(self,x):
++        gate,value=self.w12(x).chunk(2,dim=-1)
++        return self.w3(torch.sigmoid(gate)*value)
++
++
+ class ForcedGateSwiGLUFFN(SwiGLUFFN):
+     """Preserve SwiGLU projections and perturb only its gate response."""
+     def __init__(self,width,hidden,solver='exact',clock='adaptive'):
+@@ -529,7 +536,7 @@
+                  forced_gate_solver='exact',forced_gate_clock='adaptive',
+                  state_clock_solver='midpoint'):
+         super().__init__()
+-        if kind not in ('ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
++        if kind not in ('ffn','swiglu','glu','ode_original','ode_spectral_cap','ode_time',
+                         'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+                         'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'):
+             raise ValueError(f'unsupported model kind: {kind}')
+@@ -612,6 +619,8 @@
+                     clock=diagonal_clock,beta=diagonal_beta)
+             elif kind=='swiglu':
+                 ffn=SwiGLUFFN(width,ffn_hidden)
++            elif kind=='glu':
++                ffn=SigmoidGLUFFN(width,ffn_hidden)
+             elif kind=='ode_forced_gate':
+                 ffn=ForcedGateSwiGLUFFN(width,ffn_hidden,
+                     solver=forced_gate_solver,clock=forced_gate_clock)
+--- prior/synthetic/train.py
++++ source/synthetic/train.py
+@@ -366,7 +366,7 @@
+     p=argparse.ArgumentParser(description=__doc__)
+     p.add_argument('--config',default='configs/synthetic/train_v1.json')
+     p.add_argument('--dataset',required=True)
+-    p.add_argument('--model',required=True,choices=['ffn','swiglu','ode_original','ode_spectral_cap','ode_time',
++    p.add_argument('--model',required=True,choices=['ffn','swiglu','glu','ode_original','ode_spectral_cap','ode_time',
+                                                   'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+                                                   'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'])
+     p.add_argument('--seed',type=int,required=True)
+--- /dev/null
++++ source/tests/test_sigmoid_glu.py
+@@ -0,0 +1,132 @@
++"""Research controls for a known GLU, including a test-only oracle construction."""
++import itertools
++import unittest
++from unittest.mock import patch
++
++import numpy as np
++import torch
++from torch.nn import functional as F
++
++from scripts.run_architecture_study import macs
++from synthetic.data import RotatedGaussianMixture, suite
++from synthetic.models import SigmoidGLUFFN, VelocityNet
++
++
++class SigmoidGLUTests(unittest.TestCase):
++    def setUp(self):
++        torch.manual_seed(0)
++        torch.set_num_threads(1)
++
++    def pair(self, dim, dtype=torch.float64):
++        models, states = [], []
++        for kind in ('swiglu', 'glu'):
++            torch.manual_seed(0)
++            models.append(VelocityNet(dim, kind, ffn_hidden=128).to(dtype))
++            states.append(torch.get_rng_state().clone())
++        torch.testing.assert_close(states[0], states[1], atol=0, rtol=0)
++        return models
++
++    def test_native_tensor_buffer_rng_parameter_and_executed_MAC_pairing(self):
++        for dim in (2, 16):
++            models = self.pair(dim, torch.float32)
++            for collection in ('state_dict', 'named_buffers'):
++                left = dict(getattr(models[0], collection)())
++                right = dict(getattr(models[1], collection)())
++                self.assertEqual(set(left), set(right))
++                for name in left:
++                    torch.testing.assert_close(left[name], right[name], atol=0, rtol=0)
++            self.assertEqual(models[0].parameter_count(), models[1].parameter_count())
++            measured = []
++            linear = F.linear
++            for model in models:
++                count = [0]
++                def counted(x, weight, bias=None):
++                    count[0] += (x.numel()//x.shape[-1])*weight.numel()
++                    return linear(x, weight, bias)
++                with patch.object(F, 'linear', counted), torch.no_grad():
++                    model(torch.zeros(1, dim), torch.zeros(1, 1))
++                measured.append(count[0])
++                self.assertEqual(count[0], macs(model, dim))
++            self.assertEqual(measured[0], measured[1])
++            if dim == 16:
++                self.assertEqual(models[1].parameter_count(), 83598)
++                self.assertEqual(measured[1], 81792)
++
++    def test_zero_head_masks_functions_but_not_head_parameter_response(self):
++        swi, glu = self.pair(2)
++        x = torch.tensor([[-1., .3], [.2, -.6], [1.1, .7]], dtype=torch.float64)
++        t = torch.tensor([[.2], [.5], [.8]], dtype=x.dtype)
++        gradients = []
++        for model in (swi, glu):
++            prediction = model(x, t)
++            self.assertEqual(int(torch.count_nonzero(prediction)), 0)
++            head, backbone = torch.autograd.grad(prediction.sum(), (model.output.weight, model.input.weight))
++            gradients.append(head)
++            self.assertEqual(int(torch.count_nonzero(backbone)), 0)
++        self.assertGreater(float((gradients[0]-gradients[1]).norm()), 1e-5)
++        # The same nonzero receiving head exposes the different hidden maps.
++        receiving = torch.linspace(-.1, .1, 128, dtype=x.dtype).reshape(2, 64)
++        for model in (swi, glu):
++            with torch.no_grad():model.output.weight.copy_(receiving)
++        self.assertGreater(float((swi(x, t)-glu(x, t)).detach().norm()), 1e-7)
++        self.assertGreater(float((torch.autograd.functional.jacobian(lambda z: swi(z, t), x)
++                                  -torch.autograd.functional.jacobian(lambda z: glu(z, t), x)).norm()), 1e-7)
++
++    def test_fixed_time_raw_GLU_representation_against_population_oracles(self):
++        # These analytic weights prove existence in a raw-input GLU only. They
++        # are never used by the trainer, formal initialization, or a time-shared
++        # model. The 3D oracle enumerates all eight Gaussian components rather
++        # than reusing the product/tanh implementation.
++        rng = np.random.default_rng(0)
++        rotation, _ = np.linalg.qr(rng.standard_normal((3, 3)))
++        locations = np.array([.8, 1.1, 1.5])
++        variances = np.array([.04, .08, .16])
++        signs = np.array(list(itertools.product((-1., 1.), repeat=3)))
++        enumerated = RotatedGaussianMixture(signs*locations, np.tile(variances, (8, 1)), np.ones(8), rotation)
++        product16 = suite()['rotated_product_bimodal_16d']
++        cases = ((enumerated, locations, variances, rotation),
++                 (product16, product16.locations, product16.variances, product16.rotation))
++        for oracle, mu, variance, rotation in cases:
++            dim = len(mu)
++            x = torch.from_numpy(rng.standard_normal((13, dim))*1.3)
++            for time in (.1, .5, .9):
++                a = 1-time
++                denominator = a*a+time*time*variance
++                linear = torch.from_numpy((time*variance-a)/denominator)
++                amplitude = torch.from_numpy(a*mu/denominator)
++                slope = torch.from_numpy(time*mu/denominator)
++                r = torch.from_numpy(rotation)
++                # Nominal3d gives exactly2d actual GLU channels; this is a
++                # mathematical unit example, not an experimental width arm.
++                model = SigmoidGLUFFN(dim, 3*dim).double()
++                hidden = model.w3.in_features
++                self.assertEqual(hidden, 2*dim)
++                with torch.no_grad():
++                    for parameter in model.parameters():parameter.zero_()
++                    model.w12.weight[dim:2*dim].copy_(2*slope[:, None]*r.T)
++                    model.w12.weight[hidden:hidden+dim].copy_(r.T)
++                    model.w12.bias[hidden+dim:hidden+2*dim].fill_(1.)
++                    model.w3.weight[:, :dim].copy_(2*r*linear[None, :])
++                    model.w3.weight[:, dim:2*dim].copy_(2*r*amplitude[None, :])
++                    model.w3.bias.copy_(-(r@amplitude))
++                expected = torch.from_numpy(oracle.velocity(x.numpy(), time))
++                torch.testing.assert_close(model(x), expected, atol=2e-13, rtol=2e-13)
++
++    def test_native_input_jacobian_and_all_parameter_gradients(self):
++        model = SigmoidGLUFFN(4, 6).double()
++        x = torch.tensor([-.8, .1, .7, 1.2], dtype=torch.float64, requires_grad=True)
++        gate_weight, value_weight = model.w12.weight.chunk(2)
++        gate_bias, value_bias = model.w12.bias.chunk(2)
++        probability = torch.sigmoid(F.linear(x, gate_weight, gate_bias))
++        value = F.linear(x, value_weight, value_bias)
++        expected = model.w3.weight@(
++            torch.diag(value*probability*(1-probability))@gate_weight
++            +torch.diag(probability)@value_weight)
++        actual = torch.autograd.functional.jacobian(model, x)
++        torch.testing.assert_close(actual, expected, atol=2e-16, rtol=2e-14)
++        gradients = torch.autograd.grad(model(x).square().sum(), (x, *model.parameters()))
++        self.assertTrue(all(torch.isfinite(gradient).all() for gradient in gradients))
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- /dev/null
++++ source/docs/research-architecture-search/protocol-sigmoid-glu.md
+@@ -0,0 +1,84 @@
++# A known sigmoid-GLU basis control
++
++Registered before any GLU training. This is a generic baseline comparison,
++not an ODE architecture, architecture nomination or completion of the project.
++The mathematical/prior-art reviews permit one fixed control to resolve a
++specific basis confound before any further probability-shaped ODE design.
++
++## Question and its limits
++
++For the independent Gaussian-source path, a fixed-time balanced two-component
++Gaussian mixture has velocity `L*x+C*tanh(k*x)`. A rotated product population
++has one such response per coordinate. An ordinary biased sigmoid GLU can
++represent this raw-input fixed-time map constructively with2d channels. That
++does not prove economy through the full normalized/time-conditioned backbone,
++joint-time learnability, or a wide/deep SwiGLU limitation. The cached training
++bank also has a different joint-atom posterior from this population oracle.
++
++The saved-region analysis rejects an ambiguous-boundary-only motivation:
++78.26% of the Product16 parent/Swi128 field-error gap is in confident
++coordinates, and93.71% at t=.7. The narrow remaining question is whether the
++generic sigmoid basis improves the learned affine-plus-signed-offset response,
++including confident regions. It does not presume that learned gates are
++posterior probabilities or that gate shape caused the old ODE gap.
++
++## One change, three arms
++
++```text
++a,value = the unchanged fused affine input projection of h
++SwiGLU: output_projection(SiLU(a)*value)
++GLU:    output_projection(sigmoid(a)*value).
++```
++
++Keep all biases, independent projections and the nominal2/3 hidden convention.
++Use SwiGLU96(actual64), SwiGLU128(actual85), and GLU128(actual85). GLU128 has
++exactly the same parameters and dense MACs as SwiGLU128; pointwise work differs.
++The new constructor must preserve every native tensor and RNG draw. Native
++hidden functions differ, so neither identical input/output-head gradients nor
++identical initial NTKs are claimed. A common nonzero-head probe must expose
++that difference; a formal zero velocity head alone would mask it.
++
++Nine cells: all three arms on Gaussian2D, Ring8 and Product16. Seed0,
++5000updates,batch512,AdamW3e-4,weight decay0,clip1 and the original cached-bank
++pair-velocity objective remain fixed. Keep uniform-time training, data
++versions, five-time native field/Jacobian panels and Heun32 generation. Copy
++the same hash-bound Stage15 step0 non-FFN state/buffers. Do not supply component
++labels, analytic weights, rotation, posterior targets or teacher initialization.
++The exact-representation weights belong only in a unit test.
++
++Run two one-thread Mac CPU workers with actual10s monitoring and idle-sleep
++prevention. Freeze a fresh source/config/protocol runtime. Both SwiGLU reruns
++must reproduce their historical saved states; they are compatibility reruns,
++not new independent repetitions. Preserve larger SwiGLU256's existing results
++as a clearly higher-cost context, without relabeling it a matched comparator.
++
++## Decision fixed before outcomes
++
++A **generic baseline lead** requires at least10% lower primary validation
++oracle MSE than both SwiGLUs on a nonlinear task, at most5% regression against
++the better SwiGLU on every other primary task, and nonlinear Jacobian error
++and validation SW2 each within10% of the better baseline. These are engineering
++criteria. Gaussian-only or a selected panel/bin improvement is insufficient.
++
++Report all endpoints/curves and every fixed time. On Product16 also report all
++four previously fixed posterior-entropy bins and confident-mode errors; do
++not select a favorable region after outcomes. A lead would need independent
++evaluation before any broad generalization claim. It would strengthen the
++generic baseline and raise the bar for subsequent ODE architectures, not
++establish an ODE mechanism or meet the architecture goal by itself.
++
++If this fixed gate substitution fails, stop it without centering, temperature,
++slope, width, added-response, analytic initialization or output-head rescue.
++Neither outcome reopens the stopped phi1, rotation or state-clock settings.
++
++## Required verification
++
++Before launch: exact tensor/RNG/parameter/dense-MAC pairing with native SwiGLU;
++the fixed-time raw-input representation test and its scope; actual different
++initial functions/head tangents; unchanged predecessor trajectories; full
++trainer/checkpoint/resume/sampling; config propagation and a real monitor
++heartbeat. After completion: source/data/config/reference hashes, every
++checkpoint/diagnostic, snapshot data RNG, historical baseline states, and
++native final field/Jacobian replay. No new architecture is accepted from a
++unit test, this theorem, a successful generic control or a differential-equation
++rewriting of it.
+--- /dev/null
++++ source/docs/research-architecture-search/posterior-basis-design-review.md
+@@ -0,0 +1,90 @@
++# Posterior-response basis: what a plain sigmoid GLU would test
++
++**Conditional GO as a generic basis control, not as a new ODE method.** The question is whether removing the gate preactivation factor from SwiGLU helps fit the affine-plus-signed-offset response. It is not a claim that ambiguous mode boundaries explain the observed gap. A sigmoid GLU is an appropriate comparator for any future claim that an ODE construction supplies this basis. The derivation does not establish that the current wide SwiGLU lacks it, that a hidden basis is the measured bottleneck, or that this control will improve quality. No training is selected by this review.
++
++The new [registered regional readout](posterior-velocity-regions-readout.md) sharpens the motivation: low-entropy coordinates contribute78.26% of the saved Product16 ODE–SwiGLU128 velocity gap, versus1.51% for the highest-entropy bin. At t=.7, confident coordinates contribute93.71% of the same-time gap. In that region the oracle needs an affine slope plus a nearly constant signed mode offset. These observations reject an ambiguous-boundary-only story. They cannot distinguish wrong slopes, offsets, time dependence or cross-coordinate mixing, so they do not by themselves select GLU or an ODE design.
++
++## Exact balanced two-Gaussian velocity
++
++Let Y=S*mu+sigma*E, where S is equally likely +/-1, E and source Z are independent standard Gaussians, a=1-t, and x=aZ+tY. For fixed 0<t<1, write
++
++```text
++b=a^2+t^2*sigma^2
++P(S=+1|x)=sigmoid(2*t*mu*x/b)
++E[S|x]=tanh(t*mu*x/b)
++E[Y|x]=(t*sigma^2/b)*x+(a^2*mu/b)*tanh(t*mu*x/b)
++v*(x,t)=L*x+C*tanh(k*x)
++L=(t*sigma^2-a)/b, C=a*mu/b, k=t*mu/b.
++```
++
++The nonlinear term is the posterior responsibility response, not a periodic feature. Its derivative is `C*k*sech(k*x)^2`: the derivative correction is largest around ambiguous mode assignment and small in confidently assigned regions. Its amplitude, transition width and the linear term have different time dependence. A large late-time derivative near a mode boundary need not imply a large average error because little probability mass may remain there.
++
++For the rotated product, let q=R^T*x with orthogonal R. Independence of the isotropic Gaussian source survives rotation. Each q_i has the same scalar calculation with its own mu_i,sigma_i, so
++
++```text
++v*(x,t)=R*[L_i*q_i+C_i*tanh(k_i*q_i)]_i.
++```
++
++The actual [Product16 definition](../../synthetic/data.py) uses mu_i geometrically spaced from .75 to2.5, all sigma_i^2=.04, and a fixed rotation. Thus it has16 independent nonlinear responsibility responses in the rotated coordinates. The network must learn that coordinate structure; the rotation and coefficients are not supplied to training.
++
++Ring8 is an important counterexample to overgeneralizing this formula. Its equal isotropic component variances give
++
++```text
++v*(x,t)=L*x+(a/b)*sum_j responsibility_j(x,t)*mu_j
++responsibility_j=softmax_j(t*mu_j dot x/b)
++```
++
++because its eight means have equal norm and weight. This is a coupled eight-way normalization, not eight independent affine-logit sigmoids. The simple two-Gaussian GLU construction below does not prove exact Ring8 representation. The single-Gaussian control has an affine velocity and no responsibility-selection term.
++
++## A constructive fixed-time GLU representation
++
++Consider the ordinary biased sigmoid GLU
++
++```text
++G(x)=U*[sigmoid(A*x+b_gate)*(V*x+c_value)]+d_out.
++```
++
++At a fixed t, a raw-input GLU with2d channels represents the displayed rotated-product population velocity exactly. Let r_i be column i of R:
++
++| Channels | Gate | Value | Output column |
++|---|---|---|---|
++| i=1,...,d | sigmoid(0)=1/2 | r_i^T*x | 2*L_i*r_i |
++| d+i | sigmoid(2*k_i*r_i^T*x) | 1 | 2*C_i*r_i |
++
++Set `d_out=-sum_i C_i*r_i`. The first group supplies the linear term; the second uses `tanh(z)=2*sigmoid(2z)-1`. Product16 therefore needs32 channels in this existence construction. The value bias is essential to these constant-value branches. These are proof weights, **not proposed initialization, teacher weights or oracle supervision**.
++
++This is a fixed-time, direct raw-input construction. It is not an exact full-model capacity theorem for the existing LayerNorm/FiLM/residual backbone. A fixed affine map of concatenated (x,t) also does not automatically generate k_i(t)*q_i and the other nonlinear time coefficients; their representation must be learned by the existing time-conditioning path. The nominal128 gated FFN has85 actual channels, but counting32 proof channels does not establish its learned hidden representation or optimization efficiency.
++
++The training-law distinction also matters. The formula describes the **population evaluation oracle**. Original training draws Y from a cached100000-sample bank. Its exact conditional mean is a normalized sum over those joint atoms, not a factorized product of tanh functions. The earlier bank/population diagnosis found material late-time differences. No label, data law or sampler is changed here; a population-aligned basis would be an inductive-bias hypothesis under the existing bank objective, not an exact match to its conditional teacher.
++
++## What can and cannot be said about SwiGLU
++
++SwiGLU uses `SiLU(a)=a*sigmoid(a)` on its gate branch. The extra a changes the basis. For one nonlinear branch, the distinction is exact: a sigmoid branch with constant value and an affine bypass represents `L*x+C*tanh(k*x)` directly. A single SwiGLU unit with affine value plus any affine bypass cannot represent a bounded nonconstant tanh globally.
++
++To verify the latter, write its nonlinear branch as `(u*x+v)*SiLU(k*x+b)`, absorbing output scaling into u,v. If k>0, the branch vanishes as x->-infinity, so bounded tanh forces the bypass slope to zero. At +infinity the branch approaches the polynomial `(u*x+v)*(k*x+b)`. A finite nonzero difference between the two limiting constants would require its quadratic and linear coefficients to vanish while leaving a nonzero constant; with k!=0 those conditions force u=v=0. For k<0 the tails exchange roles; k=0 gives only an affine function.
++
++This is a **one-unit separation**, not a width or efficiency lower bound. Multiple SwiGLU units can cancel growing terms, use different shifts/scales and approximate nonlinear responses. The existing deep normalized network is far outside that restricted class. Do not conclude that SwiGLU cannot learn responsibility functions, or that its preactivation factor explains the observed ODE gap.
++
++The original vector K1 layer already contains a sigmoid product:
++
++```text
++h+D(h)Ph = h+.2Ph+.8*sigmoid(g(h)/10)*Ph.
++```
++
++It differs from a free GLU through its coupled receiving projection, fixed hidden width, residual map, deeper clock and two-map/SiLU composition. Moreover, FiLM shifts and upstream features can create effective constant components, so its bias-free P does not prove that the complete network lacks constant-value branches. A plain GLU win would motivate investigating these structural restrictions; it would not diagnose one of them by itself.
++
++## Why this is a new control, but not an ODE rescue
++
++Stage20 tested bounded positive phi1-style corrections multiplying the existing SiLU gate and stopped that family. Replacing `a*sigmoid(a)` by `sigmoid(a)` is not another member of that family: their quotient is1/a, which is singular at zero and changes sign. A plain sigmoid gate is a known generic basis, not a continuation or claimed improvement of the stopped forced-ODE method.
++
++This also limits interpretation of a positive result. It would establish that a simpler generic gate helps under these settings. Any subsequent ODE claim about posterior-shaped responses would have to beat that new control as well as SwiGLU. It would not reopen the stopped phi1, diagonal-flow or state-clock families, and it would not complete the architecture goal.
++
++## Smallest controlled study eligible for separate selection
++
++Use Gaussian2D, Ring8 and Product16 with three arms: established SwiGLU96, established SwiGLU128 and plain GLU128. That is nine cells, all seed0, with the original bank-pair velocity loss, time sampler, data, head, optimizer and budgets. Change only the gate activation in the GLU arm; keep the same two-output input projection, value bias, output projection and actual85-channel convention as SwiGLU128. This gives identical parameter count and dense MACs. Preserve all raw initialization tensors and RNG draws, and retain the shared non-FFN reference initialization. No new slope, learned activation coefficient or width is needed.
++
++The hidden initial functions necessarily differ at native initialization. The common zero final velocity head makes initial complete outputs zero, but the output-head parameter gradients generally differ because the hidden features differ. Do not claim function/NTK pairing, and do not zero or shift gate projections to manufacture it. Use a nonzero-head probe to make the difference visible. Both SwiGLU controls must retain their historical default behavior.
++
++The informative result is the absolute and relative quality/cost of this generic basis, especially whether Product16's middle-time field/Jacobian discrepancy decreases without a nonlinear-task generation regression. Any mechanistic readout should retain all predeclared times and responsibility regions, rather than selecting examples after outcomes. A gain on Gaussian alone would not support the mode-assignment explanation; a Product16-only gain would still face the coupled Ring8 control.
++
++Before selecting training, independent review must accept this narrow question and a fixed practical screen. If selected and negative, stop this activation setting without gate-slope, temperature, extra-bias initialization or wider-feature rescue. If positive, report it as a stronger generic baseline and use its evidence to formulate the next ODE-specific structural question. No oracle labels, pretrained analytic weights or new objective are authorized by this review.
+--- /dev/null
++++ source/docs/research-architecture-search/posterior-basis-prior-review.md
+@@ -0,0 +1,40 @@
++# Is a sigmoid-GLU control justified?
++
++**Conditional GO for one ordinary sigmoid-GLU baseline comparison; NO new ODE architecture is selected.** Its purpose is to test a concrete generic alternative before attributing future probability-shaped features to an ODE construction. This is useful only if both outcomes constrain the next decision: a gain strengthens the generic baseline; failure stops this particular gate substitution. It is not permission for an activation sweep or for reopening the stopped phi1, rotation, state-clock or spectral-constraint families.
++
++## What the primary literature actually establishes
++
++**Shazeer, “GLU Variants Improve Transformer” (2020 technical paper).** [Full text, Eqs4–6 and Table1](https://arxiv.org/html/2002.05202v1#S2) directly defines sigmoid-GLU and SwiGLU and compares them in T5 with matched parameter/operation counts. Its long-run held-out log-perplexity is 1.663 for GLU versus 1.636 for SwiGLU; lower is better. This is evidence against assuming the original sigmoid gate is generally superior. It establishes the exact generic control and prior art, not a result about continuous Gaussian flow matching. The paper's text-denoising objective is not the FM velocity objective. Its experiments omit biases, whereas our existing SwiGLU has them; preserving those biases is part of the proposed controlled substitution.
++
++**Kaleido, “Scaling Sequence-to-Sequence Generative Neural Rendering” (ICLR2026).** [Official proceedings](https://proceedings.iclr.cc/paper_files/paper/2026/hash/6b055b95d689b1f704d8f92191cdb788-Abstract-Conference.html); [full text, Section3.2.1 and AppendixA](https://arxiv.org/html/2510.04236v3#S3.SS2.SSS1). This is a direct rectified-flow Transformer study. It describes replacing GLU with SwiGLU, but the reported architectural comparison simultaneously replaces MHA with GQA; the table labels the combined intervention. Equal reported throughput does not isolate the activation effect. The reviewed text also does not supply the original gate formula, so its “GLU” terminology alone cannot establish an exact sigmoid-GLU comparator. It cannot answer our one-factor question.
++
++**Krea2 Technical Report (2026, official research report).** [Architecture section](https://www.krea.ai/blog/krea-2-technical-report) describes GELU-MLP→SwiGLU in its diffusion Transformer and reports consistent gains. Its sigmoid gates belong to a separate attention modification. This is current primary diffusion-architecture evidence favoring retaining a strong SwiGLU reference; it is not a sigmoid-GLU-versus-SwiGLU FFN comparison. The reported expansion-factor description does not by itself establish our exact matched-parameter/MAC comparison.
++
++Searches combining DiT/diffusion/flow matching with sigmoid, tanh, GLU, SwiGLU and ablations did not verify an isolated, matched-cost diffusion/FM comparison of the proposed gates. That is a bounded search result, not proof of absence. The old exact comparison is cited for prior art, not offered as a frontier reading recommendation.
++
++## The question is narrower than “posterior-aware architecture”
++
++Using the same independent gate, value and output projections,
++
++```text
++a = Wg h+bg; value = Wv h+bv
++GLU(h)    = U[sigmoid(a)*value]+bo
++SwiGLU(h) = U[a*sigmoid(a)*value]+bo.
++```
++
++The intervention removes the extra factor a. With actual hidden width r and model width d, both have `3dr` dense MACs and `3dr+2r+d` parameters, including all three biases. GLU saves one pointwise multiplication per hidden channel; runtime must still be measured. No new clock, generator, mixture atoms or dense matrix is needed.
++
++The mathematical motivation is specific. For a balanced equal-variance two-Gaussian target, at each fixed interior FM time, the ideal velocity is affine plus a scaled tanh of a linear projection. Since `tanh(u)=2*sigmoid(2u)-1`, a biased GLU can supply these known scalar features using constant value channels alongside linear terms. This is a raw-input, fixed-time representational observation. It does not prove the same economical realization through our normalized/time-modulated hidden backbone, a single finite parameterization for every time, learnability under pair supervision, or a separation from a sufficiently capable SwiGLU.
++
++General multimodal responsibilities are softmax probabilities, not independent sigmoid gates; unequal component covariances also introduce quadratic log-odds. Unconstrained GLU channels do not sum to one, so they are not automatically posterior probabilities or a convex mixture. A learned GLU remains a generic gated FFN.
++
++Existing [posterior-region evidence](posterior-regions-readout.md) identifies errors near ambiguous signs **and** within resolved, contracting modes. It does not locate the whole gap in responsibility transitions. A gate substitution also changes initial feature amplitude, nonlinear shape and optimization. Identical tensors/RNG therefore do not give identical hidden functions or NTKs. A positive result would not distinguish all those explanations or prove that learned gates estimate the posterior.
++
++## Conditions and decision rules for a useful control
++
++1. Fix **one existing width** before outcomes, with an exact same-width SwiGLU counterpart. Retain independent gate/value projections, biases, backbone/time conditioning, optimizer, pair-supervised loss and seed0. Keep the already stronger/larger SwiGLU results visible. Do not provide target component labels, oracle weights/rotation, analytic initialization or exact-mean training targets.
++2. State the corrected prediction before training: removing the gate's extra a factor may improve the affine-plus-signed-offset response, including resolved coordinates. The [registered regional readout](posterior-velocity-regions-readout.md) places78.26% of the saved Product16 ODE–SwiGLU128 velocity gap in the lowest-entropy bin, and93.71% at t=.7; it refutes an ambiguous-boundary-only rationale without identifying which response component caused the error. Retain all fixed time/entropy bins and overall fitting/sampling measures; validation oracle MSE remains primary. Gate resemblance to a posterior is not itself success. *Updated after the registered regional readout, before GLU training.*
++3. Predeclare a practical improvement threshold and other-task/Jacobian/SW2 guards. A small or isolated panel gain does not warrant further design. A useful fixed-width gain establishes a **generic GLU baseline**, still requiring fresh evaluation before generalization claims. It does not complete the ODE architecture objective, and it cannot be advertised as beating a wider SwiGLU unless that comparison actually passes.
++4. Failure closes this exact gate question without centering, temperature, slope, width or extra-response rescues. Success requires any later probability/simplex-based ODE design to beat both ordinary GLU and SwiGLU at the claimed budget. An augmented-matrix or differential-equation rewriting of GLU supplies no additional architectural contribution.
++
++The rationale for this one control is eliminating a foreseeable baseline confound. The literature does not predict that it will win, and this review supplies no implementation or selected training grid.
+--- /dev/null
++++ source/configs/synthetic/architecture_search/sigmoid_glu_v1_20261025_m1.json
+@@ -0,0 +1,65 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-sigmoid-glu.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "sigmoid_glu",
++      "model": "glu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    }
++  ],
++  "experiment_id": "sigmoid_glu_v1_20261025_m1",
++  "datasets": [
++    "gaussian_aniso_2d",
++    "gmm_ring8_2d"
++  ]
++}
+--- /dev/null
++++ source/configs/synthetic/architecture_search/sigmoid_glu_product16_20261025_m1.json
+@@ -0,0 +1,52 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-sigmoid-glu.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "swiglu_budget",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 96
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "sigmoid_glu",
++      "model": "glu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    }
++  ],
++  "experiment_id": "sigmoid_glu_product16_20261025_m1",
++  "datasets": [
++    "rotated_product_bimodal_16d"
++  ]
++}
+--- /dev/null
++++ source/configs/synthetic/architecture_search/sigmoid_glu_queue_20261025_m1.json
+@@ -0,0 +1,16 @@
++{
++  "seed": 0,
++  "stages": [
++    {
++      "plan": "configs/synthetic/architecture_search/sigmoid_glu_v1_20261025_m1.json",
++      "output_name": "sigmoid_glu_v1_20261025_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/v1"
++    },
++    {
++      "plan": "configs/synthetic/architecture_search/sigmoid_glu_product16_20261025_m1.json",
++      "output_name": "sigmoid_glu_product16_20261025_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1"
++    }
++  ],
++  "protocol": "docs/research-architecture-search/protocol-sigmoid-glu.md"
++}

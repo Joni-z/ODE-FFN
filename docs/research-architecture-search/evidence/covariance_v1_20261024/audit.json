@@ -1,0 +1,250 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T07:26:15.668345+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 12,
+    "total": 12,
+    "active": []
+  },
+  "arrays_checked": 60,
+  "checkpoints_checked": 72,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.0037766563177108765,
+      "validation_sw2": 0.08459556847810745,
+      "field_mse": 0.0033026817011498856,
+      "jacobian_error": 0.016496402367007963,
+      "wall_seconds": 49.25,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.0037766563177108765
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "cov_tied",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.005081426191329956,
+      "validation_sw2": 0.0791170597076416,
+      "field_mse": 0.0036970049948669022,
+      "jacobian_error": 0.01939559588373277,
+      "wall_seconds": 67.0,
+      "parameters": 69576,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.005081426191329956
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "cov_untied",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.004863126564025879,
+      "validation_sw2": 0.07929213345050812,
+      "field_mse": 0.003947078547209562,
+      "jacobian_error": 0.021071205017801443,
+      "wall_seconds": 62.59399999999732,
+      "parameters": 81864,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.004863126564025879
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "cov_linear",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.005331748819351196,
+      "validation_sw2": 0.07926995307207108,
+      "field_mse": 0.004141245883208079,
+      "jacobian_error": 0.022802246234247047,
+      "wall_seconds": 61.04699999999866,
+      "parameters": 69576,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.005331748819351196
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.004304380559921265,
+      "validation_sw2": 0.07668042182922363,
+      "field_mse": 0.003742156891035125,
+      "jacobian_error": 0.027034346591290098,
+      "wall_seconds": 32.45300000000134,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.004304380559921265
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.003927979969978333,
+      "validation_sw2": 0.07621428370475769,
+      "field_mse": 0.0034529762914109106,
+      "jacobian_error": 0.023583350827866945,
+      "wall_seconds": 37.625,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.003927979969978333
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.019437553787231446,
+      "validation_sw2": 0.24277861416339874,
+      "field_mse": 0.017143430352655767,
+      "jacobian_error": 0.9153161976292582,
+      "wall_seconds": 46.2190000000046,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.019437553787231446
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "cov_tied",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.02606104259490967,
+      "validation_sw2": 0.2494715452194214,
+      "field_mse": 0.019556643357470444,
+      "jacobian_error": 1.1187659906724199,
+      "wall_seconds": 64.3440000000046,
+      "parameters": 69576,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.02606104259490967
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "cov_untied",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.018584772300720215,
+      "validation_sw2": 0.2272920459508896,
+      "field_mse": 0.015005540953220788,
+      "jacobian_error": 0.7100928047293836,
+      "wall_seconds": 66.75,
+      "parameters": 81864,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.018584772300720215
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "cov_linear",
+      "model": "ode_covariance",
+      "step": 5000,
+      "validation_oracle_mse": 0.054793279647827146,
+      "validation_sw2": 0.22245366871356964,
+      "field_mse": 0.052205220768126184,
+      "jacobian_error": 2.2145036664116278,
+      "wall_seconds": 61.82800000000134,
+      "parameters": 69576,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.054793279647827146
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.015184195137023926,
+      "validation_sw2": 0.23038901388645172,
+      "field_mse": 0.01707782108479224,
+      "jacobian_error": 0.393697852836194,
+      "wall_seconds": 33.312999999994645,
+      "parameters": 69570,
+      "forward_macs": 67904,
+      "audited_validation_oracle_mse": 0.015184195137023926
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.016220698165893555,
+      "validation_sw2": 0.23958292603492737,
+      "field_mse": 0.013890559571362593,
+      "jacobian_error": 0.5710265912657431,
+      "wall_seconds": 27.29699999999866,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.016220698165893555
+    }
+  ],
+  "plan": {
+    "experiment_id": "covariance_v1_20261024",
+    "protocol": "docs/research-architecture-search/protocol-covariance.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "cov_tied",
+        "model": "ode_covariance",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_covariance_mode": "tied"
+        }
+      },
+      {
+        "label": "cov_untied",
+        "model": "ode_covariance",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_covariance_mode": "untied"
+        }
+      },
+      {
+        "label": "cov_linear",
+        "model": "ode_covariance",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_covariance_mode": "linearized"
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

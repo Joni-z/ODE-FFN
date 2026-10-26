@@ -1,0 +1,31 @@
+{
+  "protocol": "docs/research-architecture-search/protocol-reference-silu.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "experiment_id": "silu_reference_v1_20261024_m1",
+  "datasets": [
+    "gaussian_aniso_2d",
+    "gmm_ring8_2d"
+  ],
+  "arms": [
+    {
+      "label": "ffn_silu",
+      "model": "ffn",
+      "options": {
+        "ffn_hidden": 128
+      },
+      "backbone_initialization": {
+        "gaussian_aniso_2d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+        },
+        "gmm_ring8_2d": {
+          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+        }
+      }
+    }
+  ]
+}

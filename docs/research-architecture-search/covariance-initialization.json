@@ -1,0 +1,37 @@
+{
+  "parent_checks": [
+    {
+      "model": "ode_vector",
+      "state_rng_nonzero_forward": "BIT_IDENTICAL"
+    },
+    {
+      "model": "ode_original",
+      "state_rng_nonzero_forward": "BIT_IDENTICAL"
+    },
+    {
+      "model": "swiglu",
+      "state_rng_nonzero_forward": "BIT_IDENTICAL"
+    }
+  ],
+  "covariance_checks": [
+    {
+      "mode": "tied",
+      "initial_first_layer_rms_difference_from_tied": 0.0,
+      "initial_first_layer_max_difference_from_tied": 0.0,
+      "parameters": 69576
+    },
+    {
+      "mode": "untied",
+      "initial_first_layer_rms_difference_from_tied": 0.0,
+      "initial_first_layer_max_difference_from_tied": 0.0,
+      "parameters": 81864
+    },
+    {
+      "mode": "linearized",
+      "initial_first_layer_rms_difference_from_tied": 0.0055306837894022465,
+      "initial_first_layer_max_difference_from_tied": 0.03668355941772461,
+      "parameters": 69576
+    }
+  ],
+  "scope": "Fixed common Gaussian hidden inputs; tied/untied functions exact, linearized control is tangent-matched at the origin only."
+}

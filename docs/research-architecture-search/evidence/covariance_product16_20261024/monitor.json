@@ -1,0 +1,62 @@
+{
+  "time": "2026-10-24T07:29:17.843871+00:00",
+  "pid": 28036,
+  "cpu_percent": 4.1,
+  "memory_available_gib": 7.844657897949219,
+  "processes": [
+    {
+      "pid": 25316,
+      "name": "python.exe",
+      "rss_mib": 5.015625
+    },
+    {
+      "pid": 4368,
+      "name": "python.exe",
+      "rss_mib": 513.578125
+    }
+  ],
+  "state": "COMPLETE",
+  "phase": "complete",
+  "completed": 6,
+  "total": 6,
+  "active": [],
+  "training": [
+    {
+      "run": "runs\\covariance_product16_20261024_cov_linear\\rotated_product_bimodal_16d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.3059387130737305,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_product16_20261024_cov_tied\\rotated_product_bimodal_16d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.3212726921081543,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_product16_20261024_cov_untied\\rotated_product_bimodal_16d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.2977323944091797,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_product16_20261024_swiglu\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 4000,
+      "oracle_mse": 0.13932961769104005,
+      "complete": false
+    },
+    {
+      "run": "runs\\covariance_product16_20261024_swiglu_budget\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.09083060035705566,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_product16_20261024_vector_k1\\rotated_product_bimodal_16d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.2952414192199707,
+      "complete": true
+    }
+  ],
+  "gpu_csv": "0, 595, 8188, 37, 3.24"
+}

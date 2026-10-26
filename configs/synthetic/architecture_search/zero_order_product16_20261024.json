@@ -1,0 +1,81 @@
+{
+  "protocol": "docs/research-architecture-search/protocol-zero-order.md",
+  "seed": 0,
+  "steps": 5000,
+  "device": "cpu",
+  "workers": 2,
+  "arms": [
+    {
+      "label": "scalar_k1",
+      "model": "ode_original",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 64
+      }
+    },
+    {
+      "label": "scalar_increment",
+      "model": "ode_original",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 64,
+        "ode_solve_return": "increment"
+      }
+    },
+    {
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64
+      }
+    },
+    {
+      "label": "vector_increment",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_return": "increment"
+      }
+    },
+    {
+      "label": "vector_const_map",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_init": "constant_paired"
+      }
+    },
+    {
+      "label": "vector_const_increment",
+      "model": "ode_vector",
+      "options": {
+        "orders": 1,
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "ode_solve_init": "constant_paired",
+        "ode_solve_return": "increment"
+      }
+    },
+    {
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "options": {
+        "ffn_hidden": 96
+      }
+    },
+    {
+      "label": "swiglu",
+      "model": "swiglu"
+    }
+  ],
+  "experiment_id": "zero_order_product16_20261024",
+  "datasets": [
+    "rotated_product_bimodal_16d"
+  ]
+}

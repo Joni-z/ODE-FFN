@@ -1,0 +1,80 @@
+{
+  "state": "NO_CANDIDATE",
+  "nominated": [],
+  "comparisons": {
+    "vector_shared": {
+      "passes": false,
+      "baselines": [
+        "swiglu_budget",
+        "swiglu"
+      ],
+      "nonlinear_leads": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_and_SW2_within_10pct": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_better_registered_baseline": {
+            "validation_oracle_mse": 0.9512824034704749,
+            "jacobian_error": 0.5994685630776273,
+            "validation_sw2": 1.1249796522500046
+          },
+          "parent_oracle_ratio": 0.990554900563807
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_better_registered_baseline": {
+            "validation_oracle_mse": 1.7130342097356603,
+            "jacobian_error": 2.279688768132025,
+            "validation_sw2": 1.1552725562598136
+          },
+          "parent_oracle_ratio": 1.3147791426911044
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_better_registered_baseline": {
+            "validation_oracle_mse": 3.4207359301343185,
+            "jacobian_error": 2.3647894637758182,
+            "validation_sw2": 1.2275086092444094
+          },
+          "parent_oracle_ratio": 1.1866087437937742
+        }
+      }
+    },
+    "vector_untied64": {
+      "passes": false,
+      "baselines": [
+        "swiglu_budget",
+        "swiglu",
+        "swiglu_large"
+      ],
+      "nonlinear_leads": [],
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_and_SW2_within_10pct": false,
+      "details": {
+        "gaussian_aniso_2d": {
+          "ratio_to_better_registered_baseline": {
+            "validation_oracle_mse": 0.9730986475766065,
+            "jacobian_error": 0.6534836810834801,
+            "validation_sw2": 1.1297702074001492
+          },
+          "parent_oracle_ratio": 1.0132718008579642
+        },
+        "gmm_ring8_2d": {
+          "ratio_to_better_registered_baseline": {
+            "validation_oracle_mse": 1.3427461121644597,
+            "jacobian_error": 1.4010877900202139,
+            "validation_sw2": 1.0491726819413787
+          },
+          "parent_oracle_ratio": 1.030577540232442
+        },
+        "rotated_product_bimodal_16d": {
+          "ratio_to_better_registered_baseline": {
+            "validation_oracle_mse": 3.5861799668694565,
+            "jacobian_error": 2.5733473826549607,
+            "validation_sw2": 1.4670926352219515
+          },
+          "parent_oracle_ratio": 0.9488747950458972
+        }
+      }
+    }
+  },
+  "scope": "Unchanged registered engineering screen. Nomination is not architecture success; no new width, temperature, order, or partial sharing rescue."
+}

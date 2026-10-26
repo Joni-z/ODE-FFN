@@ -1,0 +1,204 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T16:51:44.756896+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 6,
+    "total": 6,
+    "active": []
+  },
+  "arrays_checked": 30,
+  "checkpoints_checked": 36,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "state_euler",
+      "model": "ode_state_clock",
+      "step": 5000,
+      "validation_oracle_mse": 0.26615520095825196,
+      "validation_sw2": 0.12064601480960846,
+      "field_mse": 0.25648765595798484,
+      "jacobian_error": 50.00193720336349,
+      "wall_seconds": 29.751467749942094,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.26615520095825196
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "state_frozen",
+      "model": "ode_state_clock",
+      "step": 5000,
+      "validation_oracle_mse": 0.30184908142089845,
+      "validation_sw2": 0.1292298138141632,
+      "field_mse": 0.2916110707818452,
+      "jacobian_error": 55.00623483119273,
+      "wall_seconds": 34.98443279112689,
+      "parameters": 83664,
+      "forward_macs": 106560,
+      "audited_validation_oracle_mse": 0.30184908142089845
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "state_midpoint",
+      "model": "ode_state_clock",
+      "step": 5000,
+      "validation_oracle_mse": 0.32116510009765625,
+      "validation_sw2": 0.13652271032333374,
+      "field_mse": 0.31033979126642647,
+      "jacobian_error": 57.30124692591649,
+      "wall_seconds": 47.93164254189469,
+      "parameters": 83664,
+      "forward_macs": 131136,
+      "audited_validation_oracle_mse": 0.32116510009765625
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.10916076774597168,
+      "validation_sw2": 0.09683395177125931,
+      "field_mse": 0.10657170214633323,
+      "jacobian_error": 26.753885256422535,
+      "wall_seconds": 17.959472125163302,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.10916076774597168
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.09232576999664306,
+      "validation_sw2": 0.095721535384655,
+      "field_mse": 0.08892084274503113,
+      "jacobian_error": 23.957834779766767,
+      "wall_seconds": 20.925082999980077,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.09232576999664306
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_compute",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.05866959466934204,
+      "validation_sw2": 0.09884970635175705,
+      "field_mse": 0.05640805681485137,
+      "jacobian_error": 16.05502302555444,
+      "wall_seconds": 23.423657957930118,
+      "parameters": 133068,
+      "forward_macs": 130752,
+      "audited_validation_oracle_mse": 0.05866959466934204
+    }
+  ],
+  "plan": {
+    "protocol": "docs/research-architecture-search/protocol-state-clock.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "arms": [
+      {
+        "label": "state_euler",
+        "model": "ode_state_clock",
+        "options": {
+          "orders": 2,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "state_clock_solver": "euler"
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "state_frozen",
+        "model": "ode_state_clock",
+        "options": {
+          "orders": 2,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "state_clock_solver": "frozen"
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "state_midpoint",
+        "model": "ode_state_clock",
+        "options": {
+          "orders": 2,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "state_clock_solver": "midpoint"
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 128
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      },
+      {
+        "label": "swiglu_compute",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 256
+        },
+        "backbone_initialization": {
+          "rotated_product_bimodal_16d": {
+            "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+            "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+          }
+        }
+      }
+    ],
+    "experiment_id": "state_clock_product16_20261025_m1",
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ]
+  },
+  "population_stream_regenerated": false,
+  "population_stream_replay_batches": 0
+}

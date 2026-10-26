@@ -1,0 +1,1145 @@
+--- a/synthetic/augmented.py
++++ b/synthetic/augmented.py
+@@ -0,0 +1,126 @@
++"""Pruned low-rank K1 maps in a lifted hidden state.
++
++The input/output zero blocks are eliminated exactly at K1. These conditional
++linear solves are not asserted to be a single global nonlinear ODE flow.
++"""
++from __future__ import annotations
++
++import torch
++from torch import nn
++from torch.nn import functional as F
++
++
++class PrunedLowRankLayer(nn.Module):
++    def __init__(self, reference: nn.Module, *, width: int, state_width: int,
++                 rank: int, gate_hidden: int, role: str) -> None:
++        super().__init__()
++        if any(type(value) is not int for value in (width, state_width, rank, gate_hidden)):
++            raise ValueError('all low-rank dimensions must be integers')
++        if role not in ('lift', 'project') or state_width not in (width, 2*width):
++            raise ValueError('use a lift/project K1 map with native or doubled state')
++        if not 1 <= rank <= width or not 1 <= gate_hidden <= reference.t_func[0].out_features:
++            raise ValueError('rank and controller width exceed the recorded reference')
++        if (reference.orders, reference.gate_source, reference.rate_placement,
++                reference.solve_return, reference.operator_mode, getattr(reference,'feature_mode',None),
++                reference.spectral_cap, reference.forcing_mode, reference.gate_transform,
++                reference.clock_curvature, reference.tau, reference.scale, reference.shift) != (
++                1, 'input', 'after_projection', 'map', 'multiplicative',
++                'independent', None, 'none', 'sigmoid', 1., 10., .8, .2):
++            raise ValueError('low-rank maps require the unchanged homogeneous vector K1 reference')
++        if (tuple(reference.proj.weight.shape)!=(width,width) or
++                reference.t_func[0].in_features!=width or reference.t_func[-1].out_features!=width):
++            raise ValueError('declared width must match the vector reference matrices')
++        self.width, self.state_width, self.rank, self.gate_hidden = width, state_width, rank, gate_hidden
++        self.role = role
++        self.input_width = width if role == 'lift' else state_width
++        self.output_width = state_width if role == 'lift' else width
++        self.tau, self.scale, self.shift = reference.tau, reference.scale, reference.shift
++        # SVD is an initializer of the recorded random matrix, never a teacher
++        # covariance/rotation. Factor coordinates and global feasible sets differ.
++        with torch.no_grad():
++            u, singular, vh = torch.linalg.svd(reference.proj.weight.detach().cpu().double(), full_matrices=False)
++            root = singular[:rank].sqrt()
++            left = (u[:, :rank]*root).to(reference.proj.weight)
++            right = (root[:, None]*vh[:rank]).to(reference.proj.weight)
++            if role == 'lift' and state_width > width:
++                left = torch.cat((left, left.clone()), dim=0)
++            if role == 'project' and state_width > width:
++                right = F.pad(right, (0, state_width-width))
++        self.left, self.right = nn.Parameter(left.clone()), nn.Parameter(right.clone())
++        # Constructing new Linear modules must not move any surrounding RNG draw.
++        with torch.random.fork_rng(devices=[]):
++            self.t_func = nn.Sequential(nn.Linear(self.input_width, gate_hidden), nn.SiLU(),
++                                        nn.Linear(gate_hidden, self.output_width))
++        self.t_func.to(reference.proj.weight)
++        with torch.no_grad():
++            self.t_func[0].weight.zero_()
++            self.t_func[0].weight[:, :width].copy_(reference.t_func[0].weight[:gate_hidden])
++            self.t_func[0].bias.copy_(reference.t_func[0].bias[:gate_hidden])
++            self.t_func[-1].weight.zero_()
++            self.t_func[-1].bias.zero_()
++
++    def identity(self, x: torch.Tensor) -> torch.Tensor:
++        if self.role == 'lift':
++            return x if self.state_width == self.width else F.pad(x, (0, self.state_width-self.width))
++        return x[..., :self.width]
++
++    def step_size(self, x: torch.Tensor) -> torch.Tensor:
++        return self.shift+self.scale*torch.sigmoid(self.t_func(x)/self.tau)
++
++    def forward(self, x: torch.Tensor) -> torch.Tensor:
++        carrier = F.linear(F.linear(x, self.right), self.left)
++        return self.identity(x)+self.step_size(x)*carrier
++
++    def full_operator(self) -> torch.Tensor:
++        rectangular = self.left@self.right
++        if self.role == 'lift':return F.pad(rectangular, (0, self.state_width-self.width))
++        return F.pad(rectangular, (0, 0, 0, self.state_width-self.width))
++
++    def compressed_operator(self, duration: torch.Tensor) -> torch.Tensor:
++        """V D U for the full zero-padded square conditional generator."""
++        common = min(self.input_width, self.output_width)
++        return self.right[:, :common]@(duration[..., :common, None]*self.left[:common])
++
++    def projection_macs(self) -> int:
++        return self.left.numel()+self.right.numel()
++
++    @torch.no_grad()
++    def activation_stats(self, x: torch.Tensor) -> dict:
++        duration = self.step_size(x)
++        carrier = F.linear(F.linear(x, self.right), self.left)
++        increment = duration*carrier
++        base = self.identity(x)
++        rms = lambda z: float(z.square().mean().sqrt())
++        denominator = max(rms(x), 1e-12)
++        stats = dict(role=self.role, input_width=self.input_width, output_width=self.output_width,
++            state_width=self.state_width, rank=self.rank, controller_hidden=self.gate_hidden,
++            initialization='constant_clock_recorded_random_SVD_core',
++            s_mean=float(duration.mean()), s_std=float(duration.std(unbiased=False)),
++            s_min=float(duration.min()), s_max=float(duration.max()),
++            s_sample_std=float(duration.std(dim=0, unbiased=False).mean()),
++            s_channel_std=float(duration.std(dim=-1, unbiased=False).mean()),
++            gate_channels=self.output_width, input_rms=denominator,
++            base_rms_over_input=rms(base)/denominator,
++            carrier_rms_over_input=rms(carrier)/denominator,
++            term1_rms_over_input=rms(increment)/denominator,
++            output_rms_over_input=rms(base+increment)/denominator,
++            left_factor_norm=float(self.left.norm()), right_factor_norm=float(self.right.norm()))
++        stats['extra_output_rms_over_input'] = (rms((base+increment)[..., self.width:])/denominator
++            if self.output_width > self.width else 0.)
++        stats['extra_input_rms_over_input'] = (rms(x[..., self.width:])/denominator
++            if self.input_width > self.width else 0.)
++        return stats
++
++
++class AugmentedODEFFN(nn.Module):
++    def __init__(self, reference: nn.Module, *, width: int, state_width: int,
++                 rank: int, gate_hidden: int) -> None:
++        super().__init__()
++        self.ode1 = PrunedLowRankLayer(reference.ode1, width=width, state_width=state_width,
++                                     rank=rank, gate_hidden=gate_hidden, role='lift')
++        self.act = nn.SiLU()
++        self.ode2 = PrunedLowRankLayer(reference.ode2, width=width, state_width=state_width,
++                                     rank=rank, gate_hidden=gate_hidden, role='project')
++
++    def forward(self, x: torch.Tensor) -> torch.Tensor:
++        return self.ode2(self.act(self.ode1(x)))
+--- a/synthetic/models.py
++++ b/synthetic/models.py
+@@ -11,6 +11,7 @@
+ from synthetic.diagonal import DiagonalFlow,DiagonalODEFFN
+ from synthetic.forced_gate import ForcedGateResponse
+ from synthetic.state_clock import StateClockLayer
++from synthetic.augmented import AugmentedODEFFN, PrunedLowRankLayer
+ 
+ 
+ class OriginalODELayer(nn.Module):
+@@ -578,13 +579,25 @@
+                  ode_solve_pattern=None,ode_operator_mode='multiplicative',ode_feature_mode='independent',
+                  diagonal_solver='k2',diagonal_clock='adaptive',diagonal_beta=1.,
+                  forced_gate_solver='exact',forced_gate_clock='adaptive',
+-                 state_clock_solver='midpoint',ode_forcing_mode='none'):
++                 state_clock_solver='midpoint',ode_forcing_mode='none',
++                 lowrank_state_width=None,lowrank_rank=None,lowrank_gate_hidden=None):
+         super().__init__()
+         if kind not in ('ffn','swiglu','glu','ode_original','ode_spectral_cap','ode_time',
+                         'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+-                        'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'):
++                        'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock','ode_lowrank'):
+             raise ValueError(f'unsupported model kind: {kind}')
+         self.dim,self.kind,self.width,self.depth=dim,kind,width,depth
++        lowrank_options=(lowrank_state_width,lowrank_rank,lowrank_gate_hidden)
++        if kind!='ode_lowrank' and any(value is not None for value in lowrank_options):
++            raise ValueError('low-rank dimensions require the low-rank ODE family')
++        if kind=='ode_lowrank' and (any(value is None for value in lowrank_options) or orders!=1 or
++                ode_solve_init!='legacy' or ode_solve_pattern is not None or
++                ode_feature_mode!='independent' or ode_operator_mode!='multiplicative' or
++                ode_middle_activation!='silu' or ode_clock_mode!='independent' or
++                ode_gate_transform!='sigmoid' or ode_gate_reparam!=1. or
++                ode_rate_placement!='after_projection' or ode_solve_return!='map' or
++                ode_forcing_mode!='none' or spectral_cap!=1. or (tau,scale,shift)!=(10.,.8,.2)):
++            raise ValueError('low-rank allocation retains original K1 maps, clocks and SiLU')
+         if ode_forcing_mode not in ('none','static','conditional'):
+             raise ValueError('unsupported forcing mode')
+         if ode_forcing_mode!='none' and (kind!='ode_vector' or orders!=1 or
+@@ -680,6 +693,10 @@
+                     solver=forced_gate_solver,clock=forced_gate_clock)
+             elif kind=='ode_state_clock':
+                 ffn=StateClockFFN(width,gate_hidden,gate_reference_hidden,solver=state_clock_solver)
++            elif kind=='ode_lowrank':
++                reference=VectorODEFFN(width,gate_hidden,gate_reference_hidden,orders=1)
++                ffn=AugmentedODEFFN(reference,width=width,state_width=lowrank_state_width,
++                    rank=lowrank_rank,gate_hidden=lowrank_gate_hidden)
+             elif kind=='ffn_poly_init':
+                 ffn=CollapsedODEFFN(OriginalODEFFN(width,gate_hidden,orders=orders,
+                     tau=tau,scale=scale,shift=shift,gate_source='fixed'))
+@@ -768,6 +785,10 @@
+         for name,module in self.named_modules():
+             if isinstance(module,StateClockLayer):yield name,module
+ 
++    def lowrank_layers(self):
++        for name,module in self.named_modules():
++            if isinstance(module,PrunedLowRankLayer):yield name,module
++
+     def covariance_layers(self):
+         for name,module in self.named_modules():
+             if isinstance(module,CovarianceODELayer):yield name,module
+--- a/synthetic/diagnostics.py
++++ b/synthetic/diagnostics.py
+@@ -26,14 +26,15 @@
+     diagonal=list(model.diagonal_layers()) if hasattr(model,'diagonal_layers') else []
+     forced=list(model.forced_gate_layers()) if hasattr(model,'forced_gate_layers') else []
+     state_clock=list(model.state_clock_layers()) if hasattr(model,'state_clock_layers') else []
+-    if not list(model.ode_layers()) and not nonlinear and not covariance and not diagonal and not forced and not state_clock:
++    lowrank=list(model.lowrank_layers()) if hasattr(model,'lowrank_layers') else []
++    if not list(model.ode_layers()) and not nonlinear and not covariance and not diagonal and not forced and not state_clock and not lowrank:
+         return []
+     inputs={}
+     hooks=[]
+     for name,layer in model.ode_layers():
+         hooks.append(layer.register_forward_pre_hook(lambda module,args,key=name:inputs.__setitem__(key,
+             (args[0].detach(), args[1].detach() if len(args)>1 and args[1] is not None else None))))
+-    for name,layer in nonlinear+covariance+diagonal+forced+state_clock:
++    for name,layer in nonlinear+covariance+diagonal+forced+state_clock+lowrank:
+         hooks.append(layer.register_forward_pre_hook(lambda module,args,key=name:
+             inputs.__setitem__(key,args[0].detach())))
+     try:
+@@ -86,6 +87,14 @@
+         records.append(dict(layer=name,operator_type='state_clock_vector_field',solver=layer.solver,
+             raw=spectrum(layer.proj.weight),activation=layer.activation_stats(inputs[name]),
+             interpretation='Raw P is shared by internal stages. D(h)P and D(h_mid)P are conditional field generators; neither P spectrum nor a midpoint rule certifies the complete velocity Jacobian.'))
++    for name,layer in lowrank:
++        hidden=inputs[name]
++        mean_duration=layer.step_size(hidden).mean(dim=0)
++        records.append(dict(layer=name,operator_type='pruned_lowrank_K1',role=layer.role,
++            raw=spectrum(layer.full_operator()),
++            compressed_at_probe_mean_duration=spectrum(layer.compressed_operator(mean_duration)),
++            activation=layer.activation_stats(hidden),
++            interpretation='Raw P is the zero-padded square lifted operator. V*D*U uses probe-mean D, not every input or the complete field Jacobian; factor norms are gauge dependent.'))
+     for name,layer in covariance:
+         hidden=inputs[name]
+         field=layer.field
+--- a/synthetic/train.py
++++ b/synthetic/train.py
+@@ -368,7 +368,7 @@
+     p.add_argument('--dataset',required=True)
+     p.add_argument('--model',required=True,choices=['ffn','swiglu','glu','ode_original','ode_spectral_cap','ode_time',
+                                                   'ode_fixed','ode_scalar','ode_gate_linear','ffn_poly_init','ode_vector','ode_nonlinear',
+-                                                  'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock'])
++                                                  'ode_covariance','ode_diagonal','ode_forced_gate','ode_state_clock','ode_lowrank'])
+     p.add_argument('--seed',type=int,required=True)
+     p.add_argument('--device',default='auto')
+     p.add_argument('--output-root',default='../runs/synthetic')
+--- a/scripts/run_architecture_study.py
++++ b/scripts/run_architecture_study.py
+@@ -64,6 +64,8 @@
+         count[0]+=sum(layer.field.linear_macs() for _,layer in model.covariance_layers())
+     if hasattr(model,'state_clock_layers'):
+         count[0]+=sum(layer.projection_calls*layer.proj.weight.numel() for _,layer in model.state_clock_layers())
++    if hasattr(model,'lowrank_layers'):
++        count[0]+=sum(layer.projection_macs() for _,layer in model.lowrank_layers())
+     return count[0]
+ 
+ 
+--- a/tests/test_augmented_state.py
++++ b/tests/test_augmented_state.py
+@@ -0,0 +1,243 @@
++"""Research invariants of the one pruned, factorized K1 allocation proposal."""
++import copy
++import json
++import unittest
++from unittest.mock import patch
++
++import torch
++from torch.nn import functional as F
++
++from scripts.run_architecture_study import macs
++from synthetic.augmented import AugmentedODEFFN, PrunedLowRankLayer
++from synthetic.diagnostics import collect
++from synthetic.models import OriginalODELayer, VectorODEFFN, VectorODELayer, VelocityNet
++
++
++class AugmentedStateTests(unittest.TestCase):
++    def setUp(self):
++        torch.manual_seed(0)
++        torch.set_num_threads(1)
++
++    def ffn(self, expanded=True, width=5, rank=2, gate=2):
++        reference = VectorODEFFN(width, 4, 4, orders=1).double()
++        return AugmentedODEFFN(reference, width=width, state_width=width*(2 if expanded else 1), rank=rank, gate_hidden=gate)
++
++    def models(self, dim=2, dtype=torch.float64):
++        result, states = {}, []
++        for label, state_width, rank, gate in (('parent', 64, 64, 32), ('factor32', 64, 32, 32),
++                                             ('narrow21', 64, 21, 21), ('aug21', 128, 21, 21)):
++            torch.manual_seed(0)
++            if label == 'parent':
++                model = VelocityNet(dim, 'ode_vector', orders=1, gate_hidden=32, ode_solve_init='constant_paired')
++            else:
++                model = VelocityNet(dim, 'ode_lowrank', orders=1, gate_hidden=32, lowrank_state_width=state_width,
++                                    lowrank_rank=rank, lowrank_gate_hidden=gate)
++            result[label] = model.to(dtype); states.append(torch.get_rng_state().clone())
++        for value in states[1:]:torch.testing.assert_close(value, states[0], atol=0, rtol=0)
++        return result
++
++    def activate(self, layer):
++        with torch.no_grad():
++            for value in (layer.left, layer.right, layer.t_func[-1].weight, layer.t_func[-1].bias):
++                value.copy_(torch.linspace(-.7, .9, value.numel(), dtype=value.dtype).reshape_as(value))
++
++    def analytic(self, layer, x):
++        first, _, last = layer.t_func
++        u = first(x); sigmoid = torch.sigmoid(u)
++        inner_slope = sigmoid+u*sigmoid*(1-sigmoid)
++        probability = torch.sigmoid(last(F.silu(u))/layer.tau)
++        s = layer.shift+layer.scale*probability
++        slope = layer.scale/layer.tau*probability*(1-probability)
++        js = torch.diag(slope)@last.weight@torch.diag(inner_slope)@first.weight
++        carrier = layer.left@(layer.right@x)
++        skip = torch.eye(layer.output_width, layer.input_width, dtype=x.dtype)
++        return skip+torch.diag(s)@layer.left@layer.right+torch.diag(carrier)@js, (u, inner_slope, slope, s, carrier)
++
++    def test_rectangular_input_factor_controller_and_full_FFN_derivatives(self):
++        model = self.ffn()
++        for layer in (model.ode1, model.ode2):
++            self.activate(layer)
++            x = torch.linspace(-.8, .9, layer.input_width, dtype=torch.float64, requires_grad=True)
++            receiver = torch.linspace(.3, -.6, layer.output_width, dtype=x.dtype)
++            expected_j, (u, inner_slope, slope, s, carrier) = self.analytic(layer, x)
++            actual_j = torch.autograd.functional.jacobian(layer, x)
++            torch.testing.assert_close(actual_j, expected_j, atol=8e-16, rtol=3e-14)
++            skip = torch.eye(layer.output_width, layer.input_width, dtype=x.dtype)
++            self.assertLessEqual(int(torch.linalg.matrix_rank(actual_j-skip, atol=1e-12)), layer.rank+layer.gate_hidden)
++            gate_cotangent = receiver*carrier*slope
++            first_cotangent = (layer.t_func[-1].weight.T@gate_cotangent)*inner_slope
++            expected = {'left': (s*receiver)[:, None]*(layer.right@x)[None, :],
++                        'right': (layer.left.T@(s*receiver))[:, None]*x[None, :],
++                        't_func.2.weight': gate_cotangent[:, None]*F.silu(u)[None, :],
++                        't_func.2.bias': gate_cotangent,
++                        't_func.0.weight': first_cotangent[:, None]*x[None, :],
++                        't_func.0.bias': first_cotangent}
++            parameters = dict(layer.named_parameters())
++            gradients = torch.autograd.grad((layer(x)*receiver).sum(), (x, *parameters.values()))
++            torch.testing.assert_close(gradients[0], expected_j.T@receiver, atol=8e-16, rtol=3e-14)
++            self.assertEqual(set(parameters), set(expected))
++            for name, gradient in zip(parameters, gradients[1:]):
++                torch.testing.assert_close(gradient, expected[name], atol=8e-16, rtol=3e-14)
++        x = torch.linspace(-.8, .9, 5, dtype=torch.float64)
++        z = model.ode1(x); probability = torch.sigmoid(z)
++        middle = torch.diag(probability+z*probability*(1-probability))
++        expected = self.analytic(model.ode2, F.silu(z))[0]@middle@self.analytic(model.ode1, x)[0]
++        torch.testing.assert_close(torch.autograd.functional.jacobian(model, x), expected, atol=2e-15, rtol=3e-14)
++
++    def test_formal_common_RNG_backbone_counts_and_actual_dense_MACs(self):
++        original = F.linear
++        for dim in (2, 16):
++            models = self.models(dim, torch.float32); parent = models['parent']
++            shared = {k: v for k, v in parent.state_dict().items() if '.ffn.' not in k}
++            expected = {'parent': (83664, 81984), 'factor32': (83664, 81984),
++                        'narrow21': (66702, 65088), 'aug21': (83022, 81216)}
++            for label, model in models.items():
++                for name, value in shared.items():torch.testing.assert_close(model.state_dict()[name], value, atol=0, rtol=0)
++                for name, value in parent.named_buffers():torch.testing.assert_close(dict(model.named_buffers())[name], value, atol=0, rtol=0)
++                count = [0]
++                def counted(x, weight, bias=None):
++                    count[0] += (x.numel()//x.shape[-1])*weight.numel()
++                    return original(x, weight, bias)
++                with patch.object(F, 'linear', counted), torch.no_grad():model(torch.zeros(1, dim), torch.zeros(1, 1))
++                parameters, work = expected[label]
++                if dim == 2:parameters -= 1806; work -= 1792
++                self.assertEqual(model.parameter_count(), parameters)
++                self.assertEqual(count[0], work); self.assertEqual(macs(model, dim), work)
++                if label != 'parent':
++                    self.assertEqual(len(list(model.ode_layers())), 0)
++                    self.assertEqual(len(list(model.lowrank_layers())), 6)
++                    self.assertEqual(sum(p.numel() for p in model.blocks[0].ffn.parameters()),
++                                     {'factor32': 16576, 'narrow21': 10922, 'aug21': 16362}[label])
++
++    def test_common_SVD_core_truncation_balancing_and_no_extra_RNG(self):
++        reference = VectorODELayer(5, 4, 4, orders=1).double()
++        with torch.no_grad():reference.proj.weight.copy_(torch.diag(torch.tensor([5., 4., 3., 2., 1.], dtype=torch.float64)))
++        rng = torch.get_rng_state().clone()
++        lift = PrunedLowRankLayer(reference, width=5, state_width=10, rank=2, gate_hidden=2, role='lift')
++        project = PrunedLowRankLayer(reference, width=5, state_width=10, rank=2, gate_hidden=2, role='project')
++        torch.testing.assert_close(torch.get_rng_state(), rng, atol=0, rtol=0)
++        truncated = torch.diag(torch.tensor([5., 4., 0., 0., 0.], dtype=torch.float64))
++        torch.testing.assert_close(lift.left[:5]@lift.right, truncated, atol=1e-15, rtol=1e-15)
++        residual = reference.proj.weight-lift.left[:5]@lift.right
++        self.assertAlmostEqual(float(torch.linalg.matrix_norm(residual.detach(), ord=2)), 3.)
++        self.assertAlmostEqual(float(residual.detach().square().sum()), 14.)
++        torch.testing.assert_close(lift.left[5:], lift.left[:5], atol=0, rtol=0)
++        torch.testing.assert_close(lift.left[:5].T@lift.left[:5], lift.right@lift.right.T, atol=1e-15, rtol=1e-15)
++        torch.testing.assert_close(lift.left.T@lift.left, 2*lift.right@lift.right.T, atol=2e-15, rtol=1e-15)
++        self.assertEqual(int(torch.count_nonzero(project.right[:, 5:])), 0)
++        self.assertEqual(int(torch.count_nonzero(project.t_func[0].weight[:, 5:])), 0)
++        for layer in (lift, project):
++            torch.testing.assert_close(layer.t_func[0].weight[:, :5], reference.t_func[0].weight[:2], atol=0, rtol=0)
++            self.assertEqual(int(torch.count_nonzero(layer.t_func[-1].weight)), 0)
++            self.assertEqual(int(torch.count_nonzero(layer.t_func[-1].bias)), 0)
++
++    def test_narrow_augmented_functions_and_masked_versus_live_parameter_responses(self):
++        def common(name, value):
++            if any(name.endswith(suffix) for suffix in ('.ode1.left', '.ode1.t_func.2.weight', '.ode1.t_func.2.bias')):return value[:64]
++            if any(name.endswith(suffix) for suffix in ('.ode2.right', '.ode2.t_func.0.weight')):return value[..., :64]
++            return value
++        for dtype, atol, rtol in ((torch.float32, 3e-6, 5e-5), (torch.float64, 3e-13, 3e-12)):
++            models = self.models(dtype=dtype); narrow, expanded = models['narrow21'], models['aug21']
++            x = torch.tensor([[-.7, .4]], dtype=dtype); t = torch.tensor([[.6]], dtype=dtype)
++            parameter_maps = [dict(m.named_parameters()) for m in (narrow, expanded)]
++            self.assertEqual(set(parameter_maps[0]), set(parameter_maps[1]))
++            for name, parameter in parameter_maps[0].items():torch.testing.assert_close(common(name, parameter_maps[1][name]), parameter, atol=0, rtol=0)
++            # At the native zero output head, all backbone columns vanish and
++            # shared output-head columns match: this initial full NTK is paired.
++            predictions = [m(x, t) for m in (narrow, expanded)]
++            for index in range(2):
++                gradients = [dict(zip(p, torch.autograd.grad(y[0, index], tuple(p.values()), retain_graph=True))) for p, y in zip(parameter_maps, predictions)]
++                for name, gradient in gradients[0].items():
++                    torch.testing.assert_close(common(name, gradients[1][name]), gradient, atol=atol, rtol=rtol)
++                    if not name.startswith('output.'):
++                        self.assertEqual(int(torch.count_nonzero(gradient)), 0)
++                        self.assertEqual(int(torch.count_nonzero(gradients[1][name])), 0)
++            for model in (narrow, expanded):
++                with torch.no_grad():model.output.weight.copy_(torch.linspace(-.2, .3, 128, dtype=dtype).reshape(2, 64))
++            predictions = [m(x, t) for m in (narrow, expanded)]
++            torch.testing.assert_close(predictions[0], predictions[1], atol=atol, rtol=rtol)
++            torch.testing.assert_close(torch.autograd.functional.jacobian(lambda value: narrow(value, t), x),
++                                       torch.autograd.functional.jacobian(lambda value: expanded(value, t), x), atol=atol, rtol=rtol)
++            gradients = [dict(zip(p, torch.autograd.grad(y[0, 0], tuple(p.values())))) for p, y in zip(parameter_maps, predictions)]
++            for name, gradient in gradients[0].items():torch.testing.assert_close(common(name, gradients[1][name]), gradient, atol=atol, rtol=rtol)
++            live = sum(float(value[:, 64:].square().sum()) for name, value in gradients[1].items() if name.endswith('.ode2.right'))
++            self.assertGreater(live, 1e-6)
++            for name, value in gradients[1].items():
++                if name.endswith('.ode1.left'):self.assertEqual(int(torch.count_nonzero(value[64:])), 0)
++            if dtype == torch.float64:
++                difference = sum(float(v.square().sum()) for v in gradients[1].values())-sum(float(v.square().sum()) for v in gradients[0].values())
++                self.assertAlmostEqual(difference, live, places=11)
++
++    def test_nonzero_extra_producer_prevents_a_dead_new_branch(self):
++        model = self.ffn(); x = torch.linspace(-1., .9, 20, dtype=torch.float64).reshape(4, 5)
++        head = torch.tensor([.3, -.4, .7, .2, -.1], dtype=x.dtype)
++        live = torch.autograd.grad((model(x)*head).sum(), model.ode2.right)[0][:, 5:]
++        self.assertGreater(float(live.norm()), 1e-5)
++        dead = copy.deepcopy(model)
++        with torch.no_grad():dead.ode1.left[5:].zero_()
++        producer, receiver = torch.autograd.grad((dead(x)*head).sum(), (dead.ode1.left, dead.ode2.right))
++        self.assertEqual(int(torch.count_nonzero(producer[5:])), 0)
++        self.assertEqual(int(torch.count_nonzero(receiver[:, 5:])), 0)
++
++    def test_pruned_lifted_operators_lowrank_powers_and_spectral_blind_blocks(self):
++        model = self.ffn()
++        for layer in (model.ode1, model.ode2):
++            duration = torch.linspace(.3, .9, layer.output_width, dtype=torch.float64)
++            full = layer.full_operator()
++            if layer.role == 'lift':
++                self.assertEqual(int(torch.count_nonzero(full[:, 5:])), 0)
++                left, right, rates = layer.left, F.pad(layer.right, (0, 5)), duration
++            else:
++                self.assertEqual(int(torch.count_nonzero(full[5:])), 0)
++                left, right, rates = F.pad(layer.left, (0, 0, 0, 5)), layer.right, F.pad(duration, (0, 5), value=1.)
++            generator = rates[:, None]*full; compressed = layer.compressed_operator(duration)
++            torch.testing.assert_close(compressed, right@(rates[:, None]*left), atol=1e-16, rtol=2e-14)
++            batch = layer.compressed_operator(torch.stack((duration, duration*.8)))
++            torch.testing.assert_close(batch, torch.stack((compressed, .8*compressed)), atol=2e-16, rtol=2e-14)
++            for order in (1, 2, 3):
++                expected = (rates[:, None]*left)@torch.linalg.matrix_power(compressed, order-1)@right
++                torch.testing.assert_close(torch.linalg.matrix_power(generator, order), expected, atol=2e-16, rtol=3e-14)
++            for scale in (-.3, .2):
++                self.assertAlmostEqual(float(torch.linalg.det(torch.eye(10, dtype=full.dtype)+scale*generator).detach()),
++                                       float(torch.linalg.det(torch.eye(2, dtype=full.dtype)+scale*compressed).detach()), places=13)
++            changed = copy.deepcopy(layer)
++            with torch.no_grad():
++                if layer.role == 'lift':changed.left[5:].mul_(3.)
++                else:changed.right[:, 5:].fill_(.4)
++            torch.testing.assert_close(changed.compressed_operator(duration), compressed, atol=0, rtol=0)
++            self.assertGreater(float((changed.full_operator()-full).detach().norm()), 1e-4)
++
++    def test_active_statistics_collector_and_invalid_settings(self):
++        model = self.ffn(); x = torch.linspace(-.7, .9, 20, dtype=torch.float64).reshape(4, 5)
++        rms = lambda z: float(z.detach().square().mean().sqrt())
++        for layer in (model.ode1, model.ode2):
++            self.activate(layer); state = copy.deepcopy(layer.state_dict())
++            inputs = x if layer.role == 'lift' else torch.cat((x, x*.3), dim=-1)
++            stats = layer.activation_stats(inputs); json.dumps(stats, allow_nan=False)
++            carrier = F.linear(F.linear(inputs, layer.right), layer.left)
++            self.assertAlmostEqual(stats['term1_rms_over_input'], rms(layer.step_size(inputs)*carrier)/rms(inputs), places=14)
++            self.assertAlmostEqual(stats['output_rms_over_input'], rms(layer(inputs))/rms(inputs), places=14)
++            for name, value in state.items():torch.testing.assert_close(layer.state_dict()[name], value, atol=0, rtol=0)
++        whole = VelocityNet(2, 'ode_lowrank', width=5, depth=2, gate_hidden=4, gate_reference_hidden=4,
++                            orders=1, lowrank_state_width=10, lowrank_rank=2, lowrank_gate_hidden=2)
++        entries = collect(whole, torch.randn(4, 2), torch.full((4, 1), .5)); json.dumps(entries, allow_nan=False)
++        self.assertEqual(len(entries), 4)
++        self.assertTrue(all(row['operator_type'] == 'pruned_lowrank_K1' for row in entries))
++        valid = dict(orders=1, gate_hidden=32, lowrank_state_width=128, lowrank_rank=21, lowrank_gate_hidden=21)
++        for change in (dict(orders=2), dict(lowrank_rank=0), dict(lowrank_rank=65), dict(lowrank_state_width=96),
++                       dict(lowrank_gate_hidden=33), dict(lowrank_rank=2.5), dict(lowrank_gate_hidden=None),
++                       dict(ode_solve_init='constant_paired'), dict(ode_gate_transform='affine'), dict(ode_forcing_mode='conditional'),
++                       dict(ode_feature_mode='shared_projection'), dict(ode_operator_mode='additive'), dict(spectral_cap=.5), dict(tau=1.)):
++            with self.subTest(change=change), self.assertRaises(ValueError):VelocityNet(2, 'ode_lowrank', **dict(valid, **change))
++        with self.assertRaises(ValueError):VelocityNet(2, 'ode_vector', **valid)
++        for change in (dict(gate_transform='affine'), dict(tau=1.), dict(scale=1.), dict(shift=0.)):
++            reference = VectorODELayer(5, 4, 4, orders=1, **change)
++            with self.subTest(reference=change), self.assertRaises(ValueError):
++                PrunedLowRankLayer(reference, width=5, state_width=10, rank=2, gate_hidden=2, role='lift')
++        reference = VectorODELayer(5, 4, 4, orders=1)
++        with self.assertRaises(ValueError):PrunedLowRankLayer(reference, width=4, state_width=8, rank=2, gate_hidden=2, role='lift')
++        with self.assertRaises(ValueError):PrunedLowRankLayer(OriginalODELayer(5, 4, orders=1), width=5, state_width=10, rank=2, gate_hidden=2, role='lift')
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- a/docs/research-architecture-search/protocol-augmented-state.md
++++ b/docs/research-architecture-search/protocol-augmented-state.md
+@@ -0,0 +1,128 @@
++# Pruned low-rank state allocation: one fixed Phase A screen
++
++Registered 2026-10-25 before formal training or outcome inspection. Execution
++requires focused mathematical tests, independent code review and full preflight.
++This is one joint state/budget reallocation, not an augmentation-only theorem.
++
++## Evidence, operator and initialization
++
++The finite clock-collapse diagnostic increases all 15 exposed-panel field errors;
++its equal-time ratios are 20.19 on Ring8 and 2.82 on Product16. Conditional
++computation therefore helps those frozen weights. Ordinary SiLU128 improves
++Product16 but worsens Ring8 against the original block. Together these findings
++motivate retaining clocks while testing a larger nonlinear state under a fixed
++matrix budget. Neither observation proves that width is the remaining cause.
++
++Keep the two original input-frozen K1 solves and middle SiLU. With input width d,
++state width r, rank q and controller hidden width g, compute
++
++```text
++y = pad(h) + s1(h) * U1 V1 h       U1:r×q, V1:q×d, gate1:d→g→r
++z = SiLU(y)
++out = z[:d] + s2(z) * U2 V2 z     U2:d×q, V2:q×r, gate2:r→g→d.
++```
++
++Both clocks remain `.2+.8*sigmoid(logit/10)`. This is exactly a lifted original
++K1 map after pruning unused first-map extra-input columns and second-map
++extra-output rows. No learned encoder/decoder, extra bias, activation, loss,
++prediction head, rate bound, regularizer or higher Taylor order is added.
++
++Construct the existing random d=64 / gate=32 reference and consume exactly its RNG
++draws. Initialize common low-rank cores from its CPU-float64 truncated SVD,
++using square-root factors cast to native precision; no data or oracle enters.
++Use the first g reference controller features and zero final controller maps.
++For the expanded model, copy U1's core into extra rows; initialize V2's extra
++columns and controller2's extra input columns to zero. Extra SiLU features are
++nonzero, and new receiving columns have live responses under a nonzero head.
++Do not zero both sides of the added path. Copied cores are SVD-balanced; the
++entire expanded U/V pair is not globally balanced and is not rescaled.
++
++Narrow/expanded initial functions agree algebraically, with explicit floating
++GEMM tolerances. Their native zero-head kernels coincide by masking; under a
++nonzero head, added parameter responses generally make full kernels different.
++The original dense parent has a different initial map and feasible P set.
++ANODE global-flow topology and global capacity-separation claims do not apply.
++
++## Fixed six-arm comparison
++
++| Label | State/rank/controller | Per-FFN dense MACs | Parameters |
++|---|---|---:|---:|
++| vector_parent | dense64 / gate32 |16384|16576|
++| lowrank_budget |64 /32 /32|16384|16576|
++| lowrank_narrow |64 /21 /21|10752|10922|
++| lowrank_augmented |128 /21 /21|16128|16362|
++| swiglu | nominal128, actual85 |16320|16554|
++| silu128 | ordinary hidden128 |16384|16576|
++
++The low-rank formula is `2(d+r)(q+g)` MACs, plus `2g+d+r` biases for parameter
++count. q=g=21 is the integer equal-split allocation under the original budget;
++it is not chosen by a rank search. On Product16 the candidate has 83022 full-model
++parameters and 81216 MACs, compared with SwiGLU 83598/81792. Actual calls/counts
++must reproduce these values. The cheaper narrow comparison alone cannot
++establish useful allocation. Matrix MACs do not establish latency.
++
++The already audited Stage23 SwiGLU96 and GLU128 remain hash-bound historical
++generic references at no greater than the near-matched budget. They are not
++new training cells or independent repetitions. All generic guards below use
++the best value for each metric among those two references and the two fresh
++generic arms. Larger historical SwiGLUs are visible context, not matched-cost
++screening comparators.
++
++Run 18 cells: these six arms on Gaussian2D, Ring8 and Product16. Preserve seed 0,
++5000 updates, batch 512, AdamW 3e-4, weight decay 0, clip 1, existing cached banks
++and pair-velocity labels, uniform times, direct velocity prediction, hash-bound
++common non-FFN references and Heun32. The new family zeros its own controllers;
++its configuration's legacy initialization option prevents applying unrelated
++legacy return-map interventions. It does not mean random-clock initialization.
++
++## Registered decisions and continuation
++
++For a near-budget low-rank arm, a practical lead requires at least 10% primary
++oracle-MSE improvement over the better generic control on one nonlinear task,
++no more than 5% primary regression against that generic frontier on any task,
++and nonlinear Jacobian/SW2 errors within 10% of the better generic value.
++Also require at least 10% improvement over the original parent on the qualifying
++task. Retain a successful factorized control under its true interpretation.
++
++An augmentation-allocation claim additionally requires the expanded arm to
++improve MSE by at least 10% against both lowrank_budget and lowrank_narrow on the
++same qualifying task, with no primary regression over 5% against either on any
++task. This is joint allocation evidence, not pure width or ODE uniqueness.
++
++A narrow cheap lead instead requires all primary errors within 5% and nonlinear
++Jacobian/SW2 within 10% of the generic frontier, with at least 20% fewer full-model
++parameters and dense MACs than SwiGLU128. It must subsequently face SwiGLU84,
++whose actual56 channels match its MAC budget. Neither a narrow nor other lead
++completes the goal at Phase A.
++
++Only a practical lead proceeds to a separately registered Phase B: isolated
++timing, remaining mechanism/initialization or constant-clock controls where
++needed, a fresh independent in-distribution evaluation and frozen-architecture
++training on a fresh nonlinear target. No cheapness claim rests on concurrent
++wall time. No positive control is discarded because it is not the proposal.
++Failure stops this fixed allocation without rank/state/controller sweeps,
++SVD rebalance, order, step, clock, activation, width, head or objective rescue.
++
++## Required verification and interpretation
++
++Before launch verify actual costs, reference draws/common tensors, full input
++and parameter derivatives, live added paths, truthful rectangular/lifted
++operator statistics, resume identity, historical compatibility, all 18 configs
++and real monitoring. Freeze source/protocol/reviews before a finalized ready
++receipt; later launch must be gated explicitly on successful checks.
++
++Save six native checkpoints per cell, all trajectories and five-time endpoint
++arrays; independently audit 108 checkpoints/90 arrays and 18 native field/J
++replays. Historical generic reruns are compatibility checks, not repetitions.
++Monitor two one-thread CPU workers every 10s, without reserving a GPU.
++
++Record full zero-padded P spectra and actual activations/factors. Nonzero
++conditional-generator eigenvalues equal those of VDU; padded coordinates can
++affect the function while remaining invisible to eigenvalues. Probe-mean VDU
++statistics are not per-example or complete-field guarantees; factor norms
++are gauge dependent. The new layers deliberately stay outside legacy ode_layers.
++Thus legacy anchored_jacobian arrays equal native for this family and are
++**not** clock-derivative ablations. Native full-field/J evaluation remains valid.
++
++The submitted Report1 and prior frozen runtimes remain unchanged. This work
++remains local/unpushed. The full useful-architecture goal remains active.
+--- a/docs/research-architecture-search/augmented-state-design-review.md
++++ b/docs/research-architecture-search/augmented-state-design-review.md
+@@ -0,0 +1,120 @@
++# Conditional state expansion under the original FFN budget
++
++**Conditional GO for one bounded prototype, not formal training or an accepted architecture.** This reallocates projection/controller computation to a larger nonlinear state while retaining the original two conditional K1 solves. It changes rank, controller width and state width together; it is a controlled budget-allocation hypothesis, not a pure augmentation experiment. No topology, expressivity or FM-specific superiority theorem follows.
++
++The completed finite collapse shows that the original clocks materially help its frozen function: removing their variation increases Ring8 field error about20-fold and Product16 about2.82-fold. That is not a retrained-static-model comparison. Conversely, existing SiLU128 improves Product16 but worsens Ring8 relative to the parent. Together these findings justify considering how to retain modulation while providing more nonlinear features; they do not predict success. The failed clock, sharing, diagonal-flow, state-clock and bias settings remain closed.
++
++## One precise construction
++
++Let d=64, r=128, q=g=21. Let E pad d coordinates with zeros and R select the first d coordinates. The proposed FFN is
++
++```text
++z = E h + D1(h) U1 V1 h       U1:r×q, V1:q×d
++y = SiLU(z)                   controller1:d→g→r
++out = R y + D2(y) U2 V2 y     U2:d×q, V2:q×r
++                              controller2:r→g→d.
++```
++
++Both clocks retain `.2+.8 sigmoid(gate/10)`, independent controllers and the original middle activation. There is no learned encoder/decoder, forcing vector, new activation or loss. Constant clocks give a structured expanded SiLU FFN, `(R+cU2V2) SiLU((E+cU1V1)h)`, not an unrestricted dense SiLU128 layer.
++
++The exact square-state interpretation is
++
++```text
++P1 = U1 [V1,0]             r×r
++P2 = [U2;0] V2             r×r.
++```
++
++Pad the first input, apply two conditional K1 maps with middle SiLU, then select the first d outputs. The omitted first-map input columns multiply zero; the omitted second-map output rows are discarded. They are structurally unused in this K1 composition and should neither be allocated nor counted. That argument does not license another order: such columns/rows can participate in intermediate higher-order products of an unrestricted augmented model.
++
++## Derivatives and spectral limits
++
++Define `w1=U1V1h`, `w2=U2V2y`. Complete rectangular input derivatives are
++
++```text
++J1 = E + D1 U1 V1 + diag(w1) J_s1
++J2 = R + D2 U2 V2 + diag(w2) J_s2
++J_FFN = J2 diag(SiLU'(z)) J1.
++```
++
++The gate derivatives must remain live. Each controller input Jacobian has rank at most g, so each rectangular update satisfies `rank(Ji-skip_i)<=q+g=42`. The skips, middle activation and surrounding network prevent interpreting42 as the rank of the full FFN or complete velocity Jacobian. More state coordinates do not mean128 independent input/output directions.
++
++For one map with fixed incoming input x, receiving cotangent e and controller s, write `k=Vx`, `w=Uk`. Then
++
++```text
++grad_U L = (s*e) k^T
++grad_V L = U^T(s*e) x^T
++controller cotangent = e*w.
++```
++
++The latter passes through the original sigmoid/MLP derivatives. These identities, combined with the skips and middle SiLU, give independent numerical checks of all factor/controller gradients.
++
++For a **frozen** square generator G=DUV,
++
++```text
++G^k = DU (VDU)^(k-1) V, k>=1.
++```
++
++Its nonzero eigenvalues, including algebraic multiplicity, are those of VDU; the two matrices may have different additional zeros. In the pruned first map the reduced matrix is `V1 D1_top U1_top`, independent of U1's extra rows at fixed D. In the second it is `V2_left D2 U2`, independent of V2's extra columns. Those extra blocks can nevertheless change activations and returned outputs. They are invisible to these eigenvalues, not to operator norms or complete derivatives. No spectral-stability claim should be based on their omission.
++
++ANODE's non-crossing/topology result concerns uniquely solvable continuous flows. Here clocks are frozen from each solve input, K1 can already be singular, SiLU is not globally injective, and the output is projected. That theorem is not this design's motivation; see the [prior-art review](augmented-state-prior-review.md).
++
++## Budget and necessary controls
++
++For the pruned family the dense MAC count is `2(d+r)(q+g)` and parameters add `2g+d+r` controller biases. Choosing half the dense budget for factors and half for controllers gives the single rule `q=g=floor(16384/[4(d+r)])`; for r128 it yields21. This rule is fixed, not a rank or width sweep.
++
++| FFN | Dense MACs | Parameters |
++|---|---:|---:|
++| Original dense P64, controller32 | 16,384 | 16,576 |
++| Unexpanded factorized r64,q=g32 | 16,384 | 16,576 |
++| Unexpanded factorized r64,q=g21 | 10,752 | 10,922 |
++| Expanded r128,q=g21 | 16,128 | 16,362 |
++| Ordinary SiLU128 | 16,384 | 16,576 |
++| SwiGLU128, actual85 channels | 16,320 | 16,554 |
++
++The expanded Product16 model would total83,022 parameters/81,216 dense MACs. Counts are derived before implementation and require executed-operation verification. Factoring raises the number of linear calls from six to eight per FFN; larger SiLU states and pointwise gate work also cost time. Equal MACs do not establish comparable latency.
++
++The same-budget factorized32 control is essential. Beating narrow21 alone uses1.5 times its dense computation. Beating the dense parent alone could reflect factorization or its initialization. The six-arm PhaseA proposal is exactly the table above on the existing three tasks, with the original data, objective, time sampling, optimizer, head, seed0 and budget. Native generic initial functions are not paired with the ODE family.
++
++## Initialization and what is actually paired
++
++Construct the same native64-wide parent reference first, preserving all reference RNG draws. For each original P use one declared rank-q balanced SVD:
++
++```text
++P=Q Sigma W^T
++U=Q[:,:q] sqrt(Sigma[:q])
++V=sqrt(Sigma[:q]) W[:,:q]^T.
++```
++
++The spectral truncation error is the next singular value; squared Frobenius error is the discarded singular-value energy. Those are matrix errors, not assurances of a small model error. Factorized32 and narrow21 generally change the parent's initial function. Specify SVD precision/casting once before evaluation; no fitted scaling or oracle weights are allowed.
++
++Take the first g rows/biases of each native32-hidden controller's first affine map and retain constant-paired zero final controller affine maps. For expanded21, copy narrow21 into all common factor/controller coordinates. Set
++
++```text
++U1_extra = independent copy of U1_top
++V2_extra = 0
++controller2_first_weight_extra_columns = 0.
++```
++
++The first extra state becomes `SiLU(c U1_top V1 h)`, while the first d coordinates are `SiLU(h+c U1_top V1 h)`. Extra features need not equal the old features. They are initially ignored by the second receiving projection and controller, so the **complete FFN function matches narrow21 exactly**. The nonzero extra producer is essential: zeroing both producer and receiver would make that branch structurally dead at initialization.
++
++Balanced SVD describes the common narrow factors. After copying the first producer's extra rows, its full expanded Gram is `U1^T U1=2*Sigma_q`, whereas `V1 V1^T=Sigma_q`; the expanded pair is not globally balanced. Do not silently rescale it to claim balance, because that would change the declared common factor coordinates and their initial parameter responses.
++
++At the paired start, common parameter responses agree. The new `V2_extra` differential is
++
++```text
++delta_out = c U2 delta_V2_extra y_extra.
++```
++
++It is generically nonzero under a nonzero receiving head. U1_extra and the other isolated extra paths initially have zero responses until the receiver awakens; they are not permanently unused parameters. Numerical checks must expose the live receiver on an explicit nonzero-head example.
++
++At such a head the expanded model adds parameter-response columns; equal initial functions do not imply equal tangent kernels or guarantee independent new directions. **At the actual zero final velocity head**, however, all backbone responses vanish and the shared output-head responses agree, so narrow/expanded initial complete NTKs can coincide. Both statements are needed; neither may be substituted for the other.
++
++Balanced factors do not remove optimization changes. Under ordinary gradient flow for a matrix loss, `P=UV` induces `Pdot=-G V^T V-U U^T G`, where `G=grad_P L`; the factor gauge `(U,V)→(US,S^-1V)` changes these coordinate metrics without changing P. Current Adam/clipping adds further differences. No new factor regularizer is selected, and raw factor norms must not be presented as invariant generator spectra.
++
++## A bounded decision, with credit for useful controls
++
++Before training, PhaseA needs one shared practical screen: compare every potentially useful new arm against the parent and the existing generic frontier, preserving all task/Jacobian/SW2 guards. The established10% nonlinear primary improvement,5% other-primary and10% nonlinear Jacobian/SW2 margins are a suitable quality-lead rule. A claimed augmentation effect additionally needs a material advantage over both factorized32 and paired narrow21 on its qualifying task. Otherwise credit a successful factorized or narrow control under its actual mechanism, rather than discarding it because augmentation lost. A cheaper quality-preserving lead requires its own explicitly registered cost/quality criterion; do not invent that interpretation after outcomes.
++
++Only a practical lead warrants PhaseB. For an augmentation lead, fixed clocks with q21 test the necessity of conditional modulation at lower compute; fixed clocks with q42 reallocate the saved gate budget into factors at the same16,128 MACs. Their budgets are8,064 and16,128 respectively. SwiGLU84 has10,752 MACs and matches **narrow21**, not fixed augmented21; retain that distinction. A winning unexpanded control needs the corresponding controls for its own structure, not automatic attribution to the augmented design. Independent holdout, transfer and isolated timing remain necessary after any screen.
++
++Failure closes this fixed allocation: no rank/width/gate-hidden sweep, temperature, order, forcing, initializer, head or objective rescue. A successful prototype establishes correct algebra and fair costs, not practical usefulness. A later gain would establish a useful conditional factorized allocation; it would not by itself establish ODE novelty, topology benefits or a solution to the architecture goal.
+--- a/docs/research-architecture-search/augmented-state-prior-review.md
++++ b/docs/research-architecture-search/augmented-state-prior-review.md
+@@ -0,0 +1,56 @@
++# Pruned augmented-state K1: design and prior-art review
++
++2026-10-25. **Conditional GO for one bounded prototype, not training authorization or an accepted architecture.** The hypothesis is joint budget reallocation: retain learned conditional modulation, but provide more coordinates before SiLU using lower-rank projections and narrower controllers. The completed [clock collapse](analysis-clock-collapse/analysis-report.md) establishes useful frozen-model dependence, not that expansion will improve learning. Neither novelty nor an FM-specific advantage is established.
++
++## Review the pruned formulation
++
++Let d=64, expanded width r=128, projection rank q=21 and controller hidden width g=21:
++
++```text
++z = [h;0] + s1(h) * U1 V1 h      U1: r×q, V1: q×d
++y = SiLU(z)                      gate1: d→g→r
++out = y[:d] + s2(y) * U2 V2 y    U2: d×q, V2: q×r
++                                 gate2: r→g→d
++```
++
++Multiplication by s is coordinatewise; both clocks retain the original sigmoid/temperature. There is no learned encoder, decoder, forcing bias or additional activation. This is exactly zero-padding, two original K1 maps and fixed output selection, after deleting the first map's permanently unused input columns and the second map's unobserved output rows. That pruning is specific to this K1 composition; it does not license higher-order solves. The earlier naive square128 proposal is not the candidate reviewed here.
++
++From [the existing constructors](../../synthetic/models.py), two-map dense MACs are `2(d+r)(q+g)`; parameters add `2g+d+r` controller biases. Existing-model counts were independently instantiated; proposed counts are algebraic, not measured executions.
++
++| FFN | Dense MACs | Parameters |
++|---|---:|---:|
++| Original full-P64, controller32 | 16,384 | 16,576 |
++| Pruned r128,q21,g21 | 16,128 | 16,362 |
++| Unaugmented r64,q21,g21 | 10,752 | 10,922 |
++| Unaugmented r64,q32,g32 | 16,384 | 16,576 |
++| Ordinary SiLU128 | 16,384 | 16,576 |
++| SwiGLU128, actual85 features | 16,320 | 16,554 |
++
++The candidate's unchanged Product16 backbone totals83,022 parameters/81,216 MACs, below SwiGLU's83,598/81,792. Half its dense computation still goes to each of projections/controllers. More pointwise operations, intermediate storage and matrix calls remain; equal dense MACs do not establish equal wall time.
++
++## Prior art supplies limits, not a performance promise
++
++**Augmented Neural ODEs** (Dupont et al., NeurIPS2019) already introduces zero-augmented states. Its topology argument concerns uniquely solvable continuous flows and their homeomorphisms. The professor's finite K1 map can already be noninjective: constant s=c and P=−I/c give the zero map. The middle SiLU is not globally invertible either. Therefore ANODE's obstruction is not our demonstrated problem, and its solver/NFE gains do not transfer to two fixed K1 evaluations. [Primary paper, Sections3–5 and Appendix](https://proceedings.neurips.cc/paper_files/paper/2019/file/21be9a4bd4f81549a9d1d241981cec3c-Paper.pdf)
++
++**Initialization and Regularization of Factorized Neural Layers** (Khodak et al., ICLR2021) directly studies matrix-product layers, SVD initialization and their different optimization/regularization behavior. It supplies relevant prior art for factorization and an initialization warning, not evidence for this generative architecture. Current training has weight_decay=0; no new Frobenius penalty is warranted. [Primary paper, Sections2–3](https://www.microsoft.com/en-us/research/wp-content/uploads/2021/03/main_Initialization-Regularization-Factorized-Neural-Layers_final.pdf)
++
++## What the algebra does and does not buy
++
++The candidate contains the narrow q21/g21 model by ignoring extra coordinates, but does not contain the arbitrary full-P parent by this construction. More state coordinates are not more independent value directions. For each rectangular map,
++
++```text
++J_F − fixed_skip = D U V + diag(UV input) J_s,
++rank(J_F − fixed_skip) ≤ q+g = 42.
++```
++
++The middle SiLU and fixed skips prevent treating42 as a whole-FFN/output rank bound. No global approximation separation from SwiGLU follows.
++
++For a frozen square lifted generator, nonzero eigenvalues of `D U V` equal those of `V D U`. With the pruned zero blocks, first-map eigenvalues ignore U1's extra rows; second-map eigenvalues ignore V2's extra columns. Those blocks can nevertheless change hidden activations and returned outputs. Eigenvalues alone therefore miss the proposed mechanism. Factor changes `(U,V)→(UQ,Q^-1V)` preserve the product but change factor norms and optimizer coordinates; monitor actual products/actions, not individual-factor spectra as physical invariants.
++
++## Minimal contrasts and initialization
++
++A useful allocation test needs the candidate, narrow q21/g21 control, **same-budget unaugmented q32/g32 control**, original parent, SiLU128 and existing SwiGLU96/128 frontier. This is a joint allocation comparison, not a factorial that separately identifies rank, controller width and augmentation. Beating the narrow control alone uses1.5× its dense compute. SwiGLU84 matches that narrow control's10,752 MACs if a claim about the narrow model is made; it is unnecessary to make the candidate's main comparison.
++
++Use recorded random references, never teacher weights. A single declared balanced-SVD factorization can bind initialization: rank-q truncation has spectral residual `sigma[q+1]` and squared Frobenius residual equal to discarded singular-value energy. These are matrix bounds, not whole-network error guarantees. Pair candidate/narrow common tensors; make first extra features nonzero, while setting V2's extra columns and controller2's extra input columns to zero. Their initial functions then match. Extra V2 parameter responses can be nonzero under a nonzero receiving head, so parameter tangents are not paired; a native zero velocity head can temporarily mask this. Zeroing both the producer and receiver risks dead features. No exact initialization match to the full-rank parent is possible in general; no outcome-dependent scale selection is acceptable.
++
++**Falsifiable decision:** failure against the same-budget factorized control weakens allocation; failure against SwiGLU rejects practical utility even if the parent improves. If both improve, that establishes a useful budget choice only, not an ODE/topology novelty claim. Prototype approval must not become a rank/width/temperature sweep or reopen stopped families. No implementation, initialization search or training was performed for this review.
+--- a/configs/synthetic/architecture_search/augmented_state_v1_20261025_m1.json
++++ b/configs/synthetic/architecture_search/augmented_state_v1_20261025_m1.json
+@@ -0,0 +1,139 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-augmented-state.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "vector_parent",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "none"
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "lowrank_budget",
++      "model": "ode_lowrank",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "legacy",
++        "lowrank_state_width": 64,
++        "lowrank_rank": 32,
++        "lowrank_gate_hidden": 32
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "lowrank_narrow",
++      "model": "ode_lowrank",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "legacy",
++        "lowrank_state_width": 64,
++        "lowrank_rank": 21,
++        "lowrank_gate_hidden": 21
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "lowrank_augmented",
++      "model": "ode_lowrank",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "legacy",
++        "lowrank_state_width": 128,
++        "lowrank_rank": 21,
++        "lowrank_gate_hidden": 21
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    },
++    {
++      "label": "silu128",
++      "model": "ffn",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "gaussian_aniso_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
++        },
++        "gmm_ring8_2d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
++        }
++      }
++    }
++  ],
++  "experiment_id": "augmented_state_v1_20261025_m1",
++  "datasets": [
++    "gaussian_aniso_2d",
++    "gmm_ring8_2d"
++  ]
++}
+--- a/configs/synthetic/architecture_search/augmented_state_product16_20261025_m1.json
++++ b/configs/synthetic/architecture_search/augmented_state_product16_20261025_m1.json
+@@ -0,0 +1,114 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-augmented-state.md",
++  "seed": 0,
++  "steps": 5000,
++  "device": "cpu",
++  "workers": 2,
++  "arms": [
++    {
++      "label": "vector_parent",
++      "model": "ode_vector",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "constant_paired",
++        "ode_feature_mode": "independent",
++        "ode_forcing_mode": "none"
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "lowrank_budget",
++      "model": "ode_lowrank",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "legacy",
++        "lowrank_state_width": 64,
++        "lowrank_rank": 32,
++        "lowrank_gate_hidden": 32
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "lowrank_narrow",
++      "model": "ode_lowrank",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "legacy",
++        "lowrank_state_width": 64,
++        "lowrank_rank": 21,
++        "lowrank_gate_hidden": 21
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "lowrank_augmented",
++      "model": "ode_lowrank",
++      "options": {
++        "orders": 1,
++        "gate_hidden": 32,
++        "gate_reference_hidden": 64,
++        "ode_solve_init": "legacy",
++        "lowrank_state_width": 128,
++        "lowrank_rank": 21,
++        "lowrank_gate_hidden": 21
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "swiglu",
++      "model": "swiglu",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    },
++    {
++      "label": "silu128",
++      "model": "ffn",
++      "options": {
++        "ffn_hidden": 128
++      },
++      "backbone_initialization": {
++        "rotated_product_bimodal_16d": {
++          "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
++          "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
++        }
++      }
++    }
++  ],
++  "experiment_id": "augmented_state_product16_20261025_m1",
++  "datasets": [
++    "rotated_product_bimodal_16d"
++  ]
++}
+--- a/configs/synthetic/architecture_search/augmented_state_queue_20261025_m1.json
++++ b/configs/synthetic/architecture_search/augmented_state_queue_20261025_m1.json
+@@ -0,0 +1,15 @@
++{
++  "protocol": "docs/research-architecture-search/protocol-augmented-state.md",
++  "seed": 0,
++  "stages": [
++    {
++      "plan": "configs/synthetic/architecture_search/augmented_state_v1_20261025_m1.json",
++      "output_name": "augmented_state_v1_20261025_m1"
++    },
++    {
++      "plan": "configs/synthetic/architecture_search/augmented_state_product16_20261025_m1.json",
++      "output_name": "augmented_state_product16_20261025_m1",
++      "data_root": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1"
++    }
++  ]
++}
+--- a/docs/research-architecture-search/augmented-state-code-review.md
++++ b/docs/research-architecture-search/augmented-state-code-review.md
+@@ -0,0 +1,60 @@
++# Pruned augmented-state prototype: independent code review
++
++2026-10-25. **PASS for the reviewed implementation and registered Phase A configuration, subject to the separate launch preflight.** No formal training or outcome evaluation was performed for this review. Passing implementation checks does not establish a useful architecture or complete the project goal.
++
++## Verified implementation
++
++Compared the changes directly with the actual Stage23 595-file runtime, not an outdated Git index. Existing model branches are unchanged; additions are the new helper/kind, dedicated collector, CLI choice and functional-projection MAC accounting. The independent preflight still needs to verify historical execution and resume compatibility.
++
++The first map executes `pad(h)+s1(h)*U1V1h`; the second executes `y[:64]+s2(y)*U2V2y`, with one middle SiLU. The first projection/controller take64 inputs and return128 coordinates; the second take128 and return64. No permanently zero input columns or discarded output rows are parameterized. Both factor products use functional linear operations, counted exactly once through `projection_macs`; controller Linear hooks account for their actual executions. There is no dense substitute P in the training forward.
++
++Construction consumes the original VectorODEFFN reference draws once. CPU float64 SVD factors are cast to the reference dtype/device; newly constructed controller Linears stay inside an RNG fork. Controller subsets come from the recorded random reference, and final controller maps are zeroed internally. The new family's `ode_solve_init='legacy'` config does not mean random initial clocks. Reference guards reject incompatible clocks, map types and dimensions.
++
++Narrow/expanded common tensors and surrounding draws agree. Extra U1 rows copy the nonzero common producer; extra V2 columns and second-controller input columns start at zero. Initial functions agree algebraically within dtype-specific GEMM tolerance. At the native zero velocity head, backbone responses vanish and complete initial kernels agree. With a nonzero receiving head, extra V2 responses are live and kernels generally differ. The expanded U/V pair is not globally SVD-balanced after copying extra U1 rows; no post-hoc rescaling is performed.
++
++The full zero-padded operators and reduced `V D U` matrices are correct for both rectangular roles, including batched durations. The reduced eigenvalues do not see first-map extra U rows or second-map extra V columns at fixed D. Collector labels correctly limit the reduced matrix to probe-mean clocks and distinguish it from the complete input Jacobian. Spectral calculations ultimately use CPU NumPy; no MPS float64 spectral operation is required.
++
++New layers stay outside legacy `ode_layers`. Consequently, legacy `anchored_jacobian` is equal to native for this family and is not a gate-derivative ablation. The protocol states this explicitly; native whole-network field/Jacobian evaluation remains valid.
++
++## Independent checks
++
++`/Users/mr.z/ode-workspace-prep/.venv-test/bin/python -m unittest tests.test_augmented_state -v` passed all **7 tests in0.164s**. They cover independently derived input/factor/controller derivatives, the complete SiLU chain, native RNG/backbone pairing, executed dense operations, SVD truncation and balancing, masked versus live parameter responses, dead-branch counterexamples, padded-generator identities, actual statistics and invalid settings.
++
++Executed `F.linear` counting agrees with the runner, rather than merely checking a repeated formula. Product16 totals are:
++
++| Arm | Parameters | Dense MACs |
++|---|---:|---:|
++| Dense parent / unexpanded factor32 |83,664|81,984|
++| Unexpanded narrow21 |66,702|65,088|
++| Expanded21 |83,022|81,216|
++
++The tests also cover2D totals. These are operation counts, not latency claims.
++
++A separate full-width MPS float32 check used8 random16D inputs and an explicit nonzero head. Forward values and every parameter gradient were finite; all6 collector records serialized without nonfinite values. Extra V2 gradient norms across the three blocks were `.00205421937`, `.00180524553`, `.00146212592`. There were **zero optimizer steps**. All6 implementation/test file hashes below matched before and after this check; it is not a training run or speed benchmark.
++
++## Configuration and decision scope
++
++Both task plans contain the same six arms, seed0,5000 updates and two CPU workers; the queue covers12+6 cells. Independently verified all18 backbone-reference entries against their3 distinct checkpoint hashes. Low-rank arms use explicit dimensions and the declared initializer; data/target/head/optimizer changes are absent. The runner inherits the existing bank-pair trainer settings.
++
++The same-budget factor32 control is present. The narrow control is correctly treated as cheaper rather than a same-cost augmentation comparison. Protocol decisions separately credit an augmentation lead, a factorized lead or a cheaper quality-preserving narrow lead. Historical SwiGLU96/GLU128 stay in the generic frontier without becoming new cells or repetitions; their outcome provenance must be pinned and verified by preflight/analysis, separately from the backbone-reference hashes. Larger SwiGLU models are context only.
++
++A lead still requires separately registered controls, matched cheaper SwiGLU84 where applicable, isolated timing, fresh evaluation and transfer. Failure closes this allocation without a rank, width, initializer, clock or order rescue. The implementation differs from legacy `src/ffn_blocks.py:549` LowRankStateODEFFN, which has learned input/output projections, a diagonal-plus-low-rank generator and an extra output gate. Neither family name establishes novelty.
++
++## Stable reviewed inputs
++
++| File | SHA256 |
++|---|---|
++| `synthetic/augmented.py` | `0d7cfa085e096518ddff9e035b15402fd022fe1ba06643b00b131ea07c3008ee` |
++| `synthetic/models.py` | `85c3dabd318ad30eecd8d89c5513d0c1d31b690fc20fd89cde6fd5f2962e44aa` |
++| `synthetic/diagnostics.py` | `58c9d56d57c0b4435143b74c40841514b998aad19fa7496c3ce0aa0a5efc1561` |
++| `synthetic/train.py` | `3657e26c610340d69a723c08a18d64317b5bf4f16aedb281e84c770c4e47aa06` |
++| `scripts/run_architecture_study.py` | `cf347594c54e34721007297b3013469fb8e518a80401bd46438cc0c9cefbcd09` |
++| `tests/test_augmented_state.py` | `671d442eaced8052c8787f61a7d3e5565713e6efc8bfaaa262e5e5c1b4da6b6d` |
++| `protocol-augmented-state.md` | `852ad5cc013e45dffda978760eb153af0c0ed6cf2cbf059d2fd63f2ca7ff15a1` |
++| `augmented-state-design-review.md` | `6e3e8a9029096564d1f6b9b2f801b6e863c01486c45be2a5fde2c949c2f814eb` |
++| `augmented-state-prior-review.md` | `ba8a6e4bfa7a6aa70e60d58ad02653029aa8af80f6c2c07ab79ee8388eef0eb4` |
++| `augmented_state_v1_20261025_m1.json` | `311bf87b3e27f5b30b0c934096f45380c28baa264ebbfbf4f505c6eedb9776ae` |
++| `augmented_state_product16_20261025_m1.json` | `7684cd0f3e00406882caa31f24f6a0f43f69048e25eb37aa71654e5b49ffdffc` |
++| `augmented_state_queue_20261025_m1.json` | `cdd23e0da67da2d5c2058aced4727789e26ae60b224437b6b376885526cc2775` |
++
++Protocol/review paths are under `docs/research-architecture-search`; plans are under `configs/synthetic/architecture_search`. This review edits only this new review file. Source, protocol, plans, tests and frozen evidence were not modified by the reviewer.

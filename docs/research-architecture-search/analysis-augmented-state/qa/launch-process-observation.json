@@ -1,0 +1,61 @@
+{
+  "observed_at": "2026-10-24T19:23:35.002465+00:00",
+  "processes": [
+    {
+      "ppid": 20543,
+      "create_time": 1792869813.731476,
+      "name": "Python",
+      "pid": 64832,
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/configs/synthetic/architecture_search/augmented_state_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_queue_20261025_m1"
+      ],
+      "is_running": true,
+      "status": "sleeping"
+    },
+    {
+      "ppid": 64832,
+      "create_time": 1792869813.759693,
+      "name": "caffeinate",
+      "pid": 64840,
+      "cmdline": [
+        "caffeinate",
+        "-i",
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/configs/synthetic/architecture_search/augmented_state_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_queue_20261025_m1"
+      ],
+      "is_running": true,
+      "status": "running"
+    },
+    {
+      "ppid": 64832,
+      "create_time": 1792869814.375339,
+      "name": "Python",
+      "pid": 64841,
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source/configs/synthetic/architecture_search/augmented_state_v1_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1"
+      ],
+      "is_running": true,
+      "status": "running"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T05:25:51.366644+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 10,
+    "total": 10,
+    "active": []
+  },
+  "arrays_checked": 50,
+  "checkpoints_checked": 60,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "scalar_k1",
+      "model": "ode_original",
+      "step": 5000,
+      "validation_oracle_mse": 0.0038017722368240358,
+      "validation_sw2": 0.08493713289499283,
+      "field_mse": 0.0032827290679995624,
+      "jacobian_error": 0.017447084777715956,
+      "wall_seconds": 43.84399999999732,
+      "parameters": 82056,
+      "forward_macs": 80576,
+      "audited_validation_oracle_mse": 0.0038017702102661134
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "scalar_identity",
+      "model": "ode_original",
+      "step": 5000,
+      "validation_oracle_mse": 0.00395395519733429,
+      "validation_sw2": 0.08068521320819855,
+      "field_mse": 0.003402607558863413,
+      "jacobian_error": 0.014713725985531756,
+      "wall_seconds": 43.03100000000268,
+      "parameters": 82056,
+      "forward_macs": 80576,
+      "audited_validation_oracle_mse": 0.0039539532661437985
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.0037766563177108765,
+      "validation_sw2": 0.08459556847810745,
+      "field_mse": 0.0033026817011498856,
+      "jacobian_error": 0.016496402367007963,
+      "wall_seconds": 45.17199999999866,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.0037766544342041014
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_identity",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.003757270336151123,
+      "validation_sw2": 0.08550522476434708,
+      "field_mse": 0.003263510808509975,
+      "jacobian_error": 0.01231021321910715,
+      "wall_seconds": 44.64100000000326,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.003757269048690796
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.003927979969978333,
+      "validation_sw2": 0.07621428370475769,
+      "field_mse": 0.0034529762914109106,
+      "jacobian_error": 0.023583350827866945,
+      "wall_seconds": 34.5,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.003927981114387512
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "scalar_k1",
+      "model": "ode_original",
+      "step": 5000,
+      "validation_oracle_mse": 0.02245710334777832,
+      "validation_sw2": 0.2653999924659729,
+      "field_mse": 0.020803809586302062,
+      "jacobian_error": 0.9183529409505511,
+      "wall_seconds": 42.10899999999674,
+      "parameters": 82056,
+      "forward_macs": 80576,
+      "audited_validation_oracle_mse": 0.022457110595703125
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "scalar_identity",
+      "model": "ode_original",
+      "step": 5000,
+      "validation_oracle_mse": 0.03284582672119141,
+      "validation_sw2": 0.26624417304992676,
+      "field_mse": 0.031194287674086184,
+      "jacobian_error": 1.506359297399521,
+      "wall_seconds": 41.06199999999808,
+      "parameters": 82056,
+      "forward_macs": 80576,
+      "audited_validation_oracle_mse": 0.03284583969116211
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.019437553787231446,
+      "validation_sw2": 0.24277861416339874,
+      "field_mse": 0.017143430352655767,
+      "jacobian_error": 0.9153161976292582,
+      "wall_seconds": 41.79699999999866,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.019437557792663575
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_identity",
+      "model": "ode_vector",
+      "step": 5000,
+      "validation_oracle_mse": 0.03443118553161621,
+      "validation_sw2": 0.2593594491481781,
+      "field_mse": 0.03758183331557552,
+      "jacobian_error": 1.5697108309673133,
+      "wall_seconds": 40.45300000000134,
+      "parameters": 81858,
+      "forward_macs": 80192,
+      "audited_validation_oracle_mse": 0.034431182861328125
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 5000,
+      "validation_oracle_mse": 0.016220698165893555,
+      "validation_sw2": 0.23958292603492737,
+      "field_mse": 0.013890559571362593,
+      "jacobian_error": 0.5710265912657431,
+      "wall_seconds": 33.375,
+      "parameters": 81792,
+      "forward_macs": 80000,
+      "audited_validation_oracle_mse": 0.016220698642730715
+    }
+  ],
+  "plan": {
+    "experiment_id": "composition_20261024",
+    "protocol": "docs/research-architecture-search/protocol-composition.md",
+    "seed": 0,
+    "steps": 5000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "gaussian_aniso_2d",
+      "gmm_ring8_2d"
+    ],
+    "arms": [
+      {
+        "label": "scalar_k1",
+        "model": "ode_original",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 64
+        }
+      },
+      {
+        "label": "scalar_identity",
+        "model": "ode_original",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 64,
+          "ode_middle_activation": "identity"
+        }
+      },
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "vector_identity",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64,
+          "ode_middle_activation": "identity"
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

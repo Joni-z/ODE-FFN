@@ -1,0 +1,113 @@
+{
+  "state": "COMPLETE",
+  "rows": [
+    {
+      "time": 0.1,
+      "points": 128,
+      "target_atoms": 100000,
+      "population_to_empirical_field_mse": 3.3701901149142864e-05,
+      "population_to_empirical_jacobian_error": 0.00039362678514943007,
+      "empirical_posterior_ess_quantiles": [
+        39617.59342999632,
+        56897.70781677902,
+        66199.76351294617,
+        71328.02885886062,
+        86755.15874416979
+      ],
+      "median_largest_posterior_weight": 7.204477381355314e-05,
+      "population_noise_trace_mean": 46.73204629517228,
+      "empirical_noise_trace_mean": 46.72611347414173,
+      "empirical_noise_eigen_min": 0.7056868755698402
+    },
+    {
+      "time": 0.3,
+      "points": 128,
+      "target_atoms": 100000,
+      "population_to_empirical_field_mse": 0.0010350262678912665,
+      "population_to_empirical_jacobian_error": 0.09280375650108469,
+      "empirical_posterior_ess_quantiles": [
+        472.38955809863654,
+        1245.6092110117406,
+        2179.0435422306155,
+        3992.847262348316,
+        15727.864316237014
+      ],
+      "median_largest_posterior_weight": 0.003876403595100765,
+      "population_noise_trace_mean": 48.16250484985824,
+      "empirical_noise_trace_mean": 48.14991039772774,
+      "empirical_noise_eigen_min": 0.1009820687622036
+    },
+    {
+      "time": 0.5,
+      "points": 128,
+      "target_atoms": 100000,
+      "population_to_empirical_field_mse": 0.05829924669316768,
+      "population_to_empirical_jacobian_error": 13.118368970606095,
+      "empirical_posterior_ess_quantiles": [
+        2.9361963991066267,
+        12.41294561979338,
+        22.085583567756032,
+        35.50633279967702,
+        150.4930870025071
+      ],
+      "median_largest_posterior_weight": 0.13240158766839438,
+      "population_noise_trace_mean": 24.935085956953507,
+      "empirical_noise_trace_mean": 25.178028097104914,
+      "empirical_noise_eigen_min": 0.013781353794033
+    },
+    {
+      "time": 0.7,
+      "points": 128,
+      "target_atoms": 100000,
+      "population_to_empirical_field_mse": 0.6027377908856462,
+      "population_to_empirical_jacobian_error": 324.23159822427806,
+      "empirical_posterior_ess_quantiles": [
+        1.0002723664935234,
+        1.1925336337023889,
+        1.5585656375958783,
+        2.3227481740057483,
+        5.916548515591313
+      ],
+      "median_largest_posterior_weight": 0.7851100339306297,
+      "population_noise_trace_mean": 9.379359454570878,
+      "empirical_noise_trace_mean": 8.006164592838932,
+      "empirical_noise_eigen_min": 2.348252835852774e-10
+    },
+    {
+      "time": 0.9,
+      "points": 128,
+      "target_atoms": 100000,
+      "population_to_empirical_field_mse": 8.262924205406259,
+      "population_to_empirical_jacobian_error": 31008.72459326064,
+      "empirical_posterior_ess_quantiles": [
+        1.0,
+        1.0,
+        1.0000000103493387,
+        1.0002464614211557,
+        2.252374967180013
+      ],
+      "median_largest_posterior_weight": 0.9999999948253308,
+      "population_noise_trace_mean": 15.094997359362338,
+      "empirical_noise_trace_mean": 4.444575630271593,
+      "empirical_noise_eigen_min": -8.997198992152986e-13
+    }
+  ],
+  "source_sha256": "0285d52899373d42b5f95593fdaee03025bbbafff1a1f61d52b586e74292c1a8",
+  "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+  "target_sha256": "0b147bf2600cdbd2273da45b4f93e73811c228e7040f873508c92effd24eb2d7",
+  "input_arrays_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/product16_20261024/output/diagnostics/rotated_product_bimodal_16d/scalar_k1/common-0.1.npz": "651d1b3e5e199145a59b9b5a681575d7e6c42b09af5db2ef09c4aa6c82e2760a",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/product16_20261024/output/diagnostics/rotated_product_bimodal_16d/scalar_k1/common-0.3.npz": "5c8611c15787ca01e5267a138eb44264f820c84a41e2e03f7ee8c2b13a871dd9",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/product16_20261024/output/diagnostics/rotated_product_bimodal_16d/scalar_k1/common-0.5.npz": "420cb27b429c280525a6effa6dfd4ebb7f94ef73376b40fb9dbc4c310b022283",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/product16_20261024/output/diagnostics/rotated_product_bimodal_16d/scalar_k1/common-0.7.npz": "f138a29a079934600b6b13459d9242951a40aa5e26dd3f0246018d1c707f73d5",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/product16_20261024/output/diagnostics/rotated_product_bimodal_16d/scalar_k1/common-0.9.npz": "8a972798fcfdd876c81b5d5afc317fc46d8e8569e05b4f5efe62807fdfefb6db"
+  },
+  "files_sha256": {
+    "common-0.1.npz": "cc627def2bdd6eda49965f3fbcb423398782ddebc1c14d5f9005f188567c8dc1",
+    "common-0.3.npz": "0ab8acefdad9fc472447f5fcc210b321cd1368baa82101a8b9976088f593679a",
+    "common-0.5.npz": "1240b0214abcfd01c7b82f92618dc041fb0d2cbc66e6fecb20c8270f3622aecc",
+    "common-0.7.npz": "d196a74c38ec24b3bfc962a5beb10829361150149a5340eafa40939eb0c596be",
+    "common-0.9.npz": "992174d357d58ffa50af3f022c508f7964d03ad7d63042a105137736dcb3b6c3"
+  },
+  "interpretation": "Exact uniform empirical-target posterior versus known population on exposed validation anchors. Descriptive comparison; neither neural capacity nor optimization causation is identified."
+}

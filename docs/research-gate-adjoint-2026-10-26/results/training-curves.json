@@ -1,0 +1,638 @@
+[
+  {
+    "arm": "ode_k2_gradient",
+    "step": 0,
+    "oracle_mse": 1.690705418586731,
+    "pair_mse": 3.4779655933380127,
+    "prediction_rms": 0.0
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 500,
+    "train_loss": 2.7200596342086794,
+    "grad_norm": 0.5361279913783074,
+    "clip_fraction": 0.01,
+    "wall_seconds": 6.402821624884382,
+    "time": "2026-10-25T21:26:31.163039+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 1000,
+    "train_loss": 2.3341347284317018,
+    "grad_norm": 0.4641040191054344,
+    "clip_fraction": 0.0,
+    "wall_seconds": 12.797957540955395,
+    "time": "2026-10-25T21:26:37.558069+00:00",
+    "oracle_mse": 0.45034071803092957,
+    "pair_mse": 2.240018367767334,
+    "prediction_rms": 1.1008672714233398
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 1500,
+    "train_loss": 2.1886126670837402,
+    "grad_norm": 0.565541121840477,
+    "clip_fraction": 0.0,
+    "wall_seconds": 19.39699029084295,
+    "time": "2026-10-25T21:26:44.156994+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 2000,
+    "train_loss": 2.1012446620464327,
+    "grad_norm": 0.6114198845624924,
+    "clip_fraction": 0.0,
+    "wall_seconds": 25.84088775003329,
+    "time": "2026-10-25T21:26:50.600789+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 2500,
+    "train_loss": 1.978383047580719,
+    "grad_norm": 0.7833184673786163,
+    "clip_fraction": 0.044,
+    "wall_seconds": 32.289675540989265,
+    "time": "2026-10-25T21:26:57.049472+00:00",
+    "oracle_mse": 0.13245902955532074,
+    "pair_mse": 1.919461727142334,
+    "prediction_rms": 1.235667109489441
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 3000,
+    "train_loss": 1.8918135371208191,
+    "grad_norm": 0.8893865388631821,
+    "clip_fraction": 0.12,
+    "wall_seconds": 38.90852616587654,
+    "time": "2026-10-25T21:27:03.668220+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 3500,
+    "train_loss": 1.8568638234138488,
+    "grad_norm": 0.8803118648529052,
+    "clip_fraction": 0.12,
+    "wall_seconds": 45.36837545805611,
+    "time": "2026-10-25T21:27:10.127962+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 4000,
+    "train_loss": 1.8422064867019654,
+    "grad_norm": 0.8660385866165161,
+    "clip_fraction": 0.098,
+    "wall_seconds": 51.82193979085423,
+    "time": "2026-10-25T21:27:16.581423+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 4500,
+    "train_loss": 1.8355113499164581,
+    "grad_norm": 0.8575575283765793,
+    "clip_fraction": 0.078,
+    "wall_seconds": 58.17003716598265,
+    "time": "2026-10-25T21:27:22.929418+00:00"
+  },
+  {
+    "arm": "ode_k2_gradient",
+    "step": 5000,
+    "train_loss": 1.8281150600910188,
+    "grad_norm": 0.8653356049060822,
+    "clip_fraction": 0.084,
+    "wall_seconds": 64.62555133295245,
+    "time": "2026-10-25T21:27:29.384829+00:00",
+    "oracle_mse": 0.037320394068956375,
+    "pair_mse": 1.824466586112976,
+    "prediction_rms": 1.297721028327942
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 0,
+    "oracle_mse": 1.690705418586731,
+    "pair_mse": 3.4779655933380127,
+    "prediction_rms": 0.0
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 500,
+    "train_loss": 2.723336161613464,
+    "grad_norm": 0.5417532027363777,
+    "clip_fraction": 0.014,
+    "wall_seconds": 5.0873216250911355,
+    "time": "2026-10-25T21:26:29.824840+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 1000,
+    "train_loss": 2.34924604845047,
+    "grad_norm": 0.45939141005277634,
+    "clip_fraction": 0.0,
+    "wall_seconds": 10.159076791023836,
+    "time": "2026-10-25T21:26:34.896513+00:00",
+    "oracle_mse": 0.4758656322956085,
+    "pair_mse": 2.2672970294952393,
+    "prediction_rms": 1.0884534120559692
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 1500,
+    "train_loss": 2.200278329849243,
+    "grad_norm": 0.5931453757882118,
+    "clip_fraction": 0.0,
+    "wall_seconds": 15.336356082931161,
+    "time": "2026-10-25T21:26:40.073713+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 2000,
+    "train_loss": 2.136548420906067,
+    "grad_norm": 0.6290394201278686,
+    "clip_fraction": 0.0,
+    "wall_seconds": 20.44013979099691,
+    "time": "2026-10-25T21:26:45.177410+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 2500,
+    "train_loss": 2.060100672721863,
+    "grad_norm": 0.7254229531288147,
+    "clip_fraction": 0.0,
+    "wall_seconds": 25.53512116614729,
+    "time": "2026-10-25T21:26:50.272309+00:00",
+    "oracle_mse": 0.23048193752765656,
+    "pair_mse": 2.0179924964904785,
+    "prediction_rms": 1.1991575956344604
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 3000,
+    "train_loss": 1.9891880354881286,
+    "grad_norm": 0.8703503438234329,
+    "clip_fraction": 0.08,
+    "wall_seconds": 30.73805462499149,
+    "time": "2026-10-25T21:26:55.475160+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 3500,
+    "train_loss": 1.9595855593681335,
+    "grad_norm": 0.9345507193803787,
+    "clip_fraction": 0.234,
+    "wall_seconds": 35.76816679094918,
+    "time": "2026-10-25T21:27:00.505191+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 4000,
+    "train_loss": 1.941221061706543,
+    "grad_norm": 0.9586205461025238,
+    "clip_fraction": 0.322,
+    "wall_seconds": 40.80653833295219,
+    "time": "2026-10-25T21:27:05.543481+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 4500,
+    "train_loss": 1.9230690968036652,
+    "grad_norm": 0.9938429360389709,
+    "clip_fraction": 0.438,
+    "wall_seconds": 45.90381466597319,
+    "time": "2026-10-25T21:27:10.640678+00:00"
+  },
+  {
+    "arm": "ode_k2_gate_omitted",
+    "step": 5000,
+    "train_loss": 1.8784710257053374,
+    "grad_norm": 1.0923940110206605,
+    "clip_fraction": 0.828,
+    "wall_seconds": 50.96241145813838,
+    "time": "2026-10-25T21:27:15.699192+00:00",
+    "oracle_mse": 0.06438260525465012,
+    "pair_mse": 1.8516656160354614,
+    "prediction_rms": 1.2780330181121826
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 0,
+    "oracle_mse": 1.690705418586731,
+    "pair_mse": 3.4779655933380127,
+    "prediction_rms": 0.0
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 500,
+    "train_loss": 2.5319829907417297,
+    "grad_norm": 0.6891920360326766,
+    "clip_fraction": 0.03,
+    "wall_seconds": 4.317157708108425,
+    "time": "2026-10-25T21:27:23.275474+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 1000,
+    "train_loss": 2.1327623331546786,
+    "grad_norm": 0.6595311636924743,
+    "clip_fraction": 0.0,
+    "wall_seconds": 8.62665820796974,
+    "time": "2026-10-25T21:27:27.584903+00:00",
+    "oracle_mse": 0.3032100200653076,
+    "pair_mse": 2.090745449066162,
+    "prediction_rms": 1.1652804613113403
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 1500,
+    "train_loss": 2.0687769808769225,
+    "grad_norm": 0.6649377440214157,
+    "clip_fraction": 0.0,
+    "wall_seconds": 12.888237916165963,
+    "time": "2026-10-25T21:27:31.846417+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 2000,
+    "train_loss": 2.009096286535263,
+    "grad_norm": 0.6819713094234466,
+    "clip_fraction": 0.0,
+    "wall_seconds": 17.0612832501065,
+    "time": "2026-10-25T21:27:36.019394+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 2500,
+    "train_loss": 1.9503912754058839,
+    "grad_norm": 0.7169645702838898,
+    "clip_fraction": 0.0,
+    "wall_seconds": 21.322035582968965,
+    "time": "2026-10-25T21:27:40.280077+00:00",
+    "oracle_mse": 0.13511508703231812,
+    "pair_mse": 1.921849250793457,
+    "prediction_rms": 1.264251947402954
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 3000,
+    "train_loss": 1.9133142235279084,
+    "grad_norm": 0.7304087390899658,
+    "clip_fraction": 0.0,
+    "wall_seconds": 25.6892144579906,
+    "time": "2026-10-25T21:27:44.647185+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 3500,
+    "train_loss": 1.8854653375148773,
+    "grad_norm": 0.7406997743844986,
+    "clip_fraction": 0.0,
+    "wall_seconds": 29.950123250018805,
+    "time": "2026-10-25T21:27:48.908029+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 4000,
+    "train_loss": 1.8597041354179382,
+    "grad_norm": 0.7616418714523315,
+    "clip_fraction": 0.0,
+    "wall_seconds": 34.20530112506822,
+    "time": "2026-10-25T21:27:53.163135+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 4500,
+    "train_loss": 1.8441888086795808,
+    "grad_norm": 0.7715845074653626,
+    "clip_fraction": 0.0,
+    "wall_seconds": 38.43939333315939,
+    "time": "2026-10-25T21:27:57.397163+00:00"
+  },
+  {
+    "arm": "swiglu128_gradient",
+    "step": 5000,
+    "train_loss": 1.8319723448753358,
+    "grad_norm": 0.7726672441959381,
+    "clip_fraction": 0.0,
+    "wall_seconds": 42.662132708122954,
+    "time": "2026-10-25T21:28:01.619831+00:00",
+    "oracle_mse": 0.0427703782916069,
+    "pair_mse": 1.8294271230697632,
+    "prediction_rms": 1.2904877662658691
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 0,
+    "oracle_mse": 1.690705418586731,
+    "pair_mse": 3.4779655933380127,
+    "prediction_rms": 0.0
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 500,
+    "train_loss": 2.5856924324035644,
+    "grad_norm": 0.6183921954631806,
+    "clip_fraction": 0.0,
+    "wall_seconds": 3.773207375081256,
+    "time": "2026-10-25T21:27:36.543440+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 1000,
+    "train_loss": 2.1799241280555726,
+    "grad_norm": 0.7161483263969421,
+    "clip_fraction": 0.0,
+    "wall_seconds": 7.525949124945328,
+    "time": "2026-10-25T21:27:40.296116+00:00",
+    "oracle_mse": 0.3373546004295349,
+    "pair_mse": 2.125709295272827,
+    "prediction_rms": 1.1689186096191406
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 1500,
+    "train_loss": 2.0910777823925017,
+    "grad_norm": 0.763265419960022,
+    "clip_fraction": 0.006,
+    "wall_seconds": 11.437233000062406,
+    "time": "2026-10-25T21:27:44.207337+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 2000,
+    "train_loss": 2.0521306385993956,
+    "grad_norm": 0.7569642528295517,
+    "clip_fraction": 0.004,
+    "wall_seconds": 15.239200124982744,
+    "time": "2026-10-25T21:27:48.009243+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 2500,
+    "train_loss": 2.0315390043258668,
+    "grad_norm": 0.7596563096046448,
+    "clip_fraction": 0.002,
+    "wall_seconds": 19.008107332978398,
+    "time": "2026-10-25T21:27:51.778091+00:00",
+    "oracle_mse": 0.2372525930404663,
+    "pair_mse": 2.0250792503356934,
+    "prediction_rms": 1.2212961912155151
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 3000,
+    "train_loss": 2.0213854625225065,
+    "grad_norm": 0.7369912166595459,
+    "clip_fraction": 0.0,
+    "wall_seconds": 22.92159383301623,
+    "time": "2026-10-25T21:27:55.691514+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 3500,
+    "train_loss": 2.013838557958603,
+    "grad_norm": 0.7278587547540665,
+    "clip_fraction": 0.0,
+    "wall_seconds": 26.747449916088954,
+    "time": "2026-10-25T21:27:59.517308+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 4000,
+    "train_loss": 1.9977857706546784,
+    "grad_norm": 0.7365440095663071,
+    "clip_fraction": 0.0,
+    "wall_seconds": 30.552624332951382,
+    "time": "2026-10-25T21:28:03.322423+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 4500,
+    "train_loss": 1.9811426405906678,
+    "grad_norm": 0.7351046249866485,
+    "clip_fraction": 0.0,
+    "wall_seconds": 34.27053333306685,
+    "time": "2026-10-25T21:28:07.040270+00:00"
+  },
+  {
+    "arm": "swiglu128_gate_omitted",
+    "step": 5000,
+    "train_loss": 1.9646218311786652,
+    "grad_norm": 0.7281575499773025,
+    "clip_fraction": 0.0,
+    "wall_seconds": 38.12643454107456,
+    "time": "2026-10-25T21:28:10.896117+00:00",
+    "oracle_mse": 0.17588883638381958,
+    "pair_mse": 1.963768720626831,
+    "prediction_rms": 1.2192326784133911
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 0,
+    "oracle_mse": 1.690705418586731,
+    "pair_mse": 3.4779655933380127,
+    "prediction_rms": 0.0
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 500,
+    "train_loss": 2.5096802835464476,
+    "grad_norm": 0.6817351090312004,
+    "clip_fraction": 0.032,
+    "wall_seconds": 4.708785332972184,
+    "time": "2026-10-25T21:28:09.460142+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 1000,
+    "train_loss": 2.097146360874176,
+    "grad_norm": 0.6579860470294953,
+    "clip_fraction": 0.0,
+    "wall_seconds": 9.32611154182814,
+    "time": "2026-10-25T21:28:14.077424+00:00",
+    "oracle_mse": 0.2608051598072052,
+    "pair_mse": 2.0483438968658447,
+    "prediction_rms": 1.1757028102874756
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 1500,
+    "train_loss": 2.0150652990341187,
+    "grad_norm": 0.6829133913516998,
+    "clip_fraction": 0.0,
+    "wall_seconds": 14.302335332846269,
+    "time": "2026-10-25T21:28:19.053559+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 2000,
+    "train_loss": 1.9547468266487122,
+    "grad_norm": 0.7004209485054016,
+    "clip_fraction": 0.0,
+    "wall_seconds": 19.15634745778516,
+    "time": "2026-10-25T21:28:23.907501+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 2500,
+    "train_loss": 1.8936862931251526,
+    "grad_norm": 0.7168880457878113,
+    "clip_fraction": 0.0,
+    "wall_seconds": 23.931316499831155,
+    "time": "2026-10-25T21:28:28.682399+00:00",
+    "oracle_mse": 0.08018551021814346,
+    "pair_mse": 1.8663780689239502,
+    "prediction_rms": 1.2725821733474731
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 3000,
+    "train_loss": 1.8617158710956574,
+    "grad_norm": 0.7121693996191025,
+    "clip_fraction": 0.0,
+    "wall_seconds": 28.868261374998838,
+    "time": "2026-10-25T21:28:33.619272+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 3500,
+    "train_loss": 1.847227046251297,
+    "grad_norm": 0.7043172487020493,
+    "clip_fraction": 0.0,
+    "wall_seconds": 33.68723116698675,
+    "time": "2026-10-25T21:28:38.438164+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 4000,
+    "train_loss": 1.835759423494339,
+    "grad_norm": 0.6995892488956451,
+    "clip_fraction": 0.0,
+    "wall_seconds": 38.508281249785796,
+    "time": "2026-10-25T21:28:43.259140+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 4500,
+    "train_loss": 1.8300114066600799,
+    "grad_norm": 0.6932569133043289,
+    "clip_fraction": 0.0,
+    "wall_seconds": 43.34458699985407,
+    "time": "2026-10-25T21:28:48.095370+00:00"
+  },
+  {
+    "arm": "swiglu192_gradient",
+    "step": 5000,
+    "train_loss": 1.822773057937622,
+    "grad_norm": 0.6863633724451065,
+    "clip_fraction": 0.0,
+    "wall_seconds": 48.17369787488133,
+    "time": "2026-10-25T21:28:52.924404+00:00",
+    "oracle_mse": 0.03382549434900284,
+    "pair_mse": 1.819886326789856,
+    "prediction_rms": 1.2971938848495483
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 0,
+    "oracle_mse": 1.690705418586731,
+    "pair_mse": 3.4779655933380127,
+    "prediction_rms": 0.0
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 500,
+    "train_loss": 2.559364869594574,
+    "grad_norm": 0.6672772629857063,
+    "clip_fraction": 0.02,
+    "wall_seconds": 4.169835499953479,
+    "time": "2026-10-25T21:28:17.933552+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 1000,
+    "train_loss": 2.147322581768036,
+    "grad_norm": 0.7406659157276153,
+    "clip_fraction": 0.0,
+    "wall_seconds": 8.21927775000222,
+    "time": "2026-10-25T21:28:21.982943+00:00",
+    "oracle_mse": 0.3060625195503235,
+    "pair_mse": 2.0947704315185547,
+    "prediction_rms": 1.1729871034622192
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 1500,
+    "train_loss": 2.0777161622047426,
+    "grad_norm": 0.7350512282848358,
+    "clip_fraction": 0.002,
+    "wall_seconds": 12.34639724995941,
+    "time": "2026-10-25T21:28:26.109994+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 2000,
+    "train_loss": 2.054610190629959,
+    "grad_norm": 0.734591312289238,
+    "clip_fraction": 0.0,
+    "wall_seconds": 16.48532604193315,
+    "time": "2026-10-25T21:28:30.248857+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 2500,
+    "train_loss": 2.027440579652786,
+    "grad_norm": 0.7306769108772277,
+    "clip_fraction": 0.002,
+    "wall_seconds": 20.604373625013977,
+    "time": "2026-10-25T21:28:34.367842+00:00",
+    "oracle_mse": 0.22873230278491974,
+    "pair_mse": 2.016432523727417,
+    "prediction_rms": 1.2256158590316772
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 3000,
+    "train_loss": 2.004128300189972,
+    "grad_norm": 0.729334529876709,
+    "clip_fraction": 0.0,
+    "wall_seconds": 24.889705250039697,
+    "time": "2026-10-25T21:28:38.653107+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 3500,
+    "train_loss": 1.9687317514419556,
+    "grad_norm": 0.7532276136875152,
+    "clip_fraction": 0.0,
+    "wall_seconds": 29.06245412514545,
+    "time": "2026-10-25T21:28:42.825791+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 4000,
+    "train_loss": 1.9357373037338257,
+    "grad_norm": 0.7725952738523483,
+    "clip_fraction": 0.0,
+    "wall_seconds": 33.07786066713743,
+    "time": "2026-10-25T21:28:46.841135+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 4500,
+    "train_loss": 1.9111001267433168,
+    "grad_norm": 0.786788226723671,
+    "clip_fraction": 0.002,
+    "wall_seconds": 37.25592229212634,
+    "time": "2026-10-25T21:28:51.019130+00:00"
+  },
+  {
+    "arm": "swiglu192_gate_omitted",
+    "step": 5000,
+    "train_loss": 1.8820546905994415,
+    "grad_norm": 0.8041558519601822,
+    "clip_fraction": 0.002,
+    "wall_seconds": 41.35935987508856,
+    "time": "2026-10-25T21:28:55.122511+00:00",
+    "oracle_mse": 0.08834824711084366,
+    "pair_mse": 1.8751773834228516,
+    "prediction_rms": 1.2492761611938477
+  }
+]

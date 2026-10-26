@@ -1,0 +1,80 @@
+[
+  {
+    "dataset": "gmm_ring8_2d",
+    "label": "vector_pair",
+    "model": "ode_vector",
+    "step": 5000,
+    "validation_oracle_mse": 0.023262986755371095,
+    "validation_sw2": 0.253756582736969,
+    "field_mse": 0.019965260954243582,
+    "jacobian_error": 0.8775458948473448,
+    "wall_seconds": 49.46899999999732,
+    "parameters": 81858,
+    "forward_macs": 80192
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "label": "vector_mean",
+    "model": "ode_vector",
+    "step": 5000,
+    "validation_oracle_mse": 0.002248668301105499,
+    "validation_sw2": 0.24928398430347443,
+    "field_mse": 0.002166993206467535,
+    "jacobian_error": 0.11588381786572341,
+    "wall_seconds": 51.36000000000058,
+    "parameters": 81858,
+    "forward_macs": 80192
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "label": "swiglu_budget_pair",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.01653751640319824,
+    "validation_sw2": 0.26145434379577637,
+    "field_mse": 0.010903770492630731,
+    "jacobian_error": 0.5314108451292313,
+    "wall_seconds": 34.140999999995984,
+    "parameters": 69570,
+    "forward_macs": 67904
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "label": "swiglu_budget_mean",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.0009246427834033966,
+    "validation_sw2": 0.25456321239471436,
+    "field_mse": 0.0008568154181980215,
+    "jacobian_error": 0.057391608148755636,
+    "wall_seconds": 36.31300000000192,
+    "parameters": 69570,
+    "forward_macs": 67904
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "label": "swiglu_pair",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.017206257820129394,
+    "validation_sw2": 0.25813227891921997,
+    "field_mse": 0.013550378944109204,
+    "jacobian_error": 0.6170297908263607,
+    "wall_seconds": 37.187000000005355,
+    "parameters": 81792,
+    "forward_macs": 80000
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "label": "swiglu_mean",
+    "model": "swiglu",
+    "step": 5000,
+    "validation_oracle_mse": 0.0012075331926345825,
+    "validation_sw2": 0.2573414444923401,
+    "field_mse": 0.0014386435198135972,
+    "jacobian_error": 0.07461836530272148,
+    "wall_seconds": 39.234000000004016,
+    "parameters": 81792,
+    "forward_macs": 80000
+  }
+]

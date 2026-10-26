@@ -1,0 +1,115 @@
+{
+  "state": "PASS",
+  "status": {
+    "time": "2026-10-24T05:57:46.557746+00:00",
+    "state": "COMPLETE",
+    "phase": "complete",
+    "completed": 4,
+    "total": 4,
+    "active": []
+  },
+  "arrays_checked": 20,
+  "checkpoints_checked": 84,
+  "source_verified": true,
+  "oracles_recomputed": true,
+  "common_inputs_match": true,
+  "rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "scalar_k1",
+      "model": "ode_original",
+      "step": 20000,
+      "validation_oracle_mse": 0.09374762859344482,
+      "validation_sw2": 0.10471345484256744,
+      "field_mse": 0.09053516596409802,
+      "jacobian_error": 23.276044249759217,
+      "wall_seconds": 202.96899999999732,
+      "parameters": 83862,
+      "forward_macs": 82368,
+      "audited_validation_oracle_mse": 0.09374762859344482
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_k1",
+      "model": "ode_vector",
+      "step": 20000,
+      "validation_oracle_mse": 0.06459043922424317,
+      "validation_sw2": 0.10577535629272461,
+      "field_mse": 0.06361120986097961,
+      "jacobian_error": 17.804477444723528,
+      "wall_seconds": 203.43699999999808,
+      "parameters": 83664,
+      "forward_macs": 81984,
+      "audited_validation_oracle_mse": 0.06459043922424317
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "model": "swiglu",
+      "step": 20000,
+      "validation_oracle_mse": 0.017345203113555908,
+      "validation_sw2": 0.0825178474187851,
+      "field_mse": 0.01675771401579146,
+      "jacobian_error": 4.9096788362361234,
+      "wall_seconds": 129.26600000000326,
+      "parameters": 71376,
+      "forward_macs": 69696,
+      "audited_validation_oracle_mse": 0.017345203113555908
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "model": "swiglu",
+      "step": 20000,
+      "validation_oracle_mse": 0.01523389744758606,
+      "validation_sw2": 0.08429170399904251,
+      "field_mse": 0.014254002448143782,
+      "jacobian_error": 4.216497027070927,
+      "wall_seconds": 143.81300000000192,
+      "parameters": 83598,
+      "forward_macs": 81792,
+      "audited_validation_oracle_mse": 0.01523389744758606
+    }
+  ],
+  "plan": {
+    "experiment_id": "product16_20261024",
+    "protocol": "docs/research-architecture-search/protocol-product16.md",
+    "seed": 0,
+    "steps": 20000,
+    "device": "cpu",
+    "workers": 2,
+    "datasets": [
+      "rotated_product_bimodal_16d"
+    ],
+    "arms": [
+      {
+        "label": "scalar_k1",
+        "model": "ode_original",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 64
+        }
+      },
+      {
+        "label": "vector_k1",
+        "model": "ode_vector",
+        "options": {
+          "orders": 1,
+          "gate_hidden": 32,
+          "gate_reference_hidden": 64
+        }
+      },
+      {
+        "label": "swiglu_budget",
+        "model": "swiglu",
+        "options": {
+          "ffn_hidden": 96
+        }
+      },
+      {
+        "label": "swiglu",
+        "model": "swiglu"
+      }
+    ]
+  }
+}

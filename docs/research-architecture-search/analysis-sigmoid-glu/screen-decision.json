@@ -1,0 +1,32 @@
+{
+  "state": "STOP_GENERIC_SETTING",
+  "generic_baseline_lead": false,
+  "architecture_goal_complete": false,
+  "qualifying_nonlinear_leads": [],
+  "all_primary_within_5pct": false,
+  "nonlinear_Jacobian_SW2_within_10pct": false,
+  "details": {
+    "gaussian_aniso_2d": {
+      "ratio_to_better_swiglu": {
+        "validation_oracle_mse": 0.9465128833774812,
+        "jacobian_error": 0.706279068872287,
+        "validation_sw2": 0.9850157183887281
+      }
+    },
+    "gmm_ring8_2d": {
+      "ratio_to_better_swiglu": {
+        "validation_oracle_mse": 1.7748201217719723,
+        "jacobian_error": 2.149089037293094,
+        "validation_sw2": 1.1861615723019212
+      }
+    },
+    "rotated_product_bimodal_16d": {
+      "ratio_to_better_swiglu": {
+        "validation_oracle_mse": 1.7119857013654332,
+        "jacobian_error": 1.4743016365098514,
+        "validation_sw2": 1.1453612045337598
+      }
+    }
+  },
+  "scope": "Known GLU baseline only; no ODE nomination or mechanism claim. Engineering screen on exposed validation. A lead still requires independent evaluation; failure stops this substitution without rescue."
+}

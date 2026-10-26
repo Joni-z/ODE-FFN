@@ -1,0 +1,150 @@
+{
+  "state": "PASS",
+  "source_sha256": "7f5ea509c589df04ce2d9403b9122dd68283f63d947c6277c595d0615c1e4e34",
+  "raw_result_rows": 24,
+  "frontier": {
+    "gaussian_aniso_2d": {
+      "validation_oracle_mse": [
+        0.0037171965837478637,
+        "sigmoid_glu"
+      ],
+      "jacobian_error": [
+        0.018661691737840908,
+        "sigmoid_glu"
+      ],
+      "validation_sw2": [
+        0.06876803934574127,
+        "silu128"
+      ]
+    },
+    "gmm_ring8_2d": {
+      "validation_oracle_mse": [
+        0.015296290397644043,
+        "swiglu"
+      ],
+      "jacobian_error": [
+        0.5087480779630217,
+        "swiglu_budget"
+      ],
+      "validation_sw2": [
+        0.22636014223098755,
+        "swiglu"
+      ]
+    },
+    "rotated_product_bimodal_16d": {
+      "validation_oracle_mse": [
+        0.09232576999664306,
+        "swiglu"
+      ],
+      "jacobian_error": [
+        23.957834779766767,
+        "swiglu"
+      ],
+      "validation_sw2": [
+        0.095721535384655,
+        "swiglu"
+      ]
+    }
+  },
+  "independently_recomputed_decisions": {
+    "lowrank_budget": {
+      "practical_lead": false,
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "qualifying_nonlinear_tasks": [],
+      "at_least_20pct_full_model_cost_savings": false,
+      "ratios": {
+        "gaussian_aniso_2d": {
+          "validation_oracle_mse": 1.1573608388529255,
+          "jacobian_error": 0.9310357213779203,
+          "validation_sw2": 1.1507205394647173
+        },
+        "gmm_ring8_2d": {
+          "validation_oracle_mse": 2.114503660784186,
+          "jacobian_error": 2.5033568337140415,
+          "validation_sw2": 1.1233937287716516
+        },
+        "rotated_product_bimodal_16d": {
+          "validation_oracle_mse": 3.358174111094582,
+          "jacobian_error": 2.3171405894770123,
+          "validation_sw2": 1.2827096607775177
+        }
+      }
+    },
+    "lowrank_narrow": {
+      "practical_lead": false,
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "qualifying_nonlinear_tasks": [],
+      "at_least_20pct_full_model_cost_savings": true,
+      "ratios": {
+        "gaussian_aniso_2d": {
+          "validation_oracle_mse": 1.0799771407350465,
+          "jacobian_error": 0.949956797661316,
+          "validation_sw2": 1.19342473203906
+        },
+        "gmm_ring8_2d": {
+          "validation_oracle_mse": 2.529689713212958,
+          "jacobian_error": 2.5877531735097734,
+          "validation_sw2": 1.101433554529026
+        },
+        "rotated_product_bimodal_16d": {
+          "validation_oracle_mse": 3.754849480480268,
+          "jacobian_error": 2.52072177596628,
+          "validation_sw2": 1.4388753571017987
+        }
+      }
+    },
+    "lowrank_augmented": {
+      "practical_lead": false,
+      "all_primary_within_5pct": false,
+      "nonlinear_Jacobian_SW2_within_10pct": false,
+      "qualifying_nonlinear_tasks": [],
+      "at_least_20pct_full_model_cost_savings": false,
+      "ratios": {
+        "gaussian_aniso_2d": {
+          "validation_oracle_mse": 1.0740043111265258,
+          "jacobian_error": 0.9251869244294822,
+          "validation_sw2": 1.188988709507914
+        },
+        "gmm_ring8_2d": {
+          "validation_oracle_mse": 2.4811528017734914,
+          "jacobian_error": 2.265711126272065,
+          "validation_sw2": 1.1526379304488277
+        },
+        "rotated_product_bimodal_16d": {
+          "validation_oracle_mse": 3.8870913400704463,
+          "jacobian_error": 2.568554245678678,
+          "validation_sw2": 1.4029076568587868
+        }
+      }
+    }
+  },
+  "practical_leads": [],
+  "augmentation_allocation_evidence": false,
+  "source_files": {
+    "augmented_state_20261025_m1": 604,
+    "affine_forcing_20261025_m1": 595,
+    "diagonal_flow_20261024_m1": 561
+  },
+  "analysis_input_bindings_verified": 343,
+  "live_formal_processes": [],
+  "input_sha256": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_queue_20261025_m1/status.json": "c0f4f97c660cfdffc51107eab7bf5e25f35c4cd214b58f17633abfdb3a3e060d",
+    "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-augmented-state/summary.json": "6cbd98d75100b4e99379807b5c02f6276385608c4d0b479e2add1cd324ab9605",
+    "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-augmented-state/comparison.csv": "f4554dce0f2d79bfb2b5eb36501f15ad58ae35e2826984875ca84cb270e87f2e",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/status.json": "317175a366e05ca1b2c95d5e94ec446550c12509dc9f117a0d039c8ad2d74ef0",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_v1_20261025_m1/results.json": "78ec0b06dc26efecf2b4d7a2cefcb3ef5e6baae52c6f9113c3d454918acfd7cc",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1/results.json": "99ce2e3edc2d8dd9894465914a13dc939ae668ea25453c6245289f8556b1771c",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_product16_20261025_m1/status.json": "d67622bb1feb2d9f30374451e6a3d4b2eb4abd706050d727051ce6ad4dcb1cc3",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/output/augmented_state_product16_20261025_m1/results.json": "ba20e9de69af0509843a157ae96c038e12a59ae2f20b0406deefde9c0afe039a",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_product16_20261025_m1/results.json": "86764fc776b37c22578e6536d29a85fe7a42c2cf2d6326559dceecf60a5138f7",
+    "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-augmented-state/screen-decision.json": "cd5df7ef2acad981a379642d973840d779da4d57a992f81ea0fdc68dbc87f510",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/augmented_state_20261025_m1/source-manifest.json": "8f1956eadd076c8c9ebbc7723889389e74b628cd74082f15db84caf608f9caa6",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source-manifest.json": "47e833e60e63c5fffb820ce5939f15ee9f595ba5c5fdc6e5a906ea39fa0dbb5c",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/source-manifest.json": "b3603f0d1018cd9d4d78ec7d21d930b822804ab23b6d85708ee03e2b0d6bee08",
+    "/Users/mr.z/ODE-FFN-report-work/docs/research-architecture-search/analysis-augmented-state/provenance.json": "a1cd0b8d97b3f78c06a49197c549b48876ca8cd1e46369543731b38ef6857298"
+  },
+  "architecture_goal_complete": false,
+  "scope": "Independent raw-table arithmetic and fixed decision guards. Native CP/array replays are separately executed by the main analyzer, not duplicated here."
+}

@@ -1,0 +1,229 @@
+{
+  "state": "PASS",
+  "checked_at": "2026-10-24T18:06:54.678023+00:00",
+  "independent_source_sha256": "71b2c21c08bb453ca7cbca9cc64ef5f90b725261953ad063f74601822529144b",
+  "terminal_states": {
+    "v1": {
+      "time": "2026-10-24T18:00:39.266435+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 12,
+      "total": 12,
+      "active": []
+    },
+    "product16": {
+      "time": "2026-10-24T18:02:10.681278+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 6,
+      "total": 6,
+      "active": []
+    }
+  },
+  "queue_terminal": {
+    "time": "2026-10-24T18:02:14.934056+00:00",
+    "state": "COMPLETE",
+    "completed": 2,
+    "total": 2,
+    "active": null,
+    "pid": 60869
+  },
+  "recorded_pids_exist": {
+    "60655": false,
+    "60663": false,
+    "60664": false,
+    "60678": false,
+    "60679": false,
+    "60719": false,
+    "60723": false,
+    "60739": false,
+    "60752": false,
+    "60766": false,
+    "60784": false,
+    "60796": false,
+    "60820": false,
+    "60828": false,
+    "60829": false,
+    "60869": false,
+    "60882": false,
+    "60883": false,
+    "60941": false,
+    "60942": false,
+    "60963": false,
+    "60984": false,
+    "60994": false
+  },
+  "live_formal_runner_matches": [],
+  "telemetry": [
+    {
+      "study": "affine_forcing_v1_20261025_m1",
+      "samples": 16,
+      "first_active": {
+        "time": "2026-10-24T17:58:10.058905+00:00",
+        "pid": 60664,
+        "cpu_percent": 50.5,
+        "memory_available_gib": 5.15521240234375,
+        "processes": [
+          {
+            "pid": 60678,
+            "name": "Python",
+            "rss_mib": 298.515625
+          },
+          {
+            "pid": 60679,
+            "name": "Python",
+            "rss_mib": 298.078125
+          }
+        ],
+        "state": "RUNNING",
+        "phase": "training",
+        "completed": 0,
+        "total": 12,
+        "active": [
+          "gaussian_aniso_2d/vector_parent",
+          "gaussian_aniso_2d/static_bias"
+        ],
+        "training": [
+          {
+            "run": "runs/affine_forcing_v1_20261025_m1_static_bias/gaussian_aniso_2d/ode_vector/seed000",
+            "step": 1000,
+            "oracle_mse": 0.014919613552093506,
+            "complete": false
+          },
+          {
+            "run": "runs/affine_forcing_v1_20261025_m1_vector_parent/gaussian_aniso_2d/ode_vector/seed000",
+            "step": 1000,
+            "oracle_mse": 0.014897693347930908,
+            "complete": false
+          }
+        ],
+        "gpu_csv": null,
+        "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+      },
+      "minimum_available_gib": 5.0383453369140625
+    },
+    {
+      "study": "affine_forcing_product16_20261025_m1",
+      "samples": 10,
+      "first_active": {
+        "time": "2026-10-24T18:00:50.429152+00:00",
+        "pid": 60869,
+        "cpu_percent": 43.3,
+        "memory_available_gib": 5.062103271484375,
+        "processes": [
+          {
+            "pid": 60882,
+            "name": "Python",
+            "rss_mib": 326.296875
+          },
+          {
+            "pid": 60883,
+            "name": "Python",
+            "rss_mib": 328.328125
+          }
+        ],
+        "state": "RUNNING",
+        "phase": "training",
+        "completed": 0,
+        "total": 6,
+        "active": [
+          "rotated_product_bimodal_16d/vector_parent",
+          "rotated_product_bimodal_16d/static_bias"
+        ],
+        "training": [
+          {
+            "run": "runs/affine_forcing_product16_20261025_m1_static_bias/rotated_product_bimodal_16d/ode_vector/seed000",
+            "step": 1000,
+            "oracle_mse": 0.5946516906738282,
+            "complete": false
+          },
+          {
+            "run": "runs/affine_forcing_product16_20261025_m1_vector_parent/rotated_product_bimodal_16d/ode_vector/seed000",
+            "step": 1000,
+            "oracle_mse": 0.5945701889038086,
+            "complete": false
+          }
+        ],
+        "gpu_csv": null,
+        "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+      },
+      "minimum_available_gib": 5.055694580078125
+    }
+  ],
+  "source_checks": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1": {
+      "files": 595,
+      "exact_tree": true,
+      "manifest_sha256": "47e833e60e63c5fffb820ce5939f15ee9f595ba5c5fdc6e5a906ea39fa0dbb5c"
+    },
+    "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1": {
+      "files": 587,
+      "exact_tree": true,
+      "manifest_sha256": "17b5d169d23f4756ba013c8ff65bf27a417622aa5c9479cd1c5c4a898a2e5a4b"
+    }
+  },
+  "analysis_input_hashes_verified": 279,
+  "raw_endpoint_ratios": {
+    "static_bias": {
+      "gaussian_aniso_2d": {
+        "ratios": {
+          "validation_oracle_mse": 1.0127632114637546,
+          "jacobian_error": 0.8969556070358194,
+          "validation_sw2": 1.151943296257706
+        },
+        "parent_ratio": 0.9981677509810211
+      },
+      "gmm_ring8_2d": {
+        "ratios": {
+          "validation_oracle_mse": 1.3152601640356019,
+          "jacobian_error": 1.6499024478886584,
+          "validation_sw2": 1.0392490914879111
+        },
+        "parent_ratio": 1.0094816677089806
+      },
+      "rotated_product_bimodal_16d": {
+        "ratios": {
+          "validation_oracle_mse": 2.9155241664448295,
+          "jacobian_error": 2.1096155858785086,
+          "validation_sw2": 1.2337990027185777
+        },
+        "parent_ratio": 1.0113573626566508
+      }
+    },
+    "affine_forcing": {
+      "gaussian_aniso_2d": {
+        "ratios": {
+          "validation_oracle_mse": 1.0127967627586398,
+          "jacobian_error": 0.8961784946794852,
+          "validation_sw2": 1.151911957645513
+        },
+        "parent_ratio": 0.9982008187506428
+      },
+      "gmm_ring8_2d": {
+        "ratios": {
+          "validation_oracle_mse": 1.3110407839532878,
+          "jacobian_error": 1.645454701336222,
+          "validation_sw2": 1.0392409286374649
+        },
+        "parent_ratio": 1.0062432309656952
+      },
+      "rotated_product_bimodal_16d": {
+        "ratios": {
+          "validation_oracle_mse": 2.9143694662831434,
+          "jacobian_error": 2.1084158957818913,
+          "validation_sw2": 1.2343397293502478
+        },
+        "parent_ratio": 1.0109568122089396
+      }
+    }
+  },
+  "screen": "STOP_BIAS_COMPLETENESS_SETTING",
+  "architecture_goal_complete": false,
+  "figures_visually_inspected": [
+    "affine-forcing-endpoints",
+    "affine-forcing-learning",
+    "affine-forcing-internals",
+    "affine-forcing-staticized"
+  ],
+  "observation_limits": "Final monitor subrows may lag checkpoints. Actual queue60655 was captured live independently; the saved queue status PID is a child supervisor. Native terminal audits are authoritative."
+}

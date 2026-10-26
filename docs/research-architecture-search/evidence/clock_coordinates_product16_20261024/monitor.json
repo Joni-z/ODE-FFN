@@ -1,0 +1,56 @@
+{
+  "time": "2026-10-24T08:33:56.018357+00:00",
+  "pid": 10832,
+  "cpu_percent": 4.0,
+  "memory_available_gib": 7.5572662353515625,
+  "processes": [
+    {
+      "pid": 25112,
+      "name": "python.exe",
+      "rss_mib": 5.08984375
+    },
+    {
+      "pid": 6896,
+      "name": "python.exe",
+      "rss_mib": 518.60546875
+    }
+  ],
+  "state": "COMPLETE",
+  "phase": "complete",
+  "completed": 5,
+  "total": 5,
+  "active": [],
+  "training": [
+    {
+      "run": "runs\\clock_coordinates_product16_20261024_swiglu\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 3500,
+      "oracle_mse": 0.1605376434326172,
+      "complete": false
+    },
+    {
+      "run": "runs\\clock_coordinates_product16_20261024_swiglu_budget\\rotated_product_bimodal_16d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.09083060035705566,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_coordinates_product16_20261024_vector_k1\\rotated_product_bimodal_16d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.2952414192199707,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_coordinates_product16_20261024_vector_reparam\\rotated_product_bimodal_16d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.1961094612121582,
+      "complete": true
+    },
+    {
+      "run": "runs\\clock_coordinates_product16_20261024_vector_tau\\rotated_product_bimodal_16d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.20337497901916504,
+      "complete": true
+    }
+  ],
+  "gpu_csv": "0, 595, 8188, 37, 3.25"
+}

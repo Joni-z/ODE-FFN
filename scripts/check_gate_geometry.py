@@ -11,7 +11,11 @@ import datetime
 import json
 import os
 from pathlib import Path
-import resource
+import platform
+try:
+    import resource
+except ImportError:  # Native Windows has no resource module.
+    resource = None
 import sys
 import threading
 import time
@@ -22,7 +26,7 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from synthetic.data import GaussianMixture
+from synthetic.data import GaussianMixture,RotatedGaussianMixture,RotatedProductMixture
 from synthetic.models import VelocityNet
 from synthetic.train import load_distribution, load_targets, sha256
 
@@ -85,6 +89,21 @@ def jacobian(model: VelocityNet, x: torch.Tensor,
 def oracle_geometry(dist: GaussianMixture, x: np.ndarray,
                     t: float) -> dict[str, np.ndarray]:
     """Exact derivative, including responsibility derivatives for unequal diagonals."""
+    if isinstance(dist,RotatedProductMixture):
+        velocity,diagonal,entropy,density=dist._terms(x,t)
+        order=np.argsort(diagonal,axis=1)
+        return dict(oracle=velocity@dist.rotation.T,oracle_jacobian=dist.jacobian(x,t),
+            eigenvalues=np.take_along_axis(diagonal,order,axis=1),
+            eigenvectors=np.stack([dist.rotation[:,indices] for indices in order]),
+            entropy=entropy,log_density=density)
+    if isinstance(dist,RotatedGaussianMixture):
+        rotation=dist.rotation
+        values=oracle_geometry(dist.base,np.asarray(x)@rotation,t)
+        values['oracle']=values['oracle']@rotation.T
+        values['oracle_jacobian']=np.einsum('ij,bjk,lk->bil',rotation,values['oracle_jacobian'],rotation)
+        values['eigenvectors']=np.einsum('ij,bjk->bik',rotation,values['eigenvectors'])
+        np.testing.assert_allclose(values['oracle'],dist.velocity(x,t),rtol=1e-11,atol=1e-11)
+        return values
     tt, variance, residual, weights, log_density = dist._terms(x, t)
     coefficient = (tt * dist.variances[None] - (1 - tt)) / variance
     components = dist.means[None] + coefficient * residual
@@ -223,8 +242,12 @@ def monitor(output: Path, stop: threading.Event, progress: dict) -> None:
     previous_time, previous_cpu = started, time.process_time()
     while not stop.is_set():
         current, cpu = time.monotonic(), time.process_time()
-        usage = resource.getrusage(resource.RUSAGE_SELF)
-        rss_mb = usage.ru_maxrss / (1024**2 if sys.platform == 'darwin' else 1024)
+        if resource is None:
+            import psutil
+            rss_mb = psutil.Process().memory_info().rss / 1024**2
+        else:
+            usage = resource.getrusage(resource.RUSAGE_SELF)
+            rss_mb = usage.ru_maxrss / (1024**2 if sys.platform == 'darwin' else 1024)
         row = dict(time=now(), pid=os.getpid(), elapsed_seconds=current-started,
                    cpu_percent=100*(cpu-previous_cpu)/max(current-previous_time, 1e-6),
                    peak_rss_mb=rss_mb, **progress.copy())
@@ -267,7 +290,7 @@ def main() -> None:
         times = (.5,) if args.smoke else TIMES
         datasets = DATASETS[:1] if args.smoke else DATASETS
         kinds = KINDS[:1] if args.smoke else KINDS
-        provenance = dict(time=now(), host=os.uname().nodename, device='cpu', dtype='float64',
+        provenance = dict(time=now(), host=platform.node(), device='cpu', dtype='float64',
                           torch=torch.__version__, threads=args.threads, smoke=args.smoke,
                           checkpoint_step=5000, training_seed=0, evaluation_seed=0,
                           times=times, interpolation_points=n_inter, trajectory_points=n_path,

@@ -1,0 +1,72 @@
+{
+  "time": "2026-10-24T08:10:04.430151+00:00",
+  "pid": 8,
+  "cpu_percent": 6.9,
+  "memory_available_gib": 7.0941009521484375,
+  "processes": [
+    {
+      "pid": 27824,
+      "name": "python.exe",
+      "rss_mib": 5.05078125
+    },
+    {
+      "pid": 2104,
+      "name": "python.exe",
+      "rss_mib": 5.046875
+    },
+    {
+      "pid": 22516,
+      "name": "python.exe",
+      "rss_mib": 508.83984375
+    },
+    {
+      "pid": 12696,
+      "name": "python.exe",
+      "rss_mib": 509.61328125
+    }
+  ],
+  "state": "COMPLETE",
+  "phase": "complete",
+  "completed": 6,
+  "total": 6,
+  "active": [],
+  "training": [
+    {
+      "run": "runs\\population_noise_ring_20261024_swiglu_budget_mean\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.0009246427834033966,
+      "complete": true
+    },
+    {
+      "run": "runs\\population_noise_ring_20261024_swiglu_budget_pair\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.01653751640319824,
+      "complete": true
+    },
+    {
+      "run": "runs\\population_noise_ring_20261024_swiglu_mean\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 3500,
+      "oracle_mse": 0.002043215787410736,
+      "complete": false
+    },
+    {
+      "run": "runs\\population_noise_ring_20261024_swiglu_pair\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 4500,
+      "oracle_mse": 0.02091013984680176,
+      "complete": false
+    },
+    {
+      "run": "runs\\population_noise_ring_20261024_vector_mean\\gmm_ring8_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.002248668301105499,
+      "complete": true
+    },
+    {
+      "run": "runs\\population_noise_ring_20261024_vector_pair\\gmm_ring8_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.023262986755371095,
+      "complete": true
+    }
+  ],
+  "gpu_csv": "0, 595, 8188, 36, 3.36"
+}

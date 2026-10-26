@@ -1,0 +1,126 @@
+{
+  "state": "OBSERVED_RUNNING",
+  "observed_at": "2026-10-24T17:59:19.336732+00:00",
+  "processes": [
+    {
+      "pid": 60655,
+      "status": "sleeping",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_queue_20261025_m1"
+      ]
+    },
+    {
+      "pid": 60663,
+      "status": "running",
+      "command": [
+        "caffeinate",
+        "-i",
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_queue_20261025_m1"
+      ]
+    },
+    {
+      "pid": 60664,
+      "status": "running",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/source/configs/synthetic/architecture_search/affine_forcing_v1_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1"
+      ]
+    },
+    {
+      "pid": 60752,
+      "status": "running",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1/configs/sigmoid_glu.json",
+        "--dataset",
+        "gaussian_aniso_2d",
+        "--model",
+        "glu",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1/runs"
+      ]
+    },
+    {
+      "pid": 60766,
+      "status": "running",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1/configs/vector_parent.json",
+        "--dataset",
+        "gmm_ring8_2d",
+        "--model",
+        "ode_vector",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/affine_forcing_20261025_m1/output/affine_forcing_v1_20261025_m1/runs"
+      ]
+    }
+  ],
+  "status": {
+    "time": "2026-10-24T17:59:14.089315+00:00",
+    "state": "RUNNING",
+    "phase": "training",
+    "completed": 5,
+    "total": 12,
+    "active": [
+      "gaussian_aniso_2d/sigmoid_glu",
+      "gmm_ring8_2d/vector_parent"
+    ]
+  },
+  "monitor": {
+    "time": "2026-10-24T17:59:10.197903+00:00",
+    "pid": 60664,
+    "memory_available_gib": 5.0967559814453125,
+    "processes": [
+      {
+        "pid": 60739,
+        "name": "Python",
+        "rss_mib": 299.34375
+      },
+      {
+        "pid": 60752,
+        "name": "Python",
+        "rss_mib": 291.953125
+      }
+    ],
+    "completed": 4,
+    "total": 12,
+    "active": [
+      "gaussian_aniso_2d/swiglu",
+      "gaussian_aniso_2d/sigmoid_glu"
+    ]
+  }
+}

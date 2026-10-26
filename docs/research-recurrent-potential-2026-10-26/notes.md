@@ -1,0 +1,13 @@
+# Why this interaction is distinct
+
+The earlier recurrence study directly predicted velocity. The complete potential study used native independent layers. The missing crossed setting makes the whole hidden computation a shared vector field while retaining the complete input-potential gradient, which the composition diagnostic shows cannot be replaced by local symmetry alone. This is a hypothesis, not evidence of a gain. Cloned potential controls are essential to exclude the different starting hidden features of native independent blocks.
+
+Only Product16 is selected for the first screen, before outcomes. Eight new cells complete the factor; four old direct recurrence cells are reused. Direct shared/cloned SwiGLU128 did not exist in the old42-cell screen and must not be silently treated as available. The old recurrence root has output-product and other output groups, identified by each comparison row; a lookup of output/status.json correctly returned no file. Actual group paths are authoritative.
+
+The preceding composition experiment remains complete with no partial-degree or local substitute selected. Its global-coupling result motivates the shared-field/full-readout interaction; no new cold run is inferred from a favorable truncated field.
+
+Eight cold cells completed normally, and four reused direct controls were reloaded from their actual output-product group. The completed factor has twelve cells and matches all starting tensors/RNG and actual training hash streams. Shared/cloned ODE potential errors .23352547/.03422861; Swi128 .07959888/.04790486; Swi192 .06796242/.03288991. The generic best remains native radial Swi192 .03254407. Both prospective eligibility routes and the derivative guard fail; no other-task expansion or tuning.
+
+The independent analyzer completed normally with PASS:48checkpoints,64unique P snapshots,12native fields,60panels,12samples,12independent complete fields,60input and12parameter finite differences. Source39files remain unchanged. Two CPU workers were monitored; no job remains live. This continuation is progress through an exact composition experiment and a newly audited missing-factor test, not a wait or a no-progress repetition. The goal is still active and unachieved.
+
+Final artifact checking initially misread the inline-code mathematical expression `C[L](h)` as a Markdown link to a file named h. The checker now removes fenced and inline code before checking actual links. The same expression in this error note was then properly marked as code too. This is a report-validation correction; no sealed earlier report, model source or numeric outcome changes.

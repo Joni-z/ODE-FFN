@@ -1,0 +1,98 @@
+{
+  "time": "2026-10-24T07:26:15.668345+00:00",
+  "pid": 6624,
+  "cpu_percent": 3.6,
+  "memory_available_gib": 7.699180603027344,
+  "processes": [
+    {
+      "pid": 28876,
+      "name": "python.exe",
+      "rss_mib": 5.08984375
+    },
+    {
+      "pid": 24648,
+      "name": "python.exe",
+      "rss_mib": 508.9453125
+    }
+  ],
+  "state": "COMPLETE",
+  "phase": "complete",
+  "completed": 12,
+  "total": 12,
+  "active": [],
+  "training": [
+    {
+      "run": "runs\\covariance_v1_20261024_cov_linear\\gaussian_aniso_2d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.005331748819351196,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_cov_linear\\gmm_ring8_2d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.054793279647827146,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_cov_tied\\gaussian_aniso_2d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.005081426191329956,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_cov_tied\\gmm_ring8_2d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.02606104259490967,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_cov_untied\\gaussian_aniso_2d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.004863126564025879,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_cov_untied\\gmm_ring8_2d\\ode_covariance\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.018584772300720215,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_swiglu\\gaussian_aniso_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.003927979969978333,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_swiglu\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 4500,
+      "oracle_mse": 0.02321369438171387,
+      "complete": false
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_swiglu_budget\\gaussian_aniso_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.004304380559921265,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_swiglu_budget\\gmm_ring8_2d\\swiglu\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.015184195137023926,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_vector_k1\\gaussian_aniso_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.0037766563177108765,
+      "complete": true
+    },
+    {
+      "run": "runs\\covariance_v1_20261024_vector_k1\\gmm_ring8_2d\\ode_vector\\seed000",
+      "step": 5000,
+      "oracle_mse": 0.019437553787231446,
+      "complete": true
+    }
+  ],
+  "gpu_csv": "0, 595, 8188, 37, 3.27"
+}

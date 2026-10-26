@@ -1,0 +1,180 @@
+{
+  "state": "PASS",
+  "checked_at": "2026-10-24T17:40:44.485660+00:00",
+  "independent_source_sha256": "b1be75d2cdb469f7733e146d5be4aae6d17e55c02ac35a6eca4b4a4447cbe88c",
+  "terminal_states": {
+    "v1": {
+      "time": "2026-10-24T17:32:24.788893+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 6,
+      "total": 6,
+      "active": []
+    },
+    "product16": {
+      "time": "2026-10-24T17:33:09.720057+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 3,
+      "total": 3,
+      "active": []
+    }
+  },
+  "queue_terminal": {
+    "time": "2026-10-24T17:33:12.788501+00:00",
+    "state": "COMPLETE",
+    "completed": 2,
+    "total": 2,
+    "active": null,
+    "pid": 58388
+  },
+  "recorded_pids_exist": {
+    "58316": false,
+    "58317": false,
+    "58318": false,
+    "58332": false,
+    "58336": false,
+    "58361": false,
+    "58362": false,
+    "58363": false,
+    "58388": false,
+    "58389": false,
+    "58390": false,
+    "58400": false
+  },
+  "live_formal_runner_matches": [],
+  "telemetry": [
+    {
+      "study": "sigmoid_glu_v1_20261025_m1",
+      "samples": 7,
+      "first_active": {
+        "time": "2026-10-24T17:31:33.195689+00:00",
+        "pid": 58316,
+        "cpu_percent": 30.6,
+        "memory_available_gib": 4.9613189697265625,
+        "processes": [
+          {
+            "pid": 58317,
+            "name": "Python",
+            "rss_mib": 290.21875
+          },
+          {
+            "pid": 58318,
+            "name": "Python",
+            "rss_mib": 290.875
+          }
+        ],
+        "state": "RUNNING",
+        "phase": "training",
+        "completed": 0,
+        "total": 6,
+        "active": [
+          "gaussian_aniso_2d/swiglu_budget",
+          "gaussian_aniso_2d/swiglu"
+        ],
+        "training": [
+          {
+            "run": "runs/sigmoid_glu_v1_20261025_m1_swiglu_budget/gaussian_aniso_2d/swiglu/seed000",
+            "step": 2500,
+            "oracle_mse": 0.006743433284759522,
+            "complete": false
+          },
+          {
+            "run": "runs/sigmoid_glu_v1_20261025_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+            "step": 2000,
+            "oracle_mse": 0.008145742988586425,
+            "complete": false
+          }
+        ],
+        "gpu_csv": null,
+        "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+      },
+      "minimum_available_gib": 4.9209442138671875
+    },
+    {
+      "study": "sigmoid_glu_product16_20261025_m1",
+      "samples": 5,
+      "first_active": {
+        "time": "2026-10-24T17:32:38.379904+00:00",
+        "pid": 58388,
+        "cpu_percent": 41.3,
+        "memory_available_gib": 4.9521484375,
+        "processes": [
+          {
+            "pid": 58389,
+            "name": "Python",
+            "rss_mib": 333.078125
+          },
+          {
+            "pid": 58390,
+            "name": "Python",
+            "rss_mib": 335.375
+          }
+        ],
+        "state": "RUNNING",
+        "phase": "training",
+        "completed": 0,
+        "total": 3,
+        "active": [
+          "rotated_product_bimodal_16d/swiglu_budget",
+          "rotated_product_bimodal_16d/swiglu"
+        ],
+        "training": [
+          {
+            "run": "runs/sigmoid_glu_product16_20261025_m1_swiglu/rotated_product_bimodal_16d/swiglu/seed000",
+            "step": 2000,
+            "oracle_mse": 0.27421748657226563,
+            "complete": false
+          },
+          {
+            "run": "runs/sigmoid_glu_product16_20261025_m1_swiglu_budget/rotated_product_bimodal_16d/swiglu/seed000",
+            "step": 2000,
+            "oracle_mse": 0.23347560958862304,
+            "complete": false
+          }
+        ],
+        "gpu_csv": null,
+        "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+      },
+      "minimum_available_gib": 4.9465789794921875
+    }
+  ],
+  "source_checks": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1": {
+      "files": 587,
+      "exact_tree": true,
+      "manifest_sha256": "17b5d169d23f4756ba013c8ff65bf27a417622aa5c9479cd1c5c4a898a2e5a4b"
+    },
+    "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1": {
+      "files": 580,
+      "exact_tree": true,
+      "manifest_sha256": "49c0ea603d96ef26b80542d5a2bd55d01495ea2813bf8d6d9094d1887d90338f"
+    }
+  },
+  "analysis_input_hashes_verified": 181,
+  "raw_endpoint_ratios": {
+    "gaussian_aniso_2d": {
+      "validation_oracle_mse": 0.9465128833774812,
+      "jacobian_error": 0.706279068872287,
+      "validation_sw2": 0.9850157183887281
+    },
+    "gmm_ring8_2d": {
+      "validation_oracle_mse": 1.7748201217719723,
+      "jacobian_error": 2.149089037293094,
+      "validation_sw2": 1.1861615723019212
+    },
+    "rotated_product_bimodal_16d": {
+      "validation_oracle_mse": 1.7119857013654332,
+      "jacobian_error": 1.4743016365098514,
+      "validation_sw2": 1.1453612045337598
+    }
+  },
+  "screen": "STOP_GENERIC_SETTING",
+  "architecture_goal_complete": false,
+  "figures_visually_inspected": [
+    "sigmoid-glu-endpoints",
+    "sigmoid-glu-learning",
+    "sigmoid-glu-posterior-regions"
+  ],
+  "observation_limits": "Final monitor training subrows may lag checkpoints; terminal statuses and native audits are authoritative. Queue status PID equals the final child supervisor and is not asserted to be the actual queue PID."
+}

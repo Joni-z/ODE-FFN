@@ -1,0 +1,49 @@
+{
+  "time": "2026-10-24T14:40:37.360731+00:00",
+  "processes": [
+    {
+      "pid": 50896,
+      "status": "sleeping",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/source/configs/synthetic/architecture_search/diagonal_flow_queue_20261024_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/output/diagonal_flow_queue_20261024_m1"
+      ]
+    },
+    {
+      "pid": 50898,
+      "status": "running",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/source/configs/synthetic/architecture_search/diagonal_flow_v1_20261024_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/diagonal_flow_20261024_m1/output/diagonal_flow_v1_20261024_m1"
+      ]
+    },
+    {
+      "pid": 50964,
+      "status": "exited"
+    },
+    {
+      "pid": 50968,
+      "status": "exited"
+    }
+  ],
+  "queue": {
+    "time": "2026-10-24T14:40:33.940911+00:00",
+    "state": "RUNNING",
+    "completed": 0,
+    "total": 2,
+    "active": "diagonal_flow_v1_20261024_m1",
+    "pid": 50898
+  }
+}

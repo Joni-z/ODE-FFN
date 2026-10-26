@@ -1,0 +1,224 @@
+{
+  "state": "PASS",
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "vector_parent",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "native_ffn_entries": 30,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "static_bias",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "native_ffn_entries": 36,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "affine_forcing",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "native_ffn_entries": 36,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu_budget",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "swiglu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "label": "sigmoid_glu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gaussian_aniso_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "79baee9abfd621f6d873b7dc2542b98aa2b6cc276641aaccbd498395b664e043"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_parent",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "native_ffn_entries": 30,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "static_bias",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "native_ffn_entries": 36,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "affine_forcing",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "native_ffn_entries": 36,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu_budget",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "sigmoid_glu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_v1_20261024_m1/runs/additive_generator_v1_20261024_m1_vector_mul/gmm_ring8_2d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "0ba7506239771a87f6eab0235f5d53b5ab36a87052aed74fc4d0000f1e9da096"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "vector_parent",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "native_ffn_entries": 30,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "static_bias",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "native_ffn_entries": 36,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "affine_forcing",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "native_ffn_entries": 36,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu_budget",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "swiglu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "sigmoid_glu",
+      "reference": {
+        "checkpoint": "/Users/mr.z/ode-workspace-prep/architecture-search/additive_generator_20261024_m1/output/additive_generator_product16_20261024_m1/runs/additive_generator_product16_20261024_m1_vector_mul/rotated_product_bimodal_16d/ode_vector/seed000/checkpoints/step_0000000.pt",
+        "sha256": "2c80046c4325ea5e0a166bfa57c28150b0bbb3bd233b94761cbe13475d59cc40"
+      },
+      "native_ffn_entries": 12,
+      "non_ffn_tensors": 22,
+      "native_ffn_rng_unchanged": true,
+      "ODE_common_state_paired": false
+    }
+  ],
+  "snapshot_data_rng_comparisons": 90,
+  "full_width_preflight_sha256": "b77972bd79dead93d0b9c81624221dd04fe24c40fc8903a923cfe0878f100da1",
+  "scope": "All ODE common tensors/buffers/RNG match. Static/affine additional biases are zero; their full initial parameter responses are paired by preflight. Parent has no bias columns."
+}

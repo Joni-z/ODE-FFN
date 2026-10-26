@@ -3,7 +3,7 @@ import argparse
 import json
 from pathlib import Path
 import numpy as np
-from synthetic.data import GaussianMixture
+from synthetic.data import GaussianMixture,RotatedGaussianMixture,RotatedProductMixture
 from synthetic.geometry import GeometricTarget
 from synthetic.prepare import sha256
 
@@ -17,7 +17,10 @@ def validate(root):
             raise ValueError(f'Checksum mismatch: {filename}')
     report = {}
     for name, spec in manifest['datasets'].items():
-        dist = (GaussianMixture if spec['family']=='gaussian_mixture' else GeometricTarget)(**spec['distribution'])
+        cls={'gaussian_mixture':GaussianMixture,'rotated_gaussian_mixture':RotatedGaussianMixture,
+            'rotated_product_mixture':RotatedProductMixture,
+            'geometric':GeometricTarget}[spec['family']]
+        dist=cls(**spec['distribution'])
         splits = {}
         for split in ('train','validation','test'):
             with np.load(root/name/f'{split}.npz', allow_pickle=False) as data:

@@ -1,0 +1,28 @@
+{
+  "state": "PREFLIGHT_PASS_AWAITING_PARENT_REVIEW",
+  "formal_training_started": false,
+  "formal_cells": 9,
+  "runtime": "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/source",
+  "launch_command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/source/scripts/run_architecture_study.py",
+    "--plan",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/source/configs/synthetic/architecture_search/sigmoid_glu_queue_20261025_m1.json",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/output/sigmoid_glu_queue_20261025_m1"
+  ],
+  "cwd": "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/source",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "preflight_summary_sha256": "5cf55a0268b6eee880d7523c2901f56231590c09de322c80b4ffd8b86a5ac0cf",
+  "source_manifest_sha256": "17b5d169d23f4756ba013c8ff65bf27a417622aa5c9479cd1c5c4a898a2e5a4b",
+  "source_delta_sha256": "91b77bdd9ba98c6764a54a1507606d8da4ff78f4caa2f16d459349daeb90836d",
+  "dependency_check_sha256": "6e3a91cad8e3212d893da379aed732f620433ac31b89f9307af519f3f2b69a9a"
+}

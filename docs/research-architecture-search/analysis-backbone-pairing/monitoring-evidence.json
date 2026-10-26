@@ -1,0 +1,140 @@
+[
+  {
+    "study": "backbone_pairing_v1_20261024_m1",
+    "records": 5,
+    "first": {
+      "time": "2026-10-24T13:05:10.236124+00:00",
+      "pid": 47639,
+      "cpu_percent": 36.4,
+      "memory_available_gib": 5.1459197998046875,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 4,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T13:05:50.327463+00:00",
+      "pid": 47639,
+      "cpu_percent": 28.7,
+      "memory_available_gib": 5.552886962890625,
+      "processes": [
+        {
+          "pid": 47695,
+          "name": "Python",
+          "rss_mib": 296.515625
+        },
+        {
+          "pid": 47700,
+          "name": "Python",
+          "rss_mib": 298.5
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 2,
+      "total": 4,
+      "active": [
+        "gmm_ring8_2d/swiglu_budget",
+        "gmm_ring8_2d/swiglu"
+      ],
+      "training": [
+        {
+          "run": "runs/backbone_pairing_v1_20261024_m1_swiglu_budget/gmm_ring8_2d/swiglu/seed000",
+          "step": 4000,
+          "oracle_mse": 0.02791404685974121,
+          "complete": false
+        },
+        {
+          "run": "runs/backbone_pairing_v1_20261024_m1_swiglu_budget/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004188221096992493,
+          "complete": true
+        },
+        {
+          "run": "runs/backbone_pairing_v1_20261024_m1_swiglu/gmm_ring8_2d/swiglu/seed000",
+          "step": 3000,
+          "oracle_mse": 0.024105204391479493,
+          "complete": false
+        },
+        {
+          "run": "runs/backbone_pairing_v1_20261024_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272540807724,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "final_monitor_state": "COMPLETE",
+    "minimum_available_gib": 5.0767059326171875
+  },
+  {
+    "study": "backbone_pairing_product16_20261024_m1",
+    "records": 3,
+    "first": {
+      "time": "2026-10-24T13:06:00.396195+00:00",
+      "pid": 47706,
+      "cpu_percent": 12.5,
+      "memory_available_gib": 5.776702880859375,
+      "processes": [],
+      "state": "RUNNING",
+      "phase": "preflight",
+      "completed": 0,
+      "total": 2,
+      "active": [],
+      "training": [],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "last_actual_sample": {
+      "time": "2026-10-24T13:06:20.441596+00:00",
+      "pid": 47706,
+      "cpu_percent": 28.5,
+      "memory_available_gib": 5.568511962890625,
+      "processes": [
+        {
+          "pid": 47708,
+          "name": "Python",
+          "rss_mib": 337.09375
+        },
+        {
+          "pid": 47754,
+          "name": "Python",
+          "rss_mib": 215.5
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 0,
+      "total": 2,
+      "active": [
+        "rotated_product_bimodal_16d/swiglu_budget",
+        "rotated_product_bimodal_16d/swiglu"
+      ],
+      "training": [
+        {
+          "run": "runs/backbone_pairing_product16_20261024_m1_swiglu_budget/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.10916076774597168,
+          "complete": true
+        },
+        {
+          "run": "runs/backbone_pairing_product16_20261024_m1_swiglu/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 4500,
+          "oracle_mse": 0.10178637180328369,
+          "complete": false
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "final_monitor_state": "COMPLETE",
+    "minimum_available_gib": 5.5015869140625
+  }
+]

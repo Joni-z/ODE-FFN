@@ -1,0 +1,3 @@
+# Statistical scope
+
+All formal training uses seed0 and the registered5000-update endpoint. The three within-family update-rule contrasts are paired at each common validation input. The displayed95% percentile intervals use1000 paired evaluation-row resamples, bootstrap seed0, conditional on fixed weights. They are pointwise evaluation intervals; no p-values, training-repetition significance, familywise discovery claim, or run-level standard deviation is computed. The original nomination thresholds determine continuation. Previously exposed validation inputs are not presented as a fresh test. The probe diagnostic is post-screen, preregistered before its paired outcomes, uses256 fixed inputs, and selects no architecture.

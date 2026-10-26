@@ -1,0 +1,104 @@
+{
+  "state": "COMPLETE",
+  "rows": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "scalar_k1",
+      "checkpoint_step": 20000,
+      "checkpoint_sha256": "2bb8d0e59bf744bfc0a63b88cd99e2d46eee9674ec5975efa89cfead2f603d15",
+      "test_field_mse": 0.010962256808334344,
+      "test_jacobian_error": 0.3561445124185061,
+      "sample_count": 4096,
+      "reference_sw2_floor": 0.15385742485523224,
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "sw2": 0.19966624677181244,
+          "seconds": 0.6560000000026776
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "sw2": 0.1998595893383026,
+          "seconds": 2.5310000000026776
+        }
+      ]
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "vector_k1",
+      "checkpoint_step": 20000,
+      "checkpoint_sha256": "2a400ceb4b8c96418b5ff4e3702b3f5cd1bd0852fbf9d51cd4a237a0efd2aa17",
+      "test_field_mse": 0.008914774429062567,
+      "test_jacobian_error": 0.41599233712861083,
+      "sample_count": 4096,
+      "reference_sw2_floor": 0.15385742485523224,
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "sw2": 0.17970308661460876,
+          "seconds": 0.7189999999973224
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "sw2": 0.18161818385124207,
+          "seconds": 2.5310000000026776
+        }
+      ]
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "swiglu",
+      "checkpoint_step": 20000,
+      "checkpoint_sha256": "4f80b36b7e26c282cfa40a1060bc0661b598623151d9f53b6c0374b197e95460",
+      "test_field_mse": 0.011748427999270913,
+      "test_jacobian_error": 0.2859489682438118,
+      "sample_count": 4096,
+      "reference_sw2_floor": 0.15385742485523224,
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "sw2": 0.17972584068775177,
+          "seconds": 0.6559999999954016
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "sw2": 0.1810203194618225,
+          "seconds": 2.2809999999954016
+        }
+      ]
+    }
+  ],
+  "heldout_scope": "Frozen architectures and final step; test split not used for this stage selection.",
+  "source_sha256": "715eb47b13cf575280598a3174b6d23e8d77ba7d9304d1cb75c765b5a92c26fa",
+  "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+  "files_sha256": {
+    "gmm_ring8_2d\\scalar_k1\\field\\common-0.1.npz": "8ee4e55460f63394f68435656bd071d6dc4865b3df5e9e7d809d89835423ae50",
+    "gmm_ring8_2d\\scalar_k1\\field\\common-0.3.npz": "8073813a476dedc6442415a8c3a536916390a1bd1f6f1d82ed50e90f43eff30e",
+    "gmm_ring8_2d\\scalar_k1\\field\\common-0.5.npz": "ad545082494480924f3eae49c7bcc87ddacd5dee308bbd9aa2aa756b6ce25b66",
+    "gmm_ring8_2d\\scalar_k1\\field\\common-0.7.npz": "c5537d4b8f8f33864c83d6df25156ee9f034dbef6cdc1494300c3d0efa54652b",
+    "gmm_ring8_2d\\scalar_k1\\field\\common-0.9.npz": "54adad696968206365f2bff18dcf518ed989897a436613fd79167ab601ec7c41",
+    "gmm_ring8_2d\\scalar_k1\\samples-heun128.npz": "dfcf674f971ad03e8294684f1777206edae4f23878c17189661012f99ab3ad77",
+    "gmm_ring8_2d\\scalar_k1\\samples-heun32.npz": "8c6aabeea2ac1bcc64bdf8314bfc9c379e1353bb61d165e9ff7efb20f21605c6",
+    "gmm_ring8_2d\\swiglu\\field\\common-0.1.npz": "58d3f747a7d70056d680572398b1e5d5d70d63ed866d08dd6eb69f7ac16df443",
+    "gmm_ring8_2d\\swiglu\\field\\common-0.3.npz": "f5ca3192178f165670b0cd40f2e9aeca69055d80a7a25f03de138e43ad6bab90",
+    "gmm_ring8_2d\\swiglu\\field\\common-0.5.npz": "c379d7fd768ecc0230c145506c6a302b88561d8def8dd47af4d898817603f89d",
+    "gmm_ring8_2d\\swiglu\\field\\common-0.7.npz": "a46062cca8d4429bf1294ca79b273ef94a8220a1454383730247738b4dbea8c6",
+    "gmm_ring8_2d\\swiglu\\field\\common-0.9.npz": "12fba226ee6e6cfc0cb5d68e83bfa32bd92799a9e428303963e5e973ba018d6b",
+    "gmm_ring8_2d\\swiglu\\samples-heun128.npz": "bf9333fd8496b9a01440edda36c2015eaadb8350df91fd8e741f915ec2b41870",
+    "gmm_ring8_2d\\swiglu\\samples-heun32.npz": "8bf79e3f6b57b6c8299a30504bbee4082969fdc930a62d89eea352a978389aa1",
+    "gmm_ring8_2d\\vector_k1\\field\\common-0.1.npz": "b594eef7d0a02428af6ac0773f696a950adfdec8b736b5d7c642b18f794af463",
+    "gmm_ring8_2d\\vector_k1\\field\\common-0.3.npz": "9790eb21ff05b9280aefd31950f05b8522a3f4357b1bc9df6bfa0ff0364e0afc",
+    "gmm_ring8_2d\\vector_k1\\field\\common-0.5.npz": "70bf9e0863d475f9afb671d4c3873369871cf082ead722afa0044d8547da872a",
+    "gmm_ring8_2d\\vector_k1\\field\\common-0.7.npz": "768bb6c9f13e2d05be8efeb2b2940cb5ae81eb59c4e63787ed51670d8aab08c0",
+    "gmm_ring8_2d\\vector_k1\\field\\common-0.9.npz": "eac835ff6a644539756be857cbdd6bf70be92901b6efa3416032f9d3b3b91460",
+    "gmm_ring8_2d\\vector_k1\\samples-heun128.npz": "c29f20bbc2032614b9e50df760b6207e03008ea86f3c0f632a8dbb94b3b068d4",
+    "gmm_ring8_2d\\vector_k1\\samples-heun32.npz": "cd15a7555de8f519119bbcfdf26d6ed5c1b755107f5ebec45aabc7fd2c2ce3d9",
+    "gmm_ring8_2d-inputs.npz": "0bc6a52f28a76c6b5edb0272a405c5fe32e755482758747e5fd1689215e4c360"
+  }
+}

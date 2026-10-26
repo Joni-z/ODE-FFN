@@ -1,0 +1,27 @@
+{
+  "state": "PASS",
+  "arrays": 15,
+  "rows": 90,
+  "error_shape": [
+    3,
+    5,
+    512,
+    16
+  ],
+  "entropy_edges": [
+    0.0,
+    0.1,
+    0.5,
+    0.9,
+    1.0
+  ],
+  "maximum_oracle_reconstruction_error": 2.6645352591003757e-15,
+  "maximum_oracle_Jacobian_reconstruction_error": 6.661338147750939e-16,
+  "maximum_rotation_mse_difference": 5.551115123125783e-17,
+  "native_field_mse": {
+    "swiglu_budget": 0.10657170214633323,
+    "swiglu": 0.08892084274503113,
+    "sigmoid_glu": 0.15198206495322703
+  },
+  "scope": "All fixed entropy bins/times, descriptive velocity-coordinate error only. These networks do not predict posterior probabilities; no gate-classification or causal assignment-error interpretation."
+}

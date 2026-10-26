@@ -1,0 +1,76 @@
+{
+  "state": "PASS",
+  "historical_source": "/Users/mr.z/ode-workspace-prep/architecture-search/sigmoid_glu_20261025_m1/source",
+  "rows": [
+    {
+      "kind": "ode_forced_gate",
+      "options": {
+        "forced_gate_solver": "exact",
+        "forced_gate_clock": "static"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "ode_forced_gate",
+      "options": {
+        "forced_gate_solver": "k2",
+        "forced_gate_clock": "adaptive"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "ode_forced_gate",
+      "options": {
+        "forced_gate_solver": "exact",
+        "forced_gate_clock": "adaptive"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "ode_state_clock",
+      "options": {
+        "state_clock_solver": "euler"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "ode_state_clock",
+      "options": {
+        "state_clock_solver": "frozen"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "ode_state_clock",
+      "options": {
+        "state_clock_solver": "midpoint"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "glu",
+      "options": {
+        "ffn_hidden": 128
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    },
+    {
+      "kind": "ode_vector",
+      "options": {
+        "gate_hidden": 32,
+        "gate_reference_hidden": 64,
+        "orders": 1,
+        "ode_solve_init": "constant_paired"
+      },
+      "steps": 3,
+      "state": "BIT_IDENTICAL"
+    }
+  ]
+}

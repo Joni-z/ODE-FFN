@@ -1,0 +1,270 @@
+{
+  "time": "2026-10-24T16:51:01.230744+00:00",
+  "statuses": {
+    "output/state_clock_product16_20261025_m1/status.json": {
+      "time": "2026-10-24T16:50:53.736366+00:00",
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 3,
+      "total": 6,
+      "active": [
+        "rotated_product_bimodal_16d/state_midpoint",
+        "rotated_product_bimodal_16d/swiglu"
+      ]
+    },
+    "output/state_clock_queue_20261025_m1/status.json": {
+      "time": "2026-10-24T16:50:58.195333+00:00",
+      "state": "RUNNING",
+      "completed": 1,
+      "total": 2,
+      "active": "state_clock_product16_20261025_m1",
+      "pid": 56505
+    },
+    "output/state_clock_v1_20261025_m1/status.json": {
+      "time": "2026-10-24T16:49:49.857959+00:00",
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 12,
+      "total": 12,
+      "active": []
+    }
+  },
+  "monitors": {
+    "output/state_clock_product16_20261025_m1/monitor.json": {
+      "time": "2026-10-24T16:50:53.870667+00:00",
+      "pid": 56505,
+      "cpu_percent": 28.6,
+      "memory_available_gib": 5.081024169921875,
+      "processes": [
+        {
+          "pid": 56516,
+          "name": "Python",
+          "rss_mib": 355.0625
+        },
+        {
+          "pid": 56600,
+          "name": "Python",
+          "rss_mib": 54.625
+        }
+      ],
+      "state": "RUNNING",
+      "phase": "training",
+      "completed": 3,
+      "total": 6,
+      "active": [
+        "rotated_product_bimodal_16d/state_midpoint",
+        "rotated_product_bimodal_16d/swiglu"
+      ],
+      "training": [
+        {
+          "run": "runs/state_clock_product16_20261025_m1_state_euler/rotated_product_bimodal_16d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.26615520095825196,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_swiglu_budget/rotated_product_bimodal_16d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.10916076774597168,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_state_frozen/rotated_product_bimodal_16d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.30184908142089845,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_product16_20261025_m1_state_midpoint/rotated_product_bimodal_16d/ode_state_clock/seed000",
+          "step": 2500,
+          "oracle_mse": 0.40410265884399416,
+          "complete": false
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    },
+    "output/state_clock_v1_20261025_m1/monitor.json": {
+      "time": "2026-10-24T16:49:49.858662+00:00",
+      "pid": 56293,
+      "cpu_percent": 24.3,
+      "memory_available_gib": 5.098297119140625,
+      "processes": [
+        {
+          "pid": 56472,
+          "name": "Python",
+          "rss_mib": 310.46875
+        }
+      ],
+      "state": "COMPLETE",
+      "phase": "complete",
+      "completed": 12,
+      "total": 12,
+      "active": [],
+      "training": [
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.015296290397644043,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0039272540807724,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_frozen/gmm_ring8_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.023842772674560548,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_frozen/gaussian_aniso_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0044030996799469,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_compute/gmm_ring8_2d/swiglu/seed000",
+          "step": 4500,
+          "oracle_mse": 0.02098282585144043,
+          "complete": false
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_compute/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.0044684611320495605,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_budget/gmm_ring8_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.018257763481140138,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_swiglu_budget/gaussian_aniso_2d/swiglu/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004188221096992493,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_euler/gmm_ring8_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.019929635620117188,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_euler/gaussian_aniso_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.003771548891067505,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_midpoint/gmm_ring8_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.02326525592803955,
+          "complete": true
+        },
+        {
+          "run": "runs/state_clock_v1_20261025_m1_state_midpoint/gaussian_aniso_2d/ode_state_clock/seed000",
+          "step": 5000,
+          "oracle_mse": 0.004331943488121033,
+          "complete": true
+        }
+      ],
+      "gpu_csv": null,
+      "gpu_monitor_backend": "NVIDIA telemetry unavailable; see recorded training device"
+    }
+  },
+  "processes": [
+    {
+      "status": "sleeping",
+      "pid": 56284,
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source/configs/synthetic/architecture_search/state_clock_queue_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_queue_20261025_m1"
+      ],
+      "ppid": 20543,
+      "create_time": 1792860396.93026
+    },
+    {
+      "pid": 56293,
+      "status": "no_such_process_at_observation"
+    },
+    {
+      "pid": 56472,
+      "status": "no_such_process_at_observation"
+    },
+    {
+      "status": "running",
+      "pid": 56505,
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source/scripts/run_architecture_study.py",
+        "--plan",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/source/configs/synthetic/architecture_search/state_clock_product16_20261025_m1.json",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_product16_20261025_m1"
+      ],
+      "ppid": 56284,
+      "create_time": 1792860593.033244
+    },
+    {
+      "status": "running",
+      "pid": 56516,
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_product16_20261025_m1/configs/state_midpoint.json",
+        "--dataset",
+        "rotated_product_bimodal_16d",
+        "--model",
+        "ode_state_clock",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_product16_20261025_m1/runs"
+      ],
+      "ppid": 56505,
+      "create_time": 1792860627.045057
+    },
+    {
+      "status": "running",
+      "pid": 56600,
+      "cmdline": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python",
+        "-m",
+        "synthetic.train",
+        "--config",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_product16_20261025_m1/configs/swiglu.json",
+        "--dataset",
+        "rotated_product_bimodal_16d",
+        "--model",
+        "swiglu",
+        "--seed",
+        "0",
+        "--device",
+        "cpu",
+        "--output-root",
+        "/Users/mr.z/ode-workspace-prep/architecture-search/state_clock_20261025_m1/output/state_clock_product16_20261025_m1/runs"
+      ],
+      "ppid": 56505,
+      "create_time": 1792860653.736812
+    }
+  ]
+}
