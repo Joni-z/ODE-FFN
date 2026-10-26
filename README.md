@@ -30,6 +30,7 @@ All rows use model seed 0 and 5000 updates. Original ODE and SwiGLU128 are expli
 
 Recent evidence:
 
+- [Joint-dependence transfer control](docs/research-joint-dependence-2026-10-26/protocol.md): a registered comparison of the ordinary ISRU observation on a dependent-sign mixture with matched latent marginals, covariance and radial laws. Distribution/oracle checks pass; training results are pending.
 - [P versus direct effective matrices](docs/research-effective-map-2026-10-26/analysis-report.md): freeing the linear maps does not close the nonlinear fitting gap.
 - [Hidden versus output bias](docs/research-bias-placement-2026-10-26/analysis-report.md): both placements learn, but neither materially closes that gap.
 - [Local FFN teacher fitting](docs/research-local-ffn-teacher-2026-10-26/analysis-report.md) and [actual-data curvature](docs/research-data-curvature-2026-10-26/analysis-report.md): measured local behavior, with explicit limits on expressivity explanations.
