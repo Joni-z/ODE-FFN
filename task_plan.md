@@ -144,6 +144,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Commit verified cycle13 milestonea991af0 underZhizheZhang and fast-forward clean local main. Directpublisher session67397 exits1 for missing localHTTPSUsername; remote main independently remains800d09f.
 - [ ] Publish pending sequence after local Mac mini GitHub authentication. No architecture nominee; useful-successor objective remains open.
 
+## Cycle14 plan: independent second-coefficient direction
+- [x] Revalidate clean e608c9c and the cycle13 seal. Previous goal turn is progress. Read old external-time adapter, static effective-map, nonlinear-field and frame/order stops; this proposed change keeps K2 and scalar clocks, but introduces one independent second-coefficient matrix.
+- [x] Derived nonautonomous jet, direct-B ordinary equivalence and commutator/complete-gradient formulas. ICLR2025nonautonomous-transformer and AREX2026primary sources scoped without novelty/FM transfer claims. ActivecompleteJacobianfixturemax2.22e-16; small-duration ratios near8, C-family inherited gradients/RNG bitwise.
+- [x] Prototype/calibrate C/affine/free/direct and Swi258; actualparams/MACs fixed in protocol. Full trainer initialization/resume remains the mandatory frozen preflight gate. Preserve executed calibration source/log; reporting-only warning detached before registration, no fitted outcomes.
+- [ ] If the mathematical/control/budget gates pass, register one ten-cell thin/thick cold screen with unchanged seed0/5000updates/banks/head/objective/sampler and sealed original/Swi192 and fresh Swi258 controls. No frame, spectral cap, clock-range, optimizer or solver change.
+- [ ] Run with monitoring on Mac mini/Lenovo only and independently replay every new trajectory/diagnostic/P-C history. Apply fixed quality/mechanism/transfer guards without selecting a rescue.
+- [ ] Write evidence/figures/decision, seal and commit/synchronize; publish directly when local GitHub credentials are available. No screen alone completes the useful-successor objective.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
@@ -176,4 +184,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle13 is complete and independently replayed: fixed matrix freedom absorbs some trained quadratic action, but thick original/global tangent risk rises25.17%/36.69% under the single fixed substitution. This is frozen-function dependence, not evidence of a retrained K2 advantage. The112-file runtime and curated analysis/three figures are verified/sealed; milestonea991af0 is committed and synchronized to local main. Direct publication was attempted and failed for missing local HTTPS credentials; remote main remains800d09f. Only Mac mini/Lenovo are execution hosts. Fresh Lenovo SSH times out, local gh is unauthenticated; research progress is not blocked by publication. No new architecture is selected and the useful-successor goal remains active.
+Cycle13 is sealed/committed and synchronized locally. Current work is cycle14 design verification: relax the algebraic second-coefficient binding with one independent matrix, while exposing its exact ordinary gated-polynomial implementation and parameterization controls. No new training has started. All prior stops remain; useful-successor goal is active. Mac mini/Lenovo only; local publication credentials remain absent.
