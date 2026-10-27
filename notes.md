@@ -238,3 +238,7 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - The next bounded diagnostic is frozen next-batch gradient routing, not a new head/loss/optimizer architecture or a rescue of stopped settings.
 
 - Cycle15 formal49158 exited0 in35.58s,88checkpoints/1.76Mnativefieldrows/440groups,0trainingupdates,0.429GiBsampledRSS. Audit-v1 stopped at a cold thin cosine: remaining-normal route norm4.92e-15 makes direction meaningless. V2 keeps gradient tolerances and independently validates raw routes, then recomputes reported ratios from the saved vectors. No formal rerun, source binding mutation or threshold change.
+
+- Cycle15 audit-v2 session55421 exits0/29.95s; all88nativefieldreplays/264gradientroutes pass, maxindependentgradient1.26e-15/projector9.06e-12.181formal files unchanged. No formal rerun and no fitted optimizer step.
+- Thick final next-batch forced-loss fraction72.79–73.13%, hiddenforcednormmax6.20e-16. Step1000hiddenupdateeffects4.44–23.77%, step2500.41–5.45%, finalnonebecausebatch5001doesnotclip. Existing windowcliprates and singlebatchrates differ; no endpointcausalclaim. FinalthickPcos.089–.234reinforcesratherthancancels; no head/loss/optimizerrescue.
+- Archive32847 exits0,225files seal e36f77d3b56196069816003687cec9835c5887fc091072c3af3540edf9960a71.10bindings/3184priorfiles/allcuration/AST/links/twofigures pass; private470497166bytes/curated458795bytes. Source/evaluation/Report1 unchanged. LenovoSSH timesout; MacminiCPUonly. gh authentication still absent. No useful new ODE architecture is nominated.

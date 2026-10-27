@@ -1,0 +1,85 @@
+{
+  "thin": {
+    "forced_loss_fraction": [
+      8.601133595872382e-11,
+      6.437639688098812e-10
+    ],
+    "hidden_update_change": [
+      1.5537194837181237e-17,
+      3.18532437919999e-17
+    ],
+    "hidden_update_cosine": [
+      0.999999999999996,
+      1.0000000000000115
+    ],
+    "full_clip": [
+      1.0,
+      1.0
+    ],
+    "removed_clip": [
+      1.0,
+      1.0
+    ]
+  },
+  "thick": {
+    "forced_loss_fraction": [
+      0.7278954446138274,
+      0.7312540923583709
+    ],
+    "hidden_update_change": [
+      6.234826071388814e-16,
+      9.003820480739877e-16
+    ],
+    "hidden_update_cosine": [
+      0.9999999999999927,
+      1.0000000000000218
+    ],
+    "full_clip": [
+      1.0,
+      1.0
+    ],
+    "removed_clip": [
+      1.0,
+      1.0
+    ]
+  },
+  "thick_step1000": {
+    "update_relative_change": [
+      0.04440008320420406,
+      0.23769513396909459
+    ],
+    "full_clip": [
+      0.7595010056486684,
+      0.9087502860012188
+    ],
+    "forced_removed_clip": [
+      1.0,
+      1.0
+    ],
+    "update_cosine": [
+      0.9876256144968988,
+      0.999268818771247
+    ]
+  },
+  "thick_step2500": {
+    "update_relative_change": [
+      0.004124398061934959,
+      0.054525213369272366
+    ],
+    "full_clip": [
+      0.9103384411528856,
+      0.992980418834379
+    ],
+    "forced_removed_clip": [
+      1.0,
+      1.0
+    ],
+    "update_cosine": [
+      0.9987227860378176,
+      0.999993970616628
+    ]
+  },
+  "max_hidden_forced_norm": 6.200866246444032e-16,
+  "native_promoted_gradient_norm_max_abs": 3.745964736623364e-06,
+  "decision": "Diagnostic only; no loss/head/optimizer rescue and no architecture nomination."
+}
