@@ -10,7 +10,7 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Register a read-only checkpoint diagnostic of the complete hidden vector-field derivative, including normalization and gate derivatives.
 - [x] Verify analytic derivatives against automatic differentiation and exact checkpoint replay.
 - [x] Execute the registered diagnostic with monitoring; assess the result without coefficient or checkpoint selection.
-- [x] Publish the protocol/code milestone e0ad302. Complete final audited evidence and normal publication in the immediately following commit.
+- [x] Publish the protocol/code milestone e0ad302 and the final audited evidence fc1afda to GitHub main, verified through MBP SSH without rewriting commit authors.
 - [ ] Select and execute the next justified cycle; keep the overarching goal active until useful architecture evidence exists.
 
 ## Decisions
@@ -19,6 +19,13 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - Use the actual residual duration c=1/sqrt(3), without tuning it.
 - First test frozen checkpoints. This can identify whether higher-order integration of the learned hidden field is useful, but cannot establish the behavior of a freshly trained higher-order model.
 - Record failures rather than reset shared/published history. Never overwrite existing runtime outputs.
+
+## Cycle02: fixed-component-support mixture
+- [x] Specify the single half-Product/half-sign-code law, its exact Bayes mean/covariance/Jacobian, controls and interpretation limits.
+- [ ] Commit the protocol/source before outcomes; generate and hash the new data without changing historical laws.
+- [ ] Verify the oracle against65536-component enumeration, native cold states and exact resume.
+- [ ] Train five unchanged architectures with the registered5000-update budget and two monitored CPU workers.
+- [ ] Audit every new trajectory and publish all endpoints, P histories, figures, and the scoped interpretation.
 
 ## Errors encountered
 - Audit-v5 passed all Product16 cases, then one sign-code panel output differed by3.0599e-6. V6 makes panel-output tolerance1e-5 to match the existing full-bank numerical replay threshold; all other tolerances and formal outcomes stay fixed.
@@ -31,4 +38,4 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle01 ran to completion (PID32883, exit0,23.113s). Independent audit-v6 exited0 and replayed all204 field cases,100 time panels and20 generated batches;91 input bindings and333 formal outputs remained unchanged. All-block full Taylor worsened final oracle MSE on all four tasks (ratios47.54,15.68,8.32,33.81). The cycle is discarded. Curated analysis/figures are being verified and published. A single full-component-support dependence control is the next mathematical question, not yet a registered training study. No new architecture training has started.
+Cycle01 is complete, independently audited, sealed and published (fc1afda); it rejects frozen complete-Taylor upgrading without a coefficient rescue. Cycle02 protocol/source are ready for registration and preflight. It changes only one target law, holding all65536 Gaussian component locations/variances/count fixed while mixing their prior probabilities. It does not introduce a new architecture. No cycle02 training has started.
