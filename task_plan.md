@@ -167,7 +167,16 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Curate strict analysis/statistics/catalog, final numeric table and two visually reviewed figures. Seal225runtime files (SHA256e36f77d3b56196069816003687cec9835c5887fc091072c3af3540edf9960a71), verify10bindings/3184prior sealed files and all public copies. Private470.5MB/curated0.459MB. No source/evaluator/Report1changes.
 - [x] Commit verified cycle15 milestonea7d1c76 underZhizheZhang and fast-forward clean local main. Directpublisher8587 exits1 atHTTPSUsername (Device not configured); read-only remote main independently remains800d09f. Publication remains pending local authentication.
 
+## Cycle16 design review plan
+- [x] Revalidate clean8f459e5 and completed cycle15; previous goal turn is progress through the audited88-checkpoint gradient study. No model has met the useful-successor criterion.
+- [x] Review conservative readout, recurrent depth, cubic drift, external-time operator, spectral features and Stage9covariance stops. Reject Hopfield/softmax-covariance K2 as an explicitly prohibited higher-order rescue before implementation.
+- [x] Check primary Hyper-SET2025/ICLR2026, Hopfield discretization2026 and JiT paper. Energy/covariance algebra is established and already tested here; no architecture novelty or FM gain follows.
+- [x] No new operator survives the current stop/evidence review. Identify a distinct coverage gap: recent screens use a tokenless vector backbone, whereas the original question concerns JiT with attention. Do not move failed candidates to a new dataset as a rescue.
+- [ ] Prepare a separate CIFAR-10 unconditional image baseline bridge using literal professor K1/K2 and ordinary parameter/work-covering SwiGLUs only. Preserve all synthetic decisions. State the new dataset/splits/metrics explicitly; this is not a new architecture candidate or a replacement validation.
+- [ ] Before any quality training, verify official data hash/provenance, actual JiT input-clock semantics, exact common surrounding tensors, derivatives/resume and measured CPU/MPS throughput. Freeze a resource-bounded protocol only after feasibility measurement. No MBP/torch or stopped-operator rerun.
+
 ## Errors encountered
+- Cycle16 two guessed architecture-search index files were absent; the actual covariance protocol/readout and task plan establish its stop. No source/runtime mutation.
 - Cycle15 audit-v1 independently replayed gradients but compared dimensionless cosine for a cold thin route of norm4.92e-15 across SVD/QR. That direction is numerically undefined; preserve the failure. Audit-v2 retains all raw gradient/projector tolerances, independently validates routes, then verifies reported ratios from saved vectors. Formal outputs/source are unchanged.
 - Cycle15 initial combined plan/notes patch assumed a generic notes heading and failed atomically. Apply the plan separately and append the scoped note; no runtime or result changed.
 - Cycle11 audit-v1 replayed predictions exactly but computed the legacy float32 prediction-RMS diagnostic in float64, differing4.22e-7 at the cold checkpoint. Preservev1source/log; v2 uses the original metric dtype. No formal run, scientific metric, acceptance threshold or tolerance is changed.

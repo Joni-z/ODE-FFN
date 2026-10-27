@@ -244,3 +244,10 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Archive32847 exits0,225files seal e36f77d3b56196069816003687cec9835c5887fc091072c3af3540edf9960a71.10bindings/3184priorfiles/allcuration/AST/links/twofigures pass; private470497166bytes/curated458795bytes. Source/evaluation/Report1 unchanged. LenovoSSH timesout; MacminiCPUonly. gh authentication still absent. No useful new ODE architecture is nominated.
 
 - Cycle15 milestonea7d1c76 committedunderZhizheZhang and localmainfast-forwarded; bothclean. Final225-file sealrecheckpasses. Directpublisher8587 exited1 atpush because HTTPSUsername is unavailable (Device not configured). Independent ls-remote still800d09fe08f38ecf132f2f06b707a829426a2cd8. No remote update claimed; no task process restarted.
+
+
+## Cycle16 design review, before new training
+- Clean8f459e5 and completed cycle15revalidated. Primary Hyper-SET and basin-preserving Hopfield papers do not supply a new hidden covariance mechanism: Stage9already tested it and explicitly stopped higher-order/temperature/atom rescues. Reject proposed softmax-field K2 before implementation.
+- Complete-gradient readout and whole-vector recurrence are also stopped. They do not test token attention. The next necessary coverage is a small actual image/JiT baseline bridge, not a rescued covariance, frame or independent-Ccandidate. No new architecture selected.
+- LenovoSSH fresh attempt times out. Macmini has Torch2.10/MPS and PIL, no torchvision/timm/torch-fidelity in the frozen synthetic environment. Use existing dependencies for feasibility before choosing any quality run.
+- Canonical CIFAR-10page confirms60000RGB32images,50000train/10000test, PythonarchiveMD5c58f30108f718f92721af3b95e74349a. Real data provenance is explicit; classes will be discarded for unconditional training. JiTpaper inspected at arxiv2511.13720v1, not treated as evidence for small-CIFARODEgains.
