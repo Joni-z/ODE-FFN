@@ -50,10 +50,17 @@ def setup(root):
 def verify_inputs(root):
     settings, _, native, _, _ = setup(root)
     for name, digest in load(root/'bindings.json').items():assert native.sha(Path(name))==digest, name
-    parent = Path(settings['parent_cycle10'])
-    prior = import_file('derivative_study', parent/'source/derivative_study.py')
-    prior.verify_inputs(parent)
-    for name, digest in load(parent/'sealed-runtime.json').items():assert native.sha(parent/name)==digest, name
+    # Verify sealed lineage and its external bindings without importing prior
+    # benchmark modules into the new benchmark's Python module namespace.
+    for manifest in settings['prior_seals']:
+        manifest = Path(manifest)
+        for name, digest in load(manifest).items():assert native.sha(manifest.parent/name)==digest, name
+        bindings = manifest.parent/'bindings.json'
+        if bindings.exists():
+            for name, digest in load(bindings).items():
+                path = Path(name)
+                if not path.is_absolute():path = manifest.parent/path
+                assert native.sha(path)==digest, str(path)
 
 
 def build(root, law, arm):
@@ -102,6 +109,7 @@ def prepare(root, parent):
     shutil.copyfile(reference/'source/benchmark_core.py', source/'benchmark_core.py')
     shutil.copyfile(reference/'basis.npy', root/'basis.npy')
     settings = load(reference/'settings.json')
+    settings['prior_seals'] += [str(p/'sealed-runtime.json') for p in (reference, cycle08, cycle09, parent)]
     settings.update(parent_cycle10=str(parent.resolve()), geometry_reference=str(reference),
         registration_commit=subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip())
     write(root/'settings.json', settings)
