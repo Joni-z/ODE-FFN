@@ -1,6 +1,6 @@
 # Next review: nonlinear feature responses along a flow
 
-This is an unselected hypothesis after the stopped cycle04, not runnable source, a training authorization or an effectiveness/novelty claim. It connects the observed advantage of extra ordinary nonlinear gates to a different computation, rather than rescue cycle04's partition, coefficient, rank or feedback settings.
+This review originated as an unselected hypothesis after the stopped cycle04. Mathematical fixtures now pass and one bounded [cycle05 screen](cycle05-feature-flow/protocol.md) is selected. It connects the observed advantage of extra ordinary nonlinear gates to a different computation, rather than rescue cycle04's partition, coefficient, rank or feedback settings. It is not an effectiveness or novelty claim.
 
 ## Proposed operator
 
@@ -27,4 +27,4 @@ A fixed two-node Gauss-Legendre rule uses `.5±1/(2*sqrt(3))`. At C=0 it preserv
 
 The pointwise joint Jacobian can be cube-zero while the nonlinear flow's Taylor series does not terminate. Its third u derivative contains `diag(v)*SiLU''(a) elementwise (P_C*a)^2`, generally nonzero even though P_C²=0. Derivatives of the evolving activation supply terms missed by powers of a frozen Jacobian. The complete FFN gradient must include every activation trajectory and the value path.
 
-Before selection, verify the integral/AD identities, nonzero-head tangent pairing, actual cost, runtime buffers, batch streams and resume. An ordinary single-midpoint control would separate new feature integration from redundant parameterization; completed Swi143 remains the budget reference. Predeclare a quadrature-accuracy diagnostic so extra points cannot become a post-outcome rescue. Review the earlier nonlinear-drift/state-clock/anchored-corrector stops and primary integrated-feature literature first. No new training is selected here.
+The [cycle05 derivation](cycle05-feature-flow/design.md) records the checked integral/AD identities, full derivative, midpoint absorption, independent RK4 fixture, primary literature and earlier stop scopes. Its protocol fixes the nonzero-head/stream/resume/cost preflight and a quadrature-accuracy gate. Only two arms across the existing five laws are selected; no extra quadrature-point rescue is permitted.

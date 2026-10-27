@@ -53,14 +53,16 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [ ] Publish locally committed evidence after local GitHub authentication is established. Both previous browser-login processes are terminal failures. Authentication is not a blocker to local research.
 
 ## Next bounded step: nonlinear-feature review
-- [ ] Check older nonlinear-drift, state-clock and forced-gate stop scopes, and primary integrated-feature literature.
-- [ ] Verify the preactivation-flow integral, full derivatives, midpoint equivalence and quadrature error using independent numerical fixtures. Decide whether the operator merits one new registered screen.
-- [ ] If supported, register its source, ordinary controls, fixed budget and numerical-accuracy gate before outcomes; otherwise record the rejection and select a different mathematical question.
+- [x] Check older nonlinear-drift, state-clock, anchored-corrector and forced-gate stop scopes, and primary GLU, neural-flow and quadrature literature. No old setting is reopened.
+- [x] Verify the preactivation-flow integral, full derivatives, midpoint equivalence and quadrature error using independent numerical fixtures. Float64 derivative discrepancies<=2.78e-17; RK4 agrees with64-node quadrature to2.50e-16. The single-feature Hessian witness differs from midpoint. One controlled screen is justified; no FM-specific benefit is proved.
+- [x] Write the one-candidate/midpoint10-cell protocol with all15 reused Swi controls and an independent numerical-accuracy gate. Commit source before formal outcomes.
+- [ ] Complete native preflight and the monitored10-cell screen on Mac mini, then replay all checkpoints/curves/sampling/learned-C and the separate32-node accuracy diagnostics. Preserve all old seals.
 
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
 ## Errors encountered
+- Two initially guessed legacy review filenames did not exist. A filename-only search located the actual anchored-corrector protocol/analysis; those were read instead. No legacy file was changed.
 - The archive check initially expected the private rank-analysis `summary.json` to retain its filename in curated results. The curated name is `gate-rank-summary.json`; the corrected explicit mapping passed byte comparisons. No runtime seal had been written by the failed check.
 - A broad text search included archived patches/metrics and produced excessive output. Restrict subsequent stop-rule searches to named top-level protocol/review files.
 - A multi-file report patch matched a stale task-plan status paragraph and failed atomically. Current files were inspected and the patch was split/reapplied to actual text; no experiment or frozen artifact was changed.
