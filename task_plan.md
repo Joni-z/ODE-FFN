@@ -193,7 +193,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 
 ## Cycle18 plan: frozen image sampler resolution
 - [x] Register exact four-model/all1,024-start, uniform Heun32/64/128 cohort, fixed metrics, mathematical scope and stop rules. Cycle17 fitting/order failure remains unchanged.
-- [ ] Verify the sealed parent, warm environment specs and native32-step replay; commit standalone source/protocol before observing finer-grid outcomes.
+- [x] Register5e2c320 and pre-outcome resource amendment100f322. Prepare80542 exits0; preflight89758 exits0:all4096native32outputs bitwise, zero-clean/constant-velocity fixtures pass at32/64/128,129.1s. Actual installed package versions match both warm specs; parent392sealed files unchanged.
 - [ ] Run at most two one-thread CPU samplers with live PID/CPU/RSS monitoring; reuse original32-step features only after exact hash/pixel checks. Extract all finer-grid features on the same MPS extractor.
 - [ ] Independently replay finer-grid outputs and recompute all12FIDs with a separate SVD driver; verify no parent/source change.
 - [ ] Report all grid/sample differences, original pairwise rankings and cases, seal the diagnostic, commit and attempt direct publication. No new architecture nomination.

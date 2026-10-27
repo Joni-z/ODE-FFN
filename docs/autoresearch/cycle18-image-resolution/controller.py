@@ -24,9 +24,11 @@ try:
   started=time.monotonic();r=dict(phase=name,command=cmd,pid=p.pid,create_time=psutil.Process(p.pid).create_time(),started_at=time.time());records.append(r);write('launches.json',records)
   while p.poll() is None:
    assert time.monotonic()-started<ceiling,(name,'registered ceiling')
-   if psutil.pid_exists(p.pid):
+   try:
     process=psutil.Process(p.pid)
     with (folder/'resources.jsonl').open('a') as f:f.write(json.dumps(dict(phase=name,pid=p.pid,seconds=time.monotonic()-started,cpu_seconds=sum(process.cpu_times()[:2]),rss=process.memory_info().rss))+'\n')
+   except psutil.NoSuchProcess:
+    pass
    write('status.json',dict(state='RUNNING',phase=name,pid=p.pid,seconds=time.monotonic()-started,completed=len(records)-1,total=4));time.sleep(5)
   r.update(exit_code=p.returncode,seconds=time.monotonic()-started);write('launches.json',records)
   assert p.returncode==0,r

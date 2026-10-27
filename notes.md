@@ -283,3 +283,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Cycle17 a267210 committed and local main fast-forwarded. Publisher20200 exits1 (missing HTTPS Username), remote main independently800d09f; no remote publication claimed. Fresh Lenovo85331 exits255/SSH timeout. Cycle18 selected as a read-only all-model/all-source sampler-resolution diagnostic; it cannot rescue cycle17 fitting/order failures.
 
 - Cycle18 prior turn only confirmed compute scope; this continuation revalidated files and advanced the evidence. First native32arm replay takes32.96s, before finer outputs. A separately bound pre-outcome resource addendum raises only serial sampling-audit wall ceiling600to1200s; original prepared source/protocol retained. Scientific metrics, tolerances and cohort unchanged.
+
+- Cycle18 prepare80542 exits0; preflight89758 exits0 in129.1s, all4x1024native32outputs bitwise, scalar zero-clean recurrence and constant-velocity fixtures pass allthreegrids. Warm installed packages match bothspecs/MPSavailable. Standalone5e2c320andresourceamendment100f322committed before any finer outputs.
