@@ -1,0 +1,15 @@
+law,control,metric,ratio,threshold,passed
+thin,better_Swi,oracle_mse,0.22134092149741635,0.9,True
+thin,better_Swi,tangent_mse_per_dimension,0.2177653845563095,1.1,True
+thin,better_Swi,jacobian_error,0.31077189058769494,1.1,True
+thin,better_Swi,sw2,0.7307844861987243,1.1,True
+thin,better_Swi,tangent_sw2,0.7425619795283124,1.1,True
+thin,global_k2,oracle_mse,0.24932934697094786,0.95,True
+thin,frame_k1,oracle_mse,0.9606863414191605,0.95,False
+thick,better_Swi,oracle_mse,1.0031617293589115,1.05,True
+thick,better_Swi,tangent_mse_per_dimension,1.1065263192414778,1.1,False
+thick,better_Swi,jacobian_error,1.000834113532725,1.1,True
+thick,better_Swi,sw2,1.1607952636626084,1.1,False
+thick,better_Swi,tangent_sw2,1.2843450841469706,1.1,False
+thick,global_k2,oracle_mse,0.9976177398508804,0.95,False
+thick,frame_k1,oracle_mse,1.0030206329211917,0.95,False
