@@ -174,3 +174,15 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - p_i=oracle_suffix_i(model_prefix_i(source)); E=p_32-p_0=sumDelta_i exactly. Signed contributions<E,Delta_i>sum to pairedMSE, retaining cancellation. This coupling-dependent error is not SW2 or a distribution-quality attribution.
 - Oracle normal field is beta(t)Nx; exact scalar Heun suffix G_i transports each normal defect. A clean-head output-null/target-normal projectorT also predicts every bridge: p_iT=G_i[R_i sourceT+(1-R_i)c0T]. This separates a fixed-readout forced component from the normal remainder without excusing every relative model difference.
 - Float64 nonlinear-mixture fixture vector telescoping1.09e-19/normal affine5.94e-16, forced-readout bridge3.89e-16. Signed cancellation, expanding suffix, correct126normal normalization and nativefloat32 sampler arithmetic pass. No new fitted prefix/suffix outcomes viewed before registration.
+
+
+## Cycle12 audited path defects
+- Previous host-clarification turn was no progress toward the research goal; current work resumes the already completed formal diagnostic, without restarting it. Fresh Lenovo SSH check times out; Mac mini remains available. Local GitHub auth is absent; no MBP/torch relay is used.
+- Registered7a6c2db; preflight14.74s, formalPID44962 exit0/126.32s/1.340GiB, auditexit0/61.88s. All12endpoints/384learned steps/396oracle suffix branches replay bitwise, signed source projections checked;21formal files unchanged. No new training/solver/cap/head/loss.
+- ThinframeK2 tangent signed shares20.3846/49.6867/28.9215/1.0071%; thick22.8275/38.6117/22.6290/15.9318%. Large late-time uniform-bank residuals do not locate endpoint discrepancy. Finite tangent gain maxima16.77/16.52 refer to external oracle suffixes, not hiddenP stability.
+- Every fitted target-normal/output-null intersection is63D. Fixedreadout bridge identity error<=2.89e-7, normal scalar propagation<=6.41e-7, independentQRprojector<=7.42e-12. Thick forced fraction91.53–93.15% acrossall6families, sharedrestriction notexplanationofeveryrelativefailure. Clean homogeneousfactor.02116394 versus thickoracle.19701598.
+- ThinframeK2 paired tangentMSE.165753 exceedsoriginal.158101 while tangentSW2.204103 improvesversus.249849; centroidassignmentdisagreement11.72%versus8.45%. Paircouplingmetric mustnotreplace distributionquality orbecomeanewobjective.
+- Atthicktime.875,frameK2 learned-pathfirst-stage tangentfielddefect1.57415 versusoraclepath.31601,normalRMS.17595versus.21601. Visited-state sensitivity,notisolatedcausality.
+- Strictanalysisreport/statisticsappendix/figurecatalog written,fourPNG/PDFfiguresvisuallyreviewed.48reporting-onlyconditionalMCrows havefixedpredictor/IIDpointwiseapproximations,notselection-adjustedtests.12negativeaggregatestepcontributionsretained.NoK2rescueornewnominee.
+
+- Cycle12 sealed77files SHA256c5c17339156af984d03edaea508bd4a007aaad2a9719decdd1a2d1872c02675b. Sevenbindings/2629priorsealedfiles/exactauditcopies/48conditionalprecisionrows/78relativeMarkdownlinks/sourceAST/fourfigurechecks pass. Private1208639308bytes/curated1146453bytes; allprotectedmodel/evaluator/Report1paths unchanged.

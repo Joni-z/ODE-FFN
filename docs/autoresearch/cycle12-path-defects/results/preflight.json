@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "mixture_vector_telescoping_max": 1.0842021724855044e-19,
+    "mixture_normal_affine_max": 5.930230129657862e-16,
+    "signed_cancellation_verified": true,
+    "expanding_suffix_verified": true,
+    "normal_dimension_normalization": true,
+    "native_float32_step_arithmetic_bitwise": true,
+    "forced_readout_bridge_max": 3.885780586188048e-16
+  },
+  "endpoints": [
+    {
+      "law": "thin",
+      "family": "ode_k2",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "frame_k2",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "global_k2",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "frame_k1",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "swiglu192",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "swiglu257",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "ode_k2",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "frame_k2",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "global_k2",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "frame_k1",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "swiglu192",
+      "native_complete_sampler_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "swiglu257",
+      "native_complete_sampler_bitwise": true
+    }
+  ],
+  "normal_gain_thin": [
+    0.02116394042968751,
+    0.02184664818548388,
+    0.022574869791666678,
+    0.02335331357758622,
+    0.02418736049107144,
+    0.025083188657407416,
+    0.026047926682692315,
+    0.027089843750000005,
+    0.02821858723958334,
+    0.029445482336956527,
+    0.03078391335227273,
+    0.03224981398809524,
+    0.033862304687500004,
+    0.03564453125000001,
+    0.03762478298611112,
+    0.03983800551470589,
+    0.04232788085937501,
+    0.04514973958333334,
+    0.04837472098214286,
+    0.05209585336538462,
+    0.05643717447916667,
+    0.06156782670454546,
+    0.06772460937500001,
+    0.07524956597222222,
+    0.08465576171875001,
+    0.09674944196428573,
+    0.11287434895833334,
+    0.13544921875000002,
+    0.1693115234375,
+    0.22574869791666669,
+    0.338623046875,
+    0.5703125,
+    1.0
+  ],
+  "normal_gain_thick": [
+    0.19701598096600906,
+    0.20336696644038266,
+    0.21013139581663412,
+    0.21734991108918725,
+    0.22506848986978345,
+    0.23333931501703295,
+    0.24222181064213358,
+    0.2517838797259007,
+    0.2621033860869139,
+    0.27326993211694917,
+    0.28538699327542794,
+    0.2985744800005218,
+    0.31297180558511817,
+    0.3287415407865333,
+    0.3460737247598645,
+    0.36519086241592724,
+    0.3863535422467918,
+    0.40986640313803147,
+    0.4360837657954892,
+    0.4654134455202298,
+    0.4983157595152628,
+    0.5352919879500588,
+    0.5768516810185577,
+    0.6234400916542128,
+    0.6752949281369776,
+    0.732187907430569,
+    0.7930041095485019,
+    0.8551585810154326,
+    0.9140155016152743,
+    0.9627999362962771,
+    0.9937497406001465,
+    1.0019016227180528,
+    1.0
+  ]
+}
