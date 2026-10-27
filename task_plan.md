@@ -63,7 +63,8 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Inspect both plots, copy curated audited outputs, document the first-order tangent redundancy and seal320files (SHA2562a7a5fd06458ee4578db8cb52ed8076178b4b96046c2e1832fc267db697d6885).
 
 ## Next mathematical question, before another architecture
-- [ ] Verify the complete C-tangent absorption identity and write a bounded read-only counterfactual protocol for the fitted nonlinear curvature contribution. Keep this descriptive; no coefficient optimization, new training, initialization change or reopening of cycle05.
+- [x] Write a bounded read-only counterfactual protocol for the fitted nonlinear curvature contribution and20 complete C-tangent absorption checks. Keep this descriptive; no coefficient optimization, new training, initialization change or reopening of cycle05. Register source before reading these counterfactual outputs.
+- [ ] Execute the fixed five-checkpoint cohort, replay original predictions/Jacobians, verify the exact signed error decomposition and archive all outcomes.
 - [ ] Use the complete-network evidence to decide whether any different task-relevant ODE computation is justified. A new operator must face its ordinary implementation and matched cost, rather than repeat a solver-accuracy premise.
 
 ### Cycle03 decision boundary
