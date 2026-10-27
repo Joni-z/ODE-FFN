@@ -102,7 +102,7 @@ def diagnostics(model,b,folder,step):
         with torch.no_grad():
             for name,layer,value in captured:
                 flat=value.reshape(-1,64);s=.2+.8*torch.sigmoid(layer.t_func(flat)/10)
-                first=s*layer.proj(flat);second=.5*s.square()*layer.proj(layer.proj(flat))
+                first=layer.proj(flat)*s;second=layer.proj(first)*s/2
                 rms=lambda x:float(x.square().mean().sqrt())
                 rows.append(dict(layer=name,time=clock,s_mean=float(s.mean()),s_std=float(s.std(unbiased=False)),
                     s_min=float(s.min()),s_max=float(s.max()),input_rms=rms(flat),output_rms=rms(layer(flat)),
@@ -195,6 +195,7 @@ def preflight(root):
             if func==torch.ops.aten.mm.default:self.macs+=args[0].shape[0]*args[0].shape[1]*args[1].shape[1]
             if func==torch.ops.aten.addmm.default:self.macs+=args[1].shape[0]*args[1].shape[1]*args[2].shape[1]
             return out
+    trial=root/'preflight-checkpoints';trial.mkdir(exist_ok=False)
     reference=model_for(root,'ode_k2')
     for arm in ARMS:
         initial=model_for(root,arm)
@@ -213,7 +214,9 @@ def preflight(root):
             for step in range(1,4):
                 b=draw(images,indices,rng);digest=fingerprint(digest,b);update(model,opt,b)
                 if interrupted and step==2:
-                    state=checkpoint(model,opt,rng,step,digest);model=model_for(root,arm);opt=optimizer(model);digest=restore(model,opt,rng,state)
+                    state=checkpoint(model,opt,rng,step,digest);path=trial/f'{arm}.pt';torch.save(state,path)
+                    stored=torch.load(path,weights_only=False);equal(state,stored)
+                    model=model_for(root,arm);opt=optimizer(model);digest=restore(model,opt,rng,stored)
             ends.append(checkpoint(model,opt,rng,3,digest))
         equal(*ends)
         if common is None:common=ends[0]['input_stream_digest']
@@ -226,7 +229,17 @@ def preflight(root):
             dense_FFN_forward_MACs_per_token=f.macs,dense_FFN_training_MACs_per_token=both.macs))
     assert rows[2]['dense_FFN_training_MACs_per_token']>=rows[0]['dense_FFN_training_MACs_per_token']
     assert rows[3]['dense_FFN_training_MACs_per_token']>=rows[1]['dense_FFN_training_MACs_per_token']
-    write(root/'preflight.json',dict(status='PASS',arms=rows,common_three_batch_digest=common))
+    class Zero:
+        def __call__(self,x,t,labels):return torch.zeros_like(x)
+    source=np.load(root/'banks/sampling-source.npy')[:64];actual=generate(Zero(),source)
+    factor=1.
+    for i in range(32):
+        h=1/32;a=-1/max(1-i/32,.05);b=-1/max(1-(i+1)/32,.05)
+        factor*=1+h*(a+b+h*a*b)/2
+    np.testing.assert_allclose(actual,source*factor,atol=1e-6,rtol=1e-5)
+    np.testing.assert_array_equal(actual,generate(model_for(root,'ode_k2').eval(),source))
+    write(root/'preflight.json',dict(status='PASS',arms=rows,common_three_batch_digest=common,
+        disk_checkpoint_roundtrip_bitwise=True,cold_sampler_matches_affine_Heun=True,discrete_homogeneous_factor=factor))
     write(root/'ready.json',dict(bindings=sha(root/'bindings.json'),metric_bindings=sha(root/'metric-bindings.json'),preflight=sha(root/'preflight.json')))
     print(json.dumps(load(root/'preflight.json')),flush=True)
 

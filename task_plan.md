@@ -188,6 +188,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [ ] Complete all four arms and independently audit validation, sampling, FID and stream identities; report every endpoint and apply only the fixed descriptive decision.
 
 ## Errors encountered
+- Before any cycle17quality run, tighten telemetry to the literal recursive quadratic term and extend trainer preflight to physical checkpoint serialization plus cold affine-Heun replay. Preserve the first prepared source/reference bank; prepare a fresh v2runtime. Reuse reference features only after exact pixel/extractor/weight/hash identity checks; no predictor outcome or acceptance gate changes.
 - Cycle17 initial metrics environment imports fail inside SciPy1.15.3 PROPACK Mach-O loader (zero-fill section offset). No weights, quality run or metric result is accepted. Preserve spec/log/version record, identify a locally working SciPy binary and render a fresh environment/spec before declaring readiness.
 - Cycle16 feasibility-v1 passed model/clock/derivative/CPU-resume checks but stopped before timing: local clock s shadowed settings s. Preserve source/bindings/log, rename the settings variable, mark terminal failure from the consumed handle and prepare a new v2 snapshot. No image quality training occurred.
 - Cycle16 two guessed architecture-search index files were absent; the actual covariance protocol/readout and task plan establish its stop. No source/runtime mutation.
