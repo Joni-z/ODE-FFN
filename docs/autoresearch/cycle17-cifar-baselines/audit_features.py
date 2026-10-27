@@ -12,7 +12,7 @@ ap=argparse.ArgumentParser();ap.add_argument('--root',type=Path,required=True);a
 a=ap.parse_args();root=a.root;out=a.output;out.mkdir(exist_ok=False);torch.set_num_threads(1);started=time.monotonic()
 load=lambda p:json.loads(p.read_text())
 def sha(p):
-    with p.open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
+    with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 for p,h in load(root/'bindings.json').items():assert sha(p)==h
 assert load(root/'metric-output/result.json')['status']=='PASS'
 original={str(p):sha(p) for p in (root/'metric-output').rglob('*') if p.is_file()}

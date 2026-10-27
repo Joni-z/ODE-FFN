@@ -2,9 +2,15 @@
 
 See [protocol](protocol.md), [mathematics](theory.md) and
 [environment validation](environment.md). This is a baseline study, not a new
-architecture candidate. The data/sources from cycle16are immutable inputs.
+architecture candidate. The data and sources from cycle16 are immutable inputs.
 
 The producer is study.py; image_metrics.py uses a separate metrics environment.
+Completed: all four arms and independent training/feature audits pass execution checks.
+The original K2 fitting and order gates fail; no new method is nominated.
+See the [analysis and figures](analysis-report.md), [statistical scope](stats-appendix.md),
+and [decision](results/decision.json). The commands below document the completed
+run; do not rerun them into the archived runtime.
+
 Private runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2`.
 Data: `/Users/mr.z/ode-workspace-prep/image-bridge-data/cifar10-v2`.
 
@@ -42,6 +48,6 @@ fixture calls current SciPy sqrtm directly, avoiding the stock wrapper's obsolet
 disp argument without modifying torch-fidelity or its extractor.
 
 The initial oct28-cycle17 preparation/reference-only snapshot is preserved.
-Active v2adds physical checkpoint-roundtrip and cold-Heun checks plus literal
+Active v2 adds physical checkpoint-roundtrip and cold-Heun checks plus literal
 quadratic-term telemetry, before any quality run. Its reference bank is reused
 only after byte-identical pixels/extractor/weights/source checks.

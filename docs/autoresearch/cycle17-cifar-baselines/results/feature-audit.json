@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "reference_images": 2048,
+  "generated_images": 4096,
+  "reference_replay": {
+    "maximum": 0.0,
+    "rms": 0.0
+  },
+  "results": [
+    {
+      "family": "ode_k1",
+      "fid": 184.9080591183389,
+      "producer_fid": 184.90805911833922,
+      "difference": -3.126388037344441e-13,
+      "feature_replay": {
+        "maximum": 0.0,
+        "rms": 0.0
+      }
+    },
+    {
+      "family": "ode_k2",
+      "fid": 183.39518117852356,
+      "producer_fid": 183.39518117852396,
+      "difference": -3.979039320256561e-13,
+      "feature_replay": {
+        "maximum": 0.0,
+        "rms": 0.0
+      }
+    },
+    {
+      "family": "swiglu86",
+      "fid": 195.46185654455329,
+      "producer_fid": 195.4618565445537,
+      "difference": -4.263256414560601e-13,
+      "feature_replay": {
+        "maximum": 0.0,
+        "rms": 0.0
+      }
+    },
+    {
+      "family": "swiglu129",
+      "fid": 194.1005128713637,
+      "producer_fid": 194.1005128713641,
+      "difference": -3.979039320256561e-13,
+      "feature_replay": {
+        "maximum": 0.0,
+        "rms": 0.0
+      }
+    }
+  ],
+  "formal_files_unchanged": 6,
+  "seconds": 79.90495016612113
+}

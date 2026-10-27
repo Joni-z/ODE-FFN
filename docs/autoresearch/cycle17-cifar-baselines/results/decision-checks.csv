@@ -1,0 +1,8 @@
+condition,reference,ratio,limit,passed
+K2 weighted MSE <= .9 ordinary,swiglu86,1.0226766016325226,0.9,False
+K2 weighted MSE <= .9 ordinary,swiglu129,1.0327511916832246,0.9,False
+K2 clean_mse guard,better ordinary,1.0190431405829072,1.1,True
+K2 fid guard,better ordinary,0.9448464533427849,1.1,True
+K2 weighted MSE <= .95 K1,ode_k1,1.0025485791210258,0.95,False
+K2 clean_mse guard against K1,ode_k1,0.9999257255744469,1.1,True
+K2 fid guard against K1,ode_k1,0.9918182152415156,1.1,True

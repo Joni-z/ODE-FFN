@@ -1,0 +1,59 @@
+{
+  "original_K2_image_lead": false,
+  "higher_order_support": false,
+  "ordinary_checks": [
+    {
+      "condition": "K2 weighted MSE <= .9 ordinary",
+      "reference": "swiglu86",
+      "ratio": 1.0226766016325226,
+      "limit": 0.9,
+      "passed": false
+    },
+    {
+      "condition": "K2 weighted MSE <= .9 ordinary",
+      "reference": "swiglu129",
+      "ratio": 1.0327511916832246,
+      "limit": 0.9,
+      "passed": false
+    },
+    {
+      "condition": "K2 clean_mse guard",
+      "reference": "better ordinary",
+      "ratio": 1.0190431405829072,
+      "limit": 1.1,
+      "passed": true
+    },
+    {
+      "condition": "K2 fid guard",
+      "reference": "better ordinary",
+      "ratio": 0.9448464533427849,
+      "limit": 1.1,
+      "passed": true
+    }
+  ],
+  "order_checks": [
+    {
+      "condition": "K2 weighted MSE <= .95 K1",
+      "reference": "ode_k1",
+      "ratio": 1.0025485791210258,
+      "limit": 0.95,
+      "passed": false
+    },
+    {
+      "condition": "K2 clean_mse guard against K1",
+      "reference": "ode_k1",
+      "ratio": 0.9999257255744469,
+      "limit": 1.1,
+      "passed": true
+    },
+    {
+      "condition": "K2 fid guard against K1",
+      "reference": "ode_k1",
+      "ratio": 0.9918182152415156,
+      "limit": 1.1,
+      "passed": true
+    }
+  ],
+  "new_architecture_nominated": false,
+  "note": "A positive original baseline is not a new method or a synthetic transfer result; keep all stopped families stopped."
+}
