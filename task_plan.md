@@ -29,6 +29,17 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Publish cycle02 endpoints, P histories, figures, and the scoped interpretation (b35497b verified on GitHub main and MBP).
 - [ ] Review the next justified generator question against complete-field constraints and all relevant stop rules before selecting a third architecture.
 
+## Cycle03: exact gated-shear baseline
+- [x] Revalidate the current worktree and previous stop rules. Previous goal turn made progress: two completed, audited, published cycles.
+- [x] Identify a representation audit that does not add failed feedback/coupling settings: an exact nilpotent lifted flow for unchanged SwiGLU.
+- [x] Read primary GLU/coupling references and state the exact conditional-flow theorem, complete FFN Jacobian, nonnormal norm and claim limits.
+- [x] Write the representation/compatibility protocol, minimal component and independent literal matrix-exponential fixture; commit before new outcomes.
+- [ ] Verify native checkpoints, full Jacobians, parameter gradients, exact paired optimizer updates/resume and actual cost. Run one paired historical training trajectory, not a quality search.
+- [ ] Record conditional-generator singular values on real visited states; preserve old artifacts; publish all results and interpretation.
+
+### Cycle03 decision boundary
+The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
+
 ## Errors encountered
 - Final-results publication initially failed at GitHub HTTPS fetch, before any bundle or remote write. A fresh fetch succeeded; the terminal publication was retried and b35497b was verified remotely. No experiment was restarted.
 - Audit-v5 passed all Product16 cases, then one sign-code panel output differed by3.0599e-6. V6 makes panel-output tolerance1e-5 to match the existing full-bank numerical replay threshold; all other tolerances and formal outcomes stay fixed.
@@ -41,4 +52,4 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Both cycles are independently audited, sealed and published. Cycle02's full evidence is verified at GitHub main b35497b. ISRU field MSE0.163557 versus best SwiGLU0.113254 fails to recover the old advantage despite all65536 component locations retaining positive probability. The descriptive oracle decomposition is not a causal model-failure explanation. There are no running training jobs. The useful ODE-architecture goal remains active; no third candidate is selected. Before the next run, inspect the complete predicted map and its true cost, and reject renamed scalar-potential, coupling or solver-order rescues under the old stop rules.
+Cycles01/02 remain sealed and published. Cycle03 theory, source and protocol are ready for registration/preflight. Native model semantics are retained by an exact closed form. No job is running and no effectiveness gain is claimed. The useful-successor goal remains active.
