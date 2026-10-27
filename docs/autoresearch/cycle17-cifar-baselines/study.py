@@ -157,6 +157,7 @@ def prepare(root,parent,data,envpass):
     root.mkdir(exist_ok=False);source=root/'source';source.mkdir();here=Path(__file__).resolve().parent;repo=here.parents[2]
     for p in here.iterdir():
         if p.is_file():shutil.copyfile(p,source/p.name)
+    shutil.copytree(here/'results',source/'pre-registration-checks')
     shutil.copyfile(parent/'source/image_model.py',source/'image_model.py')
     shutil.copytree(parent/'source/jit',source/'jit',ignore=shutil.ignore_patterns('__pycache__'))
     shutil.copyfile(envpass,source/'environment-doc-pass.json');assert load(envpass)['status']=='PASS'
