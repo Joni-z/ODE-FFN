@@ -14,6 +14,7 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [ ] Select and execute the next justified cycle; keep the overarching goal active until useful architecture evidence exists.
 
 ## Decisions
+- Latest user direction: experiment execution uses Mac mini and Lenovo. MBP/torch are not compute dependencies. Remove the old publication dependency by setting up local GitHub authentication; do not request SSH restoration for publishing.
 - Adapt the official research protocol, not its GPT task, tokenizer, val_bpb, CUDA environment, or unrestricted hyperparameter search.
 - Preserve historical data, seed 0, native model semantics, and all sealed evidence.
 - Use the actual residual duration c=1/sqrt(3), without tuning it.
@@ -34,13 +35,21 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Identify a representation audit that does not add failed feedback/coupling settings: an exact nilpotent lifted flow for unchanged SwiGLU.
 - [x] Read primary GLU/coupling references and state the exact conditional-flow theorem, complete FFN Jacobian, nonnormal norm and claim limits.
 - [x] Write the representation/compatibility protocol, minimal component and independent literal matrix-exponential fixture; commit before new outcomes.
-- [ ] Verify native checkpoints, full Jacobians, parameter gradients, exact paired optimizer updates/resume and actual cost. Run one paired historical training trajectory, not a quality search.
-- [ ] Record conditional-generator singular values on real visited states; preserve old artifacts; publish all results and interpretation.
+- [x] Verify native checkpoints, full Jacobians, parameter gradients, exact paired optimizer updates/resume and actual cost. One paired5000-update trajectory completed; this is not a quality search.
+- [x] Record conditional-generator singular distributions on real visited states; independent replay passed44 checkpoints,55 panels,11 sampling batches,132 literal FFNs and33 literal local derivative probes.
+- [ ] Seal and publish all cycle03 results and interpretation from Mac mini once local GitHub login completes.
+
+## Next design review: exact gate transport
+- [x] Derive square-zero gate transport and its joint cube-zero generator, exact degree-two endpoint, complete FFN Jacobian and fixed-feature rank witness.
+- [x] Specify ordinary parameter/MAC controls conceptually; acknowledge that an equivalent ordinary gate mixer is not independent evidence for an ODE effect.
+- [ ] Verify the rank/operator witness and actual cost, register source and a fixed15-trajectory screen, then preflight before training. This is pending, not an implemented or effective architecture.
 
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
 ## Errors encountered
+- The first local GitHub CLI browser-auth process ended with a network unexpected-EOF error; no local token/login success was established. Do not treat the pending browser question or its old code as proof of authentication.
+- Cycle03 publication failed while copying its bundle to MBP, and both the Tailscale address and the previous LAN address were unavailable. No remote branch was updated. The user clarified experiments should use Lenovo/Mac mini; local publication setup replaces this transport dependency.
 - Final-results publication initially failed at GitHub HTTPS fetch, before any bundle or remote write. A fresh fetch succeeded; the terminal publication was retried and b35497b was verified remotely. No experiment was restarted.
 - Audit-v5 passed all Product16 cases, then one sign-code panel output differed by3.0599e-6. V6 makes panel-output tolerance1e-5 to match the existing full-bank numerical replay threshold; all other tolerances and formal outcomes stay fixed.
 - Audit-v4 stopped on two Product16 generated coordinates after64 field evaluations, with maximum violating difference5.11e-5. V5 records all sampling maximum/RMS differences and checks max<1e-3, RMS<1e-5 plus unchanged stringent SW2 agreement. All failed audits remain preserved; formal outputs are never rerun.
@@ -52,4 +61,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycles01/02 remain sealed and published. Cycle03 theory, source and protocol are ready for registration/preflight. Native model semantics are retained by an exact closed form. No job is running and no effectiveness gain is claimed. The useful-successor goal remains active.
+Cycles01/02 remain sealed and published. Cycle03 formal and independent replay both completed successfully (42.33s/9.37s), including exact native training behavior. Its results and a scoped report are prepared locally; no quality gain is claimed. Experiments use Mac mini/Lenovo only. GitHub CLI is installed locally; authentication is pending so future publication no longer depends on MBP/torch. No training is running. The next review concerns actual gate-operator connectivity, not an equivalent ODE label. The useful-successor goal remains active.

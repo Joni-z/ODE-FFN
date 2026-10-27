@@ -4,7 +4,7 @@ The ongoing autonomous research protocol and latest audited cycles are documente
 
 Development repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN). The `main` branch contains the active torch workspace; the previous GitHub version is preserved on `archive`. See the [development guide](docs/development.md) for data preparation after cloning and development across machines.
 
-Primary workspace on torch: `/scratch/zz5070/ODE_FFN/jit-codebase`.
+Active experiment hosts are **Mac mini and Lenovo**. The historical torch checkout at `/scratch/zz5070/ODE_FFN/jit-codebase` is retained for provenance; MBP and torch are not required to run new experiments. GitHub publication should run directly from Mac mini.
 
 Current autoresearch development worktree on Mac mini: `/Users/mr.z/ODE-FFN-autoresearch`; the synchronized main checkout remains `/Users/mr.z/ODE-FFN-report-work`. Earlier frozen experiments live under `/Users/mr.z/ode-workspace-prep/architecture-search/`; new autoresearch runtimes live under `/Users/mr.z/ode-workspace-prep/autoresearch/`. The M1 supports PyTorch MPS GPU training; current tiny-model studies use CPU because the measured updates are faster there.
 
@@ -21,6 +21,8 @@ The project tests whether a local ODE-inspired FFN can improve unconditional flo
 **Latest cycle, October 27:** a complete nonlinear Taylor correction, including normalization and gate derivatives, fails as a post-training upgrade to the fitted SwiGLU field on all four validation laws. This is a read-only checkpoint diagnostic, not new training or a general rejection of solver-aware architectures. See the [audited analysis and figures](docs/autoresearch/cycle01-complete-field/analysis.md). No useful final ODE architecture has yet been established.
 
 The next [fixed-component-support control](docs/autoresearch/cycle02-full-support/analysis.md) trained five unchanged models on a half-Product/half-sign-code law. All65536 original component locations retain positive probability, but ISRU still loses to stronger SwiGLUs (field MSE0.16356 versus0.11325). Literal component count alone does not explain the prior reversal; probability concentration and posterior ambiguity remain distinct factors. The report includes the exact oracle, independent trajectory audit, P spectra and a between-branch covariance case study.
+
+The [exact gated-shear baseline](docs/autoresearch/cycle03-gated-shear/analysis.md) represents SwiGLU by a square-zero lifted generator. Forward values, derivatives, 5000 paired optimizer updates and costs retain native behavior. This is an equivalent baseline, not a quality gain. Its generator has zero eigenvalues while conditional norm amplification changes with training; no complete-map stability guarantee follows. See [GatedShearFFN](synthetic/gated_shear.py).
 
 **October 26:** the ordinary ISRU observation does not transfer after fresh training on a dependent-sign target law with matched latent marginals, covariance and radial laws. Field MSE is0.085073 for ISRU and0.039790 for SwiGLU160. Its lower SW2 coexists with worse joint sign-pattern and component-distance diagnostics. The [complete transfer report](docs/research-joint-dependence-2026-10-26/analysis-report.md) includes every control, P trajectory, generation case study and a scoped mathematical analysis.
 

@@ -1,0 +1,12 @@
+law,family,parameters,dense_forward_macs,dense_training_forward_backward_macs,matrix_count_scope,identical_to_native
+product,swiglu64,58572,57024,167936,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+product,swiglu128,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+product,swiglu160,95820,93888,278528,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+sign_code,swiglu64,58572,57024,167936,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+sign_code,swiglu128,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+sign_code,swiglu160,95820,93888,278528,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+half_mixture,swiglu64,58572,57024,167936,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+half_mixture,swiglu128,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+half_mixture,swiglu160,95820,93888,278528,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+gaussian_aniso_2d,swiglu128,81792,80000,237760,actual aten mm/addmm/bmm/mv; pointwise work excluded,True
+gmm_ring8_2d,swiglu128,81792,80000,237760,actual aten mm/addmm/bmm/mv; pointwise work excluded,True

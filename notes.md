@@ -43,3 +43,11 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Complete FFN derivatives retain the gate path. Nonnormality permits arbitrarily large norm amplification despite all generator eigenvalues being zero. Encoder/conditional-generator/readout composition prevents importing conditional latent volume/inverse claims into the full data-space map.
 - Primary sources read: Shazeer2020 Section2; NICE2015v6 Sections3.1–3.2; U-Former ODE2026v1 Section3.2.1 (SwiGLU CDE field, not the exact shear); Wendin/Altafini2025v1 Sections2–3 (weight-training dynamics, not an inference theorem).
 - The exact ordinary baseline is retained, not weakened, and no failed scalar-potential or feedback setting is revived. Positive compatibility cannot be called a performance improvement.
+
+## Cycle03 completed evidence
+- Registration commit dfd416f. Formal PID35582 exited0 in42.33seconds; independent replay exited0 in9.37seconds. Sampled peak RSS0.331GiB on one Mac CPU thread.
+-44 historical checkpoints,55 full-network-Jacobian panels and11 generated batches agree bitwise. All11 fitted full-parameter probes and the paired5000-step optimizer trajectory match native behavior; all four saved states match historical half-mixture SwiGLU128 exactly.
+- Independent literal matrices at132 real FFN contexts give exactly equal values, and33 local gradient probes agree within9.54e-7 in float32. The separate literal exponential float64 check agrees in gradients to2.78e-17. All369 bindings and prior seals remain unchanged.
+-132 conditional-generator singular quantile records are published; raw arrays stay private. Final Swi128 probe flow-norm maxima: Product7.93, sign-code9.65, mixture6.72. All generator eigenvalues remain zero. These are finite probe observations, not global bounds.
+- User clarified experimental hosts: Mac mini and Lenovo. Lenovo SSH still times out. MBP/torch are removed as publication dependencies; GitHub CLI2.103.2 was installed on Mac mini. Browser login is pending. No secret token is printed or committed.
+- The next candidate must add useful computation. The gate-transport design describes exact K³=0 coupling with a small rectangular C, a fixed-feature rank witness, explicit full gradients and matched wider-Swi controls; it is not yet implemented or selected for training.

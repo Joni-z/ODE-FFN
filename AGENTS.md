@@ -8,4 +8,5 @@
 - State the hypothesis, exact operator, matched controls, budget and stopping criterion before a new experimental family. Avoid bundling tricks or reviving failed settings with unregistered rescues.
 - Preserve frozen source snapshots, raw runs, checkpoints and the submitted Report1. Keep datasets, environments, checkpoints and raw execution logs outside Git; publish code, configurations and curated evidence.
 - Monitor running studies. Re-poll an existing live process after an observation timeout; do not restart merely because the observation expired.
+- Run new experiments on **Mac mini and Lenovo**. Do not depend on MBP or torch for experiment execution. Configure GitHub publication on Mac mini directly rather than asking the user to restore another machine solely to push commits.
 - Sync reachable machines through GitHub. Check for local changes before updating a checkout, and use fast-forward updates. Never discard another machine's work to make a pull succeed.

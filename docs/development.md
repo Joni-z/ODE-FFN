@@ -2,10 +2,12 @@
 
 Canonical repository: https://github.com/Joni-z/ODE-FFN
 
-- `main`: current torch development tree, including the original JiT code and the synthetic experiments.
+- `main`: active development tree, including the original JiT code and the synthetic experiments.
 - `archive`: original GitHub main at `3e8b067a2324354d2a7219e9785244c28c04e1ee`, preserved before the 2026-10-20 migration.
 - torch worktree: `/scratch/zz5070/ODE_FFN/jit-codebase`.
 - MBP checkout: `/Users/zzz/Documents/NYU/Researches/ODE FFN/ODE-FFN`. Existing sibling `Paper_reading` is left intact.
+
+New experiment execution uses **Mac mini and Lenovo**. The torch/MBP paths above are historical checkouts, not required compute or publication services. Current Mac worktree: `/Users/mr.z/ODE-FFN-autoresearch`. Lenovo worktree: `D:\Research\ODE-FFN\repo`. Keep host-specific environments, datasets and immutable runtimes outside Git.
 
 ## Fresh checkout
 
@@ -29,4 +31,21 @@ Dataset generation refuses to overwrite an existing directory. For exact archive
 
 Before committing, inspect `git status`, `git diff --cached --stat` and the staged filenames. `.gitignore` excludes data, weights, environments, secrets and raw logs; it does not remove files already tracked by Git. Reviewed report JSON/CSV/PNG/PDF are deliberately retained as scientific evidence. Large diagnostic output should remain in the external runtime directories unless explicitly selected for a report.
 
-Do not rewrite `archive`. Develop new work on feature branches from `main`; synchronize with GitHub before switching between MBP and torch. Keep active immutable training snapshots separate from the mutable main worktree.
+Do not rewrite `archive`. Develop new work on feature branches from `main`; synchronize Mac mini and Lenovo through GitHub. Check each checkout for local changes and use fast-forward pulls. Keep immutable training snapshots separate from mutable worktrees.
+
+## Direct publication from Mac mini
+
+Authenticate locally once using the official GitHub CLI browser flow; credentials belong in the CLI/OS credential store, not the repository:
+
+```bash
+gh auth login --hostname github.com --git-protocol https --web
+gh auth setup-git --hostname github.com
+```
+
+After committing verified work as Zhizhe Zhang, publish from its worktree:
+
+```bash
+python scripts/publish_autoresearch.py
+```
+
+The publisher checks the canonical remote, a clean worktree, English commit identities and fast-forward ancestry, then performs a normal Git push and verifies remote main. It does not route publication through another machine or rewrite remote history. A login/network failure leaves local commits intact and must not be reported as successful publication.
