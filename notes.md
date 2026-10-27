@@ -259,3 +259,10 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Cycle16 preparation archive exits0:92files seal c1f13c9a91b1599439670918315dc891bdce38adce86dfc4ba775bdb6c3d7145;23sourcebindings/8closurebindings/225priorC15files/links/AST/2figures verified. Private805174bytes, data324500294bytes, serialprefix preserved separately. Mainrequirements and fullenvironmentlock curated; no real CIFARtraining and no newmethod nominated.
 
 - Verifiedcycle16preparation milestone8baec48committedunderZhizheZhang/localmainfast-forwarded. Directpublisher22601exits1 atHTTPSUsername; independent remote main800d09fe08f38ecf132f2f06b707a829426a2cd8. No source/runtime rerun or remote update claimed. No quality-training process is live; the next authorized phase is its fixed protocol and ordinary-control image screen.
+
+
+## Cycle17 before image quality outcomes
+- Clean98730e0/cycle16seal and no quality process verified. LenovoSSH timesout. Four-arm fixed image baseline bridge selected; original K1/K2 and Swi86/129 only, not a new architecture or failed-family rescue.
+- run-experiment skill applied. Initial metrics env fails SciPy1.15.3 Mach-O loader on macOS27; source/spec/log/environment preserved. New specdc729a50 uses locally verified SciPy1.18.1 in separate .venv-image-metrics-v2. Training env remains unchanged.
+- Parent actual trainingCPU and metricsMPS witnesses exit0; fresh-agent image_env_doc_pass independently executes both documented commands verbatim, exit0/no mismatches. Inceptionweights95628359bytes SHA2566726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2.
+- Metric fixture84046 exits0: exact empirical low-rank FID agrees with covariance-formula fixtures (singular case difference2.13e-7); identicalfeatureszero, byte roundtrip exact. CPU/MPS pool3max5.72e-6/RMS5.72e-7 under fixed1e-3/1e-4gates. No CIFAR predictor trained or generated samples observed.

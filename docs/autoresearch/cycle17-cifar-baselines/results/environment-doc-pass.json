@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "kind": "fresh-agent-follows-doc",
+  "working_directory": "/Users/mr.z/ODE-FFN-autoresearch",
+  "instructions_read": [
+    "/Users/mr.z/.agents/skills/run-experiment/SKILL.md",
+    "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+    "/Users/mr.z/ODE-FFN-autoresearch/.aris/compute/macmini.md",
+    "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle17-cifar-baselines/environment.md"
+  ],
+  "input_sha256": {
+    "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle17-cifar-baselines/environment.md": "f69d218c461705f4ac3b82f331cd44a45d957637c14a3fa07fedc755e0237400",
+    "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle17-cifar-baselines/environment_witness.py": "4e63aa30d59d4e422dee2d2b2371a8dd47bb1f8e3adfb5d690cd130ab1a2a400"
+  },
+  "invocations": [
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle17-cifar-baselines/environment_witness.py --mode training",
+      "exit_code": 0,
+      "output": "WITNESS_PASS {\"mode\": \"training\", \"device\": \"cpu\", \"shape\": [2, 3, 32, 32], \"P_gradient_norms\": [0.004854617174714804, 0.004513717722147703, 0.004275090526789427]}\n",
+      "sentinel": {
+        "mode": "training",
+        "device": "cpu",
+        "shape": [
+          2,
+          3,
+          32,
+          32
+        ],
+        "P_gradient_norms": [
+          0.004854617174714804,
+          0.004513717722147703,
+          0.004275090526789427
+        ]
+      }
+    },
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle17-cifar-baselines/environment_witness.py --mode metrics",
+      "exit_code": 0,
+      "output": "WITNESS_PASS {\"mode\": \"metrics\", \"device\": \"mps\", \"shape\": [2, 2048], \"feature_sum\": 1098.60302734375, \"weights\": \"/Users/mr.z/ode-workspace-prep/image-bridge-inception/checkpoints/weights-inception-2015-12-05-6726825d.pth\", \"weights_sha256\": \"6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2\", \"weights_bytes\": 95628359}\n",
+      "sentinel": {
+        "mode": "metrics",
+        "device": "mps",
+        "shape": [
+          2,
+          2048
+        ],
+        "feature_sum": 1098.60302734375,
+        "weights": "/Users/mr.z/ode-workspace-prep/image-bridge-inception/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+        "weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+        "weights_bytes": 95628359
+      }
+    }
+  ],
+  "checks": {
+    "both_invocations_executed_verbatim": true,
+    "both_exit_zero": true,
+    "both_emit_witness_pass": true,
+    "training_cpu_shape_2_3_32_32": true,
+    "training_positive_P_gradients": true,
+    "metrics_mps_shape_2_2048": true,
+    "metrics_nonzero_feature_sum": true,
+    "metrics_weights_in_documented_cache": true,
+    "metrics_weights_size_matches_approximately_91_MiB": true
+  },
+  "doc_vs_reality_mismatches": [],
+  "limits": [
+    "Verifies documented seeded kernel invocations only; does not verify model quality, full training runtime, cross-backend feature agreement, or inspect package internals.",
+    "Provider ledger pending-validation text was read as pre-pass state; this receipt does not modify that ledger."
+  ],
+  "modified_files": [
+    "/Users/mr.z/ode-workspace-prep/image-environment-doc-pass.json"
+  ],
+  "source_environment_dataset_checkpoint_git_changes_by_agent": false
+}

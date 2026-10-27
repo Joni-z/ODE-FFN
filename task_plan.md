@@ -179,7 +179,16 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Commit verified image preparation8baec48 underZhizheZhang and fast-forward clean local main. Publisher22601 exits1 atHTTPSUsername (Device not configured); independent remote main remains800d09f. No remote update claimed.
 - [ ] Register a separate quality-training/sampling/feature-metric protocol for the four baseline arms before real CIFAR updates. Preparation has not launched quality training or selected a new ODE candidate.
 
+## Cycle17 plan: fixed CIFAR image baseline screen
+- [x] Revalidate clean98730e0, cycle16 sealed preparation, absent quality jobs and a fresh Lenovo SSH timeout. Previous goal turn is progress, not a verified wait or repeated research blocker.
+- [ ] Register one four-arm, seed0,5000-update image baseline protocol with unchanged literal input clocks, fixed paired draws, CPU backend, generated samples and small-sample Inception FID. No new ODE candidate or old-family rescue.
+- [x] Build a separate declared metrics environment; validate actual seeded kernels/weights and the required fresh-agent documented invocation. Keep training/synthetic environments unchanged.
+- [ ] Freeze source/data/feature-weight bindings, pass full trainer/stream/buffer/checkpoint-resume and metric fixtures, and commit before image quality outcomes.
+- [ ] Launch two monitored one-thread CPU workers on Mac mini, verify their live handles and preserve all P/checkpoint/data-RNG trajectories.
+- [ ] Complete all four arms and independently audit validation, sampling, FID and stream identities; report every endpoint and apply only the fixed descriptive decision.
+
 ## Errors encountered
+- Cycle17 initial metrics environment imports fail inside SciPy1.15.3 PROPACK Mach-O loader (zero-fill section offset). No weights, quality run or metric result is accepted. Preserve spec/log/version record, identify a locally working SciPy binary and render a fresh environment/spec before declaring readiness.
 - Cycle16 feasibility-v1 passed model/clock/derivative/CPU-resume checks but stopped before timing: local clock s shadowed settings s. Preserve source/bindings/log, rename the settings variable, mark terminal failure from the consumed handle and prepare a new v2 snapshot. No image quality training occurred.
 - Cycle16 two guessed architecture-search index files were absent; the actual covariance protocol/readout and task plan establish its stop. No source/runtime mutation.
 - Cycle15 audit-v1 independently replayed gradients but compared dimensionless cosine for a cold thin route of norm4.92e-15 across SVD/QR. That direction is numerically undefined; preserve the failure. Audit-v2 retains all raw gradient/projector tolerances, independently validates routes, then verifies reported ratios from saved vectors. Formal outputs/source are unchanged.

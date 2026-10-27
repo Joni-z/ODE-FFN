@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "FID_identity": [
+    {
+      "n": 32,
+      "m": 40,
+      "d": 8,
+      "low_rank": 1.582571947116243,
+      "covariance": 1.5825719471162305,
+      "abs_difference": 1.2434497875801753e-14
+    },
+    {
+      "n": 12,
+      "m": 15,
+      "d": 20,
+      "low_rank": 18.27179534385775,
+      "covariance": 18.27179513118399,
+      "abs_difference": 2.1267376126843374e-07
+    },
+    {
+      "n": 9,
+      "m": 11,
+      "d": 3,
+      "low_rank": 0.6752015448953577,
+      "covariance": 0.6752015448953586,
+      "abs_difference": 8.881784197001252e-16
+    }
+  ],
+  "feature_CPU_MPS_max": 5.7220458984375e-06,
+  "feature_CPU_MPS_RMS": 5.718784138493749e-07,
+  "weights": "/Users/mr.z/ode-workspace-prep/image-bridge-inception/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+  "weights_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+  "pixel_roundtrip_bitwise": true,
+  "versions": {
+    "torch": "2.10.0",
+    "torchvision": "0.25.0",
+    "torch-fidelity": "0.3.0",
+    "scipy": "1.18.1",
+    "numpy": "2.2.6"
+  }
+}
