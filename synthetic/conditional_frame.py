@@ -12,12 +12,19 @@ from torch.nn import functional as F
 from synthetic.models import OriginalODELayer
 
 
-def reflect(value: torch.Tensor, direction: torch.Tensor) -> torch.Tensor:
-    return value-2*direction*(value*direction).sum(-1, keepdim=True)/direction.square().sum(-1, keepdim=True)
+def rotate(value: torch.Tensor, g: torch.Tensor, *, transpose=False) -> torch.Tensor:
+    """H([1,g])H(e1), written as I plus its exact rank-two update.
 
-
-def flip_first(value: torch.Tensor) -> torch.Tensor:
-    return torch.cat((-value[..., :1], value[..., 1:]), -1)
+    The residual form avoids cancelling two sign flips in the backward pass
+    when g=0. It is algebraically the same pair of Householder reflectors.
+    """
+    if transpose:
+        g = -g
+    squared = g.square().sum(-1, keepdim=True)
+    product = (value[..., 1:]*g).sum(-1, keepdim=True)
+    first = -2*(squared*value[..., :1]+product)/(1+squared)
+    rest = 2*g*(value[..., :1]-product)/(1+squared)
+    return value+torch.cat((first, rest), -1)
 
 
 class ConditionalFrameLayer(OriginalODELayer):
@@ -51,20 +58,20 @@ class ConditionalFrameLayer(OriginalODELayer):
     def forward(self, x: torch.Tensor, context=None, *, return_duration=False):
         if context is not None:
             raise ValueError('conditional frame retains the original input clock')
-        clock, _, direction = self.controls(x)
-        term = flip_first(reflect(x, direction))  # Q(x)^T x
+        clock, g, _ = self.controls(x)
+        term = rotate(x, g, transpose=True)
         output = x
         for index in range(self.orders):
             term = F.linear(term, self.proj.weight)*clock/(index+1)
-            output = output+reflect(flip_first(term), direction)  # Q(x) term
+            output = output+rotate(term, g)
         return (output, clock) if return_duration else output
 
     @torch.no_grad()
     def activation_stats(self, x: torch.Tensor, context=None) -> dict:
-        clock, g, direction = self.controls(x)
+        clock, g, _ = self.controls(x)
         rms = lambda v: float(v.square().mean().sqrt())
         denominator = max(rms(x), 1e-12)
-        term = flip_first(reflect(x, direction));output = x
+        term = rotate(x, g, transpose=True);output = x
         stats = dict(s_mean=float(clock.mean()), s_std=float(clock.std(unbiased=False)),
             s_min=float(clock.min()), s_max=float(clock.max()), gate_channels=1,
             input_rms=denominator, frame_mode=self.frame_mode, frame_g_rms=rms(g),
@@ -73,7 +80,7 @@ class ConditionalFrameLayer(OriginalODELayer):
             frame_weight_frobenius=float(self.frame_weight.norm()), frame_bias_norm=float(self.frame_bias.norm()))
         for index in range(self.orders):
             term = F.linear(term, self.proj.weight)*clock/(index+1)
-            actual = reflect(flip_first(term), direction)
+            actual = rotate(term, g)
             stats[f'term{index+1}_rms_over_input'] = rms(actual)/denominator
             output = output+actual
         stats['output_rms_over_input'] = rms(output)/denominator

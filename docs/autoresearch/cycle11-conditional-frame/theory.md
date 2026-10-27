@@ -1,6 +1,6 @@
 # A conditional frame changes directions while preserving the spectrum
 
-At one layer input x, let g(x)=A_r SiLU(W_g x+b_g)+b_r, using the existing controller features, and u=(1,g). Define H(u)=I-2uu^T/(u^T u), H0=H(e1), Q(x)=H(u)H0. The denominator is at least1, so no epsilon or ridge parameter is introduced. Q is orthogonal and equals I at A_r=b_r=0. The unchanged clock s(x) is computed from the original unrotated input.
+At one layer input x, let g(x)=A_r SiLU(W_g x+b_g)+b_r, using the existing controller features, and u=(1,g). Define H(u)=I-2uu^T/(u^T u), H0=H(e1), Q(x)=H(u)H0. The denominator is at least1, so no epsilon or ridge parameter is introduced. Execution uses the algebraically identical rank-two residual `Qv=v+delta_Q(v)` to preserve identity backward arithmetic; it does not approximate the reflectors. Q is orthogonal and equals I at A_r=b_r=0. The unchanged clock s(x) is computed from the original unrotated input.
 
 With M_s=I+sP+s²P²/2, the candidate is
 
