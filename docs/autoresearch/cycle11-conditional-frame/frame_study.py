@@ -106,7 +106,7 @@ def prepare(root, parent):
         registration_commit=subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip())
     write(root/'settings.json', settings)
     _, _, native, _, _ = setup(root)
-    paths = list(source.iterdir())+[root/'settings.json', root/'basis.npy', parent/'sealed-runtime.json', repo/'synthetic/conditional_frame.py']
+    paths = [p for p in source.iterdir() if p.is_file()]+[root/'settings.json', root/'basis.npy', parent/'sealed-runtime.json', repo/'synthetic/conditional_frame.py']
     write(root/'bindings.json', {str(p): native.sha(p) for p in paths});verify_inputs(root)
     print(dict(prepared=str(root), new_cells=8, reused_cells=4, bindings=len(paths)), flush=True)
 
