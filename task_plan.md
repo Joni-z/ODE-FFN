@@ -112,6 +112,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Commit verified cycle10 milestone27f4503 and synchronize the clean local main checkout.
 - [ ] Publish pending local commits after Mac mini GitHub authentication; no MBP/torch relay.
 
+## Cycle11 plan: one spectrum-preserving conditional-frame hypothesis
+- [x] Revalidate clean5684e5d and cycle10 derivative diagnosis. Previous goal turn is progress; no existing stop is reopened.
+- [x] Review HOFT2025, DeltaProductNeurIPS2025, HouseGNN2026preprint and ODEtoODEhistorical prior, plus old state-clock/affine/clock-response stops. Derive conjugation, commutator differential, ordinary low-rank realization and the limited local-response witness.
+- [x] Prepare one cold screen on unchanged thin/thick clean banks: conditional-frame K2, global-frame K2 parameterization control, conditional-frame K1 ordinary control and Swi257 compute control; reuse sealed original K2 and Swi192 parameter controls. Freeze all budgets/thresholds before outcomes.
+- [ ] Verify identity initialization, common tensors/RNG and inherited gradients, active full state/parameter derivatives, orthogonal similarity/SVD, ordinary equivalence and executed cost; register source, then preflight exact native resume/evaluation.
+- [ ] Execute only if the implementation/control gates pass. Two one-thread monitored Mac CPU workers, seed0,5000updates, unchanged data/loss/head/clock bounds. No frame-count/width/initialization rescue after failure.
+- [ ] Audit every checkpoint/panel/sample/stream/P history, apply the fixed screen and follow historical-law confirmation only if a context lead passes. Archive/commit and synchronize; publish when local authentication is available.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
