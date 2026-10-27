@@ -165,7 +165,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Pass independent algebra, zero-head, cross-term, clipping and Adam fixtures; commit protocol/source before fitted gradient outcomes.
 - [x] Run monitored native replay and88-checkpoint gradient probes; independently audit every decomposition and preserve immutable inputs.
 - [x] Curate strict analysis/statistics/catalog, final numeric table and two visually reviewed figures. Seal225runtime files (SHA256e36f77d3b56196069816003687cec9835c5887fc091072c3af3540edf9960a71), verify10bindings/3184prior sealed files and all public copies. Private470.5MB/curated0.459MB. No source/evaluator/Report1changes.
-- [ ] Commit verified cycle15 milestone, synchronize clean local main and attempt direct Mac mini publication.
+- [x] Commit verified cycle15 milestonea7d1c76 underZhizheZhang and fast-forward clean local main. Directpublisher8587 exits1 atHTTPSUsername (Device not configured); read-only remote main independently remains800d09f. Publication remains pending local authentication.
 
 ## Errors encountered
 - Cycle15 audit-v1 independently replayed gradients but compared dimensionless cosine for a cold thin route of norm4.92e-15 across SVD/QR. That direction is numerically undefined; preserve the failure. Audit-v2 retains all raw gradient/projector tolerances, independently validates routes, then verifies reported ratios from saved vectors. Formal outputs/source are unchanged.
