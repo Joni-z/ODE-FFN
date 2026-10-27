@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "initial": [
+      {
+        "mode": "quadratic",
+        "values_and_inherited_gradients_bitwise": true,
+        "rng_unchanged": true
+      },
+      {
+        "mode": "affine",
+        "values_and_inherited_gradients_bitwise": true,
+        "rng_unchanged": true
+      },
+      {
+        "mode": "free",
+        "values_and_inherited_gradients_bitwise": true,
+        "rng_unchanged": true
+      }
+    ],
+    "direct_float64_equivalence": true,
+    "active_complete_Jacobian_max": 2.220446049250313e-16,
+    "active_P_coefficient_gradients": true,
+    "commutator_witness": true,
+    "small_duration_error_ratios": [
+      8.079497039321682,
+      8.039930481013918
+    ]
+  },
+  "cells": [
+    {
+      "law": "thin",
+      "arm": "jet_c_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 0.0,
+      "initial_output_head_gradient_max": 0.0,
+      "inherited_gradients_bitwise": true,
+      "parameters": 122886,
+      "dense_forward_macs": 145856,
+      "dense_training_forward_backward_macs": 427264,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "affine_c_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 0.0,
+      "initial_output_head_gradient_max": 0.0,
+      "inherited_gradients_bitwise": true,
+      "parameters": 122886,
+      "dense_forward_macs": 145856,
+      "dense_training_forward_backward_macs": 427264,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "free_c_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 0.0,
+      "initial_output_head_gradient_max": 0.0,
+      "inherited_gradients_bitwise": true,
+      "parameters": 123276,
+      "dense_forward_macs": 146240,
+      "dense_training_forward_backward_macs": 428416,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "direct_b_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 2.384185791015625e-07,
+      "initial_output_head_gradient_max": 3.725290298461914e-08,
+      "inherited_gradients_bitwise": false,
+      "parameters": 122886,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu258_clean",
+      "exact_resume": true,
+      "parameters": 148680,
+      "dense_forward_macs": 146240,
+      "dense_training_forward_backward_macs": 428416,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "jet_c_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 0.0,
+      "initial_output_head_gradient_max": 0.0,
+      "inherited_gradients_bitwise": true,
+      "parameters": 122886,
+      "dense_forward_macs": 145856,
+      "dense_training_forward_backward_macs": 427264,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "affine_c_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 0.0,
+      "initial_output_head_gradient_max": 0.0,
+      "inherited_gradients_bitwise": true,
+      "parameters": 122886,
+      "dense_forward_macs": 145856,
+      "dense_training_forward_backward_macs": 427264,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "free_c_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 0.0,
+      "initial_output_head_gradient_max": 0.0,
+      "inherited_gradients_bitwise": true,
+      "parameters": 123276,
+      "dense_forward_macs": 146240,
+      "dense_training_forward_backward_macs": 428416,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "direct_b_clean",
+      "exact_resume": true,
+      "initial_prediction_max": 4.76837158203125e-07,
+      "initial_output_head_gradient_max": 4.470348358154297e-08,
+      "inherited_gradients_bitwise": false,
+      "parameters": 122886,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu258_clean",
+      "exact_resume": true,
+      "parameters": 148680,
+      "dense_forward_macs": 146240,
+      "dense_training_forward_backward_macs": 428416,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    }
+  ]
+}

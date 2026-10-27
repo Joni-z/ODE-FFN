@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "counts": {
+    "new_checkpoints": 40,
+    "reference_checkpoints": 16,
+    "new_panels": 50,
+    "reference_panels": 20,
+    "new_samples": 10,
+    "reference_samples": 4,
+    "stream_batches": 10000,
+    "new_P_matrices": 192
+  },
+  "formal_files_unchanged": 293,
+  "elapsed_seconds": 44.129200499970466,
+  "fitted_dense_coefficient_checks": 192,
+  "fitted_local_input_jacobian_anchors": 6144,
+  "peak_sampled_total_rss_gib": 1.2403564453125,
+  "scope": "native checkpoint/Jacobian/sample replay, streams/optimizer/P/B/C/clocks, independent local values/input/parameter gradients and fixed selection"
+}
