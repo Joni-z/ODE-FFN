@@ -69,6 +69,13 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [ ] Push the pending sequence when Mac mini GitHub authentication is established; the last local auth check still reports not logged in. No remote publication is claimed.
 - [ ] Use the complete-network evidence to decide whether any different task-relevant ODE computation is justified. A new operator must face its ordinary implementation and matched cost, rather than repeat a solver-accuracy premise.
 
+## Cycle07: prediction-space and data-geometry compatibility
+- [x] Revalidate cycle06, the unselected head-control review, JiT Section3.3, Gagneux2026v3 controlled geometry and Liang2026v2 residual-stream evidence. Earlier head experiments did not test a high-ambient, low-rank target.
+- [x] Derive/verify thin-versus-thick embedded-mixture oracles and universal linear-bottleneck field/Jacobian bounds. Independent dense-conditioning values and full AD Jacobians agree to4.89e-14/1.48e-13. Thin direct-head uniform population risk floor is0.468229, independent of hidden P. This is not a finite-bank lower-bound assertion.
+- [x] Write the paired128D benchmark with two normal-noise levels and18fixed trajectories: unchanged professor K2/Swi128/Swi192 crossed with clean/shifted/direct heads. All heads share one capped regression target; old datasets/evaluators and stop rules remain unchanged. Commit source before preparation/outcomes.
+- [ ] Verify oracle/AD identities, pairing, data streams, costs and exact resume; then run with two monitored one-thread Mac CPU workers. No new FFN, learned skip, covariance input or hyperparameter grid.
+- [ ] Audit every endpoint/checkpoint, actual P history, tangent/normal errors, complete Jacobians and capped-sampler caveat; report parameterization effects separately from any ODE comparison. A generic head gain cannot satisfy the successor objective.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
