@@ -82,6 +82,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 ## Next unselected read-only review
 - [ ] Register and verify the final-readout null-space sampling identity on all18 fitted cycle07 endpoints. Distinguish deterministic source-wise Heun checks, population W2 bounds and empirical SW2. No learned radial skip, wider head or renewed head training is selected.
 
+## Cycle08 execution plan: fixed-readout sampling invariant
+- [x] Revalidate cycle07 (019e676, clean worktree,18completed/audited models). Previous goal turn is progress; local GitHub authentication is still absent.
+- [x] Write the fixed read-only cohort/protocol:18final cycle07 models, six zero-P interventions at fixed readout, two earlier2D/16D rank controls. Register source before new fitted null-space outcomes; no training or quality selection.
+- [x] Derive the affine-subspace/Gaussian-W2 theorem with hypotheses and limits. Literal nonlinear Heun fixtures, zero-gamma/bias and full-row-rank controls pass; maximum float64 source identity error5.78e-15, scalar coefficient discrepancy1.39e-17. Discrete skip factor.02116394 differs from continuous.01839397.
+- [ ] Hash-bound source/cohort and previous seals, run frozen preflight and the registered verification.
+- [ ] Verify raw-output and source-wise sample identities, empirical covariance consistency, normal-space W2 bounds and nonvacuous P interventions on Mac CPU.
+- [ ] Independently reconstruct projectors through centering-basis/QR algebra and replay the six P interventions; archive figures/results and commit/publish when local authentication permits.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
