@@ -1,0 +1,42 @@
+{
+  "torch_version": "2.10.0",
+  "dtype": "float64",
+  "x": [
+    [
+      0.3,
+      0.7
+    ],
+    [
+      -0.2,
+      0.4
+    ]
+  ],
+  "t": [
+    [
+      0.3
+    ],
+    [
+      0.3
+    ]
+  ],
+  "finite_difference_epsilon": 1e-06,
+  "rows": [
+    {
+      "method": "taylor",
+      "elementary_value_max": 4.440892098500626e-16,
+      "fused_value_max": 1.6653345369377348e-16,
+      "elementary_jacobian_max": 3.885780586188048e-16,
+      "fused_jacobian_max": 0.19846447419027963,
+      "central_difference_max": 7.821893827086868e-10
+    },
+    {
+      "method": "frozen_gate",
+      "elementary_value_max": 2.220446049250313e-16,
+      "fused_value_max": 4.440892098500626e-16,
+      "elementary_jacobian_max": 3.3306690738754696e-16,
+      "fused_jacobian_max": 0.0780392494062665,
+      "central_difference_max": 4.609901349539314e-10
+    }
+  ],
+  "scope": "Installed local primitive path and fixed native checkpoint only."
+}

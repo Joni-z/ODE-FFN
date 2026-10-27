@@ -1,0 +1,283 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 1000,
+      "baseline": {
+        "oracle_mse": 0.014473083429038525,
+        "pair_mse": 1.8253668546676636,
+        "prediction_rms": 1.4653139114379883
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 3.552713678800501e-15,
+          "gate_path_rms": 1.7870412737966421
+        },
+        {
+          "max_absolute_error": 2.6645352591003757e-15,
+          "gate_path_rms": 0.4974580929231917
+        },
+        {
+          "max_absolute_error": 2.636779683484747e-16,
+          "gate_path_rms": 0.08587619518758406
+        }
+      ]
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 2500,
+      "baseline": {
+        "oracle_mse": 0.0069647072814404964,
+        "pair_mse": 1.8176648616790771,
+        "prediction_rms": 1.4697705507278442
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 8.43769498715119e-15,
+          "gate_path_rms": 2.1645472312538345
+        },
+        {
+          "max_absolute_error": 1.3322676295501878e-15,
+          "gate_path_rms": 0.4504065599037228
+        },
+        {
+          "max_absolute_error": 1.3877787807814457e-16,
+          "gate_path_rms": 0.05681646865196245
+        }
+      ]
+    },
+    {
+      "dataset": "gaussian_aniso_2d",
+      "step": 5000,
+      "baseline": {
+        "oracle_mse": 0.003927253652364016,
+        "pair_mse": 1.814981460571289,
+        "prediction_rms": 1.4964081048965454
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 5.773159728050814e-15,
+          "gate_path_rms": 3.2675708221620883
+        },
+        {
+          "max_absolute_error": 1.7763568394002505e-15,
+          "gate_path_rms": 0.42043957095042733
+        },
+        {
+          "max_absolute_error": 1.6653345369377348e-16,
+          "gate_path_rms": 0.0445597054062446
+        }
+      ]
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 1000,
+      "baseline": {
+        "oracle_mse": 0.14768917858600616,
+        "pair_mse": 2.914092540740967,
+        "prediction_rms": 1.6289682388305664
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 6.439293542825908e-15,
+          "gate_path_rms": 1.933099116164178
+        },
+        {
+          "max_absolute_error": 1.8041124150158794e-15,
+          "gate_path_rms": 0.5151381911719334
+        },
+        {
+          "max_absolute_error": 2.6645352591003757e-15,
+          "gate_path_rms": 1.3156300880869558
+        }
+      ]
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 2500,
+      "baseline": {
+        "oracle_mse": 0.03540977090597153,
+        "pair_mse": 2.794715642929077,
+        "prediction_rms": 1.6656622886657715
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 3.552713678800501e-15,
+          "gate_path_rms": 1.7271642555659976
+        },
+        {
+          "max_absolute_error": 2.4424906541753444e-15,
+          "gate_path_rms": 0.6515233143749392
+        },
+        {
+          "max_absolute_error": 7.105427357601002e-15,
+          "gate_path_rms": 2.880221261433398
+        }
+      ]
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "step": 5000,
+      "baseline": {
+        "oracle_mse": 0.015296290628612041,
+        "pair_mse": 2.770256519317627,
+        "prediction_rms": 1.644136667251587
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 5.329070518200751e-15,
+          "gate_path_rms": 1.6537919421062073
+        },
+        {
+          "max_absolute_error": 3.552713678800501e-15,
+          "gate_path_rms": 1.117519437086485
+        },
+        {
+          "max_absolute_error": 7.105427357601002e-15,
+          "gate_path_rms": 5.125791037938907
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 1000,
+      "baseline": {
+        "oracle_mse": 0.3162824809551239,
+        "pair_mse": 2.1050772666931152,
+        "prediction_rms": 1.1578984260559082
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 1.7763568394002505e-15,
+          "gate_path_rms": 0.6435479529549435
+        },
+        {
+          "max_absolute_error": 1.7763568394002505e-15,
+          "gate_path_rms": 0.8633765634000687
+        },
+        {
+          "max_absolute_error": 1.5543122344752192e-15,
+          "gate_path_rms": 0.6227130154103482
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 2500,
+      "baseline": {
+        "oracle_mse": 0.2247108817100525,
+        "pair_mse": 2.013718843460083,
+        "prediction_rms": 1.2159802913665771
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 3.552713678800501e-15,
+          "gate_path_rms": 0.6386706131457748
+        },
+        {
+          "max_absolute_error": 1.3322676295501878e-15,
+          "gate_path_rms": 0.7342655312630357
+        },
+        {
+          "max_absolute_error": 1.7763568394002505e-15,
+          "gate_path_rms": 0.6767765574480505
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "step": 5000,
+      "baseline": {
+        "oracle_mse": 0.09232578426599503,
+        "pair_mse": 1.8793267011642456,
+        "prediction_rms": 1.2658874988555908
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 3.552713678800501e-15,
+          "gate_path_rms": 1.3615891035551333
+        },
+        {
+          "max_absolute_error": 1.7763568394002505e-15,
+          "gate_path_rms": 0.9279767744425669
+        },
+        {
+          "max_absolute_error": 2.6645352591003757e-15,
+          "gate_path_rms": 0.8661378305894569
+        }
+      ]
+    },
+    {
+      "dataset": "sign_code",
+      "step": 1000,
+      "baseline": {
+        "oracle_mse": 0.1757001280784607,
+        "pair_mse": 1.4014997482299805,
+        "prediction_rms": 1.4250500202178955
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 1.1102230246251565e-15,
+          "gate_path_rms": 0.3839449144222479
+        },
+        {
+          "max_absolute_error": 1.3322676295501878e-15,
+          "gate_path_rms": 1.0362476944483066
+        },
+        {
+          "max_absolute_error": 5.773159728050814e-15,
+          "gate_path_rms": 1.7772574440209457
+        }
+      ]
+    },
+    {
+      "dataset": "sign_code",
+      "step": 2500,
+      "baseline": {
+        "oracle_mse": 0.07099809497594833,
+        "pair_mse": 1.2933379411697388,
+        "prediction_rms": 1.465124487876892
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 8.881784197001252e-16,
+          "gate_path_rms": 0.47681421980858224
+        },
+        {
+          "max_absolute_error": 2.4424906541753444e-15,
+          "gate_path_rms": 1.1170644360283466
+        },
+        {
+          "max_absolute_error": 5.773159728050814e-15,
+          "gate_path_rms": 2.3349683036848825
+        }
+      ]
+    },
+    {
+      "dataset": "sign_code",
+      "step": 5000,
+      "baseline": {
+        "oracle_mse": 0.042466577142477036,
+        "pair_mse": 1.2656880617141724,
+        "prediction_rms": 1.4735612869262695
+      },
+      "tangents": [
+        {
+          "max_absolute_error": 1.9984014443252818e-15,
+          "gate_path_rms": 0.47907202137448646
+        },
+        {
+          "max_absolute_error": 1.7763568394002505e-15,
+          "gate_path_rms": 1.026871772286673
+        },
+        {
+          "max_absolute_error": 6.661338147750939e-15,
+          "gate_path_rms": 2.344910220380157
+        }
+      ]
+    }
+  ],
+  "checkpoints": 12,
+  "derivative_checks": 36
+}

@@ -1,0 +1,21 @@
+dataset,method,parameters,dense_forward_macs,dense_training_forward_backward_macs,matrix_count_scope
+gaussian_aniso_2d,euler,81792,80000,237760,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,taylor,81792,128960,384640,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,frozen_gate,81792,112640,335680,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,midpoint,81792,128960,384640,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,half_euler,81792,128960,384640,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,euler,81792,80000,237760,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,taylor,81792,128960,384640,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,frozen_gate,81792,112640,335680,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,midpoint,81792,128960,384640,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,half_euler,81792,128960,384640,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,euler,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,taylor,83598,130752,389120,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,frozen_gate,83598,114432,340160,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,midpoint,83598,130752,389120,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,half_euler,83598,130752,389120,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,euler,83598,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,taylor,83598,130752,389120,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,frozen_gate,83598,114432,340160,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,midpoint,83598,130752,389120,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,half_euler,83598,130752,389120,actual aten mm/addmm/bmm/mv; pointwise work excluded

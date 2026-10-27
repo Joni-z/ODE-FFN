@@ -1,0 +1,36 @@
+{
+  "status": "discard",
+  "gates": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "field_pass": false,
+      "jacobian_pass": true,
+      "sampling_pass": true,
+      "compute_control_pass": true
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "field_pass": false,
+      "jacobian_pass": false,
+      "sampling_pass": false,
+      "compute_control_pass": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "field_pass": false,
+      "jacobian_pass": false,
+      "sampling_pass": false,
+      "compute_control_pass": false
+    },
+    {
+      "dataset": "sign_code",
+      "field_pass": false,
+      "jacobian_pass": false,
+      "sampling_pass": false,
+      "compute_control_pass": false
+    }
+  ],
+  "hypothesis": "post-training complete-Taylor upgrade at the native residual duration",
+  "claim_scope": "Frozen seed0 SwiGLU128 checkpoints on these four validation laws; not a rejection of fresh higher-order training.",
+  "next_training_authorized_by_this_cycle": false
+}

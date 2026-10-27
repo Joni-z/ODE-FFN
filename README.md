@@ -1,5 +1,7 @@
 # ODE-FFN
 
+The ongoing autonomous research protocol and latest audited cycles are documented in [ODE autoresearch](docs/autoresearch/README.md).
+
 Development repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN). The `main` branch contains the active torch workspace; the previous GitHub version is preserved on `archive`. See the [development guide](docs/development.md) for data preparation after cloning and development across machines.
 
 Primary workspace on torch: `/scratch/zz5070/ODE_FFN/jit-codebase`.
@@ -16,7 +18,9 @@ Windows continuation workspace: `D:\Research\ODE-FFN\repo` on `lenovo` (RTX 4060
 
 The project tests whether a local ODE-inspired FFN can improve unconditional flow matching. The professor's original block uses two input-conditioned Taylor approximations to linear flows, separated by SiLU. Synthetic distributions provide analytic target velocities and Jacobians; these vector-model results do not establish an image-generation benefit.
 
-**Latest result, October 26:** the ordinary ISRU observation does not transfer after fresh training on a dependent-sign target law with matched latent marginals, covariance and radial laws. Field MSE is0.085073 for ISRU and0.039790 for SwiGLU160. Its lower SW2 coexists with worse joint sign-pattern and component-distance diagnostics. The [complete transfer report](docs/research-joint-dependence-2026-10-26/analysis-report.md) includes every control, P trajectory, generation case study and a scoped mathematical analysis. No useful final ODE architecture has yet been established.
+**Latest cycle, October 27:** a complete nonlinear Taylor correction, including normalization and gate derivatives, fails as a post-training upgrade to the fitted SwiGLU field on all four validation laws. This is a read-only checkpoint diagnostic, not new training or a general rejection of solver-aware architectures. See the [audited analysis and figures](docs/autoresearch/cycle01-complete-field/analysis.md). No useful final ODE architecture has yet been established.
+
+**October 26:** the ordinary ISRU observation does not transfer after fresh training on a dependent-sign target law with matched latent marginals, covariance and radial laws. Field MSE is0.085073 for ISRU and0.039790 for SwiGLU160. Its lower SW2 coexists with worse joint sign-pattern and component-distance diagnostics. The [complete transfer report](docs/research-joint-dependence-2026-10-26/analysis-report.md) includes every control, P trajectory, generation case study and a scoped mathematical analysis.
 
 The preceding cubic-field comparison is preserved below. Its nonlinear local flow improved the old ODE on the nonlinear tasks but failed the ordinary-baseline controls; the free-ISRU Product16 observation motivated the transfer test.
 
