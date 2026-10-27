@@ -116,13 +116,15 @@ def run(root):
             rows, _ = input_rows(state['model']['raw.input.weight'].double().numpy())
             for clock in previous.TIMES:
                 with np.load(banks/f'panel_{clock:.1f}.npz') as data:
-                    x, truth = data['x'], data['oracle_jacobian']
+                    x, t, truth = data['x'], data['t'], data['oracle_jacobian']
+                actual_clock = float(t[0, 0])
+                assert np.all(t == t[0, 0])
                 with np.load(folder/'diagnostics'/f'panel_{clock:.1f}.npz') as data:
                     prediction, model_jacobian = data['prediction'], data['jacobian']
-                result = conditional(x, clock, rows, basis, entry['normal_variance'], head)
+                result = conditional(x, actual_clock, rows, basis, entry['normal_variance'], head)
                 metrics = diagnostics(model_jacobian, result['jacobian'], truth, basis)
                 field_error = prediction.astype(np.float64)-result['field']
-                row = dict(law=law, family=family, head=head, time=clock, count=len(x),
+                row = dict(law=law, family=family, head=head, time=clock, actual_time=actual_clock, count=len(x),
                     covariance_identity_max=result['covariance_identity_max'],
                     field_residual_per_ambient=float(np.mean(field_error**2)),
                     field_residual_per_tangent=float(np.mean((field_error@basis)**2)),
