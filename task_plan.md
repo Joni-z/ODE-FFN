@@ -158,7 +158,16 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
+## Cycle15 plan: loss components and hidden gradient routes
+- [x] Revalidate clean cd09851. The previous clarification turn made no research progress; no study process is live. Lenovo SSH times out; use one Mac CPU thread, without MBP/torch.
+- [x] Inspect existing telemetry before selecting the diagnostic: final thin windows never clip, while thick windows clip63.4–93.8% across cycle14 families. This motivates checking the indirect route, not assuming a large loss drives P.
+- [x] Derive the frozen-readout null-cotangent theorem; register all22 unique clean models from cycles07/11/14 at four saved checkpoints, exact next native batches, gradient decomposition and promoted Adam counterfactual. No training or optimizer rescue.
+- [x] Pass independent algebra, zero-head, cross-term, clipping and Adam fixtures; commit protocol/source before fitted gradient outcomes.
+- [ ] Run monitored native replay and88-checkpoint gradient probes; independently audit every decomposition and preserve immutable inputs.
+- [ ] Curate the descriptive analysis and figures, record the decision, seal artifacts, commit and synchronize locally; attempt direct GitHub publication.
+
 ## Errors encountered
+- Cycle15 initial combined plan/notes patch assumed a generic notes heading and failed atomically. Apply the plan separately and append the scoped note; no runtime or result changed.
 - Cycle11 audit-v1 replayed predictions exactly but computed the legacy float32 prediction-RMS diagnostic in float64, differing4.22e-7 at the cold checkpoint. Preservev1source/log; v2 uses the original metric dtype. No formal run, scientific metric, acceptance threshold or tolerance is changed.
 - Cycle11v3 preflight caught tiny float32 backward cancellation (max5.82e-11) from two explicit sign reflections at identity. Preservev3source/log. Rewrite the same Q as I plus its exact rank-two residual, preserving thresholds and initialization; independent active dense-Q derivatives still pass and complete-model inherited gradients now match bitwise on both laws/modes. Prepare a freshv4snapshot before any training.
 - Cycle11 second preparation exposed a Python benchmark_core cache collision when importing prior verifier code. Preservev2source/bindings/log; verify all prior seals and their external binding hashes directly, keeping numeric benchmark namespaces separate. No prior source or fitted result is modified.

@@ -230,3 +230,9 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Cycle14 sealed366files SHA256182a3daa0a237b1d2c7e6b509005869f6002a25c15649668772e24d2069b8ac7. Fourteenbindings/2818priorsealedfiles/192derivedspectra/154trainingrows/exactauditcopies/77links/AST/fourfigurechecks pass. Threeexecutedcalibrationsources preserved; private740654995bytes/curated2161726bytes. Native model/evaluation/Report1 unchanged; only coefficient_jet.py was added to production source. GitHub tool capability rechecked: create_commit still has no author override; local gh remains unauthenticated.
 
 - Verifiedcycle14milestone51fedd5 committedunderZhizheZhang/localmainfast-forwarded. Directpublisher11320 exited1 atpush: HTTPSUsernameunavailablewithterminalpromptsdisabled. Remote800d09f reverified; no remote update claimed. No formal/audit process restarted and sealed366-file runtime remains unchanged.
+
+
+## Cycle15 question, before fitted gradient outcomes
+- No study process is live. Lenovo SSH timed out again; only Mac mini/Lenovo remain authorized. Current clean checkpoint is cd09851.
+- Existing cycle14 window telemetry has zero clipping in thin final windows but63.4–93.8% in thick. A large readout-null residual cannot directly drive hidden P at a fixed head; indirect clipping/moment effects require measurement.
+- The next bounded diagnostic is frozen next-batch gradient routing, not a new head/loss/optimizer architecture or a rescue of stopped settings.
