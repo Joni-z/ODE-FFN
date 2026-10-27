@@ -207,3 +207,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Threefiguresvisuallyreviewed; strictanalysis/statistics/catalogwritten. Future order-specific rationale must accountforfixedmatrixreparameterization,strongretrainedK1/SwiGLU,andseparatetangentdiagnostics. No new architecture selected; no spectral flattening or order rescue.
 
 - Cycle13 archive112files, SHA256c1a7dd5187106378bb1156645e15c3adcae24253061823c08c5327e797f20b91. Eightbindings/2706priorsealedfiles/144P-clockrecords/72projectedriskrows/67links/AST/threefigurechecks pass. QRnormal-coordinate replay avoids cancellation in cold near-exact normal fields; no tolerance or formal result changed. Private1368991282bytes/curated708878bytes. Fresh gh remains unauthenticated, LenovoSSH times out; no MBP/torch used.
+
+- Verifiedcycle13milestonea991af0 committedunderZhizheZhangandlocalmainfast-forwarded. Directpublisher67397 exits1 atpush (missingHTTPSUsername;terminalpromptsdisabled), remote800d09f verifiedread-only. No job restarted, no remote update claimed; sealed runtime unchanged.
