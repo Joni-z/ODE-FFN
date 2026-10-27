@@ -140,3 +140,12 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Exact posterior clean Jacobian J_m=t/a² Cov(Y|U) Pi. Its skew part is t/(2a²)[Cov,Pi], generally nonzero under a compressed input. Penalizing all model skew can penalize the field-optimal reference itself.
 - Direct conditional field equals((aI+tPi)m-Pi*x)/delta; skip reference equals(m-x)/delta. Derivative information/residual/cross decomposition has no population orthogonality claim.
 - Float64 pre-registration fixtures pass: analytic/independent denseAD1.05e-12, finite differences7.55e-9, full observation/native oracle3.30e-12, commutator4.45e-16. No fitted conditional derivative outcomes viewed.
+
+## Cycle10 complete-field derivative outcome
+- All90existing final panels analyzed; formalv2 PID42271 exit0,34.22s,0.410GiB. Audit exit0,17.95s:5760nativeJacobian anchors bitwise,180denseAD conditional anchors max2.49e-14, independentfields6.27e-14,96formal files unchanged.
+- Late clean tangent residual symmetric shares: thinODE99.9687%/Swi12899.9786%/Swi19299.9743%; thickODE99.8050%/Swi12898.9898%/Swi19299.9592%. Skew-only diagnosis is unsupported; these are derivative-energy shares, not field-risk/sample-quality attribution.
+- ThinODEtime.7residual18.7312 vsSwi19219.9302, buttime.9ODE7.1397 vsSwi1926.7279. ThicklateODE14.2298 vsSwi19213.5848. No uniform derivative win or new method.
+- Fulloracle tangent expansion counts bytime.1/.3/.5/.7/.9 are0/64,64/64,49/64,4/64,0/64 for bothlaws. Complete decoded fields sometimes need positive local eigenvalues. HiddenPconstraints remain a different question.
+- Registration9517070 fixes actual storedfloat32 paneltime before fitted outcomes; initial5af02d7preparation/preflight-only snapshot is preserved. Neither dataset nor tolerance changed.
+
+- Cycle10 sealed135files SHA256e8c8278b77ce7fd6550c0cd684936b56c1e61bf62963efc8cf11d3449349c9f6;7bindings/2177prior sealed files match and10initial preparation-only files are copied/verified. Private728.1MB/curated0.29MB. Source AST/relative links/exact audit copies/figure review pass. GitHub remains800d09f, local gh unauthenticated; connected create_commit still has no author override.

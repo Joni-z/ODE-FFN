@@ -1,6 +1,6 @@
 # ODE-FFN
 
-The ongoing autonomous research protocol and latest audited cycles are documented in [ODE autoresearch](docs/autoresearch/README.md). The [fixed-readout study](docs/autoresearch/cycle08-readout-invariant/analysis.md) verifies a sampling restriction shared by ODE and SwiGLU. The latest [conditional-input study](docs/autoresearch/cycle09-input-attribution/analysis.md) finds that95–98% of the thin/clean gap remains after accounting for input information; no new architecture is nominated.
+The ongoing autonomous research protocol and latest audited cycles are documented in [ODE autoresearch](docs/autoresearch/README.md). The [fixed-readout study](docs/autoresearch/cycle08-readout-invariant/analysis.md) verifies a sampling restriction shared by ODE and SwiGLU. The [conditional-input study](docs/autoresearch/cycle09-input-attribution/analysis.md) finds that95–98% of the thin/clean gap remains after accounting for input information. The latest [complete-field derivative study](docs/autoresearch/cycle10-field-derivatives/analysis.md) finds overwhelmingly symmetric late-time tangent residuals; no new architecture is nominated.
 
 Development repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN). The `main` branch contains the active torch workspace; the previous GitHub version is preserved on `archive`. See the [development guide](docs/development.md) for data preparation after cloning and development across machines.
 
