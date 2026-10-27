@@ -124,6 +124,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Commit verified cycle11 milestonef4a3c64 and fast-forward the clean local main checkout.
 - [ ] Publish pending local sequence after Mac mini GitHub authentication; no MBP/torch relay.
 
+## Cycle12 plan: discrete defect transport on frozen sampling paths
+- [x] Revalidate clean e1754fa and cycle11 failed-screen decision. Previous goal turn is progress. Preserve every trained endpoint and all frame/head/loss/solver stops.
+- [x] Derive exact oracle-suffix telescoping/signed MSE, scalar normal suffix gain and fixed-readout forced bridge prediction. Keep paired error distinct from SW2 and finite secant gain distinct from stability bounds.
+- [x] Prepare registration of all12endpoints/2048sources/33branch endpoints/32defects/fourfixed eight-step bins, nativeHeun32/cap and forced-readout decomposition. No new training or best-prefix selection.
+- [ ] Verify float64 nonlinear/affine fixtures and exact native complete-sampler replay. Execute once on a monitored single-thread Mac CPU within600s, preserving path/suffix/local-defect arrays privately.
+- [ ] Independently replay all endpoints, one-step chains, suffix branches, signed decompositions and analytic normal propagation; verify unchanged prior seals. Inspect figures and write the decision with actual limits.
+- [ ] Seal/commit/synchronize curated evidence, publish when local authentication is available; do not nominate hybrid samplers or reopen cycle11 from this diagnostic.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 

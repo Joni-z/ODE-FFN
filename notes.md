@@ -169,3 +169,8 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Next separate question: signed propagation of field defects along frozen model trajectories through the unchanged oracle Heun suffix; no new training/head/cap/order/frame setting is selected.
 
 - Cycle11 seal317files SHA256392371988605176496b8af7b6876751a7370a911adf40e709a44d1c95b922449. All12bindings/2312prior files match;144derived full spectra/132training log rows match source exactly. Fourfigures visually reviewed, sourceAST/links/auditcopies pass;33preparation-failure files retained. Private592.3MB/curated1.61MB. GitHub remains800d09f pending local authentication.
+
+## Cycle12 pre-outcome discrete sampling derivation
+- p_i=oracle_suffix_i(model_prefix_i(source)); E=p_32-p_0=sumDelta_i exactly. Signed contributions<E,Delta_i>sum to pairedMSE, retaining cancellation. This coupling-dependent error is not SW2 or a distribution-quality attribution.
+- Oracle normal field is beta(t)Nx; exact scalar Heun suffix G_i transports each normal defect. A clean-head output-null/target-normal projectorT also predicts every bridge: p_iT=G_i[R_i sourceT+(1-R_i)c0T]. This separates a fixed-readout forced component from the normal remainder without excusing every relative model difference.
+- Float64 nonlinear-mixture fixture vector telescoping1.09e-19/normal affine5.94e-16, forced-readout bridge3.89e-16. Signed cancellation, expanding suffix, correct126normal normalization and nativefloat32 sampler arithmetic pass. No new fitted prefix/suffix outcomes viewed before registration.
