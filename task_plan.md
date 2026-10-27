@@ -64,7 +64,9 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 
 ## Next mathematical question, before another architecture
 - [x] Write a bounded read-only counterfactual protocol for the fitted nonlinear curvature contribution and20 complete C-tangent absorption checks. Keep this descriptive; no coefficient optimization, new training, initialization change or reopening of cycle05. Register source before reading these counterfactual outputs.
-- [ ] Execute the fixed five-checkpoint cohort, replay original predictions/Jacobians, verify the exact signed error decomposition and archive all outcomes.
+- [x] Execute the fixed five-checkpoint cohort (0f39045,PID38295,exit0,3.27s), replay80000original predictions/25Jacobian panels, compute25counterfactual panels and20nonzero complete tangent checks. Maximum tangent discrepancy1.11e-16; independent saved-array audit passes.
+- [x] Seal/archive53cycle06files (SHA2560d0118ab6febf04a486b18cbaee3771a5c04176c1d4911ea44629c9835faf7f1), verify1371prior sealed files, inspect the plot and synchronize local main.
+- [ ] Push the pending sequence when Mac mini GitHub authentication is established; the last local auth check still reports not logged in. No remote publication is claimed.
 - [ ] Use the complete-network evidence to decide whether any different task-relevant ODE computation is justified. A new operator must face its ordinary implementation and matched cost, rather than repeat a solver-accuracy premise.
 
 ### Cycle03 decision boundary
@@ -91,4 +93,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycles04–05 are audited, sealed and stopped. Nonlinear feature integration is accurate on the registered banks but still loses to matched-budget Swi143 on all16D laws, closely tracking its ordinary midpoint control. All earlier studies remain immutable. GitHub main was rechecked at800d09f; local GitHub CLI login is not established, and a text request for local login is pending. No training is running. Next work is a bounded mathematical/counterfactual review, not another training grid. The useful-successor goal stays active.
+Cycles04–05 are audited, sealed and stopped. Cycle06 verifies that the fitted nonlinear response changes full-bank field risk by less than1% on every law, with mixed signs, and that the complete C tangent is redundant with ordinary gate-weight tangents at C=0. It supplies no new nominee. All earlier studies remain immutable. GitHub main was rechecked at800d09f; local GitHub CLI login is not established, and a text request for local login is pending. No training is running. The next architecture must have a task-relevant functional purpose; no further training grid is selected. The useful-successor goal stays active.

@@ -9,6 +9,7 @@ The user-authorized autonomous research loop follows [program.md](program.md), a
 | [03](cycle03-gated-shear/analysis.md) | Can an exact constrained ODE preserve the strong gated baseline? | Completed and independently replayed | Yes; exact SwiGLU equivalence, not a quality improvement |
 | [04](cycle04-gate-transport/analysis.md) | Does exact gate transport improve quality at matched budget? | Fifteen cold trajectories completed and audited | No; stop this setting |
 | [05](cycle05-feature-flow/analysis.md) | Do integrated nonlinear gate responses outperform ordinary extra features? | Ten cold trajectories completed and independently replayed | No; numerical accuracy passes but quality fails; stop this setting |
+| [06](cycle06-curvature-attribution/analysis.md) | What does fitted nonlinear curvature contribute at fixed weights? | Five-checkpoint read-only study and saved-array audit complete | Full-bank risk changes stay below1%; no training or nomination |
 
 The [feature-flow review](next-feature-flow-review.md) led to the completed cycle05. Its accurate integral did not outperform ordinary controls. No additional quadrature, initialization or width rescue is selected. The next architecture needs a task-relevant functional justification beyond a valid internal ODE representation.
 
