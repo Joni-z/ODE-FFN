@@ -120,3 +120,9 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Next possible read-only question: exact conditional-mixture oracle after each learned input projection, separating information loss from fitted residual error. Not run or a new method nomination.
 
 - Cycle08 archive sealed61files; SHA256384d9b6974dddd969bd48509c9f889763d5e5a08b41585f2be543ce53fd2d650. Curated audit files match exactly; Python AST and relative report links pass; one PNG/PDF figure visually reviewed. Prior2008sealed files and9bindings match.
+
+## Cycle09 pre-outcome conditional-mixture derivation
+- For orthonormal observed rowsB and timea=1-t, conditional component covariance isD=a²I+t²B Sigma Bᵀ. Exact joint-Gaussian conditionalY/Z means lead to decoder-specific best fields.
+- Skip heads share the same decoded conditional optimum at fixedB; direct conditions the pair velocity itself. Population cross term vanishes by tower property, while the finite-bank cross is retained.
+- Remaining residual includes output capacity/approximation/optimization. No causal P attribution, no renewed head training, no stopped setting is reopened.
+- Independent dense-conditioning fixture maximum9.06e-14; full-observation/native-oracle maximum1.78e-14. No fitted conditioned outcomes inspected before registration.

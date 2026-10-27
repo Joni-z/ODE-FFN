@@ -92,6 +92,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Archive the reviewed figure/results and seal61files (SHA256384d9b6974dddd969bd48509c9f889763d5e5a08b41585f2be543ce53fd2d650); all9bindings and2008prior sealed files verify.
 - [x] Commit verified cycle08 milestone11ae9e6 and synchronize the clean local main checkout. Publication still requires local authentication.
 
+## Cycle09 execution plan: conditional input-information attribution
+- [x] Revalidate clean local c2ba616 and cycle08 archive. Previous goal turn is progress, not a repeated blocker; publication authentication is separate from local execution.
+- [x] Derive exact conditional means and information/residual/cross decomposition. Dense fixtures agree to9.06e-14; full-observation native oracle to1.78e-14; rank-deficient fixture passes. Residual includes output restrictions and is not a causal FFN optimization measure.
+- [x] Register fixed72-checkpoint cohort, five time bins, endpoint signed attribution rule and runnable source before conditioned fitted outcomes. Bind immutable inputs at preparation; no new training or candidate selection.
+- [ ] Verify float64 dense-conditioning and full-observation fixtures; run on one monitored Mac CPU thread within600s, retaining per-row components privately and publishing summary tables.
+- [ ] Independently reconstruct input row spaces through QR, recompute conditioned means through2D Woodbury solves, replay all72 decompositions and18native endpoint predictions, verify unchanged seals.
+- [ ] Inspect the plot, write the scientific decision with limits, seal and commit; publish when local authentication is available.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
