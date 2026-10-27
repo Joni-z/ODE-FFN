@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "decoded_training_images": 50000,
+  "training": 45000,
+  "validation": 5000,
+  "test_batch_decoded": false,
+  "data_manifest_sha256": "6be34296a47bdf2ad096cbe8a3a50240e1cd9996cd8d43db3e84e5dfa28ba442",
+  "source_files_checked": 23,
+  "calibration_rows": 8,
+  "active_whole_image_P_checks": [
+    {
+      "family": "ode_k1",
+      "P_matrices": 6,
+      "min_P_gradient_norm": 0.009779723361134529,
+      "literal_forward_bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "P_matrices": 6,
+      "min_P_gradient_norm": 0.00992967002093792,
+      "literal_forward_bitwise": true
+    }
+  ],
+  "possible_patch_decoder_rank": 48,
+  "quality_training_launched": false,
+  "quality_results": false
+}

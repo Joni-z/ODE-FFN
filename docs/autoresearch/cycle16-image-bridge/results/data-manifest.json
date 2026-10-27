@@ -1,0 +1,35 @@
+{
+  "source": "https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz",
+  "resolved_url": "https://cave.cs.toronto.edu/kriz/cifar-10-python.tar.gz",
+  "official_md5": "c58f30108f718f92721af3b95e74349a",
+  "archive_sha256": "6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce",
+  "archive_bytes": 170498071,
+  "decoded_members": {
+    "cifar-10-batches-py/data_batch_1": "54636561a3ce25bd3e19253c6b0d8538147b0ae398331ac4a2d86c6d987368cd",
+    "cifar-10-batches-py/data_batch_2": "766b2cef9fbc745cf056b3152224f7cf77163b330ea9a15f9392beb8b89bc5a8",
+    "cifar-10-batches-py/data_batch_3": "0f00d98ebfb30b3ec0ad19f9756dc2630b89003e10525f5e148445e82aa6a1f9",
+    "cifar-10-batches-py/data_batch_4": "3f7bb240661948b8f4d53e36ec720d8306f5668bd0071dcb4e6c947f78e9682b",
+    "cifar-10-batches-py/data_batch_5": "d91802434d8376bbaeeadf58a737e3a1b12ac839077e931237e0dcd43adcb154"
+  },
+  "shape": [
+    50000,
+    3,
+    32,
+    32
+  ],
+  "dtype": "uint8",
+  "layout": "NCHW, RGB",
+  "train": 45000,
+  "validation": 5000,
+  "split_rng": "numpy.default_rng(0)",
+  "unconditional": true,
+  "class_labels_used": false,
+  "test_batch_decoded": false,
+  "download_prefix_reused": "/Users/mr.z/ode-workspace-prep/image-bridge-data/cifar10-v1/cifar-10-python.tar.gz.part",
+  "normalization": "planned: float32(image)/127.5-1, no augmentation",
+  "files": {
+    "images.uint8.npy": "cca17af9c1cff570c8c91fdb9f8bfc450d62dc4ff73ba6fb849b2b49e0c668f2",
+    "split.npz": "86f308698dbd08a640cd54ed14f30f8727d9c2bf0fbdce4fb51f766b45ec5730"
+  },
+  "preparation_seconds": 170.3915602499619
+}

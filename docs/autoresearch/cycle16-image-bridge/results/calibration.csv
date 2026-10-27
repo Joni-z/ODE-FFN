@@ -1,0 +1,9 @@
+device,family,median_seconds_per_update,mean_seconds_per_update,updates,batch,rss_GiB,sampled_mps_allocated_GiB,projected_5000_update_seconds,trainable_parameters,ffn_parameters_per_block,dense_FFN_forward_MACs_per_token_per_block,scope
+cpu,ode_k1,0.09336687508039176,0.09477130842395126,25,64,0.7352447509765625,0.0,466.8343754019588,211094,16642,16512,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+cpu,ode_k2,0.10593766695819795,0.10558259844779969,25,64,0.820953369140625,0.0,529.6883347909898,211094,16642,24704,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+cpu,swiglu86,0.0721675418317318,0.07324891837313771,25,64,0.890655517578125,0.0,360.837709158659,211412,16748,16512,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+cpu,swiglu129,0.07974000019021332,0.07976285674609244,25,64,0.8994293212890625,0.0,398.7000009510666,236438,25090,24768,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+mps,ode_k1,0.08025033306330442,0.08034140145406127,25,64,1.0359039306640625,0.08536028861999512,401.2516653165221,211094,16642,16512,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+mps,ode_k2,0.08498437493108213,0.08498770826496184,25,64,1.0384521484375,0.0970160961151123,424.92187465541065,211094,16642,24704,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+mps,swiglu86,0.07499529211781919,0.07510519672185183,25,64,1.05499267578125,0.06227731704711914,374.97646058909595,211412,16748,16512,Dense FFN only; attention/backbone are identical. Pointwise work excluded.
+mps,swiglu129,0.07881912495940924,0.07884518165141344,25,64,1.07159423828125,0.06066584587097168,394.0956247970462,236438,25090,24768,Dense FFN only; attention/backbone are identical. Pointwise work excluded.

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "legacy_local_condition_change_max": 0.03706812858581543,
+  "legacy_input_controller_unused": true,
+  "legacy_condition_controller_active": true,
+  "professor_adapter_local_condition_change_max": 0.0,
+  "professor_input_controller_active": true,
+  "scope": "Local FFN only. Whole JiT retains timestep/AdaLN/attention conditioning. No historical checkpoint attribution.",
+  "source_hashes": {
+    "source/image_model.py": "96fcf4a6aa7601a0236b150eea9026dc41b64a8bc2bc99f583dcf8aba1651257",
+    "source/jit/time_condition.py": "afa39220f6f16ca9793e6fc12d09f2b4c0b5c4833a76de571bd5908f14839cb3",
+    "source/jit/ffn_blocks.py": "da8c0de69eead04efceefb143594dcb2ff8fb683e41b6664e98dbf9911827f2b"
+  }
+}
