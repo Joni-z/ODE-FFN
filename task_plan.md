@@ -176,6 +176,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [ ] Before any quality training, verify official data hash/provenance, actual JiT input-clock semantics, exact common surrounding tensors, derivatives/resume and measured CPU/MPS throughput. Freeze a resource-bounded protocol only after feasibility measurement. No MBP/torch or stopped-operator rerun.
 
 ## Errors encountered
+- Cycle16 feasibility-v1 passed model/clock/derivative/CPU-resume checks but stopped before timing: local clock s shadowed settings s. Preserve source/bindings/log, rename the settings variable, mark terminal failure from the consumed handle and prepare a new v2 snapshot. No image quality training occurred.
 - Cycle16 two guessed architecture-search index files were absent; the actual covariance protocol/readout and task plan establish its stop. No source/runtime mutation.
 - Cycle15 audit-v1 independently replayed gradients but compared dimensionless cosine for a cold thin route of norm4.92e-15 across SVD/QR. That direction is numerically undefined; preserve the failure. Audit-v2 retains all raw gradient/projector tolerances, independently validates routes, then verifies reported ratios from saved vectors. Formal outputs/source are unchanged.
 - Cycle15 initial combined plan/notes patch assumed a generic notes heading and failed atomically. Apply the plan separately and append the scoped note; no runtime or result changed.

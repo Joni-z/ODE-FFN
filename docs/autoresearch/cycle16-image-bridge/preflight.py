@@ -36,8 +36,8 @@ def prepare(root,repo):
     print(json.dumps(dict(status='PREPARED',root=str(root),source_files=len(frozen))),flush=True)
 
 def run(root):
-    s=json.loads((root/'settings.json').read_text());source=root/'source/jit';torch.set_num_threads(1)
-    assert s['families']==list(FAMILIES);start=time.monotonic();proc=psutil.Process();write(root/'status.json',dict(state='RUNNING',pid=os.getpid()))
+    settings=json.loads((root/'settings.json').read_text());source=root/'source/jit';torch.set_num_threads(1)
+    assert settings['families']==list(FAMILIES);start=time.monotonic();proc=psutil.Process();write(root/'status.json',dict(state='RUNNING',pid=os.getpid()))
     models={family:build(source,family) for family in FAMILIES};ref=models['ode_k2']
     for family,model in models.items():
         for name,value in ref.state_dict().items():
@@ -95,13 +95,13 @@ def run(root):
         for family in FAMILIES:
             assert time.monotonic()-start<600
             model=build(source,family).to(device);opt=opt_for(model)
-            for k in range(s['warmup_updates']):update(model,opt,batch)
+            for k in range(settings['warmup_updates']):update(model,opt,batch)
             sync(device);times=[];mps_mem=[]
-            for k in range(s['measured_updates']):
+            for k in range(settings['measured_updates']):
                 tick=time.perf_counter();update(model,opt,batch);sync(device);times.append(time.perf_counter()-tick)
                 if device=='mps':mps_mem.append(torch.mps.current_allocated_memory())
             row=dict(device=device,family=family,median_seconds_per_update=float(np.median(times)),
-                mean_seconds_per_update=float(np.mean(times)),updates=s['measured_updates'],batch=64,
+                mean_seconds_per_update=float(np.mean(times)),updates=settings['measured_updates'],batch=64,
                 rss_GiB=proc.memory_info().rss/2**30,sampled_mps_allocated_GiB=max(mps_mem,default=0)/2**30,
                 projected_5000_update_seconds=5000*float(np.median(times)),**costs[family])
             rows.append(row);print(json.dumps(row),flush=True)
