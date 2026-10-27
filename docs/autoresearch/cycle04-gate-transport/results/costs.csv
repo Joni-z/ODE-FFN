@@ -1,0 +1,16 @@
+law,arm,parameters,dense_forward_macs,dense_training_forward_backward_macs,matrix_count_scope
+gaussian_aniso_2d,transport,87210,85418,254014,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,diagonal,82047,80000,237760,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gaussian_aniso_2d,swiglu143,87612,85760,255040,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,transport,87210,85418,254014,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,diagonal,82047,80000,237760,actual aten mm/addmm/bmm/mv; pointwise work excluded
+gmm_ring8_2d,swiglu143,87612,85760,255040,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,transport,89016,87210,258494,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,diagonal,83853,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+rotated_product_bimodal_16d,swiglu143,89418,87552,259520,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,transport,89016,87210,258494,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,diagonal,83853,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+sign_code,swiglu143,89418,87552,259520,actual aten mm/addmm/bmm/mv; pointwise work excluded
+half_mixture,transport,89016,87210,258494,actual aten mm/addmm/bmm/mv; pointwise work excluded
+half_mixture,diagonal,83853,81792,242240,actual aten mm/addmm/bmm/mv; pointwise work excluded
+half_mixture,swiglu143,89418,87552,259520,actual aten mm/addmm/bmm/mv; pointwise work excluded

@@ -51,3 +51,12 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 -132 conditional-generator singular quantile records are published; raw arrays stay private. Final Swi128 probe flow-norm maxima: Product7.93, sign-code9.65, mixture6.72. All generator eigenvalues remain zero. These are finite probe observations, not global bounds.
 - User clarified experimental hosts: Mac mini and Lenovo. Lenovo SSH still times out. MBP/torch are removed as publication dependencies; GitHub CLI2.103.2 was installed on Mac mini. Browser login is pending. No secret token is printed or committed.
 - The next candidate must add useful computation. The gate-transport design describes exact K³=0 coupling with a small rectangular C, a fixed-feature rank witness, explicit full gradients and matched wider-Swi controls; it is not yet implemented or selected for training.
+
+## Cycle04 completed and stopped
+- Registered8dba424. Fifteen seed0 trajectories completed (PID36784,exit0,170.20s), two one-thread Mac CPU workers, sampled summed peak RSS0.826GiB. Lenovo was unavailable; no MBP/torch/GPU execution.
+- Preflight passed15 cold/resume cases; literal exponentials and complete derivatives agreed to2.78e-17. Actual16D costs: transport89016params/87210MACs; Swi14389418/87552.
+- Field MSE transport/Swi143: Gaussian.0038848/.0043525, Ring.0162897/.0153686, Product.1013762/.0846540, sign-code.0411181/.0389728, mixture.1355216/.1259118. Strong reused Swi160 remains included. No16D10% gain; stop without partition/coefficient/rank/feedback rescue.
+- Independent audit-v2 exited0 in13.30s:60 checkpoints,75 panels,15 samplings,25000 stream hashes,60 C spectra,120 cube-zero generators and10 historical exact streams. All345 bindings and prior seals unchanged.
+- C is active: final Product singular maxima1.02,.80,1.56 and local FFN correction RMS ratios.42,.19,.47. Local amplitude is not a causal explanation of full prediction error.
+- Post-outcome source-gate coefficients all have numerical rank43, but median participation ranks1.050Product/1.072sign/1.061mixture. These are fixed-dictionary linear coefficients, not full-network/Jacobian ranks or a demonstrated failure mechanism.
+- Next review is unselected: evolve preactivations before integrating the activation, and compare against an absorbable midpoint reparameterization. Pointwise nilpotency need not terminate nonlinear Lie derivatives. Review old stops and primary literature before new training.

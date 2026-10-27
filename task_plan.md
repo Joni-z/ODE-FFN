@@ -42,19 +42,31 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 ## Next design review: exact gate transport
 - [x] Derive square-zero gate transport and its joint cube-zero generator, exact degree-two endpoint, complete FFN Jacobian and fixed-feature rank witness.
 - [x] Specify ordinary parameter/MAC controls conceptually; acknowledge that an equivalent ordinary gate mixer is not independent evidence for an ODE effect.
-- [ ] Verify the rank/operator witness and actual cost, register source and a fixed15-trajectory screen, then preflight before training. This is pending, not an implemented or effective architecture.
+- [x] Verify the rank/operator witness and actual cost, register source and a fixed15-trajectory screen, then preflight before training. Cycle04 completed below and failed its continuation rule.
 
 ## Cycle04 execution plan
-- [ ] Implement only the square-zero gate transport and ordinary diagonal scaling control; retain the native SwiGLU projections and zero-initialize new parameters.
-- [ ] Register one15-cell screen with all10 historical Swi128/160 controls; verify exact matrix exponential, complete derivatives, rank witness, costs, cold-state pairing, stream and resume.
-- [ ] Freeze exclusive runtime sources and inputs; run at most two one-thread Mac CPU workers. Lenovo assignment requires a fresh successful SSH check; do not reserve or use MBP/torch.
-- [ ] Audit all trajectories, complete-network metrics and learned rectangular generator blocks; apply the fixed rule without partition/coefficient/width rescues.
-- [ ] Publish locally committed evidence after existing GitHub browser login succeeds. Authentication is not a blocker to local research.
+- [x] Implement only the square-zero gate transport and ordinary diagonal scaling control; retain the native SwiGLU projections and zero-initialize new parameters.
+- [x] Register one15-cell screen (8dba424) with all10 historical Swi128/160 controls; verify exact exponential, complete derivatives, rank witness, measured costs, cold pairing, stream and resume.
+- [x] Complete15 trajectories on two one-thread Mac CPU workers (PID36784,exit0,170.20s). Lenovo SSH was unavailable; no MBP/torch/GPU execution.
+- [x] Independently audit60 checkpoints,75 panels,15 samplings,25000 batch hashes,60 C matrices,120 conditional generators and10 historical exact streams. All345 bindings unchanged. Apply the fixed rule: stop this setting.
+- [x] Inspect both figures, match curated files to audited outputs and seal415 runtime files (manifest SHA256 d1a901ebda18e8e0e6c3572f088d8dfcc0cf23842d7163b9ed2b99616d22eb7f). All345 bindings and636 prior sealed files match.
+- [ ] Publish locally committed evidence after local GitHub authentication is established. Both previous browser-login processes are terminal failures. Authentication is not a blocker to local research.
+
+## Next bounded step: nonlinear-feature review
+- [ ] Check older nonlinear-drift, state-clock and forced-gate stop scopes, and primary integrated-feature literature.
+- [ ] Verify the preactivation-flow integral, full derivatives, midpoint equivalence and quadrature error using independent numerical fixtures. Decide whether the operator merits one new registered screen.
+- [ ] If supported, register its source, ordinary controls, fixed budget and numerical-accuracy gate before outcomes; otherwise record the rejection and select a different mathematical question.
 
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
 ## Errors encountered
+- The archive check initially expected the private rank-analysis `summary.json` to retain its filename in curated results. The curated name is `gate-rank-summary.json`; the corrected explicit mapping passed byte comparisons. No runtime seal had been written by the failed check.
+- A broad text search included archived patches/metrics and produced excessive output. Restrict subsequent stop-rule searches to named top-level protocol/review files.
+- A multi-file report patch matched a stale task-plan status paragraph and failed atomically. Current files were inspected and the patch was split/reapplied to actual text; no experiment or frozen artifact was changed.
+- A completed audit handle10994 was polled again after its exit0 was consumed. The tool reported Unknown process; the terminal log/files were inspected without relaunching computation.
+- The second local GitHub browser-auth process ended with network EOF. It is terminal; no login success is established and its old device code must not be reused. Publishing remains pending separately from local research.
+- Cycle04 first audit compared two-row formal conditional-generator probes against slices from a32-row float32 projection. It stopped at a cold spectrum with2.68e-7 discrepancy. Preserve that source/log; audit-v2 repeats the correct two-row projection and keeps the same spectrum tolerance. No formal result is changed or rerun.
 - The first local GitHub CLI browser-auth process ended with a network unexpected-EOF error; no local token/login success was established. Do not treat the pending browser question or its old code as proof of authentication.
 - Cycle03 publication failed while copying its bundle to MBP, and both the Tailscale address and the previous LAN address were unavailable. No remote branch was updated. The user clarified experiments should use Lenovo/Mac mini; local publication setup replaces this transport dependency.
 - Final-results publication initially failed at GitHub HTTPS fetch, before any bundle or remote write. A fresh fetch succeeded; the terminal publication was retried and b35497b was verified remotely. No experiment was restarted.
@@ -68,4 +80,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Previous goal turn made concrete progress: cycle03 implementation, formal compatibility run, independent replay and local commit8f23903. Cycle04 is now being implemented as the actual changed architecture, with an exact finite ODE solve and ordinary cost/parameter controls. All earlier runtimes remain sealed. Local GitHub authentication is pending; do not claim publication until verified. The useful-successor objective remains active.
+Cycle04 is audited and sealed. Exact transport loses to matched-budget Swi143 on all16D laws and fails its fixed continuation rule. All earlier studies remain immutable. GitHub CLI login is not established; do not claim new publication. No training is running. The next unselected review concerns generating nonlinear feature responses along a flow, with full derivatives and ordinary controls. Cycle04 remains stopped and the useful-successor goal stays active.

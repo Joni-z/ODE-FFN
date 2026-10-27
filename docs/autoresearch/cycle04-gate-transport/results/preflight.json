@@ -1,0 +1,166 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "literal_value_max": 5.551115123125783e-17,
+    "parameter_and_input_gradient_max": 2.7755575615628914e-17,
+    "complete_jacobian_max": 2.7755575615628914e-17,
+    "C_gradient_max": 1.734723475976807e-18,
+    "joint_cube_zero": true,
+    "zero_transport_and_scaling_equal_native": true,
+    "fixed_dictionary_coefficient_rank": 2,
+    "rank_scope": "fixed two-feature dictionary, not a whole-network lower bound"
+  },
+  "cells": [
+    {
+      "law": "gaussian_aniso_2d",
+      "arm": "transport",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 87210,
+      "dense_forward_macs": 85418,
+      "dense_training_forward_backward_macs": 254014,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "gaussian_aniso_2d",
+      "arm": "diagonal",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 82047,
+      "dense_forward_macs": 80000,
+      "dense_training_forward_backward_macs": 237760,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "gaussian_aniso_2d",
+      "arm": "swiglu143",
+      "cold_pairing": false,
+      "exact_resume": true,
+      "parameters": 87612,
+      "dense_forward_macs": 85760,
+      "dense_training_forward_backward_macs": 255040,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "gmm_ring8_2d",
+      "arm": "transport",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 87210,
+      "dense_forward_macs": 85418,
+      "dense_training_forward_backward_macs": 254014,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "gmm_ring8_2d",
+      "arm": "diagonal",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 82047,
+      "dense_forward_macs": 80000,
+      "dense_training_forward_backward_macs": 237760,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "gmm_ring8_2d",
+      "arm": "swiglu143",
+      "cold_pairing": false,
+      "exact_resume": true,
+      "parameters": 87612,
+      "dense_forward_macs": 85760,
+      "dense_training_forward_backward_macs": 255040,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "transport",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 89016,
+      "dense_forward_macs": 87210,
+      "dense_training_forward_backward_macs": 258494,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "diagonal",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 83853,
+      "dense_forward_macs": 81792,
+      "dense_training_forward_backward_macs": 242240,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu143",
+      "cold_pairing": false,
+      "exact_resume": true,
+      "parameters": 89418,
+      "dense_forward_macs": 87552,
+      "dense_training_forward_backward_macs": 259520,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "transport",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 89016,
+      "dense_forward_macs": 87210,
+      "dense_training_forward_backward_macs": 258494,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "diagonal",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 83853,
+      "dense_forward_macs": 81792,
+      "dense_training_forward_backward_macs": 242240,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu143",
+      "cold_pairing": false,
+      "exact_resume": true,
+      "parameters": 89418,
+      "dense_forward_macs": 87552,
+      "dense_training_forward_backward_macs": 259520,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "transport",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 89016,
+      "dense_forward_macs": 87210,
+      "dense_training_forward_backward_macs": 258494,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "diagonal",
+      "cold_pairing": true,
+      "exact_resume": true,
+      "parameters": 83853,
+      "dense_forward_macs": 81792,
+      "dense_training_forward_backward_macs": 242240,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu143",
+      "cold_pairing": false,
+      "exact_resume": true,
+      "parameters": 89418,
+      "dense_forward_macs": 87552,
+      "dense_training_forward_backward_macs": 259520,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    }
+  ]
+}
