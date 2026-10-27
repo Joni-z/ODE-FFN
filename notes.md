@@ -126,3 +126,12 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Skip heads share the same decoded conditional optimum at fixedB; direct conditions the pair velocity itself. Population cross term vanishes by tower property, while the finite-bank cross is retained.
 - Remaining residual includes output capacity/approximation/optimization. No causal P attribution, no renewed head training, no stopped setting is reopened.
 - Independent dense-conditioning fixture maximum9.06e-14; full-observation/native-oracle maximum1.78e-14. No fitted conditioned outcomes inspected before registration.
+
+## Cycle09 audited conditional input attribution
+- Formal72checkpoint study PID41562 exit0,14.15s,0.408GiB; audit-v2 exit0,17.73s. QR/Woodbury fields agree to1.13e-13, all72per-row decompositions/1296summary rows and18native endpoints replay.
+- Thin/clean ODE input component3.1646e-5 vs total.00272857; Swi1284.5693e-5/.00299853; Swi1924.2554e-5/.00309514. Residual explains95.16%/97.63% of known gap, input5.20%/2.98%, finite cross-.37%/-.61%. Predeclared classification: predominantly remaining residual.
+- Thin/clean tangent residualsODE.17078/Swi128.18730/Swi192.19372. Largest fixed-time-bin residuals in.6–.8; ODE loses early and wins later. No loss/time-distribution change selected.
+- Thick/clean tangent residualODE.35134 vsSwi192.28473; inputI.00186 vs.00285. Transfer failure cannot be attributed to ODE losing more tangent input information.
+- Residual includes output/representation/optimization limitations and does not causally identify P. Cycle07 failed thresholds and all earlier stops remain; no useful new ODE model is established.
+
+- Cycle09 sealed108files, SHA2568e572acd096f1310fe2ff2cab337342c981a6fcfa4d265a1a34cda3a94e984f5. All8bindings and2069prior sealed files match; curated audit copies/relative links/Python AST/figure review pass. Private runtime126.3MB, curated evidence0.46MB. GitHub main still800d09f; auth check remains unauthenticated.
