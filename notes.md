@@ -21,3 +21,13 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Audit-v6 completed204 cases/34,680,000 prediction coordinates,100 panels and20 samplings, preserving91 inputs and333 formal files. All failed audit sources/logs remain recorded under the private runtime; deviations.md explains each numerical/assumption correction.
 - Exact output-error decomposition: Product cross term-0.0086382, displacement energy0.6848118; sign-code cross term0.0250104, displacement energy1.3681410. The fixed correction's output displacement dominates the small alignment benefit on Product.
 - Do not turn this failure into a sign/step-size sweep or start Taylor training without new evidence. The full-support mixture control proposed in the cycle analysis addresses an unresolved interpretation of prior data dependence, not a new architecture claim.
+
+## Cycle02 independently replayed outcome
+- Registered/published4016837 before data-law training. Runtime `/Users/mr.z/ode-workspace-prep/autoresearch/oct27-cycle02`.
+- Five unchanged native models completed5000 seed0 updates; PID34331 exited0,56.17s, two one-thread CPU workers, sampled peak summed RSS0.802GiB.
+- Oracle enumeration65536 components agreed with native values/Jacobian to2.92e-13/2.28e-12; five cold-state and exact-resume checks passed.
+- New-law field MSE: original ODE0.398957, ordinary ISRU0.163557, Swi64/128/1600.192344/0.138033/0.113254. ISRU/best-Swi ratios: field1.4442, Jacobian1.0484, SW2 1.3287.
+- Independent audit passed20 checkpoints,25 panels,five generated batches,48 matrix spectra and5000 common-stream batches;310 inputs and prior sealed evidence unchanged.
+- Literal Gaussian-component-count change alone is insufficient to explain ISRU's reversal. Component weights, label entropy and posterior ambiguity are not controlled by equal count.
+- Post-outcome Bayes covariance decomposition: between-branch response energy / total nonlinear response energy0.1332, not an additive attribution. At the largest-term anchor ISRU outperforms Swi160, preventing a simplistic pointwise causal explanation. Uncertainty bins also differ in time.
+- Existing hidden covariance-field failure was inspected. Do not reuse that construction under a new name; no third architecture follows automatically from these facts.

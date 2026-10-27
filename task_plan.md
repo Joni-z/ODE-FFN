@@ -22,10 +22,11 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 
 ## Cycle02: fixed-component-support mixture
 - [x] Specify the single half-Product/half-sign-code law, its exact Bayes mean/covariance/Jacobian, controls and interpretation limits.
-- [ ] Commit the protocol/source before outcomes; generate and hash the new data without changing historical laws.
-- [ ] Verify the oracle against65536-component enumeration, native cold states and exact resume.
-- [ ] Train five unchanged architectures with the registered5000-update budget and two monitored CPU workers.
-- [ ] Audit every new trajectory and publish all endpoints, P histories, figures, and the scoped interpretation.
+- [x] Commit the protocol/source before outcomes (4016837, also published); generate and hash the new data without changing historical laws.
+- [x] Verify the oracle against65536-component enumeration, native cold states and exact resume.
+- [x] Train five unchanged architectures with the registered5000-update budget and two monitored CPU workers (PID34331,exit0,56.17s).
+- [x] Audit every new trajectory:20 checkpoints,25 panels,five samplings,48 matrices,5000 stream batches; all310 bindings unchanged.
+- [ ] Publish cycle02 endpoints, P histories, figures, and the scoped interpretation; review the next justified generator question without reviving stopped settings.
 
 ## Errors encountered
 - Audit-v5 passed all Product16 cases, then one sign-code panel output differed by3.0599e-6. V6 makes panel-output tolerance1e-5 to match the existing full-bank numerical replay threshold; all other tolerances and formal outcomes stay fixed.
@@ -38,4 +39,4 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle01 is complete, independently audited, sealed and published (fc1afda); it rejects frozen complete-Taylor upgrading without a coefficient rescue. Cycle02 protocol/source are ready for registration and preflight. It changes only one target law, holding all65536 Gaussian component locations/variances/count fixed while mixing their prior probabilities. It does not introduce a new architecture. No cycle02 training has started.
+Cycle01 is independently audited, sealed and published (fc1afda). Cycle02 has completed five unchanged-model runs and its independent audit. ISRU field MSE0.163557 versus best SwiGLU0.113254 fails to recover the old advantage despite all65536 component locations retaining positive probability. The descriptive oracle decomposition is not a causal model-failure explanation. Curated evidence is being sealed and published. The useful ODE-architecture goal remains open; no new third candidate is selected.

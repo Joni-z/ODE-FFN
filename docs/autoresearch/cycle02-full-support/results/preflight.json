@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "enumerated_components": 65536,
+  "positive_probabilities": true,
+  "velocity_max_error": 2.913225216616411e-13,
+  "jacobian_max_error": 2.2734539945057364e-12,
+  "four_sign_moment": 0.5,
+  "checks": [
+    {
+      "family": "ode_k2",
+      "identical_cold_state": true,
+      "exact_resume": true,
+      "costs": {
+        "parameters": 83862,
+        "dense_forward_macs": 106944,
+        "dense_training_forward_backward_macs": 317696,
+        "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+      }
+    },
+    {
+      "family": "free_isru",
+      "identical_cold_state": true,
+      "exact_resume": true,
+      "costs": {
+        "parameters": 58512,
+        "dense_forward_macs": 57408,
+        "dense_training_forward_backward_macs": 169088,
+        "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+      }
+    },
+    {
+      "family": "swiglu64",
+      "identical_cold_state": true,
+      "exact_resume": true,
+      "costs": {
+        "parameters": 58572,
+        "dense_forward_macs": 57024,
+        "dense_training_forward_backward_macs": 167936,
+        "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+      }
+    },
+    {
+      "family": "swiglu128",
+      "identical_cold_state": true,
+      "exact_resume": true,
+      "costs": {
+        "parameters": 83598,
+        "dense_forward_macs": 81792,
+        "dense_training_forward_backward_macs": 242240,
+        "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+      }
+    },
+    {
+      "family": "swiglu160",
+      "identical_cold_state": true,
+      "exact_resume": true,
+      "costs": {
+        "parameters": 95820,
+        "dense_forward_macs": 93888,
+        "dense_training_forward_backward_macs": 278528,
+        "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+      }
+    }
+  ]
+}
