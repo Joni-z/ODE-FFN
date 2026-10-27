@@ -44,6 +44,13 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Specify ordinary parameter/MAC controls conceptually; acknowledge that an equivalent ordinary gate mixer is not independent evidence for an ODE effect.
 - [ ] Verify the rank/operator witness and actual cost, register source and a fixed15-trajectory screen, then preflight before training. This is pending, not an implemented or effective architecture.
 
+## Cycle04 execution plan
+- [ ] Implement only the square-zero gate transport and ordinary diagonal scaling control; retain the native SwiGLU projections and zero-initialize new parameters.
+- [ ] Register one15-cell screen with all10 historical Swi128/160 controls; verify exact matrix exponential, complete derivatives, rank witness, costs, cold-state pairing, stream and resume.
+- [ ] Freeze exclusive runtime sources and inputs; run at most two one-thread Mac CPU workers. Lenovo assignment requires a fresh successful SSH check; do not reserve or use MBP/torch.
+- [ ] Audit all trajectories, complete-network metrics and learned rectangular generator blocks; apply the fixed rule without partition/coefficient/width rescues.
+- [ ] Publish locally committed evidence after existing GitHub browser login succeeds. Authentication is not a blocker to local research.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
@@ -61,4 +68,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycles01/02 remain sealed and published. Cycle03 formal and independent replay both completed successfully (42.33s/9.37s), including exact native training behavior. Its results and a scoped report are prepared locally; no quality gain is claimed. Experiments use Mac mini/Lenovo only. GitHub CLI is installed locally; authentication is pending so future publication no longer depends on MBP/torch. No training is running. The next review concerns actual gate-operator connectivity, not an equivalent ODE label. The useful-successor goal remains active.
+Previous goal turn made concrete progress: cycle03 implementation, formal compatibility run, independent replay and local commit8f23903. Cycle04 is now being implemented as the actual changed architecture, with an exact finite ODE solve and ordinary cost/parameter controls. All earlier runtimes remain sealed. Local GitHub authentication is pending; do not claim publication until verified. The useful-successor objective remains active.
