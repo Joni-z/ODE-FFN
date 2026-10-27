@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "post-training audit of native cold backbones with a fixed nonzero probe head; no optimizer update",
+  "families": [
+    {
+      "family": "ode_k2",
+      "probe_anchors": 16,
+      "nonzero_raw_tangent_rms": 0.0006322676807810643,
+      "clean_scaling_max_difference": 0.0,
+      "shifted_max_difference": 0.0
+    },
+    {
+      "family": "swiglu128",
+      "probe_anchors": 16,
+      "nonzero_raw_tangent_rms": 0.0003583767621409088,
+      "clean_scaling_max_difference": 0.0,
+      "shifted_max_difference": 0.0
+    },
+    {
+      "family": "swiglu192",
+      "probe_anchors": 16,
+      "nonzero_raw_tangent_rms": 0.0004459374066871496,
+      "clean_scaling_max_difference": 0.0,
+      "shifted_max_difference": 0.0
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "compatibility_check_complete",
+  "new_architecture_nominated": false,
+  "context_specific_interaction_found": false,
+  "interactions": [
+    {
+      "head": "clean",
+      "context_specific_interaction": false,
+      "checks": [
+        {
+          "law": "thin",
+          "oracle_mse": 0.9099704264815213,
+          "tangent_mse_per_dimension": 0.9088872031407864,
+          "jacobian_error": 0.9807670475057919,
+          "sw2": 0.9281821386027191
+        },
+        {
+          "law": "thick",
+          "oracle_mse": 1.0021168628784847,
+          "tangent_mse_per_dimension": 1.2266046325423563,
+          "jacobian_error": 0.9976566646440941,
+          "sw2": 1.080850483437939
+        }
+      ]
+    },
+    {
+      "head": "shifted",
+      "context_specific_interaction": false,
+      "checks": [
+        {
+          "law": "thin",
+          "oracle_mse": 1.00494017041728,
+          "tangent_mse_per_dimension": 0.9986126593814283,
+          "jacobian_error": 1.0670118444289822,
+          "sw2": 0.9775299124868182
+        },
+        {
+          "law": "thick",
+          "oracle_mse": 1.0143861877554163,
+          "tangent_mse_per_dimension": 1.4867178015529932,
+          "jacobian_error": 1.0122129192986569,
+          "sw2": 0.9087622308236134
+        }
+      ]
+    }
+  ],
+  "generic_head_effect_not_an_ODE_claim": true,
+  "no_head_cap_sampler_basis_dimension_or_width_rescue": true
+}

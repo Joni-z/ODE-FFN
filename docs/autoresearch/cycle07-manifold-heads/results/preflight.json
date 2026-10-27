@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "dense_conditioning_value_max": 4.884981308350689e-14,
+    "dense_AD_jacobian_max": 1.474376176702208e-13,
+    "thin_posterior_response_rank": 2,
+    "endpoint_extensions_pass": true,
+    "skip_initial_values_pair": true,
+    "head_parameter_tangents_checked": true,
+    "normal_basis_risk": 0.5000000000000001,
+    "thin_direct_uniform_population_floor": 0.4682291666666667,
+    "bounds_are_population_not_finite_bank": true
+  },
+  "cells": [
+    {
+      "law": "thin",
+      "arm": "ode_k2_clean",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98310,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "ode_k2_shifted",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98310,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "ode_k2_direct",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98310,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu128_clean",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98046,
+      "dense_forward_macs": 96128,
+      "dense_training_forward_backward_macs": 278080,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu128_shifted",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98046,
+      "dense_forward_macs": 96128,
+      "dense_training_forward_backward_macs": 278080,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu128_direct",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98046,
+      "dense_forward_macs": 96128,
+      "dense_training_forward_backward_macs": 278080,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu192_clean",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 123072,
+      "dense_forward_macs": 120896,
+      "dense_training_forward_backward_macs": 352384,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu192_shifted",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 123072,
+      "dense_forward_macs": 120896,
+      "dense_training_forward_backward_macs": 352384,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thin",
+      "arm": "swiglu192_direct",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 123072,
+      "dense_forward_macs": 120896,
+      "dense_training_forward_backward_macs": 352384,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "ode_k2_clean",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98310,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "ode_k2_shifted",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98310,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "ode_k2_direct",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98310,
+      "dense_forward_macs": 121280,
+      "dense_training_forward_backward_macs": 353536,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu128_clean",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98046,
+      "dense_forward_macs": 96128,
+      "dense_training_forward_backward_macs": 278080,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu128_shifted",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98046,
+      "dense_forward_macs": 96128,
+      "dense_training_forward_backward_macs": 278080,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu128_direct",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 98046,
+      "dense_forward_macs": 96128,
+      "dense_training_forward_backward_macs": 278080,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu192_clean",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 123072,
+      "dense_forward_macs": 120896,
+      "dense_training_forward_backward_macs": 352384,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu192_shifted",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 123072,
+      "dense_forward_macs": 120896,
+      "dense_training_forward_backward_macs": 352384,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "thick",
+      "arm": "swiglu192_direct",
+      "raw_pairing": true,
+      "exact_resume": true,
+      "parameters": 123072,
+      "dense_forward_macs": 120896,
+      "dense_training_forward_backward_macs": 352384,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    }
+  ],
+  "geometry": [
+    {
+      "law": "thin",
+      "numerical_covariance_rank": 2,
+      "normal_energy_per_coordinate": 4.591687973138917e-17,
+      "thin_float32_max_normal_residual": 3.6658201696404547e-08
+    },
+    {
+      "law": "thick",
+      "numerical_covariance_rank": 128,
+      "normal_energy_per_coordinate": 0.03937853141892527,
+      "thin_float32_max_normal_residual": 3.6658201696404547e-08
+    }
+  ]
+}
