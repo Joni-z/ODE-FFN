@@ -176,7 +176,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Before any quality training, verify official data hash/provenance, actual JiT input-clock semantics, exact common surrounding tensors, derivatives/resume and measured CPU/MPS throughput. Freeze a resource-bounded protocol only after feasibility measurement. No MBP/torch or stopped-operator rerun.
 
 - [x] Independent preparation audit and both clock witnesses pass. Seal92files SHA256c1f13c9a91b1599439670918315dc891bdce38adce86dfc4ba775bdb6c3d7145,23source/8closurebindings/225oldsealedfiles verified. Data324.5MB/privateprep0.805MB; two reviewed figures. No real image quality update.
-- [ ] Commit/synchronize this verified preparation and attempt direct local publication.
+- [x] Commit verified image preparation8baec48 underZhizheZhang and fast-forward clean local main. Publisher22601 exits1 atHTTPSUsername (Device not configured); independent remote main remains800d09f. No remote update claimed.
 - [ ] Register a separate quality-training/sampling/feature-metric protocol for the four baseline arms before real CIFAR updates. Preparation has not launched quality training or selected a new ODE candidate.
 
 ## Errors encountered
