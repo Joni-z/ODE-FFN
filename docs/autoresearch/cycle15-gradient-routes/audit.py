@@ -80,7 +80,10 @@ for entry in s['laws']:
                 g=parts[:,idx];normsq=(g*g).sum();cross=2*sum(torch.dot(g[i],g[j]) for i,j in ((0,1),(0,2),(1,2)))
                 np.testing.assert_allclose(float(actual[idx].square().sum()),float(normsq+cross),atol=1e-10,rtol=1e-8)
                 saved=group_records[(law,family,step,group)]
-                a,z,r=g;f=full[idx]
+                # Independent projected gradients were already checked above.
+                # Dimensionless ratios near a zero route are ill-conditioned:
+                # validate their arithmetic against the stored vectors themselves.
+                a,z,r=torch.from_numpy(d['parts'])[:,idx];f=full[idx]
                 n=lambda v:float(v.square().sum().sqrt())
                 cos=lambda a,b:float(torch.dot(a,b))/(n(a)*n(b)) if n(a)*n(b)>0 else None
                 den=n(a)**2+n(r)**2
@@ -101,5 +104,6 @@ assert original=={str(p):study.sha(p) for p in (root/'output').rglob('*') if p.i
 study.verify(root)
 study.write(out/'audit.json',dict(status='PASS',checkpoints=counts,field_rows=counts*20000,
     gradient_routes=counts*3,max_gradient_difference=maxdiff,max_projector_difference=maxproj,
-    formal_files_unchanged=len(original),seconds=time.monotonic()-start))
+    formal_files_unchanged=len(original),seconds=time.monotonic()-start,
+    ratio_check='From saved vectors after independent gradient validation; zero-scale directions are not interpreted.'))
 print(json.dumps(study.load(out/'audit.json')),flush=True)

@@ -236,3 +236,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - No study process is live. Lenovo SSH timed out again; only Mac mini/Lenovo remain authorized. Current clean checkpoint is cd09851.
 - Existing cycle14 window telemetry has zero clipping in thin final windows but63.4–93.8% in thick. A large readout-null residual cannot directly drive hidden P at a fixed head; indirect clipping/moment effects require measurement.
 - The next bounded diagnostic is frozen next-batch gradient routing, not a new head/loss/optimizer architecture or a rescue of stopped settings.
+
+- Cycle15 formal49158 exited0 in35.58s,88checkpoints/1.76Mnativefieldrows/440groups,0trainingupdates,0.429GiBsampledRSS. Audit-v1 stopped at a cold thin cosine: remaining-normal route norm4.92e-15 makes direction meaningless. V2 keeps gradient tolerances and independently validates raw routes, then recomputes reported ratios from the saved vectors. No formal rerun, source binding mutation or threshold change.

@@ -167,6 +167,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [ ] Curate the descriptive analysis and figures, record the decision, seal artifacts, commit and synchronize locally; attempt direct GitHub publication.
 
 ## Errors encountered
+- Cycle15 audit-v1 independently replayed gradients but compared dimensionless cosine for a cold thin route of norm4.92e-15 across SVD/QR. That direction is numerically undefined; preserve the failure. Audit-v2 retains all raw gradient/projector tolerances, independently validates routes, then verifies reported ratios from saved vectors. Formal outputs/source are unchanged.
 - Cycle15 initial combined plan/notes patch assumed a generic notes heading and failed atomically. Apply the plan separately and append the scoped note; no runtime or result changed.
 - Cycle11 audit-v1 replayed predictions exactly but computed the legacy float32 prediction-RMS diagnostic in float64, differing4.22e-7 at the cold checkpoint. Preservev1source/log; v2 uses the original metric dtype. No formal run, scientific metric, acceptance threshold or tolerance is changed.
 - Cycle11v3 preflight caught tiny float32 backward cancellation (max5.82e-11) from two explicit sign reflections at identity. Preservev3source/log. Rewrite the same Q as I plus its exact rank-two residual, preserving thresholds and initialization; independent active dense-Q derivatives still pass and complete-model inherited gradients now match bitwise on both laws/modes. Prepare a freshv4snapshot before any training.
