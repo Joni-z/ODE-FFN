@@ -135,3 +135,8 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Residual includes output/representation/optimization limitations and does not causally identify P. Cycle07 failed thresholds and all earlier stops remain; no useful new ODE model is established.
 
 - Cycle09 sealed108files, SHA2568e572acd096f1310fe2ff2cab337342c981a6fcfa4d265a1a34cda3a94e984f5. All8bindings and2069prior sealed files match; curated audit copies/relative links/Python AST/figure review pass. Private runtime126.3MB, curated evidence0.46MB. GitHub main still800d09f; auth check remains unauthenticated.
+
+## Cycle10 pre-outcome derivative derivation
+- Exact posterior clean Jacobian J_m=t/a² Cov(Y|U) Pi. Its skew part is t/(2a²)[Cov,Pi], generally nonzero under a compressed input. Penalizing all model skew can penalize the field-optimal reference itself.
+- Direct conditional field equals((aI+tPi)m-Pi*x)/delta; skip reference equals(m-x)/delta. Derivative information/residual/cross decomposition has no population orthogonality claim.
+- Float64 pre-registration fixtures pass: analytic/independent denseAD1.05e-12, finite differences7.55e-9, full observation/native oracle3.30e-12, commutator4.45e-16. No fitted conditional derivative outcomes viewed.

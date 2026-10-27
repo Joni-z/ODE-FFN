@@ -102,6 +102,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Commit verified cycle09 milestone8a05b13 and fast-forward the clean local main checkout.
 - [ ] Publish the pending local sequence after Mac mini GitHub authentication; no MBP/torch relay.
 
+## Cycle10 plan: complete conditional-field derivative diagnosis
+- [x] Revalidate clean9e1578f, cycle09 attribution and archived evidence. Previous goal turn is progress. No new architecture is selected.
+- [x] Derive exact conditional derivatives and covariance/projector commutator. Keep derivative cross terms; field-optimal references need not minimize Jacobian loss or be symmetric.
+- [x] Register all90existing endpoint panels, full/tangent symmetric/skew decomposition and fixed late-time descriptive classification before fitted conditional-Jacobian outcomes. No training or threshold rescue.
+- [ ] Verify independent float64 automatic differentiation, finite differences and full-observation/native oracle fixtures before fitted outcomes; run with one monitored Mac CPU thread and600s ceiling.
+- [ ] Audit every panel, native saved Jacobians and independently differentiated conditional references; preserve all source/data/seals. Plot and write a decision that changes the next architecture question.
+- [ ] Seal, commit and synchronize local main; publish when Mac mini authentication is restored.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
