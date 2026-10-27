@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "live_frame_clock_AD_max": 4.440892098500626e-15,
+    "flat_singular_witness": [
+      0.0,
+      1.0
+    ],
+    "projection_grid_zero_boundary_checked": true,
+    "centered_identity": true
+  },
+  "checks": [
+    {
+      "law": "thin",
+      "family": "ode_k2",
+      "step": 0,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "ode_k2",
+      "step": 1000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "ode_k2",
+      "step": 2500,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "ode_k2",
+      "step": 5000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "frame_k2",
+      "step": 0,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "frame_k2",
+      "step": 1000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "frame_k2",
+      "step": 2500,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "frame_k2",
+      "step": 5000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "global_k2",
+      "step": 0,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "global_k2",
+      "step": 1000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "global_k2",
+      "step": 2500,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thin",
+      "family": "global_k2",
+      "step": 5000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "ode_k2",
+      "step": 0,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "ode_k2",
+      "step": 1000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "ode_k2",
+      "step": 2500,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "ode_k2",
+      "step": 5000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "frame_k2",
+      "step": 0,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "frame_k2",
+      "step": 1000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "frame_k2",
+      "step": 2500,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "frame_k2",
+      "step": 5000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "global_k2",
+      "step": 0,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "global_k2",
+      "step": 1000,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "global_k2",
+      "step": 2500,
+      "native_field_bitwise": true
+    },
+    {
+      "law": "thick",
+      "family": "global_k2",
+      "step": 5000,
+      "native_field_bitwise": true
+    }
+  ],
+  "pid": 46825,
+  "elapsed_seconds": 7.706032457994297
+}

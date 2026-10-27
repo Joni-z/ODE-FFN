@@ -197,3 +197,13 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Smallalgebra/grid/degenerate/boundaryfixturespass; liveframe/clockfullADmax4.44e-15. Actualnativeevaluationchunk1024verifiedfromsealedpriorauditor,asdistinctfromtrainingbatch512. Cohort24checkpoints,144layers,all20000fieldstatesplus32-rowclockreplays,steps0/1000/2500/5000,two laws/threeK2families.
 - Primaryliteraturereview: AREX2610.03483v1isanexternalsamplerwithdata-momentaffinebackbone; Koopman2506.22304v2usesateacher-consistentlift; neitherjustifiesfreehiddenPpolynomialorders. Al-Mohy/Higham2011isclassicalmatrix-actionprior,notafrontierrecommendation.
 - Pre-registrationdiscoverycorrectedguessedoldfilenamesand512-vs1024inferencebatchbeforeanyfittedenvelopeoutcomes. Earlierstops/immutabledata/Report1remainunchanged.
+
+
+## Cycle13 execution and scientific outcome
+- Registration35cba88; preflight7.71seconds, formalPID46900exit0/78.04seconds/0.768GiBsampledRSS, independentauditexit0/58.67seconds/0.848GiB. Nativefields/hiddeninputs/substitutedfieldsbitwise;144layers/2.88Mscalarrows/1.92Mdenseframerows checked, maximumindependentsampledifference1.14e-12;56formal files unchanged.
+- Rawquadratic/incrementrelativeRMS14.08–34.69% atfinalsolves. UnchangedPbounded-clockresidual12.27–33.85%; afterfixedA=P+.3P² only8/36finalsolves below1%, predominantlythininputframe. No universalquadraticredundancy.
+- Same-clockcentredintervention: thinin-frame tangentdisplacement.44%, tangentrisk-.62%; thickoriginal tangentdisplacement21.71%,risk+25.17%,despitefullrisk+.40%. Thickglobal tangentrisk+36.69%. FrozenfunctionalroleisnotaretrainedK2advantage; K1mechanismcontrolandallstopsremain.
+- Tangent/normal reporting split was added afterregistration toavoidnormal-dominatedfullratios; same saved predictions, no newintervention,thresholdorsampler.72exactrisk-accountingrows; no p-values ormodelwinner.
+- Threefiguresvisuallyreviewed; strictanalysis/statistics/catalogwritten. Future order-specific rationale must accountforfixedmatrixreparameterization,strongretrainedK1/SwiGLU,andseparatetangentdiagnostics. No new architecture selected; no spectral flattening or order rescue.
+
+- Cycle13 archive112files, SHA256c1a7dd5187106378bb1156645e15c3adcae24253061823c08c5327e797f20b91. Eightbindings/2706priorsealedfiles/144P-clockrecords/72projectedriskrows/67links/AST/threefigurechecks pass. QRnormal-coordinate replay avoids cancellation in cold near-exact normal fields; no tolerance or formal result changed. Private1368991282bytes/curated708878bytes. Fresh gh remains unauthenticated, LenovoSSH times out; no MBP/torch used.
