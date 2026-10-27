@@ -134,6 +134,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Commit verified cycle12 milestonee228381 and fast-forward the clean local main checkout. Direct Mac mini publication reaches push but exits1 because HTTPS credentials are absent (terminal prompts disabled). No hybrid nominee or cycle11 rescue.
 - [ ] Publish pending sequence after local GitHub authentication; remote main remains800d09f.
 
+## Cycle13 plan: what is the quadratic action adding?
+- [x] Revalidate clean1329914 and cycle12 final seal; previous goal turn is progress through the strict analysis/archive and direct publication attempt. Preserve every earlier stop.
+- [x] Read prior direct-effective-map, controller-response, state-clock and recurrent-depth controls. Those do not measure the best scalar K1 approximation to the trained K2 action at actual layer inputs.
+- [x] Research card/theory/protocol and runnable scalar-envelope code written. Projection/boundary/zero-direction/flat-SVD fixtures pass; live-frame/clock AD identity max4.44e-15. Primary AREX/Koopman/MIMS sources checked with external-versus-hidden-flow limits; no new spectral constraint or architecture.
+- [x] Cohort fixed before fitted outcomes:24checkpoints/144solve-checkpoint pairs, all20000field states each; native inference chunks are1024 (trainingbatch512 is different),32-rowclock probes. Fixedc=.6, fourtimebins, free/boxed scalar relaxations and one same-clock centred whole-model intervention. No retuning/rescue.
+- [ ] Run and independently verify local geometric envelopes, native inputs and saved P/clock histories. Keep relaxation errors separate from retrained-model or generation claims; do not use oracle clocks as a candidate architecture.
+- [ ] Write the scientific decision, archive/seal/commit and synchronize locally; publish directly if credentials are available. The useful-successor objective remains open.
+
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
@@ -166,4 +174,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle12 formal/audit phases are complete. The strict analysis and four figures separate signed path accounting from distribution quality and identify a shared fixed-readout normal restriction. The77-file runtime is sealed and verified. Milestonee228381 is committed and synchronized to local main. Direct publication was attempted and failed for missing local HTTPS credentials; remote main remains800d09f. Cycle11 remains stopped. The preceding host-clarification turn made no research-state change; this turn resumes concrete analysis/archive work. Only Mac mini/Lenovo are execution hosts; the fresh Lenovo SSH check timed out and local GitHub authentication remains absent. The useful-successor goal remains active.
+Cycle12 is committed/sealed and synchronized locally. Current work is the cycle13 question review: distinguish extra quadratic directions from scalar step-length changes in the actually trained K2 layers. No new training or architecture is selected before this evidence. Mac mini/Lenovo only; local GitHub publication remains unauthenticated.

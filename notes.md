@@ -188,3 +188,12 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Cycle12 sealed77files SHA256c5c17339156af984d03edaea508bd4a007aaad2a9719decdd1a2d1872c02675b. Sevenbindings/2629priorsealedfiles/exactauditcopies/48conditionalprecisionrows/78relativeMarkdownlinks/sourceAST/fourfigurechecks pass. Private1208639308bytes/curated1146453bytes; allprotectedmodel/evaluator/Report1paths unchanged.
 
 - Cycle12 final milestonee228381 committed underZhizheZhang, localmainfast-forwarded. Directpublisher session45821 exited1 aftersuccessfulfetch/prepushauthor/ancestrychecks: HTTPSUsernameunavailablewithterminalpromptsdisabled. No remoteupdateclaimed,noliveretryprocess. Publicationpendinglocalauthentication,separatefromnextresearchreview.
+
+
+## Cycle13 registered question and mathematics
+- Revalidatedclean1329914/cycle12sealed77files. Previousgoalturnmadeprogressbystrictanalysis/archiveandsynchronization; currentgoalcontinuationpreservesthiscourse,notanewtask.
+- ExactlocalK2incrementd=s*u+.5s²*w,u=Pz,w=P²z. BestfreeK1scalaralongv is<v,d>/||v||²; originalboxusesclip[.2,1], includingclosedendpointinfima. FixedA=P+.3P² absorbsnativec=.6; sameclockremainder=.5s(s-.6)P²z. Boundsarefrozen-Pper-inputrelaxations,notfinitecontrollercapacityorretrainedK1results.
+- EqualSVDvaluesdonotremovequadraticdirections: Iand90degreerotationhaveidenticalsingularvaluesbutorthogonalinnovationfractions0and1. SymmetricnarroweigenvaluebounddoesconstrainP²-lambdaP. No flatteninginterventionselected.
+- Smallalgebra/grid/degenerate/boundaryfixturespass; liveframe/clockfullADmax4.44e-15. Actualnativeevaluationchunk1024verifiedfromsealedpriorauditor,asdistinctfromtrainingbatch512. Cohort24checkpoints,144layers,all20000fieldstatesplus32-rowclockreplays,steps0/1000/2500/5000,two laws/threeK2families.
+- Primaryliteraturereview: AREX2610.03483v1isanexternalsamplerwithdata-momentaffinebackbone; Koopman2506.22304v2usesateacher-consistentlift; neitherjustifiesfreehiddenPpolynomialorders. Al-Mohy/Higham2011isclassicalmatrix-actionprior,notafrontierrecommendation.
+- Pre-registrationdiscoverycorrectedguessedoldfilenamesand512-vs1024inferencebatchbeforeanyfittedenvelopeoutcomes. Earlierstops/immutabledata/Report1remainunchanged.
