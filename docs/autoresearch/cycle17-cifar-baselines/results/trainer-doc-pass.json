@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2",
+  "cwd": "/Users/mr.z/ODE-FFN-autoresearch",
+  "exit_code": 0,
+  "stdout_stderr_combined": "{\"status\": \"PASS\", \"arms\": [{\"family\": \"ode_k1\", \"resume_model_optimizer_rng_buffers_bitwise\": true, \"dense_FFN_forward_MACs_per_token\": 16512, \"dense_FFN_training_MACs_per_token\": 49536}, {\"family\": \"ode_k2\", \"resume_model_optimizer_rng_buffers_bitwise\": true, \"dense_FFN_forward_MACs_per_token\": 24704, \"dense_FFN_training_MACs_per_token\": 74112}, {\"family\": \"swiglu86\", \"resume_model_optimizer_rng_buffers_bitwise\": true, \"dense_FFN_forward_MACs_per_token\": 16512, \"dense_FFN_training_MACs_per_token\": 49536}, {\"family\": \"swiglu129\", \"resume_model_optimizer_rng_buffers_bitwise\": true, \"dense_FFN_forward_MACs_per_token\": 24768, \"dense_FFN_training_MACs_per_token\": 74304}], \"common_three_batch_digest\": \"8caf3f9bf895ad24c981bb0a2dac5d80b2a240e43011fbf24ea47464f9e64f3f\", \"disk_checkpoint_roundtrip_bitwise\": true, \"cold_sampler_matches_affine_Heun\": true, \"discrete_homogeneous_factor\": 0.0211639404296875}\n",
+  "capture_note": "Execution tool exposes stdout and stderr as one combined stream; no diagnostic text was observed alongside the PASS JSON.",
+  "readme_sha256": "cea2810c04d6e198e68fcf96de92319020f6520b2018dd7adb8133e8e72a5aca",
+  "frozen_study_py_sha256": "01ef9c7075098db91acf2a8892c71f27407d290224dc95e3e09f026bd405a720",
+  "preflight_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2/preflight.json",
+  "preflight_sha256": "eb117b40757b0c4523ff9a84ca842d2c39894c91da61fbab5505b58eadee61dc",
+  "preflight_status": "PASS",
+  "ready_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2/ready.json",
+  "ready_exists": true,
+  "ready_sha256": "376101d6dfdda456cd8760f0a285a1bb30db43729fa8c63cf7524168fa900e2f",
+  "ready_preflight_hash_matches": true,
+  "checks": {
+    "four_arms_resume_model_optimizer_rng_buffers_bitwise": true,
+    "disk_checkpoint_roundtrip_bitwise": true,
+    "cold_sampler_matches_affine_Heun": true
+  },
+  "doc_vs_reality_mismatches": [],
+  "quality_training_launched": false,
+  "checkpoint_artifacts": [
+    {
+      "path": "preflight-checkpoints/ode_k1.pt",
+      "bytes": 2709350,
+      "sha256": "bc609cf75b620207d971877d2a31387ba04953aefe0dd047dc01ea7b22cf4394"
+    },
+    {
+      "path": "preflight-checkpoints/ode_k2.pt",
+      "bytes": 2709350,
+      "sha256": "8589a8f2b19782b3d73e571174d7389ca7c12baa65a80a8715883dc22aa30b0c"
+    },
+    {
+      "path": "preflight-checkpoints/swiglu129.pt",
+      "bytes": 2998219,
+      "sha256": "4dc4b62eff7c9e797dc3bdeb7ddab92b58bd045ee791c6ebdd37c95f824a716c"
+    },
+    {
+      "path": "preflight-checkpoints/swiglu86.pt",
+      "bytes": 2697244,
+      "sha256": "d3eccfd37aa80feb125fef35533e0ab13f9393eea1665ebf8ed262099bed816e"
+    }
+  ]
+}

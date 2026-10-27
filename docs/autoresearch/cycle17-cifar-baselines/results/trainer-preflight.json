@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "arms": [
+    {
+      "family": "ode_k1",
+      "resume_model_optimizer_rng_buffers_bitwise": true,
+      "dense_FFN_forward_MACs_per_token": 16512,
+      "dense_FFN_training_MACs_per_token": 49536
+    },
+    {
+      "family": "ode_k2",
+      "resume_model_optimizer_rng_buffers_bitwise": true,
+      "dense_FFN_forward_MACs_per_token": 24704,
+      "dense_FFN_training_MACs_per_token": 74112
+    },
+    {
+      "family": "swiglu86",
+      "resume_model_optimizer_rng_buffers_bitwise": true,
+      "dense_FFN_forward_MACs_per_token": 16512,
+      "dense_FFN_training_MACs_per_token": 49536
+    },
+    {
+      "family": "swiglu129",
+      "resume_model_optimizer_rng_buffers_bitwise": true,
+      "dense_FFN_forward_MACs_per_token": 24768,
+      "dense_FFN_training_MACs_per_token": 74304
+    }
+  ],
+  "common_three_batch_digest": "8caf3f9bf895ad24c981bb0a2dac5d80b2a240e43011fbf24ea47464f9e64f3f",
+  "disk_checkpoint_roundtrip_bitwise": true,
+  "cold_sampler_matches_affine_Heun": true,
+  "discrete_homogeneous_factor": 0.0211639404296875
+}

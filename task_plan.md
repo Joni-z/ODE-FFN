@@ -181,13 +181,14 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 
 ## Cycle17 plan: fixed CIFAR image baseline screen
 - [x] Revalidate clean98730e0, cycle16 sealed preparation, absent quality jobs and a fresh Lenovo SSH timeout. Previous goal turn is progress, not a verified wait or repeated research blocker.
-- [ ] Register one four-arm, seed0,5000-update image baseline protocol with unchanged literal input clocks, fixed paired draws, CPU backend, generated samples and small-sample Inception FID. No new ODE candidate or old-family rescue.
+- [x] Register one four-arm, seed0,5000-update image baseline protocol with unchanged literal input clocks, fixed paired draws, CPU backend, generated samples and small-sample Inception FID. No new ODE candidate or old-family rescue.
 - [x] Build a separate declared metrics environment; validate actual seeded kernels/weights and the required fresh-agent documented invocation. Keep training/synthetic environments unchanged.
-- [ ] Freeze source/data/feature-weight bindings, pass full trainer/stream/buffer/checkpoint-resume and metric fixtures, and commit before image quality outcomes.
-- [ ] Launch two monitored one-thread CPU workers on Mac mini, verify their live handles and preserve all P/checkpoint/data-RNG trajectories.
+- [x] Register057eb60/fe9d1a3 and finalcafa5af before outcomes. V2source/data/weights frozen; identical reference features reused by hash. Independent fresh-agent trainer doc pass exits0; all4model/moment/global/data RNG/buffer/disk-resume checks bitwise. Cold Heun replay passes; actual dense FFN training MACs measured and covered by controls.
+- [x] Launch verified parent51294 via unified session39868, children51302/51303 (ODEK1/K2) on Mac miniCPU; twoSwiGLUs remain queued. Status, launch records and5sCPU/RSS telemetry are live; no duplicated process. Preserve all P/checkpoint/data-RNG trajectories.
 - [ ] Complete all four arms and independently audit validation, sampling, FID and stream identities; report every endpoint and apply only the fixed descriptive decision.
 
 ## Errors encountered
+- One cycle17read-only status check accidentally used system Python without psutil; rerun with the declared image-training interpreter succeeded. No job or runtime was restarted.
 - Before any cycle17quality run, tighten telemetry to the literal recursive quadratic term and extend trainer preflight to physical checkpoint serialization plus cold affine-Heun replay. Preserve the first prepared source/reference bank; prepare a fresh v2runtime. Reuse reference features only after exact pixel/extractor/weight/hash identity checks; no predictor outcome or acceptance gate changes.
 - Cycle17 initial metrics environment imports fail inside SciPy1.15.3 PROPACK Mach-O loader (zero-fill section offset). No weights, quality run or metric result is accepted. Preserve spec/log/version record, identify a locally working SciPy binary and render a fresh environment/spec before declaring readiness.
 - Cycle16 feasibility-v1 passed model/clock/derivative/CPU-resume checks but stopped before timing: local clock s shadowed settings s. Preserve source/bindings/log, rename the settings variable, mark terminal failure from the consumed handle and prepare a new v2 snapshot. No image quality training occurred.
