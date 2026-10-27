@@ -279,3 +279,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - All five curated figures visually reviewed: final metric comparison, learning curves, P/clocks, same-source generation, first held-out denoising case. English report/statistical scope/catalog written. No model, optimizer, loss, clock, sampler, metric or acceptance threshold changed after outcomes.
 
 - Cycle17 archive session73203 exits0. Seal392files SHA25662d178c4e2b88780495c9ea45c6aeef96453ce7098a8aeee84076cf58f081172; private805570107bytes/curated1193604bytes. All71input bindings,3original postprocess sources and separate v2audit source unchanged. Every public P/clock/telemetry row matches native replayed records.71local links and sourceAST pass; src/synthetic/configs/scripts/Report1 unchanged versus98730e0. Runtime is now read-only.
+
+- Cycle17 a267210 committed and local main fast-forwarded. Publisher20200 exits1 (missing HTTPS Username), remote main independently800d09f; no remote publication claimed. Fresh Lenovo85331 exits255/SSH timeout. Cycle18 selected as a read-only all-model/all-source sampler-resolution diagnostic; it cannot rescue cycle17 fitting/order failures.

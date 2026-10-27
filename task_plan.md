@@ -188,8 +188,15 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Complete all four arms (training parent39868 exits0, 1,107.813s). Replay44checkpoints/80panels/48P/240clocks/all4096sampled images and full5000-batch stream; all pass. Independent6,144-image feature replay is bitwise and separate SVD FID agrees within4.3e-13. Original failed audit source/status preserved; v2 only converts a path type.
 - [x] Curate all four results, fixed decision, FID mean/covariance accounting and five reviewed PNG/PDF figures. Write English analysis, statistical scope and case studies. K2 weightedMSE .176842 versus K1 .176393 and Swi129 .171234; FID183.40 versus184.91/194.10. Fitting/order gates fail; no new method.
 - [x] Archive session73203 exits0:392runtime files, sealSHA25662d178c4e2b88780495c9ea45c6aeef96453ce7098a8aeee84076cf58f081172. All71input/3postprocess/v2audit bindings, public copies,71local links and protected scopes verified. Private805570107bytes; curated1193604bytes.
-- [ ] Commit audited results under Zhizhe Zhang, fast-forward clean local main, attempt direct Mac mini publication and verify remote state.
-- [ ] Select the next mathematically justified question from the evidence without rescuing this failed screen.
+- [x] Commit audited results a267210 under Zhizhe Zhang and fast-forward clean local main. Direct publisher20200 exits1 at missing HTTPS Username; independent ls-remote still800d09f. Lenovo85331 exits255/SSH timeout. Neither blocks local frozen-checkpoint analysis.
+- [x] Select one frozen-checkpoint numerical-confound question: does the lower ODE FID persist across uniform Heun32/64/128? No training, best-solver nomination or change to cycle17 gates.
+
+## Cycle18 plan: frozen image sampler resolution
+- [x] Register exact four-model/all1,024-start, uniform Heun32/64/128 cohort, fixed metrics, mathematical scope and stop rules. Cycle17 fitting/order failure remains unchanged.
+- [ ] Verify the sealed parent, warm environment specs and native32-step replay; commit standalone source/protocol before observing finer-grid outcomes.
+- [ ] Run at most two one-thread CPU samplers with live PID/CPU/RSS monitoring; reuse original32-step features only after exact hash/pixel checks. Extract all finer-grid features on the same MPS extractor.
+- [ ] Independently replay finer-grid outputs and recompute all12FIDs with a separate SVD driver; verify no parent/source change.
+- [ ] Report all grid/sample differences, original pairwise rankings and cases, seal the diagnostic, commit and attempt direct publication. No new architecture nomination.
 
 ## Errors encountered
 - Cycle17feature-audit-v1 exits1 before numerical work because its SHA helper expects Path but binding keys are strings. Preserve original frozen source/log/status and empty audit directory; audit-v2 converts the path only. Training44-checkpoint/P/clock/manual-Heun audit already passes; no training, generated samples, metric producer or tolerance changes.
@@ -228,4 +235,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle17 image baseline training and independent numerical audits are complete. ODE has lower small-sample FID in this fixed CIFAR bank, but K2 does not improve the paired fitting loss over K1 or either SwiGLU. The original fitting and order gates fail. Exact FID accounting locates the advantage over Swi129 in the feature-mean term, without a covariance improvement. Reports and five figures are curated and the392-file runtime is sealed and verified. Direct publication is next. The useful-ODE-successor objective remains open. Only Mac mini and Lenovo are execution hosts.
+Cycle17 image baseline training and independent numerical audits are complete. ODE has lower small-sample FID in this fixed CIFAR bank, but K2 does not improve the paired fitting loss over K1 or either SwiGLU. The original fitting and order gates fail. Exact FID accounting locates the advantage over Swi129 in the feature-mean term, without a covariance improvement. Reports and five figures are curated and the392-file runtime is sealed and verified. Direct publication failed at missing local GitHub credentials; both local checkouts are synchronized. Cycle18 will test a finite-sampler explanation of the FID ordering at unchanged weights. The useful-ODE-successor objective remains open. Only Mac mini and Lenovo are execution hosts.
