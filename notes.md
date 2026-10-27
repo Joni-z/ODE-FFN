@@ -31,3 +31,9 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Literal Gaussian-component-count change alone is insufficient to explain ISRU's reversal. Component weights, label entropy and posterior ambiguity are not controlled by equal count.
 - Post-outcome Bayes covariance decomposition: between-branch response energy / total nonlinear response energy0.1332, not an additive attribution. At the largest-term anchor ISRU outperforms Swi160, preventing a simplistic pointwise causal explanation. Uncertainty bins also differ in time.
 - Existing hidden covariance-field failure was inspected. Do not reuse that construction under a new name; no third architecture follows automatically from these facts.
+
+## Publication and next-review boundary
+- GitHub main b35497b contains both completed cycles, source, figures, ledgers and audits; MBP is synchronized. All four new scientific commits use Zhizhe Zhang. No data arrays, checkpoints or raw logs were uploaded.
+- Main model code, configs, tests and submitted reports have no changes relative to2d2259a; the new studies use frozen native code. Runtime storage is151MiB for cycle01 and68MiB for cycle02.
+- Read the old complete-field constraints, conservative-readout and recurrent-potential protocols again. Full-map monotonicity is different from hidden covariance or mere gradient readout, but the existing evidence does not justify a scalar-potential variant or a revived coupling setting. No such architecture or training is selected.
+- The next review must demonstrate a complete-map computational purpose beyond a valid internal ODE identity, with an ordinary matched-cost comparator. Keep current failed directions stopped. Do not equate posterior covariance in data coordinates with a learned hidden P.
