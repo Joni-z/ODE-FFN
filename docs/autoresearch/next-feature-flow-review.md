@@ -1,6 +1,6 @@
 # Next review: nonlinear feature responses along a flow
 
-This review originated as an unselected hypothesis after the stopped cycle04. Mathematical fixtures now pass and one bounded [cycle05 screen](cycle05-feature-flow/protocol.md) is selected. It connects the observed advantage of extra ordinary nonlinear gates to a different computation, rather than rescue cycle04's partition, coefficient, rank or feedback settings. It is not an effectiveness or novelty claim.
+This review originated as an unselected hypothesis after the stopped cycle04. The bounded [cycle05 screen](cycle05-feature-flow/analysis.md) has now completed: numerical accuracy passed, quality failed, and the setting is stopped. It tested a different nonlinear computation rather than rescue cycle04's partition, coefficient, rank or feedback settings. It is not an effectiveness or novelty claim.
 
 ## Proposed operator
 

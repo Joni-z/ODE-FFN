@@ -37,7 +37,8 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Write the representation/compatibility protocol, minimal component and independent literal matrix-exponential fixture; commit before new outcomes.
 - [x] Verify native checkpoints, full Jacobians, parameter gradients, exact paired optimizer updates/resume and actual cost. One paired5000-update trajectory completed; this is not a quality search.
 - [x] Record conditional-generator singular distributions on real visited states; independent replay passed44 checkpoints,55 panels,11 sampling batches,132 literal FFNs and33 literal local derivative probes.
-- [ ] Seal and publish all cycle03 results and interpretation from Mac mini once local GitHub login completes.
+- [x] Seal all cycle03 results and interpretation (79files, SHA25635fda58e5a73a280c9dd9cf8288c1affc9cfa052d848494f568f4acd618e753a); preserve the published-history boundary.
+- [ ] Publish cycle03–05 from Mac mini once local GitHub login completes.
 
 ## Next design review: exact gate transport
 - [x] Derive square-zero gate transport and its joint cube-zero generator, exact degree-two endpoint, complete FFN Jacobian and fixed-feature rank witness.
@@ -56,7 +57,14 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Check older nonlinear-drift, state-clock, anchored-corrector and forced-gate stop scopes, and primary GLU, neural-flow and quadrature literature. No old setting is reopened.
 - [x] Verify the preactivation-flow integral, full derivatives, midpoint equivalence and quadrature error using independent numerical fixtures. Float64 derivative discrepancies<=2.78e-17; RK4 agrees with64-node quadrature to2.50e-16. The single-feature Hessian witness differs from midpoint. One controlled screen is justified; no FM-specific benefit is proved.
 - [x] Write the one-candidate/midpoint10-cell protocol with all15 reused Swi controls and an independent numerical-accuracy gate. Commit source before formal outcomes.
-- [ ] Complete native preflight and the monitored10-cell screen on Mac mini, then replay all checkpoints/curves/sampling/learned-C and the separate32-node accuracy diagnostics. Preserve all old seals.
+- [x] Complete native preflight and the monitored10-cell screen on Mac mini (5cab241 registration, PID37824,exit0,121.67s).
+- [x] Independently replay40checkpoints/50panels/10samplings/25000batch hashes/120C matrices/240pointwise spectra/15historical streams. Audit exits0,14.36s; all466bindings and1051prior sealed files match.
+- [x] Apply the registered decision: quality fails, numerical accuracy passes. Maximum two-node/32-node gate RMS0.0169%, field-MSE change0.0176%, complete-Jacobian RMS0.0360%. No node-count or other setting rescue.
+- [x] Inspect both plots, copy curated audited outputs, document the first-order tangent redundancy and seal320files (SHA2562a7a5fd06458ee4578db8cb52ed8076178b4b96046c2e1832fc267db697d6885).
+
+## Next mathematical question, before another architecture
+- [ ] Verify the complete C-tangent absorption identity and write a bounded read-only counterfactual protocol for the fitted nonlinear curvature contribution. Keep this descriptive; no coefficient optimization, new training, initialization change or reopening of cycle05.
+- [ ] Use the complete-network evidence to decide whether any different task-relevant ODE computation is justified. A new operator must face its ordinary implementation and matched cost, rather than repeat a solver-accuracy premise.
 
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
@@ -82,4 +90,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle04 is audited and sealed. Exact transport loses to matched-budget Swi143 on all16D laws and fails its fixed continuation rule. All earlier studies remain immutable. GitHub CLI login is not established; do not claim new publication. No training is running. The next unselected review concerns generating nonlinear feature responses along a flow, with full derivatives and ordinary controls. Cycle04 remains stopped and the useful-successor goal stays active.
+Cycles04–05 are audited, sealed and stopped. Nonlinear feature integration is accurate on the registered banks but still loses to matched-budget Swi143 on all16D laws, closely tracking its ordinary midpoint control. All earlier studies remain immutable. GitHub main was rechecked at800d09f; local GitHub CLI login is not established, and a text request for local login is pending. No training is running. Next work is a bounded mathematical/counterfactual review, not another training grid. The useful-successor goal stays active.

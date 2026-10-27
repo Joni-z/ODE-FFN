@@ -1,0 +1,49 @@
+{
+  "status": "stop_this_setting",
+  "gates": [
+    {
+      "law": "gaussian_aniso_2d",
+      "field_within5percent": true,
+      "gain10percent_on16D": false,
+      "jacobian_within10percent": true,
+      "sampling_within10percent": true,
+      "inference_budget": true
+    },
+    {
+      "law": "gmm_ring8_2d",
+      "field_within5percent": false,
+      "gain10percent_on16D": false,
+      "jacobian_within10percent": false,
+      "sampling_within10percent": true,
+      "inference_budget": true
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "field_within5percent": false,
+      "gain10percent_on16D": false,
+      "jacobian_within10percent": false,
+      "sampling_within10percent": true,
+      "inference_budget": true
+    },
+    {
+      "law": "sign_code",
+      "field_within5percent": false,
+      "gain10percent_on16D": false,
+      "jacobian_within10percent": false,
+      "sampling_within10percent": true,
+      "inference_budget": true
+    },
+    {
+      "law": "half_mixture",
+      "field_within5percent": false,
+      "gain10percent_on16D": false,
+      "jacobian_within10percent": false,
+      "sampling_within10percent": false,
+      "inference_budget": true
+    }
+  ],
+  "quality_screen_passed": false,
+  "numerical_accuracy_passed": true,
+  "no_node_count_or_other_setting_rescue": true,
+  "quality_claim_accepted": false
+}
