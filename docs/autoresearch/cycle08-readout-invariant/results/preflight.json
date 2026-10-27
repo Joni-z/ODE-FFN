@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "literal_nonlinear_sample_identity_max": 5.773159728050814e-15,
+  "coefficient_scalar_update_max": 1.3877787807814457e-17,
+  "rank_zero_case_pass": true,
+  "zero_bias_case_pass": true,
+  "full_row_rank_controls": [
+    {
+      "dim": 2,
+      "width": 4,
+      "rank": 2
+    },
+    {
+      "dim": 6,
+      "width": 8,
+      "rank": 6
+    }
+  ],
+  "Heun32_skip_standard_deviation": 0.0211639404296875,
+  "continuous_skip_standard_deviation": 0.018393972058572117,
+  "coefficients": {
+    "clean": {
+      "R": 0.0211639404296875,
+      "d": 0.9788360595703125
+    },
+    "shifted": {
+      "R": 0.0211639404296875,
+      "d": 0.09131685387257443
+    },
+    "direct": {
+      "R": 1.0,
+      "d": 1.0
+    }
+  }
+}

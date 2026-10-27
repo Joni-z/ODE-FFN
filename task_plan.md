@@ -80,20 +80,23 @@ Use the autoresearch experiment loop to develop an evidence-supported ODE archit
 - [x] Commit curated cycle07 evidence and synchronize local main after all archive/figure/source checks. GitHub still needs local authentication; the latest gh check remains unauthenticated.
 
 ## Next unselected read-only review
-- [ ] Register and verify the final-readout null-space sampling identity on all18 fitted cycle07 endpoints. Distinguish deterministic source-wise Heun checks, population W2 bounds and empirical SW2. No learned radial skip, wider head or renewed head training is selected.
+- [x] Register and verify the final-readout null-space sampling identity on all18 fitted cycle07 endpoints. Distinguish deterministic source-wise Heun checks, population W2 bounds and empirical SW2. No learned radial skip, wider head or renewed head training is selected.
 
 ## Cycle08 execution plan: fixed-readout sampling invariant
 - [x] Revalidate cycle07 (019e676, clean worktree,18completed/audited models). Previous goal turn is progress; local GitHub authentication is still absent.
 - [x] Write the fixed read-only cohort/protocol:18final cycle07 models, six zero-P interventions at fixed readout, two earlier2D/16D rank controls. Register source before new fitted null-space outcomes; no training or quality selection.
 - [x] Derive the affine-subspace/Gaussian-W2 theorem with hypotheses and limits. Literal nonlinear Heun fixtures, zero-gamma/bias and full-row-rank controls pass; maximum float64 source identity error5.78e-15, scalar coefficient discrepancy1.39e-17. Discrete skip factor.02116394 differs from continuous.01839397.
-- [ ] Hash-bound source/cohort and previous seals, run frozen preflight and the registered verification.
-- [ ] Verify raw-output and source-wise sample identities, empirical covariance consistency, normal-space W2 bounds and nonvacuous P interventions on Mac CPU.
-- [ ] Independently reconstruct projectors through centering-basis/QR algebra and replay the six P interventions; archive figures/results and commit/publish when local authentication permits.
+- [x] Hash-bound9inputs, source/cohort and2008prior sealed files; formal run PID40649 completed18models in6.57s, exit0.
+- [x] Verify90raw panels/18source-wise identities/covariances/normal W2 bounds and six nonvacuous P interventions on Mac CPU. Max original/zero-P identity errors9.21e-7/9.81e-7.
+- [x] Independently reconstruct projectors through centering-basis/QR algebra and replay six P interventions bitwise. Terminal audit receipt/log report PASS,6.00s;32formal files unchanged. Audit handle was lost to truncated observation; no rerun or exit-code claim.
+- [x] Archive the reviewed figure/results and seal61files (SHA256384d9b6974dddd969bd48509c9f889763d5e5a08b41585f2be543ce53fd2d650); all9bindings and2008prior sealed files verify.
+- [x] Commit the verified cycle08 milestone; synchronize the clean local main checkout immediately after commit. Publication still requires local authentication.
 
 ### Cycle03 decision boundary
 The scientific question is whether a useful existing gated FFN admits an exact constrained ODE representation without losing any forward/training behavior. This is a baseline/representation theorem, not a new quality method. No feedback, correction coefficient, extra order, new target law or parameter search is selected. Even perfect compatibility cannot complete the useful-successor objective.
 
 ## Errors encountered
+- Cycle08 documentation patch matched a stale final index sentence and failed atomically. Files were re-read and exact targeted replacements were applied; frozen inputs and outcomes were untouched.
 - A multi-file cycle07 report patch assumed an outdated root-README sentence and failed before writing files. Git status and file existence were checked; the report additions and exact README edit were reapplied separately. No source snapshot, dataset or run changed.
 - Two initially guessed legacy review filenames did not exist. A filename-only search located the actual anchored-corrector protocol/analysis; those were read instead. No legacy file was changed.
 - The archive check initially expected the private rank-analysis `summary.json` to retain its filename in curated results. The curated name is `gate-rank-summary.json`; the corrected explicit mapping passed byte comparisons. No runtime seal had been written by the failed check.
@@ -115,4 +118,4 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - Local GitHub SSH initially lacked a host key; accepting the new key reached authentication, which failed. No local SSH publication succeeded.
 
 ## Status
-Cycle07 is trained, audited and sealed. The original ODE has a9% thin/clean advantage over the parameter control but fails the fixed interaction/transfer conditions; generation still forms continuous rings. The128D input-rank theorem predicts large generic head effects and cannot be repaired by hidden P alone. All previous stops/seals remain intact. No new architecture is nominated and no training is running. The next unselected work is a source-wise readout-null-space sampling identity, without new head training. GitHub remains last verified at800d09f pending Mac mini authentication. The useful-successor goal stays active.
+Cycle08 formal verification and independent audit pass. All18readouts have rank63; six zero-P interventions move samples by0.108–0.355RMS but preserve output-null coordinates to1.30e-6. This localizes a generic128D complete-predictor restriction; the older2D/16D heads have full row rank and their negative results remain unexplained by it. No new architecture or training is selected. Prepare curated evidence/seal, then quantify conditional input-information loss before proposing another ODE computation. GitHub still requires Mac mini authentication; Lenovo SSH still times out. Only Mac mini/Lenovo are execution hosts. The useful-successor goal stays active.

@@ -110,3 +110,13 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - The proof uses raw=B*z+c0 with B=Wdiag(gamma)C, rank<=63. Projection onto ker(B^T) annihilates every hidden operation. Standard-Gaussian projected variance is preserved by direct prediction and shrunk by the same head/solver-dependent factor for both skip heads. Target-normal intersection dimension>=63 gives a fullW2 lower bound, not an empiricalSW2 bound.
 - Small literal nonlinear-flow/Heun fixtures pass to5.78e-15, including zero-gamma/bias and full-row-rank cases. Formula/scalar Heun coefficients agree to1.39e-17. Fixed Heun32 skip factor.02116394043; continuous.01839397206. Source-wise tolerances are registered before fitted null-space outcomes.
 - The theorem assumes a frozen finite predictor, positive normalization epsilon, local state Lipschitzness and standard-Gaussian source. Final raw output is bounded; capped skip has linear growth, ensuring global finite-horizon solutions/moments. It does not automatically apply to older full-row-rank outputs or images.
+
+## Cycle08 verified readout restriction
+- All18fitted readouts rank63, null65, common target-normal null63. Source-wise sampling errors<=9.21e-7; covariance discrepancy<=2.29e-7. Independent Householder/QR projectors match to2.51e-11.
+- Six interventions zero only hidden P. Whole-sample RMS changes0.108–0.355; null-coordinate max changes<=1.30e-6. P is active but cannot repair fixed-readout directions. No zero-P quality comparison or selection.
+- Thin/skip population fullW2² floor≈0.02822; thick/skip≈2.015; direct≈63thin/40.321thick. These are unnormalized populationW2², not empiricalSW2.
+- Actual olderRing2D/Product16readouts have full row rank. No claim that this theorem explains old negative findings.
+- Formal PID40649 exit0,6.57s; independent audit terminal log/receiptPASS,6.00s; process absent, original handle lost during observation truncation. No audit exit code asserted and no restart.
+- Next possible read-only question: exact conditional-mixture oracle after each learned input projection, separating information loss from fitted residual error. Not run or a new method nomination.
+
+- Cycle08 archive sealed61files; SHA256384d9b6974dddd969bd48509c9f889763d5e5a08b41585f2be543ce53fd2d650. Curated audit files match exactly; Python AST and relative report links pass; one PNG/PDF figure visually reviewed. Prior2008sealed files and9bindings match.

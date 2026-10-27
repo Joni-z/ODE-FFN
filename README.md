@@ -1,6 +1,6 @@
 # ODE-FFN
 
-The ongoing autonomous research protocol and latest audited cycles are documented in [ODE autoresearch](docs/autoresearch/README.md).
+The ongoing autonomous research protocol and latest audited cycles are documented in [ODE autoresearch](docs/autoresearch/README.md). The latest [fixed-readout study](docs/autoresearch/cycle08-readout-invariant/analysis.md) verifies a sampling restriction shared by ODE and SwiGLU; it does not nominate a new architecture.
 
 Development repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN). The `main` branch contains the active torch workspace; the previous GitHub version is preserved on `archive`. See the [development guide](docs/development.md) for data preparation after cloning and development across machines.
 
