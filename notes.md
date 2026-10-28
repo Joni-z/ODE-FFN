@@ -357,3 +357,8 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Archive72371 exits0:136files sealfa13abe370318077c521bb4202bf8f37b8ccfee6daf4cb5c0ef7ea92daf9b3cf; all136sealhashes re-read. Public copies/all13FID/rawranges/48fullP spectra/65panels/six exact contrasts/AST/links/protected scopes pass. Private160067709bytes,curated1643190bytes. All four phase processes verified terminal. No method nominated; no experiment remains live.
 
 - Verified resultf8c79ae committed with Zhizhe Zhang author/committer; clean local main synchronized. Publisher2921 exits1 at missing HTTPS Username. Independent remote main800d09fe08f38ecf132f2f06b707a829426a2cd8 unchanged. No remote publication claimed; no MBP/torch relay. Cycle21 complete, useful-successor goal active/unachieved.
+
+## Cycle22 objective-level foundation
+- Prior cycle21 complete/sealed and no runtime live. Goal remains unachieved; review is a temporary step toward a justified architecture, not a replacement success condition.
+- New derivation holds the supervised conditional mean fixed. Distinguish it from an invariant endpoint map; derive heat/denoiser PDE and a precision-homotopy third-moment term. Necessary identities do not identify the correct prior or prove model quality. Finite-GMM scope includes actual analytic laws and explicit atomic counterexamples; no claim that image population is a known mixture.
+- Read primary LagrangianView2609.00198v1: target invariance is an imposed ideal for an endpoint predictor, not automatically an identity of the independent-coupling conditional mean. FP-DiffusionICML2023 is precedent for score-PDE consistency, not a selected loss. No unseen training or new data law is introduced by these mathematical fixtures.

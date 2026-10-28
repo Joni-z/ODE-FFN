@@ -229,7 +229,15 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Archive72371 exits0:136files,sealSHA256fa13abe370318077c521bb4202bf8f37b8ccfee6daf4cb5c0ef7ea92daf9b3cf. All136hashes re-read, public copies/13FIDs/48P histories/65panels/six exact contrasts/links/AST/protected scopes pass. Private160067709bytes,curated1643190bytes. All phase processes terminal.
 - [x] Resultf8c79ae committed asZhizheZhang and clean localmain fast-forwarded. Publisher2921 exits1 only at missingHTTPSUsername; independent ls-remote still800d09f. No remote publication claimed. Authentication remains a delivery dependency, not a reason to stop local scientific work.
 
+## Cycle22 plan: supervised denoiser dynamics
+- [x] Revalidate clean2baa0a9 and completed cycle21; previous turn was progress. Existing stop rules forbid another Taylor-training, covariance, recurrence or spectrum rescue. The image bridge already distinguishes input/output dimensions; do not silently change patching as a new benchmark.
+- [x] Freeze objective-level conditional mean and U0–U8 claims: heat/denoiser PDE, FM coordinate transform, non-invariance, wrong-prior and moment-closure counterexamples. Primary LagrangianView2609.00198v1 and ICML2023FP-Diffusion read; neither supplies a new architecture win.
+- [ ] Fresh complete-scope proof review with explicit source-unit coverage/obligations and same-family provisional status; fix any gaps without overstating acceptance.
+- [ ] Register bounded numerical fixture source before outcomes; verify three existing laws at120fixed probe points and all closed-form counterexamples, preserving immutable data and all earlier studies.
+- [ ] Independently check both finite-difference steps and oracle identities; write a concise analysis and figures. No new training/regularizer or hidden solver family selected solely from mathematical consistency.
+
 ## Errors encountered
+- The first cycle22 Add File patch omitted one leading patch marker and failed atomically before creating study.py. Reapplied with mechanically prefixed source lines; AST parsing passes. No runtime or scientific output was created by the failed edit.
 - A spacing-only edit in three new, uncommitted cycle21 notes also split hashes, paths and scientific notation. Read-back caught it before publication; explicit replacements restored those identifiers. Runtime sources, protocol and numerical outputs were untouched.
 - Cycle21 preflight87896 exits1 before model outcomes: existing SciPy/check interpreter lacks einops. Preserve first runtime/source/log/agent receipt. V2 keeps model work in the existing image interpreter, matrix-only SciPy checks in the existing check interpreter; no package installation or scientific/tolerance changes.
 - Cycle21 review initially used the wrong skill root for research-refine/formula-derivation and guessed a nonexistent analysis-frozen-order folder. Correct roots are .agents/skills; the existing exact-flow evidence is research-2026-10-20-followup/analysis-report.md. No runtime or source changed by those reads.
