@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "checkpoint_step": 20000,
+  "native_1024_predictions_bitwise": true,
+  "unchanged_parameters_buffers": true,
+  "calibrated_clocks": 12,
+  "whole_network_fold_witnesses": [
+    {
+      "arm": "ode_k1",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k1",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k1",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k1",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k1",
+      "time": 0.9,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k2",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k2",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k2",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k2",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "arm": "ode_k2",
+      "time": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "decision_fixtures": {
+    "status": "PASS",
+    "cases": [
+      "inclusive margin",
+      "ordering distinct from margin",
+      "strict tie",
+      "fitting guard",
+      "old K2 decision preserved"
+    ]
+  },
+  "operator_fixtures": {
+    "status": "PASS",
+    "rows": [
+      {
+        "order": 1,
+        "complete_Jacobian_max_error": 1.734723475976807e-18,
+        "constant_Jacobian_max_error": 0.0
+      },
+      {
+        "order": 1,
+        "complete_Jacobian_max_error": 6.938893903907228e-18,
+        "constant_Jacobian_max_error": 0.0
+      },
+      {
+        "order": 1,
+        "complete_Jacobian_max_error": 3.469446951953614e-18,
+        "constant_Jacobian_max_error": 0.0
+      },
+      {
+        "order": 2,
+        "complete_Jacobian_max_error": 1.1102230246251565e-16,
+        "constant_Jacobian_max_error": 2.220446049250313e-16
+      },
+      {
+        "order": 2,
+        "complete_Jacobian_max_error": 1.1102230246251565e-16,
+        "constant_Jacobian_max_error": 2.220446049250313e-16
+      },
+      {
+        "order": 2,
+        "complete_Jacobian_max_error": 2.220446049250313e-16,
+        "constant_Jacobian_max_error": 1.1102230246251565e-16
+      }
+    ]
+  },
+  "new_quality_result": false
+}

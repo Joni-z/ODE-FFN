@@ -30,6 +30,8 @@ The user-authorized autonomous research loop follows [program.md](program.md), a
 
 The [folded image export](folded-image-inference/README.md) packages an existing endpoint for independent loading. All 1,024 CPU samples replay bitwise; measured 64-image Heun128 time falls from 8.68 to 6.00 seconds on CPU and from 8.04 to 6.69 on MPS. All ordinary/time/storage controls remain visible. This is deployment progress, not a new training cycle or ODE-method nomination.
 
+The [20k fixed-clock check](image-clocks20k/protocol.md) is running after a successful fresh documented preflight. It tests whether the longer-trained K1 image lead survives one simultaneous clock collapse, retaining all seven native controls. No new training or architecture is selected; results are pending.
+
 The [nonlinear SwiGLU eligibility review](nonlinear-swiglu-review/decision.md) does not nominate another Taylor-training run. Complete derivatives and actual dense work are verified, and an unrestricted SwiGLU field has a finite-escape counterexample. These checks supply no new performance result or task-specific premise.
 
 The [feature-flow review](next-feature-flow-review.md) led to the completed cycle05. Its accurate integral did not outperform ordinary controls. No additional quadrature, initialization or width rescue is selected. The next architecture needs a task-relevant functional justification beyond a valid internal ODE representation.
