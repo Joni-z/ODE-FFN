@@ -5,6 +5,11 @@ all 211,412 trainable values and its 16,512 dense FFN forward MACs per token
 per block. Only its initialization changes. See the [protocol](protocol.md)
 for the exact function embedding, retained controls and stopping rule.
 
+Status: both documented preflights pass with actual exit0/no mismatches. The
+one cold trajectory is running on Mac mini; [progress.json](progress.json) is
+a published snapshot, not a live feed. Automatic audits follow the training.
+No new FID or accepted ODE architecture is available yet.
+
 Use the unchanged Mac mini training environment `475428fb` and metrics
 environment `dc729a50`. No installation, CUDA device or remote host is needed.
 Commit the code and use a new exclusive runtime; never overwrite a failed run.

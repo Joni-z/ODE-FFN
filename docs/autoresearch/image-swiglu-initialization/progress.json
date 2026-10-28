@@ -1,0 +1,48 @@
+{
+  "state": "RUNNING",
+  "runtime": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1",
+  "source_commit": "222b1dc4f31570f39296e8eac6a2318932055100",
+  "controller_session_id": 61348,
+  "launches": [
+    {
+      "action": "train",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py",
+        "train",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1"
+      ],
+      "pid": 81673,
+      "create_time": 1793210917.666339,
+      "ceiling_seconds": 7200
+    }
+  ],
+  "training": {
+    "state": "RUNNING",
+    "pid": 81673,
+    "step": 700,
+    "total": 20000,
+    "seconds": 53.77824370795861
+  },
+  "resources": {
+    "state": "RUNNING",
+    "completed": 0,
+    "total": 6,
+    "action": "train",
+    "seconds": 60.130980167072266,
+    "pid": 81673,
+    "CPU_percent": 100.0,
+    "RSS": 1021296640,
+    "progress": {
+      "state": "RUNNING",
+      "pid": 81673,
+      "step": 700,
+      "total": 20000,
+      "seconds": 53.77824370795861
+    }
+  },
+  "new_FID_available": false,
+  "new_ODE_method_established": false
+}

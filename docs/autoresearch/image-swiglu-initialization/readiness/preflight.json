@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "initial_witness": {
+    "initial_FFN_float32_max_error": 0.0,
+    "literal_input_main_parameter_derivatives": true,
+    "shared_active_backbone_gradients": 43,
+    "extra_routes": [
+      {
+        "block": 0,
+        "main_value_route_nonzero": true,
+        "extra_output_route_nonzero": true,
+        "extra_gate_value_open_after_update": true
+      },
+      {
+        "block": 1,
+        "main_value_route_nonzero": true,
+        "extra_output_route_nonzero": true,
+        "extra_gate_value_open_after_update": true
+      },
+      {
+        "block": 2,
+        "main_value_route_nonzero": true,
+        "extra_output_route_nonzero": true,
+        "extra_gate_value_open_after_update": true
+      }
+    ],
+    "parameter_tangent_spaces_equal": false,
+    "active_probe_used_as_formal_start": false
+  },
+  "native_reference_replays": [
+    "ode_k1",
+    "swiglu86",
+    "swiglu129",
+    "silu131"
+  ],
+  "physical_five_update_resume": true,
+  "cost": {
+    "trainable_parameters": 211412,
+    "ffn_parameters_per_block": 16748,
+    "dense_FFN_forward_MACs_per_token_per_block": 16512,
+    "scope": "Dense FFN only; attention/backbone are identical. Pointwise work excluded."
+  },
+  "formal_training_started": false
+}

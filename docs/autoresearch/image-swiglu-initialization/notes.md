@@ -27,4 +27,12 @@ input/main-route derivatives and43shared active gradient tensors match;
 all three extra gate/value paths open after one active update. This is a
 readiness result, not a new training trajectory or quality measurement.
 
-Status: source prepared; fresh documented invocations and formal launch pending.
+Fresh documented native33724/d2619a and metric53767/4cd010 invocations each
+exit0, exactly once without mismatches. The parent binds both actual receipts
+and preflight hashes. Controller61348 starts PID81673 from cold state; the
+first observed100updates use98.6%of one CPU core. Six automatic phases remain
+in progress; no new quality outcome is available.
+
+Earlier README shorthand "fixed P" meant a fixed0.6clock with trainable P.
+The root README now states this explicitly; frozen historical source remains
+unchanged.

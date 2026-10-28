@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "doc_vs_reality_mismatches": [],
+  "records": [
+    {
+      "action": "preflight",
+      "invocation_count": 1,
+      "documented_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1",
+      "executed_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1",
+      "expected_sentinel": "SWIGLU_INIT_NATIVE_PREFLIGHT_PASS",
+      "started_at": "2026-10-28T18:07:12.596Z",
+      "initial_tool_result": {
+        "chunk_id": "577245",
+        "wall_time_seconds": 1.002434625,
+        "session_id": 33724,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "tool_results": [
+        {
+          "tool": "exec_command",
+          "result": {
+            "chunk_id": "577245",
+            "wall_time_seconds": 1.002434625,
+            "session_id": 33724,
+            "original_token_count": 0,
+            "output": ""
+          }
+        },
+        {
+          "tool": "write_stdin",
+          "result": {
+            "chunk_id": "d2619a",
+            "wall_time_seconds": 0.275623709,
+            "exit_code": 0,
+            "original_token_count": 9,
+            "output": "SWIGLU_INIT_NATIVE_PREFLIGHT_PASS\n"
+          }
+        }
+      ],
+      "combined_stdout_stderr": "SWIGLU_INIT_NATIVE_PREFLIGHT_PASS\n",
+      "terminal_tool_result": {
+        "chunk_id": "d2619a",
+        "wall_time_seconds": 0.275623709,
+        "exit_code": 0,
+        "original_token_count": 9,
+        "output": "SWIGLU_INIT_NATIVE_PREFLIGHT_PASS\n"
+      },
+      "completed_at": "2026-10-28T18:07:20.842Z",
+      "expected_sentinel_observed": true,
+      "session_id": 33724,
+      "observed_exit_code": 0,
+      "mismatches": [],
+      "exit_code": 0,
+      "doc_vs_reality_mismatches": []
+    },
+    {
+      "action": "metric-preflight",
+      "invocation_count": 1,
+      "documented_command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1",
+      "executed_command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1",
+      "expected_sentinel": "SWIGLU_INIT_METRIC_PREFLIGHT_PASS",
+      "started_at": "2026-10-28T18:07:25.268Z",
+      "initial_tool_result": {
+        "chunk_id": "dcc1ab",
+        "wall_time_seconds": 1.002869667,
+        "session_id": 53767,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "tool_results": [
+        {
+          "tool": "exec_command",
+          "result": {
+            "chunk_id": "dcc1ab",
+            "wall_time_seconds": 1.002869667,
+            "session_id": 53767,
+            "original_token_count": 0,
+            "output": ""
+          }
+        },
+        {
+          "tool": "write_stdin",
+          "result": {
+            "chunk_id": "4cd010",
+            "wall_time_seconds": 0.887817166,
+            "exit_code": 0,
+            "original_token_count": 9,
+            "output": "SWIGLU_INIT_METRIC_PREFLIGHT_PASS\n"
+          }
+        }
+      ],
+      "combined_stdout_stderr": "SWIGLU_INIT_METRIC_PREFLIGHT_PASS\n",
+      "terminal_tool_result": {
+        "chunk_id": "4cd010",
+        "wall_time_seconds": 0.887817166,
+        "exit_code": 0,
+        "original_token_count": 9,
+        "output": "SWIGLU_INIT_METRIC_PREFLIGHT_PASS\n"
+      },
+      "completed_at": "2026-10-28T18:07:30.800Z",
+      "expected_sentinel_observed": true,
+      "session_id": 53767,
+      "observed_exit_code": 0,
+      "mismatches": [],
+      "exit_code": 0,
+      "doc_vs_reality_mismatches": []
+    }
+  ],
+  "preflight_hashes": {
+    "preflight": "05716f7d7ee480111bc7cdf0acbbd57c986fe0e32b7b4c0dc7461b9e55527dca",
+    "metric-preflight": "8a056e9e5e71fb744a80ba78a16e14e338813c0a0b40011a2f7263155badf28a"
+  },
+  "agent_records_sha256": "7c72336e303b097215bb5bcc4ee433dda1e9b3f48e1eb5f8dc93d65eaace0fa2",
+  "environment_hashes": [
+    "475428fb",
+    "dc729a50"
+  ]
+}
