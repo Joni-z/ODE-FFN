@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "fixtures": [
+    {
+      "name": "zero",
+      "max_expm_difference": 0.0
+    },
+    {
+      "name": "negative",
+      "max_expm_difference": 8.881784197001252e-16
+    },
+    {
+      "name": "nonnormal",
+      "max_expm_difference": 2.6645352591003757e-15
+    }
+  ],
+  "operator_records": 48,
+  "independent_expm_rtol": 1e-11,
+  "replays": [
+    {
+      "family": "ode_k1",
+      "native_and_constant_bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "native_and_constant_bitwise": true
+    }
+  ],
+  "promoted_errors": [
+    {
+      "family": "ode_k1",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.9,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "new_training": false
+}

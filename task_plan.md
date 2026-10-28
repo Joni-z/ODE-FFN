@@ -223,7 +223,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 ## Cycle21 plan: frozen image matrix-flow attribution
 - [x] Review completed cycle20 and previous negative exact-flow/recurrence/effective-map/covariance evidence. Primary PDE-SSM and GraphFlow papers are checked; distinguish spatial-token dynamics from graph nodes that are entire latent images. No new spatial or spectral architecture selected.
 - [x] Specify one finite question: same learned image P and frozen durations, polynomial versus exponential; four cached-map endpoints include two arithmetic controls, all nine prior endpoints reused. Derive actual map/tail/nonnormal/semigroup distinctions without a task-quality theorem.
-- [ ] Register source before new outcomes; prepare fresh root, run independent documented preflight and check unchanged environments/parent bindings.
+- [x] Registeredf56509b; preserved failedv1preflight87896. V2sourcea2ad4d2, prepare30921 exits0. Fresh documented preflight82275 exits0:48independent operator checks/two native+constant bitwise prediction replays/ten promoted witnesses all pass. All nine runtime source files match registration; doc mismatches none. Existing image/check/metrics versions and MPS availability verified, no installation.
 - [ ] Execute the bounded four-endpoint diagnostic only after readiness passes, with monitored two-worker CPU queue, then independent matrix/prediction/sample/features/FID audits. No new training or higher-order rescue.
 - [ ] Curate all thirteen endpoints,48P operator-history records, all contrasts and fixed cases; report the observed scope and preserve previous stop rules. Keep the useful-successor objective active.
 

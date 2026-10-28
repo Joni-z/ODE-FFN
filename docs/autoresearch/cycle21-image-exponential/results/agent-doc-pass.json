@@ -1,0 +1,145 @@
+{
+  "schema": "agent-follows-document-preflight-v1",
+  "status": "PASS",
+  "agent": "/root/image_exponential_v2_doc_pass",
+  "readme": "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle21-image-exponential/README.md",
+  "registered_commit": "a2ad4d2cad9c67e0dcc5093c4ad9ea5509c133ea",
+  "runtime_root": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2",
+  "working_directory": "/Users/mr.z/ODE-FFN-autoresearch",
+  "exact_documented_invocation": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2",
+  "executed_shell_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2 > /Users/mr.z/ode-workspace-prep/image-exponential-v2-preflight.log 2>&1",
+  "invocation_count": 1,
+  "rerun": false,
+  "terminal": {
+    "tool": "exec_command/write_stdin",
+    "session_id": 82275,
+    "initial_chunk_id": "bfdce5",
+    "terminal_chunk_id": "67b163",
+    "exit_code": 0,
+    "observed_to_terminal": true
+  },
+  "log": "/Users/mr.z/ode-workspace-prep/image-exponential-v2-preflight.log",
+  "preflight_receipt": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/preflight.json",
+  "operator_receipt": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/operator-check.json",
+  "ready_receipt": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/ready.json",
+  "preflight_summary": {
+    "status": "PASS",
+    "operator_records": 48,
+    "replayed_models": 2,
+    "native_and_constant_bitwise": true,
+    "promoted_error_count": 10,
+    "promoted_error_max": 0,
+    "new_training": false
+  },
+  "versions": {
+    "image": {
+      "executable": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "platform": "macOS-27.0.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "packages": {
+        "torch": "2.10.0",
+        "numpy": "2.2.6",
+        "einops": "0.8.1",
+        "psutil": "7.2.2",
+        "scipy": null
+      }
+    },
+    "check": {
+      "executable": "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+      "python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+      "platform": "macOS-27.0.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "packages": {
+        "torch": "2.10.0",
+        "numpy": "2.2.6",
+        "einops": null,
+        "psutil": "7.2.2",
+        "scipy": "1.18.1"
+      }
+    }
+  },
+  "source_verification": {
+    "commit": "a2ad4d2cad9c67e0dcc5093c4ad9ea5509c133ea",
+    "all_match": true,
+    "count": 9,
+    "files": [
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/README.md",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/README.md",
+        "runtime_sha256": "9a1d0bc0a191c8801c32df1fa44f6a7fb4d549d923b48594152453700f29d856",
+        "commit_sha256": "9a1d0bc0a191c8801c32df1fa44f6a7fb4d549d923b48594152453700f29d856",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/audit.py",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/audit.py",
+        "runtime_sha256": "7a8a9c04af43993937771ff769a08a64cdf76d1e79d91d1171d24f6b99e99341",
+        "commit_sha256": "7a8a9c04af43993937771ff769a08a64cdf76d1e79d91d1171d24f6b99e99341",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/controller.py",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/controller.py",
+        "runtime_sha256": "ca99ec229f61a682da374d023f0f9c438802a4f2ead5ef97f0bd820f365ed0e5",
+        "commit_sha256": "ca99ec229f61a682da374d023f0f9c438802a4f2ead5ef97f0bd820f365ed0e5",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/curate.py",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/curate.py",
+        "runtime_sha256": "3f9d4fc48da60f668fad80308b54c0727150af4fbcedf865579eb7c5b22ea506",
+        "commit_sha256": "3f9d4fc48da60f668fad80308b54c0727150af4fbcedf865579eb7c5b22ea506",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/operator_check.py",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/operator_check.py",
+        "runtime_sha256": "f487c993bb5496286729f3d863f31a8b6517ba44d92771c6750cbfef7c39d442",
+        "commit_sha256": "f487c993bb5496286729f3d863f31a8b6517ba44d92771c6750cbfef7c39d442",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/protocol.md",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/protocol.md",
+        "runtime_sha256": "a949d3d31ca81e72807badfa7901cb3139236e5f0f189d820a4256697c0d4836",
+        "commit_sha256": "a949d3d31ca81e72807badfa7901cb3139236e5f0f189d820a4256697c0d4836",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/review.md",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/review.md",
+        "runtime_sha256": "9bc79af20a73bb3d34f44a061ea450389d18d843221fc635935d641589074e82",
+        "commit_sha256": "9bc79af20a73bb3d34f44a061ea450389d18d843221fc635935d641589074e82",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/study.py",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/study.py",
+        "runtime_sha256": "a26be8d1c448bc8592965cb406fc0aaf7f110cfa581a800f4e0aea02e7614390",
+        "commit_sha256": "a26be8d1c448bc8592965cb406fc0aaf7f110cfa581a800f4e0aea02e7614390",
+        "matches": true
+      },
+      {
+        "file": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2/source/theory.md",
+        "registered_path": "docs/autoresearch/cycle21-image-exponential/theory.md",
+        "runtime_sha256": "948eb88eef522fe2dec3700db1becf86afea580ecb02bec147ed4a239e946cd5",
+        "commit_sha256": "948eb88eef522fe2dec3700db1becf86afea580ecb02bec147ed4a239e946cd5",
+        "matches": true
+      }
+    ]
+  },
+  "doc_vs_reality_mismatches": [],
+  "scope": {
+    "repository_edits": false,
+    "packages_installed": false,
+    "formal_generation": false,
+    "metrics": false,
+    "controller_launched": false,
+    "preflight_only": true
+  },
+  "notes": [
+    "The image interpreter has einops and no SciPy; the check interpreter has SciPy and no einops. The documented interpreter separation succeeded.",
+    "Only the prepared v2 preflight artifacts, specified log, and this private receipt were written."
+  ]
+}
