@@ -6,8 +6,10 @@
 - [x] Fresh clock20k_doc_pass executes the documented command once: session52748exit0, no mismatches. Both native1024predictions replay bitwise;12clocks,10folding witnesses, five decision and six operator fixtures pass. Invocation/specs unchanged.
 - [x] Single controller64292/session21980 finishes all four phases with exit0. Both new sampling banks and ten panels replay bitwise; all nine FIDs independently verify. Sampling audit241.93seconds, feature audit58.42seconds. No retry or source change.
 - [x] Curator4663exits0, retaining all nine endpoints,45panel scores,12calibration scalars and all72fixed cases. Three figures visually reviewed and hash-bound; complete English analysis/appendix/catalog written.
-- [ ] Execute final public-artifact/source/report checks and seal the complete runtime. Archive verifier is prepared; source and all parent seals remain unchanged.
+- [x] Archive3618exits0: all public values, nine rounded report rows,45panels,12clocks, three visual reviews, exact preflight/source identities and four parent seals verify.108files sealed825980fab2105dce825380ddfa0c349b5a1f179cb68dd7e44bcd5510916a6f9b. Protected source/config/Report1 scopes unchanged.
 
 No new training or architecture is selected. Warm environments and all earlier studies remain unchanged. Normal GitHub publication from Mac mini is authenticated and working.
 
 Native-to-constant FIDs: K1 173.43691→215.56371; K2 180.78096→226.23221. Both lose strict ordering as well as the allocation margin under the registered calibration. This is not a universal fixed-clock impossibility or a separation of image/state versus external-time adaptation. Curator uses the frozen decision function and waits for all complete audit receipts before generating three figures and all nine rows. Reports and archive closure remain pending.
+
+Closure complete with actual archive3618exit0: private77132379bytes, curated900378bytes. All four report documents match closure-source byte-for-byte; original controller is absent. This final public checklist/receipt is written after sealing and does not change the immutable runtime. No follow-up calibration, training or clock rescue has been launched. The broader useful-ODE-successor objective remains open.
