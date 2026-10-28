@@ -14,7 +14,7 @@ AdaLN time conditioning as absent.
   not every cold-trained time-clock model. Preserve it without new calibration.
 - [x] Verify that the actual JiT FFN receives c(t)=t_embed(t)+y_embed(0),
   independent of image features. Register exactly two cold arms and the gates.
-- [ ] Implement the feature-clock and time-clock arms with identical initial
+- [x] Implement the feature-clock and time-clock arms with identical initial
   parameter states and only a changed clock input source.
 - [ ] Verify active full derivatives, native replays, exact resume, conditional
   matrix equivalence and measured parameter/forward/backward costs.
@@ -25,5 +25,6 @@ AdaLN time conditioning as absent.
 
 ## Status
 Protocol and mathematical scope are fixed before new training outcomes.
-Implementation and execution have not started. No new model gain is claimed.
+Both implementations and automatic audits are prepared. Native/metric
+documented checks and formal training have not started. No model gain is claimed.
 The stopped matched-Swi initializer and frozen calendar remain stopped.

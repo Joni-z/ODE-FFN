@@ -22,11 +22,11 @@ the original six 64x64 P matrices and six 64→64→1 clock MLPs. Keep tau=10,
 scale=0.8, shift=0.2, orders=1, original biases/dropout and shared JiT body.
 Restore the original native step 0 state, then set only each clock MLP's last
 linear weight and bias to zero. Both arms have the identical initial state
-and initial constant clock float32 (0.6). No input normalization or feature
+and initial constant clock represented by float32(0.6). No input normalization or feature
 rescaling is added.
 
 1. `feature_clock_zero`: original local clock inputs, h before the first
-   local solve and SiLU(h 1) before the second. This is the matched-init
+   local solve and SiLU(h1) before the second. This is the matched-init
    feature-clock control, not an accepted new method.
 2. `time_clock_zero`: both clock MLPs consume the existing shared c(t),
    broadcast their scalar output over patches. In this unconditional run
@@ -40,8 +40,9 @@ expose gradients; formal training always rebuilds the paired cold state.
 ## Fixed training, costs and measurements
 Use the original 45k / 5k CIFAR split, model seed 0, data stream 100000, batch 64,
 weighted clean-image loss and capped delta 0.05, logit-normal times, original
-Adam W1 e-4/(0.9, 0.99)/wd 0/clip 1, constant learning rate, no EMA or AMP.
-Train each arm for exactly 20k updates. Store 0/ 1k /2. 5k / 5k / 10k / 15k / 20k full
+AdamW with learning rate 1e-4, betas (0.9, 0.99), zero weight decay and clip 1,
+constant learning rate, no EMA or AMP. Train each arm for exactly 20k updates.
+Store full states at 0, 1k, 2.5k, 5k, 10k, 15k and 20k:
 model/optimizer/RNG/buffer states and the six immediately preceding states.
 Use the unchanged validation bank and all five denoising panels.
 
@@ -55,7 +56,7 @@ These are predictions to verify, not whole-model speedup claims.
 
 Generate the same 1024 Gaussian starts with native CPU Heun128 at 5k / 10k / 20k
 for both arms. Retain all six banks; 20k alone is primary. Keep the same 2048
-real references, uint 8 conversion and MPS Inception/FID implementation.
+real references, uint8 conversion and MPS Inception/FID implementation.
 Retain the full 35-row completed comparison and all stronger ordinary/ODE
 endpoints, including matched SiLU, matched Swi86 and both native K orders.
 

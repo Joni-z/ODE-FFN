@@ -1,0 +1,45 @@
+{
+  "base": "python3.12.4 macOS arm64",
+  "system_pkgs": [],
+  "env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "run_commands": [],
+  "weight_dirs": {
+    "inception": {
+      "path": "/Users/mr.z/ode-workspace-prep/image-bridge-inception",
+      "source": "torch_fidelity FeatureExtractorInceptionV3 own loader",
+      "gated": false
+    }
+  },
+  "pip_phases": [
+    [
+      "torch==2.10.0",
+      "torchvision==0.25.0",
+      "numpy==2.2.6",
+      "Pillow==12.3.0"
+    ],
+    [
+      "torch-fidelity==0.3.0",
+      "scipy==1.18.1",
+      "psutil==7.2.2",
+      "tqdm==4.67.1"
+    ]
+  ],
+  "smoke": {
+    "import_names": [
+      "torch",
+      "torchvision",
+      "torch_fidelity",
+      "scipy"
+    ],
+    "gpu_tests": [
+      {
+        "cmd": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle17-cifar-baselines/environment_witness.py --mode metrics",
+        "expect": "WITNESS_PASS"
+      }
+    ],
+    "cli_checks": []
+  }
+}
