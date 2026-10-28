@@ -14,8 +14,9 @@ are ordinary-function controls, not a new ODE-specific architecture.
 The [complete comparison](results/comparison.csv) retains 32 endpoints.
 The [methods/checks](stats-appendix.md) and [figure catalog](figure-catalog.md)
 describe five plots and 144 fixed examples. The [recorded progress](progress.md)
-is a timestamped historical snapshot. The full pipeline and tool exit are now
-complete; artifact verification/private sealing follow the final report.
+is a timestamped historical snapshot. The [artifact check](results/artifact-verification.json)
+and [actual archive tool exit](results/archive-terminal.json) pass. The complete
+private runtime is sealed; no post-seal files are written inside it.
 
 ## Reproduction on Mac mini
 

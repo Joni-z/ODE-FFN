@@ -20,7 +20,7 @@ nominating another architecture.
   independently replay predictions/samples/features/FIDs and retain all scores.
 - [x] Plot all registered data, inspect five figures/144fixed examples and
   write the full report, numerical appendix and figure catalog.
-- [ ] Verify final public artifacts, seal the private runtime and publish the
+- [x] Verify final public artifacts, seal the private runtime and publish the
   complete closure. No automatic calibration, optimizer or constant rescue.
 
 ## Acceptance work while the original controller runs
@@ -35,7 +35,7 @@ nominating another architecture.
   download tarball is not an input to `data_for` and is not a native binding.
 - [x] Register the curator before new FIDs: all32 endpoint rows,14primary rows,
  26primary ratios,75time-panel scores,210matrix summaries and144fixed examples.
-- [ ] Verify report numbers, plotted arrays, actual tool exits, external data,
+- [x] Verify report numbers, plotted arrays, actual tool exits, external data,
   protected scopes and source/parent preservation before sealing the runtime.
 
 ## Decisions
@@ -53,3 +53,5 @@ Both20ktrajectories finished with actual worker exits0; the training phase consu
 All six phases and original controller tool5632 terminate0. Every new sample/feature row and the original reference reproduce bitwise; all32FIDs independently agree. Proceed to the registered curator, visual review, complete report and archive.
 
 Curator17551 exits0. All32comparisons/14primary rows,26ratios,75panels and210matrix summaries are retained. Every five figure and144fixed example has been viewed. Fixed06passes the original allocation/matched-cost criteria atFID174.708609; matched-init SiLU178.056840fails the margin while preserving strict ordering; frozen same-c native216.070195is attribution only. No new ODE-specific model is accepted. Final artifact/archive verification is next.
+
+Archive51807 consumedterminal0:302files/417939140private bytes sealed aad29b214ba537a2ee2034c60987c98f220eef00ca97b0105fb2e3bbadffff9c. All14report rows/32scores/26ratios/75panels/210matrix summaries, original input bytes,43tracked links and five inspected figures verify. Four core documents equal closure copies bytewise. This post-seal plan/terminal receipt is public-only; no private runtime mutation. Publication is the final action, with broader research goal active.
