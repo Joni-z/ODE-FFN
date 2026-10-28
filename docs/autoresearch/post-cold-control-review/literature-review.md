@@ -79,3 +79,29 @@ This is a classical baseline, not claimed as a new ODE method. The Gaussian
 conditioning and sampler formulas in the new theory note are separately
 derived for our time convention. The Microsoft-hosted PDF text extraction
 was garbled; the published Columbia-hosted copy provided readable equations.
+
+
+## ER-20261028-gaussian-reference-01 — completed ordinary reference
+Source: [complete Gaussian analysis](../image-gaussian-reference/analysis-report.md).
+Type: experiment artifact, sealed97961412597065ad8213a8ae21e5721a7086875113641026bfe3338431f846ba.
+PPCA59/isotropic fail all registered reference gates. A post-outcome decomposition
+finds comparable PPCA/real complement RMS, without a FID cause or a neural
+mechanism. Claim strength: supported for this specified screen only. No rank,
+noise, covariance-form or mixture rescue is selected.
+
+## ER-20261028-manifold-support-01 — inspect the actual support assumption
+[Pi et al., ICML 2026](https://proceedings.mlr.press/v306/pi26a.html).
+Type: full final paper from the publisher-linked PDF; Assumption2.1,
+Theorem3.1, LemmaF.1, Limitations and AppendixH.1 checked.
+The guarantee assumes exact linear support; its experimental latent predictor
+receives U-projected coordinates. This does not discharge image/hidden-P
+assumptions. Claim strength: supported transfer boundary, no new ODE candidate.
+[Project-specific adjudication](manifold-transfer-check.md).
+
+## Current decision after the reference
+Both references are complete, audited and published; their failure is not a
+reason to fit a better covariance model. The new primary reading does not
+supply a new hidden-layer operation. The updated [question card](research-question-card.md)
+selects only an algebraic eligibility question about finite posterior states
+versus ordinary attention. It does not select a mixture image reference,
+training job, changed benchmark or architectural rescue.

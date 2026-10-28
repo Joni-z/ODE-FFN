@@ -26,17 +26,19 @@ and strong SwiGLU relevant. No clock/constant/optimizer/initialization sweep,
 renamed stopped family, privileged oracle input or changed evaluation for a win.
 
 ## Status
-Review in progress. No new architecture, training job or benchmark change is
-selected. The positive cold control changes the required comparisons; it does
-not prove a new ODE mechanism. Potential scale transfer must be distinguished
-from a new method, and from a rescue of a stopped synthetic setting.
+Cold/Gaussian controls and the source-specific manifold review are complete.
+No new architecture is selected. The next question card is mathematical
+eligibility for a finite posterior-state representation versus an ordinary
+nonlinear map, with no fitting or experiment selected.
 
-Selected next step: a fixed train-only PPCA59/isotropic image reference, not a
-neural candidate. Protocol, Gaussian identities and reusable primitives are
-written. Source registration/data-free doc eligibility precede the full runner
-and formal entrypoint preflight. No real fitting or new quality outcome.
+## After completed Gaussian reference
+The reference is complete and published atd15c041; no Gaussian/covariance rescue is selected.
+- [x] Read the final primary Learning Manifold Data with Flow Matching paper, focusing on exact geometry assumptions and operator statements rather than its abstract.
+- [x] Compare its proposed normal/latent separation to completed cycles07/08/11 and the full-denoiser theory; decide whether it supplies a new ODELayer operation.
+- [x] Save a source-specific adjudication and update the next-action card. No new fitting, rank choice, NN or benchmark is authorized by this reading alone.
 
-Full source-bound Gaussian reference entrypoints are now implemented. Primitive
-checks pass through a fresh doc agent, with one retained environment-label
-mismatch corrected in the new public docs. Formal fitting awaits a NEW fresh
-actual-shape sampler/metric preflight. No new image quality is claimed.
+Official PDF downloaded outside Git,959347bytes/SHA50dda7cac7aa35120af9c15f8a076817eac364d6ded20d0f541cab68426f9701.
+Relevant final sections read; OpenReview browser challenge is not used as a
+full-source claim. No model, sampler, environment or dataset changed.
+- [ ] Derive the selected finite-state eligibility object and compare its
+  exact ordinary realization; stop before training if it is only a relabeling.

@@ -355,7 +355,14 @@ Gaussian full source3d18ae0/fresh doc preflight43297pass, with zero mismatch. Co
 Previous goal turn verified direct GitHub authentication and receive-pack access. The formal reference and post-outcome reporting arrays are terminal; do not restart them.
 - [x] Preserve core curation receipt, explicitly record missing original reporting exit, and independently verify all seventeen subspace rows.
 - [x] Prepare complete 34-endpoint/16-primary analysis and fixed cases; no covariance/rank rescue.
-- [ ] Seal unchanged source/data/parents and curated evidence, then publish and FF clean local main.
+- [x] Seal unchanged source/data/parents and curated evidence, then publish and FF clean local main.
 - [ ] Use the completed controls to identify the next unresolved ODE question; no new neural family is selected yet.
 
 Gaussian closure7159 exits0, seal97961412597065ad8213a8ae21e5721a7086875113641026bfe3338431f846ba. Publication/local-main FF is next. The original reporting-producer exit remains unavailable and is explicitly distinguished from the complete independent array verification. No ODE successor has passed.
+
+Milestoned15c041 published/verified; clean local main fast-forwarded to it.
+Primary Pi2026linear-support review completed without selecting another
+architecture. Next explicit step: derive finite posterior-state algebra in
+precision coordinates, including the third-moment term, and check ordinary
+softmax/RBF equivalence before any implementation or training. This is not a
+mixture-prior quality rescue or evidence of a new method. Goal remains active.

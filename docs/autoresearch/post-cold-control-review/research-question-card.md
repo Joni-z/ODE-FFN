@@ -41,12 +41,45 @@ do not mark the broader research objective complete.
 
 
 ## Current decision
-Type: exploratory. Decision: implement one finite ordinary statistical reference.
-The selected question is how competitive train-only PPCA59 is on the unchanged
-image screen. It uses no FFN and cannot prove what the neural networks learned.
-A failed reference does not prove all affine denoisers insufficient. This is
-not a new ODE method or a substitute for the broader successor objective.
-Evidence records and the exclusion of generic recurrence/target changes are in
-[literature-review.md](literature-review.md). Next action: source-register the
-Gaussian primitive and execute its documented data-free eligibility command.
-The derivation target is [theory.md](../image-gaussian-reference/theory.md).
+The train-only reference is complete and failed its fixed gates. See
+[ER-20261028-gaussian-reference-01](literature-review.md#er-20261028-gaussian-reference-01--completed-ordinary-reference).
+The [linear-support review](manifold-transfer-check.md) also supplies no new
+P constraint. The broader successor question remains unresolved.
+
+## Next eligibility question, before proposing a method
+Question: can a finite posterior-state evolution avoid the specific
+covariance-only closure error, and does its proposed layer reduce to an
+ordinary attention/RBF computation?
+Type: exploratory theoretical eligibility, not an architecture experiment.
+Hypothesis: a finite parametric family may carry the third-moment contribution
+through component state, but this may only re-express an ordinary nonlinear
+map and offer no new computation.
+Why it matters: [cycle22](../cycle22-denoiser-dynamics/analysis-report.md)
+refutes the prior-independent covariance-only evolution, while the cold
+controls show why an ODE name or change of coordinates is insufficient.
+This question is not an inference that a Gaussian reference failure proves
+such a layer useful.
+
+Current evidence: the explicit third-moment counterexample, exact existing
+mixture oracles, fixed-P/ordinary equivalence and the completed Gaussian
+reference. No measured gain supports a finite-state layer.
+Missing evidence: a correctly defined state/predictor, assumptions linking it
+to the clean conditional mean, complete derivative and an operation that is
+not merely ordinary attention at a different temperature.
+
+What would support eligibility: exact finite-family algebra that retains the
+third-moment term, distinguishes fixed observation from a moving FM state,
+and identifies a nonredundant operation with explicit ordinary controls and
+costs. This would only justify a later experiment, not a benefit claim.
+What would reject it: a false closure, a silent target change, privileged
+mixture labels/centers/basis, folding into an ordinary map without a distinct
+restriction, or reopening an existing stopped setting.
+
+Minimal next action: derive the mean/covariance/component-weight evolution
+for a fixed finite Gaussian-mixture prior in precision coordinates, then
+compare its fixed-time predictor to an ordinary softmax/RBF realization.
+Check the complete state/time derivatives and the actual object before
+nominating any implementation. No image prior refit, new data, Gaussian-mixture
+reference, optimizer sweep, target change or training is selected. Keep all
+old stop rules and the stronger ordinary controls.
+Decision: explore this mathematical eligibility question only.

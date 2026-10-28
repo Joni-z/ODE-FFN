@@ -35,7 +35,7 @@ Keep every old image/synthetic result and Report1 unchanged.
   fixed examples, methods and narrowly stated claims.
 - [x] Verify source/data/parent preservation, curated values and figures,
   then seal the completed private runtime.
-- [ ] Push verified evidence normally and fast-forward the clean local main.
+- [x] Push verified evidence normally and fast-forward the clean local main.
   Keep the broader ODE research goal active.
 
 Primitive source68a5402/doc invocation7b2db9terminate0. All21state/time cases pass, maximum1.78e-15; formal image fitting remains unstarted. Source-bound main entrypoints now exist; full runtime/source registration and new documented preflight are next.
@@ -49,3 +49,5 @@ Reporting-only addition after fixed-case inspection: decompose all sixteen prima
 Core curator78800 exit0 receipt preserved. The original decomposition terminal result could not be recovered from the targeted local transcript; record it as unavailable, not as exit0, and independently verify all17original-array rows in the archive. All five PNGs/128fixed cases were inspected. The report notes PPCA is not worse at every time: t=.1/.9 are below native, while t=.5/.7 are substantially above. Final archive checks remain before publication.
 
 Archive7159 consumed terminal0(chunkde92c1), SEALED_AND_VERIFIED:136files/254015740private bytes, seal97961412597065ad8213a8ae21e5721a7086875113641026bfe3338431f846ba. All34endpoints/16primary rows/28ratios/35panels, source/data/parent preservation, five visuals and17independent subspace rows pass. The original reporting-producer tool exit remains explicitly unobserved; the closure verifier maximum scalar discrepancy is 3.05e-15. Four core documents match closure copies bytewise. Post-seal receipt and plan/README updates are public-only. Publish/FF remains; broader ODE goal stays active.
+
+Milestoned15c041 is verified on remote main and both local worktrees. Subsequent plan/literature bookkeeping remains public-only; private seal and all core reports remain unchanged.
