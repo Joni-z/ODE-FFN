@@ -5,6 +5,7 @@
 - [x] Warm specs475428fb/dc729a50 unchanged. Fresh image_budget_doc_pass executes the documented preflight once, exit0; seven native prediction/resume checks and5000→5001→5003counters pass, all82inputs unchanged.
 - [x] All seven continuations and their fixed sampling banks complete. Original controller60302/session91639 has terminal exit0; seven child exits are0. Cohort wall time6595.00seconds. No retry or setting change. Final metrics and independent cohort audits remain pending.
 - [ ] Audit and compare fixed checkpoints and generated samples before making a quality claim.
+- [ ] Include a FID trajectory plot with all three fixed budgets and all seven arms. This is a reporting addition; keep the20kdecision rule unchanged and generate figures only after the complete audits pass.
 
 No new architecture, loss, data, seed or optimizer setting is selected. Publication is direct from Mac mini when authentication is available.
 
@@ -32,3 +33,7 @@ Five completed continuations: SiLU64 exits0 with weightedMSE0.15984233 and clean
 The independently snapshot-verified20kODE records show largest singular values across the six P matrices of1.241–1.657 forK1 and1.205–1.704 forK2, versus1.133–1.279 and1.127–1.282 at5k. Across the thirty fixed-time/layer records, K2term2RMS/term1RMS is0.189–0.354 at20k. The quadratic term is active without a recorded fitting advantage; these diagnostics neither prove instability nor explain FID. The5kclock-collapse result must not be silently extended to20k.
 
 Training is complete: all seven arms reached20k and produced both fixed sampling banks; controller91639 exits0. SiLU131/193producer weightedMSE0.15902324/0.15827960 and cleanMSE0.07572359/0.07551597. Every final checkpoint reports the same input-stream digest b0a8c9c6409c03a898555d7c0086e78cc9e933300deae3944583514e62276e1d. Evaluation60530/session80573 has started the fourteen fixed endpoint FIDs. Its outputs and all ordinary fitting results still await the complete independent audit. Finalization60880 remains live. Publisher98545 exits1 on missing local HTTPS Username; no GitHub update.
+
+All fourteen producer FIDs complete with evaluator80573exit0. The separate feature audit62633 also ends with exit0/PASS after215.09seconds:14,336generated and2,048reference feature rows replay bitwise and independent SVD FIDs agree. Training/stream/sample audit62632 is still running; K1's sixteen checkpoints and both sampling banks have passed. Finalization60880/session68281 remains the same live controller.
+
+Reporting-only curator v3 adds a seventh figure connecting every model's actual5k/10k/20kFID endpoints. All models' FID rises between10kand20k while paired MSE falls. The20kpriority function is AST-identical to v2 and all four rule checks pass. Frozen v1/v2 sources are preserved; no figure is produced until the complete audit passes. No best-checkpoint replacement or new training is selected.

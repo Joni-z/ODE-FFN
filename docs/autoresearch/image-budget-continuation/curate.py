@@ -126,6 +126,17 @@ def main(root,out):
     for ax,title in zip(axes,('Weighted validation MSE','Clean-image MSE')):
         ax.set(xlabel='Total updates (thousands)',title=title);ax.spines[['top','right']].set_visible(False)
     axes[1].legend(frameon=False,fontsize=8);fig.savefig(out/'continuation-curves.png',dpi=180);fig.savefig(out/'continuation-curves.pdf');plt.close(fig)
+    fig,ax=plt.subplots(figsize=(7,3.8),layout='constrained')
+    for arm in ARMS:
+        selected=sorted((r for r in rows if r['arm']==arm),key=lambda r:r['step'])
+        assert [r['step'] for r in selected]==[5000,10000,20000]
+        ax.plot([r['step']/1000 for r in selected],[r['fid'] for r in selected],
+                color=colors[arm],marker='o',label=LABELS[arm])
+    ax.axvline(20,color='.75',linestyle=':',zorder=0)
+    ax.set(xlabel='Total updates (thousands)',ylabel='Screening FID, Heun128',
+           xticks=[5,10,20],title='Every fixed FID endpoint; 20k is the primary comparison')
+    ax.spines[['top','right']].set_visible(False);ax.legend(frameon=False,fontsize=8,ncols=2)
+    fig.savefig(out/'FID-trajectories.png',dpi=180);fig.savefig(out/'FID-trajectories.pdf');plt.close(fig)
     fig,axes=plt.subplots(1,2,figsize=(10,3.7),layout='constrained')
     for ax,step in zip(axes,(10000,20000)):
         for arm in ARMS:
@@ -151,7 +162,7 @@ def main(root,out):
         fig.suptitle(f'First eight shared starts; Heun128 at {step:,} updates')
         fig.savefig(out/f'generation-{step}.png',dpi=180);plt.close(fig)
     write(out/'curation.json',dict(status='PASS',comparison_rows=len(rows),continuation_points=len(curves),P_records=len(Ps),
-        figures=6,time_panel_rows=70,case_indices=list(range(8)),primary_step=20000,all_figures_require_visual_review=True,analysis_report_pending=True))
+        figures=7,time_panel_rows=70,case_indices=list(range(8)),primary_step=20000,all_figures_require_visual_review=True,analysis_report_pending=True))
     print(json.dumps(load(out/'curation.json')))
 
 
