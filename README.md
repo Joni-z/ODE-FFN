@@ -2,6 +2,8 @@
 
 The project studies whether ODE-inspired FFNs can improve unconditional flow matching. Current work revisits the positive ISRU synthetic result and checks ordinary-baseline adequacy. Protocols and recorded results are in [ODE autoresearch](docs/autoresearch/README.md).
 
+**Current report: [Report2](reports/report2/README.md).** Report1 is final at 994e660 and remains unchanged. All subsequent experiments, analysis and current ISRU work belong to Report2; its [evidence index](reports/report2/evidence-index.md) tracks the material.
+
 **Evidence limitation (October 29, 2026):** the small CIFAR-10 screen has no established competent or converged ordinary baseline. Its FID rankings and 5% gates do not support accepting or rejecting architectures. The [baseline-validity review](docs/autoresearch/baseline-validity-review.md) supersedes those performance interpretations; historical numbers and sealed studies remain unchanged. Baseline validation takes priority over new architecture training.
 
 **Current research focus:** [ISRU follow-up](docs/autoresearch/isru-followup/README.md). The existing free-ISRU model reaches Product16 field MSE 0.037159 versus 0.078178 for Swi160, with fewer parameters and matrix MACs. Dependent-sign and half-mixture transfers reverse that ordering. The current work preserves this positive lead and investigates training adequacy and attribution before another design; no new training has launched. [Tasks](docs/autoresearch/isru-followup/task_plan.md) and [notes](docs/autoresearch/isru-followup/notes.md) track the next action.
@@ -46,7 +48,7 @@ Windows continuation workspace: `D:\Research\ODE-FFN\repo` on `lenovo` (RTX 4060
 
 ## Progress reports
 
-- [Report 1 (PDF)](reports/report1/report1.pdf): project motivation, controlled ODELayer experiments, case studies, and hypotheses for the next two weeks. [LaTeX source and build instructions](reports/report1/README.md).
+- [Report 1 — final (PDF)](reports/report1/report1.pdf): project motivation, controlled ODELayer experiments, case studies, and hypotheses for the next two weeks. [LaTeX source and build instructions](reports/report1/README.md).
 
 ## Research status
 

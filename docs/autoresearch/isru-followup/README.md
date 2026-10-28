@@ -4,6 +4,9 @@ Updated October 29, 2026. **Current research focus: revisit the existing ISRU
 synthetic result before inventing another architecture.** This update records
 the evidence and next work; it launches no training or new model.
 
+**Reporting scope:** this follow-up belongs to [Report2](../../../reports/report2/README.md).
+Report1 is finalized and unchanged.
+
 ## The implemented model
 
 The winning arm is `free_isru` in

@@ -2,6 +2,8 @@
 
 The user-authorized autonomous research loop follows [program.md](program.md), adapted from Karpathy's official autoresearch. The data, evaluation and scientific controls remain specific to ODE-FFN; this does not run the upstream language-model task.
 
+**Reporting scope:** all work after the finalized Report1 revision contributes to [Report2](../../reports/report2/README.md). Maintain its [evidence index](../../reports/report2/evidence-index.md); leave Report1 unchanged.
+
 **Current validity correction:** the image screen has not established a competent, converged ordinary baseline. Its reported FID rankings and fixed margins cannot substantiate architecture adoption or rejection. The [baseline-validity review](baseline-validity-review.md) supersedes stronger performance interpretations in the historical summaries below. Raw results and local mathematical facts are preserved; baseline validation now takes priority.
 
 **Current focus:** [ISRU follow-up](isru-followup/README.md). Revisit the positive synthetic result with its completed transfer controls, check training adequacy, and identify one focused next study. The [plan](isru-followup/task_plan.md) and [notes](isru-followup/notes.md) are the current work record. No new model or training run is selected yet.

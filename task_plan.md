@@ -3,6 +3,15 @@
 ## Goal
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
+## Current reporting deliverable: Report2
+The user finalized Report1 after its last requested revision, commit
+`994e660921d2885592704f5c471bd43a12b1c6ef`. All subsequent research belongs
+to Report2. Keep Report1 unchanged, including its source, PDF and supporting
+files. Use [Report2 scope](reports/report2/README.md),
+[evidence index](reports/report2/evidence-index.md) and
+[report plan](reports/report2/task_plan.md) for the ongoing deliverable.
+The current ISRU follow-up is Report2 work; it does not reopen Report1.
+
 ## Current priority: ISRU positive-result follow-up (2026-10-29)
 The user asks why the existing positive ISRU design is not being pursued and
 requires maintaining Markdown to preserve progress. The immediate focus is

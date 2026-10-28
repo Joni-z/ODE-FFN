@@ -1,6 +1,11 @@
 # ODE autoresearch notes
 
 ## Current state — October 29, 2026
+**Current deliverable: Report2.** The user finalized Report1 after its last
+requested edit (994e660); all later work belongs to Report2. Use the separate
+[Report2 folder](reports/report2/README.md) and [evidence index](reports/report2/evidence-index.md).
+Do not edit or rebuild Report1, even though its archived README says draft.
+
 The user directs attention to the positive ISRU synthetic design and requires
 Markdown continuity. Read [ISRU follow-up](docs/autoresearch/isru-followup/README.md),
 [its plan](docs/autoresearch/isru-followup/task_plan.md) and

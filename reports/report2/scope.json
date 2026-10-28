@@ -1,0 +1,474 @@
+{
+  "report1": {
+    "status": "FINAL",
+    "last_requested_revision_commit": "994e660921d2885592704f5c471bd43a12b1c6ef",
+    "last_revision_time_asia_shanghai": "2026-10-20T23:54:44+08:00",
+    "final_status_confirmed_by_user": "2026-10-29",
+    "directory": "reports/report1",
+    "git_tree": "17e7ffd2f758c705379e1192e0dd3773da5ceb23",
+    "pdf_sha256": "165d46476362f006db6124f0035bcb6964cb163e509f52eb49adbf4de5839ecf",
+    "current_committed_tree_matches_final": true
+  },
+  "report2": {
+    "status": "IN_PROGRESS",
+    "scope": "All project work after the finalized Report1 revision; selected evidence in the short main narrative",
+    "inventory_snapshot_commit": "10b1d62eb2cd1cfb23c490530326244a41ee1dfa",
+    "inventory_rule": "Union of paths touched by commits in report1_final..snapshot_commit; includes historical paths even if subsequently removed",
+    "touched_paths": 3067,
+    "areas": [
+      {
+        "area": "configs",
+        "touched_paths": 71,
+        "currently_existing_paths": 71
+      },
+      {
+        "area": "docs/autoresearch",
+        "touched_paths": 5,
+        "currently_existing_paths": 5
+      },
+      {
+        "area": "docs/autoresearch/cold-clock-source",
+        "touched_paths": 63,
+        "currently_existing_paths": 63
+      },
+      {
+        "area": "docs/autoresearch/cycle01-complete-field",
+        "touched_paths": 26,
+        "currently_existing_paths": 26
+      },
+      {
+        "area": "docs/autoresearch/cycle02-full-support",
+        "touched_paths": 27,
+        "currently_existing_paths": 27
+      },
+      {
+        "area": "docs/autoresearch/cycle03-gated-shear",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/autoresearch/cycle04-gate-transport",
+        "touched_paths": 29,
+        "currently_existing_paths": 29
+      },
+      {
+        "area": "docs/autoresearch/cycle05-feature-flow",
+        "touched_paths": 30,
+        "currently_existing_paths": 30
+      },
+      {
+        "area": "docs/autoresearch/cycle06-curvature-attribution",
+        "touched_paths": 15,
+        "currently_existing_paths": 15
+      },
+      {
+        "area": "docs/autoresearch/cycle07-manifold-heads",
+        "touched_paths": 33,
+        "currently_existing_paths": 33
+      },
+      {
+        "area": "docs/autoresearch/cycle08-readout-invariant",
+        "touched_paths": 20,
+        "currently_existing_paths": 20
+      },
+      {
+        "area": "docs/autoresearch/cycle09-input-attribution",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/autoresearch/cycle10-field-derivatives",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/autoresearch/cycle11-conditional-frame",
+        "touched_paths": 31,
+        "currently_existing_paths": 31
+      },
+      {
+        "area": "docs/autoresearch/cycle12-path-defects",
+        "touched_paths": 32,
+        "currently_existing_paths": 32
+      },
+      {
+        "area": "docs/autoresearch/cycle13-quadratic-action",
+        "touched_paths": 32,
+        "currently_existing_paths": 32
+      },
+      {
+        "area": "docs/autoresearch/cycle14-independent-coefficient",
+        "touched_paths": 38,
+        "currently_existing_paths": 38
+      },
+      {
+        "area": "docs/autoresearch/cycle15-gradient-routes",
+        "touched_paths": 26,
+        "currently_existing_paths": 26
+      },
+      {
+        "area": "docs/autoresearch/cycle16-image-bridge",
+        "touched_paths": 23,
+        "currently_existing_paths": 23
+      },
+      {
+        "area": "docs/autoresearch/cycle17-cifar-baselines",
+        "touched_paths": 52,
+        "currently_existing_paths": 52
+      },
+      {
+        "area": "docs/autoresearch/cycle18-image-resolution",
+        "touched_paths": 37,
+        "currently_existing_paths": 37
+      },
+      {
+        "area": "docs/autoresearch/cycle19-image-clocks",
+        "touched_paths": 32,
+        "currently_existing_paths": 32
+      },
+      {
+        "area": "docs/autoresearch/cycle20-image-silu",
+        "touched_paths": 34,
+        "currently_existing_paths": 34
+      },
+      {
+        "area": "docs/autoresearch/cycle21-image-exponential",
+        "touched_paths": 32,
+        "currently_existing_paths": 32
+      },
+      {
+        "area": "docs/autoresearch/cycle22-denoiser-dynamics",
+        "touched_paths": 36,
+        "currently_existing_paths": 36
+      },
+      {
+        "area": "docs/autoresearch/folded-image-inference",
+        "touched_paths": 21,
+        "currently_existing_paths": 21
+      },
+      {
+        "area": "docs/autoresearch/image-budget-continuation",
+        "touched_paths": 46,
+        "currently_existing_paths": 46
+      },
+      {
+        "area": "docs/autoresearch/image-clock-training",
+        "touched_paths": 51,
+        "currently_existing_paths": 51
+      },
+      {
+        "area": "docs/autoresearch/image-clocks20k",
+        "touched_paths": 33,
+        "currently_existing_paths": 33
+      },
+      {
+        "area": "docs/autoresearch/image-gate-feedback",
+        "touched_paths": 31,
+        "currently_existing_paths": 31
+      },
+      {
+        "area": "docs/autoresearch/image-gaussian-reference",
+        "touched_paths": 49,
+        "currently_existing_paths": 49
+      },
+      {
+        "area": "docs/autoresearch/image-response-geometry",
+        "touched_paths": 30,
+        "currently_existing_paths": 30
+      },
+      {
+        "area": "docs/autoresearch/image-state-risk",
+        "touched_paths": 36,
+        "currently_existing_paths": 36
+      },
+      {
+        "area": "docs/autoresearch/image-swiglu-initialization",
+        "touched_paths": 55,
+        "currently_existing_paths": 55
+      },
+      {
+        "area": "docs/autoresearch/image-time-clocks",
+        "touched_paths": 38,
+        "currently_existing_paths": 38
+      },
+      {
+        "area": "docs/autoresearch/invariant-clock-flow",
+        "touched_paths": 41,
+        "currently_existing_paths": 41
+      },
+      {
+        "area": "docs/autoresearch/isru-followup",
+        "touched_paths": 3,
+        "currently_existing_paths": 3
+      },
+      {
+        "area": "docs/autoresearch/nonlinear-swiglu-review",
+        "touched_paths": 12,
+        "currently_existing_paths": 12
+      },
+      {
+        "area": "docs/autoresearch/p-coordinate-steps",
+        "touched_paths": 15,
+        "currently_existing_paths": 15
+      },
+      {
+        "area": "docs/autoresearch/post-cold-control-review",
+        "touched_paths": 5,
+        "currently_existing_paths": 5
+      },
+      {
+        "area": "docs/autoresearch/posterior-state-eligibility",
+        "touched_paths": 22,
+        "currently_existing_paths": 22
+      },
+      {
+        "area": "docs/development.md",
+        "touched_paths": 1,
+        "currently_existing_paths": 1
+      },
+      {
+        "area": "docs/literature-ode-architectures-2026-10-25",
+        "touched_paths": 6,
+        "currently_existing_paths": 6
+      },
+      {
+        "area": "docs/literature-ode-backbone-2026-10-26",
+        "touched_paths": 3,
+        "currently_existing_paths": 3
+      },
+      {
+        "area": "docs/literature-ode-design-2026-10-26",
+        "touched_paths": 5,
+        "currently_existing_paths": 5
+      },
+      {
+        "area": "docs/literature-ode-intuition-2026-10-26",
+        "touched_paths": 2,
+        "currently_existing_paths": 2
+      },
+      {
+        "area": "docs/literature-ode-model-2026-10-26",
+        "touched_paths": 6,
+        "currently_existing_paths": 6
+      },
+      {
+        "area": "docs/literature-ode-practical-2026-10-26",
+        "touched_paths": 5,
+        "currently_existing_paths": 5
+      },
+      {
+        "area": "docs/literature-ode-synthesis-2026-10-26",
+        "touched_paths": 5,
+        "currently_existing_paths": 5
+      },
+      {
+        "area": "docs/research-2026-10-21-gate-geometry",
+        "touched_paths": 12,
+        "currently_existing_paths": 12
+      },
+      {
+        "area": "docs/research-2026-10-21-gates",
+        "touched_paths": 33,
+        "currently_existing_paths": 33
+      },
+      {
+        "area": "docs/research-2026-10-21-reassessment",
+        "touched_paths": 9,
+        "currently_existing_paths": 9
+      },
+      {
+        "area": "docs/research-2026-10-23-direction",
+        "touched_paths": 11,
+        "currently_existing_paths": 11
+      },
+      {
+        "area": "docs/research-2026-10-24-lenovo",
+        "touched_paths": 9,
+        "currently_existing_paths": 9
+      },
+      {
+        "area": "docs/research-adjoint-composition-2026-10-26",
+        "touched_paths": 21,
+        "currently_existing_paths": 21
+      },
+      {
+        "area": "docs/research-affine-error-2026-10-26",
+        "touched_paths": 17,
+        "currently_existing_paths": 17
+      },
+      {
+        "area": "docs/research-anchored-corrector-2026-10-26",
+        "touched_paths": 20,
+        "currently_existing_paths": 20
+      },
+      {
+        "area": "docs/research-architecture-search",
+        "touched_paths": 795,
+        "currently_existing_paths": 795
+      },
+      {
+        "area": "docs/research-bias-placement-2026-10-26",
+        "touched_paths": 29,
+        "currently_existing_paths": 29
+      },
+      {
+        "area": "docs/research-conservative-readout-2026-10-26",
+        "touched_paths": 24,
+        "currently_existing_paths": 24
+      },
+      {
+        "area": "docs/research-coordinate-dependence-2026-10-26",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/research-cubic-split-2026-10-26",
+        "touched_paths": 28,
+        "currently_existing_paths": 28
+      },
+      {
+        "area": "docs/research-data-curvature-2026-10-26",
+        "touched_paths": 40,
+        "currently_existing_paths": 40
+      },
+      {
+        "area": "docs/research-depth-gradient-2026-10-26",
+        "touched_paths": 15,
+        "currently_existing_paths": 15
+      },
+      {
+        "area": "docs/research-derivative-orientation-2026-10-26",
+        "touched_paths": 29,
+        "currently_existing_paths": 29
+      },
+      {
+        "area": "docs/research-effective-map-2026-10-26",
+        "touched_paths": 27,
+        "currently_existing_paths": 27
+      },
+      {
+        "area": "docs/research-explicit-adjoint-2026-10-26",
+        "touched_paths": 14,
+        "currently_existing_paths": 14
+      },
+      {
+        "area": "docs/research-frozen-features-2026-10-26",
+        "touched_paths": 21,
+        "currently_existing_paths": 21
+      },
+      {
+        "area": "docs/research-gate-adjoint-2026-10-26",
+        "touched_paths": 23,
+        "currently_existing_paths": 23
+      },
+      {
+        "area": "docs/research-generator-tangent-2026-10-26",
+        "touched_paths": 21,
+        "currently_existing_paths": 21
+      },
+      {
+        "area": "docs/research-internal-features-2026-10-26",
+        "touched_paths": 24,
+        "currently_existing_paths": 24
+      },
+      {
+        "area": "docs/research-joint-dependence-2026-10-26",
+        "touched_paths": 42,
+        "currently_existing_paths": 42
+      },
+      {
+        "area": "docs/research-local-adjoint-2026-10-26",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/research-local-ffn-teacher-2026-10-26",
+        "touched_paths": 34,
+        "currently_existing_paths": 34
+      },
+      {
+        "area": "docs/research-mean-return-2026-10-26",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/research-mode-response-2026-10-26",
+        "touched_paths": 19,
+        "currently_existing_paths": 19
+      },
+      {
+        "area": "docs/research-next-design-review-2026-10-28",
+        "touched_paths": 2,
+        "currently_existing_paths": 2
+      },
+      {
+        "area": "docs/research-normalized-geometry-2026-10-26",
+        "touched_paths": 22,
+        "currently_existing_paths": 22
+      },
+      {
+        "area": "docs/research-parity-2026-10-26",
+        "touched_paths": 25,
+        "currently_existing_paths": 25
+      },
+      {
+        "area": "docs/research-prediction-bridge-2026-10-25",
+        "touched_paths": 9,
+        "currently_existing_paths": 9
+      },
+      {
+        "area": "docs/research-realizable-teacher-2026-10-26",
+        "touched_paths": 26,
+        "currently_existing_paths": 26
+      },
+      {
+        "area": "docs/research-recurrent-depth-2026-10-26",
+        "touched_paths": 34,
+        "currently_existing_paths": 34
+      },
+      {
+        "area": "docs/research-recurrent-potential-2026-10-26",
+        "touched_paths": 26,
+        "currently_existing_paths": 26
+      },
+      {
+        "area": "docs/research-time-generator-2026-10-26",
+        "touched_paths": 16,
+        "currently_existing_paths": 16
+      },
+      {
+        "area": "docs/research-time-operator-2026-10-26",
+        "touched_paths": 16,
+        "currently_existing_paths": 16
+      },
+      {
+        "area": "docs/theory-gaussian-ode-layer",
+        "touched_paths": 7,
+        "currently_existing_paths": 7
+      },
+      {
+        "area": "repository-root",
+        "touched_paths": 9,
+        "currently_existing_paths": 9
+      },
+      {
+        "area": "scripts",
+        "touched_paths": 113,
+        "currently_existing_paths": 113
+      },
+      {
+        "area": "synthetic",
+        "touched_paths": 33,
+        "currently_existing_paths": 33
+      },
+      {
+        "area": "tests",
+        "touched_paths": 53,
+        "currently_existing_paths": 53
+      }
+    ],
+    "current_research_focus": "ISRU positive-result follow-up with baseline adequacy and attribution review",
+    "final_report_written": false,
+    "new_training_launched_by_scope_update": false
+  }
+}

@@ -5,6 +5,12 @@ This is a project-specific adaptation of [Karpathy autoresearch](https://github.
 ## Objective and authority
 Develop a mathematically interpretable ODELayer successor that improves flow matching against strong ordinary controls. Follow repository AGENTS.md. The user has authorized continued experiments and normal GitHub publication; setup does not require another permission request. Preserve the researcher's decisions about future directions. Do not present a negative screen as a completed research objective.
 
+## Reporting boundary
+Report1 is final at 994e660; do not edit or rebuild its directory. All later
+research belongs to [Report2](../../reports/report2/README.md). Update its evidence
+index as major results or interpretations change. Current ISRU follow-up is
+Report2 work. Historical draft wording in Report1 does not reopen it.
+
 ## Current research focus
 Read the [ISRU follow-up](isru-followup/README.md), its plan and notes before
 selecting another family. The user is directing attention to that existing
