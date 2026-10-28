@@ -2,6 +2,8 @@
 
 The user-authorized autonomous research loop follows [program.md](program.md), adapted from Karpathy's official autoresearch. The data, evaluation and scientific controls remain specific to ODE-FFN; this does not run the upstream language-model task.
 
+The [paired cold clock-source comparison](cold-clock-source/results/analysis-report.md) is complete. Time-only clocks reach FID172.04 versus 174.20 for the paired feature-clock control and 173.44 for native K1. The 0.80% gain over native misses the registered5% gate; both fitting guards pass. FFN matrix work falls 49.60%, with no whole-model twofold speedup claim. All sample/feature/FID checks pass. The setting stops without a rescue; no new ODE method is established. Complete P histories, clock profiles and fixed-start examples are included.
+
 The [matched-function SwiGLU control](image-swiglu-initialization/results/analysis-report.md) is complete. Its 20k FID is 185.85 versus 195.31 for default Swi86, a 4.84% improvement that misses the registered 5% gate. K1 remains at 173.44 and the fixed-clock model at 174.71. Lower regression error does not close this generation gap. All sample/feature/FID checks pass; the initializer is stopped without a rescue, and the broader ODE architecture objective remains open.
 
 | Cycle | Question | State | Decision |
@@ -40,7 +42,7 @@ The [matched-function SwiGLU control](image-swiglu-initialization/results/analys
 | [Observed-coordinate image response](image-response-geometry/results/analysis-report.md) | Does a necessary conditional-response property distinguish K1 from Swi86? | All280finite response records and560witness differences verified | Shared-space priority fails; retain own-space negative witnesses without a PSD/FID mechanism claim; no new model |
 | [Matched SwiGLU initialization](image-swiglu-initialization/results/analysis-report.md) | Does matching the initial function remove the Swi86 generation gap? | One 20k trajectory and all sample/feature checks complete | FID185.85 versus default195.31 improves4.84%, missing the fixed5%gate; stop this initializer |
 | [Real-state optimizer coordinates](p-coordinate-steps/analysis.md) | Can an ordinary FFN reproduce the fixed-clock model's active update? | Six trained states checked with transported nonzero moments | Yes, to numerical precision; this does not identify the final FID cause or establish a new method |
-| [Cold clock source](cold-clock-source/README.md) | Should the local clock read features or the known noise time? | Two paired20k trajectories and training audit complete; sampling running | Quality pending; generic timestep-conditioned weights are established prior work |
+| [Cold clock source](cold-clock-source/README.md) | Should the local clock read features or the known noise time? | Both paired20k trajectories and all sample/feature checks complete | TimeFID172.04 versus native173.44 is a0.80%gain, below5%; half local matrix work; stop this setting |
 
 The [folded image export](folded-image-inference/README.md) packages an existing endpoint for independent loading. All 1,024 CPU samples replay bitwise; measured 64-image Heun128 time falls from 8.68 to 6.00 seconds on CPU and from 8.04 to 6.69 on MPS. All ordinary/time/storage controls remain visible. This is deployment progress, not a new training cycle or ODE-method nomination.
 

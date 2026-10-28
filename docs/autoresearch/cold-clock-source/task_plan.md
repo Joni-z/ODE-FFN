@@ -24,20 +24,27 @@ AdaLN time conditioning as absent.
   new FID extraction, without changing formal source or the quality gate.
 - [x] Check the closest primary work on time-conditioned FFN weights while
   the existing sampler runs; record novelty limits without selecting a rescue.
-- [ ] Complete prediction, matrix/clock, sample and feature/FID audits; publish
-  all outcomes and stop or retain the setting under the original rule.
+- [x] Complete prediction, matrix/clock, sample and feature/FID audits; retain
+  all outcomes and stop this setting under its original rule.
+- [ ] Publish complete evidence and fast-forward clean local main.
 
 ## Status
-Protocol and mathematical scope are fixed before new training outcomes.
-Both actual documented checks pass, native33463/b15aae and metric62554/73fffe,
-exit0 once with no discrepancies. Controller96978 is live with owned
-feature/time training PIDs84850/84851. See progress.json for a snapshot.
-Both arms use model seed0 and original data stream. No new FID or model gain
-is available. The comparison of17primary endpoints (16controls and the candidate) remains
-pending.
-The stopped matched-Swi initializer and frozen calendar remain stopped.
+Both 20k trajectories, all three audits, complete curation and seven inspected
+figures are complete. Controller96978/14e4e8, curation94283/30777e and
+plot70435/37be86 have actual terminal exit0. Closure31076/8f3b60 also exits0,
+sealing 313files/389721266bytes. Seal SHA256:
+`ff9bad0ebbfb5a17e8a791f85b3383331a707c568b72d603a040bf0d9c74001c`.
+No private file is changed after sealing.
 
-Both 20k training trajectories are complete. The original controller is now
-in independent training audit; no new FID is available. Analysis source is
-frozen under curation-source at commit 2afd4e0, with file hashes and
-an actual pre-metric timestamp. Formal source and acceptance are unchanged.
+TimeFID 172.042134 versus paired feature 174.202246 and native 173.436914 is a
+small finite gain, below the registered5% margin. Both fitting guards pass;
+the quality gate fails. Stop this setting without parameter, input, calendar,
+width/order, optimizer, EMA, duration or checkpoint rescue. All17primary
+endpoints,41total rows and 32continuous contrasts remain visible. No new ODE
+method is established. Sourcef7bbdd5 and analysis 2afd4e0 remain unchanged.
+
+## Next unselected review
+The wider objective remains active. Before nominating another architecture,
+review the shared 10k-to 20k fitting/generation mismatch against the existing
+image evidence and prior stop rules. This is not a checkpoint, duration or
+EMA rescue, and no new model is selected by this card.

@@ -1,0 +1,24 @@
+{
+  "best_control": {
+    "arm": "ode_k1",
+    "fid": 173.43691430770065,
+    "weighted_mse": 0.16026743903770652,
+    "clean_mse": 0.07615282775748579
+  },
+  "candidate": {
+    "arm": "time_clock_zero",
+    "step": 20000,
+    "weighted_mse": 0.16021290031885754,
+    "clean_mse": 0.07612483235753965,
+    "fid": 172.04213401179626,
+    "parameters": 211094,
+    "FFN_forward_MACs": 8322
+  },
+  "checks": {
+    "FID": false,
+    "weighted_mse": true,
+    "clean_mse": true
+  },
+  "quality_pass": false,
+  "new_ODE_method_established": false
+}

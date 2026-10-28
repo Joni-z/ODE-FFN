@@ -1,0 +1,118 @@
+[
+  {
+    "phase": "training",
+    "arm": "feature_clock_zero",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "cell",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+      "--arm",
+      "feature_clock_zero"
+    ],
+    "pid": 84850,
+    "create_time": 1793218164.661911,
+    "exit_code": 0,
+    "phase_seconds": 2119.718974666903
+  },
+  {
+    "phase": "training",
+    "arm": "time_clock_zero",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "cell",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+      "--arm",
+      "time_clock_zero"
+    ],
+    "pid": 84851,
+    "create_time": 1793218164.668284,
+    "exit_code": 0,
+    "phase_seconds": 2119.7190016668756
+  },
+  {
+    "phase": "audit-training",
+    "arm": "audit",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "audit-training",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1"
+    ],
+    "pid": 85640,
+    "create_time": 1793220284.355768,
+    "exit_code": 0,
+    "phase_seconds": 85.20756812486798
+  },
+  {
+    "phase": "sample",
+    "arm": "sample",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "sample",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1"
+    ],
+    "pid": 85694,
+    "create_time": 1793220369.562565,
+    "exit_code": 0,
+    "phase_seconds": 746.5957319999579
+  },
+  {
+    "phase": "audit-sampling",
+    "arm": "audit",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "audit-sampling",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1"
+    ],
+    "pid": 86280,
+    "create_time": 1793221116.147297,
+    "exit_code": 0,
+    "phase_seconds": 751.6152519579045
+  },
+  {
+    "phase": "evaluate",
+    "arm": "metrics",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "evaluate",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1"
+    ],
+    "pid": 86478,
+    "create_time": 1793221867.754793,
+    "exit_code": 0,
+    "phase_seconds": 90.19787079212256
+  },
+  {
+    "phase": "audit-metrics",
+    "arm": "audit",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+      "audit-metrics",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1"
+    ],
+    "pid": 86503,
+    "create_time": 1793221957.954575,
+    "exit_code": 0,
+    "phase_seconds": 115.2193266658578
+  }
+]

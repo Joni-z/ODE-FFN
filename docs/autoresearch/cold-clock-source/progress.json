@@ -1,77 +1,51 @@
 {
-  "state": "RUNNING",
+  "state": "CLOSED",
   "runtime": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
-  "source_commit": "f7bbdd5b811aaa8a53b7f93412c01d8b184e0b60",
+  "formal_source_commit": "f7bbdd5b811aaa8a53b7f93412c01d8b184e0b60",
+  "analysis_source_commit": "2afd4e0dc97827c416540d5ba5e1f2b23614cb5b",
   "controller_session_id": 96978,
-  "launches": [
-    {
-      "phase": "training",
-      "arm": "feature_clock_zero",
-      "command": [
-        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
-        "-B",
-        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
-        "cell",
-        "--root",
-        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
-        "--arm",
-        "feature_clock_zero"
-      ],
-      "pid": 84850,
-      "create_time": 1793218164.661911
+  "completed_training_trajectories": 2,
+  "updates_per_trajectory": 20000,
+  "completed_new_sample_banks": 6,
+  "audits": {
+    "training": "PASS",
+    "sampling": "PASS",
+    "metrics": "PASS"
+  },
+  "primary20k": 17,
+  "total_endpoint_rows": 41,
+  "decision": {
+    "best_control": {
+      "arm": "ode_k1",
+      "fid": 173.43691430770065,
+      "weighted_mse": 0.16026743903770652,
+      "clean_mse": 0.07615282775748579
     },
-    {
-      "phase": "training",
+    "candidate": {
       "arm": "time_clock_zero",
-      "command": [
-        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
-        "-B",
-        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
-        "cell",
-        "--root",
-        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
-        "--arm",
-        "time_clock_zero"
-      ],
-      "pid": 84851,
-      "create_time": 1793218164.668284
-    }
-  ],
-  "monitor": {
-    "state": "RUNNING",
-    "phase": "sample",
-    "seconds": 626.3388043330051,
-    "resources": [
-      {
-        "arm": "sample",
-        "pid": 85694,
-        "CPU_percent": 100.0,
-        "RSS": 503103488
-      }
-    ]
-  },
-  "training": {
-    "feature_clock_zero": {
-      "state": "COMPLETE",
       "step": 20000,
-      "seconds": 2112.817804541206
+      "weighted_mse": 0.16021290031885754,
+      "clean_mse": 0.07612483235753965,
+      "fid": 172.04213401179626,
+      "parameters": 211094,
+      "FFN_forward_MACs": 8322
     },
-    "time_clock_zero": {
-      "state": "COMPLETE",
-      "step": 20000,
-      "seconds": 1907.6780912920367
-    }
+    "checks": {
+      "FID": false,
+      "weighted_mse": true,
+      "clean_mse": true
+    },
+    "quality_pass": false,
+    "new_ODE_method_established": false
   },
-  "new_FID_available": false,
-  "new_ODE_method_established": false,
-  "observed_at_unix": 1793220408.300472,
-  "analysis_registration_commit": "2afd4e0dc97827c416540d5ba5e1f2b23614cb5b",
-  "sampling": {
-    "completed": 4,
-    "total": 6,
-    "arm": "time_clock_zero",
-    "step": 10000,
-    "images": 1024
-  },
-  "training_audit": "PASS"
+  "curation": "PASS",
+  "inspected_figures": 7,
+  "archive": "SEALED_AND_VERIFIED",
+  "seal_sha256": "ff9bad0ebbfb5a17e8a791f85b3383331a707c568b72d603a040bf0d9c74001c",
+  "files": 313,
+  "private_bytes": 389721266,
+  "publication": "pending normal verified push",
+  "receipt_file": "results/execution-receipts.json",
+  "archive_receipt": "results/archive-tool-exit.json",
+  "new_ODE_method_established": false
 }

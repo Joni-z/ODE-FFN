@@ -1,15 +1,20 @@
 # Cold feature-clock / time-clock comparison
 
 Two cold K1 arms start from exactly the same parameter state and FFN function.
-The only architectural difference is whether the local clock consumes image
-features or the existing objective-time conditioner. See the
-[protocol](protocol.md), [limited derivation](derivation.md) and
-[task plan](task_plan.md). Both 20k trajectories and the training audit are
-complete on Mac mini; sampling is running. [progress.json](progress.json)
-is a published snapshot. Training uses one CPU thread per arm and model seed0.
-No new FID or quality result exists yet. A [bounded primary-work check](closest-prior-work.md)
-identifies direct precedents for timestep-conditioned weights; the current
-scalar matrix family must earn its value empirically.
+The only architectural difference is the local clock input source. The
+[complete analysis](results/analysis-report.md) reports FID **172.04** for the
+time-only arm versus **174.20** for the paired feature control and **173.44**
+for native K1. The 0.80% native-relative improvement misses the registered 5%
+requirement; both fitting guards pass. FFN matrix work falls 49.60%, not whole-
+model work. The setting stops without a rescue; no new ODE method is accepted.
+
+All checkpoint/sample/feature checks pass. Seven inspected figures, all 41
+endpoint rows, P/clock histories and fixed cases are in [results](results/).
+See the unchanged [protocol](protocol.md), limited [derivation](derivation.md),
+[analysis layout](analysis-layout.md), [task plan](task_plan.md) and
+[primary-work comparison](closest-prior-work.md). The private runtime is sealed;
+[progress.json](progress.json) records the closure and actual tool receipts.
+The broader useful-ODE architecture objective remains open.
 
 Use unchanged Mac mini environments image-training@475428fb and
 image-metrics@dc729a50. Commit source, then prepare a new exclusive runtime:
