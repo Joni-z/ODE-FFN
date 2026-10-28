@@ -1,0 +1,74 @@
+[
+  {
+    "arm": "native",
+    "device": "cpu",
+    "images": 64,
+    "steps": 128,
+    "seconds": 8.683634750079364,
+    "error": {
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    }
+  },
+  {
+    "arm": "cached",
+    "device": "cpu",
+    "images": 64,
+    "steps": 128,
+    "seconds": 6.703988166991621,
+    "error": {
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    }
+  },
+  {
+    "arm": "compact",
+    "device": "cpu",
+    "images": 64,
+    "steps": 128,
+    "seconds": 5.998802124988288,
+    "error": {
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    }
+  },
+  {
+    "arm": "native",
+    "device": "mps",
+    "images": 64,
+    "steps": 128,
+    "seconds": 8.039904000004753,
+    "error": {
+      "max": 5.543231964111328e-06,
+      "RMS": 1.821756886107645e-07,
+      "bitwise": false
+    }
+  },
+  {
+    "arm": "cached",
+    "device": "mps",
+    "images": 64,
+    "steps": 128,
+    "seconds": 6.777323666960001,
+    "error": {
+      "max": 2.5033950805664062e-06,
+      "RMS": 1.825266474291234e-07,
+      "bitwise": false
+    }
+  },
+  {
+    "arm": "compact",
+    "device": "mps",
+    "images": 64,
+    "steps": 128,
+    "seconds": 6.692505958024412,
+    "error": {
+      "max": 2.5033950805664062e-06,
+      "RMS": 1.825266474291234e-07,
+      "bitwise": false
+    }
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "arm": "native",
+      "device": "cpu",
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    },
+    {
+      "arm": "literal",
+      "device": "cpu",
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    },
+    {
+      "arm": "cached",
+      "device": "cpu",
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    },
+    {
+      "arm": "compact",
+      "device": "cpu",
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    },
+    {
+      "arm": "swiglu129",
+      "device": "cpu",
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    },
+    {
+      "arm": "silu193",
+      "device": "cpu",
+      "max": 0.0,
+      "RMS": 0.0,
+      "bitwise": true
+    },
+    {
+      "arm": "native",
+      "device": "mps",
+      "max": 8.344650268554688e-07,
+      "RMS": 1.3947104726987389e-07,
+      "bitwise": false
+    },
+    {
+      "arm": "literal",
+      "device": "mps",
+      "max": 8.940696716308594e-07,
+      "RMS": 1.4047480557156717e-07,
+      "bitwise": false
+    },
+    {
+      "arm": "cached",
+      "device": "mps",
+      "max": 8.046627044677734e-07,
+      "RMS": 1.4352623891183264e-07,
+      "bitwise": false
+    },
+    {
+      "arm": "compact",
+      "device": "mps",
+      "max": 8.046627044677734e-07,
+      "RMS": 1.4352623891183264e-07,
+      "bitwise": false
+    },
+    {
+      "arm": "swiglu129",
+      "device": "mps",
+      "max": 1.0132789611816406e-06,
+      "RMS": 1.4693705338667548e-07,
+      "bitwise": false
+    },
+    {
+      "arm": "silu193",
+      "device": "mps",
+      "max": 8.642673492431641e-07,
+      "RMS": 1.5565253584770907e-07,
+      "bitwise": false
+    }
+  ],
+  "portable_fresh_process": true,
+  "historical_paths_forbidden": true
+}

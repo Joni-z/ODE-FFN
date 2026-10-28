@@ -2,6 +2,8 @@
 
 The project tests whether an ODE-inspired FFN can improve unconditional flow matching against strong ordinary baselines. Protocols and audited results are in [ODE autoresearch](docs/autoresearch/README.md).
 
+A [portable folded image checkpoint](docs/autoresearch/folded-image-inference/README.md) preserves all 1,024 samples of the existing constant-clock endpoint while reducing measured Mac mini CPU generation time from 8.68 to 6.00 seconds per 64 images. This is an inference simplification, not a new trained ODE architecture.
+
 The latest [denoiser-dynamics study](docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md) separates the supervised clean conditional mean from an invariant endpoint predictor. It provides a complete derivation, counterexamples and checks on existing analytic laws. Mathematical consistency alone does not select a useful architecture; no new model is trained or nominated.
 
 The [image controls](docs/autoresearch/cycle20-image-silu/analysis-report.md) reach FID180.05 with ordinary SiLU193 versus183.70 for native K2 at equal FFN matrix work, with11.46%more whole parameters. Near-parameter rankings remain mixed. The [frozen exponential check](docs/autoresearch/cycle21-image-exponential/analysis-report.md) substantially worsens K1 and gives mixed K2 changes. No useful ODE successor has yet passed the required controls. Earlier learning curves, generated cases and P trajectories remain in the linked studies.

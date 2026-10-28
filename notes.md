@@ -378,3 +378,9 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Legal scalar native SwiGLU y*SiLU(y) escapes at0.51876713 from y0=2, disproving a universal unit-horizon exact-flow claim. It does not show fitted fields escape or predict performance.
 - Independent audit exits0;15 runtime files sealed022e4ccaee18ef3c7426b222c21f9345fdabf267fa37358b17ffd08c7b140176. No data, training, GPU, package or old artifact changed. This is a stopped candidate review, not another empirical cycle.
 - User correctly distinguishes formula checks from useful-model progress. No new quality improvement is claimed. Missing next step is a task-specific mechanism, not a coefficient or solver sweep.
+
+## Frozen image inference: usable export and measured saving
+- Registered51348c7 before new timings. Benchmark23336 exits0 after80.57s; curation22889 exits0. Six arms separate clock collapse, cached matrices, unused diagnostic removal and compact ordinary controls.252resident/84transfer trials, all sizes/backends retained.
+- Native/compact64-image Heun128: CPU8.6836/5.9988s, MPS8.0399/6.6925s. This compact small-model path is faster on one CPU thread; no Lenovo/CUDA claim. Stored parameter+buffer payload909912to808512bytes; actual FFN MACs4743168to1572864 per image. Includes clock/diagnostic changes, not isolated integration-order speed.
+- Export preserves48backbone tensors, buffers and six exact cached maps; independent loading forbids historical/runtime/repo paths. Full1,024-start CPU replay73515 exits0 and exactly reproduces the old generated-bank hash, retaining FID179.718445 as an inherited metric. No new FID estimate or architecture success.
+- CPU-percent monitor samples are unprimed/unusable; report only observed process RSS, not per-arm peak GPU memory. Source/data/Report1 and previous P trajectories unchanged.
