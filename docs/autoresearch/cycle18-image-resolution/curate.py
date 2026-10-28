@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 ap=argparse.ArgumentParser();ap.add_argument('--root',type=Path,required=True);a=ap.parse_args();root=a.root
 sys.path.insert(0,str(root/'source'));import study
 study.verify(root);p=study.parent(root)
-assert study.load(root/'orchestrator/status.json')['state']=='COMPLETE'
+assert study.load(root/'orchestrator-v2/status.json')['state']=='COMPLETE'
 assert study.load(root/'audit-sampling/result.json')['status']==study.load(root/'audit-features/result.json')['status']=='PASS'
 assert len(study.load(root/'audit-sampling/result.json')['rows'])==8
 fid_audit=study.load(root/'audit-features/result.json')['rows'];assert len(fid_audit)==12
