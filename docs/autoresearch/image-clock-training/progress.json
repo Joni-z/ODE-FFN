@@ -1,0 +1,64 @@
+{
+  "observed_at_UTC": "2026-10-28T11:01:10.328952+00:00",
+  "phase": {
+    "state": "RUNNING",
+    "phase": "training",
+    "completed": 0,
+    "total": 6,
+    "pid": 70727,
+    "seconds": 251.05324899987318
+  },
+  "controller_identity": {
+    "pid": 70719,
+    "create_time": 1793185015.834589
+  },
+  "controller_identity_live": true,
+  "worker_rows": [
+    {
+      "arm": "fixed06",
+      "pid": 70731,
+      "create_time": 1793185021.45275,
+      "identity_live": true,
+      "recorded_state": "RUNNING",
+      "completed_updates": 2800,
+      "total_updates": 20000,
+      "primed_CPU_percent": 100.0,
+      "RSS_bytes": 860471296,
+      "latest_saved_validation": {
+        "step": 2500,
+        "weighted_mse": 0.1904145693368889,
+        "clean_mse": 0.08607158468815523,
+        "prediction_rms": 0.4079726030510031,
+        "train_loss": 0.2044075761437416,
+        "grad_norm": 0.8513986935416857,
+        "clip_fraction": 0.29733333333333334
+      },
+      "native_stream_checks": 3,
+      "exit_code": null
+    },
+    {
+      "arm": "matched_silu64",
+      "pid": 70732,
+      "create_time": 1793185021.459846,
+      "identity_live": true,
+      "recorded_state": "RUNNING",
+      "completed_updates": 3000,
+      "total_updates": 20000,
+      "primed_CPU_percent": 100.0,
+      "RSS_bytes": 864763904,
+      "latest_saved_validation": {
+        "step": 2500,
+        "weighted_mse": 0.18963515304096148,
+        "clean_mse": 0.08582388506641063,
+        "prediction_rms": 0.40937518392917877,
+        "train_loss": 0.2031320256094138,
+        "grad_norm": 0.8658930937846502,
+        "clip_fraction": 0.30266666666666664
+      },
+      "native_stream_checks": 4,
+      "exit_code": null
+    }
+  ],
+  "quality_status": "Pending complete pipeline, tool exit and final artifact audit",
+  "source_commit": "28be1e8f234facad8952b9803b4a253091c64d50"
+}

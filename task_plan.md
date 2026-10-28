@@ -317,9 +317,9 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 
 ## Cold clock and ordinary-coordinate controls
 - [x] Revalidate previous sealed progress and stop rules; specify two cold controls, one frozen same-clock reference and scoped optimizer-coordinate identities before outcomes.
-- [ ] Publish runnable source; pass a fresh documented native/init/active-gradient/resume/cost and metric preflight.
+- [x] Publish source28be1e8; fresh native47808/metric32097exit0, including shared timestep-MLP gradients. All25cached FIDs replay exactly, shared ordinary init/data RNG match, physical resumes and actual costs pass.
 - [ ] Run exactly two20ktrajectories with matching historical stream and complete P/effective-W histories.
 - [ ] Audit boundaries/streams and all seven new inference banks, retain32FID endpoints, verify report/figures, seal and publish.
 
 ## Status
-Registering a distinct cold-training control study before fitted outcomes. Shared initial/native tensors and active promoted gradient/cost witnesses pass; mathematical equivalence does not predict image quality. Fixed0.6is the original clock midpoint, not a calibration search. Existing failed settings and all parent seals stay unchanged. The useful-ODE-successor objective remains active and unachieved.
+Cold clock/ordinary-coordinate training is running under original controller70719/create1793185015.834589 and actual tool session5632. Two one-thread CPU children70731/70732advance toward fixed20k; fresh native47808/metric32097and all25cached-FID replay pass. Source28be1e8is immutable in the runtime; progress snapshots preserve timestamps and verified process identities. No new FID conclusion yet. Finish both trajectories, boundary/stream audit, seven sample banks and full sample/feature/FID audits; then curator/report/figures/archive/publication. The broader useful-ODE-successor objective remains active and unachieved.

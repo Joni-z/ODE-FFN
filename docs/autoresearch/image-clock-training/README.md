@@ -5,6 +5,10 @@ same-clock reference, seven new sample banks and unchanged ordinary comparisons.
 Read the [coordinate derivation](theory.md) before interpreting P spectra or
 calling equal initial functions equal Adam trajectories.
 
+The two prescribed training trajectories are running. The [recorded progress](progress.md)
+contains a timestamp and checked process identities; it is a saved snapshot.
+No new generation/FID result is available yet.
+
 ## Reproduction on Mac mini
 
 Use the existing image-training@475428fb/image-metrics@dc729a50 environments

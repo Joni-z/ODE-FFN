@@ -10,9 +10,9 @@ nominating another architecture.
 - [x] Read the completed time-clock experiment, native trainers, initialization
   definitions, earlier identity-location stop and compute state. Previous goal
   turn is progress: quality study seal 8917402e, public main 8cbc07f.
-- [ ] Fix the two cold controls, one matched-inference reference, mathematics,
+- [x] Fix the two cold controls, one matched-inference reference, mathematics,
   stream/checkpoint/sample budgets and decision rules; commit runnable source.
-- [ ] Pass local identities and a fresh documented preflight: active full-model
+- [x] Pass local identities and a fresh documented preflight: active full-model
   gradients, native replay, three-step physical resume, cost and metric witness.
 - [ ] Run exactly two seed 0 cold 20k training trajectories on the historical CPU
   stream, preserving P/effective-W histories and boundary-update witnesses.
@@ -29,5 +29,6 @@ The earlier synthetic identity-location factorial remains stopped. New image
 initialization/coordinate controls are ordinary comparators, not its rescue.
 
 ## Status
-Protocol and scoped [derivation](theory.md) precede all new fitted outcomes.
-Runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2`.
+Source28be1e8published; fresh documented native47808/metric32097both terminate0. All four native prediction banks, full shared tensors including timestep MLP gradients, physical resumes, costs and cached features pass. All25cached FIDs also replay exactly; default-SiLU64shared initialization/buffers/data RNG match. Passed v1readiness retained under hashes; v2only strengthens witness coverage.
+
+Actual controller70719/create1793185015.834589, tool session5632, is running the two20ktrajectories. Workers70731/create1793185021.45275and70732/create1793185021.459846are live with primedCPU100%each. Progress snapshots report actual counters; there is no new generative quality conclusion. Curator/report/archive remain pending until the six phases and their independent audits finish.

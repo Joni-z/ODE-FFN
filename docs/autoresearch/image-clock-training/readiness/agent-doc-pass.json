@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2/source/training_controls.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2",
+      "exec_session": 47808,
+      "exit_code": 0
+    },
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2/source/training_controls.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2",
+      "exec_session": 32097,
+      "exit_code": 0
+    }
+  ],
+  "preflight_sha256": "77ee7d9f478c927b4a563622debc7d4c28122578caa0f07f4c91fba0575b707f",
+  "metric_preflight_sha256": "cd795f1b486ffc4c35bdf0ccd7c72dfd5f427667ec1385f7c63fd9d4622e537f",
+  "doc_vs_reality_mismatches": []
+}
