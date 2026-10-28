@@ -18,9 +18,9 @@ Mathematical validity alone is not a quality result or completed successor.
   derivatives, independent integration and baseline/native-state compatibility.
 - [x] Obtain a fresh agent-follows-doc complete preflight before any formal
   cold training; retain failed readiness source rather than overwrite it.
-- [ ] Run only the finite registered screen if eligible, with monitored
+- [x] Run only the finite registered screen if eligible, with monitored
   processes and unchanged old baselines; independently audit all outputs.
-- [ ] Analyze all outcomes, retain learned P/clock histories and fixed cases,
+- [x] Analyze all outcomes, retain learned P/clock histories and fixed cases,
   seal and publish. Keep the original research objective active if it fails.
 
 ## Candidate to assess
@@ -32,27 +32,20 @@ gradient condition holds. No learned frame/basis, new loss or dataset rescue.
 
 ## Current status
 
-2026-10-29: The complete native preflight passed on Mac mini, followed by
-formal training launch from source e9336fe. Actual fresh-agent tool session11819
-consumed terminal0/cc843e, no doc mismatch. All21physical resumes,15historical
-native prediction replays, paired initial flow parameter tangents, active
-nonzero-frequency routes and21explicit-chain network derivatives passed.
+2026-10-29: The finite screen is complete and rejected. Actual controller60305
+consumed terminal0/d97c5d; train and audit phase exits are both0. The independent
+audit passed every registered replay. Curators80860/4a2c3b and1895/7c3cb7 exit0;
+the second only improves figure colors, with all nonfigure analysis files
+bitwise unchanged. The complete runtime is sealed9a7f7bb6 (722files,252.5MB).
+
+Rotation field MSE is3.8–6.2times new Swi129, with comparable parameters and
+matrix work. Exact/Euler/normalizedEuler have similar errors. All primary quality
+gates fail; only cost and normalized-control limits pass. Learned P and
+clocks are active. Stop this setting, with no frame/initializer/length rescue.
+Results, exact endpoints, all stored P/clock summaries and figures are curated
+in results/. No new useful successor is established; the research goal remains
+active. No old source/data/run or submitted Report1 was changed.
+
+Training used two Mac mini CPU workers for373.3s, audit27.45s, peak tracked
+RSS828.6MiB and peak summed CPU200.3%. No GPU reservation or Lenovo dependency.
 Private runtime: /Users/mr.z/ode-workspace-prep/autoresearch/oct28-invariant-clock-v1.
-Formal controller actual tool session60305 remains live; no quality conclusion.
-
-Use exactly two one-thread CPU workers. Five-second primed CPU/RSS telemetry
-and per100update counters are saved; training automatically proceeds to the
-registered independent audit. Interpret performance only after actual exits,
-then publish the fixed comparisons and learned P/clock histories.
-
-Operator16496 consumed terminal0/0f3094:27literal derivative cases and three
-independent integrations passed, maximum integration error9.83e-15. A bounded
-clock still permits full derivative gain1.618. The scalar-reporting warning in
-that frozen successful run is preserved; subsequent public reporting detaches
-scalars. Operator seal e74dba64 was verified after a separate system-Python
-metadata lookup failed. Warm stack dca0a977 uses the unchanged installed
-packages and a runtime-independent seeded CPU kernel witness.
-
-No old source/data/run or submitted Report1 was changed. Lenovo is unnecessary
-for this tiny-model screen. No new theory branch or rescue is selected while
-these controlled results are pending.

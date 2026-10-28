@@ -6,6 +6,21 @@ and [derivation](theory.md) distinguish an exact hidden feature flow from
 outer FM and from a Gaussian posterior. Existing action-angle methods already
 contain the rotation construction; no mathematical novelty is claimed.
 
+## Outcome (2026-10-29)
+
+The fixed screen failed. Rotation field MSE is 0.2948 / 0.2550 / 0.5101 on
+Product16 / sign-code / half-mixture, compared with Swi129 0.07729 / 0.04097 /
+0.11923 at nearly identical parameter and dense-work budgets. Euler and
+normalized Euler remain close to rotation. This setting is stopped; no image
+training, learned-frame rescue or changed training budget is selected.
+
+Read the [complete analysis](results/analysis-report.md),
+[case notes](results/case-notes.md), [all endpoints](results/endpoints.csv),
+[P trajectories](results/P-trajectories.csv) and [figures](results/figure-catalog.md).
+Actual controller60305/d97c5d and curator1895/7c3cb7 exited0; the independent
+audit passed. Raw source/states/outputs are sealed outside Git; the archive
+receipt records the seal. The original research objective remains open.
+
 ## Operator eligibility
 
 After freezing this committed source outside Git, run the data-free command

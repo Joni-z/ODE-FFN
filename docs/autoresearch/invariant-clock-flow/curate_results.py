@@ -54,7 +54,7 @@ def curate(root,out):
     passed=all(criteria.values());write(out/'summary.json',dict(status='ANALYZED',registered_screen_pass=passed,criteria=criteria,per_law=accept,budget_ratios_to_Swi129=budget,
         new_trajectories=21,reused_endpoints=15,source_commit=load(root/'settings.json')['source_commit'],actual_tool=tool))
     for name,data in (('endpoints',rows),('registered-criteria',accept),('P-trajectories',dynamics),('visited-clocks',clocks),('field-curves',training)):table(out/(name+'.csv'),data)
-    colors={arm:plt.get_cmap('tab10')(i) for i,arm in enumerate(ARMS)}
+    colors={arm:plt.get_cmap('tab20')(i) for i,arm in enumerate((*ARMS,*HISTORY))}
     figure,axes=plt.subplots(1,3,figsize=(16,4.2))
     for ax,m in zip(axes,METRICS):
         for i,arm in enumerate((*ARMS,*HISTORY)):
@@ -62,7 +62,7 @@ def curate(root,out):
             for law in LAWS:
                 group=[v for v in rows if v['law']==law];den=min(v[m] for v in group if v['arm'] not in ('rotation','normalized_euler'))
                 values.append(next(v[m] for v in group if v['arm']==arm)/den)
-            ax.plot(range(3),values,'o-',label=arm,color=colors.get(arm),alpha=1 if arm=='rotation' else .65,linewidth=2 if arm=='rotation' else 1)
+            ax.plot(range(3),values,marker='x' if arm in HISTORY else 'o',linestyle='--' if arm in HISTORY else '-',label=arm,color=colors[arm],alpha=1 if arm=='rotation' else .75,linewidth=2.5 if arm=='rotation' else 1)
         ax.axhline(1,color='black',linestyle=':',linewidth=.7);ax.set_xticks(range(3),('Product16','Sign-code','Half-mixture'));ax.set_title(m+' / best practical');ax.set_yscale('log');ax.grid(alpha=.15)
     axes[-1].legend(fontsize=7,bbox_to_anchor=(1.03,1),loc='upper left');figure.tight_layout();figure.savefig(fig/'01-comparison.png',dpi=180);figure.savefig(fig/'01-comparison.pdf');plt.close(figure)
     figure,axes=plt.subplots(1,3,figsize=(13,3.6))

@@ -385,3 +385,11 @@ new trained ODE method is claimed. Next P0 review before implementation:
 - [ ] Compare ordinary gated rotations/radial gates and earlier stopped
   shear/frame/exponential settings; nominate one finite experiment only if
   the constraint, controls and measured budget are defensible.
+
+## Invariant-clock screen closure (2026-10-29)
+- [x] Complete the action-angle review, full feedback derivation and exact operator checks.
+- [x] Register, source-freeze and pass a fresh complete native preflight.
+- [x] Run all21cold seed0 trajectories with two one-thread Mac mini workers.
+- [x] Independently audit every registered output, curate all36endpoints and P/clock histories, and seal the raw runtime.
+
+Controller60305/d97c5d exits0; runtime seal9a7f7bb6. Exact rotation fails all quality criteria, with field MSE3.8–6.2times Swi129. Euler and normalized Euler perform similarly. This fixed setting stops without a learned-frame/budget rescue. The broader research goal is active: no accepted new ODE method has been established. Use completed controlled failures and existing image controls before selecting another hypothesis.

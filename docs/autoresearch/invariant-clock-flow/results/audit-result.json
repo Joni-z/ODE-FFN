@@ -1,0 +1,329 @@
+{
+  "status": "PASS",
+  "new_endpoints": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "rotation",
+      "oracle_mse": 0.29478541016578674,
+      "jacobian_error": 54.329056310673955,
+      "sw2": 0.09790238738059998
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "euler",
+      "oracle_mse": 0.2923903167247772,
+      "jacobian_error": 53.58744423270183,
+      "sw2": 0.09651339054107666
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "normalized_euler",
+      "oracle_mse": 0.2952287793159485,
+      "jacobian_error": 54.43161098308394,
+      "sw2": 0.09935356676578522
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "silu_identity",
+      "oracle_mse": 0.2191411405801773,
+      "jacobian_error": 43.14542963412475,
+      "sw2": 0.12545710802078247
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "fixed06_identity",
+      "oracle_mse": 0.228585347533226,
+      "jacobian_error": 42.46844861820411,
+      "sw2": 0.1388535499572754
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu129",
+      "oracle_mse": 0.07729042321443558,
+      "jacobian_error": 20.785655825240582,
+      "sw2": 0.10271615535020828
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "native_k1",
+      "oracle_mse": 0.2929318845272064,
+      "jacobian_error": 54.68105776537609,
+      "sw2": 0.13062864542007446
+    },
+    {
+      "law": "sign_code",
+      "arm": "rotation",
+      "oracle_mse": 0.2550426721572876,
+      "jacobian_error": 28.292417147966585,
+      "sw2": 0.1907239705324173
+    },
+    {
+      "law": "sign_code",
+      "arm": "euler",
+      "oracle_mse": 0.25866299867630005,
+      "jacobian_error": 28.048982039546946,
+      "sw2": 0.19127129018306732
+    },
+    {
+      "law": "sign_code",
+      "arm": "normalized_euler",
+      "oracle_mse": 0.24483266472816467,
+      "jacobian_error": 27.453011419071554,
+      "sw2": 0.19557441771030426
+    },
+    {
+      "law": "sign_code",
+      "arm": "silu_identity",
+      "oracle_mse": 0.07002837210893631,
+      "jacobian_error": 8.561899065012604,
+      "sw2": 0.11392997205257416
+    },
+    {
+      "law": "sign_code",
+      "arm": "fixed06_identity",
+      "oracle_mse": 0.08610918372869492,
+      "jacobian_error": 10.871162123056967,
+      "sw2": 0.1099415272474289
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu129",
+      "oracle_mse": 0.04096724092960358,
+      "jacobian_error": 5.062847621744291,
+      "sw2": 0.12160251289606094
+    },
+    {
+      "law": "sign_code",
+      "arm": "native_k1",
+      "oracle_mse": 0.08626848459243774,
+      "jacobian_error": 10.409227601585275,
+      "sw2": 0.11920225620269775
+    },
+    {
+      "law": "half_mixture",
+      "arm": "rotation",
+      "oracle_mse": 0.510055422782898,
+      "jacobian_error": 63.44435925642902,
+      "sw2": 0.1347578912973404
+    },
+    {
+      "law": "half_mixture",
+      "arm": "euler",
+      "oracle_mse": 0.5129673480987549,
+      "jacobian_error": 63.93646882253753,
+      "sw2": 0.13704338669776917
+    },
+    {
+      "law": "half_mixture",
+      "arm": "normalized_euler",
+      "oracle_mse": 0.513222873210907,
+      "jacobian_error": 64.21356122318787,
+      "sw2": 0.1350458413362503
+    },
+    {
+      "law": "half_mixture",
+      "arm": "silu_identity",
+      "oracle_mse": 0.29911351203918457,
+      "jacobian_error": 46.43746842801848,
+      "sw2": 0.11814887821674347
+    },
+    {
+      "law": "half_mixture",
+      "arm": "fixed06_identity",
+      "oracle_mse": 0.39702919125556946,
+      "jacobian_error": 56.147096248293906,
+      "sw2": 0.13370028138160706
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu129",
+      "oracle_mse": 0.11922867596149445,
+      "jacobian_error": 23.23190183218871,
+      "sw2": 0.08550019562244415
+    },
+    {
+      "law": "half_mixture",
+      "arm": "native_k1",
+      "oracle_mse": 0.3557712137699127,
+      "jacobian_error": 51.77673893642611,
+      "sw2": 0.13935700058937073
+    }
+  ],
+  "historical_endpoints": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "ode_k2",
+      "oracle_mse": 0.3255273401737213,
+      "jacobian_error": 59.3056434857044,
+      "sw2": 0.12439507246017456,
+      "parameters": 83862,
+      "dense_forward_macs": 106944,
+      "dense_training_forward_backward_macs": 317696,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "free_isru",
+      "oracle_mse": 0.037159208208322525,
+      "jacobian_error": 8.660232591194022,
+      "sw2": 0.09289821237325668,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu64",
+      "oracle_mse": 0.16439799964427948,
+      "jacobian_error": 37.752175108324096,
+      "sw2": 0.09275821596384048,
+      "parameters": 58572,
+      "dense_forward_macs": 57024,
+      "dense_training_forward_backward_macs": 167936,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu128",
+      "oracle_mse": 0.09232578426599503,
+      "jacobian_error": 24.8899051463949,
+      "sw2": 0.095721535384655,
+      "parameters": 83598,
+      "dense_forward_macs": 81792,
+      "dense_training_forward_backward_macs": 242240,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu160",
+      "oracle_mse": 0.07817807048559189,
+      "jacobian_error": 20.226324015871157,
+      "sw2": 0.09783534705638885,
+      "parameters": 95820,
+      "dense_forward_macs": 93888,
+      "dense_training_forward_backward_macs": 278528,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "ode_k2",
+      "oracle_mse": 0.10986653715372086,
+      "jacobian_error": 12.394552353351411,
+      "sw2": 0.13798949122428894,
+      "parameters": 83862,
+      "dense_forward_macs": 106944,
+      "dense_training_forward_backward_macs": 317696,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "free_isru",
+      "oracle_mse": 0.08507303148508072,
+      "jacobian_error": 11.587272328333082,
+      "sw2": 0.10537309944629669,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu64",
+      "oracle_mse": 0.051075294613838196,
+      "jacobian_error": 6.340648226468765,
+      "sw2": 0.12115330249071121,
+      "parameters": 58572,
+      "dense_forward_macs": 57024,
+      "dense_training_forward_backward_macs": 167936,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu128",
+      "oracle_mse": 0.042466577142477036,
+      "jacobian_error": 5.048275094745893,
+      "sw2": 0.11228495091199875,
+      "parameters": 83598,
+      "dense_forward_macs": 81792,
+      "dense_training_forward_backward_macs": 242240,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu160",
+      "oracle_mse": 0.03979020565748215,
+      "jacobian_error": 4.833984790685715,
+      "sw2": 0.11317788064479828,
+      "parameters": 95820,
+      "dense_forward_macs": 93888,
+      "dense_training_forward_backward_macs": 278528,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "ode_k2",
+      "oracle_mse": 0.3989570736885071,
+      "jacobian_error": 56.02491508665228,
+      "sw2": 0.13203668594360352,
+      "parameters": 83862,
+      "dense_forward_macs": 106944,
+      "dense_training_forward_backward_macs": 317696,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "free_isru",
+      "oracle_mse": 0.1635570526123047,
+      "jacobian_error": 23.28383843543521,
+      "sw2": 0.11444170027971268,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu64",
+      "oracle_mse": 0.1923435926437378,
+      "jacobian_error": 33.49875817318214,
+      "sw2": 0.09625256806612015,
+      "parameters": 58572,
+      "dense_forward_macs": 57024,
+      "dense_training_forward_backward_macs": 167936,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu128",
+      "oracle_mse": 0.1380332112312317,
+      "jacobian_error": 25.69029052380814,
+      "sw2": 0.08844784647226334,
+      "parameters": 83598,
+      "dense_forward_macs": 81792,
+      "dense_training_forward_backward_macs": 242240,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu160",
+      "oracle_mse": 0.11325421184301376,
+      "jacobian_error": 22.208639761278793,
+      "sw2": 0.0861317589879036,
+      "parameters": 95820,
+      "dense_forward_macs": 93888,
+      "dense_training_forward_backward_macs": 278528,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    }
+  ],
+  "new_checkpoint_predictions_bitwise": 84,
+  "new_native_Jacobian_panels_bitwise": 105,
+  "new_manual_Heun_batches_bitwise": 21,
+  "reused_endpoint_replays": 15,
+  "manual_double_chain_anchors": 210,
+  "manual_chain_max_absolute_error": 3.9968028886505635e-15,
+  "matrix_summaries": 432,
+  "full_optimizer_trajectory_rerun": false,
+  "formal_files_unchanged": 632,
+  "seconds": 27.453260666923597
+}
