@@ -1,6 +1,7 @@
 # Time-preserving K1 clock check
 
-Read the [registered hypothesis and controls](protocol.md). This study restores
+Read the [analysis](analysis-report.md), [registered hypothesis](protocol.md) and
+[appendix](stats-appendix.md). The fixed screen and all independent audits are complete. This study restores
 the native 20k K1 and tests exactly one clock calendar plus its same-calibration
 pooled control. It does not train a new model, search a calibration or reopen
 K2. Private runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3`.

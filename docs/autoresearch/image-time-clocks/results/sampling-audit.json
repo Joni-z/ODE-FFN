@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "phase": "sampling",
+  "rows": [
+    {
+      "family": "ode_k1_time",
+      "weighted_mse": 0.16066357775792003,
+      "clean_mse": 0.07630282601185928,
+      "predictions_bitwise": 1024,
+      "generated_images_bitwise": 1024,
+      "time_panels_bitwise": 5,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "family": "ode_k1_pooled",
+      "weighted_mse": 0.1610062727102282,
+      "clean_mse": 0.07636648088390714,
+      "predictions_bitwise": 1024,
+      "generated_images_bitwise": 1024,
+      "time_panels_bitwise": 5,
+      "parameters_buffers_unchanged": true
+    }
+  ],
+  "calibration": {
+    "native_arrays_bitwise": 6,
+    "table_scalars": 774,
+    "pooled_scalars": 6,
+    "parameters_buffers_unchanged": true
+  },
+  "new_generated_images_bitwise": 2048,
+  "new_time_panels_bitwise": 10,
+  "formal_files_unchanged": 23,
+  "seconds": 239.16565325018018
+}

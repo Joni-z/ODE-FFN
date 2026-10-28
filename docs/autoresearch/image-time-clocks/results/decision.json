@@ -1,0 +1,44 @@
+{
+  "rows": [
+    {
+      "family": "ode_k1_time",
+      "strict_ordering": true,
+      "allocation_margin": false,
+      "fitting_ratios": {
+        "weighted_mse": 1.0103150553296356,
+        "clean_mse": 1.0076493898389909
+      },
+      "SiLU64_strict_ordering": true,
+      "native_delta": {
+        "fid": 7.427306892540258,
+        "weighted_mse": 0.00039613872021351804,
+        "clean_mse": 0.0001499982543734929
+      }
+    },
+    {
+      "family": "ode_k1_pooled",
+      "strict_ordering": false,
+      "allocation_margin": false,
+      "fitting_ratios": {
+        "weighted_mse": 1.012470054455972,
+        "clean_mse": 1.0084900112986646
+      },
+      "SiLU64_strict_ordering": false,
+      "native_delta": {
+        "fid": 26.61519308159899,
+        "weighted_mse": 0.0007388336725216715,
+        "clean_mse": 0.0002136531264213537
+      }
+    }
+  ],
+  "time_over_pooled_criterion": true,
+  "time_specific_explanation_supported": false,
+  "time_minus_pooled": {
+    "fid": -19.18788618905873,
+    "weighted_mse": -0.0003426949523081535,
+    "clean_mse": -6.36548720478608e-05
+  },
+  "new_trained_method": false,
+  "pooled_control_nominated": false,
+  "old_constant_decision_changed": false
+}

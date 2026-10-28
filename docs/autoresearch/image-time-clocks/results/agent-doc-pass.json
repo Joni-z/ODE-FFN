@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3",
+      "exec_session": 69731,
+      "exit_code": 0,
+      "exec_receipt": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/doc-validation/01-preflight-exec-output.json",
+      "observation_receipts": [
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/doc-validation/01-preflight-poll-001.json",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/doc-validation/01-preflight-poll-002.json"
+      ]
+    },
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/source/study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3",
+      "exec_session": 72055,
+      "exit_code": 0,
+      "exec_receipt": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/doc-validation/02-metric-preflight-exec-output.json",
+      "observation_receipts": [
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3/doc-validation/02-metric-preflight-poll-001.json"
+      ]
+    }
+  ],
+  "preflight_sha256": "c3c8813ac49eae5268606037d7ced61966e0f4a8a0cd17919607dd5ec07530e0",
+  "metric_preflight_sha256": "d7e231cd2ef7c2c9c639593a986a52010fb220445479da5686248e8d880421da",
+  "doc_vs_reality_mismatches": []
+}

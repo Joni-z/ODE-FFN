@@ -1,0 +1,112 @@
+{
+  "status": "PASS",
+  "native1024_predictions_bitwise": true,
+  "native64_Heun_bitwise": true,
+  "calibration_clock_arrays": 6,
+  "calendar_scalar_means": 774,
+  "pooled_scalar_means": 6,
+  "constant_injection1024_bitwise": true,
+  "promoted_witnesses": [
+    {
+      "mode": "time",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "mode": "time",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "mode": "time",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "mode": "time",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "mode": "time",
+      "time": 0.9,
+      "max_error": 0.0
+    },
+    {
+      "mode": "pooled",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "mode": "pooled",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "mode": "pooled",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "mode": "pooled",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "mode": "pooled",
+      "time": 0.9,
+      "max_error": 0.0
+    }
+  ],
+  "costs": [
+    {
+      "mode": "time",
+      "stored_parameters": 211094,
+      "inactive_parameters": 25350,
+      "fixed_position_parameters": 4096,
+      "total_parameter_values": 215190,
+      "active_parameters": 185744,
+      "FFN_forward_MACs": 8192,
+      "clock_constants": 774
+    },
+    {
+      "mode": "pooled",
+      "stored_parameters": 211094,
+      "inactive_parameters": 25350,
+      "fixed_position_parameters": 4096,
+      "total_parameter_values": 215190,
+      "active_parameters": 185744,
+      "FFN_forward_MACs": 8192,
+      "clock_constants": 6
+    }
+  ],
+  "fixtures": {
+    "status": "PASS",
+    "operator_rows": [
+      {
+        "time": 0.123,
+        "state_max_error": 0.0,
+        "time_max_error": 0.0,
+        "complete_FFN_state_max_error": 2.220446049250313e-16,
+        "complete_FFN_time_max_error": 1.1102230246251565e-16
+      },
+      {
+        "time": 0.789,
+        "state_max_error": 0.0,
+        "time_max_error": 0.0,
+        "complete_FFN_state_max_error": 5.551115123125783e-17,
+        "complete_FFN_time_max_error": 4.85722573273506e-17
+      }
+    ],
+    "mesh_entries_exact": 129,
+    "decision_cases": 3
+  },
+  "independent_calibration": {
+    "native_arrays_bitwise": 6,
+    "table_scalars": 774,
+    "pooled_scalars": 6,
+    "parameters_buffers_unchanged": true
+  },
+  "failed_preflight_calibration_recomputed_bitwise": true,
+  "new_quality_result": false
+}

@@ -12,9 +12,9 @@ retrained architecture or a rescue of the old constant replacement.
   literal operators, cost and derivative checks; commit/publish runnable source.
 - [x] Verify warm environment hashes and obtain a fresh documented preflight:
   native replay, all calibration arrays, injection, derivatives and costs.
-- [ ] Run both fixed interventions with CPU/RSS monitoring; independently replay
+- [x] Run both fixed interventions with CPU/RSS monitoring; independently replay
   native calibration, predictions, sampling, features and all reused/new FIDs.
-- [ ] Plot all outcomes and fixed examples, state the decision and limitations,
+- [x] Plot all outcomes and fixed examples, state the decision and limitations,
   verify artifacts/parent preservation, seal and publish.
 
 ## Decisions and errors
@@ -29,4 +29,4 @@ Native preflight35070 exits1 because fixed pos_embed was included in the learned
 V2 preflight72918 exits1 before quality work: a parent prepended its old source path, so independent audit imported the wrong `study`. V3 pins the CLI module and imports the audit by its exact file path. Both failed runtimes stay read-only.
 
 ## Status
-V3 source86afd38 is published. Fresh documented native69731/metric72055 both exit0; all native predictions,64-image endpoint, six raw calendars/774means,6pooled means,ten promoted witnesses and32MPS rows pass. Both previous failures and unchanged calibration are preserved. Controller68903 (create1793181273.394136), actual session61529, is running the two declared new sample banks with at most two one-thread CPU children. No new quality conclusion yet.
+Complete, independently audited and sealed. Controller61529, curator8411 and archive64846 all terminate0.124files/88,122,834private bytes seal8917402ec1dd0ca04fec024b081bbf7b37f64e563444220592c3ab7604bc17cb. All eleven endpoints,774calendar means/6pooled means,55panels and four inspected figures/88fixed examples verify. Time FID180.86422 versus pooled200.05211 and native173.43691: strict ranking/time-pooled contrast pass, original5%allocation margin fails. Stop this one table/calibration setting; no retraining or new architecture is selected. All failed pre-quality versions and parent seals remain unchanged.
