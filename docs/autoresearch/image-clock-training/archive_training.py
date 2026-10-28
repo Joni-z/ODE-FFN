@@ -94,6 +94,7 @@ def main(root):
                 assert (None if r[k]=='' else float(r[k]))==v.get(k)
     decision=study.load(doc/'results/decision.json');assert decision==study.decisions(formal)
     assert not decision['new_ODE_method'] and not decision['posthoc_reference_nominated'] and decision['ordinary_controls_only']
+    assert 'FINAL QUALITY PENDING' not in (doc/'stats-appendix.md').read_text()
     labels={v:k for k,v in curator.LABELS.items()};reported=[]
     for line in (doc/'analysis-report.md').read_text().splitlines():
         cells=[v.strip().replace('**','') for v in line.strip().strip('|').split('|')]

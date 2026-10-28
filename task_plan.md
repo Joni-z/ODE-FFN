@@ -318,7 +318,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 ## Cold clock and ordinary-coordinate controls
 - [x] Revalidate previous sealed progress and stop rules; specify two cold controls, one frozen same-clock reference and scoped optimizer-coordinate identities before outcomes.
 - [x] Publish source28be1e8; fresh native47808/metric32097exit0, including shared timestep-MLP gradients. All25cached FIDs replay exactly, shared ordinary init/data RNG match, physical resumes and actual costs pass.
-- [ ] Run exactly two20ktrajectories with matching historical stream and complete P/effective-W histories.
+- [x] Run exactly two20ktrajectories with matching historical stream and complete P/effective-W histories.
 - [ ] Audit boundaries/streams and all seven new inference banks, retain32FID endpoints, verify report/figures, seal and publish.
 
 ## Status
