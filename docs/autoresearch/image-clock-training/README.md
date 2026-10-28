@@ -17,15 +17,15 @@ feature extraction uses the existing MPS path. Do not use MBP or torch.
 After a clean source commit, prepare a previously unused runtime:
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B docs/autoresearch/image-clock-training/training_controls.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B docs/autoresearch/image-clock-training/training_controls.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2
 ```
 
 A fresh agent must execute both commands verbatim, once each and in order;
 if either fails, preserve the exact outputs and stop without fixing or retrying.
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training/source/training_controls.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training
-/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training/source/training_controls.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2/source/training_controls.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2
+/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2/source/training_controls.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2
 ```
 
 PASS requires four native 1024-prediction replays; shared cold parameters/buffers;
@@ -44,7 +44,7 @@ Only after both terminal exits 0, write `documented-pass.json` with `status: PAS
 Launch the source-bound controller once:
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training/source/controller.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2/source/controller.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2
 ```
 
 Six phases: cold training, training-boundary audit, seven-bank sampling,

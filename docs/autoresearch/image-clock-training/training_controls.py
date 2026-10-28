@@ -70,6 +70,7 @@ def restored(arm,state=None,independent=False):
     return model,optimizer,rng,digest
 def bank(t=None):
     return old().bank(PARENTS['native']/'banks'/('validation.npz' if t is None else f'panel_{t:.1f}.npz'))
+def is_core_parameter(name):return name.startswith('blocks.') and '.mlp.' in name
 def matrices(model,arm):
     values={}
     for j,block in enumerate(model.blocks):
@@ -90,7 +91,7 @@ def history(model,arm,folder,step):
 def shared_initial_witness():
     initial=native_state(0);a=construct('fixed06');b=construct('matched_silu64');state_a=a.state_dict();state_b=b.state_dict()
     for name,value in initial['model'].items():
-        if '.mlp.' not in name:assert torch.equal(value,state_a[name]) and torch.equal(value,state_b[name]),name
+        if not is_core_parameter(name):assert torch.equal(value,state_a[name]) and torch.equal(value,state_b[name]),name
     for name,value in state_a.items():assert torch.equal(value,initial['model'][name])
     for name,value in initial['runtime_buffers'].items():
         assert torch.equal(dict(a.named_buffers())[name],value) and torch.equal(dict(b.named_buffers())[name],value)
@@ -105,9 +106,11 @@ def active_witness():
     target=torch.from_numpy(inputs['target'][:2]).double();delta=torch.from_numpy(inputs['delta'][:2]).double()[:,None,None,None]
     one=a(x,t,y);two=b(x,t,y);torch.testing.assert_close(one,two,rtol=1e-9,atol=1e-9)
     ((one-target)/delta).square().mean().backward();((two-target)/delta).square().mean().backward()
-    pa=dict(a.named_parameters());pb=dict(b.named_parameters());error=0.;active=0
+    pa=dict(a.named_parameters());pb=dict(b.named_parameters());error=0.;active=0;shared=[];timestep=[]
     for name,v in pa.items():
-        if '.mlp.' not in name and v.requires_grad:
+        if not is_core_parameter(name) and v.requires_grad:
+            shared.append(name)
+            if name.startswith('t_embedder.mlp.'):timestep.append(name)
             if v.grad is None:assert pb[name].grad is None
             else:
                 torch.testing.assert_close(v.grad,pb[name].grad,rtol=1e-8,atol=1e-10);error=max(error,float((v.grad-pb[name].grad).abs().max()))
@@ -116,7 +119,9 @@ def active_witness():
             p=pa[f'blocks.{j}.mlp.ode{k}.proj.weight'];w=pb[f'blocks.{j}.mlp.fc{k}.weight']
             assert p.grad.norm()>1e-10;active+=1;torch.testing.assert_close(p.grad,ops.C*w.grad,rtol=1e-8,atol=1e-10)
             error=max(error,float((p.grad-ops.C*w.grad).abs().max()))
-    return dict(promoted_active_prediction_max_error=float((one-two).detach().abs().max()),parameter_gradient_max_error=error,nonzero_P_routes=active)
+    assert len(timestep)==4
+    return dict(promoted_active_prediction_max_error=float((one-two).detach().abs().max()),parameter_gradient_max_error=error,
+        nonzero_P_routes=active,shared_gradient_tensors_checked=len(shared),timestep_MLP_parameters_checked=timestep)
 def cost_witness():
     from torch.utils._python_dispatch import TorchDispatchMode
     class Count(TorchDispatchMode):
@@ -148,8 +153,13 @@ def prepare(root):
         if p.is_file():shutil.copyfile(p,root/'source'/p.name)
     write(root/'settings.json',dict(source_commit=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip(),arms=ARMS,
         steps=STEPS,sampling=SAMPLES,model_seed=0,constant=ops.C,new_architecture=False,workers=2,threads=1,training_steps=20000))
-    paths=[*(root/'source').iterdir(),root/'settings.json',*(p/'sealed-runtime.json' for p in PARENTS.values())]
-    write(root/'bindings.json',{str(p):sha(p) for p in paths if p.is_file()});verify(root)
+    paths=[*(root/'source').iterdir(),root/'settings.json',*(p/'sealed-runtime.json' for p in PARENTS.values())];preserved={}
+    previous=BASE/'oct28-image-clock-training'
+    if root!=previous and previous.exists():
+        assert load(previous/'documented-pass.json')['status']=='PASS' and not (previous/'output').exists()
+        preserved={str(p):sha(p) for p in previous.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+        write(root/'superseded-preflight-preservation.json',preserved);paths.append(root/'superseded-preflight-preservation.json')
+    write(root/'bindings.json',{**{str(p):sha(p) for p in paths if p.is_file()},**preserved});verify(root)
     print(json.dumps(dict(status='PREPARED',root=str(root))),flush=True)
 def preflight(root):
     torch.set_num_threads(1);verify(root);assert not (root/'preflight.json').exists()

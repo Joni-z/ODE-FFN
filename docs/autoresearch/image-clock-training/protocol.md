@@ -131,6 +131,6 @@ scope accurately; do not label the training audit a full trajectory replay.
 
 Preserve source/input/parent hashes, all failed sources, checkpoints, P histories
 and actual terminal exits. Runtime:
-`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training`.
+`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2`.
 Stop after this registered cohort and complete report/archive. No learning-rate,
 constant, schedule, width or training extension is selected after outcomes.

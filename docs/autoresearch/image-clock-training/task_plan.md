@@ -30,4 +30,4 @@ initialization/coordinate controls are ordinary comparators, not its rescue.
 
 ## Status
 Protocol and scoped [derivation](theory.md) precede all new fitted outcomes.
-Runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training`.
+Runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2`.
