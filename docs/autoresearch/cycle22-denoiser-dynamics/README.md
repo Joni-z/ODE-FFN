@@ -1,5 +1,11 @@
 # The dynamics of the supervised denoiser
 
+Completed: [analysis](analysis-report.md), [full derivation](derivation.md),
+[proof audit](PROOF_AUDIT.md), [numerical scope](stats-appendix.md) and
+[figures](figure-catalog.md). The [one-page audit summary](results/proof-audit-summary.pdf)
+is rendered with Matplotlib; a separate [LaTeX source](proof_audit_report.tex)
+is provided without claiming TeX compilation. Semantic review remains provisional.
+
 Read the [mathematical object and proofs](derivation.md) and
 [fixed numerical protocol](protocol.md). This checks objective identities;
 it does not train or nominate an architecture. Review assurance is recorded

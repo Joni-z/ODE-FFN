@@ -1,0 +1,52 @@
+{
+  "gaussian_at_t_half_z_one": {
+    "denoiser": 1.0,
+    "endpoint": 1.4142135623730951,
+    "denoiser_material_drift": 2.0,
+    "endpoint_material_drift": 0.0,
+    "endpoint_excess_weighted_risk": 0.34314575050762,
+    "wrong_prior_excess_weighted_risk": 0.22222222222222213
+  },
+  "atomic": [
+    {
+      "label": "symmetric",
+      "atoms": [
+        -1.0,
+        1.0
+      ],
+      "prior_weights": [
+        0.5,
+        0.5
+      ],
+      "posterior_weights": [
+        0.5,
+        0.5
+      ],
+      "mean": 0.0,
+      "variance": 1.0,
+      "third_moment": 0.0,
+      "precision_derivative": 0.0,
+      "covariance_only_drift": -0.0
+    },
+    {
+      "label": "skew",
+      "atoms": [
+        -0.5,
+        2.0
+      ],
+      "prior_weights": [
+        0.38019853342697635,
+        0.6198014665730237
+      ],
+      "posterior_weights": [
+        0.8,
+        0.20000000000000007
+      ],
+      "mean": 1.1102230246251565e-16,
+      "variance": 1.0000000000000004,
+      "third_moment": 1.5000000000000004,
+      "precision_derivative": -0.7500000000000002,
+      "covariance_only_drift": -1.110223024625157e-16
+    }
+  ]
+}

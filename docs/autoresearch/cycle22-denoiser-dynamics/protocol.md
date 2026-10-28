@@ -62,14 +62,14 @@ After a successful run, independently replay all mean values with NumPy,
 closed-form Gaussian/atomic cases and finite differences at h=1e-4/5e-5.
 Use all120cases, without selecting a favorable step. Finite differences
 validate the saved derivatives within declared truncation-aware tolerances,
-not as an exact second AD implementation. Save both step results. Complete
+not as an exact second AD implementation. Save both step results.
 For every derivative array and both step sizes require max absolute difference
 <=2e-3*(1+max absolute AD derivative). Finite-difference PDE residuals must
 be <=1e-2*(1+largest participating derivative-term magnitude), separately
 at both steps. These gates are fixed before execution and are deliberately
 looser than the float64 AD identities because second differences have
 truncation and subtraction error. Do not choose the better step afterward.
-AD and numeric fixtures must pass before curating evidence. No test on
+Complete AD and numeric fixtures must pass before curating evidence. No test on
 learned image-model PDE residuals, new regularizer, architecture or training
 run is selected here.
 

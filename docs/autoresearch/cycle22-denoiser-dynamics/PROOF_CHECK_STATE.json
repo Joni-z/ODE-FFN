@@ -1,22 +1,291 @@
 {
-  "phase": "review",
-  "round": 1,
-  "status": "in_progress",
-  "source_units": [
-    "U0",
-    "U1",
-    "U2",
-    "U3",
-    "U4",
-    "U5",
-    "U6",
-    "U7",
-    "U8"
-  ],
-  "review_independence": "same-family",
-  "acceptance_status": "provisional",
-  "agent_task": "/root/denoiser_dynamics_proof_review",
+  "status": "completed",
+  "reviewer_task": "/root/denoiser_dynamics_proof_review",
   "requested_model": "gpt-6-astra",
   "requested_effort": "ultra",
-  "actual_returned_model": null
+  "actual_returned_model": null,
+  "review_independence": "native same-family, not independently attested",
+  "acceptance_status": "provisional",
+  "source_unit_coverage": {
+    "assigned": 9,
+    "covered": 9,
+    "complete": true,
+    "scope": "execution coverage, not proof completeness"
+  },
+  "microclaims": 35,
+  "open_fatal": 0,
+  "open_critical": 0,
+  "open_major": 0,
+  "open_minor": 0,
+  "closed_issues": [
+    "R1 smooth conditional-mean representatives",
+    "R2 density and vector-domain notation"
+  ],
+  "nonclaims": [
+    "No cross-family semantic acceptance",
+    "No theorem novelty",
+    "No model-quality or architecture result",
+    "Numerics and citations outside reviewer scope"
+  ],
+  "receipts": [
+    {
+      "shard_id": "S0",
+      "assigned_unit_ids": [
+        "U0",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "covered_unit_ids": [
+        "U0",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "status": "COMPLETE",
+      "entries": [
+        {
+          "unit_id": "U0",
+          "source_lines": "11-37",
+          "obligation_ids": [
+            "U0-01",
+            "U0-02",
+            "U0-03",
+            "U0-04"
+          ]
+        },
+        {
+          "unit_id": "U1",
+          "source_lines": "39-46",
+          "obligation_ids": [
+            "U1-01",
+            "U1-02",
+            "U1-03"
+          ]
+        },
+        {
+          "unit_id": "U2",
+          "source_lines": "48-63",
+          "obligation_ids": [
+            "U2-01",
+            "U2-02",
+            "U2-03",
+            "U2-04"
+          ]
+        },
+        {
+          "unit_id": "U3",
+          "source_lines": "65-86",
+          "obligation_ids": [
+            "U3-01",
+            "U3-02",
+            "U3-03"
+          ]
+        },
+        {
+          "unit_id": "U4",
+          "source_lines": "88-109",
+          "obligation_ids": [
+            "U4-01",
+            "U4-02",
+            "U4-03",
+            "U4-04",
+            "U4-05",
+            "U4-06"
+          ]
+        },
+        {
+          "unit_id": "U5",
+          "source_lines": "111-132",
+          "obligation_ids": [
+            "U5-01",
+            "U5-02",
+            "U5-03",
+            "U5-04",
+            "U5-05"
+          ]
+        },
+        {
+          "unit_id": "U6",
+          "source_lines": "134-141",
+          "obligation_ids": [
+            "U6-01",
+            "U6-02",
+            "U6-03"
+          ]
+        },
+        {
+          "unit_id": "U7",
+          "source_lines": "143-159",
+          "obligation_ids": [
+            "U7-01",
+            "U7-02",
+            "U7-03"
+          ]
+        },
+        {
+          "unit_id": "U8",
+          "source_lines": "161-172",
+          "obligation_ids": [
+            "U8-01",
+            "U8-02",
+            "U8-03",
+            "U8-04"
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "shard_id": "S0",
+      "round": 2,
+      "assigned_unit_ids": [
+        "U0",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "covered_unit_ids": [
+        "U0",
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "status": "COMPLETE",
+      "entries": [
+        {
+          "unit_id": "U0",
+          "source_lines": "11-43",
+          "obligation_ids": [
+            "U0-01",
+            "U0-02",
+            "U0-03",
+            "U0-04"
+          ],
+          "status": "RECHECKED",
+          "finding": "Finite-GMM moments, compact-set domination and posterior positivity remain sufficient; smooth Bayes-ratio versions are now explicit."
+        },
+        {
+          "unit_id": "U1",
+          "source_lines": "45-52",
+          "obligation_ids": [
+            "U1-01",
+            "U1-02",
+            "U1-03"
+          ],
+          "status": "RECHECKED",
+          "finding": "Conditional-expectation orthogonality and fixed-time positive weighting remain correct; uniqueness now explicitly uses the law of Z_t."
+        },
+        {
+          "unit_id": "U2",
+          "source_lines": "54-69",
+          "obligation_ids": [
+            "U2-01",
+            "U2-02",
+            "U2-03",
+            "U2-04"
+          ],
+          "status": "RECHECKED",
+          "finding": "Heat identity, posterior mean identity and covariance Jacobian, including PSD and degenerate cases, remain correct."
+        },
+        {
+          "unit_id": "U3",
+          "source_lines": "71-92",
+          "obligation_ids": [
+            "U3-01",
+            "U3-02",
+            "U3-03"
+          ],
+          "status": "RECHECKED",
+          "finding": "Score differentiation and denoiser PDE remain correct; the domain now explicitly distinguishes vector y from scalar r."
+        },
+        {
+          "unit_id": "U4",
+          "source_lines": "94-115",
+          "obligation_ids": [
+            "U4-01",
+            "U4-02",
+            "U4-03",
+            "U4-04",
+            "U4-05",
+            "U4-06"
+          ],
+          "status": "RECHECKED",
+          "finding": "Likelihood equivalence, spatial rescaling, time derivative, uncapped conditional velocity and material derivative remain correct."
+        },
+        {
+          "unit_id": "U5",
+          "source_lines": "117-138",
+          "obligation_ids": [
+            "U5-01",
+            "U5-02",
+            "U5-03",
+            "U5-04",
+            "U5-05"
+          ],
+          "status": "RECHECKED",
+          "finding": "Gaussian drift, invariant endpoint map and excess risk remain correct; the bounded non-invariance conclusion is preserved."
+        },
+        {
+          "unit_id": "U6",
+          "source_lines": "140-147",
+          "obligation_ids": [
+            "U6-01",
+            "U6-02",
+            "U6-03"
+          ],
+          "status": "RECHECKED",
+          "finding": "Wrong-prior PDE consistency and 2/9 true-law excess risk remain correct; the skeleton now lists U4."
+        },
+        {
+          "unit_id": "U7",
+          "source_lines": "149-165",
+          "obligation_ids": [
+            "U7-01",
+            "U7-02",
+            "U7-03"
+          ],
+          "status": "RECHECKED",
+          "finding": "The fixed-y normalized posterior derivative and contracted third-moment expansion remain correct and appropriately scoped."
+        },
+        {
+          "unit_id": "U8",
+          "source_lines": "167-178",
+          "obligation_ids": [
+            "U8-01",
+            "U8-02",
+            "U8-03",
+            "U8-04"
+          ],
+          "status": "RECHECKED",
+          "finding": "Both posterior laws, their fixed-prior realizations and unequal drifts remain correct; the closure impossibility is limited to a common function of (y,lambda,m,C)."
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "phase": "completed",
+  "round": 2,
+  "render_html": false,
+  "render_html_reason": "CLI-oriented package; Markdown and standalone audit PDF supplied"
 }

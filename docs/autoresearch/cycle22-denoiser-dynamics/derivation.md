@@ -26,6 +26,12 @@ its spatial Hessian. Gradients are columns. C is the conditional covariance.
 For precision lambda=1/r, use m_lambda(y), C_lambda(y), and
 kappa_lambda=E[(X-m_lambda)||X-m_lambda||^2|y], a vector, not the full tensor.
 
+Throughout, m denotes the smooth Bayes-ratio version
+`integral x*phi_r(y-x) prior(dx) / integral phi_r(y-x) prior(dx)`.
+D denotes the analogous smooth ratio with likelihood
+`phi_((1-t)^2)(z-tX)`. Conditional expectations as arbitrary almost-everywhere
+versions are not being differentiated pointwise.
+
 All equalities below hold at fixed interior t or r. No endpoint-uniform error
 or t=0/1 differentiability is asserted. For a compact y set and r in a compact
 subset of (0,infinity), Gaussian likelihood derivatives are bounded by a
@@ -38,8 +44,8 @@ used in U2–U7; constants may depend on the fixed compact sets and prior.
 
 ## U1: The regression optimum
 
-For every fixed t, the unique squared-loss minimizer up to p_t-almost-everywhere
-equality of E[||f(Z_t,t)-X||^2/delta(t)^2|t] is D. Indeed, writing f-X as
+For every fixed t, the unique squared-loss minimizer up to almost-everywhere
+equality under the law of Z_t of E[||f(Z_t,t)-X||^2/delta(t)^2|t] is D. Indeed, writing f-X as
 (f-D)+(D-X), the conditional expectation of the cross term given Z_t is zero.
 The excess risk is E[||f-D||^2|t]/delta(t)^2. Thus the denominator cap changes
 time weighting but not this ideal conditional optimum. This statement concerns
@@ -64,7 +70,7 @@ constraints proved for a hidden P or one local FFN.
 
 ## U3: A necessary denoiser PDE
 
-For every prior in U0 and every y,r>0,
+For every prior in U0, every vector y in R^d and every scalar r>0,
 
 ```text
 partial_r m = .5 Delta_y m + J_m (m-y)/r.

@@ -14,7 +14,7 @@ or numerical check agrees.
 | U3 | Score heat equation and derivative commutations imply denoiser PDE | U0,U2 |
 | U4 | Correct coordinate transform and uncapped material derivative | U0,U3 |
 | U5 | Gaussian non-invariance and distinct invariant endpoint map/risk | U1,U4 |
-| U6 | Wrong-prior PDE consistency and strictly positive true excess risk | U1,U3 |
+| U6 | Wrong-prior PDE consistency and strictly positive true excess risk | U1,U3,U4 |
 | U7 | Differentiated normalized posterior, centered third-moment expansion | U0 |
 | U8 | Two realizable posterior laws with equal mean/covariance but different drift; bounded closure claim | U0,U7 |
 

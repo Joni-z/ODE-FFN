@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "Prior-class application to the three existing analytic laws; numerical rotation tolerance, not exact-real orthogonality certification",
+  "rows": [
+    {
+      "dataset": "gaussian_aniso_2d",
+      "dim": 2,
+      "finite_GMM_components": 1,
+      "minimum_component_variance": 0.09,
+      "positive_normalized_weights": true,
+      "rotation_orthogonality_maxerror": 0.0,
+      "distribution_sha256": "d9056501f59333eb297f784d750da801dc4c4971d09a5d20eb8aa042781b6c57",
+      "validation_sha256": "6d4f58fa3c5cf93065ed1af37f1b555e842c9707cdaccb96c2119193109cfcca"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "dim": 2,
+      "finite_GMM_components": 8,
+      "minimum_component_variance": 0.04,
+      "positive_normalized_weights": true,
+      "rotation_orthogonality_maxerror": 0.0,
+      "distribution_sha256": "7c522997f8f79b95a57335cf9cbf026895ff4918e3a313f0263ce6e9f3b96ce4",
+      "validation_sha256": "63cb7eefa352714477ca7e35d3093b8f45fa764c71b0b5ab918fbb0857b2abf0"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "dim": 16,
+      "finite_GMM_components": 65536,
+      "minimum_component_variance": 0.04,
+      "positive_normalized_weights": true,
+      "rotation_orthogonality_maxerror": 6.661338147750939e-16,
+      "distribution_sha256": "79c32e0235ec1066510e04c10c9c0e2d6d010c9002507653993cec0da0a72af9",
+      "validation_sha256": "8052dc077447c452b80a6821a734ba6416c1fd1d03e14ed623552595068f77a3"
+    }
+  ]
+}

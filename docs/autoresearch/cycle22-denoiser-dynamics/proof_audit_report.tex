@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{booktabs,amsmath,hyperref}
+\title{Proof Audit: Dynamics of the Supervised Denoiser}
+\author{Zhizhe Zhang}
+\date{28 October 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Assurance: native same-family review; provisional.}
+No cross-family semantic acceptance, theorem novelty or architecture improvement
+is claimed. The full derivation and raw review reports accompany this summary.
+
+\paragraph{Scope.} Nine declared source units, U0--U8, contain 35 extracted
+microclaims. One fresh reviewer checked the original proof and then rechecked
+all units in the same session after two notation clarifications. Coverage
+certifies execution over declared units, not completeness of all possible
+proof obligations. Actual returned model identity was unavailable; the
+requested route is recorded separately.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Issue & Before & After\\
+\midrule
+R1 & Conditional-mean version implicit & Smooth Bayes ratio explicit\\
+R2 & Density/domain notation unclear & Law of $Z_t$, vector $y$ explicit\\
+Dependency & U6--U4 edge implicit & Edge recorded, graph acyclic\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Mathematical findings.}
+For the stated finite Gaussian-mixture prior class at interior noise variance,
+the posterior mean obeys
+\[
+\partial_r m=\tfrac12\Delta m+J_m(m-y)/r.
+\]
+This necessary identity does not identify the correct prior. For the independent
+Gaussian FM example, the supervised denoiser has nonzero material derivative,
+while a distinct endpoint map is invariant. A precision derivative generally
+contains a contracted third posterior central moment in addition to covariance.
+These statements do not select a new hidden-state architecture or loss.
+
+\paragraph{Separate numerical evidence.}
+All 120 fixed existing-law probes and both central-difference steps for each
+probe pass their registered gates. Numerical reproduction and prior-file
+application checks are outside the semantic reviewer's certification.
+Submitted Report1 and all training/data/checkpoint artifacts remain unchanged.
+
+\paragraph{Build note.}
+This file is a compilable summary source. The accompanying PDF in this
+workspace is rendered separately with Matplotlib, because no local TeX compiler
+was found; it is not presented as a compiled output of this source.
+\end{document}
