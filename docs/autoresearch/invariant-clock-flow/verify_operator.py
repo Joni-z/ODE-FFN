@@ -70,7 +70,7 @@ def verify():
     with torch.no_grad():
         witness.frequency.fill_(1);witness.clock[0].weight.copy_(torch.tensor([[1.],[-1.]],dtype=torch.float64))
         witness.clock[0].bias.copy_(torch.tensor([-.5,.5],dtype=torch.float64));witness.clock[2].weight.copy_(torch.tensor([[50.,-50.]],dtype=torch.float64));witness.clock[2].bias.zero_()
-    x=torch.tensor([1.,0.],dtype=torch.float64);jac=witness.complete_jacobian(x);gain=float(torch.linalg.svdvals(jac)[0])
+    x=torch.tensor([1.,0.],dtype=torch.float64);jac=witness.complete_jacobian(x);gain=float(torch.linalg.svdvals(jac)[0].detach())
     compare('noncontractive_gain',gain,(1+math.sqrt(5))/2);compare('witness_norm',witness(x).norm(),x.norm())
     # Cross-mode rates need not be a gradient: volume does not imply symplectic.
     cross=InvariantClockLayer(4,2).double()
@@ -79,14 +79,14 @@ def verify():
         cross.clock[0].bias.copy_(torch.tensor([-.5,.5],dtype=torch.float64));cross.clock[2].weight.copy_(torch.tensor([[50.,-50.],[0.,0.]],dtype=torch.float64));cross.clock[2].bias.zero_()
     point=torch.tensor([1.,0.,1.,0.],dtype=torch.float64);dj=cross.complete_jacobian(point)
     form=torch.block_diag(torch.tensor([[0.,1.],[-1.,0.]],dtype=torch.float64),torch.tensor([[0.,1.],[-1.,0.]],dtype=torch.float64))
-    symplectic_defect=float(torch.linalg.matrix_norm(dj.T@form@dj-form));assert symplectic_defect>.1
+    symplectic_defect=float(torch.linalg.matrix_norm(dj.T@form@dj-form).detach());assert symplectic_defect>.1
     equal_norm=[torch.tensor(v,dtype=torch.float64) for v in ([math.sqrt(2),0,0,0],[0,0,math.sqrt(2),0])]
     compare('equal_global_norm',equal_norm[0].norm(),equal_norm[1].norm())
-    pair_clock_difference=float((cross.rates(equal_norm[0])-cross.rates(equal_norm[1])).abs().max());assert pair_clock_difference>.1
+    pair_clock_difference=float((cross.rates(equal_norm[0])-cross.rates(equal_norm[1])).abs().max().detach());assert pair_clock_difference>.1
     negative={}
     for kind in ('euler','normalized_euler'):
         control=InvariantClockLayer(2,2,kind).double();control.load_state_dict(witness.state_dict())
-        negative[kind]=float((control(control(x,.3),.4)-control(x,.7)).norm());assert negative[kind]>1e-4
+        negative[kind]=float((control(control(x,.3),.4)-control(x,.7)).norm().detach());assert negative[kind]>1e-4
     # Full two-solve FFN and every parameter derivative against literal solves.
     torch.manual_seed(0);ffn=InvariantClockFFN(4,8).double()
     with torch.no_grad():

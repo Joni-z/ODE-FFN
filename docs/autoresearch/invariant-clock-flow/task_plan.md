@@ -12,7 +12,7 @@ Mathematical validity alone is not a quality result or completed successor.
   constructions, stating prior art and transfer limits.
 - [x] Derive pair-energy invariants, the exact autonomous flow, inverse/group,
   full clock-feedback Jacobian, determinant and a noncontractive witness.
-- [ ] Fix the one operator and ordinary controls, exact parameter/MAC budgets,
+- [x] Fix the one operator and ordinary controls, exact parameter/MAC budgets,
   unchanged old laws, primary criteria and stop scope before training outcomes.
 - [ ] Implement isolated source and verify meaningful gradients, full
   derivatives, independent integration and baseline/native-state compatibility.
@@ -31,6 +31,17 @@ outer FM path. Cross-mode rates are not called Hamiltonian unless their
 gradient condition holds. No learned frame/basis, new loss or dataset rescue.
 
 ## Current status
-Primary reading and algebraic eligibility. Lenovo alias probe81962 is terminal255 (connection timeout). The warm Mac
+Operator eligibility passed; complete native integration is now implemented,
+awaiting source registration and the fresh documented preflight. No formal
+trajectory has started and no performance improvement is established.
+Lenovo alias probe81962 is terminal255 (connection timeout). The warm Mac
 route reports4.59GiB available RAM/54.56GiB disk, torch2.10.0 and MPS available.
 Use at most two one-thread CPU workers for a selected tiny-model screen. No new training is selected or launched yet.
+
+2026-10-29: Finish only this registered 21-cell comparison. Stop expanding
+theory branches before empirical evidence. The complete runner keeps the old
+training loop, adds full-network manual derivatives and physical resume checks,
+and records actual P histories and process CPU use. Fixed a nonexistent old
+summary filename before preparation; old metrics live at diagnostics/metrics.json.
+
+Operator16496consumed terminal0/0f3094:27literal derivative cases, three independent integrations (max9.83e-15), full feedback/gain, active routes and width64cost16768parameters/16384forward/49152forward-backwardMACs pass. Bounded-clock gain1.618 is noncontractive. Passed source48453d4/log preserve its scalar-reporting PyTorch warning. Complete native preflight/training remain unrun. Operator seal created before a separate metadata read failed under systemPython; resumed only public updates and verified the entire operator seal. Correct warm interpreter metadata matches synthetic-cpu@c6212b91.

@@ -1,0 +1,36 @@
+{
+  "base": "python3.12.4 macOS arm64",
+  "system_pkgs": [],
+  "pip_phases": [
+    [
+      "torch==2.10.0",
+      "numpy==2.2.6",
+      "scipy==1.18.1",
+      "psutil==7.2.2"
+    ]
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "run_commands": [],
+  "weight_dirs": {},
+  "smoke": {
+    "import_names": [
+      "torch",
+      "numpy",
+      "scipy",
+      "psutil"
+    ],
+    "gpu_tests": [
+      {
+        "cmd": "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python -B -c 'import torch; torch.set_num_threads(1); torch.manual_seed(0); x=torch.randn(4,64,requires_grad=True); w=torch.randn(64,32,requires_grad=True); z=torch.nn.functional.silu(x@w); y=torch.sin(z)+torch.cos(z); torch.autograd.grad(y.square().mean(),(x,w)); print(\"CPU_KERNEL_PASS\",y.shape,y.device)'",
+        "expect": "CPU_KERNEL_PASS torch.Size"
+      }
+    ],
+    "cli_checks": []
+  }
+}

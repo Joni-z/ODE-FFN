@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "literal_derivative_cases": 27,
+  "independent_integrations": [
+    {
+      "width": 2,
+      "nfev": 38,
+      "maximum_error": 9.603429163007604e-15
+    },
+    {
+      "width": 4,
+      "nfev": 38,
+      "maximum_error": 9.825473767932635e-15
+    },
+    {
+      "width": 6,
+      "nfev": 38,
+      "maximum_error": 6.689093723366568e-15
+    }
+  ],
+  "maximum_errors": {
+    "literal_output": 4.440892098500626e-16,
+    "complete_input_Jacobian": 2.220446049250313e-16,
+    "literal_input_and_parameter_gradients": 7.771561172376096e-16,
+    "pair_invariants": 2.220446049250313e-16,
+    "conserved_clocks": 0.0,
+    "inverse": 2.220446049250313e-16,
+    "semigroup": 2.220446049250313e-16,
+    "autonomous_field": 0.0,
+    "VU_zero": 3.6267285471088446e-17,
+    "feedback_square_zero": 4.1731985438616554e-22,
+    "determinant": 2.220446049250313e-16,
+    "full_gain_formula": 2.220446049250313e-16,
+    "normalized_invariants": 3.3306690738754696e-16,
+    "normalized_determinant": 4.440892098500626e-16,
+    "independent_integration": 9.825473767932635e-15,
+    "noncontractive_gain": 0.0,
+    "witness_norm": 0.0,
+    "equal_global_norm": 0.0,
+    "full_FFN_literal": 1.1102230246251565e-16,
+    "full_FFN_gradients": 1.1102230246251565e-16
+  },
+  "bounded_clock_noncontractive_gain": 1.618033988749895,
+  "symplectic_defect_witness": 1.4142135623730951,
+  "equal_norm_clock_difference": 0.6786269119660103,
+  "controls_original_semigroup_defect": {
+    "euler": 0.04483598359699977,
+    "normalized_euler": 0.016009756445937846
+  },
+  "full_FFN_active_routes": true,
+  "actual_width64_initial_pairing": true,
+  "cost": {
+    "parameters": 16768,
+    "forward_matrix_MACs": 16384,
+    "forward_backward_matrix_MACs": 49152
+  },
+  "seconds": 0.2584392500575632,
+  "training_or_quality_evaluated": false
+}
