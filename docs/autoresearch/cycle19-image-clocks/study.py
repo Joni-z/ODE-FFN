@@ -180,7 +180,7 @@ def evaluate(root):
     for arm in NATIVE:
         row=dict(next(r for r in native if r['family']==arm));features=np.load(feature_bank(root,arm));score=fid(features,reference)
         assert abs(score-next(r['fid'] for r in native_fids if r['family']==arm and r['N']==128))<1e-8
-        row.update(family=arm,fid=score,provenance='sealed native control');rows.append(row)
+        row.update(family=arm,fid=score,provenance='sealed native control',out_of_range_fraction=float(np.mean(np.abs(np.load(p['resolution_parent']/'output/runs'/arm/'generated-128.npy'))>1)));rows.append(row)
     for arm in ARMS:
         raw=np.load(root/'output/runs'/arm/'generated.npy');features=m.features(extractor,uint8_images(raw),progress=arm+'_constant');name=arm+'_constant';np.save(out/f'{name}-features.npy',features)
         row=load(root/'output/runs'/arm/'result.json');row.update(fid=fid(features,reference),provenance='frozen clock intervention');rows.append(row)

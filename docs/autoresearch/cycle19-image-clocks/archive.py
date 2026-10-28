@@ -15,11 +15,16 @@ for f in (root/'curation').rglob('*'):
     if f.is_file():assert study.sha(f)==study.sha(doc/'results'/f.relative_to(root/'curation'))
 read=lambda name:list(csv.DictReader((doc/'results'/name).open()))
 rows=read('comparison.csv');assert len(rows)==6
-formal=study.load(root/'metric-output/result.json')['rows'];independent=study.load(root/'audit-features/result.json')['rows']
+formal=study.load(root/'metric-metadata-v2/result.json')['rows'];independent=study.load(root/'audit-features/result.json')['rows']
 for row in rows:
     native=next(r for r in formal if r['family']==row['family']);audit=next(r for r in independent if r['family']==row['family'])
     for key in ('weighted_mse','clean_mse','fid','mean_term','covariance_term','out_of_range_fraction'):assert float(row[key])==float(native[key])
     assert abs(float(row['fid'])-audit['fid'])<1e-8 and int(row['generated'])==1024 and int(row['reference'])==2048 and int(row['steps'])==128
+correction=study.load(root/'metric-metadata-v2/receipt.json');assert correction['status']=='PASS' and correction['unchanged_FIDs'] and correction['unchanged_losses']
+for file,digest in correction['unchanged_raw_bindings'].items():assert study.sha(file)==digest
+for row in rows:
+    path=root/'output/runs'/row['family'].removesuffix('_constant')/'generated.npy' if row['family'].endswith('_constant') else study.paths(root)['resolution_parent']/'output/runs'/row['family']/'generated-128.npy'
+    assert float(row['out_of_range_fraction'])==float(np.mean(np.abs(np.load(path))>1))
 assert len(read('time-panels.csv'))==30 and len(read('calibration.csv'))==12 and len(read('contrasts.csv'))==2
 for row in read('calibration.csv'):
     original=study.load(root/'calibration.json')[row['family']][row['layer']]

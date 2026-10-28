@@ -10,7 +10,7 @@ sys.path.insert(0,str(root/'source'));import study
 study.verify(root,True);assert study.load(root/'orchestrator/status.json')['state']=='COMPLETE'
 assert study.load(root/'audit-sampling/result.json')['status']==study.load(root/'audit-features/result.json')['status']=='PASS'
 out=root/'curation';out.mkdir();fig=out/'figures';fig.mkdir();p=study.paths(root);old=study.imported(root,'image_parent')
-rows=study.load(root/'metric-output/result.json')['rows'];assert len(rows)==6
+rows=study.load(root/'metric-metadata-v2/result.json')['rows'];assert len(rows)==6
 for row in rows:
     for name in ('weighted_mse','clean_mse','fid','out_of_range_fraction','mean_term','covariance_term'):row[name]=float(row[name])
 order=('ode_k1','ode_k1_constant','ode_k2','ode_k2_constant','swiglu86','swiglu129');rows=sorted(rows,key=lambda r:order.index(r['family']))
