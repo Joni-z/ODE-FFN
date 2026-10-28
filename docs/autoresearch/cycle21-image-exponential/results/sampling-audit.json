@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "phase": "sampling",
+  "rows": [
+    {
+      "family": "ode_k1_folded",
+      "weighted_mse": 0.1764993527077433,
+      "clean_mse": 0.0812706428391333,
+      "predictions_bitwise": true,
+      "time_panels": 5,
+      "samples_bitwise": true,
+      "generated": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "family": "ode_k1_exp",
+      "weighted_mse": 0.19661743312088828,
+      "clean_mse": 0.08778568309051242,
+      "predictions_bitwise": true,
+      "time_panels": 5,
+      "samples_bitwise": true,
+      "generated": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "family": "ode_k2_folded",
+      "weighted_mse": 0.17677328323418529,
+      "clean_mse": 0.08125415054050407,
+      "predictions_bitwise": true,
+      "time_panels": 5,
+      "samples_bitwise": true,
+      "generated": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "family": "ode_k2_exp",
+      "weighted_mse": 0.1768534357077426,
+      "clean_mse": 0.08132930052847924,
+      "predictions_bitwise": true,
+      "time_panels": 5,
+      "samples_bitwise": true,
+      "generated": 1024,
+      "parameters_buffers_unchanged": true
+    }
+  ],
+  "formal_files_unchanged": 44,
+  "seconds": 430.95725558302365,
+  "operator_records": 48,
+  "new_generated_images": 4096,
+  "time_panels": 20
+}

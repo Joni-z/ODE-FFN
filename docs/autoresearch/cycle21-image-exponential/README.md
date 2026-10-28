@@ -1,5 +1,9 @@
 # Frozen polynomial/exponential image diagnostic
 
+Completed: [analysis and decision](analysis-report.md), [statistics](stats-appendix.md)
+and [figures](figure-catalog.md). K1 exponentiation worsens fitting and FID; K2
+lower FID coexists with slightly worse fitting. No new training is selected.
+
 Read the [question](protocol.md), [mathematics](theory.md) and
 [evidence/literature review](review.md). No model is trained and no ODE
 successor is selected by this diagnostic.

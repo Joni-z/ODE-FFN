@@ -1,0 +1,62 @@
+{
+  "new_ODE_architecture_nominated": false,
+  "new_training": false,
+  "old_stops_unchanged": true,
+  "contrasts": [
+    {
+      "family": "ode_k1_exp",
+      "reference": "ode_k1_folded",
+      "weighted_ratio": 1.1139838764534027,
+      "clean_ratio": 1.0801647436734931,
+      "FID_delta": 113.4285378384649,
+      "prediction_RMS": 0.08211412795906504,
+      "sample_RMS": 0.4595855205155546
+    },
+    {
+      "family": "ode_k1_folded",
+      "reference": "ode_k1_constant",
+      "weighted_ratio": 0.9999999996058523,
+      "clean_ratio": 0.9999999994233127,
+      "FID_delta": 0.00046281113483814806,
+      "prediction_RMS": 1.2564645999525983e-07,
+      "sample_RMS": 1.3069359674073074e-07
+    },
+    {
+      "family": "ode_k1_exp",
+      "reference": "ode_k1_constant",
+      "weighted_ratio": 1.1139838760143286,
+      "clean_ratio": 1.0801647430505759,
+      "FID_delta": 113.42900064959974,
+      "prediction_RMS": 0.08211412750584955,
+      "sample_RMS": 0.45958553971848976
+    },
+    {
+      "family": "ode_k2_exp",
+      "reference": "ode_k2_folded",
+      "weighted_ratio": 1.0004534196123467,
+      "clean_ratio": 1.0009248756829685,
+      "FID_delta": -0.9458727407192669,
+      "prediction_RMS": 0.008183297675353156,
+      "sample_RMS": 0.0387036501454872
+    },
+    {
+      "family": "ode_k2_folded",
+      "reference": "ode_k2_constant",
+      "weighted_ratio": 1.0000000006346508,
+      "clean_ratio": 0.9999999998390252,
+      "FID_delta": 0.0005806825741956345,
+      "prediction_RMS": 1.270232019605922e-07,
+      "sample_RMS": 9.951215428277425e-08
+    },
+    {
+      "family": "ode_k2_exp",
+      "reference": "ode_k2_constant",
+      "weighted_ratio": 1.0004534202472852,
+      "clean_ratio": 1.0009248755218447,
+      "FID_delta": -0.9452920581450712,
+      "prediction_RMS": 0.008183295733091414,
+      "sample_RMS": 0.03870362176054446
+    }
+  ],
+  "scope": "Four frozen image interventions with two matched-arithmetic controls; no exact-flow training selected"
+}
