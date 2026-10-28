@@ -583,3 +583,5 @@ FM result. Neural Flows,Bilos etal,NeurIPS2021/arxiv2110.13040 is a foundational
 flow-map reference, not a frontier recommendation. Read exact relevant full
 sections before using either to justify a new architecture. Secondary search
 summaries were not used as evidence.
+
+Invariant-clock family review reads AAN2022Section2, He2026Section2.5/Lemma9 andnGPT2.6. Exact action-angle rotations are prior art; no transferable FM gain or Hamiltonian label. New local theory retains full feedbackJac R(I+uUBV), VU=0, noncontractive bounded-clock witness and the normalizedEuler unit-map modified-rate interpretation. Clocks depend on per-pair invariants, not a new physical posterior model or learned frame. Two guessed read-only native source paths were absent; actual files are under source-v2/synthetic and no frozen file was changed. The initial full-FFN active-route fixture used a squared output norm, which would be invariant to the second rotation; corrected to a generic linear probe before any numerical execution. A draft README line merge was fixed before registration. Source/cold outcomes unrun.
