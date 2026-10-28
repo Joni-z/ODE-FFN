@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "scope": "Independent documented-command software preflight only; no formal quality training",
+  "completed_utc": "2026-10-28T01:17:45.097281+00:00",
+  "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20",
+  "executed_shell_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20 > /Users/mr.z/ode-workspace-prep/image-silu-preflight.log 2>&1",
+  "invocation_count": 1,
+  "registered_commit": "047479e",
+  "documentation": {
+    "path": "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/cycle20-image-silu/README.md",
+    "sha256": "be79386dac73801c4553666e1b3a33e20b0933da88ded76955e5259ca50b6929",
+    "command_present_verbatim": true
+  },
+  "frozen_source": {
+    "entrypoint": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/study.py",
+    "entrypoint_sha256": "af3d1dbf5878a582b75e5f5a73c14b1aae3e27c452b089ecda28051b8ea829e3",
+    "all_file_sha256": {
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/README.md": "be79386dac73801c4553666e1b3a33e20b0933da88ded76955e5259ca50b6929",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/audit.py": "fe26d767080ddb5a56998f58f55fedb29937ab957e8e947706aab100d1e43b3b",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/controller.py": "598bb0fd15914a68fa85abddc49ff27cfd5a2484fcc9251b210d89aec29a1e93",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/protocol.md": "55f509be5b8bd8bece0903291047f1b66a385a4b443ac79a766d1edf2e357d04",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/study.py": "af3d1dbf5878a582b75e5f5a73c14b1aae3e27c452b089ecda28051b8ea829e3",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/theory.md": "852e44da1244063e56e01ce38d9b116bc6894443e2e7493d15fbc4a4ad877610"
+    },
+    "registered_commit_file_sha256": {
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/README.md": "be79386dac73801c4553666e1b3a33e20b0933da88ded76955e5259ca50b6929",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/audit.py": "fe26d767080ddb5a56998f58f55fedb29937ab957e8e947706aab100d1e43b3b",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/controller.py": "598bb0fd15914a68fa85abddc49ff27cfd5a2484fcc9251b210d89aec29a1e93",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/protocol.md": "55f509be5b8bd8bece0903291047f1b66a385a4b443ac79a766d1edf2e357d04",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/study.py": "af3d1dbf5878a582b75e5f5a73c14b1aae3e27c452b089ecda28051b8ea829e3",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/source/theory.md": "852e44da1244063e56e01ce38d9b116bc6894443e2e7493d15fbc4a4ad877610"
+    }
+  },
+  "terminal": {
+    "tool": "exec_command/write_stdin",
+    "session_id": 64217,
+    "initial_chunk_id": "c0cb79",
+    "poll_chunk_ids": [
+      "d2e802",
+      "d25e43"
+    ],
+    "terminal_chunk_id": "d25e43",
+    "exit_code": 0
+  },
+  "log": {
+    "path": "/Users/mr.z/ode-workspace-prep/image-silu-preflight.log",
+    "sha256": "71c13ab9920bcc076b95bcf0556bb290ec6493cc1204c5c2242aa6358f6f8a28"
+  },
+  "preflight": {
+    "path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/preflight.json",
+    "sha256": "97b0b133c416ccaf6cc0e0071bb9c23f723b25f243c187a936f7ddfe8575bebd",
+    "result": {
+      "status": "PASS",
+      "arms": [
+        {
+          "family": "silu64",
+          "parameters": 185744,
+          "FFN_parameters": 8192,
+          "FFN_forward_MACs": 8192,
+          "FFN_training_MACs": 24576,
+          "common_backbone_bitwise": true,
+          "disk_resume_model_optimizer_rng_buffers_bitwise": true,
+          "active_matrix_grad_norms": [
+            0.004201863892376423,
+            0.0042383624240756035,
+            0.004876880906522274,
+            0.006054307799786329,
+            0.004752170294523239,
+            0.005015654023736715
+          ],
+          "isolated_JVP_max": 1.6653345369377348e-16,
+          "cold_sampler_matches": true
+        },
+        {
+          "family": "silu131",
+          "parameters": 211472,
+          "FFN_parameters": 16768,
+          "FFN_forward_MACs": 16768,
+          "FFN_training_MACs": 50304,
+          "common_backbone_bitwise": true,
+          "disk_resume_model_optimizer_rng_buffers_bitwise": true,
+          "active_matrix_grad_norms": [
+            0.004380771890282631,
+            0.0061636208556592464,
+            0.004428636748343706,
+            0.005889771971851587,
+            0.004141753539443016,
+            0.007256669923663139
+          ],
+          "isolated_JVP_max": 2.220446049250313e-16,
+          "cold_sampler_matches": true
+        },
+        {
+          "family": "silu193",
+          "parameters": 235280,
+          "FFN_parameters": 24704,
+          "FFN_forward_MACs": 24704,
+          "FFN_training_MACs": 74112,
+          "common_backbone_bitwise": true,
+          "disk_resume_model_optimizer_rng_buffers_bitwise": true,
+          "active_matrix_grad_norms": [
+            0.004584908951073885,
+            0.00836453028023243,
+            0.005033608991652727,
+            0.009163782000541687,
+            0.004101806785911322,
+            0.007818415760993958
+          ],
+          "isolated_JVP_max": 1.6653345369377348e-16,
+          "cold_sampler_matches": true
+        }
+      ],
+      "common_three_batch_digest": "8caf3f9bf895ad24c981bb0a2dac5d80b2a240e43011fbf24ea47464f9e64f3f",
+      "checkpoints_physical": true
+    }
+  },
+  "common_runtime_buffers_bitwise": true,
+  "buffer_evidence": "Frozen study.py preflight asserts every named buffer equals native runtime_buffers and disk resume equality includes model/optimizer/RNG/buffers.",
+  "physical_checkpoints": [
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/preflight-checkpoints/silu131.pt",
+      "bytes": 2690909,
+      "sha256": "61d6683ed40e026ff6bcad446512afd31888f2c047e4b5132dab17675c785105"
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/preflight-checkpoints/silu193.pt",
+      "bytes": 2976605,
+      "sha256": "f6d3bca615bcaf2d568bd035360ca67850f94bd36301344848b75871cd3817b2"
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/preflight-checkpoints/silu64.pt",
+      "bytes": 2377094,
+      "sha256": "a03e62fdc59f0de179bc3f1071ede125d862f22728cfa6efdfdaf57e8884edd8"
+    }
+  ],
+  "mismatches": [],
+  "source_protocol_environments_edited": false,
+  "quality_jobs_launched": false
+}

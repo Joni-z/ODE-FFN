@@ -212,8 +212,8 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 
 ## Cycle20 plan: cold ordinary image SiLU controls
 - [x] Revalidate clean1a685eb and completed/sealed cycle19; previous goal turn was progress. Read the earlier synthetic SiLU control and its Ring8 failure. This new image baseline fills the same-form control gap exposed by clock collapse; it does not rescue a stopped ODE family or nominate an ordinary FFN as an ODE method.
-- [ ] Register exactly three bias-free SiLU widths:64(function form),131(minimum integer parameter-covering),193(K2dense-work-matching). Preserve seed0/5000updates/data/loss/optimizer/coupling and native cold backbone tensors; FFN functions/initialization differ and are not claimed paired.
-- [ ] Freeze source and validate parent seals, actual params/forward+backward MACs, analytic isolated-FFN derivatives, active actual-backbone gradients, native three-update disk resume/model/moments/RNG/buffers and cold sampler. Warm environment reuse only.
+- [x] Registered047479e: three bias-free SiLU widths64/131/193derived from shape/parameter/work comparisons. All original data/loss/optimizer/5000updates fixed; FFN initial functions differ and are not claimed paired.
+- [x] Prepare97177 exits0; fresh-agent documented preflight64217 exits0/no mismatches, frozen source047479e verified. Wholeparams185744/211472/235280; FFNforward8192/16768/24704, training24576/50304/74112. Three physical model/optimizer/RNG/buffer resumes, common backbone, active actual gradients, JVP and cold Heun pass. Warm environment packages unchanged.
 - [ ] Launch one monitored two-worker CPU queue, preserving all33checkpoints/72matrix snapshots/full paired streams. Run independent checkpoint/stream/Heun/weight-history audit plus unchanged feature/FID evaluation and independent replay; never restart on an observation timeout.
 - [ ] Report every new/reference endpoint, curves, spectra and fixed examples. Separate ordinary-control evidence from an ODE successor; no post-result width or training rescue. Seal/commit/publish verified evidence.
 

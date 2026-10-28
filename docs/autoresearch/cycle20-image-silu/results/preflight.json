@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "arms": [
+    {
+      "family": "silu64",
+      "parameters": 185744,
+      "FFN_parameters": 8192,
+      "FFN_forward_MACs": 8192,
+      "FFN_training_MACs": 24576,
+      "common_backbone_bitwise": true,
+      "disk_resume_model_optimizer_rng_buffers_bitwise": true,
+      "active_matrix_grad_norms": [
+        0.004201863892376423,
+        0.0042383624240756035,
+        0.004876880906522274,
+        0.006054307799786329,
+        0.004752170294523239,
+        0.005015654023736715
+      ],
+      "isolated_JVP_max": 1.6653345369377348e-16,
+      "cold_sampler_matches": true
+    },
+    {
+      "family": "silu131",
+      "parameters": 211472,
+      "FFN_parameters": 16768,
+      "FFN_forward_MACs": 16768,
+      "FFN_training_MACs": 50304,
+      "common_backbone_bitwise": true,
+      "disk_resume_model_optimizer_rng_buffers_bitwise": true,
+      "active_matrix_grad_norms": [
+        0.004380771890282631,
+        0.0061636208556592464,
+        0.004428636748343706,
+        0.005889771971851587,
+        0.004141753539443016,
+        0.007256669923663139
+      ],
+      "isolated_JVP_max": 2.220446049250313e-16,
+      "cold_sampler_matches": true
+    },
+    {
+      "family": "silu193",
+      "parameters": 235280,
+      "FFN_parameters": 24704,
+      "FFN_forward_MACs": 24704,
+      "FFN_training_MACs": 74112,
+      "common_backbone_bitwise": true,
+      "disk_resume_model_optimizer_rng_buffers_bitwise": true,
+      "active_matrix_grad_norms": [
+        0.004584908951073885,
+        0.00836453028023243,
+        0.005033608991652727,
+        0.009163782000541687,
+        0.004101806785911322,
+        0.007818415760993958
+      ],
+      "isolated_JVP_max": 1.6653345369377348e-16,
+      "cold_sampler_matches": true
+    }
+  ],
+  "common_three_batch_digest": "8caf3f9bf895ad24c981bb0a2dac5d80b2a240e43011fbf24ea47464f9e64f3f",
+  "checkpoints_physical": true
+}
