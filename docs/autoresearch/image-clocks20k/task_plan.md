@@ -4,7 +4,9 @@
 - [x] Implement the adapter using frozen native construction, literal clocks, original sampler and feature evaluator. Syntax, five decision fixtures and six complete/constant-Jacobian fixtures pass. Both environment spec hashes remain unchanged.
 - [x] Source/protocol634b13b committed and independently verified on GitHub. Preparation2737exits0; new runtime binds every source/parent and actual20kcheckpoint.
 - [x] Fresh clock20k_doc_pass executes the documented command once: session52748exit0, no mismatches. Both native1024predictions replay bitwise;12clocks,10folding witnesses, five decision and six operator fixtures pass. Invocation/specs unchanged.
-- [ ] Running once: controller64292/create_time1793172641.76748, execsession21980. Sampling children64305/64306 are live; first observed384/1024images each. Same handle must be monitored through sampling, independent sample replay, metrics and feature/FID audit; no final quality result yet.
+- [x] Single controller64292/session21980 finishes all four phases with exit0. Both new sampling banks and ten panels replay bitwise; all nine FIDs independently verify. Sampling audit241.93seconds, feature audit58.42seconds. No retry or source change.
 - [ ] Plot every endpoint and fixed case, write concise analysis, verify public artifacts and seal the complete runtime.
 
 No new training or architecture is selected. Warm environments and all earlier studies remain unchanged. Normal GitHub publication from Mac mini is authenticated and working.
+
+Native-to-constant FIDs: K1 173.43691→215.56371; K2 180.78096→226.23221. Both lose strict ordering as well as the allocation margin under the registered calibration. This is not a universal fixed-clock impossibility or a separation of image/state versus external-time adaptation. Curator uses the frozen decision function and waits for all complete audit receipts before generating three figures and all nine rows. Reports and archive closure remain pending.
