@@ -1,12 +1,12 @@
 {
-  "observed_at_UTC": "2026-10-28T11:23:35.145442+00:00",
+  "observed_at_UTC": "2026-10-28T11:26:59.295051+00:00",
   "phase": {
     "state": "RUNNING",
-    "phase": "training",
-    "completed": 0,
+    "phase": "sampling",
+    "completed": 2,
     "total": 6,
-    "pid": 70727,
-    "seconds": 1591.8338136668317
+    "pid": 71495,
+    "seconds": 25.131999250035733
   },
   "controller_identity": {
     "pid": 70719,
@@ -18,45 +18,45 @@
       "arm": "fixed06",
       "pid": 70731,
       "create_time": 1793185021.45275,
-      "identity_live": true,
-      "recorded_state": "RUNNING",
-      "completed_updates": 18100,
+      "identity_live": false,
+      "recorded_state": "COMPLETE",
+      "completed_updates": 20000,
       "total_updates": 20000,
-      "primed_CPU_percent": 100.0,
-      "RSS_bytes": 888291328,
+      "primed_CPU_percent": null,
+      "RSS_bytes": null,
       "latest_saved_validation": {
-        "step": 15000,
-        "weighted_mse": 0.1622617978274968,
-        "clean_mse": 0.07663630103812298,
-        "prediction_rms": 0.41816291449723075,
-        "train_loss": 0.16702860634028913,
-        "grad_norm": 0.43069712162315843,
-        "clip_fraction": 0.0082
+        "step": 20000,
+        "weighted_mse": 0.16039194194107884,
+        "clean_mse": 0.0761966929327135,
+        "prediction_rms": 0.413756162000656,
+        "train_loss": 0.16409447045326234,
+        "grad_norm": 0.35653250919282437,
+        "clip_fraction": 0.0032
       },
-      "native_stream_checks": 19,
-      "exit_code": null
+      "native_stream_checks": 21,
+      "exit_code": 0
     },
     {
       "arm": "matched_silu64",
       "pid": 70732,
       "create_time": 1793185021.459846,
-      "identity_live": true,
-      "recorded_state": "RUNNING",
-      "completed_updates": 19500,
+      "identity_live": false,
+      "recorded_state": "COMPLETE",
+      "completed_updates": 20000,
       "total_updates": 20000,
-      "primed_CPU_percent": 100.0,
-      "RSS_bytes": 881328128,
+      "primed_CPU_percent": null,
+      "RSS_bytes": null,
       "latest_saved_validation": {
-        "step": 15000,
-        "weighted_mse": 0.16214356997271076,
-        "clean_mse": 0.07660597109665895,
-        "prediction_rms": 0.4180784818356818,
-        "train_loss": 0.1668890473753214,
-        "grad_norm": 0.4405890322625637,
-        "clip_fraction": 0.0088
+        "step": 20000,
+        "weighted_mse": 0.16059769457892017,
+        "clean_mse": 0.07628042563754553,
+        "prediction_rms": 0.41224495312570214,
+        "train_loss": 0.16413651887774466,
+        "grad_norm": 0.3624807557404041,
+        "clip_fraction": 0.0038
       },
-      "native_stream_checks": 20,
-      "exit_code": null
+      "native_stream_checks": 21,
+      "exit_code": 0
     }
   ],
   "quality_status": "Pending complete pipeline, tool exit and final artifact audit",

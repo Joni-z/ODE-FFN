@@ -14,7 +14,7 @@ nominating another architecture.
   stream/checkpoint/sample budgets and decision rules; commit runnable source.
 - [x] Pass local identities and a fresh documented preflight: active full-model
   gradients, native replay, three-step physical resume, cost and metric witness.
-- [ ] Run exactly two seed 0 cold 20k training trajectories on the historical CPU
+- [x] Run exactly two seed 0 cold 20k training trajectories on the historical CPU
   stream, preserving P/effective-W histories and boundary-update witnesses.
 - [ ] Audit training boundaries/streams, generate all seven prescribed banks,
   independently replay predictions/samples/features/FIDs and retain all scores.
@@ -27,7 +27,7 @@ nominating another architecture.
 - [x] Hash the actual external pixels, split and manifest against native17;
   all match and their metadata predates this training launch. The unused
   download tarball is not an input to `data_for` and is not a native binding.
-- [ ] Register the curator before new FIDs: all32 endpoint rows,14primary rows,
+- [x] Register the curator before new FIDs: all32 endpoint rows,14primary rows,
  26primary ratios,75time-panel scores,210matrix summaries and144fixed examples.
 - [ ] Verify report numbers, plotted arrays, actual tool exits, external data,
   protected scopes and source/parent preservation before sealing the runtime.
@@ -42,4 +42,4 @@ initialization/coordinate controls are ordinary comparators, not its rescue.
 ## Status
 Source28be1e8published; fresh documented native47808/metric32097both terminate0. All four native prediction banks, full shared tensors including timestep MLP gradients, physical resumes, costs and cached features pass. All25cached FIDs also replay exactly; default-SiLU64shared initialization/buffers/data RNG match. Passed v1readiness retained under hashes; v2only strengthens witness coverage.
 
-Actual controller70719/create1793185015.834589, tool session5632, is running the two20ktrajectories. Workers70731/create1793185021.45275and70732/create1793185021.459846are live with primedCPU100%each. Progress snapshots report actual counters; there is no new generative quality conclusion. Curator/report/archive remain pending until the six phases and their independent audits finish.
+Both20ktrajectories finished with actual worker exits0; the training phase consumed1747.45seconds. Original controller70719/create1793185015.834589 and tool session5632 continue into the boundary/stream audit. Curator441a6d1is published and privately registered before new FIDs. Actual external pixels/split/manifest match native bindings. There is no new generative quality conclusion; sample/feature/FID audits and report/archive remain pending.
