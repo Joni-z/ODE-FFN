@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "scope": "Analytic zero-data scalar identity; no trained output or image FID",
+  "epsilon": 0.05,
+  "perfect_predictor_terminal_std": 0.018393972058572117,
+  "perfect_predictor_terminal_variance": 0.0003383382080915318,
+  "negative_identity_predictor_terminal_variance": 1.1447274305458866e-07,
+  "original_registered_fixture_replay": [
+    {
+      "N": 32,
+      "discrete_factor": 0.0211639404296875,
+      "continuous_factor": 0.018393972058572117,
+      "absolute_gap": 0.0027699683711153826
+    },
+    {
+      "N": 64,
+      "discrete_factor": 0.018908450878370786,
+      "continuous_factor": 0.018393972058572117,
+      "absolute_gap": 0.0005144788197986687
+    },
+    {
+      "N": 128,
+      "discrete_factor": 0.01853143897413957,
+      "continuous_factor": 0.018393972058572117,
+      "absolute_gap": 0.000137466915567451
+    }
+  ],
+  "cap_or_sampler_changed": false
+}

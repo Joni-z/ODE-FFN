@@ -197,7 +197,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Sampling parent52386/4children all exit0,481.075s; controller99684 exits1 only because sampling-audit imports SciPy at module top in the deliberately lean training env. Preserve original source/log/failed status. All8finer banks already exist; no training/sampling restart. Register lazy-import audit-v2 with separate source bindings and a new recovery controller before any FID outcome.
 - [ ] Independently replay finer-grid outputs and recompute all12FIDs with a separate SVD driver; verify no parent/source change.
 - [ ] Report all grid/sample differences, original pairwise rankings and cases, seal the diagnostic, commit and attempt direct publication. No new architecture nomination.
-- [ ] During the live original process, verify a bounded primary-source comparison (JiT and high-order FM), and derive the exact cap-induced terminal law in a simple normal direction. This is an interpretation note, not a new fitted experiment or a cap/solver rescue.
+- [x] Verify bounded JiT/NeurIPS high-order FM primary sections; exact cap terminal scale.05/e and a loss/generation counterexample pass. Restate/link existing canonical Gaussian material-acceleration result, verified by AD. Public interpretation/coverage/fixtures added; no new trained method or cap rescue.
 
 ## Errors encountered
 - Cycle18 audit-v1 exits1 before any numerical work: top-level SciPy import is unnecessary for CPU sampling replay and absent from the lean training environment. Preserve failed source/status/log. V2 defers only that import to the FID function; no package/model/sampler/metric/tolerance change, and no training/sample rerun.

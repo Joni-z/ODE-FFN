@@ -1,0 +1,72 @@
+{
+  "scope": "Targeted primary-source check, web only; no systematic-review claim",
+  "canonical_ids": [
+    "arxiv:2511.13720v1",
+    "neurips:2025:4163873c9ad623a87989d0a6eefe9442"
+  ],
+  "covered_ids": [
+    "arxiv:2511.13720v1",
+    "neurips:2025:4163873c9ad623a87989d0a6eefe9442"
+  ],
+  "uncovered_ids": [],
+  "papers": [
+    {
+      "paper_id": "arxiv:2511.13720v1",
+      "title": "Back to Basics: Let Denoising Generative Models Denoise",
+      "authors": [
+        "Tianhong Li",
+        "Kaiming He"
+      ],
+      "url": "https://arxiv.org/html/2511.13720v1",
+      "sections": [
+        "3.2",
+        "4.3",
+        "Table9",
+        "B.1"
+      ],
+      "verification_status": "PRIMARY_FULL_TEXT_READ",
+      "supports": "Prediction/loss distinction and explicit .05 denominator cap; no hidden Taylor architecture theorem"
+    },
+    {
+      "paper_id": "neurips:2025:4163873c9ad623a87989d0a6eefe9442",
+      "title": "High-Order Flow Matching: Unified Framework and Sharp Statistical Rates",
+      "authors": [
+        "Maojiang Su",
+        "Jerry Yao-Chieh Hu",
+        "Yi-Chen Lee",
+        "Ning Zhu",
+        "Jui-Hui Chung",
+        "Shang Wu",
+        "Zhao Song",
+        "Minshuo Chen",
+        "Han Liu"
+      ],
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/4163873c9ad623a87989d0a6eefe9442-Paper-Conference.pdf",
+      "sections": [
+        "pages1-8",
+        "Remark3.1/Eq3.3",
+        "Theorems3.3-3.4"
+      ],
+      "verification_status": "PRIMARY_SECTIONS_READ_NOT_ALL_PROOFS",
+      "local_excerpt": "/Users/mr.z/ode-workspace-prep/image-resolution-literature/high-order-pages1-8.txt",
+      "excerpt_sha256": "654b78fd450e8874b337a045066cf43b52506180552128f155bb1652225be5d9",
+      "supports": "Total-derivative consistency of external trajectory fields; does not transfer directly to powers of hidden P"
+    }
+  ],
+  "exclusions": [
+    {
+      "paper_id": "arxiv:2603.10544",
+      "reason": "Primary abstract/PDF inspected; no image Taylor-FFN evidence; not promoted to a reading recommendation"
+    },
+    {
+      "paper_id": "unresolved:TiedFlow",
+      "reason": "No unambiguous primary identity; do not query again without title or link"
+    }
+  ],
+  "access_limits": [
+    "OpenReview browser challenge",
+    "Repeated NeurIPS browser fetch timeouts; official PDF pages1-8 extracted locally with curl/pdftotext instead"
+  ],
+  "new_theorem_claim": false,
+  "notes": "Closed Gaussian material acceleration and cap/path distinction already have a canonical project derivation; this note adds an explicit terminal-law counterexample. No trained result is inferred from it."
+}

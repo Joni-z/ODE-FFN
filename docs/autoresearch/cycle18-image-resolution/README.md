@@ -16,13 +16,17 @@ Prepare a **new, absent** runtime, then execute its frozen source:
 /Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18
 ```
 
-Commit the protocol/source and pass native replay before finer-grid sampling:
+Commit the protocol/source and pass native replay before finer-grid sampling.
+The corrected audit copies below are separately bound after the documented
+[pre-numerical import failure](deviations.md). Original failed source/status
+remain intact. The one-shot recovery uses [recover_audit.py](recover_audit.py)
+and never relaunches sampling:
 
 ```bash
 /Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/source/study.py run --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/source/audit.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18 --phase sampling
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/audit-v2-source/audit.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18 --phase sampling
 /Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/source/study.py evaluate --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18
-/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/source/audit.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18 --phase features
+/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18/audit-v2-source/audit.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18 --phase features
 ```
 
 Only run each phase once into its designated output. Record parent handles,
@@ -30,3 +34,9 @@ commands, PIDs and terminal exits. Observe the existing handle on timeouts;
 never start duplicate sampling. Private data, environments and raw logs stay
 outside Git. Preserve any failed preparation and use an explicitly new runtime
 if a correction is needed before quality outcomes.
+
+The [mathematical interpretation](interpretation.md) separates regression risk,
+finite-grid generation, endpoint capping and actual trajectory derivatives.
+Its [two scalar fixtures](interpretation-fixtures/cap-identity.json) are analytic
+checks, not fitted image results; [source coverage](primary-source-check.json)
+records the two primary papers and access limits.

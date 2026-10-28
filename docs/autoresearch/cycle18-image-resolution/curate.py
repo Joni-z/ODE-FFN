@@ -91,5 +91,5 @@ resources=[json.loads(line) for line in (root/'output/resources.jsonl').read_tex
 peak={arm:max(v['rss'] for r in resources for v in r['processes'] if v['family']==arm)/2**30 for arm in study.ARMS}
 with (out/'results.tsv').open('w') as file:
     file.write('commit\tmetric\tmemory_gb\tstatus\tdescription\n')
-    for row in formal:file.write(f"100f322\t{row['fid']:.12g}\t{peak[row['family']]:.3f}\tkeep\t{row['family']} N={row['N']}: frozen diagnostic, not a nominated solver or architecture; sampled CPU RSS\n")
+    for row in formal:file.write(f"9ea74f7\t{row['fid']:.12g}\t{peak[row['family']]:.3f}\tkeep\t{row['family']} N={row['N']}: frozen diagnostic, not a nominated solver or architecture; sampled CPU RSS\n")
 print(json.dumps(dict(status='CURATED',figures=3,decision=decision)),flush=True)
