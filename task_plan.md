@@ -366,3 +366,10 @@ architecture. Next explicit step: derive finite posterior-state algebra in
 precision coordinates, including the third-moment term, and check ordinary
 softmax/RBF equivalence before any implementation or training. This is not a
 mixture-prior quality rescue or evidence of a new method. Goal remains active.
+
+
+## Finite posterior-state eligibility
+Previous goal turn is verified progress: published0340861, completed Gaussian seal97961412 and source-specific manifold review. Current work is a data-free algebraic gate, not a new mixture-reference fit or NN training.
+- [ ] Derive component/weight precision evolution and ordinary attention/RBF realizations in docs/autoresearch/posterior-state-eligibility/derivation.md.
+- [ ] Register and run fixed independent numerical identities, then apply the equivalence decision.
+- [ ] Publish verified mathematical eligibility and choose the next justified step without claiming a successor.
