@@ -21,3 +21,23 @@ The exact Gaussian-conditioning expression here is a direct finite-sum
 Bayes calculation, not new mathematics or a Gaussian-reference rescue. Raw
 image corruption satisfies the observation law; normalized hidden tokens do
 not automatically do so. No learned mixture is fitted or sampled.
+
+ER-20261029-state-risk-result-01: complete frozen cohort and independent audit
+sealedf42623697307ebda1d45751e873db30784bfde0307b4c0cfa55df07515023861.
+K1/Swi86 equal-time bank-reference ratios are.988757paired-validation,
+.996893generated-K1,.977018generated-Swi86; no registered reversal. The
+reference has11.33/11.74times K1/Swi86 actual-image error at115/128 and fails
+the use guard at4/5times. Native predictions, reference arrays and16,000
+per-image quantities replay. These are exact empirical-reference diagnostics,
+not population-risk estimates or an explanation of neural FID.
+
+ER-20261029-balanced-representations-01: Zhang et al., ICLR2026, authors'
+arXiv2512.20963v2, Sections2.2–3.2, Theorem3.1/Corollary3.3 read at
+https://arxiv.org/html/2512.20963v2 ; final venue verified at
+https://proceedings.iclr.cc/paper_files/paper/2026/hash/a5e3cf29c269b041ccd644b6beaf5c42-Abstract-Conference.html .
+Their theory studies local minimizers of a fixed-noise, regularized two-layer
+ReLU DAE under separated-mixture assumptions; balanced refers to data-dependent
+representations, not equal singular values of an arbitrary hidden P. It supplies
+a useful distinction but no transferable JiT constraint or selected method.
+The covariance/projected-coordinate identity in next-question.md is separately
+derived; no theorem of theirs is applied to our transformer.

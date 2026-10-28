@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "models": [
+    {
+      "arm": "ode_k1",
+      "native_prediction_replayed_bitwise": 64
+    },
+    {
+      "arm": "fixed06",
+      "native_prediction_replayed_bitwise": 64
+    },
+    {
+      "arm": "matched_silu64",
+      "native_prediction_replayed_bitwise": 64
+    },
+    {
+      "arm": "swiglu86",
+      "native_prediction_replayed_bitwise": 64
+    },
+    {
+      "arm": "silu131",
+      "native_prediction_replayed_bitwise": 64
+    }
+  ],
+  "mathematics": {
+    "status": "PASS",
+    "times": 3,
+    "queries": 15,
+    "direct_likelihood_max_absolute_error": 1.1368683772161603e-13,
+    "posterior_derivative_and_risk_identity": true
+  },
+  "bank_size": 45000,
+  "env_spec": "475428fb",
+  "formal_measurement_started": false
+}

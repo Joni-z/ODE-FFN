@@ -393,3 +393,10 @@ new trained ODE method is claimed. Next P0 review before implementation:
 - [x] Independently audit every registered output, curate all36endpoints and P/clock histories, and seal the raw runtime.
 
 Controller60305/d97c5d exits0; runtime seal9a7f7bb6. Exact rotation fails all quality criteria, with field MSE3.8–6.2times Swi129. Euler and normalized Euler perform similarly. This fixed setting stops without a learned-frame/budget rescue. The broader research goal is active: no accepted new ODE method has been established. Use completed controlled failures and existing image controls before selecting another hypothesis.
+
+## Shared-state image risk (2026-10-29)
+- [x] Register the finite-bank scope and shared-state comparison before outcomes.
+- [x] Pass native five-model documented replay, run100batches, independently check20reference batches/16,000per-image metrics.
+- [x] Sealf4262369 and publish all rows, figures and fixed image0.
+
+The empirical reference is unsuitable for population design under its fixed guard and does not support the registered reversal. No new training or model is selected. Next: source-bound response geometry of the full predictor in its retained input subspace, with no empirical image oracle. Existing stopped families remain closed; main research goal active.

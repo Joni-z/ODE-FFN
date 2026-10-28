@@ -10,13 +10,13 @@ Do not nominate a new block merely because it is an exact hidden flow.
   progress turn, not a wait or a resumed process.
 - [x] Read the image cold controls and older stop scopes. Retain the observed
   lower Swi regression error but better native K1 FID as the unresolved premise.
-- [ ] Register one finite shared-state comparison and the exact empirical-bank
+- [x] Register one finite shared-state comparison and the exact empirical-bank
   reference, including its population-generalization limitations.
-- [ ] Bind immutable raw data, checkpoints and stored states. Implement the
+- [x] Bind immutable raw data, checkpoints and stored states. Implement the
   complete read-only runner and independent posterior/reference checks.
-- [ ] Pass the documented warm native invocation, run the registered cohort,
+- [x] Pass the documented warm native invocation, run the registered cohort,
   and independently replay predictions and reference quantities.
-- [ ] Analyze every model/time/domain, apply the reference-validity decision,
+- [x] Analyze every model/time/domain, apply the reference-validity decision,
   publish all evidence, and select the next action justified by the outcome.
 
 ## Scope
@@ -34,6 +34,19 @@ zhou25l. OpenReview serves a browser challenge; use the authors' arXiv v2 for
 the empirical-versus-population distinction, without claiming final-PDF review.
 
 ## Status
-Planning. New fitted-state measurements have not started. Exact bank posterior
-is only the conditional mean for the finite training distribution, never an
-unqualified population oracle or a model-selection target.
+Complete. Source812ffd3 was frozen before the measured cohort. Fresh native
+preflight54094/c33b50 exit0/no mismatch; controller52050/d88c61 and
+analyst72415/0caffa actual terminal exits0. All100prediction batches and
+20direct-distance posterior batches pass;16,000per-image metrics are checked.
+The raw runtime is sealedf4262369 (271files,115.8MB). No old source/data/run
+or submitted Report1 changed.
+
+Both diagnostic hypotheses close without a new architecture: no registered
+empirical-risk reversal; held-out reference guard fails at4/5times. At115/128,
+bank-reference error is11.33times K1. Exact empirical conditioning is not a
+valid population-design teacher for these probes.
+
+The next missing premise is in next-question.md: check necessary response
+geometry of the complete predictor in the input coordinates actually retained
+by its learned bottleneck. No PSD/spectral constraint, new teacher or neural
+training is selected now. The original successor goal remains active.

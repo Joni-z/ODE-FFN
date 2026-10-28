@@ -4,6 +4,20 @@ This study tests one missing empirical premise before another ODELayer design.
 It does not train a model, alter a sampler, calculate a new FID or establish a
 population oracle. Read the fixed [protocol](protocol.md) and [source scope](notes.md).
 
+## Outcome
+
+The complete [analysis](results/analysis-report.md) fails the registered
+empirical-risk reversal and rejects using the bank reference for population
+design. At115/128, its held-out clean-image MSE is0.115404 versus K1 0.0101893
+and Swi86 0.00983193. Its median posterior support is1. All five models,
+four domains and five times are retained, with [fixed cases](results/case-notes.md).
+
+Controller52050/d88c61 and analyst72415/0caffa exited0. Every native prediction,
+direct-distance conditional mean and per-image metric passed the independent
+audit. No model was trained or newly nominated, and no new FID was calculated.
+The [next question](next-question.md) concerns necessary complete-predictor
+response geometry in actually observed coordinates, not another prior fit.
+
 Warm-reuse image-training@475428fb in the existing Mac mini environment. No
 package installation, CUDA or GPU reservation is needed. Freeze committed
 source and immutable parent/data/state bindings into a new exclusive runtime:
