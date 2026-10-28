@@ -347,3 +347,5 @@ Published closure and clean local main are verified at10ec3a2. Final plan synchr
 
 Broader objective remains active. The reference measures a missing classical
 context; it is not a new ODE successor, a changed benchmark or a rescue.
+
+Gaussian full source3d18ae0/fresh doc preflight43297pass, with zero mismatch. Controller35918exits0through6stages; actualfit11.19s, no neural training. PPCA59FID293.734970 and isotropic405.298943fail the original quality/fitting criteria. Retain all32neural contexts. Complete curator/visual/report/archive/publication; no new rank/noise/mixture family or ODE method is selected.

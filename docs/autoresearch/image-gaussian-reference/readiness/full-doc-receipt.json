@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "outcome": "PASS",
+  "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference/source/gaussian_reference.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference",
+  "exec_session": 43297,
+  "exit_code": 0,
+  "records": [
+    {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference/source/gaussian_reference.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference",
+      "exec_session": 43297,
+      "exit_code": 0
+    }
+  ],
+  "environment_spec": "dc729a50",
+  "started_at_utc": "2026-10-28T13:22:56.857Z",
+  "terminal_observed_at_utc": "2026-10-28T13:23:28.389Z",
+  "observed_elapsed_seconds": 31.532,
+  "preflight_reported_seconds": 23.288415250135586,
+  "actual_shape_fake_fit_seconds": 4.31368154194206,
+  "doc_vs_reality_mismatches": [],
+  "documented_claim_checks": {
+    "status_PASS": true,
+    "primitive_status_PASS": true,
+    "state_time_cases": true,
+    "actual_shape_dimension": true,
+    "actual_shape_rank": true,
+    "stored_scalars": true,
+    "MLE_identities": true,
+    "physical_parameter_resume_bitwise": true,
+    "actual_shape_64_native_Heun": true,
+    "physical_prior_and_native_sampler_bitwise": true,
+    "independent_Heun_zero_error": true,
+    "dispatched_PPCA_matrix_MACs_per_image": true,
+    "covariance_normalization_fixture": true,
+    "actual_shape_fake_fit_timing": true,
+    "historical_features_32_bitwise": true,
+    "historical_FIDs_32": true,
+    "no_real_training_statistics": true,
+    "no_real_statistics": true
+  },
+  "preflight_sha256": "a94b4a28b346e02cb6d37a3a014ffb28bb8dff6015a22c58ddab332dab1c0955",
+  "preflight_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference/preflight.json",
+  "raw_stdout_stderr": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference/doc-validation/stdout-stderr.log",
+  "stream_capture": "Unmodified combined stdout/stderr as returned by exec_command and write_stdin",
+  "tool_metadata": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference/doc-validation/tool-metadata.json",
+  "single_invocation": true,
+  "retries": 0,
+  "real_fit_sample_metrics_run_invoked": false,
+  "full_shape_evidence": {
+    "dimension": 3072,
+    "rank": 59,
+    "image_shape_native_Heun_samples": 64,
+    "independent_Heun_error": {
+      "maximum": 0,
+      "RMS": 0
+    },
+    "PPCA_matrix_MACs_per_image": 362496,
+    "historical_features_bitwise": 32,
+    "historical_FIDs_recomputed": 32
+  },
+  "initial_context_files": [
+    "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+    "/Users/mr.z/ODE-FFN-autoresearch/.aris/compute/macmini.md",
+    "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-gaussian-reference/source/README.md"
+  ]
+}
+

@@ -7,11 +7,12 @@ conditional mean from the existing capped/discrete sampler.
 
 ## Current scope
 
-The Gaussian/MLE primitives and source-bound fit, sampler, independent audit,
-metric and controller entrypoints are implemented. Full documented preflight
-is pending. No real-data statistics, new image FID or neural training outcome
-exists for this reference. A mathematical fixture pass is not experiment
-readiness or evidence of model quality.
+The complete source-bound reference cohort has finished: statistical fitting,
+independent fit checks, generation, posterior/sample replay and feature/FID
+audits all pass. PPCA59 gives FID 293.73 and isotropic 405.30, versus 174.71 for
+the neural fixed-P control. Both fail the registered reference-quality gates.
+Curation, visual interpretation and final archive follow; this result does
+not prove every Gaussian predictor inadequate or identify a neural mechanism.
 
 ## Documented data-free eligibility command
 

@@ -43,7 +43,8 @@ the estimator, rank or tail. Positive v and l_i make Sigma positive definite.
 
 The stored scalar count is `d+(d+1)r+1`. With budget 185744, the largest rank is
 59 and count 184380; rank 60 requires 187453. Orthonormality reduces the generic
-dimension of the parameter family to 182610. Stored values, free dimensions,+float64 bytes and neural training computation must not be conflated.
+dimension of the parameter family to 182610. Stored values, free dimensions,
+float64 bytes and neural training computation must not be conflated.
 
 ## 2. Conditioning — exact identity for this prior
 
