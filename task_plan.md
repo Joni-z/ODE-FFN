@@ -330,3 +330,17 @@ All six phases and original controller5632 terminate0, as does registered curato
 Archive51807exits0;302files seal aad29b214ba537a2ee2034c60987c98f220eef00ca97b0105fb2e3bbadffff9c. Private runtime417939140bytes, curated2110898bytes. Four reports equal archived copies; all verification gates pass. Only normal GitHub publication/local-main sync remain for this cohort; the useful-ODE-successor goal is still active.
 
 Published closure and clean local main are verified at10ec3a2. Final plan synchronization changes only public bookkeeping; all scientific artifacts and the sealed private runtime remain unchanged. No tasks remain for this registered cohort. The overall ODE successor objective remains active.
+
+
+## Post-cold-control direction review
+- [x] Revalidate published0ef6939 and cold-control sealaad29b21; prior goal turn
+  completed real empirical progress, no live old process remains.
+- [x] Review current primary literature and prior stops. No new neural ODE
+  architecture is nominated from recurrence, target changes or conditioning.
+- [x] Specify a train-only PPCA59/isotropic classical image reference and exact
+  Gaussian theory, unchanged banks/sampler/metrics, scalar budget and stop rules.
+- [ ] Commit primitive source and pass fresh documented data-free eligibility;
+  finish actual-shape sampler/metric/controller entrypoints before any real fit.
+
+Broader objective remains active. The reference measures a missing classical
+context; it is not a new ODE successor, a changed benchmark or a rescue.
