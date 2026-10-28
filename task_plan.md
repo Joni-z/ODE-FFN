@@ -309,5 +309,11 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Publish source1e35ce2and curator836d621; fresh documented preflight21100exits0. Controller25342exits0 through8native cells and all122,880independent AD probes in241.13seconds, with CPU/RSS monitoring.
 - [x] Curator18967 exits0; all3figures visually inspected. Archive23733 exits0 with complete public-table/link and all122,880 matrix-entry verification.1084files sealed faeac7fd69f048c0875184af92c6278956bdf478083c75d77bbd83f747aa6345; publish verified reports/evidence. No new constraint or quality claim.
 
+## Time-preserving frozen K1 study
+- [x] Revalidate previous progress, sealed native feedback and stopping rules; specify one time-table replacement with same-calibration pooled attribution control.
+- [ ] Commit/publish source and obtain fresh documented native/calibration/derivative/cost and metric readiness.
+- [ ] Run both fixed interventions with monitoring, independent sampling/feature audits and all eleven old/new endpoints.
+- [ ] Verify complete plots/report/cases, seal and publish. No retrained architecture is selected.
+
 ## Status
-The native gate-feedback analysis is complete and sealed: controller25342, curator18967 and archive23733 end with exit0. All122,880 selected native derivatives pass independent AD, including every full/reference matrix entry; eight original endpoint banks reproduce bitwise.1084files sealfaeac7fd69f048c0875184af92c6278956bdf478083c75d77bbd83f747aa6345. K1generated-state median feedback correction rises6.64%→14.48%from5kto20k, while the20kmedian gain ratio is1.0207 and62.21%of within-clock variance separates times. No P-only constraint or new architecture is selected. Full English reports, complete numeric evidence and three inspected figures are verified for publication; all parent seals, native training code and Report1remain unchanged. The broader useful-ODE-successor objective remains active and unachieved.
+Registering a distinct time-preservation hypothesis before calibration or quality outcomes. The table and pooled control share exactly the same prescribed inputs/times; the old failed constants remain unchanged. No P-only penalty, K2 intervention or new training is selected. The useful-ODE-successor objective remains active and unachieved.
