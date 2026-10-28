@@ -1,0 +1,89 @@
+{
+  "failures": [
+    {
+      "runtime": "oct28-image-time-clocks",
+      "receipt_sha256": "6c36be54de3b674b8837a8d58764eac105655f732026dcf0bfe7f2e7eea7e7bc",
+      "raw_receipt": {
+        "status": "FAIL",
+        "validation_scope": "fresh agent follows README verbatim",
+        "workdir": "/Users/mr.z/ODE-FFN-autoresearch",
+        "commands": [
+          {
+            "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks",
+            "tool_session_id": 35070,
+            "terminal_exit_code": 1,
+            "attempts": 1,
+            "tool_output_files": [
+              "native-001-exec.json",
+              "native-002-write_stdin.json",
+              "native-003-write_stdin.json"
+            ]
+          },
+          {
+            "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks/source/study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks",
+            "status": "NOT_RUN",
+            "reason": "README requires stopping after the first invocation fails."
+          }
+        ],
+        "doc_vs_reality_mismatches": [
+          {
+            "documentation": "Native preflight must exit 0 and verify readiness, including stored/inactive parameter accounting.",
+            "actual": "Native preflight exited 1 at frozen source/study.py:188 with AssertionError: assert (stored,inactive)==(211094,25350). The traceback does not print actual stored/inactive counts."
+          }
+        ],
+        "retry_performed": false,
+        "fix_performed": false,
+        "documented_pass_written": false,
+        "controller_or_formal_generation_launched": false,
+        "observed_at": "2026-10-28T09:41:47.214Z"
+      },
+      "new_quality_generation": false
+    },
+    {
+      "runtime": "oct28-image-time-clocks-v2",
+      "receipt_sha256": "f3c383bd627ef7ba2f7e88f506bd4ae8ac7da2354f9ab4e3cec91ed5e3bb6ca1",
+      "raw_receipt": {
+        "status": "FAIL",
+        "agent_role": "fresh agent follows documented invocation",
+        "root": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2",
+        "workdir": "/Users/mr.z/ODE-FFN-autoresearch",
+        "command_records": [
+          {
+            "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2",
+            "tool": "exec_command",
+            "session_id": 72918,
+            "exit_code": 1,
+            "events": [
+              "01-preflight-exec.json",
+              "02-preflight-observe.json"
+            ]
+          }
+        ],
+        "metric_preflight": {
+          "status": "NOT_RUN",
+          "reason": "First documented command terminal exit 1; README requires stop without fix or retry."
+        },
+        "doc_vs_reality_mismatches": [
+          {
+            "claim": "Documented preflight establishes native replay, independently recaptured calibration, derivative fixtures, promoted witnesses and FFN MAC readiness.",
+            "reality": "The verbatim preflight terminated with exit 1 before its final readiness receipt.",
+            "exception": "AttributeError: module 'study' has no attribute 'native_model'",
+            "trace": [
+              "source/study.py:205 preflight -> independent.verify_calibration(root)",
+              "source/audit.py:14 verify_calibration -> study.native_model()"
+            ]
+          }
+        ],
+        "retries": 0,
+        "fixes": 0,
+        "controller_launched": false,
+        "formal_quality_generation_launched": false,
+        "training_launched": false,
+        "environment_changes": false,
+        "pass_receipt_written": false
+      },
+      "new_quality_generation": false
+    }
+  ],
+  "scientific_inputs_and_decision_rules_unchanged": true
+}

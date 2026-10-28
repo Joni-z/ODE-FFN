@@ -8,9 +8,9 @@ retrained architecture or a rescue of the old constant replacement.
 ## Actions
 - [x] Read the completed native feedback and20kclock studies, earlier stop rules,
   original sampling/metric source, autoresearch program and compute ledger.
-- [ ] Register one exact clock table and its pooled control, decision rules,
+- [x] Register one exact clock table and its pooled control, decision rules,
   literal operators, cost and derivative checks; commit/publish runnable source.
-- [ ] Verify warm environment hashes and obtain a fresh documented preflight:
+- [x] Verify warm environment hashes and obtain a fresh documented preflight:
   native replay, all calibration arrays, injection, derivatives and costs.
 - [ ] Run both fixed interventions with CPU/RSS monitoring; independently replay
   native calibration, predictions, sampling, features and all reused/new FIDs.
@@ -29,5 +29,4 @@ Native preflight35070 exits1 because fixed pos_embed was included in the learned
 V2 preflight72918 exits1 before quality work: a parent prepended its old source path, so independent audit imported the wrong `study`. V3 pins the CLI module and imports the audit by its exact file path. Both failed runtimes stay read-only.
 
 ## Status
-Registering the distinct time-preservation question before calibration or new
-intervention outcomes. No failed model is retrained or selected.
+V3 source86afd38 is published. Fresh documented native69731/metric72055 both exit0; all native predictions,64-image endpoint, six raw calendars/774means,6pooled means,ten promoted witnesses and32MPS rows pass. Both previous failures and unchanged calibration are preserved. Controller68903 (create1793181273.394136), actual session61529, is running the two declared new sample banks with at most two one-thread CPU children. No new quality conclusion yet.

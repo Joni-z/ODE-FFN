@@ -311,9 +311,9 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 
 ## Time-preserving frozen K1 study
 - [x] Revalidate previous progress, sealed native feedback and stopping rules; specify one time-table replacement with same-calibration pooled attribution control.
-- [ ] Commit/publish source and obtain fresh documented native/calibration/derivative/cost and metric readiness.
+- [x] Publish v3source86afd38 after preserving the two pre-quality entrypoint failures; fresh native69731/metric72055preflights terminate0, all checks pass.
 - [ ] Run both fixed interventions with monitoring, independent sampling/feature audits and all eleven old/new endpoints.
 - [ ] Verify complete plots/report/cases, seal and publish. No retrained architecture is selected.
 
 ## Status
-Registering a distinct time-preservation hypothesis before calibration or quality outcomes. The table and pooled control share exactly the same prescribed inputs/times; the old failed constants remain unchanged. No P-only penalty, K2 intervention or new training is selected. The useful-ODE-successor objective remains active and unachieved.
+Time-preserving frozen K1 study is running under original controller68903/create1793181273.394136, actual tool session61529. Fresh documented native69731/metric72055exit0; all calibration reductions, native replay and feature/cost witnesses pass. Both prior pre-quality failures remain byte-preserved and their curated receipts are public. No new quality conclusion, P constraint, K2 intervention or training is selected. The useful-ODE-successor objective remains active and unachieved.
