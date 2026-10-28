@@ -288,5 +288,9 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Revalidate clean eb346a7; the preceding host-scope turn was not scientific progress. Read actual native SwiGLU and existing complete-field/nonlinear-drift/coupled-generator stopping decisions.
 - [x] Complete the [bounded candidate review](docs/autoresearch/nonlinear-swiglu-review/decision.md):18AD/36FD checks and actual dense work pass; a legal scalar field escapes before duration1.15files sealed022e4cc. No new performance result, training nomination or stopped-family rescue. User correctly notes that formula verification does not deliver an effective model.
 
+## Frozen image inference export
+- [x] Re-read the closest positive/negative outcomes and original image sources. A portable folded endpoint is an unmeasured practical deliverable, not a new ODE method or a reopened training setting.
+- [ ] Complete the [registered export and timing task](docs/autoresearch/folded-image-inference/task_plan.md), preserving ordinary inference controls and separating clock collapse, caching and unused diagnostic removal.
+
 ## Status
 The nonlinear SwiGLU review is complete and does not nominate training. No new quality result is available. Cycle22 and all image/synthetic studies remain unchanged; the useful-ODE-successor objective is active and unachieved. Current evidence does not justify selecting another hidden integrator merely for higher numerical accuracy. A task-specific mechanism remains missing. Only Mac mini/Lenovo are execution hosts; Lenovo SSH timed out in the latest check. Direct Mac mini GitHub authentication remains a separate publication dependency.
