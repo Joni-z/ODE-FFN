@@ -220,7 +220,15 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Verified result534d1df committed and clean local main fast-forwarded. Publisher56955 exits1 only at missing HTTPS Username; independent ls-remote confirms GitHubmain800d09f unchanged. No remote publication claimed. All four phase processes are terminal.
 - [ ] Before selecting another method, reassess the ODE-specific hypothesis against all ordinary image controls and existing synthetic stop rules; no width/init/budget rescue is authorized by this result.
 
+## Cycle21 plan: frozen image matrix-flow attribution
+- [x] Review completed cycle20 and previous negative exact-flow/recurrence/effective-map/covariance evidence. Primary PDE-SSM and GraphFlow papers are checked; distinguish spatial-token dynamics from graph nodes that are entire latent images. No new spatial or spectral architecture selected.
+- [x] Specify one finite question: same learned image P and frozen durations, polynomial versus exponential; four cached-map endpoints include two arithmetic controls, all nine prior endpoints reused. Derive actual map/tail/nonnormal/semigroup distinctions without a task-quality theorem.
+- [ ] Register source before new outcomes; prepare fresh root, run independent documented preflight and check unchanged environments/parent bindings.
+- [ ] Execute the bounded four-endpoint diagnostic only after readiness passes, with monitored two-worker CPU queue, then independent matrix/prediction/sample/features/FID audits. No new training or higher-order rescue.
+- [ ] Curate all thirteen endpoints,48P operator-history records, all contrasts and fixed cases; report the observed scope and preserve previous stop rules. Keep the useful-successor objective active.
+
 ## Errors encountered
+- Cycle21 review initially used the wrong skill root for research-refine/formula-derivation and guessed a nonexistent analysis-frozen-order folder. Correct roots are .agents/skills; the existing exact-flow evidence is research-2026-10-20-followup/analysis-report.md. No runtime or source changed by those reads.
 - Cycle19 native raw-fraction metadata accidentally came from cycle1732-step fitting records, while FIDs correctly used128-step features. Preserve original JSON/audits; separately correct only four native out-of-range fields from registered128-step raw arrays. All FIDs/losses/features unchanged; public curation and archive verify corrected provenance.
 - Cycle19 preflight58539 exits1 in the promoted algebra witness: native time features are hardcoded float32, while promoted MLP weights are double. Preserve first preparation/source/log and absence of formal outputs. V2 lifts only the witness time-feature values before that MLP; native float32 quality functions and all tolerances unchanged.
 - Cycle18 audit-v1 exits1 before any numerical work: top-level SciPy import is unnecessary for CPU sampling replay and absent from the lean training environment. Preserve failed source/status/log. V2 defers only that import to the FID function; no package/model/sampler/metric/tolerance change, and no training/sample rerun.
