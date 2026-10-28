@@ -12,3 +12,5 @@ Preflight-v1: session55048 consumed exit1 on the first physical-resume check.
 Fixture counter5004versus declared5001 identifies in-memory Adam-moment aliasing
 between the two test paths. The original5k checkpoint counter remains5000.
 Preserve v1; deep-copy restore input and prepare a separately registered v2.
+
+Metric entrypoint preflight64269 exits0:32historical MPS feature vectors bitwise and the old K2FID183.69806728894557 reproduced exactly. The frozen evaluator is unchanged; fixed10k/20kmetrics will wait for the complete seven-arm training cohort. No new quality result.
