@@ -401,3 +401,9 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Independent auditorc1c1b01 covers112checkpoints and15knew stream batches, saved spectra/eigenvalues/clocks,14manual Heun128banks and allnew/reference Inception features plus independent SciPyFID. Snapshot40886 exits0 on5kK1, including five panels and30clock records. No final audit or quality claim yet.
 - Finalization waiter60880/create_time1793161705.727106/session68281 is alive and waits for known evaluator60530. Frozen private audit source preserved. Its two heavy audit children start only after production metrics finish; no duplicate training/evaluation launched.
 - Native publisher88005 exits1: HTTPS Username unavailable. GitHub tool metadata was inspected; create_commit has no author/committer/date inputs, so it cannot preserve the local commit objects and required identity. No API history rewrite attempted. Mac idle sleep is0; no power-setting change was needed.
+
+## First20k endpoints and curation readiness
+- K1/K2children terminate with exit0 after1889.07/1989.29seconds of continuation work. Independent20k checkpoint audits15175/92834 pass; MSE0.16026744/0.16052734 and cleanMSE0.07615283/0.07629203. K2does not improve fitting at this endpoint; FID and matched ordinary20kcomparisons remain pending. No general ODE verdict or new nominee.
+- Swi86/129have started; remainingSiLU64/131/193queued. Training60302/session91639 remains the original controller; evaluation60530/session80573 and finalization60880/session68281 remain waiting.
+- Curator prepared with exact20kselection/all-control/fitting conditions, requiring112checkpoint/14sampling/14feature-audit coverage before tables/figures. Four boundary/reference/endpoint checks pass. No main results report or figures from incomplete evidence.
+- Fresh gh auth status confirms no logged-in GitHub host; native publication still lacks authentication.

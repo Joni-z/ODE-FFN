@@ -1,0 +1,33 @@
+{
+  "scope": "Native K1/K2 snapshots only; final cohort audit and matched ordinary comparisons pending.",
+  "status": "PASS",
+  "rows": [
+    {
+      "arm": "ode_k1",
+      "step": 20000,
+      "weighted_mse": 0.16026743903770652,
+      "clean_mse": 0.07615282775748579,
+      "prediction_rms": 0.41401721886727355,
+      "Adam_step": 20000,
+      "native_predictions_bitwise": true,
+      "matrix_records": 18,
+      "P_records": 6,
+      "clock_records": 30,
+      "panels": 5
+    },
+    {
+      "arm": "ode_k2",
+      "step": 20000,
+      "weighted_mse": 0.16052733696943747,
+      "clean_mse": 0.07629203376215409,
+      "prediction_rms": 0.4100231566444376,
+      "Adam_step": 20000,
+      "native_predictions_bitwise": true,
+      "matrix_records": 18,
+      "P_records": 6,
+      "clock_records": 30,
+      "panels": 5
+    }
+  ],
+  "new_method_established": false
+}

@@ -20,3 +20,7 @@ Live verification: controller60302/session91639; K1at8900andK2at8600. Evaluation
 Independent auditor prepared for112checkpoints,15kcontinuation stream batches, allP/clock/matrix snapshots,14manual Heun128banks and all14new/reference feature/FID checks. Snapshot preflight40886 exits0 on the existing5kK1: predictions, Adam state, full spectra/eigenvalues, five panels and30clock records verify. This is a one-checkpoint readiness result; final cohort verification remains pending.
 
 Finalization is scheduled once: waiter60880/session68281, immutable auditor registrationc1c1b01. It waits for the known metric process to end and a complete14-row result before starting the two final independent audit phases. Current cohort remains incomplete. Native publisher88005 fails at missing HTTPS Username; no remote publication.
+
+K1/K2complete20kwith terminal exit0. Independent20ksnapshot checks15175/92834 exit0 and verify both fitted predictions, Adam state, allP/matrix/clock records and five panels. WeightedMSE0.16026744/0.16052734; this is a within-ODE fitting comparison, not a completed quality/ordinary-frontier result. Swi86/129are now running.
+
+Curator fixes the20kprimary endpoint and all seven controls in code. Four hand-computable checks pass: inclusive boundary, both ordinary references, fitting guard, and prohibition on substituting10k. It refuses incomplete audit coverage; no figures or report were produced from the partial cohort.
