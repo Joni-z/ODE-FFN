@@ -39,24 +39,22 @@
   ],
   "monitor": {
     "state": "RUNNING",
-    "phase": "training",
-    "seconds": 2024.5100469170138,
+    "phase": "sample",
+    "seconds": 35.08445462491363,
     "resources": [
       {
-        "arm": "feature_clock_zero",
-        "pid": 84850,
+        "arm": "sample",
+        "pid": 85694,
         "CPU_percent": 100.0,
-        "RSS": 956710912
+        "RSS": 447938560
       }
     ]
   },
   "training": {
     "feature_clock_zero": {
-      "state": "RUNNING",
-      "pid": 84850,
-      "step": 18900,
-      "total": 20000,
-      "seconds": 2017.1606923751533
+      "state": "COMPLETE",
+      "step": 20000,
+      "seconds": 2112.817804541206
     },
     "time_clock_zero": {
       "state": "COMPLETE",
@@ -65,5 +63,7 @@
     }
   },
   "new_FID_available": false,
-  "new_ODE_method_established": false
+  "new_ODE_method_established": false,
+  "observed_at_unix": 1793220408.300472,
+  "analysis_registration_commit": "2afd4e0dc97827c416540d5ba5e1f2b23614cb5b"
 }

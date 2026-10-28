@@ -45,3 +45,7 @@ eight named models are fixed. Neither P spectra nor clock bands are treated
 as full-model stability or confidence bounds. Actual controller/analysis/plot
 terminal receipts and all audits gate publication. No results are synthesized
 while those inputs remain incomplete.
+
+Analysis frozen from 2afd4e0dc97827c416540d5ba5e1f2b23614cb5b before metric-output exists.
+Both formal trajectories reached20k; controller96978 is in audit-training.
+No new FID or final decision exists. See readiness/analysis-registration.json.

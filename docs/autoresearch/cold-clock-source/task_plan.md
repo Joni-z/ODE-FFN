@@ -20,7 +20,7 @@ AdaLN time conditioning as absent.
   matrix equivalence and measured parameter/forward/backward costs.
 - [x] Pass fresh native/metric documented invocations and launch the two
   monitored one-thread CPU trajectories on Mac mini.
-- [ ] Freeze the complete 41-row analysis and fixed case/figure layout before
+- [x] Freeze the complete 41-row analysis and fixed case/figure layout before
   new FID extraction, without changing formal source or the quality gate.
 - [ ] Complete prediction, matrix/clock, sample and feature/FID audits; publish
   all outcomes and stop or retain the setting under the original rule.
@@ -34,3 +34,8 @@ Both arms use model seed0 and original data stream. No new FID or model gain
 is available. The comparison of17primary endpoints (16controls and the candidate) remains
 pending.
 The stopped matched-Swi initializer and frozen calendar remain stopped.
+
+Both 20k training trajectories are complete. The original controller is now
+in independent training audit; no new FID is available. Analysis source is
+frozen under curation-source at commit 2afd4e0, with file hashes and
+an actual pre-metric timestamp. Formal source and acceptance are unchanged.
