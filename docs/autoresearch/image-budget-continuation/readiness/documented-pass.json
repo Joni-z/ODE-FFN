@@ -1,0 +1,128 @@
+{
+  "status": "PASS",
+  "validated_at_utc": "2026-10-28T04:09:10.483534+00:00",
+  "validation": "fresh-agent-follows-documentation",
+  "requested_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/image-budget-continuation/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2",
+  "actual_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/image-budget-continuation/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2 > /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/doc-validation-20261028T040659Z/preflight.raw.log 2>&1",
+  "working_directory": "/Users/mr.z/ODE-FFN-autoresearch",
+  "execution_handle": 98149,
+  "exit_code": 0,
+  "exit_code_evidence": "tools.write_stdin final result for session 98149: exit_code 0; same live command handle awaited, no duplicate preflight",
+  "raw_stdout_stderr_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/doc-validation-20261028T040659Z/preflight.raw.log",
+  "raw_stdout_stderr_sha256": "37bd605448357ba31ae7992ce93f42c8e4cc2fd46440c513c3598761721ec4a4",
+  "source_path": "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/image-budget-continuation/study.py",
+  "source_sha256": "8af23fa5f1ed992b22e7144d98d3f771d0316d723cc97ff78031cb622089a56e",
+  "frozen_source_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/source/study.py",
+  "frozen_source_sha256": "8af23fa5f1ed992b22e7144d98d3f771d0316d723cc97ff78031cb622089a56e",
+  "protocol_path": "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/image-budget-continuation/protocol.md",
+  "protocol_sha256": "5803cde2b45bcec510c0901aa7c3240126726f8992f610c23cee1594a8db87d2",
+  "actual_python": "3.12.4 (v3.12.4:8e8a4baf65, Jun  6 2024, 17:33:18) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "actual_executable": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+  "actual_packages": {
+    "torch": "2.10.0",
+    "numpy": "2.2.6",
+    "einops": "0.8.1",
+    "Pillow": "12.3.0",
+    "psutil": "7.2.2"
+  },
+  "training_spec_hash": "475428fb",
+  "metrics_spec_hash": "dc729a50",
+  "receipt_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/attempt-01.json",
+  "receipt_sha256": "16b627a0c83995c2c6f3fc97e21755d4e56a7ce92e313da83e36f864f236fa32",
+  "native_1024_prediction_checks_passed": 7,
+  "physical_model_adam_rng_buffer_resume_checks_passed": 7,
+  "adam_counter_audit_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/doc-validation-20261028T040659Z/adam-audit.json",
+  "adam_counter_audit_sha256": "ad387684c0aa338cb92f9e9b9928af25a04faf80dfea5171a8ae53738129c8da",
+  "adam_counter_audit_exit_code": 0,
+  "adam_counter_progression_per_arm": {
+    "ode_k1": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ],
+    "ode_k2": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ],
+    "swiglu86": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ],
+    "swiglu129": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ],
+    "silu64": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ],
+    "silu131": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ],
+    "silu193": [
+      [
+        5000
+      ],
+      [
+        5001
+      ],
+      [
+        5003
+      ]
+    ]
+  },
+  "optimizer_moments_storage_disjoint_all_arms": true,
+  "loaded_fixture_states_unchanged_all_arms": true,
+  "immutable_inputs_checked": 82,
+  "immutable_inputs_changed": [],
+  "immutable_inputs_before": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/doc-validation-20261028T040659Z/immutable-inputs-before.json",
+  "immutable_inputs_after": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/doc-validation-20261028T040659Z/immutable-inputs-after.json",
+  "mismatches": [],
+  "formal_training_started": false,
+  "formal_output_directory_absent_at_certification": true,
+  "source_protocol_model_data_modified": false,
+  "validation_directory": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/doc-validation-20261028T040659Z",
+  "scope": "Documented preflight readiness only; no full experiment or model-quality claim."
+}

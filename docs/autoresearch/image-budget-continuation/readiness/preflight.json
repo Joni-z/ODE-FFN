@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "attempt": 1,
+  "rows": [
+    {
+      "arm": "ode_k1",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/ode_k1-after-one.pt"
+    },
+    {
+      "arm": "ode_k2",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/ode_k2-after-one.pt"
+    },
+    {
+      "arm": "swiglu86",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/swiglu86-after-one.pt"
+    },
+    {
+      "arm": "swiglu129",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/swiglu129-after-one.pt"
+    },
+    {
+      "arm": "silu64",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/silu64-after-one.pt"
+    },
+    {
+      "arm": "silu131",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/silu131-after-one.pt"
+    },
+    {
+      "arm": "silu193",
+      "native_1024_predictions_bitwise": true,
+      "physical_model_optimizer_rng_buffers_resume": true,
+      "source_stream": "e2ec1fe71b556af570f81039c7642733b947d42595c9da5882347cd1ef28436c",
+      "resumed_stream": "497fdf383f004843fd7113b03a4d784b6e2d8337a27e1e076a1ade1d55e66188",
+      "fixture": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2/preflight/fixtures-01/silu193-after-one.pt"
+    }
+  ],
+  "torch": "2.10.0",
+  "numpy": "2.2.6",
+  "MPS_available": true,
+  "executable": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+  "formal_training_started": false
+}
