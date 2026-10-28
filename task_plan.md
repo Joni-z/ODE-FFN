@@ -3,7 +3,22 @@
 ## Goal
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
-## Current priority: baseline validity (2026-10-29)
+## Current priority: ISRU positive-result follow-up (2026-10-29)
+The user asks why the existing positive ISRU design is not being pursued and
+requires maintaining Markdown to preserve progress. The immediate focus is
+[ISRU evidence](docs/autoresearch/isru-followup/README.md), its
+[task plan](docs/autoresearch/isru-followup/task_plan.md) and
+[continuity notes](docs/autoresearch/isru-followup/notes.md).
+- [x] Recover the exact winning operator and initial/transfer CSV observations.
+- [x] Preserve the Product16 win together with the dependent-sign and
+  half-mixture reversals; do not substitute original-ODE results for this design.
+- [ ] Assess training adequacy, recover exact states/configurations and
+  specify one justified follow-up before a new launch.
+Current stage: evidence review only; no new experiment launched. Baseline
+validation constrains the follow-up. Do not switch to another architecture
+family or the weak image screen merely because an old transfer gate failed.
+
+## Standing constraint: baseline validity (2026-10-29)
 The user challenged the image results because the ordinary baseline has not
 been shown to produce competent samples or to have converged. This takes
 priority over another architecture cycle or a mechanism study of tiny FID gaps.
@@ -17,7 +32,7 @@ snapshots and Report1; do not relabel old runs as converged. Historical stop
 rules record decisions in their old screen, not proof that a model family
 cannot work after the benchmark is repaired. The broader objective stays active.
 
-## Current cycle: oct27-complete-hidden-field
+## Historical cycle: oct27-complete-hidden-field
 - [x] Read the official autoresearch protocol, project conventions, and preceding transfer/failed-generator reviews.
 - [x] Create isolated branch `autoresearch/oct27-ode` and worktree `/Users/mr.z/ODE-FFN-autoresearch`.
 - [x] Write an ODE-specific program with immutable evaluation, explicit budgets, preserved failed experiments, and publication rules.

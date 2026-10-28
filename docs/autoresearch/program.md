@@ -5,6 +5,14 @@ This is a project-specific adaptation of [Karpathy autoresearch](https://github.
 ## Objective and authority
 Develop a mathematically interpretable ODELayer successor that improves flow matching against strong ordinary controls. Follow repository AGENTS.md. The user has authorized continued experiments and normal GitHub publication; setup does not require another permission request. Preserve the researcher's decisions about future directions. Do not present a negative screen as a completed research objective.
 
+## Current research focus
+Read the [ISRU follow-up](isru-followup/README.md), its plan and notes before
+selecting another family. The user is directing attention to that existing
+positive result. Preserve its transfer failures without erasing the original
+gain or replacing it with original-ODE scores. First assess training adequacy
+and attribution. A new follow-up needs its own concrete protocol; no new run
+is selected by the continuity note, and old raw studies remain immutable.
+
 ## Immutable ground truth
 Keep registered datasets, train/validation split, FM coupling, oracle formulas, metric code, native checkpoint restoration and held-out test data fixed. Model seed is 0. Stream identifiers remain the historically recorded values. Do not change evaluation or data to obtain a win. Treat source snapshots and sealed studies as read-only. Keep checkpoints, datasets, environments and raw logs outside Git.
 

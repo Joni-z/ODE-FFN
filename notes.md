@@ -1,5 +1,14 @@
 # ODE autoresearch notes
 
+## Current state — October 29, 2026
+The user directs attention to the positive ISRU synthetic design and requires
+Markdown continuity. Read [ISRU follow-up](docs/autoresearch/isru-followup/README.md),
+[its plan](docs/autoresearch/isru-followup/task_plan.md) and
+[its notes](docs/autoresearch/isru-followup/notes.md) first. The Product16 gain
+is real within the recorded budget; failed transfer does not erase it. Training
+adequacy, attribution and generation remain unresolved. No new training is
+launched by this update; image baseline validity remains a standing constraint.
+
 ## Evidence used at setup
 - Canonical starting commit: `2d2259a8e34fb15d48e57f9492f18f4d026e57c8`.
 - Official autoresearch: https://github.com/karpathy/autoresearch, local `/Users/mr.z/autoresearch`, revision `228791fb499afffb54b46200aca536f79142f117`.
