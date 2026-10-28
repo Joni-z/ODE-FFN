@@ -2,6 +2,8 @@
 
 The user-authorized autonomous research loop follows [program.md](program.md), adapted from Karpathy's official autoresearch. The data, evaluation and scientific controls remain specific to ODE-FFN; this does not run the upstream language-model task.
 
+The [matched-function SwiGLU control](image-swiglu-initialization/results/analysis-report.md) is complete. Its 20k FID is 185.85 versus 195.31 for default Swi86, a 4.84% improvement that misses the registered 5% gate. K1 remains at 173.44 and the fixed-clock model at 174.71. Lower regression error does not close this generation gap. All sample/feature/FID checks pass; the initializer is stopped without a rescue, and the broader ODE architecture objective remains open.
+
 | Cycle | Question | State | Decision |
 |---|---|---|---|
 | [01](cycle01-complete-field/analysis.md) | Does a complete nonlinear hidden-field Taylor correction help existing SwiGLU checkpoints? | Completed and independently replayed | Reject this frozen-checkpoint upgrade; no new training |

@@ -59,3 +59,16 @@ checkpoint hashes are unchanged. This checks that the embedding does not
 freeze extra capacity; it is not a new FID, causal explanation or gate decision.
 The retained Swi129 fits slightly better at5k, so the observed regression
 score is not presented as a baseline win. Formal sampling is still pending.
+
+ER-20261029-swiglu-init-result-01: actual controller61348/f8848e exits0,
+all six owned phases exit0. New FIDs204.41926/171.07767/185.85425at5k/10k/20k;
+primary default improvement4.84145%, below the original5%gate. Both fitting
+guards pass, and all32historical rows remain. Initializer is stopped; no
+additional channel, value-bias, optimizer, width or duration rescue is selected.
+New weighted/cleanMSE beatK1 but FID remains12.41734higher. This strengthens
+the fitting/generation distinction without identifying a causal mechanism.
+Curator73642/0c378d and plot91249/91f731 exit0. All five PNGs visually
+inspected; all five standalone PDFs have one page. Raw files and physical/
+inferred historical P trajectories are preserved. The research objective is
+still open. Next question: the exact optimizer-coordinate map between P and
+W=I+cP, using the completed cold-control evidence before another design.

@@ -1,9 +1,11 @@
 {
-  "state": "RUNNING",
+  "state": "COMPLETE",
   "runtime": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1",
-  "source_commit": "222b1dc4f31570f39296e8eac6a2318932055100",
+  "formal_source_commit": "222b1dc4f31570f39296e8eac6a2318932055100",
   "controller_session_id": 61348,
-  "launches": [
+  "actual_terminal_chunk": "f8848e",
+  "controller_exit_code": 0,
+  "phases": [
     {
       "action": "train",
       "command": [
@@ -16,33 +18,131 @@
       ],
       "pid": 81673,
       "create_time": 1793210917.666339,
-      "ceiling_seconds": 7200
+      "ceiling_seconds": 7200,
+      "exit_code": 0,
+      "seconds": 1498.2055729171261
+    },
+    {
+      "action": "audit-training",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py",
+        "audit-training",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1"
+      ],
+      "pid": 82346,
+      "create_time": 1793212415.8579,
+      "ceiling_seconds": 1200,
+      "exit_code": 0,
+      "seconds": 70.15357395890169
+    },
+    {
+      "action": "sample",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py",
+        "sample",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1"
+      ],
+      "pid": 82358,
+      "create_time": 1793212486.033178,
+      "ceiling_seconds": 2700,
+      "exit_code": 0,
+      "seconds": 365.7814801670611
+    },
+    {
+      "action": "audit-sampling",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py",
+        "audit-sampling",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1"
+      ],
+      "pid": 82413,
+      "create_time": 1793212851.833152,
+      "ceiling_seconds": 2700,
+      "exit_code": 0,
+      "seconds": 370.79630675003864
+    },
+    {
+      "action": "evaluate",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py",
+        "evaluate",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1"
+      ],
+      "pid": 82486,
+      "create_time": 1793213222.645395,
+      "ceiling_seconds": 1200,
+      "exit_code": 0,
+      "seconds": 50.11420291708782
+    },
+    {
+      "action": "audit-metrics",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1/source/init_study.py",
+        "audit-metrics",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-image-swiglu-init-v1"
+      ],
+      "pid": 82497,
+      "create_time": 1793213272.785551,
+      "ceiling_seconds": 1200,
+      "exit_code": 0,
+      "seconds": 75.16007279115729
     }
   ],
-  "training": {
-    "state": "RUNNING",
-    "pid": 81673,
-    "step": 11100,
-    "total": 20000,
-    "seconds": 827.6984576669056
-  },
-  "resources": {
-    "state": "RUNNING",
-    "completed": 0,
-    "total": 6,
-    "action": "train",
-    "seconds": 831.777606958989,
-    "pid": 81673,
-    "CPU_percent": 100.0,
-    "RSS": 1094156288,
-    "progress": {
-      "state": "RUNNING",
-      "pid": 81673,
-      "step": 11000,
-      "total": 20000,
-      "seconds": 820.1792247500271
+  "new_rows": [
+    {
+      "step": 5000,
+      "weighted_mse": 0.17205278008762923,
+      "clean_mse": 0.07980952353239587,
+      "fid": 204.419259664313
+    },
+    {
+      "step": 10000,
+      "weighted_mse": 0.1631771847249619,
+      "clean_mse": 0.07693927330168772,
+      "fid": 171.07767071529202
+    },
+    {
+      "step": 20000,
+      "weighted_mse": 0.1583792855113671,
+      "clean_mse": 0.07561929212731809,
+      "fid": 185.85425084154426
     }
+  ],
+  "decision": {
+    "status": "PASS",
+    "quality_gate": {
+      "FID_five_percent": false,
+      "weighted_mse_guard": true,
+      "clean_mse_guard": true
+    },
+    "initialization_control_supported": false,
+    "new_ODE_method": false,
+    "primary_step": 20000,
+    "new_trajectories": 1,
+    "historical_rows_retained": 32,
+    "default_FID": 195.3100971802004,
+    "matched_FID": 185.85425084154426,
+    "FID_improvement_percent": 4.84145288706288,
+    "rescue_if_failed": false
   },
-  "new_FID_available": false,
-  "new_ODE_method_established": false
+  "historical_rows": 32,
+  "new_ODE_method_established": false,
+  "raw_runtime_seal_sha256": "4a6af4a2fc61ca8a1f60d145014041f52f23379b1cb2ec454d1f12da744927cd",
+  "raw_runtime_files": 206,
+  "raw_runtime_bytes": 195057421
 }

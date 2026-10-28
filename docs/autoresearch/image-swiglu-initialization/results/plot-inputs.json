@@ -1,0 +1,37 @@
+{
+  "labels": {
+    "ode_k1": "K1 native",
+    "fixed06": "Clock fixed at 0.6",
+    "matched_silu64": "Matched-init SiLU64",
+    "matched_swiglu86": "Matched-init Swi86",
+    "swiglu86": "Default Swi86",
+    "swiglu129": "Swi129",
+    "silu64": "Default SiLU64",
+    "silu131": "SiLU131",
+    "silu193": "SiLU193",
+    "ode_k2": "K2 native",
+    "native_posthoc06": "Native posthoc 0.6",
+    "ode_k1_time": "Frozen K1 time",
+    "ode_k1_pooled": "Frozen K1 pooled",
+    "ode_k1_constant": "Frozen K1 constant",
+    "ode_k2_constant": "Frozen K2 constant"
+  },
+  "focus": [
+    "ode_k1",
+    "fixed06",
+    "matched_silu64",
+    "swiglu86",
+    "matched_swiglu86",
+    "swiglu129",
+    "silu131",
+    "silu64"
+  ],
+  "cases": [
+    "ode_k1",
+    "fixed06",
+    "matched_silu64",
+    "swiglu86",
+    "matched_swiglu86",
+    "swiglu129"
+  ]
+}

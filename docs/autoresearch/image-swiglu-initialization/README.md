@@ -5,12 +5,18 @@ all 211,412 trainable values and its 16,512 dense FFN forward MACs per token
 per block. Only its initialization changes. See the [protocol](protocol.md)
 for the exact function embedding, retained controls and stopping rule.
 
-Status: both documented preflights pass with actual exit0/no mismatches. The
-one cold trajectory is running on Mac mini; [progress.json](progress.json) is
-a published snapshot, not a live feed. Automatic audits follow the training.
-No new FID or accepted ODE architecture is available yet. The
-[analysis layout](analysis-layout.md) and its [pre-FID source binding](readiness/analysis-registration.json)
-retain every historical endpoint, fixed-start case and primary comparison.
+Outcome: **FID 185.85 versus 195.31 for default Swi86**, a measured 4.84%
+improvement that misses the registered 5% gate. Native K1 remains at 173.44;
+fixed-clock training gives 174.71 and matched SiLU64 gives 178.06. Both loss
+guards pass. This initializer is stopped under its original rule, with all
+outcomes retained. No new ODE method is accepted.
+
+Read the [complete analysis](results/analysis-report.md),
+[fixed-start cases](results/case-notes.md) and [35-row comparison](results/comparison.csv).
+All six phases and the actual controller tool exit pass; independent sample,
+feature and FID checks pass. The [progress snapshot](progress.json) records
+completion. The [analysis layout](analysis-layout.md) and its
+[pre-FID source binding](readiness/analysis-registration.json) remain unchanged.
 
 Use the unchanged Mac mini training environment `475428fb` and metrics
 environment `dc729a50`. No installation, CUDA device or remote host is needed.

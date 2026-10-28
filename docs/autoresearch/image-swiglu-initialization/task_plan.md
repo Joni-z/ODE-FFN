@@ -17,17 +17,16 @@ This can improve a baseline; it cannot alone establish an ODELayer successor.
 - [x] Launch the one cold trajectory with automatic resource monitoring.
 - [x] Freeze a deterministic35-row analysis and six-model fixed-start case
   layout before any new FID scores, without changing formal source/gates.
-- [ ] Complete training and its automatic prediction/stream/update/sample/feature audits.
-- [ ] Publish all checkpoints, matrix/gate histories, three fixed sample banks
-  and the final comparison. Retain the original research goal as open.
+- [x] Complete training and its automatic prediction/stream/update/sample/feature audits.
+- [x] Preserve all checkpoints, matrix/gate histories and three raw sample banks outside Git.
+- [ ] Publish and verify the complete curated comparison. Retain the original research goal as open.
 
 ## Status
-One initialization control is registered. The author-side initial-function,
-input/main-route derivative and43shared-active-gradient checks pass; all three
-extra gate/value paths open after an active update. Fresh native33724/d2619a
-and metric53767/4cd010 commands each exit0 without mismatch. Controller61348
-is live with owned training PID81673; see progress.json for the snapshot.
-No new FID or final training outcome is available.
-Mac mini CPU, seed0, original optimizer/data/loss/time distribution. No width,
-activation, schedule, duration, sampler or new loss change. Old studies and
-submitted Report1 remain unchanged.
+All six phases complete. Actual controller61348/f8848e exits0; training,
+stream/update/sample/feature/FID audits pass. Primary FID185.85425 improves
+4.84145%over default Swi86 but misses the unchanged5%gate. Both loss guards
+pass. The initializer is stopped without width/bias/optimizer/duration rescue.
+No new ODE architecture is established. Raw preservation and curated closure
+are complete or in verification; GitHub publication is the remaining step.
+Mac mini, seed0, original data/loss/optimizer/sampler. Submitted Report1 and
+all frozen parents remain unchanged.

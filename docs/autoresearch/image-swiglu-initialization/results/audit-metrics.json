@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "step": 5000,
+      "generated_features_bitwise": 1024,
+      "independent_FID": 204.41925966431253,
+      "absolute_error": 4.547473508864641e-13
+    },
+    {
+      "step": 10000,
+      "generated_features_bitwise": 1024,
+      "independent_FID": 171.07767071529167,
+      "absolute_error": 3.410605131648481e-13
+    },
+    {
+      "step": 20000,
+      "generated_features_bitwise": 1024,
+      "independent_FID": 185.85425084154386,
+      "absolute_error": 3.979039320256561e-13
+    }
+  ],
+  "reference_features_bitwise": 2048,
+  "historical_rows_retained": 32,
+  "independent_uint8_conversion": true,
+  "seconds": 70.31161274993792,
+  "formal_files_unchanged": 89
+}
