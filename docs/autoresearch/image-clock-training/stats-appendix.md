@@ -3,8 +3,8 @@
 Zhizhe Zhang · October 28, 2026
 
 **FINAL QUALITY PENDING.** Both training trajectories and the checkpoint audit
-are complete. Generation, sample replay and feature/FID checks are still
-running. This appendix records the fixed methods; it is not a result report.
+and all seven prescribed sample banks are complete. Independent sample replay
+and feature/FID checks are still running. This appendix records the fixed methods; it is not a result report.
 
 ## Data and objective
 

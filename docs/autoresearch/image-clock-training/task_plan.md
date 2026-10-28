@@ -22,6 +22,8 @@ nominating another architecture.
   seal and publish. No automatic calibration, optimizer or constant rescue.
 
 ## Acceptance work while the original controller runs
+- [x] All seven1024-image banks complete; sampling phase exits0in793.22s.
+  Independent sample replay and feature/FID checks remain pending.
 - [x] Training-boundary audit exits0: all14saved checkpoints,42stream checks
   and12saved boundary updates pass; full40000-step replay is not claimed.
 - [x] Re-poll actual session5632 and verify controller70719/create-time; the
@@ -44,4 +46,4 @@ initialization/coordinate controls are ordinary comparators, not its rescue.
 ## Status
 Source28be1e8published; fresh documented native47808/metric32097both terminate0. All four native prediction banks, full shared tensors including timestep MLP gradients, physical resumes, costs and cached features pass. All25cached FIDs also replay exactly; default-SiLU64shared initialization/buffers/data RNG match. Passed v1readiness retained under hashes; v2only strengthens witness coverage.
 
-Both20ktrajectories finished with actual worker exits0; the training phase consumed1747.45seconds. Original controller70719/create1793185015.834589 and tool session5632 continue through sampling after the boundary/stream audit passes. Curator441a6d1is published and privately registered before new FIDs. Actual external pixels/split/manifest match native bindings. There is no new generative quality conclusion; sample/feature/FID audits and report/archive remain pending.
+Both20ktrajectories finished with actual worker exits0; the training phase consumed1747.45seconds. Original controller70719/create1793185015.834589 and tool session5632 continue through independent sample replay after all seven sampling banks complete. Curator441a6d1is published and privately registered before new FIDs. Actual external pixels/split/manifest match native bindings. There is no new generative quality conclusion; sample/feature/FID audits and report/archive remain pending.

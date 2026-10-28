@@ -1,8 +1,8 @@
 # Recorded training progress
 
-Observed at `2026-10-28T11:26:59.295051+00:00`. This is a saved snapshot, not a live GitHub feed.
+Observed at `2026-10-28T11:40:47.241905+00:00`. This is a saved snapshot, not a live GitHub feed.
 
-Pipeline phase: `sampling`. Original controller identity live: `True`.
+Pipeline phase: `audit-sampling`. Original controller identity live: `True`.
 
 | Control | Completed updates | Process identity live | CPU (%) | RSS (GiB) | Latest saved validation step |
 |---|---:|---|---:|---:|---:|

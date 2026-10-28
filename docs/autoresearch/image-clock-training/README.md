@@ -7,8 +7,9 @@ calling equal initial functions equal Adam trajectories.
 
 Both prescribed trajectories have completed 20000 updates. The [recorded progress](progress.md)
 contains a timestamp and checked process identities; it is a saved snapshot.
-The original controller is auditing the checkpoints before generation. No new
-generation/FID result is available yet.
+The checkpoint audit passed and all seven prescribed image banks are generated.
+The original controller is independently replaying samples before feature/FID
+checks. Final quality results are not accepted yet.
 
 ## Reproduction on Mac mini
 
