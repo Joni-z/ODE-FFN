@@ -45,3 +45,8 @@ The five figures do not select a checkpoint. A zero value matrix has an
 undefined singular-value CV, recorded as blank. The actual controller terminal
 receipt and all six real phase exits gate the analysis; no quality conclusion
 is written while those inputs are incomplete.
+
+Analysis source36db5a4 is frozen under the runtime curation-source with
+its four file hashes while the original PID81673 is live at6700updates.
+Neither sampling nor metric-output exists at registration. The normal GitHub
+main push is independently verified by publisher68236/1a15af exit0.
