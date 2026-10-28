@@ -339,8 +339,11 @@ Published closure and clean local main are verified at10ec3a2. Final plan synchr
   architecture is nominated from recurrence, target changes or conditioning.
 - [x] Specify a train-only PPCA59/isotropic classical image reference and exact
   Gaussian theory, unchanged banks/sampler/metrics, scalar budget and stop rules.
-- [ ] Commit primitive source and pass fresh documented data-free eligibility;
-  finish actual-shape sampler/metric/controller entrypoints before any real fit.
+- [x] Publish primitive source68a5402 and pass fresh documented data-free
+  eligibility21cases; retain its minor environment-label mismatch and seal.
+- [x] Implement complete source-bound Gaussian fit/audit/sampler/metrics/controller.
+- [ ] Register the full runtime and pass a NEW fresh documented entrypoint
+  preflight before fitting any real statistics.
 
 Broader objective remains active. The reference measures a missing classical
 context; it is not a new ODE successor, a changed benchmark or a rescue.

@@ -1,0 +1,78 @@
+{
+  "validation": "fresh-agent-follows-doc",
+  "scope": "data-free Gaussian primitive eligibility only",
+  "agent": "/root/gaussian_doc_eligibility",
+  "invocation_count": 1,
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 /Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-gaussian-eligibility/source/gaussian_math.py --output /Users/mr.z/ode-workspace-prep/autoresearch/oct28-gaussian-eligibility/fixtures.json",
+  "started_at_utc": "2026-10-28T13:05:28.410Z",
+  "completed_at_utc": "2026-10-28T13:05:29.531Z",
+  "context_files_read": [
+    "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+    "/Users/mr.z/ODE-FFN-autoresearch/.aris/compute/macmini.md",
+    "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-gaussian-eligibility/source/README.md"
+  ],
+  "required_communication_skill_read": "/Users/mr.z/.codex/skills/expression-skill/SKILL.md",
+  "execution": {
+    "tool": "exec_command",
+    "direct_terminal_call_chunk_id": "7b2db9",
+    "session_id": null,
+    "returned_live_session": false,
+    "terminal_exit_code": 0,
+    "terminal_exit_consumed": true,
+    "wall_time_seconds": 0.960250125,
+    "stdout_stderr_capture": "Tool exposes one combined output stream; terminal-output.log preserves it exactly. Separate stream provenance is unavailable.",
+    "raw_tool_result_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-gaussian-eligibility/doc-validation/terminal-result.json",
+    "combined_stdout_stderr_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-gaussian-eligibility/doc-validation/terminal-output.log"
+  },
+  "output_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct28-gaussian-eligibility/fixtures.json",
+  "output_summary": {
+    "status": "PASS",
+    "seed": 0,
+    "dimension_rank_configurations": 3,
+    "fixed_state_time_cases": 21,
+    "MLE_eigen_and_tail": true,
+    "physical_parameter_resume_bitwise": true,
+    "dimension": 3072,
+    "rank": 59,
+    "stored_scalars": 184380,
+    "stored_float64_bytes": 1475040,
+    "next_rank_exceeds_budget": true,
+    "exact_denoiser_gain_witnesses": [
+      1.0244044240850758,
+      1.2071067811865477,
+      1.6180339887498947
+    ],
+    "real_training_statistics_fitted": false,
+    "seconds": 0.0786939999088645
+  },
+  "verification": {
+    "fixture_read_exit_code": 0,
+    "fixture_read_chunk_id": "be4900",
+    "fixture_json_matches_terminal_json": true
+  },
+  "mismatches": [
+    {
+      "type": "documentation_environment_label",
+      "severity": "minor",
+      "observed": "README names image-metrics@dc729a50; provider ledger names the matching hash image-metrics-v2@dc729a50.",
+      "execution_effect": "None observed: the verbatim command explicitly uses /Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python and exited 0."
+    }
+  ],
+  "runtime_mismatches": [],
+  "constraints_observed": {
+    "retries": 0,
+    "invocation_modified": false,
+    "fixes_applied": false,
+    "packages_installed": false,
+    "real_statistics_fitted": false,
+    "code_or_documentation_edited": false
+  },
+  "pending_scope": [
+    "actual-shape native Heun sampler preflight",
+    "kernel cost witness",
+    "fit normalization preflight",
+    "historical MPS/FID metric preflight",
+    "full controller entrypoint preflight"
+  ],
+  "readiness_claim": "This PASS establishes only the documented data-free Gaussian primitive eligibility. It does not establish full experiment or environment readiness."
+}

@@ -58,7 +58,7 @@ method, proves what a neural model learned, or proves all Gaussians insufficient
 Do not select another rank, covariance form, fit objective or sampling setting.
 
 ## Verification and finite resources
-Use the unchanged warm Mac mini image-metrics@dc729a50 environment. One CPU
+Use the unchanged warm Mac mini image-metrics-v2@dc729a50 environment. One CPU
 thread for statistics/sampling; existing MPS only for pinned feature extraction.
 Available RAM 4.63GiB and disk 54.81GiB cover a sub 1GiB process and below .5GiB
 expected new disk. Real fit ceiling 600s; independent fit audit 600s; sample

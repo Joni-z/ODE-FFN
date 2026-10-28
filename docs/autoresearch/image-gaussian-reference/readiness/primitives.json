@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "seed": 0,
+  "cases": [
+    {
+      "dimension": 7,
+      "rank": 0,
+      "times": 7,
+      "dense_error": 4.440892098500626e-16,
+      "independent_error": 1.1102230246251565e-16,
+      "state_J_error": 1.1102230246251565e-16,
+      "time_error": 4.440892098500626e-16
+    },
+    {
+      "dimension": 9,
+      "rank": 2,
+      "times": 7,
+      "dense_error": 5.551115123125783e-16,
+      "independent_error": 1.3322676295501878e-15,
+      "state_J_error": 4.440892098500626e-16,
+      "time_error": 1.3322676295501878e-15
+    },
+    {
+      "dimension": 12,
+      "rank": 4,
+      "times": 7,
+      "dense_error": 8.881784197001252e-16,
+      "independent_error": 1.7763568394002505e-15,
+      "state_J_error": 5.551115123125783e-16,
+      "time_error": 1.7763568394002505e-15
+    }
+  ],
+  "MLE_eigen_and_tail": true,
+  "physical_parameter_resume_bitwise": true,
+  "dimension": 3072,
+  "rank": 59,
+  "stored_scalars": 184380,
+  "stored_float64_bytes": 1475040,
+  "next_rank_exceeds_budget": true,
+  "noncontractive_exact_denoisers": [
+    {
+      "variance": 0.1,
+      "time": 0.9534625892455922,
+      "gain": 1.0244044240850758
+    },
+    {
+      "variance": 1.0,
+      "time": 0.7071067811865475,
+      "gain": 1.2071067811865477
+    },
+    {
+      "variance": 4.0,
+      "time": 0.4472135954999579,
+      "gain": 1.6180339887498947
+    }
+  ],
+  "real_training_statistics_fitted": false,
+  "seconds": 0.0786939999088645
+}

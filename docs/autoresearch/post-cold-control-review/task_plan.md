@@ -35,3 +35,8 @@ Selected next step: a fixed train-only PPCA59/isotropic image reference, not a
 neural candidate. Protocol, Gaussian identities and reusable primitives are
 written. Source registration/data-free doc eligibility precede the full runner
 and formal entrypoint preflight. No real fitting or new quality outcome.
+
+Full source-bound Gaussian reference entrypoints are now implemented. Primitive
+checks pass through a fresh doc agent, with one retained environment-label
+mismatch corrected in the new public docs. Formal fitting awaits a NEW fresh
+actual-shape sampler/metric preflight. No new image quality is claimed.
