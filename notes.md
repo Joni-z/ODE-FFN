@@ -329,3 +329,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 
 - Cycle20 readiness3146dd0, controller37739 launched sampler/trainerparent54680 andchildren54681(silu64)/54682(silu131), create-timesmatching;193queued. At185s steps2200/2100, sampledRSS968/1000MiB, ~188CPU-seconds each. Actualstep500checkpointstreamdigest anddataRNG exactlymatch originalODE; allsix ordinaryFFNweights changedfromstep0. Stage500pairings verifiedwithout inspecting partial winners. No finalqualityclaim.
 - Bothlocalcheckouts fast-forwardedto3146dd0. Directpublisherexits1 atmissingHTTPSUsername; GitHubremainsunsynchronizedpendingtheexistingMacmini loginquestion. No MBP/torchrelay orremotecompute used.
+
+- Goal continuation revalidated original37739/parent54680, with no duplicate launch. silu64/131exit0 after561.20/611.31s,193PID54929creationmatches/live at4100steps. Newfull-cohort curation/archive code94be659 prepared while training;77curve rows/72newweight histories/45final panels/9models allretained. Warmtraininginstalledpackages match unchangeddeclaredspec on this check; no installation or settings change. No partial winner selected.
