@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "phase": "features",
+  "rows": [
+    {
+      "family": "ode_k1",
+      "N": 32,
+      "fid": 184.90805911833885,
+      "difference": -3.694822225952521e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "ode_k1",
+      "N": 64,
+      "fid": 185.21985589033594,
+      "difference": -6.536993168992922e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "ode_k1",
+      "N": 128,
+      "fid": 185.37154358395102,
+      "difference": -5.400124791776761e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "N": 32,
+      "fid": 183.39518117852356,
+      "difference": -3.979039320256561e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "N": 64,
+      "fid": 183.61250919762725,
+      "difference": -3.410605131648481e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "N": 128,
+      "fid": 183.6980672889451,
+      "difference": -4.547473508864641e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "swiglu86",
+      "N": 32,
+      "fid": 195.46185654455329,
+      "difference": -4.263256414560601e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "swiglu86",
+      "N": 64,
+      "fid": 194.12809346250154,
+      "difference": -3.694822225952521e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "swiglu86",
+      "N": 128,
+      "fid": 193.8910183630325,
+      "difference": -4.263256414560601e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "swiglu129",
+      "N": 32,
+      "fid": 194.1005128713637,
+      "difference": -3.979039320256561e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "swiglu129",
+      "N": 64,
+      "fid": 192.34284643588248,
+      "difference": -3.979039320256561e-13,
+      "features_bitwise": true
+    },
+    {
+      "family": "swiglu129",
+      "N": 128,
+      "fid": 192.01793853775834,
+      "difference": -4.547473508864641e-13,
+      "features_bitwise": true
+    }
+  ],
+  "formal_files_unchanged": 30,
+  "seconds": 188.16598045802675
+}

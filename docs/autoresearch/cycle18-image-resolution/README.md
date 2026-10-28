@@ -1,5 +1,12 @@
 # Frozen image sampler resolution
 
+Completed: all four arms, eight new sample banks and all 12 feature/FID
+checks passed independent replay. The ODE FID lead persists but shrinks;
+cycle17 fitting/order failures remain unchanged. See the
+[analysis and figures](analysis-report.md), [statistical scope](stats-appendix.md)
+and [decision](results/decision.json). Commands below document this completed
+study; do not rerun them into its runtime.
+
 The [protocol](protocol.md) and [derivation](theory.md) test whether the cycle17
 FID ordering depends on its finite Heun mesh. This is read-only with respect
 to trained models. It cannot rescue the failed fitting/order gates or nominate

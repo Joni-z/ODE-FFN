@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "phase": "sampling",
+  "rows": [
+    {
+      "family": "ode_k1",
+      "N": 64,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "ode_k1",
+      "N": 128,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "N": 64,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "ode_k2",
+      "N": 128,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "swiglu86",
+      "N": 64,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "swiglu86",
+      "N": 128,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "swiglu129",
+      "N": 64,
+      "images": 1024,
+      "bitwise": true
+    },
+    {
+      "family": "swiglu129",
+      "N": 128,
+      "images": 1024,
+      "bitwise": true
+    }
+  ],
+  "formal_files_unchanged": 20,
+  "seconds": 765.1349456668831
+}
