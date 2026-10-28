@@ -6,6 +6,7 @@
 - [x] All seven continuations and their fixed sampling banks complete. Original controller60302/session91639 has terminal exit0; seven child exits are0. Cohort wall time6595.00seconds. No retry or setting change. Final metrics and independent cohort audits remain pending.
 - [ ] Audit and compare fixed checkpoints and generated samples before making a quality claim.
 - [ ] Include a FID trajectory plot with all three fixed budgets and all seven arms. This is a reporting addition; keep the20kdecision rule unchanged and generate figures only after the complete audits pass.
+- [ ] Verify public tables/figures against the completed runtime, record actual tool exits and visual review, and seal the complete archive after all controllers finish. Preserve the submitted report and all parent seals.
 
 No new architecture, loss, data, seed or optimizer setting is selected. Publication is direct from Mac mini when authentication is available.
 
