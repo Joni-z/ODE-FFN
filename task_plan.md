@@ -201,6 +201,13 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Commit verified cycle18 result8a7c06b under Zhizhe Zhang and fast-forward clean local main. Direct Mac mini publisher exits1 at missing HTTPS Username; remote main independently still800d09f. All recorded phase PIDs are terminal. Publication remains pending local credentials; no new architecture nominated.
 - [x] Verify bounded JiT/NeurIPS high-order FM primary sections; exact cap terminal scale.05/e and a loss/generation counterexample pass. Restate/link existing canonical Gaussian material-acceleration result, verified by AD. Public interpretation/coverage/fixtures added; no new trained method or cap rescue.
 
+## Cycle19 plan: frozen image clock attribution
+- [x] Revalidate clean311aed7 and completed cycle18. Previous goal turn made progress through the audited resolution study. Old synthetic clock-collapse and gate-necessity studies show useful conditioning but do not measure this actual image FID lead. Do not reinterpret them as image evidence or revive training variants.
+- [x] Register a single simultaneous six-clock collapse for each original K1/K2 image endpoint. Calibrate each global scalar from one native64-image/no-target forward, keep P/attention/time conditioning fixed, and use the same1,024starts/Heun128/reference features. Reuse all four sealed native controls explicitly.
+- [ ] Freeze source, verify source/seals/native replay and complete-network constant-clock/folded-matrix algebra. Reuse unchanged witnessed environments; no installation, training or new architecture nomination.
+- [ ] Run two monitored CPU intervention cells and independent raw/prediction replay, then unchanged MPS FID and separate feature/SVD audit. Preserve P/checkpoints and all failures; do not regenerate after observation timeouts.
+- [ ] Report all six endpoints, clocks, held-out errors and fixed examples; distinguish frozen necessity from retrainability, novelty and causes. Seal and commit verified evidence, attempt direct publication.
+
 ## Errors encountered
 - Cycle18 audit-v1 exits1 before any numerical work: top-level SciPy import is unnecessary for CPU sampling replay and absent from the lean training environment. Preserve failed source/status/log. V2 defers only that import to the FID function; no package/model/sampler/metric/tolerance change, and no training/sample rerun.
 - Cycle17feature-audit-v1 exits1 before numerical work because its SHA helper expects Path but binding keys are strings. Preserve original frozen source/log/status and empty audit directory; audit-v2 converts the path only. Training44-checkpoint/P/clock/manual-Heun audit already passes; no training, generated samples, metric producer or tolerance changes.
