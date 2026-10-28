@@ -204,7 +204,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 ## Cycle19 plan: frozen image clock attribution
 - [x] Revalidate clean311aed7 and completed cycle18. Previous goal turn made progress through the audited resolution study. Old synthetic clock-collapse and gate-necessity studies show useful conditioning but do not measure this actual image FID lead. Do not reinterpret them as image evidence or revive training variants.
 - [x] Register a single simultaneous six-clock collapse for each original K1/K2 image endpoint. Calibrate each global scalar from one native64-image/no-target forward, keep P/attention/time conditioning fixed, and use the same1,024starts/Heun128/reference features. Reuse all four sealed native controls explicitly.
-- [ ] Freeze source, verify source/seals/native replay and complete-network constant-clock/folded-matrix algebra. Reuse unchanged witnessed environments; no installation, training or new architecture nomination.
+- [x] Registeredcecf226/73631af; fresh v2prepare66895 exits0 and preflight15067 exits0. Nativefirst64predictions bitwise for botharms;12clockconstants fixed. Data-free value/ADidentity errors<=2.22e-16;10whole-network folded-vs-literal promoted predictions exactlyequal. Bothsealedparents and warmtrainingversions verify; formalfloat32model unchanged.
 - [ ] Run two monitored CPU intervention cells and independent raw/prediction replay, then unchanged MPS FID and separate feature/SVD audit. Preserve P/checkpoints and all failures; do not regenerate after observation timeouts.
 - [ ] Report all six endpoints, clocks, held-out errors and fixed examples; distinguish frozen necessity from retrainability, novelty and causes. Seal and commit verified evidence, attempt direct publication.
 

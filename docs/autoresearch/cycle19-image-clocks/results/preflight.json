@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "native_first64_bitwise": true,
+  "calibrated_clocks": 12,
+  "fixtures": [
+    {
+      "order": 1,
+      "max_error": 1.1102230246251565e-16
+    },
+    {
+      "order": 2,
+      "max_error": 2.220446049250313e-16
+    }
+  ],
+  "full_network_fold_errors": [
+    {
+      "family": "ode_k1",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k1",
+      "time": 0.9,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.1,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.3,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.5,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.7,
+      "max_error": 0.0
+    },
+    {
+      "family": "ode_k2",
+      "time": 0.9,
+      "max_error": 0.0
+    }
+  ]
+}

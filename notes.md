@@ -309,3 +309,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Fresh Lenovo97041exits255(timeout). New work remains on Mac mini. Two guessed gate/source paths were absent; rg filename/source imports located the existing gate findings and ffn_blocks.py. No files, data or processes were changed by those reads.
 
 - Cycle19 prepare97366 exits0. Preflight58539 consumed exit1 at native hardcodedfloat32 timefeatures vs promotedfloat64MLP, before any formal intervention generation/metric. Originalroot/source/partialcalibration/log retained. V2adds only a time-MLP prehook in the separate double algebra witness; formal native_model/calibration/sampling remain unchangedfloat32, as do1e-9folding andallbitwise/metricgates.
+
+- Cycle19 v2prepare66895 exits0; preflight15067 exits0. Both native64imagepredictions bitwise,12scalarconstants bound; datafreevalues/ADerrors<=2.22e-16, all10promotedwhole-networkfoldcomparisons exactlyequal. Thetime-featurelift is witness-only and absentfromformalmodels. Constants/preflightcurated and committed before interventionmetrics. Traininginstalledversionsmatchwarm spec; noinstallation.
