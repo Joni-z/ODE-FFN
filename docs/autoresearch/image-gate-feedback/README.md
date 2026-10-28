@@ -2,13 +2,15 @@
 
 This fixed checkpoint analysis measures complete derivatives and native clock
 variation. It does not train or modify a model, calculate a new FID, or choose a
-constraint from a local stability proxy. Read the [protocol](protocol.md) and
-[derivation package](../../../DERIVATION_PACKAGE.md) first.
+constraint from a local stability proxy. Read the [analysis](analysis-report.md), [protocol](protocol.md) and
+[derivation package](../../../DERIVATION_PACKAGE.md). The fixed cohort and
+independent native/AD audit are complete; no new quality result is claimed.
 
 ## Reproduction on Mac mini
 
 Reuse the existing `image-training@475428fb` environment in the
-[compute ledger](../../../.aris/compute/macmini.md); no installation is needed.
+[training specification](../cycle17-cifar-baselines/training-env-spec.json);
+the provider ledger is local at `.aris/compute/macmini.md`. No installation is needed.
 Only the Mac mini is used. No GPU is reserved.
 
 After a clean source commit, prepare a previously unused runtime:

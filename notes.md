@@ -466,3 +466,16 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - A batched held-clock literal indexing issue was found before registration and corrected to the trailing clock axis; the new held-clock AD/forward fixture passes. No runtime existed or outcome changed.
 - Context-recovery lookup guessed absent old run/preflight filenames and one parent path; only read attempts failed. Actual files were located with rg. The initially truncated data-free fixture observation had no remaining live process; the corrected fixture invocation54108 terminates0.
 - GitHub SSH identity Joni-z and remote main4eaa0b0 reverified live; private keys remain outside Git.
+
+
+## Native gate-feedback findings
+- Fresh documented preflight21100exits0; eight canonical64-image endpoints reproduce bitwise,48promoted literal forwards are exact. All parent/source bindings unchanged.
+- Controller25342terminates0 after8analysis children and independent manual-Heun/all-probe AD audit.241.13seconds total;122,880probe comparisons, largest stored-statistic difference6.66e-15. CPU/RSS telemetry retained; no GPU or new training. Curator18967terminates0, all3figures visually inspected.
+- K1generated core feedback/reference-norm median6.64%→14.48%,95th12.60%→32.64%; median full/reference gain1.0081→1.0207. K2median8.20%→13.70%. No inverse exclusions;20klocal determinant multipliers remain above.537/.766forK1/K2. These slices do not measure whole-denoiser/sampler stability or explain FID.
+- K1generated within-clock variance time/image/token62.21%/7.79%/30.00%at20k; absolute summed clock variance increases. K2time share72.02%. These are finite-array variance shares, not causal information attributions.
+- Evidence does not support selecting a P-only spectral penalty or contraction target. A separate time-preserving quality intervention could distinguish within-time variation from external-time schedule; no such replacement/calibration or training is selected in this study, and stopped K2settings remain stopped.
+- Public README originally linked an intentionally untracked local compute ledger. Replaced only that public link with the tracked unchanged training specification and stated the local ledger path. Documented commands and frozen preflight source remain unchanged.
+
+- Final prepublication table-width check caught unescaped norm bars in the new figure-catalog table. Replaced only that caption expression with plain text; all table widths and numeric report rows then verify. Added final all-entry J/R verification because agreement of spectra alone would not exclude an erroneous derivative rotation; no formal source, tolerances or outcomes change.
+
+- Archive23733 terminates0: all122,880 full J/R matrix-entry comparisons also pass, maximum2.6645352591003757e-15. Public numeric rows, all48clock variance decompositions, tracked links, source/parent preservation and all3visuals pass.1084files/258,175,199private bytes sealfaeac7fd69f048c0875184af92c6278956bdf478083c75d77bbd83f747aa6345. Four reports equal closure copies bytewise. Post-seal receipt and plans are public-only; the private runtime is not mutated after sealing.
