@@ -349,3 +349,13 @@ Broader objective remains active. The reference measures a missing classical
 context; it is not a new ODE successor, a changed benchmark or a rescue.
 
 Gaussian full source3d18ae0/fresh doc preflight43297pass, with zero mismatch. Controller35918exits0through6stages; actualfit11.19s, no neural training. PPCA59FID293.734970 and isotropic405.298943fail the original quality/fitting criteria. Retain all32neural contexts. Complete curator/visual/report/archive/publication; no new rank/noise/mixture family or ODE method is selected.
+
+
+## Gaussian reference closure and next design evidence
+Previous goal turn verified direct GitHub authentication and receive-pack access. The formal reference and post-outcome reporting arrays are terminal; do not restart them.
+- [x] Preserve core curation receipt, explicitly record missing original reporting exit, and independently verify all seventeen subspace rows.
+- [x] Prepare complete 34-endpoint/16-primary analysis and fixed cases; no covariance/rank rescue.
+- [ ] Seal unchanged source/data/parents and curated evidence, then publish and FF clean local main.
+- [ ] Use the completed controls to identify the next unresolved ODE question; no new neural family is selected yet.
+
+Gaussian closure7159 exits0, seal97961412597065ad8213a8ae21e5721a7086875113641026bfe3338431f846ba. Publication/local-main FF is next. The original reporting-producer exit remains unavailable and is explicitly distinguished from the complete independent array verification. No ODE successor has passed.

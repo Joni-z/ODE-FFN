@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "arm": "ppca59",
+      "generated_images": 1024,
+      "sample_difference": {
+        "maximum": 1.1920928955078125e-07,
+        "RMS": 5.632383001991602e-10
+      },
+      "prediction_errors": [
+        {
+          "maximum": 1.1920928955078125e-07,
+          "RMS": 7.295180029498091e-11
+        },
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        },
+        {
+          "maximum": 9.313225746154785e-10,
+          "RMS": 2.1003882978785826e-12
+        },
+        {
+          "maximum": 5.960464477539063e-08,
+          "RMS": 1.344289373129853e-10
+        },
+        {
+          "maximum": 7.450580596923828e-09,
+          "RMS": 2.0701863689680967e-11
+        },
+        {
+          "maximum": 5.960464477539063e-08,
+          "RMS": 2.986156880223398e-10
+        }
+      ]
+    },
+    {
+      "arm": "isotropic",
+      "generated_images": 1024,
+      "sample_difference": {
+        "maximum": 0.0,
+        "RMS": 0.0
+      },
+      "prediction_errors": [
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        },
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        },
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        },
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        },
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        },
+        {
+          "maximum": 0.0,
+          "RMS": 0.0
+        }
+      ]
+    }
+  ],
+  "generated_images_checked": 2048,
+  "sample_check": "independent posterior and manual Heun; registered numeric tolerances, not bitwise",
+  "seconds": 16.433946624863893
+}

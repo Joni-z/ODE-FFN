@@ -1,4 +1,4 @@
-# Gaussian image reference: implementation in progress
+# Gaussian image reference
 
 The [protocol](protocol.md) selects a train-only PPCA59 reference and an
 isotropic attribution model. This is an ordinary statistical control, not a
@@ -11,8 +11,21 @@ The complete source-bound reference cohort has finished: statistical fitting,
 independent fit checks, generation, posterior/sample replay and feature/FID
 audits all pass. PPCA59 gives FID 293.73 and isotropic 405.30, versus 174.71 for
 the neural fixed-P control. Both fail the registered reference-quality gates.
-Curation, visual interpretation and final archive follow; this result does
-not prove every Gaussian predictor inadequate or identify a neural mechanism.
+The [complete analysis](analysis-report.md) retains every endpoint, fixed
+example and gate. Its reporting-only PCA decomposition finds that similar
+complement RMS can coexist with much worse FID; this does not identify a
+neural mechanism or justify tuning residual variance. The
+[methods](stats-appendix.md) and [figure catalog](figure-catalog.md) state
+comparison and verification scopes. [Closure verification](results/artifact-verification.json) passes, including
+all 17 independently recomputed reporting rows. The
+[consumed archive exit](results/archive-tool-exit.json) records the seal and
+the one unavailable original reporting-tool receipt.
+This result does not prove every Gaussian predictor inadequate.
+
+The original decomposition producer's terminal tool receipt was unavailable
+after a truncated observation. Its complete outputs are preserved without
+relaunch; closure independently checks every original-array decomposition
+value. The six-stage formal controller and core curator have consumed exit0.
 
 ## Documented data-free eligibility command
 
