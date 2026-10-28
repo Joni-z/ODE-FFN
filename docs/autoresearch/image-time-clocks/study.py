@@ -147,8 +147,16 @@ def prepare(root):
     write(root/'settings.json',dict(source_commit=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip(),
         arms=ARMS,checkpoint_step=20000,calibration_images=64,calendar_nodes=129,model_seed=0,new_training=False,
         generated=1024,reference=2048,steps=128,workers=2,threads=1))
+    # Retain the failed, pre-quality v1 byte-for-byte. It counted fixed position
+    # parameters as learned weights; no calibration or scientific rule changed.
+    failed=BASE/'oct28-image-time-clocks';preserved={}
+    if root!=failed and failed.exists():
+        assert not (failed/'documented-pass.json').exists() and not (failed/'output').exists()
+        preserved={str(p):sha(p) for p in failed.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+        write(root/'failed-preflight-preservation.json',preserved)
     paths=[*(root/'source').iterdir(),root/'settings.json',*(p/'sealed-runtime.json' for p in PARENTS.values())]
-    write(root/'bindings.json',{str(p):sha(p) for p in paths if p.is_file()});verify(root)
+    if preserved:paths.append(root/'failed-preflight-preservation.json')
+    write(root/'bindings.json',{**{str(p):sha(p) for p in paths if p.is_file()},**preserved});verify(root)
     print(json.dumps(dict(status='PREPARED',root=str(root))),flush=True)
 def preflight(root):
     torch.set_num_threads(1);verify(root);assert not (root/'preflight.json').exists();fixture=fixtures()
@@ -168,6 +176,10 @@ def preflight(root):
         actual=patch(native_model(),constant_table,constant,mode)
         assert old().predict(actual,b).tobytes()==old().predict(expected,b).tobytes()
     witnesses=[];costs=[]
+    prototype=imported('clocks20k').imported('budget').construct('ode_k1')
+    learned_names={n for n,p in prototype.named_parameters() if p.requires_grad}
+    fixed_names={n for n,p in prototype.named_parameters() if not p.requires_grad}
+    assert fixed_names=={'pos_embed'}
     for mode in ('time','pooled'):
         literal=patch(imported('clocks20k').witness_model('ode_k1'),table,pooled,mode)
         folded=patch(imported('clocks20k').witness_model('ode_k1'),table,pooled,mode,True)
@@ -184,9 +196,11 @@ def preflight(root):
         with torch.no_grad():model(torch.from_numpy(b['x'][:64]),torch.from_numpy(b['t'][:64]),torch.zeros(64,dtype=torch.long))
         for h in handles:h.remove()
         work=count[0]//(64*64*3);assert work==8192 and count[0]%(64*64*3)==0
-        stored=sum(p.numel() for p in model.parameters());inactive=sum(p.numel() for _,l in clocks().layers(model) for p in l.t_func.parameters())
-        assert (stored,inactive)==(211094,25350);costs.append(dict(mode=mode,stored_parameters=stored,inactive_parameters=inactive,
-            active_parameters=stored-inactive,FFN_forward_MACs=work,clock_constants=774 if mode=='time' else 6))
+        parameters=dict(model.named_parameters());stored=sum(parameters[n].numel() for n in learned_names)
+        fixed=sum(parameters[n].numel() for n in fixed_names);inactive=sum(p.numel() for _,l in clocks().layers(model) for p in l.t_func.parameters())
+        assert (stored,inactive,fixed)==(211094,25350,4096),(stored,inactive,fixed)
+        costs.append(dict(mode=mode,stored_parameters=stored,inactive_parameters=inactive,fixed_position_parameters=fixed,
+            total_parameter_values=stored+fixed,active_parameters=stored-inactive,FFN_forward_MACs=work,clock_constants=774 if mode=='time' else 6))
     import audit as independent
     calibration_check=independent.verify_calibration(root)
     for mode in ('time','pooled'):
@@ -194,9 +208,17 @@ def preflight(root):
         with torch.no_grad():
             args=(torch.from_numpy(b['x'][:64]),torch.from_numpy(b['t'][:64]),torch.zeros(64,dtype=torch.long))
             assert formal(*args).numpy().tobytes()==reference(*args).numpy().tobytes()
+    failed=BASE/'oct28-image-time-clocks';failed_matches=None
+    if root!=failed and (root/'failed-preflight-preservation.json').exists():
+        for name in ('native-calibration.npz','clock-table.npz'):
+            with np.load(root/name) as a,np.load(failed/name) as b:
+                assert a.files==b.files
+                for key in a.files:assert a[key].tobytes()==b[key].tobytes()
+        assert load(root/'pooled-clocks.json')==load(failed/'pooled-clocks.json');failed_matches=True
     verify(root,True);write(root/'preflight.json',dict(status='PASS',native1024_predictions_bitwise=True,native64_Heun_bitwise=True,
         calibration_clock_arrays=6,calendar_scalar_means=774,pooled_scalar_means=6,constant_injection1024_bitwise=True,
-        promoted_witnesses=witnesses,costs=costs,fixtures=fixture,independent_calibration=calibration_check,new_quality_result=False))
+        promoted_witnesses=witnesses,costs=costs,fixtures=fixture,independent_calibration=calibration_check,
+        failed_preflight_calibration_recomputed_bitwise=failed_matches,new_quality_result=False))
     print(json.dumps(load(root/'preflight.json')),flush=True)
 def metric_preflight(root):
     torch.set_num_threads(1);verify(root,True);assert not (root/'metric-preflight.json').exists()

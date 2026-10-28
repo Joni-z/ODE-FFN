@@ -74,7 +74,7 @@ predictions. External AdaLN/time conditioning, attention and readout remain
 native. Execute the literal float32 K1 recurrence, not a reordered dense fold.
 
 Each intervention executes 8192 FFN matrix MACs per token/block versus 16512
-for native K1. Stored learned weights remain 211094. The six unused clock
+for native K1. Stored learned weights remain 211094, plus the unchanged 4096 fixed position values. The six unused clock
 MLPs contain 25350 parameters, leaving 185744 active learned values, plus 774
 table constants or 6 pooled constants. SiLU64 provides the 8192-MAC/185744-
 parameter ordinary context; also retain Swi86, SiLU131 and all other native
@@ -120,7 +120,7 @@ At most two one-thread sampling children; each ceiling 1200 seconds, sampling
 phase 1300, independent sampling audit 1300, metrics/feature audit 600 each.
 Monitor actual PID/create-time and primed five-second CPU/RSS, including
 children. Keep all new/private sources, raw arrays and failed attempts under
-`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks`.
+`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2`.
 Estimated additional storage below 300 MB. No automatic retry or outcome-based
 change of calibration, tolerance or acceptance criteria.
 

@@ -3,7 +3,7 @@
 Read the [registered hypothesis and controls](protocol.md). This study restores
 the native 20k K1 and tests exactly one clock calendar plus its same-calibration
 pooled control. It does not train a new model, search a calibration or reopen
-K2. Private runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks`.
+K2. Private runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2`.
 
 ## Reproduction
 
@@ -15,15 +15,15 @@ are unchanged; no installation or GPU reservation is required for sampling.
 After a clean source commit, prepare a previously unused runtime:
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B docs/autoresearch/image-time-clocks/study.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B docs/autoresearch/image-time-clocks/study.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2
 ```
 
 A fresh agent must run these documented commands verbatim, once each and in
 order. If one fails, preserve its outputs and stop without a fix or retry.
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks
-/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks/source/study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2
+/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2/source/study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2
 ```
 
 Readiness requires native 1024 prediction/64-image endpoint bitwise replay,
@@ -43,7 +43,7 @@ Launch once; the controller runs both new arms, independent sampling replay,
 features and independent feature/FID audit in order:
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks/source/controller.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2/source/controller.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2
 ```
 
 At most two one-thread CPU sampling workers run together. The feature extractor
