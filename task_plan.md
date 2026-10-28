@@ -315,5 +315,11 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Controller61529 exits0 through all four phases; both complete new banks, calibration and all eleven FIDs independently replay.
 - [x] Curator8411 and archive64846 exit0; all four figures/88cases and full report/numeric evidence verify.124files seal8917402ec1dd0ca04fec024b081bbf7b37f64e563444220592c3ab7604bc17cb; publish the verified closure. No retrained architecture is selected.
 
+## Cold clock and ordinary-coordinate controls
+- [x] Revalidate previous sealed progress and stop rules; specify two cold controls, one frozen same-clock reference and scoped optimizer-coordinate identities before outcomes.
+- [ ] Publish runnable source; pass a fresh documented native/init/active-gradient/resume/cost and metric preflight.
+- [ ] Run exactly two20ktrajectories with matching historical stream and complete P/effective-W histories.
+- [ ] Audit boundaries/streams and all seven new inference banks, retain32FID endpoints, verify report/figures, seal and publish.
+
 ## Status
-Time-preserving frozen K1 study is complete and sealed: controller61529, curator8411 and archive64846 terminate0.124files seal8917402ec1dd0ca04fec024b081bbf7b37f64e563444220592c3ab7604bc17cb. Time FID180.86 versus native173.44 and matched pooled200.05: strict ordinary ordering and time/pooled contrast pass; the original5%allocation margin fails. Measured FFN matrix work falls50.39%, with native training still inherited. All eleven endpoints,774/6calibration values,55panels,88fixed cases and four inspected figures verify. No finer calendar/calibration/P-constraint/K2rescue is selected. A later protocol must distinguish training-time clock adaptation from constant-core initialization/parameterization before nominating another model. All failed versions and parent studies are preserved; the useful-ODE-successor objective remains active and unachieved.
+Registering a distinct cold-training control study before fitted outcomes. Shared initial/native tensors and active promoted gradient/cost witnesses pass; mathematical equivalence does not predict image quality. Fixed0.6is the original clock midpoint, not a calibration search. Existing failed settings and all parent seals stay unchanged. The useful-ODE-successor objective remains active and unachieved.
