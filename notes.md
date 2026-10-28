@@ -285,3 +285,5 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Cycle18 prior turn only confirmed compute scope; this continuation revalidated files and advanced the evidence. First native32arm replay takes32.96s, before finer outputs. A separately bound pre-outcome resource addendum raises only serial sampling-audit wall ceiling600to1200s; original prepared source/protocol retained. Scientific metrics, tolerances and cohort unchanged.
 
 - Cycle18 prepare80542 exits0; preflight89758 exits0 in129.1s, all4x1024native32outputs bitwise, scalar zero-clean recurrence and constant-velocity fixtures pass allthreegrids. Warm installed packages match bothspecs/MPSavailable. Standalone5e2c320andresourceamendment100f322committed before any finer outputs.
+
+- Cycle18 controlled pipeline launched from registered9ea74f7, tool99684. Sampling parent52386; K1/K2children52387/52388 verified live, matching process creation times and15.7CPU-seconds each at15s. The separate controller snapshots its source/amendment SHA, commands, process resources and terminal codes; no restart. It will independently replay allfiner samples, then features/FID.
