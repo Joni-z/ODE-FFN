@@ -72,6 +72,18 @@ def main(root):
     assert decision['primary_step']==20000 and decision['new_method_established'] is False
     assert decision['criteria']==curator.priority(formal)
     assert curator.check_rule()['status']=='PASS'
+    labels={'ODE K1':'ode_k1','ODE K2':'ode_k2','Swi86':'swiglu86','Swi129':'swiglu129',
+            'SiLU64':'silu64','SiLU131':'silu131','SiLU193':'silu193'}
+    report_rows=[]
+    for line in (doc/'analysis-report.md').read_text().splitlines():
+        cells=[x.strip().replace('**','') for x in line.strip().strip('|').split('|')]
+        if len(cells)==5 and cells[0] in labels:report_rows.append(cells)
+    assert len(report_rows)==7
+    for label,*values in report_rows:
+        arm=labels[label]
+        expected=[format(float(next(r['fid'] for r in rows if r['arm']==arm and int(r['step'])==s)),'.2f') for s in (5000,10000,20000)]
+        expected.append(format(float(next(r['weighted_mse'] for r in rows if r['arm']==arm and int(r['step'])==20000)),'.6f'))
+        assert values==expected,(label,values,expected)
     ledger=list(csv.DictReader((root/'results.tsv').open(),delimiter='\t'))
     assert len(ledger)==7 and {r['description'].split(':')[0] for r in ledger}==set(study.ARMS)
     for r in ledger:
@@ -103,7 +115,8 @@ def main(root):
     study.write(doc/'results/artifact-verification.json',dict(status='PASS',continued_native_arms=7,new_architecture=False,
         primary_step=20000,checkpoint_replays=112,sampling_banks=14,independent_stream_batches=15000,
         generated_features=14336,reference_features=2048,independent_FIDs=14,P_records=48,time_panels=70,
-        figures_visually_reviewed=7,local_links=links,protected_scopes=protected,new_method_established=False))
+        figures_visually_reviewed=7,report_rows_verified=7,analysis_reports_verified=3,
+        local_links=links,protected_scopes=protected,new_method_established=False))
     shutil.copytree(doc/'results',root/'curated-results')
     closure=root/'closure-source';closure.mkdir()
     for p in doc.iterdir():

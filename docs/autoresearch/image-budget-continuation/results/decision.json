@@ -1,0 +1,63 @@
+{
+  "primary_step": 20000,
+  "context_step": 10000,
+  "criteria": [
+    {
+      "arm": "ode_k1",
+      "primary_step": 20000,
+      "comparisons": [
+        {
+          "reference": "swiglu86",
+          "fid_ratio": 0.8880079259173236,
+          "weighted_mse_ratio": 1.0020243489982108,
+          "clean_mse_ratio": 1.0003759540842985,
+          "FID_margin_pass": true
+        },
+        {
+          "reference": "silu131",
+          "fid_ratio": 0.9330203435032621,
+          "weighted_mse_ratio": 1.0078239810076521,
+          "clean_mse_ratio": 1.0056685241568617,
+          "FID_margin_pass": true
+        }
+      ],
+      "ratios_to_best_fitting_control": {
+        "weighted_mse": 1.0078239810076521,
+        "clean_mse": 1.0056685241568617
+      },
+      "follow_up_priority_margin_met": true,
+      "new_method_established": false,
+      "old_failed_gate_relabelled": false
+    },
+    {
+      "arm": "ode_k2",
+      "primary_step": 20000,
+      "comparisons": [
+        {
+          "reference": "swiglu129",
+          "fid_ratio": 0.9848111082245868,
+          "weighted_mse_ratio": 1.0164146899926676,
+          "clean_mse_ratio": 1.0116142270201312,
+          "FID_margin_pass": false
+        },
+        {
+          "reference": "silu193",
+          "fid_ratio": 0.9756228738801374,
+          "weighted_mse_ratio": 1.0142010753313286,
+          "clean_mse_ratio": 1.0102768568596114,
+          "FID_margin_pass": false
+        }
+      ],
+      "ratios_to_best_fitting_control": {
+        "weighted_mse": 1.0164146899926676,
+        "clean_mse": 1.0116142270201312
+      },
+      "follow_up_priority_margin_met": false,
+      "new_method_established": false,
+      "old_failed_gate_relabelled": false
+    }
+  ],
+  "new_method_established": false,
+  "confirmation_required_for_any_lead": true,
+  "interpretation": "Predeclared practical allocation margins only; no significance or integration-order claim."
+}

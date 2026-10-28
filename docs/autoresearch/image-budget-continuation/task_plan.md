@@ -3,9 +3,9 @@
 - [x] State one prospective question, include all seven existing model widths and fix20k endpoint before outcomes. Original stops remain unchanged.
 - [x] Native source89de3e1, corrected fixture isolationbc290fb; parent constructors/draw/update/restore reused. Separate v2runtime preserves failedv1.
 - [x] Warm specs475428fb/dc729a50 unchanged. Fresh image_budget_doc_pass executes the documented preflight once, exit0; seven native prediction/resume checks and5000→5001→5003counters pass, all82inputs unchanged.
-- [x] All seven continuations and their fixed sampling banks complete. Original controller60302/session91639 has terminal exit0; seven child exits are0. Cohort wall time6595.00seconds. No retry or setting change. Final metrics and independent cohort audits remain pending.
-- [ ] Audit and compare fixed checkpoints and generated samples before making a quality claim.
-- [ ] Include a FID trajectory plot with all three fixed budgets and all seven arms. This is a reporting addition; keep the20kdecision rule unchanged and generate figures only after the complete audits pass.
+- [x] All seven continuations and their fixed sampling banks complete. Original controller60302/session91639 has terminal exit0; seven child exits are0. Cohort wall time6595.00seconds. No retry or setting change. Final metrics and both independent cohort audits also pass.
+- [x] Audit and compare fixed checkpoints and generated samples before making a quality claim. Training audit62632exit0/PASS; feature audit62633exit0/PASS; original finalization68281ends with exit0 and no active children.
+- [x] Include a FID trajectory plot with all three fixed budgets and all seven arms. Reporting-only curator7523exits0; all seven figures visually reviewed. The20kdecision rule remains unchanged.
 - [ ] Verify public tables/figures against the completed runtime, record actual tool exits and visual review, and seal the complete archive after all controllers finish. Preserve the submitted report and all parent seals.
 
 No new architecture, loss, data, seed or optimizer setting is selected. Publication is direct from Mac mini when authentication is available.
@@ -38,3 +38,5 @@ Training is complete: all seven arms reached20k and produced both fixed sampling
 All fourteen producer FIDs complete with evaluator80573exit0. The separate feature audit62633 also ends with exit0/PASS after215.09seconds:14,336generated and2,048reference feature rows replay bitwise and independent SVD FIDs agree. Training/stream/sample audit62632 is still running; K1's sixteen checkpoints and both sampling banks have passed. Finalization60880/session68281 remains the same live controller.
 
 Reporting-only curator v3 adds a seventh figure connecting every model's actual5k/10k/20kFID endpoints. All models' FID rises between10kand20k while paired MSE falls. The20kpriority function is AST-identical to v2 and all four rule checks pass. Frozen v1/v2 sources are preserved; no figure is produced until the complete audit passes. No best-checkpoint replacement or new training is selected.
+
+All computations now finish with actual terminal exit0. Training audit passes in1884.20seconds, feature audit in215.09seconds; no controller or audit child remains. Curator7523exits0 and all seven PNGs are inspected. The complete English analysis, appendix, figure catalog and runtime/public ledgers are written. K1meets the prospective follow-up margin; K2does not. This is an existing-model image lead, not a new method. Archive checks and sealing are the remaining closure step; native GitHub publication still lacks authentication.

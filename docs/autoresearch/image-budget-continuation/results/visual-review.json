@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "files": {
+    "final-comparison.png": "be10f660b17f81dfeefa84b8600b3ff8c384791f1c6619315eeada69858a89e7",
+    "continuation-curves.png": "7d59d435598097d8b32b38451a736817e4fa5296627bb50431a95981c9a38068",
+    "FID-trajectories.png": "8f63afe6c86dae6f6c9a96fc9de17400a1c7d104d67e00f3dcbe8d70dedab105",
+    "P-trajectories.png": "d57dfc174445b75114dcfc809b01cd004926443a3750a32f100494a677ee7508",
+    "time-panels.png": "befe152b1f4086490fc8e31bd31e9e4cb846b156aa52fa3d530afe87eeb7c8f2",
+    "generation-10000.png": "72ba32a501005c9cd9234eeba66156784ec7835b938e5680a5d530e4961140c2",
+    "generation-20000.png": "3d3cf4efcd244e39ee9ccd6f11244f43ef143cce772aaad9f3ea0d1c462d3333"
+  },
+  "observations": {
+    "final-comparison.png": "All seven primary endpoints; MSE and FID rankings differ.",
+    "continuation-curves.png": "Both regression errors improve from10kto20k; no convergence claim.",
+    "FID-trajectories.png": "Every measured budget retained; all14new scores independently verified.",
+    "P-trajectories.png": "All six layers per model; largest growth in final block second solve.",
+    "time-panels.png": "All five times shown; separate log-axis scales require numeric cross-budget comparison.",
+    "generation-10000.png": "First eight common starts; coarse shared structures, no case selection.",
+    "generation-20000.png": "Same starts; fourth backgrounds bluer and eighth less green across families; no semantic breakthrough claim."
+  }
+}
