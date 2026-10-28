@@ -22,6 +22,8 @@ AdaLN time conditioning as absent.
   monitored one-thread CPU trajectories on Mac mini.
 - [x] Freeze the complete 41-row analysis and fixed case/figure layout before
   new FID extraction, without changing formal source or the quality gate.
+- [x] Check the closest primary work on time-conditioned FFN weights while
+  the existing sampler runs; record novelty limits without selecting a rescue.
 - [ ] Complete prediction, matrix/clock, sample and feature/FID audits; publish
   all outcomes and stop or retain the setting under the original rule.
 

@@ -1,0 +1,30 @@
+{
+  "status": "COMPLETE_FOR_BOUNDED_SCOPE",
+  "assigned_unit_ids": [
+    "arxiv:2507.05964v2",
+    "arxiv:2510.09561v1"
+  ],
+  "covered_unit_ids": [
+    "arxiv:2507.05964v2",
+    "arxiv:2510.09561v1"
+  ],
+  "failed_unit_ids": [],
+  "uncovered_unit_ids": [],
+  "sources": [
+    "primary arXiv HTML",
+    "official AAAI published paper",
+    "official OpenReview workshop paper"
+  ],
+  "source_verification": "parent read primary method and publication sources",
+  "extractor": {
+    "shard_id": "time-clock-primary-0",
+    "agent": "time_clock_lit_extract",
+    "read_only": true,
+    "recursion": false,
+    "status": "complete_provisional_extraction_from_supplied_evidence",
+    "errors": []
+  },
+  "arxiv_API_helper": "UNRESOLVED; primary web fallback",
+  "scope": "Closest-prior check only; no exhaustive novelty certificate",
+  "changes_to_training_metrics_or_gate": false
+}

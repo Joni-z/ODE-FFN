@@ -49,3 +49,5 @@ while those inputs remain incomplete.
 Analysis frozen from 2afd4e0dc97827c416540d5ba5e1f2b23614cb5b before metric-output exists.
 Both formal trajectories reached20k; controller96978 is in audit-training.
 No new FID or final decision exists. See readiness/analysis-registration.json.
+
+Bounded primary-method review covers T-LoRA2507.05964v2 and TC-LoRA2510.09561v1; both extracted with no uncovered IDs. Generic timestep-conditioned weights are prior art. Our scalar dense direction is a restriction to test, not first-use or uniquely ODE computation. No experiment/gate/source change.
