@@ -322,9 +322,11 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Audit boundaries/streams and all seven new inference banks; retain32FIDs and complete the report/five inspected figures.
 - [x] Verify final public artifacts and seal the private runtime.
 - [x] Publish the complete closure; normal remote main publication c7471ab verified.
-- [ ] Finish bookkeeping commit and verify clean local-main fast-forward.
+- [x] Finish bookkeeping and verify clean local-main fast-forward to the published research closure.
 
 ## Status
 All six phases and original controller5632 terminate0, as does registered curator17551. All7168new images/features and2048reference rows replay bitwise;32independent FIDs differ by at most6.54e-13. Fixed06FID174.708609passes the original finite margin at half the FFN matrix work, versus native173.436914; matched-init ordinarySiLU178.056840misses the margin, and frozen same-c native216.070195remains an attribution reference. Five figures/144fixed cases are inspected; full report, stats and catalog are written. Verify public numeric/source/data preservation, seal and publish. No new constraint, clock rescue or optimizer grid is selected. The broader useful-ODE-successor objective remains active and unachieved.
 
 Archive51807exits0;302files seal aad29b214ba537a2ee2034c60987c98f220eef00ca97b0105fb2e3bbadffff9c. Private runtime417939140bytes, curated2110898bytes. Four reports equal archived copies; all verification gates pass. Only normal GitHub publication/local-main sync remain for this cohort; the useful-ODE-successor goal is still active.
+
+Published closure and clean local main are verified at10ec3a2. Final plan synchronization changes only public bookkeeping; all scientific artifacts and the sealed private runtime remain unchanged. No tasks remain for this registered cohort. The overall ODE successor objective remains active.
