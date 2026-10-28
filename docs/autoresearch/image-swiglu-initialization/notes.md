@@ -50,3 +50,12 @@ Analysis source36db5a4 is frozen under the runtime curation-source with
 its four file hashes while the original PID81673 is live at6700updates.
 Neither sampling nor metric-output exists at registration. The normal GitHub
 main push is independently verified by publisher68236/1a15af exit0.
+
+Interim checkpoint observation, tool778ff1 exit0: compare weight slices at
+the registered0and5000snapshots using their Frobenius difference norms.
+All18block/branch groups changed (main/extra gate, main/extra value, main/extra
+output across three blocks). The smallest movement is0.705345. Both physical
+checkpoint hashes are unchanged. This checks that the embedding does not
+freeze extra capacity; it is not a new FID, causal explanation or gate decision.
+The retained Swi129 fits slightly better at5k, so the observed regression
+score is not presented as a baseline win. Formal sampling is still pending.
