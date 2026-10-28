@@ -40,5 +40,7 @@ The reference is complete and published atd15c041; no Gaussian/covariance rescue
 Official PDF downloaded outside Git,959347bytes/SHA50dda7cac7aa35120af9c15f8a076817eac364d6ded20d0f541cab68426f9701.
 Relevant final sections read; OpenReview browser challenge is not used as a
 full-source claim. No model, sampler, environment or dataset changed.
-- [ ] Derive the selected finite-state eligibility object and compare its
+- [x] Derive the selected finite-state eligibility object and compare its
   exact ordinary realization; stop before training if it is only a relabeling.
+
+Finite-state checks and hidden-input application boundary are complete; no new method selected. Review conserved per-mode clock flows against old shear/frame/exponential stops and ordinary gated realizations before proposing another experiment.

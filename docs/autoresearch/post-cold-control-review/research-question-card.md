@@ -82,4 +82,17 @@ Check the complete state/time derivatives and the actual object before
 nominating any implementation. No image prior refit, new data, Gaussian-mixture
 reference, optimizer sweep, target change or training is selected. Keep all
 old stop rules and the stronger ordinary controls.
-Decision: explore this mathematical eligibility question only.
+Decision: this eligibility question is resolved; do not train the known-prior
+solver repackaging. The [derivation and complete fixed checks](../posterior-state-eligibility/README.md)
+verify the finite closure and exact ordinary endpoint. The
+[actual hidden-input check](../posterior-state-eligibility/hidden-input-check.md)
+also blocks assigning its Gaussian observation law directly to RMS-normalized
+FFN input. This does not reject useful learned parameter constraints merely
+because they have a direct expression.
+
+The next unselected review will examine conserved per-mode feature dynamics:
+a skew pair generator with clock rates depending only on conserved pair
+energies. It must be compared with ordinary gated rotations/radial gates and
+old exact-shear/frame settings. Check primary literature and the complete
+clock-feedback Jacobian before choosing a protocol. This is a feature-depth
+flow hypothesis, not a posterior model or a new training selection.

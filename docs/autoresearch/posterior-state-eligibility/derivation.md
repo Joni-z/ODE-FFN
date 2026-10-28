@@ -10,7 +10,7 @@ This is algebraic eligibility, not evidence of improved image generation.
 
 ## Status
 **COHERENT AS STATED** for a fixed, known finite Gaussian-mixture prior.
-Numerical checks are pending. The mathematical representation alone does not
+[Fixed numerical checks](results/summary.json) pass. The mathematical representation alone does not
 select a new ODELayer, learn an unknown image prior, or justify training.
 
 ## Invariant object
@@ -202,7 +202,8 @@ conditioning and equivalences above are derived here, with no novelty claim.
 
 ## Open risks and check scope
 
-PSD components, mixture-weight normalization, the third-moment contraction,
-fixed-observation versus moving-FM derivatives and unequal-covariance logits
-need independent numerical checks. The fixed data-free protocol covers them;
-its pass is mathematical eligibility evidence only, not a training result.
+The fixed numerical checks cover PSD components, mixture-weight normalization,
+the third-moment contraction, fixed-observation versus moving-FM derivatives
+and unequal-covariance logits. Their pass is mathematical identity evidence
+only. The separate [actual hidden-input check](hidden-input-check.md) explains
+why these known-prior statistics are not automatically JiT hidden statistics.
