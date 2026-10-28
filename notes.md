@@ -555,3 +555,31 @@ Published sourceaa74345; data-free checker2293consumes terminal0/e0631f. All72pr
 Actual FFN input is RMSNorm followed by fixed time/class modulation, verified against bound native17source/jit/model_jit.py and util/model_util.py (both equal current src). Its ideal-real input norm around the modulation shift is bounded by sqrt(d)||norm_weight*(1+scale)||_infinity; independent nondegenerate additive Gaussian hidden corruption has unbounded support. Hence the known posterior-state model cannot simply be assigned to this hidden token. This is an application boundary, not a rejection of Gaussian approximations/attention and not a new numerical case. Next unselected direction: invariant-conditioned feature flow on normalized hidden coordinates, subject to literature/old-stop review before any new model.
 
 Data-free archive direct result30f240terminal0, seal7dcb355bb565835d5fffcc9e28d31afccde80ca25e299c5c5b8f5e65fb787cd5,41files/154055bytes. All case/receipt/source/relative-tolerance gates pass. No parent full-raw rehash or model-quality result is claimed. Derivation/application source equal sealed closure; post-seal updates public-only. Next unselected candidate review: exact invariant-clock rotations, where per-mode energies stay fixed along a skew pair field. Need ordinary gated controls, full gate-feedback Jacobian and literature/old-stop exclusions before an experiment; no new training selected now.
+
+Publisher73286 consumes terminal0/b3ab20:6901162 published/verified; clean main
+FF equals it. No private runtime changes after seal7dcb355b.
+
+Next unselected operator to review, not an implementation: split a hidden
+vector into2D pairs, I_j=||h_j||^2/2, J=[[0,-1],[1,0]], and consider
+f_j(h)=omega_j*s_j(I(h))*J*h_j. Unlike an arbitrary frozen input clock,
+these clock inputs may remain conserved along the proposed field. Derivation
+targets: invariants, exact pair rotations, group/inverse, full clock-feedback
+Jacobian/determinant and noncontractive shear witness. A global norm clock
+may collapse on normalized input; per-pair invariants retain variation.
+Do not call a generic cross-mode frequency map Hamiltonian without its
+symmetry/gradient condition, and do not transfer a per-layer norm/volume
+statement to the whole FFN, denoiser or sampler. Ordinary normalized-Euler
+rotations and unconstrained/radial gates must be considered, rather than
+claiming exact integration itself supplies a quality effect. This is a
+candidate architectural constraint to assess, not a new physics law or a
+posterior model. Old stopped frames, Taylor and exact-shear settings stay
+stopped; no learned basis/extra trick is selected.
+
+Primary discovery only, not full-paper support yet: Neural Vector Field
+Transformations by Andrew Qing He, arxiv2610.29039(October21,2026), describes
+conjugation to integrable reference flows and action-angle frequency maps.
+This is directly relevant prior art, not a novelty certificate or transferred
+FM result. Neural Flows,Bilos etal,NeurIPS2021/arxiv2110.13040 is a foundational
+flow-map reference, not a frontier recommendation. Read exact relevant full
+sections before using either to justify a new architecture. Secondary search
+summaries were not used as evidence.

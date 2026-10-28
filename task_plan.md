@@ -372,6 +372,16 @@ mixture-prior quality rescue or evidence of a new method. Goal remains active.
 Previous goal turn is verified progress: published0340861, completed Gaussian seal97961412 and source-specific manifold review. Current work is a data-free algebraic gate, not a new mixture-reference fit or NN training.
 - [x] Derive component/weight precision evolution and ordinary attention/RBF realizations in docs/autoresearch/posterior-state-eligibility/derivation.md.
 - [x] Register and run fixed independent numerical identities, then apply the equivalence decision.
-- [ ] Publish verified mathematical eligibility and choose the next justified step without claiming a successor.
+- [x] Publish verified mathematical eligibility and identify the next specific review without claiming a successor.
 
 Finite-state mathematical gate sealed7dcb355b;41files/154055bytes. Exact closure/ordinary maps and actual RMSNorm observation mismatch are checked; no new model selected. Next review is a specific invariant-clock feature-flow construction, with ordinary gates and all stopped settings reviewed first. Publish this completed gate before any new source family.
+
+Published6901162 and clean local-main FF verified. This gate is complete; no
+new trained ODE method is claimed. Next P0 review before implementation:
+- [ ] Read the closest primary action-angle/neural-flow constructions and
+  current normalized-network evidence, retaining source/transfer boundaries.
+- [ ] Derive conserved pair-energy clocks, the exact autonomous flow and
+  complete Jacobian; include a norm-preserving yet noncontractive witness.
+- [ ] Compare ordinary gated rotations/radial gates and earlier stopped
+  shear/frame/exponential settings; nominate one finite experiment only if
+  the constraint, controls and measured budget are defensible.
