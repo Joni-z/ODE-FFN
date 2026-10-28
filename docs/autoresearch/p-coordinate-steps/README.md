@@ -33,5 +33,6 @@ The source enforces the registered 300-second ceiling and reports progress,
 primed CPU use and RSS at each state. Poll the same actual tool handle until
 terminal; never restart merely because an observation expires. A failed
 invocation preserves source/output and its discrepancy. Actual exit0 with all
-checks is required before interpreting the result. Original checkpoints,+datasets, source snapshots, prior stop rules and submitted Report1 remain
+checks is required before interpreting the result. Original checkpoints,
+datasets, source snapshots, prior stop rules and submitted Report1 remain
 unchanged. Raw output and full execution logs stay outside Git.
