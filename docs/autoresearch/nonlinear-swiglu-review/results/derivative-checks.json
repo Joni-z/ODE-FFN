@@ -1,0 +1,542 @@
+[
+  {
+    "dim": 1,
+    "nominal_hidden": 2,
+    "actual_hidden": 1,
+    "bias": false,
+    "scale": 0.1,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 0.0,
+      "t2": 0.0,
+      "complete_t2_tangent": 0.0,
+      "full_parameter_gradients": 0.0
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -3.46865140628205e-08,
+        "finite_difference": -3.468651361169097e-08,
+        "normalized_error": 4.511295136838484e-16
+      },
+      {
+        "step": 5e-06,
+        "analytic": -3.46865140628205e-08,
+        "finite_difference": -3.468651395002852e-08,
+        "normalized_error": 1.1279197537009606e-16
+      }
+    ],
+    "frozen_gate_omission_RMS": 1.0926354372599485e-09
+  },
+  {
+    "dim": 1,
+    "nominal_hidden": 2,
+    "actual_hidden": 1,
+    "bias": false,
+    "scale": 1.0,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 0.0,
+      "t2": 0.0,
+      "complete_t2_tangent": 0.0,
+      "full_parameter_gradients": 8.470293775358995e-22
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 1.162188163949421e-06,
+        "finite_difference": 1.1621881582682e-06,
+        "normalized_error": 5.681214475249718e-15
+      },
+      {
+        "step": 5e-06,
+        "analytic": 1.162188163949421e-06,
+        "finite_difference": 1.1621881625288417e-06,
+        "normalized_error": 1.4205776336524094e-15
+      }
+    ],
+    "frozen_gate_omission_RMS": 1.953839593097479e-08
+  },
+  {
+    "dim": 1,
+    "nominal_hidden": 2,
+    "actual_hidden": 1,
+    "bias": false,
+    "scale": 4.0,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 0.0,
+      "t2": 0.0,
+      "complete_t2_tangent": 0.0,
+      "full_parameter_gradients": 0.0
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -0.0022577108477500234,
+        "finite_difference": -0.0022577108528792477,
+        "normalized_error": 5.11767008297452e-12
+      },
+      {
+        "step": 5e-06,
+        "analytic": -0.0022577108477500234,
+        "finite_difference": -0.00225771084903033,
+        "normalized_error": 1.2774225391886301e-12
+      }
+    ],
+    "frozen_gate_omission_RMS": 1.2502174953177986e-05
+  },
+  {
+    "dim": 1,
+    "nominal_hidden": 2,
+    "actual_hidden": 1,
+    "bias": true,
+    "scale": 0.1,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 0.0,
+      "t2": 0.0,
+      "complete_t2_tangent": 0.0,
+      "full_parameter_gradients": 3.338708883157668e-18
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -0.42733324071088324,
+        "finite_difference": -0.4273332406622143,
+        "normalized_error": 3.409782408525418e-11
+      },
+      {
+        "step": 5e-06,
+        "analytic": -0.42733324071088324,
+        "finite_difference": -0.42733324069690876,
+        "normalized_error": 9.790627608658028e-12
+      }
+    ],
+    "frozen_gate_omission_RMS": 2.8446622615974082e-05
+  },
+  {
+    "dim": 1,
+    "nominal_hidden": 2,
+    "actual_hidden": 1,
+    "bias": true,
+    "scale": 1.0,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 1.6940552312504887e-21,
+      "t2": 0.0,
+      "complete_t2_tangent": 0.0,
+      "full_parameter_gradients": 1.6962655488824725e-18
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.07644074424854318,
+        "finite_difference": 0.0764407442505402,
+        "normalized_error": 1.855213632522263e-12
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.07644074424854318,
+        "finite_difference": 0.07644074425001979,
+        "normalized_error": 1.3717527029972088e-12
+      }
+    ],
+    "frozen_gate_omission_RMS": 3.470092278870518e-05
+  },
+  {
+    "dim": 1,
+    "nominal_hidden": 2,
+    "actual_hidden": 1,
+    "bias": true,
+    "scale": 4.0,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 0.0,
+      "t2": 0.0,
+      "complete_t2_tangent": 0.0,
+      "full_parameter_gradients": 3.4124694477905264e-18
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.012545827001785135,
+        "finite_difference": 0.012545826861752823,
+        "normalized_error": 1.382972586528943e-10
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.012545827001785135,
+        "finite_difference": 0.012545826966840474,
+        "normalized_error": 3.4511684128960186e-11
+      }
+    ],
+    "frozen_gate_omission_RMS": 7.204538905397975e-06
+  },
+  {
+    "dim": 4,
+    "nominal_hidden": 8,
+    "actual_hidden": 5,
+    "bias": false,
+    "scale": 0.1,
+    "errors": {
+      "tangent": 1.339880836430291e-17,
+      "hessian": 1.0313908283855184e-17,
+      "t2": 0.0,
+      "complete_t2_tangent": 1.3398057052611291e-17,
+      "full_parameter_gradients": 1.6940495012139542e-21
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 1.7753233339017238e-06,
+        "finite_difference": 1.7753233339284271e-06,
+        "normalized_error": 2.670330152990796e-17
+      },
+      {
+        "step": 5e-06,
+        "analytic": 1.7753233339017238e-06,
+        "finite_difference": 1.7753233338013722e-06,
+        "normalized_error": 1.0035141499503417e-16
+      }
+    ],
+    "frozen_gate_omission_RMS": 4.854695103992403e-06
+  },
+  {
+    "dim": 4,
+    "nominal_hidden": 8,
+    "actual_hidden": 5,
+    "bias": false,
+    "scale": 1.0,
+    "errors": {
+      "tangent": 2.2466878520237192e-17,
+      "hessian": 4.4252858408371787e-17,
+      "t2": 0.0,
+      "complete_t2_tangent": 2.2718044200974813e-17,
+      "full_parameter_gradients": 3.2915771320972137e-18
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.0012190432262043128,
+        "finite_difference": 0.0012190432268233825,
+        "normalized_error": 6.183159288249824e-13
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.0012190432262043128,
+        "finite_difference": 0.0012190432259993889,
+        "normalized_error": 2.046744614035617e-13
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.0052845732219641535
+  },
+  {
+    "dim": 4,
+    "nominal_hidden": 8,
+    "actual_hidden": 5,
+    "bias": false,
+    "scale": 4.0,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 4.2758248660059736e-17,
+      "t2": 0.0,
+      "complete_t2_tangent": 5.855018748245004e-17,
+      "full_parameter_gradients": 1.924449122686171e-16
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -22.524771228990218,
+        "finite_difference": -22.52477122466345,
+        "normalized_error": 1.8392392575807593e-10
+      },
+      {
+        "step": 5e-06,
+        "analytic": -22.524771228990218,
+        "finite_difference": -22.524771228127346,
+        "normalized_error": 3.6679312702632706e-11
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.558634611729036
+  },
+  {
+    "dim": 4,
+    "nominal_hidden": 8,
+    "actual_hidden": 5,
+    "bias": true,
+    "scale": 0.1,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 1.3103638551396805e-17,
+      "t2": 0.0,
+      "complete_t2_tangent": 3.2309174442407804e-18,
+      "full_parameter_gradients": 4.3222230263690257e-19
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -0.02326632058551002,
+        "finite_difference": -0.023266320584719443,
+        "normalized_error": 7.726003701513414e-13
+      },
+      {
+        "step": 5e-06,
+        "analytic": -0.02326632058551002,
+        "finite_difference": -0.02326632058680111,
+        "normalized_error": 1.2617362725137315e-12
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.005772472655641692
+  },
+  {
+    "dim": 4,
+    "nominal_hidden": 8,
+    "actual_hidden": 5,
+    "bias": true,
+    "scale": 1.0,
+    "errors": {
+      "tangent": 6.611328757505291e-18,
+      "hessian": 3.2542441842242846e-17,
+      "t2": 0.0,
+      "complete_t2_tangent": 1.2946342298479296e-17,
+      "full_parameter_gradients": 6.773425885823887e-18
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -0.06636767529047922,
+        "finite_difference": -0.06636767528322984,
+        "normalized_error": 6.798200863090421e-12
+      },
+      {
+        "step": 5e-06,
+        "analytic": -0.06636767529047922,
+        "finite_difference": -0.06636767529016874,
+        "normalized_error": 2.911638769804756e-13
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.0249277213929232
+  },
+  {
+    "dim": 4,
+    "nominal_hidden": 8,
+    "actual_hidden": 5,
+    "bias": true,
+    "scale": 4.0,
+    "errors": {
+      "tangent": 0.0,
+      "hessian": 0.0,
+      "t2": 7.761081640571941e-18,
+      "complete_t2_tangent": 3.506200937051038e-17,
+      "full_parameter_gradients": 1.3355747198171354e-16
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.7921583417130766,
+        "finite_difference": 0.7921583417613841,
+        "normalized_error": 2.6954911299746914e-11
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.7921583417130766,
+        "finite_difference": 0.7921583417280774,
+        "normalized_error": 8.370230491399525e-12
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.053558788640552184
+  },
+  {
+    "dim": 64,
+    "nominal_hidden": 128,
+    "actual_hidden": 85,
+    "bias": false,
+    "scale": 0.1,
+    "errors": {
+      "tangent": 1.0010042604774914e-17,
+      "hessian": 8.118278096264508e-17,
+      "t2": 3.381590140497254e-21,
+      "complete_t2_tangent": 1.0009632592380143e-17,
+      "full_parameter_gradients": 1.058790315480361e-22
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 4.433726476386698e-08,
+        "finite_difference": 4.433726475052562e-08,
+        "normalized_error": 1.3341357280332078e-17
+      },
+      {
+        "step": 5e-06,
+        "analytic": 4.433726476386698e-08,
+        "finite_difference": 4.433726479287727e-08,
+        "normalized_error": 2.901028820462682e-17
+      }
+    ],
+    "frozen_gate_omission_RMS": 3.5784410821781137e-06
+  },
+  {
+    "dim": 64,
+    "nominal_hidden": 128,
+    "actual_hidden": 85,
+    "bias": false,
+    "scale": 1.0,
+    "errors": {
+      "tangent": 4.2249034184647855e-17,
+      "hessian": 7.836023465982987e-17,
+      "t2": 2.1726628155573193e-17,
+      "complete_t2_tangent": 4.161175650136168e-17,
+      "full_parameter_gradients": 6.579578024515376e-18
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.003048785371937573,
+        "finite_difference": 0.00304878537233863,
+        "normalized_error": 3.9983820475431615e-13
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.003048785371937573,
+        "finite_difference": 0.003048785372425366,
+        "normalized_error": 4.863107423454743e-13
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.004221281568077313
+  },
+  {
+    "dim": 64,
+    "nominal_hidden": 128,
+    "actual_hidden": 85,
+    "bias": false,
+    "scale": 4.0,
+    "errors": {
+      "tangent": 1.0557504506228623e-16,
+      "hessian": 1.216045456903422e-16,
+      "t2": 9.452923529942119e-17,
+      "complete_t2_tangent": 1.3919994177389632e-16,
+      "full_parameter_gradients": 1.4802428458558238e-16
+    },
+    "native_error": null,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.25481313515379533,
+        "finite_difference": 0.25481313516984017,
+        "normalized_error": 1.278663067837091e-11
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.25481313515379533,
+        "finite_difference": 0.2548131350810223,
+        "normalized_error": 5.7995097279176035e-11
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.33407283075053057
+  },
+  {
+    "dim": 64,
+    "nominal_hidden": 128,
+    "actual_hidden": 85,
+    "bias": true,
+    "scale": 0.1,
+    "errors": {
+      "tangent": 9.784616700986499e-18,
+      "hessian": 7.432493569810076e-17,
+      "t2": 6.272765664535814e-18,
+      "complete_t2_tangent": 1.0552979518073638e-17,
+      "full_parameter_gradients": 2.1611798970742844e-19
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": 0.0023499644174437783,
+        "finite_difference": 0.002349964417459535,
+        "normalized_error": 1.5719985606348684e-14
+      },
+      {
+        "step": 5e-06,
+        "analytic": 0.0023499644174437783,
+        "finite_difference": 0.002349964417416167,
+        "normalized_error": 2.754642676353182e-14
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.0004569747585527471
+  },
+  {
+    "dim": 64,
+    "nominal_hidden": 128,
+    "actual_hidden": 85,
+    "bias": true,
+    "scale": 1.0,
+    "errors": {
+      "tangent": 4.2527049897273084e-17,
+      "hessian": 1.2254461403102553e-16,
+      "t2": 1.0950810499966472e-17,
+      "complete_t2_tangent": 4.2004501602674493e-17,
+      "full_parameter_gradients": 3.383865993402604e-18
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -0.0016025918396179802,
+        "finite_difference": -0.0016025918396153636,
+        "normalized_error": 2.6124268690945067e-15
+      },
+      {
+        "step": 5e-06,
+        "analytic": -0.0016025918396179802,
+        "finite_difference": -0.0016025918394418912,
+        "normalized_error": 1.7580721391439203e-13
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.006819229251877674
+  },
+  {
+    "dim": 64,
+    "nominal_hidden": 128,
+    "actual_hidden": 85,
+    "bias": true,
+    "scale": 4.0,
+    "errors": {
+      "tangent": 1.330953842669649e-16,
+      "hessian": 7.115816625214329e-17,
+      "t2": 6.354555071820708e-17,
+      "complete_t2_tangent": 1.56839041118866e-16,
+      "full_parameter_gradients": 1.9879866700175073e-16
+    },
+    "native_error": 0.0,
+    "finite_differences": [
+      {
+        "step": 1e-05,
+        "analytic": -1.0659915511213285,
+        "finite_difference": -1.0659915513855367,
+        "normalized_error": 1.2788445854080826e-10
+      },
+      {
+        "step": 5e-06,
+        "analytic": -1.0659915511213285,
+        "finite_difference": -1.0659915513855367,
+        "normalized_error": 1.2788445854080826e-10
+      }
+    ],
+    "frozen_gate_omission_RMS": 0.905818185244995
+  }
+]

@@ -371,3 +371,10 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Cycle22 archiveverifier exits0,200files seal9d6df5b6687c4447e13871295c9adddf7de057fa8975321c4d0b5471fcaadc5b; all200hashes re-read. Full public/source/data/proof hashes, all inputs/120records/240FDrows/bothsteps/links/AST/protected scopes pass. Private3180335bytes/curated988995bytes. Both phase processes terminal. Semantic review staysprovisional, no useful-successor claim.
 
 - Verified cycle22result0136239 committed with Zhizhe Zhang author/committer; clean local main synchronized. Publisher8291 exits1 at missing HTTPS Username. Fresh directGitHubSSH61861 exits255(publickeydenied), so no working native publication route is established. Independent remote main800d09fe08f38ecf132f2f06b707a829426a2cd8 unchanged. No remote update/MBP/torch relay claimed; useful-successor goal staysactive.
+
+## Nonlinear SwiGLU eligibility review: no training selected
+- Rechecked native nominal128/actual85 and all relevant complete-field, nonlinear-drift and coupled-generator stops. A stronger K1 field is not independent task evidence.
+- Registered bb878a6 before Mac mini fixture process4372, terminal exit0/0.73s.18 AD cases and36 fixed finite differences pass; full-gradient normalized error1.99e-16. Actual Taylor2 forward/training dense work32640/97920 per row versus native16320/48960; midpoint and actual-hidden170 cover that work.
+- Legal scalar native SwiGLU y*SiLU(y) escapes at0.51876713 from y0=2, disproving a universal unit-horizon exact-flow claim. It does not show fitted fields escape or predict performance.
+- Independent audit exits0;15 runtime files sealed022e4ccaee18ef3c7426b222c21f9345fdabf267fa37358b17ffd08c7b140176. No data, training, GPU, package or old artifact changed. This is a stopped candidate review, not another empirical cycle.
+- User correctly distinguishes formula checks from useful-model progress. No new quality improvement is claimed. Missing next step is a task-specific mechanism, not a coefficient or solver sweep.
