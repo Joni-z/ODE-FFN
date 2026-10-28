@@ -1,0 +1,169 @@
+{
+  "new_ODE_architecture_nominated": false,
+  "original_cycle17_gates_unchanged": true,
+  "ordinary_contrasts": [
+    {
+      "family": "silu64",
+      "reference": "ode_k1",
+      "weighted_ratio": 0.9992987572985693,
+      "clean_ratio": 0.9976812674718298,
+      "FID_delta": 12.578767404700613,
+      "FID_ratio": 1.0678570570299206,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu64",
+      "reference": "ode_k2",
+      "weighted_ratio": 0.9967584395508238,
+      "clean_ratio": 0.9977553751791637,
+      "FID_delta": 14.25224369970661,
+      "FID_ratio": 1.077585158679371,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu64",
+      "reference": "swiglu86",
+      "weighted_ratio": 1.0193615336083728,
+      "clean_ratio": 1.0105341527283425,
+      "FID_delta": 4.059292625619264,
+      "FID_ratio": 1.0209359497922634,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu64",
+      "reference": "swiglu129",
+      "weighted_ratio": 1.0294034662664246,
+      "clean_ratio": 1.0167557710560517,
+      "FID_delta": 5.932372450893382,
+      "FID_ratio": 1.030894886676053,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu64",
+      "reference": "ode_k1_constant",
+      "weighted_ratio": 0.9986957619795335,
+      "clean_ratio": 0.9973781911023668,
+      "FID_delta": 13.795279395454315,
+      "FID_ratio": 1.074911227111776,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu64",
+      "reference": "ode_k2_constant",
+      "weighted_ratio": 0.9971481690996379,
+      "clean_ratio": 0.9975806311323364,
+      "FID_delta": 18.232446414974078,
+      "FID_ratio": 1.1014503842354493,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu131",
+      "reference": "ode_k1",
+      "weighted_ratio": 0.98875604206932,
+      "clean_ratio": 0.9908552999284246,
+      "FID_delta": 2.5581089409851927,
+      "FID_ratio": 1.0137999009531184,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu131",
+      "reference": "ode_k2",
+      "weighted_ratio": 0.9862425249619342,
+      "clean_ratio": 0.9909289006032809,
+      "FID_delta": 4.23158523599119,
+      "FID_ratio": 1.0230355457650797,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu131",
+      "reference": "swiglu86",
+      "weighted_ratio": 1.0086071538135493,
+      "clean_ratio": 1.0036202479043042,
+      "FID_delta": -5.961365838096157,
+      "FID_ratio": 0.9692540382302064,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu131",
+      "reference": "swiglu129",
+      "weighted_ratio": 1.01854314294311,
+      "clean_ratio": 1.0097992989651348,
+      "FID_delta": -4.088286012822039,
+      "FID_ratio": 0.978708832914493,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu131",
+      "reference": "ode_k1_constant",
+      "weighted_ratio": 0.9881594084192913,
+      "clean_ratio": 0.9905542971565409,
+      "FID_delta": 3.7746209317388946,
+      "FID_ratio": 1.0204969742020251,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu131",
+      "reference": "ode_k2_constant",
+      "weighted_ratio": 0.9866281428198055,
+      "clean_ratio": 0.9907553521258513,
+      "FID_delta": 8.211787951258657,
+      "FID_ratio": 1.0456926637245465,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu193",
+      "reference": "ode_k1",
+      "weighted_ratio": 0.972407803160823,
+      "clean_ratio": 0.9796146439835798,
+      "FID_delta": -5.326164782994709,
+      "FID_ratio": 0.9712676245770021,
+      "both_quality_lower": true
+    },
+    {
+      "family": "silu193",
+      "reference": "ode_k2",
+      "weighted_ratio": 0.9699358449177311,
+      "clean_ratio": 0.979687409703157,
+      "FID_delta": -3.652688487988712,
+      "FID_ratio": 0.9801158033838033,
+      "both_quality_lower": true
+    },
+    {
+      "family": "silu193",
+      "reference": "swiglu86",
+      "weighted_ratio": 0.9919306936820347,
+      "clean_ratio": 0.992234781321255,
+      "FID_delta": -13.845639562076059,
+      "FID_ratio": 0.9285906088947756,
+      "both_quality_lower": true
+    },
+    {
+      "family": "silu193",
+      "reference": "swiglu129",
+      "weighted_ratio": 1.0017023996950623,
+      "clean_ratio": 0.9983437347734385,
+      "FID_delta": -11.97255973680194,
+      "FID_ratio": 0.9376487435081612,
+      "both_quality_lower": false
+    },
+    {
+      "family": "silu193",
+      "reference": "ode_k1_constant",
+      "weighted_ratio": 0.97182103433997,
+      "clean_ratio": 0.9793170559066544,
+      "FID_delta": -4.1096527922410075,
+      "FID_ratio": 0.9776837333376841,
+      "both_quality_lower": true
+    },
+    {
+      "family": "silu193",
+      "reference": "ode_k2_constant",
+      "weighted_ratio": 0.9703150869128013,
+      "clean_ratio": 0.9795158300285635,
+      "FID_delta": 0.3275142272787548,
+      "FID_ratio": 1.0018223799178545,
+      "both_quality_lower": false
+    }
+  ],
+  "scope": "Cold ordinary baseline coverage; cost and FFN initialization differ by the registered roles"
+}

@@ -1,5 +1,10 @@
 # Ordinary image SiLU controls
 
+Completed: [analysis and decision](analysis-report.md), [statistics](stats-appendix.md),
+and [figure catalog](figure-catalog.md). SiLU193 has lower fitting error and FID
+than native K2 at equal FFN matrix work, with more parameters. No new ODE
+architecture is nominated. The other fixed comparisons remain visible.
+
 The [protocol](protocol.md) defines three cold ordinary baselines; the
 [derivation](theory.md) fixes their widths from function shape and budgets.
 No ODE, dataset, target, optimizer, seed or training length is changed.
