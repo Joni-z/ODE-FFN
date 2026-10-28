@@ -3,7 +3,7 @@
 - [x] State one prospective question, include all seven existing model widths and fix20k endpoint before outcomes. Original stops remain unchanged.
 - [x] Native source89de3e1, corrected fixture isolationbc290fb; parent constructors/draw/update/restore reused. Separate v2runtime preserves failedv1.
 - [x] Warm specs475428fb/dc729a50 unchanged. Fresh image_budget_doc_pass executes the documented preflight once, exit0; seven native prediction/resume checks and5000→5001→5003counters pass, all82inputs unchanged.
-- [ ] Running: controller60302/create_time1793160577.864121, tool session91639. First children60311/60312, K1/K2, both reach5100. Same live handle must be polled; do not restart. All seven outcomes pending.
+- [ ] Running: controller60302/create_time1793160577.864121, tool session91639. K1/K2/Swi86/Swi129/SiLU64 have terminal exit0 at20k. SiLU131 and SiLU193 remain active; identities are in output/launches.json. Re-poll the same handle; final cohort metrics and audits remain pending.
 - [ ] Audit and compare fixed checkpoints and generated samples before making a quality claim.
 
 No new architecture, loss, data, seed or optimizer setting is selected. Publication is direct from Mac mini when authentication is available.
@@ -26,3 +26,7 @@ K1/K2complete20kwith terminal exit0. Independent20ksnapshot checks15175/92834 ex
 Curator fixes the20kprimary endpoint and all seven controls in code. Four hand-computable checks pass: inclusive boundary, both ordinary references, fitting guard, and prohibition on substituting10k. It refuses incomplete audit coverage; no figures or report were produced from the partial cohort.
 
 Four models now complete with exit0:K1/K2/Swi86/Swi129. SiLU64/131are running, SiLU193queued. Curator additionally summarizes the existing70fixed-time panels and decomposes the already audited FID into feature-mean/covariance terms. Existing random-time validation has maxt0.87198,25examples≥.7,5≥.8,0≥.9. This is coverage information, not a causal FID explanation; the primary rule is AST-identical to99b5cc9 and all four boundary checks still pass. No new training/evaluation bank or acceptance condition.
+
+Five completed continuations: SiLU64 exits0 with weightedMSE0.15984233 and cleanMSE0.07598971. Its full-cohort independent replay remains pending. SiLU131 is at19500; SiLU193 has started once as PID62178. All seven arms have launched. Evaluation60530 and finalization60880 remain live waiters, not completed checks.
+
+The independently snapshot-verified20kODE records show largest singular values across the six P matrices of1.241–1.657 forK1 and1.205–1.704 forK2, versus1.133–1.279 and1.127–1.282 at5k. Across the thirty fixed-time/layer records, K2term2RMS/term1RMS is0.189–0.354 at20k. The quadratic term is active without a recorded fitting advantage; these diagnostics neither prove instability nor explain FID. The5kclock-collapse result must not be silently extended to20k.
