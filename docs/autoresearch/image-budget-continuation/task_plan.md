@@ -16,3 +16,5 @@ Preserve v1; deep-copy restore input and prepare a separately registered v2.
 Metric entrypoint preflight64269 exits0:32historical MPS feature vectors bitwise and the old K2FID183.69806728894557 reproduced exactly. The frozen evaluator is unchanged; fixed10k/20kmetrics will wait for the complete seven-arm training cohort. No new quality result.
 
 Live verification: controller60302/session91639; K1at8900andK2at8600. Evaluation waiter60530/session80573 is alive and waits for the same controller identity before all14fixed endpoint FIDs. No result is claimed from these running steps. Latest direct publisher46245 exits1 on missing HTTPS Username; readiness e82b1de and metric source38e56ec remain local.
+
+Independent auditor prepared for112checkpoints,15kcontinuation stream batches, allP/clock/matrix snapshots,14manual Heun128banks and all14new/reference feature/FID checks. Snapshot preflight40886 exits0 on the existing5kK1: predictions, Adam state, full spectra/eigenvalues, five panels and30clock records verify. This is a one-checkpoint readiness result; final cohort verification remains pending.
