@@ -40,7 +40,9 @@ def construct(arm):
     return imported('ordinary').model_for(PARENTS['ordinary'],arm) if arm.startswith('silu') else imported('native').model_for(PARENTS['native'],arm)
 def restored(arm,state=None):
     old=imported('native');model=construct(arm);opt=old.optimizer(model);rng=torch.Generator()
-    old.restore(model,opt,rng,initial(arm) if state is None else state)
+    # CPU optimizer loading may retain moment-tensor storage. Each restoration
+    # owns its copy so the reference fixture cannot mutate another branch.
+    old.restore(model,opt,rng,initial(arm) if state is None else copy.deepcopy(state))
     return model,opt,rng
 def prepare(root):
     assert not root.exists();root.mkdir();source=root/'source';source.mkdir()

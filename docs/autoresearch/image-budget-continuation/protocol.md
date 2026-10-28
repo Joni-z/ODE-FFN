@@ -78,7 +78,7 @@ Preserve crashes and partial states. No auto-retry or shortened endpoint claim.
 Preflight command after preparation:
 
 ```text
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/image-budget-continuation/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/image-budget-continuation/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-budget-v2
 ```
 
 No formal launch until all seven native/reload checks and documented-entrypoint
@@ -86,3 +86,10 @@ verification pass. Full parent/source preservation and independent final
 prediction/panel/sample/stream/P-history replay precede quality claims.
 This is an empirical premise test on existing models; the broader useful-ODE
 successor goal remains unachieved.
+
+Preparation-v1 and its failed preflight are preserved. The new fixture reused
+one in-memory checkpoint for both paths; CPU Adam restoration retained moment
+storage, so three reference updates contaminated the second path. Its one-step
+fixture declared5001but had Adam counters5004. V2 deep-copies supplied state
+before restore; the native5k files remain unchanged. No formal training or
+quality outcome preceded this correction, and no tolerance is relaxed.
