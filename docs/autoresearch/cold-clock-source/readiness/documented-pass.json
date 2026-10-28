@@ -1,0 +1,128 @@
+{
+  "status": "PASS",
+  "mismatches": [],
+  "records": [
+    {
+      "action": "preflight",
+      "documented_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+      "executed_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+      "invocation_count": 1,
+      "expected_sentinel": "COLD_CLOCK_SOURCE_NATIVE_PASS",
+      "observed_sentinel": "COLD_CLOCK_SOURCE_NATIVE_PASS",
+      "exit_code": 0,
+      "mismatch": [],
+      "tool_results": [
+        {
+          "kind": "initial",
+          "tool": "exec_command",
+          "result": {
+            "chunk_id": "f795bb",
+            "wall_time_seconds": 1.002357167,
+            "session_id": 33463,
+            "original_token_count": 0,
+            "output": ""
+          }
+        },
+        {
+          "kind": "observation",
+          "tool": "write_stdin",
+          "result": {
+            "chunk_id": "49651c",
+            "wall_time_seconds": 5.002310208,
+            "session_id": 33463,
+            "original_token_count": 0,
+            "output": ""
+          }
+        },
+        {
+          "kind": "terminal",
+          "tool": "write_stdin",
+          "result": {
+            "chunk_id": "b15aae",
+            "wall_time_seconds": 2.1916e-05,
+            "exit_code": 0,
+            "original_token_count": 8,
+            "output": "COLD_CLOCK_SOURCE_NATIVE_PASS\n"
+          }
+        }
+      ],
+      "session_id": 33463,
+      "combined_stdout_stderr_log": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/doc-validation/native.log",
+      "initial_tool_result": {
+        "chunk_id": "f795bb",
+        "wall_time_seconds": 1.002357167,
+        "session_id": 33463,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "terminal_tool_result": {
+        "chunk_id": "b15aae",
+        "wall_time_seconds": 2.1916e-05,
+        "exit_code": 0,
+        "original_token_count": 8,
+        "output": "COLD_CLOCK_SOURCE_NATIVE_PASS\n"
+      },
+      "mismatches": [],
+      "sentinel": "COLD_CLOCK_SOURCE_NATIVE_PASS",
+      "sentinel_observed": true
+    },
+    {
+      "action": "metric-preflight",
+      "documented_command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+      "executed_command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py metric-preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+      "invocation_count": 1,
+      "expected_sentinel": "COLD_CLOCK_SOURCE_METRIC_PASS",
+      "observed_sentinel": "COLD_CLOCK_SOURCE_METRIC_PASS",
+      "exit_code": 0,
+      "mismatch": [],
+      "tool_results": [
+        {
+          "kind": "initial",
+          "tool": "exec_command",
+          "result": {
+            "chunk_id": "40ba67",
+            "wall_time_seconds": 1.002841167,
+            "session_id": 62554,
+            "original_token_count": 0,
+            "output": ""
+          }
+        },
+        {
+          "kind": "terminal",
+          "tool": "write_stdin",
+          "result": {
+            "chunk_id": "73fffe",
+            "wall_time_seconds": 1.5834e-05,
+            "exit_code": 0,
+            "original_token_count": 8,
+            "output": "COLD_CLOCK_SOURCE_METRIC_PASS\n"
+          }
+        }
+      ],
+      "session_id": 62554,
+      "combined_stdout_stderr_log": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/doc-validation/metric.log",
+      "initial_tool_result": {
+        "chunk_id": "40ba67",
+        "wall_time_seconds": 1.002841167,
+        "session_id": 62554,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "terminal_tool_result": {
+        "chunk_id": "73fffe",
+        "wall_time_seconds": 1.5834e-05,
+        "exit_code": 0,
+        "original_token_count": 8,
+        "output": "COLD_CLOCK_SOURCE_METRIC_PASS\n"
+      },
+      "mismatches": [],
+      "sentinel": "COLD_CLOCK_SOURCE_METRIC_PASS",
+      "sentinel_observed": true
+    }
+  ],
+  "preflight_hashes": {
+    "preflight": "ad464caa2586243fda254e6f7002005ca0e0f162e670f808c8024cb7ef8c7af9",
+    "metric-preflight": "920e89740cde1e138ac2f13d5d3ed9c4bb1b5ae804f49cb4dcefb2ceb61182ae"
+  },
+  "agent_records_sha256": "dbfc38f614ef10a5848391e568f4102c67ab6f9d1108f35e1a2eb57a4233c9a3"
+}

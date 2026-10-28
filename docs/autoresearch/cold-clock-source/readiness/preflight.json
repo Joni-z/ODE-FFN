@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "paired_initial_state_bitwise": true,
+  "paired_initial_FFN_bitwise": true,
+  "active_shared_and_P_gradients": 49,
+  "conditional_matrix_derivative_tensors": 12,
+  "active_full_model_parameter_gradients": 73,
+  "full_model_FD": [
+    {
+      "parameter": "t_embedder.mlp.0.weight",
+      "flat_index": 5730,
+      "AD": 1.3452352309211448,
+      "finite_difference": 1.3452352307652404
+    },
+    {
+      "parameter": "blocks.0.mlp.ode1.proj.weight",
+      "flat_index": 3128,
+      "AD": -13.37760192801577,
+      "finite_difference": -13.377601926300995
+    },
+    {
+      "parameter": "blocks.0.mlp.ode2.t_func.2.weight",
+      "flat_index": 17,
+      "AD": -0.08442965540047662,
+      "finite_difference": -0.08442965384602985
+    }
+  ],
+  "native_prefixes": [
+    "ode_k1",
+    "swiglu86",
+    "swiglu129",
+    "silu131"
+  ],
+  "resumes": [
+    {
+      "arm": "feature_clock_zero",
+      "five_update_physical_resume_bitwise": true,
+      "independent_active_update_bitwise": true
+    },
+    {
+      "arm": "time_clock_zero",
+      "five_update_physical_resume_bitwise": true,
+      "independent_active_update_bitwise": true
+    }
+  ],
+  "costs": [
+    {
+      "arm": "feature_clock_zero",
+      "trainable_parameters": 211094,
+      "FFN_forward_MACs": 16512,
+      "FFN_forward_backward_MACs": 49536,
+      "scope": "64patches/image; dense matrix calls; pointwise/backbone excluded"
+    },
+    {
+      "arm": "time_clock_zero",
+      "trainable_parameters": 211094,
+      "FFN_forward_MACs": 8322,
+      "FFN_forward_backward_MACs": 24966,
+      "scope": "64patches/image; dense matrix calls; pointwise/backbone excluded"
+    }
+  ],
+  "formal_training_started": false
+}

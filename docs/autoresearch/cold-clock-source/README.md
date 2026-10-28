@@ -4,7 +4,9 @@ Two cold K1 arms start from exactly the same parameter state and FFN function.
 The only architectural difference is whether the local clock consumes image
 features or the existing objective-time conditioner. See the
 [protocol](protocol.md), [limited derivation](derivation.md) and
-[task plan](task_plan.md). No new quality result exists yet.
+[task plan](task_plan.md). Both documented checks pass and the two training children are running on
+Mac mini; [progress.json](progress.json) is a published snapshot. Each uses
+one CPU thread and model seed0. No new FID or quality result exists yet.
 
 Use unchanged Mac mini environments image-training@475428fb and
 image-metrics@dc729a50. Commit source, then prepare a new exclusive runtime:

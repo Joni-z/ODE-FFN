@@ -25,3 +25,14 @@ No new outcome exists for these two arms. The fixed initial-state pairing,
 cost predictions, stronger control set and strict quality rule precede them.
 Any positive result still requires novelty/transfer assessment; the experiment
 is not a frontier-performance claim.
+
+Readiness: actual native33463/b15aae and metric62554/73fffe commands each
+exit0 once, no discrepancies. Paired initial states/FFNs match bitwise;
+49initial shared/P and73active full-model conditional gradients pass; three
+actual-conditioner/P/clock finite differences pass. Both physical resumes and
+independent active updates replay bitwise. Both arms have211094trainable
+values. Measured FFN forward/backward work is16512/49536feature and
+8322/24966time, at64patches. This is not a whole-model speedup claim.
+Controller96978 starts actual PIDs84850/84851. Both training streams are live;
+initial observed CPU use is100.0%/99.9%. Source f7bbdd5 is frozen in the
+private runtime. No new FID or final quality decision is available.

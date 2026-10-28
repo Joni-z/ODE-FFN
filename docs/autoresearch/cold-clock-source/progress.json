@@ -1,0 +1,77 @@
+{
+  "state": "RUNNING",
+  "runtime": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+  "source_commit": "f7bbdd5b811aaa8a53b7f93412c01d8b184e0b60",
+  "controller_session_id": 96978,
+  "launches": [
+    {
+      "phase": "training",
+      "arm": "feature_clock_zero",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+        "cell",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+        "--arm",
+        "feature_clock_zero"
+      ],
+      "pid": 84850,
+      "create_time": 1793218164.661911
+    },
+    {
+      "phase": "training",
+      "arm": "time_clock_zero",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+        "-B",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1/source/study.py",
+        "cell",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-cold-clock-source-v1",
+        "--arm",
+        "time_clock_zero"
+      ],
+      "pid": 84851,
+      "create_time": 1793218164.668284
+    }
+  ],
+  "monitor": {
+    "state": "RUNNING",
+    "phase": "training",
+    "seconds": 220.49253391707316,
+    "resources": [
+      {
+        "arm": "feature_clock_zero",
+        "pid": 84850,
+        "CPU_percent": 100.0,
+        "RSS": 1031995392
+      },
+      {
+        "arm": "time_clock_zero",
+        "pid": 84851,
+        "CPU_percent": 100.0,
+        "RSS": 967426048
+      }
+    ]
+  },
+  "training": {
+    "feature_clock_zero": {
+      "state": "RUNNING",
+      "pid": 84850,
+      "step": 2100,
+      "total": 20000,
+      "seconds": 216.50351025001146
+    },
+    "time_clock_zero": {
+      "state": "RUNNING",
+      "pid": 84851,
+      "step": 2400,
+      "total": 20000,
+      "seconds": 216.24623095802963
+    }
+  },
+  "new_FID_available": false,
+  "new_ODE_method_established": false
+}
