@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "phase": "sampling",
+  "rows": [
+    {
+      "arm": "fixed06",
+      "step": 5000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "arm": "fixed06",
+      "step": 10000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "arm": "fixed06",
+      "step": 20000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "arm": "matched_silu64",
+      "step": 5000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "arm": "matched_silu64",
+      "step": 10000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "arm": "matched_silu64",
+      "step": 20000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "arm": "native_posthoc06",
+      "step": 20000,
+      "generated_images_bitwise": 1024,
+      "parameters_buffers_unchanged": true
+    }
+  ],
+  "new_generated_images_bitwise": 7168,
+  "seconds": 787.8081388338469,
+  "formal_files_unchanged": 166
+}

@@ -2,9 +2,9 @@
 
 Zhizhe Zhang · October 28, 2026
 
-**FINAL QUALITY PENDING.** Both training trajectories and the checkpoint audit
-and all seven prescribed sample banks are complete. Independent sample replay
-and feature/FID checks are still running. This appendix records the fixed methods; it is not a result report.
+All six monitored phases and the original controller tool session 5632 exit 0.
+The complete sample/feature/FID checks below pass. The
+[analysis report](analysis-report.md) interprets the fixed 20k decision.
 
 ## Data and objective
 
@@ -13,6 +13,12 @@ The saved split contains 45,000 training and 5,000 validation indices, with no
 overlap. The official test batch is not used. Class labels are discarded;
 the model receives label 0 for every example. No augmentation is applied.
 Images are converted by `float32(image)/127.5-1`.
+
+The shared JiT image backbone has three blocks, width 64, four attention heads,
+patch size 4 and a 32-dimensional patch bottleneck. It processes 64 image tokens.
+Attention, time embedding, AdaLN and image readout remain native. Only the FFN
+changes. This small backbone supports controlled comparisons, not a claim
+about the full-size JiT models.
 
 Each batch contains 64 images. A saved generator draws target indices, standard
 Gaussian noise and `t=sigmoid(.8*z-.8)`, where z is standard normal. The input
@@ -87,15 +93,15 @@ equal-cost default SiLU64 is also retained. The fixed 5k/10k results provide
 context and cannot replace a failed 20k endpoint. No outcome establishes a
 new ODE-specific architecture or selects another constant/optimizer setting.
 
-## Verification completed so far
+## Independent verification
 
-Fresh documented preflights 47808/32097 exit0, with physical model/Adam/RNG/
+Fresh documented preflights 47808/32097 exit 0, with physical model/Adam/RNG/
 buffer resumes, nonzero active gradient transformations, measured costs and
 historical metric replay. All 43 shared gradient tensors include the four
 timestep-MLP tensors. The earlier passed preflight is preserved; v2 strengthens
 that coverage without changing model, data, optimizer or budget.
 
-Both formal training children and their parent phase exit0. The separate
+Both formal training children and their parent phase exit 0. The separate
 operator/update audit also exits0: all 14 saved checkpoints reproduce validation
 and time-panel predictions, matrix arrays and 42 native input-stream checks.
 All 12 saved step-minus-one boundary updates reproduce full checkpoint state
@@ -104,10 +110,44 @@ bitwise. This is not a second execution of all 40,000 optimization steps.
 Actual external pixel bytes, split and manifest match the native bindings;
 their filesystem metadata predates the controller launch. Recursive native
 external/metric checks also pass. The unused download tarball is not read by
-the data loader. The final archive must recheck actual input bytes, source and
-parent hashes, final numerical tables, fixed examples and actual tool exits.
+the data loader. The archive verifies actual input bytes, source/parent hashes,
+numeric tables, fixed examples and actual tool exits before sealing.
 
 Raw P, inferred `(W-I)/c` and effective W histories are distinct quantities.
 The inferred P was not directly trained. Their singular values do not bound
 the complete adaptive FFN, denoiser or sampler Jacobian, and they do not order
 FID. All raw checkpoints and arrays stay outside Git; Report1 is unchanged.
+
+
+## Complete quality checks and numerical scope
+
+Independent manual Heun and separate local operators reproduce all 7168 new
+images bitwise, with model parameters/buffers unchanged. MPS feature replay
+reproduces all 7168 new and 2048 reference rows bitwise. Independent SciPy gesvd
+recomputes all 32 FIDs; the largest absolute discrepancy is 6.54e-13, below 1e-8.
+All original formal output hashes remain unchanged. Actual phase wall times
+are 1747.45s training, 25.12s boundary audit, 793.22s generation, 793.21s sampling
+audit, 110.85s metrics and 136.09s feature/FID audit. The registered curator
+session 17551 also terminates 0. The earlier passed v1 preflight remains intact.
+
+The [comparison](results/comparison.csv) retains all 32 endpoints,
+mean/covariance FID terms, raw tails, active/stored/training-active sizes and
+MACs. [Primary ratios](results/primary-ratios.csv) retain 26 contrasts;
+[time panels](results/time-panels.csv) retain 75 new saved scores. Every plot is
+descriptive. Images, layer matrices and checkpoints are not independent
+training replicates. No significance test, confidence interval or
+multiple-comparison inference is attached to these fixed-bank FID contrasts.
+Six-matrix means describe those six operators, not uncertainty across runs.
+
+At 20k, fixed P's FID ratios are .894519/.939862/.915879 to
+Swi86/SiLU131/default SiLU64. Matched-init SiLU's ratios are
+.911662/.957874/.933431. The former passes both fitting guards and the 5%
+margin; the latter passes the fitting/strict guards but fails the 5% margin.
+Both dispositions are preserved in the runtime TSV and
+[decision record](results/decision.json). The 5k/10k rows do not change them.
+
+The fixed-P mean-term change from 10k to 20k is +17.216161 and covariance-term
+change is -.925728, summing to its +16.290433 FID change. Matched SiLU's changes
+are +15.356678/+.687685, summing to +16.044363. These terms account for the metric
+arithmetic; they do not identify a dynamical cause or prove image-color bias.
+All fourteen primary rows and 144 fixed shared-start examples are retained.

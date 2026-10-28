@@ -16,10 +16,12 @@ nominating another architecture.
   gradients, native replay, three-step physical resume, cost and metric witness.
 - [x] Run exactly two seed 0 cold 20k training trajectories on the historical CPU
   stream, preserving P/effective-W histories and boundary-update witnesses.
-- [ ] Audit training boundaries/streams, generate all seven prescribed banks,
+- [x] Audit training boundaries/streams, generate all seven prescribed banks,
   independently replay predictions/samples/features/FIDs and retain all scores.
-- [ ] Plot the complete comparison, write report/limits, verify preservation,
-  seal and publish. No automatic calibration, optimizer or constant rescue.
+- [x] Plot all registered data, inspect five figures/144fixed examples and
+  write the full report, numerical appendix and figure catalog.
+- [ ] Verify final public artifacts, seal the private runtime and publish the
+  complete closure. No automatic calibration, optimizer or constant rescue.
 
 ## Acceptance work while the original controller runs
 - [x] All seven1024-image banks complete; sampling phase exits0in793.22s.
@@ -47,3 +49,7 @@ initialization/coordinate controls are ordinary comparators, not its rescue.
 Source28be1e8published; fresh documented native47808/metric32097both terminate0. All four native prediction banks, full shared tensors including timestep MLP gradients, physical resumes, costs and cached features pass. All25cached FIDs also replay exactly; default-SiLU64shared initialization/buffers/data RNG match. Passed v1readiness retained under hashes; v2only strengthens witness coverage.
 
 Both20ktrajectories finished with actual worker exits0; the training phase consumed1747.45seconds. Original controller70719/create1793185015.834589 and tool session5632 continue through independent sample replay after all seven sampling banks complete. Curator441a6d1is published and privately registered before new FIDs. Actual external pixels/split/manifest match native bindings. There is no new generative quality conclusion; sample/feature/FID audits and report/archive remain pending.
+
+All six phases and original controller tool5632 terminate0. Every new sample/feature row and the original reference reproduce bitwise; all32FIDs independently agree. Proceed to the registered curator, visual review, complete report and archive.
+
+Curator17551 exits0. All32comparisons/14primary rows,26ratios,75panels and210matrix summaries are retained. Every five figure and144fixed example has been viewed. Fixed06passes the original allocation/matched-cost criteria atFID174.708609; matched-init SiLU178.056840fails the margin while preserving strict ordering; frozen same-c native216.070195is attribution only. No new ODE-specific model is accepted. Final artifact/archive verification is next.

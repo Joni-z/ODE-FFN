@@ -5,11 +5,17 @@ same-clock reference, seven new sample banks and unchanged ordinary comparisons.
 Read the [coordinate derivation](theory.md) before interpreting P spectra or
 calling equal initial functions equal Adam trajectories.
 
-Both prescribed trajectories have completed 20000 updates. The [recorded progress](progress.md)
-contains a timestamp and checked process identities; it is a saved snapshot.
-The checkpoint audit passed and all seven prescribed image banks are generated.
-The original controller is independently replaying samples before feature/FID
-checks. Final quality results are not accepted yet.
+Both prescribed trajectories and all independent checks are complete.
+The [analysis report](analysis-report.md) gives fixed-P FID 174.71, native 173.44,
+matched-init SiLU 178.06 and same-clock posthoc native 216.07. Fixed P passes the
+registered allocation margin at about half the native FFN matrix work. These
+are ordinary-function controls, not a new ODE-specific architecture.
+
+The [complete comparison](results/comparison.csv) retains 32 endpoints.
+The [methods/checks](stats-appendix.md) and [figure catalog](figure-catalog.md)
+describe five plots and 144 fixed examples. The [recorded progress](progress.md)
+is a timestamped historical snapshot. The full pipeline and tool exit are now
+complete; artifact verification/private sealing follow the final report.
 
 ## Reproduction on Mac mini
 
@@ -20,7 +26,11 @@ recorded in the local `.aris/compute/macmini.md`. The tracked
 unchanged. No package installation. Training uses two one-thread CPU workers;
 feature extraction uses the existing MPS path. Do not use MBP or torch.
 
-After a clean source commit, prepare a previously unused runtime:
+These commands record the original execution. Its completed runtime is
+preserved. For reproduction choose an unused root and substitute that path
+consistently; do not rerun into the existing directory.
+
+After a clean source commit, prepare that previously unused runtime:
 
 ```bash
 /Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B docs/autoresearch/image-clock-training/training_controls.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2
@@ -64,3 +74,16 @@ The training audit checks all saved boundaries and native input digests. It
 does not rerun all 40000 optimization steps. Every new prediction/sample/feature
 bank is independently replayed. A finished training phase alone is not an
 accepted result; preserve the full cohort, its audits and all prior failures.
+
+
+The curator was separately registered at 441a6d1 before new FIDs; it changes
+neither formal source nor decisions. Its completed command was:
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2/curation-source/curate_training.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-clock-training-v2
+```
+
+Actual controller 5632 and curator 17551 both terminate 0. All new samples and
+features reproduce bitwise; the maximum independent FID difference is 6.54e-13.
+Raw data, environments, checkpoints and logs stay outside Git. No additional
+training, constant or optimizer setting is selected by these results.

@@ -1,0 +1,28 @@
+{
+  "rows": [
+    {
+      "arm": "native",
+      "active_learned_parameters": 211094,
+      "stored_parameter_values": 215190,
+      "fixed_position_values": 4096,
+      "FFN_forward_MACs": 16512,
+      "FFN_forward_backward_MACs": 49536
+    },
+    {
+      "arm": "fixed06",
+      "active_learned_parameters": 185744,
+      "stored_parameter_values": 215190,
+      "fixed_position_values": 4096,
+      "FFN_forward_MACs": 8192,
+      "FFN_forward_backward_MACs": 24576
+    },
+    {
+      "arm": "matched_silu64",
+      "active_learned_parameters": 185744,
+      "stored_parameter_values": 189840,
+      "fixed_position_values": 4096,
+      "FFN_forward_MACs": 8192,
+      "FFN_forward_backward_MACs": 24576
+    }
+  ]
+}

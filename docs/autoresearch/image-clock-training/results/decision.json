@@ -1,0 +1,30 @@
+{
+  "rows": [
+    {
+      "arm": "fixed06",
+      "strict_ordering": true,
+      "allocation_margin": true,
+      "SiLU64_strict_ordering": true,
+      "native_deltas": {
+        "fid": 1.2716949230082832,
+        "weighted_mse": 0.00012450290337231995,
+        "clean_mse": 4.3865175227711384e-05
+      }
+    },
+    {
+      "arm": "matched_silu64",
+      "strict_ordering": true,
+      "allocation_margin": false,
+      "SiLU64_strict_ordering": true,
+      "native_deltas": {
+        "fid": 4.619925725575797,
+        "weighted_mse": 0.00033025554121365874,
+        "clean_mse": 0.0001275978800597405
+      }
+    }
+  ],
+  "primary_step": 20000,
+  "ordinary_controls_only": true,
+  "new_ODE_method": false,
+  "posthoc_reference_nominated": false
+}

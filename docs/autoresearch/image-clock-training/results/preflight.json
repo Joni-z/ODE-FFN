@@ -1,0 +1,126 @@
+{
+  "status": "PASS",
+  "fixtures": {
+    "status": "PASS",
+    "gradient_max_error": 2.7755575615628914e-17,
+    "mapped_Adam_parameter_max_error": 2.220446049250313e-16,
+    "forward_max_error": 2.220446049250313e-16,
+    "steps": 5,
+    "coordinate_norms": [
+      {
+        "step": 1,
+        "P_coordinate_norm": 0.4039427631549572,
+        "W_coordinate_norm": 0.4337406448781584,
+        "clip_active": true
+      },
+      {
+        "step": 2,
+        "P_coordinate_norm": 0.3312070580237827,
+        "W_coordinate_norm": 0.36741912412942884,
+        "clip_active": true
+      },
+      {
+        "step": 3,
+        "P_coordinate_norm": 0.3998658665637589,
+        "W_coordinate_norm": 0.43003340301624876,
+        "clip_active": true
+      },
+      {
+        "step": 4,
+        "P_coordinate_norm": 0.47058903084620335,
+        "W_coordinate_norm": 0.520910473644247,
+        "clip_active": true
+      },
+      {
+        "step": 5,
+        "P_coordinate_norm": 0.6093086170445504,
+        "W_coordinate_norm": 0.6600439250115919,
+        "clip_active": true
+      }
+    ],
+    "transformed_optimizer_is_fixture_only": true
+  },
+  "decision_fixture": {
+    "status": "PASS",
+    "cases": 5,
+    "primary_step": 20000
+  },
+  "shared_initial": {
+    "shared_parameters_buffers_bitwise": true,
+    "initial_P_native_bitwise": true,
+    "float32_core_difference_max": 3.337860107421875e-06
+  },
+  "active_witness": {
+    "promoted_active_prediction_max_error": 0.0,
+    "parameter_gradient_max_error": 2.7755575615628914e-17,
+    "nonzero_P_routes": 6,
+    "shared_gradient_tensors_checked": 43,
+    "timestep_MLP_parameters_checked": [
+      "t_embedder.mlp.0.weight",
+      "t_embedder.mlp.0.bias",
+      "t_embedder.mlp.2.weight",
+      "t_embedder.mlp.2.bias"
+    ]
+  },
+  "costs": [
+    {
+      "arm": "native",
+      "active_learned_parameters": 211094,
+      "stored_parameter_values": 215190,
+      "fixed_position_values": 4096,
+      "FFN_forward_MACs": 16512,
+      "FFN_forward_backward_MACs": 49536
+    },
+    {
+      "arm": "fixed06",
+      "active_learned_parameters": 185744,
+      "stored_parameter_values": 215190,
+      "fixed_position_values": 4096,
+      "FFN_forward_MACs": 8192,
+      "FFN_forward_backward_MACs": 24576
+    },
+    {
+      "arm": "matched_silu64",
+      "active_learned_parameters": 185744,
+      "stored_parameter_values": 189840,
+      "fixed_position_values": 4096,
+      "FFN_forward_MACs": 8192,
+      "FFN_forward_backward_MACs": 24576
+    }
+  ],
+  "native_prediction_replays": [
+    {
+      "arm": "ode_k1",
+      "predictions_bitwise": 1024
+    },
+    {
+      "arm": "swiglu86",
+      "predictions_bitwise": 1024
+    },
+    {
+      "arm": "silu64",
+      "predictions_bitwise": 1024
+    },
+    {
+      "arm": "silu131",
+      "predictions_bitwise": 1024
+    }
+  ],
+  "resumes": [
+    {
+      "arm": "fixed06",
+      "physical_resume_bitwise": true,
+      "independent_active_update_bitwise": true,
+      "active_matrices_changed": 6,
+      "input_stream_digest": "8caf3f9bf895ad24c981bb0a2dac5d80b2a240e43011fbf24ea47464f9e64f3f"
+    },
+    {
+      "arm": "matched_silu64",
+      "physical_resume_bitwise": true,
+      "independent_active_update_bitwise": true,
+      "active_matrices_changed": 6,
+      "input_stream_digest": "8caf3f9bf895ad24c981bb0a2dac5d80b2a240e43011fbf24ea47464f9e64f3f"
+    }
+  ],
+  "formal_training_started": false
+}

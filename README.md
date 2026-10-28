@@ -12,7 +12,7 @@ The [native gate-feedback analysis](docs/autoresearch/image-gate-feedback/analys
 
 The [time-only K1 check](docs/autoresearch/image-time-clocks/analysis-report.md) gives FID 180.86 versus 173.44 native and 200.05 for its same-calibration pooled-clock control. It preserves strict Swi86/SiLU131 ordering but misses the unchanged 5% margin. FFN matrix work falls 50.39%; the weights still inherit full native clock training. This is an audited inference tradeoff, not an accepted new architecture.
 
-The [cold clock controls](docs/autoresearch/image-clock-training/README.md) have completed two 20k trajectories: fixed-clock P and ordinary SiLU with the same initial function. Independent checkpoint, sample and feature checks must finish before interpreting their FIDs. These controls separate training-time clock use, initialization and optimizer coordinates; they introduce no new ODE method.
+The [cold clock controls](docs/autoresearch/image-clock-training/analysis-report.md) give FID 174.71 for fixed P, 173.44 native and 178.06 for matched-init ordinary SiLU. Fixed P passes the original allocation margin with about half the FFN matrix work; changing native clocks only after training gives 216.07. Complete sample/feature/FID checks pass. This separates a useful parameterization from a new ODE-specific mechanism.
 
 The latest [denoiser-dynamics study](docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md) separates the supervised clean conditional mean from an invariant endpoint predictor. It provides a complete derivation, counterexamples and checks on existing analytic laws. Mathematical consistency alone does not select a useful architecture; no new model is trained or nominated.
 
