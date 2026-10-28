@@ -19,6 +19,16 @@ for f in (root/'curation').rglob('*'):
     if f.is_file():assert study.sha(f)==study.sha(doc/'results'/f.relative_to(root/'curation'))
 read=lambda name:list(csv.DictReader((doc/'results'/name).open()))
 rows=read('comparison.csv');assert len(rows)==13;formal=study.load(root/'metric-output/result.json')['rows'];p=study.paths(root)
+def rawpath(arm):
+    if arm in study.ARMS:return root/'output/runs'/arm/'generated.npy'
+    if arm.startswith('silu'):return p['ordinary_parent']/'output/runs'/arm/'generated.npy'
+    if arm.endswith('_constant'):return p['clock_parent']/'output/runs'/arm.removesuffix('_constant')/'generated.npy'
+    return p['resolution_parent']/'output/runs'/arm/'generated-128.npy'
+def predpath(arm,t=None):
+    if arm in study.ARMS:return root/'output/runs'/arm/('validation.npz' if t is None else f'panel-{t:.1f}.npz')
+    if arm.startswith('silu'):return p['ordinary_parent']/'output/runs'/arm/('validation_0005000.npz' if t is None else f'panel_0005000_{t:.1f}.npz')
+    if arm.endswith('_constant'):return p['clock_parent']/'output/runs'/arm.removesuffix('_constant')/('validation.npz' if t is None else f'panel-{t:.1f}.npz')
+    return p['image_parent']/'output/runs'/arm/('validation_0005000.npz' if t is None else f'panel_0005000_{t:.1f}.npz')
 for r in rows:
     arm=r['family'];original=next(x for x in formal if x['family']==arm);audited=next(x for x in features['rows'] if x['family']==arm)
     for key in ('weighted_mse','clean_mse','fid','mean_term','covariance_term','out_of_range_fraction'):assert float(r[key])==float(original[key])
@@ -39,6 +49,18 @@ for actual in study.load(root/'operator-history.json'):
         elif isinstance(value,(int,float)):assert float(public[key])==value
         else:assert public[key]==value
 assert len(read('time-panels.csv'))==65 and len(read('contrasts.csv'))==6
+by={r['family']:r for r in rows}
+for contrast in read('contrasts.csv'):
+    arm,ref=contrast['family'],contrast['reference']
+    for key in ('weighted','clean'):assert float(contrast[key+'_ratio'])==float(by[arm][key+'_mse'])/float(by[ref][key+'_mse'])
+    assert float(contrast['FID_delta'])==float(by[arm]['fid'])-float(by[ref]['fid'])
+    with np.load(predpath(arm)) as x,np.load(predpath(ref)) as y:prediction_rms=float(np.sqrt(np.mean((x['prediction'].astype(np.float64)-y['prediction'].astype(np.float64))**2)))
+    sample_rms=float(np.sqrt(np.mean((np.load(rawpath(arm)).astype(np.float64)-np.load(rawpath(ref)).astype(np.float64))**2)))
+    assert float(contrast['prediction_RMS'])==prediction_rms and float(contrast['sample_RMS'])==sample_rms
+for row in read('time-panels.csv'):
+    with np.load(predpath(row['family'],float(row['time']))) as f:prediction=f['prediction'].astype(np.float64)
+    bank=study.imported(root,'image_parent').bank(p['image_parent']/'banks'/f"panel_{float(row['time']):.1f}.npz");error=prediction-bank['target'].astype(np.float64);delta=bank['delta'].astype(np.float64)[:,None,None,None]
+    np.testing.assert_allclose([float(row['weighted_mse']),float(row['clean_mse'])],[np.mean((error/delta)**2),np.mean(error**2)],rtol=1e-12,atol=1e-12)
 assert study.load(doc/'results/decision.json')['new_ODE_architecture_nominated'] is False
 assert len(list((doc/'results/figures').glob('*')))==6
 for name in ('analysis-report.md','stats-appendix.md','figure-catalog.md'):assert (doc/name).exists()
