@@ -15,6 +15,8 @@ This can improve a baseline; it cannot alone establish an ODELayer successor.
   value/extra-output routes, exact full-state resume and native costs.
 - [x] Pass fresh native/metric documented preflights.
 - [x] Launch the one cold trajectory with automatic resource monitoring.
+- [ ] Freeze a deterministic35-row analysis and six-model fixed-start case
+  layout before any new FID scores, without changing formal source/gates.
 - [ ] Complete training and its automatic prediction/stream/update/sample/feature audits.
 - [ ] Publish all checkpoints, matrix/gate histories, three fixed sample banks
   and the final comparison. Retain the original research goal as open.

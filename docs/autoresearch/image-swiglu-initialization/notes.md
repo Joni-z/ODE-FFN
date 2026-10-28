@@ -36,3 +36,12 @@ in progress; no new quality outcome is available.
 Earlier README shorthand "fixed P" meant a fixed0.6clock with trainable P.
 The root README now states this explicitly; frozen historical source remains
 unchanged.
+
+The follow-up analysis source is prepared during the same live trajectory,
+before new FID extraction. It retains all32historical and three new endpoints,
+all15primary rows,14continuous contrasts,63new matrix summaries,21branch
+norm rows and35denoising panels. Fixed cases use starts0–7and six named models.
+The five figures do not select a checkpoint. A zero value matrix has an
+undefined singular-value CV, recorded as blank. The actual controller terminal
+receipt and all six real phase exits gate the analysis; no quality conclusion
+is written while those inputs are incomplete.
