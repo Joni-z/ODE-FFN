@@ -2,6 +2,8 @@
 
 The project tests whether an ODE-inspired FFN can improve unconditional flow matching against strong ordinary baselines. Protocols and audited results are in [ODE autoresearch](docs/autoresearch/README.md).
 
+The [observed-response check](docs/autoresearch/image-response-geometry/results/analysis-report.md) does not support prioritizing a PSD or monotonicity restriction: K1 has no registered advantage over Swi86 in their shared observed directions. A [matched-function SwiGLU initialization control](docs/autoresearch/image-swiglu-initialization/README.md) is now registered. It changes only the initialization of the original Swi86 and retains the fixed 20k endpoint and all historical controls. No new ODE architecture has yet passed the required comparisons.
+
 The [invariant-clock rotation screen](docs/autoresearch/invariant-clock-flow/results/analysis-report.md) is complete: 21 new trajectories on three unchanged 16D laws. Its field MSE is 3.8–6.2 times that of near-cost-matched Swi129; exact rotations, Euler and normalized Euler perform similarly. The learned clocks are active, but this amplitude-preserving constraint fails the registered criteria and is stopped. [P histories and cases](docs/autoresearch/invariant-clock-flow/results/case-notes.md) are preserved alongside all controls.
 
 The [shared-state image diagnosis](docs/autoresearch/image-state-risk/results/analysis-report.md) finds that the exact finite-training-bank conditional mean is unsuitable as a population-design reference on the fixed held-out probes: its late-time image error is11.3times K1. All five frozen models are compared on identical paired and sampler states; no new architecture, training or FID is claimed.
@@ -16,7 +18,7 @@ The [native gate-feedback analysis](docs/autoresearch/image-gate-feedback/analys
 
 The [time-only K1 check](docs/autoresearch/image-time-clocks/analysis-report.md) gives FID 180.86 versus 173.44 native and 200.05 for its same-calibration pooled-clock control. It preserves strict Swi86/SiLU131 ordering but misses the unchanged 5% margin. FFN matrix work falls 50.39%; the weights still inherit full native clock training. This is an audited inference tradeoff, not an accepted new architecture.
 
-The [cold clock controls](docs/autoresearch/image-clock-training/analysis-report.md) give FID 174.71 for fixed P, 173.44 native and 178.06 for matched-init ordinary SiLU. Fixed P passes the original allocation margin with about half the FFN matrix work; changing native clocks only after training gives 216.07. Complete sample/feature/FID checks pass. This separates a useful parameterization from a new ODE-specific mechanism.
+The [cold clock controls](docs/autoresearch/image-clock-training/analysis-report.md) give FID 174.71 for a clock fixed at 0.6 with trainable P, 173.44 native and 178.06 for matched-init ordinary SiLU. The fixed-clock model passes the original allocation margin with about half the FFN matrix work; changing native clocks only after training gives 216.07. Complete sample/feature/FID checks pass. This separates a useful parameterization from a new ODE-specific mechanism.
 
 The [train-only Gaussian reference](docs/autoresearch/image-gaussian-reference/analysis-report.md) gives FID 293.73 for PPCA59 and 405.30 for isotropic, against fixed P 174.71. Both fail the unchanged reference gates. A reporting-only PCA decomposition finds comparable complement RMS for PPCA and real images despite the quality gap; it does not identify a neural mechanism or justify a covariance/noise rescue.
 
