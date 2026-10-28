@@ -72,3 +72,8 @@ inspected; all five standalone PDFs have one page. Raw files and physical/
 inferred historical P trajectories are preserved. The research objective is
 still open. Next question: the exact optimizer-coordinate map between P and
 W=I+cP, using the completed cold-control evidence before another design.
+
+Closure archive9220/6ffd32 exits0, seal4a6af4a2,206files/195057421bytes.
+Publisher86982/83f1cb exits0 and independently verifies GitHub main63536fb.
+All code, five figures, endpoint/curve/matrix tables and actual receipts are
+published. Submitted Report1 and frozen source scopes remain unchanged.

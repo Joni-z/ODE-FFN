@@ -19,7 +19,7 @@ This can improve a baseline; it cannot alone establish an ODELayer successor.
   layout before any new FID scores, without changing formal source/gates.
 - [x] Complete training and its automatic prediction/stream/update/sample/feature audits.
 - [x] Preserve all checkpoints, matrix/gate histories and three raw sample banks outside Git.
-- [ ] Publish and verify the complete curated comparison. Retain the original research goal as open.
+- [x] Publish and verify the complete curated comparison. Retain the original research goal as open.
 
 ## Status
 All six phases complete. Actual controller61348/f8848e exits0; training,
@@ -27,6 +27,7 @@ stream/update/sample/feature/FID audits pass. Primary FID185.85425 improves
 4.84145%over default Swi86 but misses the unchanged5%gate. Both loss guards
 pass. The initializer is stopped without width/bias/optimizer/duration rescue.
 No new ODE architecture is established. Raw preservation and curated closure
-are complete or in verification; GitHub publication is the remaining step.
+are complete. Publisher86982/83f1cb verifies GitHub main63536fb; all work in
+this registered control is complete. The broader research objective is open.
 Mac mini, seed0, original data/loss/optimizer/sampler. Submitted Report1 and
 all frozen parents remain unchanged.
