@@ -120,7 +120,7 @@ At most two one-thread sampling children; each ceiling 1200 seconds, sampling
 phase 1300, independent sampling audit 1300, metrics/feature audit 600 each.
 Monitor actual PID/create-time and primed five-second CPU/RSS, including
 children. Keep all new/private sources, raw arrays and failed attempts under
-`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2`.
+`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3`.
 Estimated additional storage below 300 MB. No automatic retry or outcome-based
 change of calibration, tolerance or acceptance criteria.
 

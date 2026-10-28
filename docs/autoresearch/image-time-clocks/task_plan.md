@@ -21,10 +21,12 @@ retrained architecture or a rescue of the old constant replacement.
 The previous goal turn is progress: gate-feedback runtime is sealed faeac7fd
 and public main6bffa91. It measured stronger gate derivatives but no evidence
 supporting a P-only penalty; its finite cohort is not a new quality result.
-New runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v2`.
+New runtime: `/Users/mr.z/ode-workspace-prep/autoresearch/oct28-image-time-clocks-v3`.
 
 ## Pre-quality failure
 Native preflight35070 exits1 because fixed pos_embed was included in the learned-parameter sum. Preserve v1 in full. V2 separates declared learned and fixed values; no scientific rule changes.
+
+V2 preflight72918 exits1 before quality work: a parent prepended its old source path, so independent audit imported the wrong `study`. V3 pins the CLI module and imports the audit by its exact file path. Both failed runtimes stay read-only.
 
 ## Status
 Registering the distinct time-preservation question before calibration or new

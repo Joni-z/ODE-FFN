@@ -10,6 +10,10 @@ import numpy as np
 import psutil
 import torch
 
+# Parent constructors prepend their own historical source paths. Preserve this
+# entrypoint's module identity before any helper imports an ordinary `study`.
+if __name__=='__main__':sys.modules['study']=sys.modules[__name__]
+
 BASE=Path('/Users/mr.z/ode-workspace-prep/autoresearch')
 PARENTS={key:BASE/name for key,name in dict(clocks20k='oct28-image-clocks20k',feedback='oct28-image-gate-feedback',
     budget='oct28-image-budget-v2',native='oct28-cycle17-v2',resolution='oct28-cycle18',ordinary='oct28-cycle20').items()}
@@ -149,11 +153,12 @@ def prepare(root):
         generated=1024,reference=2048,steps=128,workers=2,threads=1))
     # Retain the failed, pre-quality v1 byte-for-byte. It counted fixed position
     # parameters as learned weights; no calibration or scientific rule changed.
-    failed=BASE/'oct28-image-time-clocks';preserved={}
-    if root!=failed and failed.exists():
-        assert not (failed/'documented-pass.json').exists() and not (failed/'output').exists()
-        preserved={str(p):sha(p) for p in failed.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
-        write(root/'failed-preflight-preservation.json',preserved)
+    preserved={}
+    for failed in (BASE/'oct28-image-time-clocks',BASE/'oct28-image-time-clocks-v2'):
+        if root!=failed and failed.exists():
+            assert not (failed/'documented-pass.json').exists() and not (failed/'output').exists()
+            preserved.update({str(p):sha(p) for p in failed.rglob('*') if p.is_file() and '__pycache__' not in p.parts})
+    if preserved:write(root/'failed-preflight-preservation.json',preserved)
     paths=[*(root/'source').iterdir(),root/'settings.json',*(p/'sealed-runtime.json' for p in PARENTS.values())]
     if preserved:paths.append(root/'failed-preflight-preservation.json')
     write(root/'bindings.json',{**{str(p):sha(p) for p in paths if p.is_file()},**preserved});verify(root)
@@ -201,7 +206,11 @@ def preflight(root):
         assert (stored,inactive,fixed)==(211094,25350,4096),(stored,inactive,fixed)
         costs.append(dict(mode=mode,stored_parameters=stored,inactive_parameters=inactive,fixed_position_parameters=fixed,
             total_parameter_values=stored+fixed,active_parameters=stored-inactive,FFN_forward_MACs=work,clock_constants=774 if mode=='time' else 6))
-    import audit as independent
+    audit_path=Path(__file__).resolve().parent/'audit.py';audit_name='time_clock_independent_audit'
+    spec=importlib.util.spec_from_file_location(audit_name,audit_path);independent=importlib.util.module_from_spec(spec)
+    sys.modules[audit_name]=independent;spec.loader.exec_module(independent)
+    assert Path(independent.__file__).resolve()==audit_path
+    assert Path(independent.study.__file__).resolve()==Path(__file__).resolve()
     calibration_check=independent.verify_calibration(root)
     for mode in ('time','pooled'):
         formal=patch(native_model(),table,pooled,mode);reference=independent.patched(root,mode)
