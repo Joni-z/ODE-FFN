@@ -3,7 +3,7 @@
 - [x] State one prospective question, include all seven existing model widths and fix20k endpoint before outcomes. Original stops remain unchanged.
 - [x] Native source89de3e1, corrected fixture isolationbc290fb; parent constructors/draw/update/restore reused. Separate v2runtime preserves failedv1.
 - [x] Warm specs475428fb/dc729a50 unchanged. Fresh image_budget_doc_pass executes the documented preflight once, exit0; seven native prediction/resume checks and5000→5001→5003counters pass, all82inputs unchanged.
-- [ ] Running: controller60302/create_time1793160577.864121, tool session91639. K1/K2/Swi86/Swi129/SiLU64 have terminal exit0 at20k. SiLU131 and SiLU193 remain active; identities are in output/launches.json. Re-poll the same handle; final cohort metrics and audits remain pending.
+- [x] All seven continuations and their fixed sampling banks complete. Original controller60302/session91639 has terminal exit0; seven child exits are0. Cohort wall time6595.00seconds. No retry or setting change. Final metrics and independent cohort audits remain pending.
 - [ ] Audit and compare fixed checkpoints and generated samples before making a quality claim.
 
 No new architecture, loss, data, seed or optimizer setting is selected. Publication is direct from Mac mini when authentication is available.
@@ -30,3 +30,5 @@ Four models now complete with exit0:K1/K2/Swi86/Swi129. SiLU64/131are running, S
 Five completed continuations: SiLU64 exits0 with weightedMSE0.15984233 and cleanMSE0.07598971. Its full-cohort independent replay remains pending. SiLU131 is at19500; SiLU193 has started once as PID62178. All seven arms have launched. Evaluation60530 and finalization60880 remain live waiters, not completed checks.
 
 The independently snapshot-verified20kODE records show largest singular values across the six P matrices of1.241–1.657 forK1 and1.205–1.704 forK2, versus1.133–1.279 and1.127–1.282 at5k. Across the thirty fixed-time/layer records, K2term2RMS/term1RMS is0.189–0.354 at20k. The quadratic term is active without a recorded fitting advantage; these diagnostics neither prove instability nor explain FID. The5kclock-collapse result must not be silently extended to20k.
+
+Training is complete: all seven arms reached20k and produced both fixed sampling banks; controller91639 exits0. SiLU131/193producer weightedMSE0.15902324/0.15827960 and cleanMSE0.07572359/0.07551597. Every final checkpoint reports the same input-stream digest b0a8c9c6409c03a898555d7c0086e78cc9e933300deae3944583514e62276e1d. Evaluation60530/session80573 has started the fourteen fixed endpoint FIDs. Its outputs and all ordinary fitting results still await the complete independent audit. Finalization60880 remains live. Publisher98545 exits1 on missing local HTTPS Username; no GitHub update.
