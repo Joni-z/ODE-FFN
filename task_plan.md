@@ -321,7 +321,8 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [x] Run exactly two20ktrajectories with matching historical stream and complete P/effective-W histories.
 - [x] Audit boundaries/streams and all seven new inference banks; retain32FIDs and complete the report/five inspected figures.
 - [x] Verify final public artifacts and seal the private runtime.
-- [ ] Publish the complete closure and verify remote main/local main identity.
+- [x] Publish the complete closure; normal remote main publication c7471ab verified.
+- [ ] Finish bookkeeping commit and verify clean local-main fast-forward.
 
 ## Status
 All six phases and original controller5632 terminate0, as does registered curator17551. All7168new images/features and2048reference rows replay bitwise;32independent FIDs differ by at most6.54e-13. Fixed06FID174.708609passes the original finite margin at half the FFN matrix work, versus native173.436914; matched-init ordinarySiLU178.056840misses the margin, and frozen same-c native216.070195remains an attribution reference. Five figures/144fixed cases are inspected; full report, stats and catalog are written. Verify public numeric/source/data preservation, seal and publish. No new constraint, clock rescue or optimizer grid is selected. The broader useful-ODE-successor objective remains active and unachieved.
