@@ -1,0 +1,69 @@
+{
+  "criteria": [
+    {
+      "arm": "ode_k1",
+      "strict_FID_order_retained": false,
+      "allocation_margin_retained": false,
+      "comparisons": [
+        {
+          "reference": "swiglu86",
+          "fid_ratio": 1.1036997614745208,
+          "weighted_mse_ratio": 1.0094322972328003,
+          "clean_mse_ratio": 1.0038492576846365
+        },
+        {
+          "reference": "silu131",
+          "fid_ratio": 1.159645427164015,
+          "weighted_mse_ratio": 1.0152748058187924,
+          "clean_mse_ratio": 1.009160203551433
+        }
+      ],
+      "fitting_ratios_to_best_control": {
+        "weighted_mse": 1.0152748058187924,
+        "clean_mse": 1.009160203551433
+      },
+      "native_to_constant": {
+        "fid": 42.126793363651984,
+        "weighted_mse": 0.0011848543333987105,
+        "clean_mse": 0.00026440248763087704
+      },
+      "ordinary_gap_retained_fraction": -2.3834912795020147,
+      "native_allocation_margin_met": true,
+      "new_method_established": false,
+      "old_failed_gate_relabelled": false
+    },
+    {
+      "arm": "ode_k2",
+      "strict_FID_order_retained": false,
+      "allocation_margin_retained": false,
+      "comparisons": [
+        {
+          "reference": "swiglu129",
+          "fid_ratio": 1.232408475761131,
+          "weighted_mse_ratio": 1.0333013198151253,
+          "clean_mse_ratio": 1.018958843545652
+        },
+        {
+          "reference": "silu193",
+          "fid_ratio": 1.2209101713768584,
+          "weighted_mse_ratio": 1.0310509283423888,
+          "clean_mse_ratio": 1.0176117636848145
+        }
+      ],
+      "fitting_ratios_to_best_control": {
+        "weighted_mse": 1.0333013198151253,
+        "clean_mse": 1.018958843545652
+      },
+      "native_to_constant": {
+        "fid": 45.451244573769685,
+        "weighted_mse": 0.0026669879356105985,
+        "clean_mse": 0.0005539025816053145
+      },
+      "ordinary_gap_retained_fraction": -15.30121349191121,
+      "native_allocation_margin_met": false,
+      "new_method_established": false,
+      "old_failed_gate_relabelled": false
+    }
+  ],
+  "new_method_established": false
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "files": {
+    "fixed-comparison.png": "2c1a713f147229312993ed0ba70dfe4ba005f83ea220e4277485149691d001f0",
+    "time-panels.png": "08ded8d18b61a5226fd512fdd44cc1a1ee1b7d0f49126602c43d63f5ac64311c",
+    "generation-cases.png": "b375c178b93bdf8bef16c5ea3911d1287e25b9fc899352364ed7d6c6910d01dd"
+  },
+  "observations": {
+    "fixed-comparison.png": "All nine endpoints visible; both constants lose strict FID ordering despite relatively small regression changes.",
+    "time-panels.png": "Common log y-scale, both native/constant pairs and their declared ordinary references; late paired error worsens.",
+    "generation-cases.png": "First eight shared starts, all nine endpoints. K1 constant shows stronger horizontal banding in columns1/7; K2 constant has grid-like patterns in column4. No semantic-quality claim."
+  }
+}

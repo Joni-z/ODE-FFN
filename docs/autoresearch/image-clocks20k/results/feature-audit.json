@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "phase": "features",
+  "rows": [
+    {
+      "family": "ode_k1",
+      "fid": 173.43691430770028,
+      "difference": -3.694822225952521e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "ode_k2",
+      "fid": 180.78096299741253,
+      "difference": -4.263256414560601e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "swiglu86",
+      "fid": 195.31009718019988,
+      "difference": -5.115907697472721e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "swiglu129",
+      "fid": 183.56917533487595,
+      "difference": -2.8421709430404007e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "silu64",
+      "fid": 190.7551675777242,
+      "difference": -5.684341886080801e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "silu131",
+      "fid": 185.88760203929462,
+      "difference": -3.126388037344441e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "silu193",
+      "fid": 185.29799560605915,
+      "difference": -4.831690603168681e-13,
+      "feature_provenance": "sealed budget full audit"
+    },
+    {
+      "family": "ode_k1_constant",
+      "fid": 215.56370767135215,
+      "difference": -4.831690603168681e-13,
+      "feature_provenance": "fresh bitwise replay"
+    },
+    {
+      "family": "ode_k2_constant",
+      "fid": 226.23220757118222,
+      "difference": -4.263256414560601e-13,
+      "feature_provenance": "fresh bitwise replay"
+    }
+  ],
+  "new_generated_features_bitwise": 2048,
+  "reference_features_bitwise": 2048,
+  "formal_files_unchanged": 28,
+  "seconds": 58.41789162508212
+}

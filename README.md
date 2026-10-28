@@ -2,9 +2,11 @@
 
 The project tests whether an ODE-inspired FFN can improve unconditional flow matching against strong ordinary baselines. Protocols and audited results are in [ODE autoresearch](docs/autoresearch/README.md).
 
-A [portable folded image checkpoint](docs/autoresearch/folded-image-inference/README.md) preserves all 1,024 samples of the existing constant-clock endpoint while reducing measured Mac mini CPU generation time from 8.68 to 6.00 seconds per 64 images. This is an inference simplification, not a new trained ODE architecture.
+A [portable folded image checkpoint](docs/autoresearch/folded-image-inference/README.md) preserves all 1,024 samples of the earlier 5k constant-clock endpoint while reducing measured Mac mini CPU generation time from 8.68 to 6.00 seconds per 64 images. This is an inference simplification, not a new trained ODE architecture.
 
 The [fixed budget comparison](docs/autoresearch/image-budget-continuation/analysis-report.md) is complete and independently replayed. At 20,000 updates, original K1 has FID 173.44 versus 195.31 for compute-matched Swi86 and 185.89 for near-parameter SiLU131, with fitting errors within 1%. K2 does not meet the follow-up margin. Every model's FID worsens from 10k to 20k despite lower regression error. This prioritizes understanding the existing K1; no new ODE method is established.
+
+The [20k clock intervention](docs/autoresearch/image-clocks20k/analysis-report.md) removes that lead: replacing all six local clocks by their first-64-input means raises K1 FID to 215.56 and K2 to 226.23, with every learned tensor unchanged. This differs from the earlier 5k result. The response is checkpoint-specific and does not separate external-time adaptation from image/state feedback or rule out retrained constant-clock models.
 
 The latest [denoiser-dynamics study](docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md) separates the supervised clean conditional mean from an invariant endpoint predictor. It provides a complete derivation, counterexamples and checks on existing analytic laws. Mathematical consistency alone does not select a useful architecture; no new model is trained or nominated.
 

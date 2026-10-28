@@ -1,6 +1,8 @@
 # Frozen local clocks at 20,000 updates
 
-This registered study asks whether the existing K1 image lead survives replacing all six input-varying local clocks by their native first-64-input means. It creates two frozen interventions and reuses all seven audited native 20k controls. It does not train or nominate a new architecture. Read [protocol.md](protocol.md) for calibration, exact operators, comparisons and stopping rules.
+The completed study replaces all six input-varying local clocks by their native first-64-input means at the actual 20k weights. K1 FID rises from 173.44 to 215.56; K2 rises from 180.78 to 226.23. Both lose the measured ordinary-control lead under this calibration. The two new interventions and all nine scores independently replay. No new training or architecture is selected.
+
+Read the [analysis](analysis-report.md), [scope and checks](stats-appendix.md), [figures](figure-catalog.md) and [registered protocol](protocol.md). The early 5k collapse result does not transfer to these weights. Time adaptation, image/state feedback and calibration shift remain unresolved alternatives.
 
 The warm environments and their spec hashes are unchanged. Full native 20k checkpoints, original banks and the sealed 5k clock helper are external inputs; Git alone does not download them. Work stays on Mac mini. Read the local provider ledger `.aris/compute/macmini.md` and the run-experiment compute contract before declaring readiness.
 
