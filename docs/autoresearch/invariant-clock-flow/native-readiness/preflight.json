@@ -1,0 +1,689 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "literal_derivative_cases": 27,
+    "independent_integrations": [
+      {
+        "width": 2,
+        "nfev": 38,
+        "maximum_error": 9.603429163007604e-15
+      },
+      {
+        "width": 4,
+        "nfev": 38,
+        "maximum_error": 9.825473767932635e-15
+      },
+      {
+        "width": 6,
+        "nfev": 38,
+        "maximum_error": 6.689093723366568e-15
+      }
+    ],
+    "maximum_errors": {
+      "literal_output": 4.440892098500626e-16,
+      "complete_input_Jacobian": 2.220446049250313e-16,
+      "literal_input_and_parameter_gradients": 7.771561172376096e-16,
+      "pair_invariants": 2.220446049250313e-16,
+      "conserved_clocks": 0.0,
+      "inverse": 2.220446049250313e-16,
+      "semigroup": 2.220446049250313e-16,
+      "autonomous_field": 0.0,
+      "VU_zero": 3.6267285471088446e-17,
+      "feedback_square_zero": 4.1731985438616554e-22,
+      "determinant": 2.220446049250313e-16,
+      "full_gain_formula": 2.220446049250313e-16,
+      "normalized_invariants": 3.3306690738754696e-16,
+      "normalized_determinant": 4.440892098500626e-16,
+      "independent_integration": 9.825473767932635e-15,
+      "noncontractive_gain": 0.0,
+      "witness_norm": 0.0,
+      "equal_global_norm": 0.0,
+      "full_FFN_literal": 1.1102230246251565e-16,
+      "full_FFN_gradients": 1.1102230246251565e-16
+    },
+    "bounded_clock_noncontractive_gain": 1.618033988749895,
+    "symplectic_defect_witness": 1.4142135623730951,
+    "equal_norm_clock_difference": 0.6786269119660103,
+    "controls_original_semigroup_defect": {
+      "euler": 0.04483598359699977,
+      "normalized_euler": 0.016009756445937846
+    },
+    "full_FFN_active_routes": true,
+    "actual_width64_initial_pairing": true,
+    "cost": {
+      "parameters": 16768,
+      "forward_matrix_MACs": 16384,
+      "forward_backward_matrix_MACs": 49152
+    },
+    "seconds": 0.3102974579669535,
+    "training_or_quality_evaluated": false
+  },
+  "cells": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "rotation",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "euler",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "normalized_euler",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "silu_identity",
+      "physical_resume": true,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "fixed06_identity",
+      "physical_resume": true,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu129",
+      "physical_resume": true,
+      "parameters": 84180,
+      "dense_forward_macs": 82368,
+      "dense_training_forward_backward_macs": 243968,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "native_k1",
+      "physical_resume": true,
+      "parameters": 83862,
+      "dense_forward_macs": 82368,
+      "dense_training_forward_backward_macs": 243968,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "rotation",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "euler",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "normalized_euler",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "silu_identity",
+      "physical_resume": true,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "fixed06_identity",
+      "physical_resume": true,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu129",
+      "physical_resume": true,
+      "parameters": 84180,
+      "dense_forward_macs": 82368,
+      "dense_training_forward_backward_macs": 243968,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "sign_code",
+      "arm": "native_k1",
+      "physical_resume": true,
+      "parameters": 83862,
+      "dense_forward_macs": 82368,
+      "dense_training_forward_backward_macs": 243968,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "rotation",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "euler",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "normalized_euler",
+      "physical_resume": true,
+      "parameters": 84240,
+      "dense_forward_macs": 81984,
+      "dense_training_forward_backward_macs": 242816,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "silu_identity",
+      "physical_resume": true,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "fixed06_identity",
+      "physical_resume": true,
+      "parameters": 58512,
+      "dense_forward_macs": 57408,
+      "dense_training_forward_backward_macs": 169088,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu129",
+      "physical_resume": true,
+      "parameters": 84180,
+      "dense_forward_macs": 82368,
+      "dense_training_forward_backward_macs": 243968,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    },
+    {
+      "law": "half_mixture",
+      "arm": "native_k1",
+      "physical_resume": true,
+      "parameters": 83862,
+      "dense_forward_macs": 82368,
+      "dense_training_forward_backward_macs": 243968,
+      "matrix_count_scope": "actual aten mm/addmm/bmm/mv; pointwise work excluded"
+    }
+  ],
+  "paired_initial_functions": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "rotation",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "euler",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "normalized_euler",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "silu_identity",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": false
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "fixed06_identity",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": false
+    },
+    {
+      "law": "sign_code",
+      "arm": "rotation",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "sign_code",
+      "arm": "euler",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "sign_code",
+      "arm": "normalized_euler",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "sign_code",
+      "arm": "silu_identity",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": false
+    },
+    {
+      "law": "sign_code",
+      "arm": "fixed06_identity",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": false
+    },
+    {
+      "law": "half_mixture",
+      "arm": "rotation",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "half_mixture",
+      "arm": "euler",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "half_mixture",
+      "arm": "normalized_euler",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": true
+    },
+    {
+      "law": "half_mixture",
+      "arm": "silu_identity",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": false
+    },
+    {
+      "law": "half_mixture",
+      "arm": "fixed06_identity",
+      "shared_parameter_gradients": 22,
+      "nonzero_head": true,
+      "trainable_tangent_spaces_equal": false
+    }
+  ],
+  "nonzero_frequency_routes": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "rotation",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00027968609356321394
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "euler",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00027516536647453904
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "normalized_euler",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00027711933944374323
+    },
+    {
+      "law": "sign_code",
+      "arm": "rotation",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00024197026505135
+    },
+    {
+      "law": "sign_code",
+      "arm": "euler",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00023133908689487725
+    },
+    {
+      "law": "sign_code",
+      "arm": "normalized_euler",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00023889599833637476
+    },
+    {
+      "law": "half_mixture",
+      "arm": "rotation",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.0002758591144811362
+    },
+    {
+      "law": "half_mixture",
+      "arm": "euler",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.0002648564404807985
+    },
+    {
+      "law": "half_mixture",
+      "arm": "normalized_euler",
+      "parameter_tensors": 30,
+      "minimum_gradient_norm": 0.00027255024178884923
+    }
+  ],
+  "initial_flow_parameter_tangents": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "rotation",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "euler",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "normalized_euler",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "sign_code",
+      "arm": "rotation",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "sign_code",
+      "arm": "euler",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "sign_code",
+      "arm": "normalized_euler",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "half_mixture",
+      "arm": "rotation",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "half_mixture",
+      "arm": "euler",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    },
+    {
+      "law": "half_mixture",
+      "arm": "normalized_euler",
+      "parameter_tensors": 30,
+      "initial_zero_clock_gradients": true,
+      "frequency_routes_nonzero": true
+    }
+  ],
+  "manual_complete_network_derivatives": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "rotation",
+      "nonzero_head": true,
+      "max_absolute_error": 9.71445146547012e-17
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "euler",
+      "nonzero_head": true,
+      "max_absolute_error": 9.367506770274758e-17
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "normalized_euler",
+      "nonzero_head": true,
+      "max_absolute_error": 8.326672684688674e-17
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "silu_identity",
+      "nonzero_head": true,
+      "max_absolute_error": 8.326672684688674e-17
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "fixed06_identity",
+      "nonzero_head": true,
+      "max_absolute_error": 8.326672684688674e-17
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "swiglu129",
+      "nonzero_head": true,
+      "max_absolute_error": 9.71445146547012e-17
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "arm": "native_k1",
+      "nonzero_head": true,
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "law": "sign_code",
+      "arm": "rotation",
+      "nonzero_head": true,
+      "max_absolute_error": 8.326672684688674e-17
+    },
+    {
+      "law": "sign_code",
+      "arm": "euler",
+      "nonzero_head": true,
+      "max_absolute_error": 8.326672684688674e-17
+    },
+    {
+      "law": "sign_code",
+      "arm": "normalized_euler",
+      "nonzero_head": true,
+      "max_absolute_error": 9.020562075079397e-17
+    },
+    {
+      "law": "sign_code",
+      "arm": "silu_identity",
+      "nonzero_head": true,
+      "max_absolute_error": 9.71445146547012e-17
+    },
+    {
+      "law": "sign_code",
+      "arm": "fixed06_identity",
+      "nonzero_head": true,
+      "max_absolute_error": 9.71445146547012e-17
+    },
+    {
+      "law": "sign_code",
+      "arm": "swiglu129",
+      "nonzero_head": true,
+      "max_absolute_error": 6.938893903907228e-17
+    },
+    {
+      "law": "sign_code",
+      "arm": "native_k1",
+      "nonzero_head": true,
+      "max_absolute_error": 9.71445146547012e-17
+    },
+    {
+      "law": "half_mixture",
+      "arm": "rotation",
+      "nonzero_head": true,
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "law": "half_mixture",
+      "arm": "euler",
+      "nonzero_head": true,
+      "max_absolute_error": 9.020562075079397e-17
+    },
+    {
+      "law": "half_mixture",
+      "arm": "normalized_euler",
+      "nonzero_head": true,
+      "max_absolute_error": 1.249000902703301e-16
+    },
+    {
+      "law": "half_mixture",
+      "arm": "silu_identity",
+      "nonzero_head": true,
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "law": "half_mixture",
+      "arm": "fixed06_identity",
+      "nonzero_head": true,
+      "max_absolute_error": 1.1102230246251565e-16
+    },
+    {
+      "law": "half_mixture",
+      "arm": "swiglu129",
+      "nonzero_head": true,
+      "max_absolute_error": 6.938893903907228e-17
+    },
+    {
+      "law": "half_mixture",
+      "arm": "native_k1",
+      "nonzero_head": true,
+      "max_absolute_error": 1.1796119636642288e-16
+    }
+  ],
+  "historical_reference_checks": [
+    {
+      "law": "rotated_product_bimodal_16d",
+      "family": "ode_k2",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "family": "swiglu64",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "family": "swiglu128",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "rotated_product_bimodal_16d",
+      "family": "swiglu160",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "sign_code",
+      "family": "ode_k2",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "sign_code",
+      "family": "free_isru",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "sign_code",
+      "family": "swiglu64",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "sign_code",
+      "family": "swiglu128",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "sign_code",
+      "family": "swiglu160",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "half_mixture",
+      "family": "ode_k2",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "half_mixture",
+      "family": "free_isru",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "half_mixture",
+      "family": "swiglu64",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "half_mixture",
+      "family": "swiglu128",
+      "replayed_native_predictions_bitwise": 1024
+    },
+    {
+      "law": "half_mixture",
+      "family": "swiglu160",
+      "replayed_native_predictions_bitwise": 1024
+    }
+  ],
+  "env_spec": "dca0a977",
+  "seconds": 4.204688458004966,
+  "formal_training_started": false
+}

@@ -14,9 +14,9 @@ Mathematical validity alone is not a quality result or completed successor.
   full clock-feedback Jacobian, determinant and a noncontractive witness.
 - [x] Fix the one operator and ordinary controls, exact parameter/MAC budgets,
   unchanged old laws, primary criteria and stop scope before training outcomes.
-- [ ] Implement isolated source and verify meaningful gradients, full
+- [x] Implement isolated source and verify meaningful gradients, full
   derivatives, independent integration and baseline/native-state compatibility.
-- [ ] Obtain a fresh agent-follows-doc complete preflight before any formal
+- [x] Obtain a fresh agent-follows-doc complete preflight before any formal
   cold training; retain failed readiness source rather than overwrite it.
 - [ ] Run only the finite registered screen if eligible, with monitored
   processes and unchanged old baselines; independently audit all outputs.
@@ -31,17 +31,28 @@ outer FM path. Cross-mode rates are not called Hamiltonian unless their
 gradient condition holds. No learned frame/basis, new loss or dataset rescue.
 
 ## Current status
-Operator eligibility passed; complete native integration is now implemented,
-awaiting source registration and the fresh documented preflight. No formal
-trajectory has started and no performance improvement is established.
-Lenovo alias probe81962 is terminal255 (connection timeout). The warm Mac
-route reports4.59GiB available RAM/54.56GiB disk, torch2.10.0 and MPS available.
-Use at most two one-thread CPU workers for a selected tiny-model screen. No new training is selected or launched yet.
 
-2026-10-29: Finish only this registered 21-cell comparison. Stop expanding
-theory branches before empirical evidence. The complete runner keeps the old
-training loop, adds full-network manual derivatives and physical resume checks,
-and records actual P histories and process CPU use. Fixed a nonexistent old
-summary filename before preparation; old metrics live at diagnostics/metrics.json.
+2026-10-29: The complete native preflight passed on Mac mini, followed by
+formal training launch from source e9336fe. Actual fresh-agent tool session11819
+consumed terminal0/cc843e, no doc mismatch. All21physical resumes,15historical
+native prediction replays, paired initial flow parameter tangents, active
+nonzero-frequency routes and21explicit-chain network derivatives passed.
+Private runtime: /Users/mr.z/ode-workspace-prep/autoresearch/oct28-invariant-clock-v1.
+Formal controller actual tool session60305 remains live; no quality conclusion.
 
-Operator16496consumed terminal0/0f3094:27literal derivative cases, three independent integrations (max9.83e-15), full feedback/gain, active routes and width64cost16768parameters/16384forward/49152forward-backwardMACs pass. Bounded-clock gain1.618 is noncontractive. Passed source48453d4/log preserve its scalar-reporting PyTorch warning. Complete native preflight/training remain unrun. Operator seal created before a separate metadata read failed under systemPython; resumed only public updates and verified the entire operator seal. Correct warm interpreter metadata matches synthetic-cpu@c6212b91.
+Use exactly two one-thread CPU workers. Five-second primed CPU/RSS telemetry
+and per100update counters are saved; training automatically proceeds to the
+registered independent audit. Interpret performance only after actual exits,
+then publish the fixed comparisons and learned P/clock histories.
+
+Operator16496 consumed terminal0/0f3094:27literal derivative cases and three
+independent integrations passed, maximum integration error9.83e-15. A bounded
+clock still permits full derivative gain1.618. The scalar-reporting warning in
+that frozen successful run is preserved; subsequent public reporting detaches
+scalars. Operator seal e74dba64 was verified after a separate system-Python
+metadata lookup failed. Warm stack dca0a977 uses the unchanged installed
+packages and a runtime-independent seeded CPU kernel witness.
+
+No old source/data/run or submitted Report1 was changed. Lenovo is unnecessary
+for this tiny-model screen. No new theory branch or rescue is selected while
+these controlled results are pending.
