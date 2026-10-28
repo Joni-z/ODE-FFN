@@ -40,19 +40,13 @@
   "monitor": {
     "state": "RUNNING",
     "phase": "training",
-    "seconds": 220.49253391707316,
+    "seconds": 2024.5100469170138,
     "resources": [
       {
         "arm": "feature_clock_zero",
         "pid": 84850,
         "CPU_percent": 100.0,
-        "RSS": 1031995392
-      },
-      {
-        "arm": "time_clock_zero",
-        "pid": 84851,
-        "CPU_percent": 100.0,
-        "RSS": 967426048
+        "RSS": 956710912
       }
     ]
   },
@@ -60,16 +54,14 @@
     "feature_clock_zero": {
       "state": "RUNNING",
       "pid": 84850,
-      "step": 2100,
+      "step": 18900,
       "total": 20000,
-      "seconds": 216.50351025001146
+      "seconds": 2017.1606923751533
     },
     "time_clock_zero": {
-      "state": "RUNNING",
-      "pid": 84851,
-      "step": 2400,
-      "total": 20000,
-      "seconds": 216.24623095802963
+      "state": "COMPLETE",
+      "step": 20000,
+      "seconds": 1907.6780912920367
     }
   },
   "new_FID_available": false,

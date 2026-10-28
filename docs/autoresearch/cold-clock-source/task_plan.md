@@ -20,6 +20,8 @@ AdaLN time conditioning as absent.
   matrix equivalence and measured parameter/forward/backward costs.
 - [x] Pass fresh native/metric documented invocations and launch the two
   monitored one-thread CPU trajectories on Mac mini.
+- [ ] Freeze the complete 41-row analysis and fixed case/figure layout before
+  new FID extraction, without changing formal source or the quality gate.
 - [ ] Complete prediction, matrix/clock, sample and feature/FID audits; publish
   all outcomes and stop or retain the setting under the original rule.
 
@@ -29,5 +31,6 @@ Both actual documented checks pass, native33463/b15aae and metric62554/73fffe,
 exit0 once with no discrepancies. Controller96978 is live with owned
 feature/time training PIDs84850/84851. See progress.json for a snapshot.
 Both arms use model seed0 and original data stream. No new FID or model gain
-is available. The strict17-control/endpoints comparison remains pending.
+is available. The comparison of17primary endpoints (16controls and the candidate) remains
+pending.
 The stopped matched-Swi initializer and frozen calendar remain stopped.

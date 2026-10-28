@@ -36,3 +36,12 @@ values. Measured FFN forward/backward work is16512/49536feature and
 Controller96978 starts actual PIDs84850/84851. Both training streams are live;
 initial observed CPU use is100.0%/99.9%. Source f7bbdd5 is frozen in the
 private runtime. No new FID or final quality decision is available.
+
+The complete analysis source is prepared before new FID extraction. It keeps
+all35historical and six new rows,17primary endpoints,32continuous contrasts,
+all physical P trajectories/eigenvalues,420clock records and210time-only local
+conditional matrices. Seven figures and the first eight original starts for
+eight named models are fixed. Neither P spectra nor clock bands are treated
+as full-model stability or confidence bounds. Actual controller/analysis/plot
+terminal receipts and all audits gate publication. No results are synthesized
+while those inputs remain incomplete.
