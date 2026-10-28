@@ -2,10 +2,9 @@
 from __future__ import annotations
 import os
 for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','VECLIB_MAXIMUM_THREADS'):os.environ[key]='1'
-import argparse,json,sys,time,types
+import argparse,json,sys,time,types,subprocess
 from pathlib import Path
 import numpy as np
-import scipy.linalg
 import torch
 import study
 
@@ -33,27 +32,8 @@ def independent_model(root,arm):
                 return torch.nn.functional.linear(x,w)
             layer.forward=types.MethodType(forward,layer)
     return model
-def check_operators(root):
-    history=study.load(root/'operator-history.json');assert len(history)==48
-    for r in history:
-        with np.load(root/'operators'/f"{r['family']}-{r['step']:07d}.npz") as bank:
-            prefix=study.token(r['layer']);p=bank[prefix+'_P'];a=r['c']*p;e=scipy.linalg.expm(a);t=np.eye(64)+a
-            if r['order']==2:t=t+(a@a)/2
-            np.testing.assert_allclose(bank[prefix+'_E'],e,rtol=1e-11,atol=1e-11);np.testing.assert_allclose(bank[prefix+'_T'],t,rtol=1e-12,atol=1e-12)
-            bitwise(bank[prefix+'_E32'],bank[prefix+'_E'].astype(np.float32));bitwise(bank[prefix+'_T32'],bank[prefix+'_T'].astype(np.float32))
-        native=study.native(root,r['family'],r['step']);actual=next(layer for name,layer in study.layers(root,native) if name==r['layer']).proj.weight.detach().double().numpy();bitwise(p,actual)
-        sv=np.linalg.svd(p,compute_uv=False);np.testing.assert_allclose(sv,r['P_singular_values'],rtol=1e-10,atol=1e-12)
-        eig=list(np.linalg.eigvals(p));stored=np.asarray(r['P_eigen_real'])+1j*np.asarray(r['P_eigen_imag'])
-        for value in stored:
-            index=int(np.argmin(np.abs(np.asarray(eig)-value)));assert abs(eig.pop(index)-value)<1e-9
-        h=np.eye(64)+a/2
-        if r['order']==2:h=h+(a@a)/8
-        half=scipy.linalg.expm(a/2);norm=np.linalg.norm(e)
-        values=dict(P_sigma_max=sv[0],numerical_abscissa=np.linalg.eigvalsh((p+p.T)/2).max(),spectral_abscissa=max(r['P_eigen_real']),nonnormality=np.linalg.norm(p.T@p-p@p.T)/np.linalg.norm(p)**2,A_norm=np.linalg.norm(a,2),polynomial_norm=np.linalg.norm(t,2),exponential_norm=np.linalg.norm(e,2),relative_Frobenius_error=np.linalg.norm(e-t)/norm,polynomial_semigroup_defect=np.linalg.norm(h@h-t)/norm)
-        for key,value in values.items():np.testing.assert_allclose(value,r[key],rtol=1e-9,atol=1e-11)
-        assert np.linalg.norm(half@half-e)/norm<1e-11 and r['exponential_semigroup_defect']<1e-11
-    return len(history)
 def fid(x,y):
+    import scipy.linalg
     x=x.astype(np.float64);y=y.astype(np.float64);a=x-x.mean(0);b=y-y.mean(0)
     s=scipy.linalg.svd(a@b.T,compute_uv=False,lapack_driver='gesvd')
     return float(np.sum((x.mean(0)-y.mean(0))**2)+np.sum(a*a)/(len(a)-1)+np.sum(b*b)/(len(b)-1)-2*s.sum()/np.sqrt((len(a)-1)*(len(b)-1)))
@@ -63,7 +43,8 @@ def main(root,phase):
     folders=(root/'output',) if phase=='sampling' else (root/'output',root/'metric-output')
     before={str(f):study.sha(f) for folder in folders for f in folder.rglob('*') if f.is_file()};rows=[]
     if phase=='sampling':
-        count=check_operators(root);bank=old.bank(p/'banks/validation.npz')
+        subprocess.run([study.CHECK,str(root/'source/operator_check.py'),'--root',str(root),'--output',str(out/'operator-check.json')],check=True)
+        count=study.load(out/'operator-check.json')['operator_records'];bank=old.bank(p/'banks/validation.npz')
         for arm in study.ARMS:
             model=independent_model(root,arm);saved_tensors=study.tensors(root,model);folder=root/'output/runs'/arm;pred=old.predict(model,bank)
             with np.load(folder/'validation.npz') as f:bitwise(pred,f['prediction'])

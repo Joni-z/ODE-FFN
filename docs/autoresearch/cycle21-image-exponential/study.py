@@ -48,7 +48,7 @@ def prepare(root):
     assert not root.exists();root.mkdir();(root/'source').mkdir()
     for file in Path(__file__).resolve().parent.iterdir():
         if file.is_file():shutil.copyfile(file,root/'source'/file.name)
-    write(root/'settings.json',{**{k:str(p) for k,p in PARENTS.items()},'arms':ARMS,'new_training':False,'steps':128,'generated':1024,'reference':2048})
+    write(root/'settings.json',{**{k:str(p) for k,p in PARENTS.items()},'source_commit':subprocess.check_output(['git','-C',str(Path(__file__).resolve().parent),'rev-parse','HEAD'],text=True).strip(),'arms':ARMS,'new_training':False,'steps':128,'generated':1024,'reference':2048})
     files=[*(root/'source').iterdir(),root/'settings.json',*(p/'sealed-runtime.json' for p in PARENTS.values())]
     write(root/'bindings.json',{str(f):sha(f) for f in files if f.is_file()});verify(root)
     print(json.dumps(dict(status='PREPARED')),flush=True)
@@ -90,11 +90,15 @@ def model_for(root,arm):
     base,kind=arm.rsplit('_',1);return patch(root,native(root,base),base,kind)
 
 def preflight(root):
-    import scipy.linalg
     torch.set_num_threads(1);verify(root);old=imported(root,'image_parent');p=paths(root)['image_parent'];clocks=imported(root,'clock_parent');cparent=paths(root)['clock_parent']
     fixtures=[]
     for key,a in [('zero',torch.zeros(3,3,dtype=torch.float64)),('negative',torch.diag(torch.tensor([-3.,-1.,-.25],dtype=torch.float64))),('nonnormal',-.25*torch.eye(3,dtype=torch.float64)+4*torch.diag(torch.ones(2,dtype=torch.float64),diagonal=1))]:
-        e=torch.linalg.matrix_exp(a);expected=scipy.linalg.expm(a.numpy());np.testing.assert_allclose(e.numpy(),expected,rtol=1e-11,atol=1e-11)
+        e=torch.linalg.matrix_exp(a)
+        if key=='zero':expected=np.eye(3)
+        elif key=='negative':expected=np.diag(np.exp(np.diag(a.numpy())))
+        else:
+            n=a.numpy()+.25*np.eye(3);expected=np.exp(-.25)*(np.eye(3)+n+.5*n@n)
+        np.testing.assert_allclose(e.numpy(),expected,rtol=1e-11,atol=1e-11)
         for order in (1,2):
             defect=polynomial(a/2,order)@polynomial(a/2,order)-polynomial(a,order)
             exact=a@a/4 if order==1 else a@a@a/8+a@a@a@a/64
@@ -107,11 +111,6 @@ def preflight(root):
     for arm in ('ode_k1','ode_k2'):
         for step in SNAPSHOTS:
             history.extend(operator_rows(root,arm,step,True))
-            with np.load(root/'operators'/f'{arm}-{step:07d}.npz') as f:
-                for name in f.files:
-                    if name.endswith('_P'):
-                        c=load(cparent/'calibration.json')[arm][name.removesuffix('_P').replace('_','.')]['value']
-                        np.testing.assert_allclose(f[name.removesuffix('_P')+'_E'],scipy.linalg.expm(c*f[name]),rtol=1e-11,atol=1e-11)
         bank=old.bank(p/'banks/validation.npz');model=native(root,arm);before=tensors(root,model)
         pred=old.predict(model,bank)
         with np.load(p/'output/runs'/arm/'validation_0005000.npz') as saved:assert pred.tobytes()==saved['prediction'].tobytes()
@@ -124,7 +123,8 @@ def preflight(root):
             with torch.no_grad():error=float((literal(x,time_value,y)-folded(x,time_value,y)).abs().max())
             assert error<1e-9;promoted.append(dict(family=arm,time=value,max_error=error))
     assert len(history)==48;write(root/'operator-history.json',history)
-    files=[*list((root/'operators').iterdir()),root/'operator-history.json']
+    subprocess.run([CHECK,str(root/'source/operator_check.py'),'--root',str(root),'--output',str(root/'operator-check.json')],check=True)
+    files=[*list((root/'operators').iterdir()),root/'operator-history.json',root/'operator-check.json']
     write(root/'operator-bindings.json',{str(f):sha(f) for f in files})
     write(root/'preflight.json',dict(status='PASS',fixtures=fixtures,operator_records=48,independent_expm_rtol=1e-11,replays=replays,promoted_errors=promoted,new_training=False))
     write(root/'ready.json',dict(preflight=sha(root/'preflight.json'),operator_bindings=sha(root/'operator-bindings.json')));verify(root,True)

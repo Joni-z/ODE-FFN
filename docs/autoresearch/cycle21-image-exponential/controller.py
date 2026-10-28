@@ -5,7 +5,7 @@ import subprocess,time,traceback
 from pathlib import Path
 import psutil
 import study
-root=Path('/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21');out=root/'orchestrator';out.mkdir()
+root=Path('/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle21-v2');out=root/'orchestrator';out.mkdir()
 assert study.load(root/'ready.json')['preflight']==study.sha(root/'preflight.json');study.verify(root)
 records=[];live={};started=time.monotonic()
 def execute_batch(specs):
@@ -30,7 +30,7 @@ def execute_batch(specs):
         if live:time.sleep(5)
 try:
     execute_batch([('sampling',[study.TRAIN,str(root/'source/study.py'),'run','--root',str(root)],1900)])
-    execute_batch([('audit-sampling',[study.CHECK,str(root/'source/audit.py'),'--root',str(root),'--phase','sampling'],1800),
+    execute_batch([('audit-sampling',[study.TRAIN,str(root/'source/audit.py'),'--root',str(root),'--phase','sampling'],1800),
                    ('metrics',[study.METRICS,str(root/'source/study.py'),'evaluate','--root',str(root)],900)])
     execute_batch([('audit-features',[study.METRICS,str(root/'source/audit.py'),'--root',str(root),'--phase','features'],900)])
     study.verify(root);study.write(out/'status.json',dict(state='COMPLETE',phases=4,seconds=time.monotonic()-started,no_retries=True))

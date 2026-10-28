@@ -50,7 +50,7 @@ No optimizer, new seed or additional training. Read all parents under seals:
 | Ordinary controls | oct28-cycle20 | d7fe17e92c7bd8468b6c048aa9925a4350d95168ed611682bb9c7d787634e973 |
 
 All runtimes are under /Users/mr.z/ode-workspace-prep/autoresearch/. New root:
-oct28-cycle21. At most two one-thread CPU sampling children; 900s each and
+oct28-cycle21-v2. At most two one-thread CPU sampling children; 900s each and
 1,800s for the queue. Save five-second PID/create-time/CPU/RSS telemetry and
 terminal exits; never restart because an observation expires. Expected extra
 disk below0.3GB. Feature extraction uses the existing metrics environment;
@@ -94,3 +94,9 @@ feature-audit ceilings900s each. Keep all failures and tolerances. Curation
 requires every phase to pass. No new ODE architecture is nominated regardless
 of outcome. If exp helps, that is frozen intervention evidence; if it hurts,
 that concerns these weights, not models trained with exact flows.
+
+The first preflight failed before model outcomes: the check interpreter has
+SciPy but lacks einops. Preserve oct28-cycle21 and its terminal failure. V2
+uses the existing image interpreter for model replay and invokes a separate
+NumPy/SciPy-only operator check in the existing check environment. No packages,
+scientific comparison, matrix construction or tolerance change.
