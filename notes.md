@@ -391,3 +391,7 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - New preflight-v1 fails because one in-memory checkpoint aliases Adam moments across test branches: declared5001/actual5004. Original5kfile still5000. V1preserved; bc290fb deep-copies supplied restore input. Fresh v2documented pass confirms seven full-state resumes and5000→5001→5003counters, all82inputs unchanged.
 - Formal continuation started once: controller60302/create_time1793160577.864121, execsession91639, nativeK1/K2children60311/60312. Initial live steps5100; ordinary references queued, no new quality outcome yet.
 - A read-only identity probe accidentally used systempython withoutpsutil; reissued under the existing image interpreter, without restarting any job.
+
+- Metric helper38e56ec reuses frozen image_metrics/metric_core unchanged. Preflight64269 exits0 with32old feature vectors bitwise and FID183.69806728894557 exact. Immutable metric source93f48d57... copied into runtime; waiter60530/session80573 confirmed alive, waiting on controller60302 before all14FID endpoints.
+- Latest independent live check sees K1/K2at8900/8600, training controller60302/session91639 remains live. Actual monitored childCPU100%each and roughly1GiB RSS each; no training GPU reservation. No final quality claim.
+- Direct publisher46245 exits1 on missing local HTTPS Username. Normal GitHub publication remains pending; no remote synchronization claimed.
