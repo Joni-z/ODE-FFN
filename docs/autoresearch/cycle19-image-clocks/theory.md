@@ -35,3 +35,8 @@ about which retrained matrix functions are reachable through a fixed-orderP
 parameterization. The prior effective-matrix teacher study already rejects
 a general optimization rescue. No such training or reparameterization is
 selected here, and no useful new ODE successor is assumed.
+
+The promoted algebra witness retains the native sinusoidal float32 feature
+values and lifts them before its double-precision time MLP. This adapter
+exists only in witness_model; it is absent from native_model, calibration,
+formal predictions and sampling. It changes no learned tensor or tolerance.

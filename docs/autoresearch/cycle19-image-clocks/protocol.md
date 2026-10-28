@@ -49,7 +49,7 @@ fixed because cycle18 found a coarse-grid contribution; it is not exact flow.
 CPUfloat32, at most two one-thread sampling children,1200s per child. Audit
 phase1200s; feature/feature-audit phases600s each. Monitor PID/create-time,
 terminal exits and5sCPU/RSS. No automatic retry. Private runtime
-`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19`; expect<250MBextra.
+`/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19-v2`; expect<250MBextra.
 Use unchanged cycle17 training/metrics spec475428fb/dc729a50and their witnessed
 kernels/doc-pass receipts. No package installation or environment doc change.
 
@@ -66,7 +66,9 @@ Before intervention outcomes: verify all parent seals/sources, native first64
 predictions bitwise, six-calibration coverage, range/finiteness and exact
 unchanged parameters/buffers. Test literal constant-clock vs folded-matrix
 values in float64 on data-free fixtures and promoted whole-network inputs;
-full-model outputs must agree at maxabs1e-9. This is algebra validation, not
+full-model outputs must agree at maxabs1e-9. In that algebra-only witness,
+native float32 sinusoidal time features are lifted to the promoted MLP dtype;
+formal float32 predictors and all native files are unchanged. This is algebra validation, not
 an architecture-performance result. Preserve the original float32 sampling.
 
 After execution: independent literal-clock forward and manual Heun replay

@@ -5,7 +5,7 @@ import json,subprocess,time,traceback
 from pathlib import Path
 import psutil
 import study
-root=Path('/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19');out=root/'orchestrator';out.mkdir()
+root=Path('/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19-v2');out=root/'orchestrator';out.mkdir()
 assert study.load(root/'preflight.json')['status']=='PASS';study.verify(root,True)
 phases=[('sampling',[study.TRAIN,str(root/'source/study.py'),'run','--root',str(root)],1300),
 ('audit-sampling',[study.TRAIN,str(root/'source/audit.py'),'--root',str(root),'--phase','sampling'],1200),

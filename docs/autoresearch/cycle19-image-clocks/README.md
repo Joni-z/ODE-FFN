@@ -9,15 +9,15 @@ validated by seeded kernels and independent documented-command passes. No
 new package or environment invocation is introduced. Prepare a new runtime:
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python docs/autoresearch/cycle19-image-clocks/study.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19 --image-parent /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2 --resolution-parent /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python docs/autoresearch/cycle19-image-clocks/study.py prepare --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19-v2 --image-parent /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle17-v2 --resolution-parent /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle18
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19-v2/source/study.py preflight --root /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19-v2
 ```
 
 After committing the source and passing preflight, launch the frozen controller
 once, capturing its terminal tool handle and log:
 
 ```bash
-/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19/source/controller.py
+/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python /Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle19-v2/source/controller.py
 ```
 
 It runs two one-thread CPU children, exact independent sampling replay,

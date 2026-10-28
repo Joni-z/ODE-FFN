@@ -209,6 +209,7 @@ The scientific question is whether a useful existing gated FFN admits an exact c
 - [ ] Report all six endpoints, clocks, held-out errors and fixed examples; distinguish frozen necessity from retrainability, novelty and causes. Seal and commit verified evidence, attempt direct publication.
 
 ## Errors encountered
+- Cycle19 preflight58539 exits1 in the promoted algebra witness: native time features are hardcoded float32, while promoted MLP weights are double. Preserve first preparation/source/log and absence of formal outputs. V2 lifts only the witness time-feature values before that MLP; native float32 quality functions and all tolerances unchanged.
 - Cycle18 audit-v1 exits1 before any numerical work: top-level SciPy import is unnecessary for CPU sampling replay and absent from the lean training environment. Preserve failed source/status/log. V2 defers only that import to the FID function; no package/model/sampler/metric/tolerance change, and no training/sample rerun.
 - Cycle17feature-audit-v1 exits1 before numerical work because its SHA helper expects Path but binding keys are strings. Preserve original frozen source/log/status and empty audit directory; audit-v2 converts the path only. Training44-checkpoint/P/clock/manual-Heun audit already passes; no training, generated samples, metric producer or tolerance changes.
 - One cycle17read-only status check accidentally used system Python without psutil; rerun with the declared image-training interpreter succeeded. No job or runtime was restarted.

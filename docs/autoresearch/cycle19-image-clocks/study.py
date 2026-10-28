@@ -40,6 +40,14 @@ def native_model(root,arm):
     old=imported(root,'image_parent');p=paths(root)['image_parent'];model=old.model_for(p,arm)
     state=torch.load(p/'output/runs'/arm/'step_0005000.pt',weights_only=False,map_location='cpu');assert state['step']==5000
     old.restore_model(model,state);return model.eval().requires_grad_(False)
+def witness_model(root,arm):
+    model=native_model(root,arm).double()
+    # Algebra witness only: native sinusoidal features are deliberately float32.
+    # Lift their values to the promoted MLP dtype, without editing the native
+    # module or the float32 model used by formal predictions and sampling.
+    model.t_embedder.mlp.register_forward_pre_hook(lambda module,inputs:(inputs[0].to(module[0].weight.dtype),))
+    return model
+
 def layers(model):
     for j,block in enumerate(model.blocks):
         for name in ('ode1','ode2'):yield f'blocks.{j}.{name}',getattr(block.mlp,name)
@@ -111,7 +119,7 @@ def preflight(root):
         model=native_model(root,arm);before=tensors(model);constants,raw,pred=calibrate(model,b);unchanged(model,before)
         with np.load(p/'output/runs'/arm/'validation_0005000.npz') as saved:assert pred.tobytes()==saved['prediction'][:64].tobytes()
         allrows[arm]=constants;np.savez(root/f'{arm}-native-calibration.npz',**raw)
-        literal=patch(native_model(root,arm).double(),constants);folded=patch(native_model(root,arm).double(),constants,'folded')
+        literal=patch(witness_model(root,arm),constants);folded=patch(witness_model(root,arm),constants,'folded')
         for value in (.1,.3,.5,.7,.9):
             panel=old.bank(p/'banks'/f'panel_{value:.1f}.npz');x=torch.from_numpy(panel['x'][:1]).double();t=torch.from_numpy(panel['t'][:1]).double();y=torch.zeros(1,dtype=torch.long)
             with torch.no_grad():error=float((literal(x,t,y)-folded(x,t,y)).abs().max())
