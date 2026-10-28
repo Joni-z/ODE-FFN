@@ -9,6 +9,7 @@ CONTROLS={'ode_k1':('swiglu86','silu131'),'ode_k2':('swiglu129','silu193')}
 LABELS={'ode_k1':'ODE K1','ode_k2':'ODE K2','swiglu86':'Swi86','swiglu129':'Swi129',
         'silu64':'SiLU64','silu131':'SiLU131','silu193':'SiLU193'}
 PRIOR=Path('/Users/mr.z/ode-workspace-prep/autoresearch/oct28-cycle20/curation/comparison.csv')
+IMAGE_PARENT=PRIOR.parent.parent.parent/'oct28-cycle17-v2'
 load=lambda p:json.loads(Path(p).read_text())
 def write(path,value):Path(path).write_text(json.dumps(value,indent=2,allow_nan=False)+'\n')
 def table(path,rows):
@@ -66,17 +67,37 @@ def main(root,out):
     prior=list(csv.DictReader(PRIOR.open()))
     prior={r['family']:r for r in prior if r['family'] in ARMS};assert len(prior)==7
     rows=[]
+    reference_features=np.load(IMAGE_PARENT/'metric-inputs/reference-features.npy').astype(np.float64)
     for arm in ARMS:
         old=prior[arm];cost=dict(parameters=int(old['parameters']),FFN_forward_MACs=int(old['FFN_forward_MACs']))
-        rows.append(dict(arm=arm,step=5000,weighted_mse=float(old['weighted_mse']),clean_mse=float(old['clean_mse']),fid=float(old['fid']),**cost,provenance='sealed5k endpoint'))
+        rows.append(dict(arm=arm,step=5000,weighted_mse=float(old['weighted_mse']),clean_mse=float(old['clean_mse']),fid=float(old['fid']),
+            FID_mean_term=float(old['mean_term']),FID_covariance_term=float(old['covariance_term']),**cost,provenance='sealed5k endpoint'))
         for step in (10000,20000):
             row=next(r for r in produced['rows'] if r['arm']==arm and r['step']==step)
-            rows.append(dict(arm=arm,step=step,**{k:row[k] for k in ('weighted_mse','clean_mse','fid')},**cost,provenance='new audited continuation'))
+            feature=np.load(root/'metric-output'/f'{arm}-{step:07d}-features.npy').astype(np.float64)
+            mean_term=float(np.sum((feature.mean(0)-reference_features.mean(0))**2))
+            rows.append(dict(arm=arm,step=step,**{k:row[k] for k in ('weighted_mse','clean_mse','fid')},
+                FID_mean_term=mean_term,FID_covariance_term=row['fid']-mean_term,**cost,provenance='new audited continuation'))
     out.mkdir(exist_ok=False);table(out/'comparison.csv',rows)
     curves=[]
     for arm in ARMS:
         for line in (root/'output/runs'/arm/'metrics.jsonl').read_text().splitlines():curves.append(dict(arm=arm,**json.loads(line)))
     table(out/'curves.csv',[{k:r.get(k,'') for k in ('arm','step','weighted_mse','clean_mse','prediction_rms','train_loss','grad_norm','clip_fraction')} for r in curves])
+    panels=[]
+    for step in (10000,20000):
+        for time in (.1,.3,.5,.7,.9):
+            with np.load(IMAGE_PARENT/'banks'/f'panel_{time:.1f}.npz') as bank:
+                target=bank['target'].astype(np.float64);delta=bank['delta'].astype(np.float64)[:,None,None,None]
+            for arm in ARMS:
+                with np.load(root/'output/runs'/arm/f'panel_{step:07d}_{time:.1f}.npz') as bank:prediction=bank['prediction'].astype(np.float64)
+                error=prediction-target
+                panels.append(dict(arm=arm,step=step,time=time,examples=len(prediction),
+                    weighted_mse=float(np.mean((error/delta)**2)),clean_mse=float(np.mean(error**2))))
+    assert len(panels)==70;table(out/'time-panels.csv',panels)
+    with np.load(IMAGE_PARENT/'banks/validation.npz') as bank:times=bank['t'].reshape(-1)
+    write(out/'time-coverage.json',dict(examples=len(times),minimum=float(times.min()),maximum=float(times.max()),
+        t_at_least_07=int((times>=.7).sum()),t_at_least_08=int((times>=.8).sum()),t_at_least_09=int((times>=.9).sum()),
+        interpretation='Coverage of the fixed random-time validation bank only. Fixed panels are complementary; this does not causally explain FID ordering.'))
     Ps=[]
     for arm in ('ode_k1','ode_k2'):
         for step in (5000,10000,15000,20000):
@@ -105,6 +126,14 @@ def main(root,out):
     for ax,title in zip(axes,('Weighted validation MSE','Clean-image MSE')):
         ax.set(xlabel='Total updates (thousands)',title=title);ax.spines[['top','right']].set_visible(False)
     axes[1].legend(frameon=False,fontsize=8);fig.savefig(out/'continuation-curves.png',dpi=180);fig.savefig(out/'continuation-curves.pdf');plt.close(fig)
+    fig,axes=plt.subplots(1,2,figsize=(10,3.7),layout='constrained')
+    for ax,step in zip(axes,(10000,20000)):
+        for arm in ARMS:
+            selected=[r for r in panels if r['step']==step and r['arm']==arm]
+            ax.plot([r['time'] for r in selected],[r['weighted_mse'] for r in selected],color=colors[arm],marker='.',label=LABELS[arm])
+        ax.set(xlabel='External FM time',ylabel='Paired weighted MSE',title=f'Fixed 64-image panels, {step:,} updates',yscale='log')
+        ax.spines[['top','right']].set_visible(False)
+    axes[1].legend(frameon=False,fontsize=8);fig.savefig(out/'time-panels.png',dpi=180);fig.savefig(out/'time-panels.pdf');plt.close(fig)
     fig,axes=plt.subplots(1,2,figsize=(9,3.4),sharey=True,layout='constrained')
     for ax,arm in zip(axes,('ode_k1','ode_k2')):
         for layer in sorted({r['layer'] for r in Ps if r['arm']==arm}):
@@ -122,7 +151,7 @@ def main(root,out):
         fig.suptitle(f'First eight shared starts; Heun128 at {step:,} updates')
         fig.savefig(out/f'generation-{step}.png',dpi=180);plt.close(fig)
     write(out/'curation.json',dict(status='PASS',comparison_rows=len(rows),continuation_points=len(curves),P_records=len(Ps),
-        figures=5,case_indices=list(range(8)),primary_step=20000,all_figures_require_visual_review=True,analysis_report_pending=True))
+        figures=6,time_panel_rows=70,case_indices=list(range(8)),primary_step=20000,all_figures_require_visual_review=True,analysis_report_pending=True))
     print(json.dumps(load(out/'curation.json')))
 
 

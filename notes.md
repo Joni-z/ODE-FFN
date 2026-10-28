@@ -407,3 +407,8 @@ The next diagnostic tests whether changing the integrator of an already fitted E
 - Swi86/129have started; remainingSiLU64/131/193queued. Training60302/session91639 remains the original controller; evaluation60530/session80573 and finalization60880/session68281 remain waiting.
 - Curator prepared with exact20kselection/all-control/fitting conditions, requiring112checkpoint/14sampling/14feature-audit coverage before tables/figures. Four boundary/reference/endpoint checks pass. No main results report or figures from incomplete evidence.
 - Fresh gh auth status confirms no logged-in GitHub host; native publication still lacks authentication.
+
+## Four completed image continuations; complementary panel reporting
+- All four native image models K1/K2/Swi86/Swi129complete20kwith zero child exits. Swi86/Swi129weightedMSE0.15994366/0.15793488 are recorded producer values; complete-cohort audits/FIDs still pending. SiLU64/131running, SiLU193queued. No early global decision.
+- Existing random-time validation has1024examples, maxt0.871980,25at≥.7,5at≥.8,noneat≥.9. The old5kreport already includes a late-panel case; new curation retains all five times and both declared endpoints, rather than infer late behavior from the aggregate. Coverage does not explain FID ordering by itself.
+- Added70derived fixed-panel scores plus feature-mean/covariance FID components to the pending curator. No new samples, training settings or eligibility checks. Primary-rule AST is identical to the previously registered curator, and its four hand-computable boundary/reference/endpoint checks pass. Figures remain gated on all final audits.
