@@ -2,6 +2,8 @@
 
 The user-authorized autonomous research loop follows [program.md](program.md), adapted from Karpathy's official autoresearch. The data, evaluation and scientific controls remain specific to ODE-FFN; this does not run the upstream language-model task.
 
+**Current validity correction:** the image screen has not established a competent, converged ordinary baseline. Its reported FID rankings and fixed margins cannot substantiate architecture adoption or rejection. The [baseline-validity review](baseline-validity-review.md) supersedes stronger performance interpretations in the historical summaries below. Raw results and local mathematical facts are preserved; baseline validation now takes priority.
+
 The [paired cold clock-source comparison](cold-clock-source/results/analysis-report.md) is complete. Time-only clocks reach FID172.04 versus 174.20 for the paired feature-clock control and 173.44 for native K1. The 0.80% gain over native misses the registered5% gate; both fitting guards pass. FFN matrix work falls 49.60%, with no whole-model twofold speedup claim. All sample/feature/FID checks pass. The setting stops without a rescue; no new ODE method is established. Complete P histories, clock profiles and fixed-start examples are included.
 
 The [matched-function SwiGLU control](image-swiglu-initialization/results/analysis-report.md) is complete. Its 20k FID is 185.85 versus 195.31 for default Swi86, a 4.84% improvement that misses the registered 5% gate. K1 remains at 173.44 and the fixed-clock model at 174.71. Lower regression error does not close this generation gap. All sample/feature/FID checks pass; the initializer is stopped without a rescue, and the broader ODE architecture objective remains open.

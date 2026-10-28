@@ -1,5 +1,7 @@
 # Cold feature-clock / time-clock comparison
 
+**Interpretation update (October 29, 2026):** the ordinary image baseline was not shown to be competent or converged. The scores below are historical fixed-budget observations and do not establish architecture effectiveness or justify rejecting a model family. See the [baseline-validity review](../baseline-validity-review.md). The sealed run and original report remain unchanged.
+
 Two cold K1 arms start from exactly the same parameter state and FFN function.
 The only architectural difference is the local clock input source. The
 [complete analysis](results/analysis-report.md) reports FID **172.04** for the

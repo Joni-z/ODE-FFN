@@ -3,6 +3,20 @@
 ## Goal
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
+## Current priority: baseline validity (2026-10-29)
+The user challenged the image results because the ordinary baseline has not
+been shown to produce competent samples or to have converged. This takes
+priority over another architecture cycle or a mechanism study of tiny FID gaps.
+- [x] Inspect the actual model size, budget, curves, samples and selection rules.
+- [x] Prepare an explicit correction of image-derived architecture claims and
+  make baseline adequacy a prerequisite in the research-loop instructions.
+- [ ] Establish a defensible ordinary-baseline training/evaluation recipe and
+  adequacy criteria before any further architecture-selection training.
+No new training is selected in this review. Preserve all raw studies, source
+snapshots and Report1; do not relabel old runs as converged. Historical stop
+rules record decisions in their old screen, not proof that a model family
+cannot work after the benchmark is repaired. The broader objective stays active.
+
 ## Current cycle: oct27-complete-hidden-field
 - [x] Read the official autoresearch protocol, project conventions, and preceding transfer/failed-generator reviews.
 - [x] Create isolated branch `autoresearch/oct27-ode` and worktree `/Users/mr.z/ODE-FFN-autoresearch`.

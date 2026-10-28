@@ -1,6 +1,8 @@
 # ODE-FFN
 
-The project tests whether an ODE-inspired FFN can improve unconditional flow matching against strong ordinary baselines. Protocols and audited results are in [ODE autoresearch](docs/autoresearch/README.md).
+The project studies whether ODE-inspired FFNs can improve unconditional flow matching. Establishing a competent ordinary baseline is the current priority. Protocols and recorded results are in [ODE autoresearch](docs/autoresearch/README.md).
+
+**Evidence limitation (October 29, 2026):** the small CIFAR-10 screen has no established competent or converged ordinary baseline. Its FID rankings and 5% gates do not support accepting or rejecting architectures. The [baseline-validity review](docs/autoresearch/baseline-validity-review.md) supersedes those performance interpretations; historical numbers and sealed studies remain unchanged. Baseline validation takes priority over new architecture training.
 
 The [paired cold clock-source comparison](docs/autoresearch/cold-clock-source/results/analysis-report.md) is complete. Time-only clocks reach FID172.04 versus 174.20 for the paired feature-clock control and 173.44 for native K1. The 0.80% gain over native misses the registered5% gate; both fitting guards pass. FFN matrix work falls 49.60%, with no whole-model twofold speedup claim. All sample/feature/FID checks pass. The setting stops without a rescue; no new ODE method is established. Complete P histories, clock profiles and fixed-start examples are included.
 
