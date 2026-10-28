@@ -6,7 +6,13 @@ training run, an optimizer proposal or a FID experiment. The
 [protocol](protocol.md) freezes the cohort, tolerance and three representations;
 the [derivation](DERIVATION_PACKAGE.md) states the invariant and assumptions.
 
-Warm-reuse Mac mini image-training@475428fb, one CPU thread. No installation
+Outcome: all six real states pass. Transported parameter error is at most
+2.22e-16 and post-update prediction error 1.55e-15. Ordinary native-rule matrix
+steps are 1.66655–1.66981 times larger in these cases. Read the
+[complete analysis](analysis.md) and [all measured rows](results/). No new
+training, FID or ODE method is claimed.
+
+Warm-reuse Mac mini image-training@475428 fb, one CPU thread. No installation
 or GPU reservation. Commit source first, then prepare a new exclusive runtime:
 
 ```bash
@@ -32,7 +38,7 @@ native-W one-step counterfactual is retained without a performance gate.
 The source enforces the registered 300-second ceiling and reports progress,
 primed CPU use and RSS at each state. Poll the same actual tool handle until
 terminal; never restart merely because an observation expires. A failed
-invocation preserves source/output and its discrepancy. Actual exit0 with all
+invocation preserves source/output and its discrepancy. Actual exit 0 with all
 checks is required before interpreting the result. Original checkpoints,
-datasets, source snapshots, prior stop rules and submitted Report1 remain
+datasets, source snapshots, prior stop rules and submitted Report 1 remain
 unchanged. Raw output and full execution logs stay outside Git.

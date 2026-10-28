@@ -20,3 +20,25 @@ Sources: image-clock-training/theory.md, frozen clock_operators.py, the six
 stored before/post update pairs in oct28-image-clock-training-v2, and the
 previously validated literal RMSNorm/attention helper in the observed-response
 study. No external literature claim is needed for this algebraic check.
+
+ER-20261029-p-coordinate-steps-01: fresh documented64675/bffec2 exits0once,
+no mismatch. All6nativeprefixes and literal32paths replay bitwise; promoted
+bridge maximum1.36e-6. Nonzero moments and all49active gradients/state verify
+coordinate transport. Maximum parameter error2.22e-16, moment1.93e-17,
+prediction1.55e-15. All36ordinary-rule matrix steps are1.66655–1.66981times
+P's effective steps. The1000case has distinct active clipping factors;
+the remaining selected cases have no clipping. This is a local identity and
+counterfactual, not a FID cause or a resumed ordinary trajectory.
+
+Closure packaging8443/42aaa6 exited1 because its receipt parser expected
+a sentinel string where the agent schema records a boolean. The corrected
+parser checks observed_sentinel=True, the separate expected string and the
+actual terminal stdout. Numerical run64675 is not rerun; no scientific source,
+cohort, tolerances or saved results change. The failed packaging receipt is
+preserved in the private runtime before sealing.
+
+Corrected packaging95998/be545b exits0; seal4402f9bb preserves28files and
+140659bytes. Complete observations and actual receipts are curated. Next
+selected family: cold learned clock source, paired feature/time inputs with
+identical initial state; see ../cold-clock-source/protocol.md. No new
+optimizer rescue or stopped initializer continuation is selected.

@@ -1,0 +1,84 @@
+{
+  "documented_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1/source/study.py run --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1",
+  "executed_command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1/source/study.py run --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1",
+  "invocation_count": 1,
+  "session_id": 64675,
+  "initial_tool_result": {
+    "chunk_id": "78b919",
+    "wall_time_seconds": 1.002946417,
+    "session_id": 64675,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "poll_tool_results": [
+    {
+      "chunk_id": "bffec2",
+      "wall_time_seconds": 3.423192125,
+      "exit_code": 0,
+      "original_token_count": 1176,
+      "output": "{\"step\": 1000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 6.733730981700603e-07, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 6.938893903907228e-17, \"P_coordinate_norm\": 1.1675105497499745, \"transported_W_norm\": 1.1675105497499747, \"ordinary_W_norm\": 1.1858170920294113, \"P_clip_factor\": 0.8565225759129771, \"ordinary_clip_factor\": 0.8432996652029471, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 9.324138683375338e-18, \"post_prediction_max_error\": 8.881784197001252e-16, \"naive_post_prediction_RMS_difference\": 0.0004442489974884054, \"pre_loss\": 0.21952742523216248, \"transported_pre_loss\": 0.21952742523216248, \"native_W_pre_loss\": 0.21952742523216248, \"CPU_percent\": 84.3, \"RSS\": 689324032}\n{\"step\": 2500, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 9.304665427034564e-07, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 2.949029909160572e-17, \"P_coordinate_norm\": 0.24431728112133763, \"transported_W_norm\": 0.24431728112133771, \"ordinary_W_norm\": 0.2508744925241718, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 3.686287386450715e-18, \"post_prediction_max_error\": 1.3322676295501878e-15, \"naive_post_prediction_RMS_difference\": 0.000728789081810971, \"pre_loss\": 0.19619565820083804, \"transported_pre_loss\": 0.19619565820083798, \"native_W_pre_loss\": 0.19619565820083798, \"CPU_percent\": 99.9, \"RSS\": 758300672}\n{\"step\": 5000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.127155088542775e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 8.326672684688674e-17, \"P_coordinate_norm\": 0.7370954835268109, \"transported_W_norm\": 0.7370954835268108, \"ordinary_W_norm\": 0.7658182605200515, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 1.431146867680866e-17, \"post_prediction_max_error\": 1.4155343563970746e-15, \"naive_post_prediction_RMS_difference\": 0.0006786573623669402, \"pre_loss\": 0.18282428030569342, \"transported_pre_loss\": 0.18282428030569342, \"native_W_pre_loss\": 0.18282428030569342, \"CPU_percent\": 99.9, \"RSS\": 852508672}\n{\"step\": 10000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.0645710426526733e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 1.1622647289044608e-16, \"P_coordinate_norm\": 0.6495724359874334, \"transported_W_norm\": 0.6495724359874332, \"ordinary_W_norm\": 0.6781028798181347, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 1.929879867024198e-17, \"post_prediction_max_error\": 1.5543122344752192e-15, \"naive_post_prediction_RMS_difference\": 0.0005470108901537833, \"pre_loss\": 0.17270164061969365, \"transported_pre_loss\": 0.17270164061969365, \"native_W_pre_loss\": 0.17270164061969365, \"CPU_percent\": 99.9, \"RSS\": 929300480}\n{\"step\": 15000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.1006533435775623e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 4.5102810375396984e-17, \"P_coordinate_norm\": 0.3442573296368689, \"transported_W_norm\": 0.3442573296368689, \"ordinary_W_norm\": 0.361975490704646, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 7.318364664277155e-18, \"post_prediction_max_error\": 1.4988010832439613e-15, \"naive_post_prediction_RMS_difference\": 0.0007149885274047457, \"pre_loss\": 0.17368757836254856, \"transported_pre_loss\": 0.17368757836254853, \"native_W_pre_loss\": 0.17368757836254853, \"CPU_percent\": 99.9, \"RSS\": 967983104}\n{\"step\": 20000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.3579333147384354e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 2.1033522146218786e-17, \"P_coordinate_norm\": 0.21662049957817595, \"transported_W_norm\": 0.21662049957817595, \"ordinary_W_norm\": 0.227812841811783, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 3.496552006265752e-18, \"post_prediction_max_error\": 1.3877787807814457e-15, \"naive_post_prediction_RMS_difference\": 0.0003961911003823818, \"pre_loss\": 0.17035854891138022, \"transported_pre_loss\": 0.17035854891138022, \"native_W_pre_loss\": 0.17035854891138022, \"CPU_percent\": 99.6, \"RSS\": 972619776}\nP_COORDINATE_REAL_STATES_PASS\n"
+    }
+  ],
+  "terminal_tool_result": {
+    "chunk_id": "bffec2",
+    "wall_time_seconds": 3.423192125,
+    "exit_code": 0,
+    "original_token_count": 1176,
+    "output": "{\"step\": 1000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 6.733730981700603e-07, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 6.938893903907228e-17, \"P_coordinate_norm\": 1.1675105497499745, \"transported_W_norm\": 1.1675105497499747, \"ordinary_W_norm\": 1.1858170920294113, \"P_clip_factor\": 0.8565225759129771, \"ordinary_clip_factor\": 0.8432996652029471, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 9.324138683375338e-18, \"post_prediction_max_error\": 8.881784197001252e-16, \"naive_post_prediction_RMS_difference\": 0.0004442489974884054, \"pre_loss\": 0.21952742523216248, \"transported_pre_loss\": 0.21952742523216248, \"native_W_pre_loss\": 0.21952742523216248, \"CPU_percent\": 84.3, \"RSS\": 689324032}\n{\"step\": 2500, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 9.304665427034564e-07, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 2.949029909160572e-17, \"P_coordinate_norm\": 0.24431728112133763, \"transported_W_norm\": 0.24431728112133771, \"ordinary_W_norm\": 0.2508744925241718, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 3.686287386450715e-18, \"post_prediction_max_error\": 1.3322676295501878e-15, \"naive_post_prediction_RMS_difference\": 0.000728789081810971, \"pre_loss\": 0.19619565820083804, \"transported_pre_loss\": 0.19619565820083798, \"native_W_pre_loss\": 0.19619565820083798, \"CPU_percent\": 99.9, \"RSS\": 758300672}\n{\"step\": 5000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.127155088542775e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 8.326672684688674e-17, \"P_coordinate_norm\": 0.7370954835268109, \"transported_W_norm\": 0.7370954835268108, \"ordinary_W_norm\": 0.7658182605200515, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 1.431146867680866e-17, \"post_prediction_max_error\": 1.4155343563970746e-15, \"naive_post_prediction_RMS_difference\": 0.0006786573623669402, \"pre_loss\": 0.18282428030569342, \"transported_pre_loss\": 0.18282428030569342, \"native_W_pre_loss\": 0.18282428030569342, \"CPU_percent\": 99.9, \"RSS\": 852508672}\n{\"step\": 10000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.0645710426526733e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 1.1622647289044608e-16, \"P_coordinate_norm\": 0.6495724359874334, \"transported_W_norm\": 0.6495724359874332, \"ordinary_W_norm\": 0.6781028798181347, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 1.929879867024198e-17, \"post_prediction_max_error\": 1.5543122344752192e-15, \"naive_post_prediction_RMS_difference\": 0.0005470108901537833, \"pre_loss\": 0.17270164061969365, \"transported_pre_loss\": 0.17270164061969365, \"native_W_pre_loss\": 0.17270164061969365, \"CPU_percent\": 99.9, \"RSS\": 929300480}\n{\"step\": 15000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.1006533435775623e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 4.5102810375396984e-17, \"P_coordinate_norm\": 0.3442573296368689, \"transported_W_norm\": 0.3442573296368689, \"ordinary_W_norm\": 0.361975490704646, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 7.318364664277155e-18, \"post_prediction_max_error\": 1.4988010832439613e-15, \"naive_post_prediction_RMS_difference\": 0.0007149885274047457, \"pre_loss\": 0.17368757836254856, \"transported_pre_loss\": 0.17368757836254853, \"native_W_pre_loss\": 0.17368757836254853, \"CPU_percent\": 99.9, \"RSS\": 967983104}\n{\"step\": 20000, \"native_prefix_rows_bitwise\": 64, \"literal32_prefix_bitwise\": true, \"promoted_native_max_error\": 1.3579333147384354e-06, \"active_gradients_checked\": 49, \"gradient_pullback_max_error\": 2.1033522146218786e-17, \"P_coordinate_norm\": 0.21662049957817595, \"transported_W_norm\": 0.21662049957817595, \"ordinary_W_norm\": 0.227812841811783, \"P_clip_factor\": 1.0, \"ordinary_clip_factor\": 1.0, \"mapped_parameter_max_error\": 2.220446049250313e-16, \"mapped_moment_max_error\": 3.496552006265752e-18, \"post_prediction_max_error\": 1.3877787807814457e-15, \"naive_post_prediction_RMS_difference\": 0.0003961911003823818, \"pre_loss\": 0.17035854891138022, \"transported_pre_loss\": 0.17035854891138022, \"native_W_pre_loss\": 0.17035854891138022, \"CPU_percent\": 99.6, \"RSS\": 972619776}\nP_COORDINATE_REAL_STATES_PASS\n"
+  },
+  "observed_sentinel": true,
+  "exit_code": 0,
+  "mismatch_list": [],
+  "status": "terminal",
+  "expected_sentinel": "P_COORDINATE_REAL_STATES_PASS",
+  "expected_summary_count": 6,
+  "observed_summary_count": 6,
+  "observed_steps": [
+    1000,
+    2500,
+    5000,
+    10000,
+    15000,
+    20000
+  ],
+  "observed_native_prefix_rows": [
+    64,
+    64,
+    64,
+    64,
+    64,
+    64
+  ],
+  "observed_literal32_prefix_bitwise": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "command_matches_documented_verbatim": true,
+  "initial_tool_arguments": {
+    "cmd": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1/source/study.py run --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 20000
+  },
+  "poll_tool_arguments": [
+    {
+      "session_id": 64675,
+      "chars": "",
+      "yield_time_ms": 10000,
+      "max_output_tokens": 20000
+    }
+  ],
+  "documentation_input_paths": [
+    "/Users/mr.z/.codex/skills/expression-skill/SKILL.md",
+    "/Users/mr.z/.agents/skills/run-experiment/SKILL.md",
+    "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+    "/Users/mr.z/ODE-FFN-autoresearch/.aris/compute/macmini.md",
+    "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/p-coordinate-steps/README.md"
+  ],
+  "verification_scope": "Exact documented invocation, combined stdout/stderr and actual terminal tool metadata; no implementation/source or result.json inspection.",
+  "actual_command_log_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1/doc-validation/actual-command.log",
+  "records_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-p-coordinate-steps-v1/doc-validation/records.json"
+}

@@ -6,8 +6,9 @@ nonzero optimizer states and verify it on real image checkpoints. This is
 an algebraic proposition about one update, not a generalization theorem.
 
 ## Status
-COHERENT AS STATED in real arithmetic under the assumptions below. Numerical
-implementation and native finite-precision bridges are pending.
+COHERENT AS STATED in real arithmetic under the assumptions below. The six real-state checks and
+native prediction bridges pass; [measurements](analysis.md) retain all cases.
+The result does not identify a final FID mechanism.
 
 ## Invariant object
 The effective function F(theta,W) and its next parameter update, including
