@@ -1,5 +1,12 @@
 # Frozen image clock attribution
 
+Completed: both clock interventions and all six FID checks pass replay.
+The FID lead survives, and both scores decrease after clock collapse; paired
+fitting changes by less than 0.1%. No new trained architecture is nominated.
+See the [analysis and figures](analysis-report.md), [statistical scope](stats-appendix.md)
+and [metadata correction](results/metadata-correction.json). The commands below
+document the completed run; do not rerun them into its runtime.
+
 See the [registered protocol](protocol.md) and [exact map](theory.md).
 This compares two constant-clock interventions with all four sealed native
 controls. It is not retraining, a new ODE model or a rescue of prior gates.

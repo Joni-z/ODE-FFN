@@ -20,7 +20,7 @@ for row in rows:
     native=next(r for r in formal if r['family']==row['family']);audit=next(r for r in independent if r['family']==row['family'])
     for key in ('weighted_mse','clean_mse','fid','mean_term','covariance_term','out_of_range_fraction'):assert float(row[key])==float(native[key])
     assert abs(float(row['fid'])-audit['fid'])<1e-8 and int(row['generated'])==1024 and int(row['reference'])==2048 and int(row['steps'])==128
-correction=study.load(root/'metric-metadata-v2/receipt.json');assert correction['status']=='PASS' and correction['unchanged_FIDs'] and correction['unchanged_losses']
+correction=study.load(root/'metric-metadata-v2/receipt.json');assert study.sha(root/'metric-metadata-v2/correct_metadata.py')==correction['source_sha256'];assert correction['status']=='PASS' and correction['unchanged_FIDs'] and correction['unchanged_losses']
 for file,digest in correction['unchanged_raw_bindings'].items():assert study.sha(file)==digest
 for row in rows:
     path=root/'output/runs'/row['family'].removesuffix('_constant')/'generated.npy' if row['family'].endswith('_constant') else study.paths(root)['resolution_parent']/'output/runs'/row['family']/'generated-128.npy'

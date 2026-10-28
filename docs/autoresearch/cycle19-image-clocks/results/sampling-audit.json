@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "phase": "sampling",
+  "rows": [
+    {
+      "family": "ode_k1_constant",
+      "predictions_bitwise": true,
+      "samples": 1024,
+      "samples_bitwise": true,
+      "panels": 5,
+      "weighted_mse": 0.1764993527773101,
+      "clean_mse": 0.08127064288600104,
+      "parameters_buffers_unchanged": true
+    },
+    {
+      "family": "ode_k2_constant",
+      "predictions_bitwise": true,
+      "samples": 1024,
+      "samples_bitwise": true,
+      "panels": 5,
+      "weighted_mse": 0.176773283121996,
+      "clean_mse": 0.08125415055358394,
+      "parameters_buffers_unchanged": true
+    }
+  ],
+  "formal_files_unchanged": 24,
+  "seconds": 242.21053879195824
+}

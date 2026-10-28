@@ -1,0 +1,30 @@
+{
+  "new_architecture_nominated": false,
+  "cycle17_fitting_gate": false,
+  "cycle17_order_gate": false,
+  "contrasts": [
+    {
+      "family": "ode_k1",
+      "delta_weighted_mse": 0.00010650296796654857,
+      "weighted_mse_ratio": 1.0006037827955139,
+      "delta_clean_mse": 2.4688457318872148e-05,
+      "delta_FID": -1.2165119907537019,
+      "native_lead_over_best_ordinary": 6.646394953807231,
+      "constant_lead_over_best_ordinary": 7.862906944560933,
+      "lead_fraction_retained": 1.1830333585663386,
+      "constant_beats_both_ordinary": true
+    },
+    {
+      "family": "ode_k2",
+      "delta_weighted_mse": -6.911782146992729e-05,
+      "weighted_mse_ratio": 0.9996091558297039,
+      "delta_clean_mse": 1.4230621495470164e-05,
+      "delta_FID": -3.980202715267467,
+      "native_lead_over_best_ordinary": 8.319871248813229,
+      "constant_lead_over_best_ordinary": 12.300073964080696,
+      "lead_fraction_retained": 1.4783971525803616,
+      "constant_beats_both_ordinary": true
+    }
+  ],
+  "scope": "One simultaneous frozen-clock intervention, exposed calibration; no retraining or unique causal attribution"
+}
