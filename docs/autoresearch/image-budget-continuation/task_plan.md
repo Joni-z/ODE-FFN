@@ -6,7 +6,7 @@
 - [x] All seven continuations and their fixed sampling banks complete. Original controller60302/session91639 has terminal exit0; seven child exits are0. Cohort wall time6595.00seconds. No retry or setting change. Final metrics and both independent cohort audits also pass.
 - [x] Audit and compare fixed checkpoints and generated samples before making a quality claim. Training audit62632exit0/PASS; feature audit62633exit0/PASS; original finalization68281ends with exit0 and no active children.
 - [x] Include a FID trajectory plot with all three fixed budgets and all seven arms. Reporting-only curator7523exits0; all seven figures visually reviewed. The20kdecision rule remains unchanged.
-- [ ] Verify public tables/figures against the completed runtime, record actual tool exits and visual review, and seal the complete archive after all controllers finish. Preserve the submitted report and all parent seals.
+- [x] Verify public tables/figures against the completed runtime, record actual tool exits and visual review, and seal the complete archive after all controllers finish. Archive18048exits0;636files sealed ac381ff444384e052c4cc48e9f11550f00ab410a233154972177e97fe543a48b. Submitted Report1, source scopes and all five parent seals are unchanged.
 
 No new architecture, loss, data, seed or optimizer setting is selected. Publication is direct from Mac mini when authentication is available.
 
@@ -40,3 +40,5 @@ All fourteen producer FIDs complete with evaluator80573exit0. The separate featu
 Reporting-only curator v3 adds a seventh figure connecting every model's actual5k/10k/20kFID endpoints. All models' FID rises between10kand20k while paired MSE falls. The20kpriority function is AST-identical to v2 and all four rule checks pass. Frozen v1/v2 sources are preserved; no figure is produced until the complete audit passes. No best-checkpoint replacement or new training is selected.
 
 All computations now finish with actual terminal exit0. Training audit passes in1884.20seconds, feature audit in215.09seconds; no controller or audit child remains. Curator7523exits0 and all seven PNGs are inspected. The complete English analysis, appendix, figure catalog and runtime/public ledgers are written. K1meets the prospective follow-up margin; K2does not. This is an existing-model image lead, not a new method. Archive checks and sealing are the remaining closure step; native GitHub publication still lacks authentication.
+
+Closure complete: archive18048exits0 and verifies636files,21table rows,112curve points,48P records,70time-panel scores, the rounded report table, all seven visual reviews and all five parent seals. Private archive2053556236bytes; curated payload1269418bytes. This final public log and seal receipt are written after sealing; the immutable runtime and its pre-seal closure-source copies are untouched. The broader useful-ODE-successor objective is still open. No new training has been launched.
