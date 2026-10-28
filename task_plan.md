@@ -406,3 +406,9 @@ The empirical reference is unsuitable for population design under its fixed guar
 - [x] Run and independently audit280finite response records, seal d9d7ca3a and publish all controls.
 
 The common-direction priority rule fails; retain own-space negative witnesses without a global PSD or FID claim. No spectral/monotonicity rescue. Next selected ordinary-control question: function-match Swi86 initialization to the known cold SiLU/fixed-P starting map, before any new ODE-specific architecture claim.
+
+## Paired cold clock-source closure (2026-10-29)
+- [x] Complete both20k seed0 trajectories, registered replays, seven inspected figures and full41-row comparison.
+- [x] Apply the original gate: timeFID172.04 versus native173.44 is0.80%better, below5%; both fitting guards pass. Stop this setting without rescue.
+- [x] Seal313raw/runtime files (ff9bad0e) and publish verified evidence1b1732d.
+- [ ] Review the shared10k-to20k fitting/generation mismatch against earlier image evidence before selecting any new architecture. No new model selected; broader useful-ODE goal remains active.

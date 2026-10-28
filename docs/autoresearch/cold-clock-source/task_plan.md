@@ -26,7 +26,8 @@ AdaLN time conditioning as absent.
   the existing sampler runs; record novelty limits without selecting a rescue.
 - [x] Complete prediction, matrix/clock, sample and feature/FID audits; retain
   all outcomes and stop this setting under its original rule.
-- [ ] Publish complete evidence and fast-forward clean local main.
+- [x] Publish complete evidence through normal verified GitHub main push.
+- [ ] Fast-forward clean local main after this metadata commit is published.
 
 ## Status
 Both 20k trajectories, all three audits, complete curation and seven inspected

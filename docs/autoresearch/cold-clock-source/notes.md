@@ -53,3 +53,5 @@ No new FID or final decision exists. See readiness/analysis-registration.json.
 Bounded primary-method review covers T-LoRA2507.05964v2 and TC-LoRA2510.09561v1; both extracted with no uncovered IDs. Generic timestep-conditioned weights are prior art. Our scalar dense direction is a restriction to test, not first-use or uniquely ODE computation. No experiment/gate/source change.
 
 Completed controller96978/14e4e8 exit0; all registered auditsPASS. Curation94283/30777e, plotting70435/37be86 and closure31076/8f3b60 exit0. All7figures inspected;17primary/41total rows verified. TimeFID172.042134 is0.8042%below native and1.2400%below paired feature;5%gate fails while loss guards pass. Source/input/gates unchanged. Runtime313files sealff9bad0ebbfb5a17e8a791f85b3383331a707c568b72d603a040bf0d9c74001c. No private post-seal writes. No next architecture selected. Publication is next.
+
+Evidence1b1732d is published and remote-SHA verified by actual publisher79786 terminal0. This public metadata update does not modify the sealed private runtime.
