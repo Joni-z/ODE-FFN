@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "mathematics": {
+    "status": "PASS",
+    "conditional_mean_cases": 15,
+    "max_identity_error": 1.629265661170072e-14,
+    "full_space_PSD_counterexample_minimum": -0.14031242374328487,
+    "patch_isometry": true,
+    "known_matrix_joint_sketch": true
+  },
+  "models": [
+    {
+      "arm": "ode_k1",
+      "native_prefix_images": 64,
+      "state_batch_replays": 20,
+      "float32_literal_bitwise": true,
+      "promoted_forward_max_absolute_error": 9.059223026186558e-07,
+      "null_perturbation_max_output_error": 9.992007221626409e-16,
+      "nonzero_VJP_norm": 0.30354863643883606,
+      "finite_difference_absolute_error": 2.344929805886409e-13
+    },
+    {
+      "arm": "fixed06",
+      "native_prefix_images": 64,
+      "state_batch_replays": 20,
+      "float32_literal_bitwise": true,
+      "promoted_forward_max_absolute_error": 1.0671055177269295e-06,
+      "null_perturbation_max_output_error": 6.661338147750939e-16,
+      "nonzero_VJP_norm": 0.2879623286689722,
+      "finite_difference_absolute_error": 4.206024417641174e-12
+    },
+    {
+      "arm": "matched_silu64",
+      "native_prefix_images": 64,
+      "state_batch_replays": 20,
+      "float32_literal_bitwise": true,
+      "promoted_forward_max_absolute_error": 1.1750286081912975e-06,
+      "null_perturbation_max_output_error": 6.661338147750939e-16,
+      "nonzero_VJP_norm": 0.2961017603712842,
+      "finite_difference_absolute_error": 3.2166908026098895e-12
+    },
+    {
+      "arm": "swiglu86",
+      "native_prefix_images": 64,
+      "state_batch_replays": 20,
+      "float32_literal_bitwise": true,
+      "promoted_forward_max_absolute_error": 1.1996089205323912e-06,
+      "null_perturbation_max_output_error": 6.661338147750939e-16,
+      "nonzero_VJP_norm": 0.2907721383326992,
+      "finite_difference_absolute_error": 7.277095592783667e-13
+    },
+    {
+      "arm": "silu131",
+      "native_prefix_images": 64,
+      "state_batch_replays": 20,
+      "float32_literal_bitwise": true,
+      "promoted_forward_max_absolute_error": 9.26754340158098e-07,
+      "null_perturbation_max_output_error": 8.881784197001252e-16,
+      "nonzero_VJP_norm": 0.3155461861565377,
+      "finite_difference_absolute_error": 1.3327533521234614e-12
+    }
+  ],
+  "common_patch_rank": 16,
+  "formal_measurement_started": false
+}

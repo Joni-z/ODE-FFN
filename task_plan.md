@@ -400,3 +400,9 @@ Controller60305/d97c5d exits0; runtime seal9a7f7bb6. Exact rotation fails all qu
 - [x] Sealf4262369 and publish all rows, figures and fixed image0.
 
 The empirical reference is unsuitable for population design under its fixed guard and does not support the registered reversal. No new training or model is selected. Next: source-bound response geometry of the full predictor in its retained input subspace, with no empirical image oracle. Existing stopped families remain closed; main research goal active.
+
+## Observed-coordinate image responses (2026-10-29)
+- [x] Verify real-extension native output equivalence, actual input spaces and conditional target identity.
+- [x] Run and independently audit280finite response records, seal d9d7ca3a and publish all controls.
+
+The common-direction priority rule fails; retain own-space negative witnesses without a global PSD or FID claim. No spectral/monotonicity rescue. Next selected ordinary-control question: function-match Swi86 initialization to the known cold SiLU/fixed-P starting map, before any new ODE-specific architecture claim.

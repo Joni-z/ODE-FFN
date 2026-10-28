@@ -5,6 +5,18 @@ necessary conditional-mean property distinguishes K1 from strong ordinary
 controls. The [protocol](protocol.md) retains the lossy-input correction and
 every selected state; [notes](notes.md) separate the source from the application.
 
+## Outcome
+
+The [complete analysis](results/analysis-report.md) fails the predeclared
+common-direction priority rule. Negative witnesses exist in each model's own
+observed space, but no shared-space row crosses the-.05threshold, and K1 has
+no corresponding advantage. The [ordinary controls and fixed cases](results/case-notes.md)
+are retained. No PSD constraint or new architecture is nominated.
+
+Actual native preflight90377/9781fd, controller12048/e40835 and analysisfdad8d
+exited0. Every compressed response and witness passed independent differences.
+The raw runtime is sealed outside Git; original source and Report1 are unchanged.
+
 Use unchanged image-training@475428fb and the existing Mac mini interpreter.
 No package installation or GPU reservation. Freeze committed source and
 existing model/state bindings into a new exclusive runtime:

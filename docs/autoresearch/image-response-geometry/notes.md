@@ -32,3 +32,5 @@ small-step finite differences. The isolated real extension will spell those
 same equations without the casts, check bitwise float32 equivalence first,
 and keep the original model/source unchanged. The unsuccessful arXivv3URL
 was not a paper source; no version or tolerance is inferred from it.
+
+ER-20261029-image-response-result-01: complete source569d508, native90377/9781fd, controller12048/e40835 and analysisfdad8d exits0. Finite-difference audit passes280blocks/560witness checks. Common patch rank16; no shared witness below-.05. Own-space witnesses remain and are not a controlled causal comparison. Seal d9d7ca3ab2ed93835cfc8b620c0dd4af54209ba4403cad87f47da95188df05f3. No PSD architecture selected. Next check: matched-initial-function Swi86, motivated by completed SiLU initialization gain rather than this failed priority setting.

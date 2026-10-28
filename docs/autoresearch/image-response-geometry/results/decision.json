@@ -1,0 +1,29 @@
+{
+  "diagnostic_premise_pass": false,
+  "common_patch_rank": 16,
+  "checks": [
+    {
+      "domain": "generated_K1",
+      "Swi_mean_hinge": 0.0016899888730511083,
+      "K1_mean_hinge": 0.0028377443546552293,
+      "Swi_count_below_minus_005": 0,
+      "Swi_mean_at_least_005": false,
+      "Swi_at_least_three_witnesses": false,
+      "K1_hinge_25_percent_lower": false
+    },
+    {
+      "domain": "generated_Swi86",
+      "Swi_mean_hinge": 0.0020480579531033795,
+      "K1_mean_hinge": 0.002567136322290226,
+      "Swi_count_below_minus_005": 0,
+      "Swi_mean_at_least_005": false,
+      "Swi_at_least_three_witnesses": false,
+      "K1_hinge_25_percent_lower": false
+    }
+  ],
+  "new_architecture_selected": false,
+  "new_training": false,
+  "new_FID": false,
+  "full_ambient_Jacobian_reconstructed": false,
+  "global_PSD_certified": false
+}
