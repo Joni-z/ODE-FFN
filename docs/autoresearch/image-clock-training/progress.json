@@ -1,12 +1,12 @@
 {
-  "observed_at_UTC": "2026-10-28T11:01:10.328952+00:00",
+  "observed_at_UTC": "2026-10-28T11:23:35.145442+00:00",
   "phase": {
     "state": "RUNNING",
     "phase": "training",
     "completed": 0,
     "total": 6,
     "pid": 70727,
-    "seconds": 251.05324899987318
+    "seconds": 1591.8338136668317
   },
   "controller_identity": {
     "pid": 70719,
@@ -20,20 +20,20 @@
       "create_time": 1793185021.45275,
       "identity_live": true,
       "recorded_state": "RUNNING",
-      "completed_updates": 2800,
+      "completed_updates": 18100,
       "total_updates": 20000,
       "primed_CPU_percent": 100.0,
-      "RSS_bytes": 860471296,
+      "RSS_bytes": 888291328,
       "latest_saved_validation": {
-        "step": 2500,
-        "weighted_mse": 0.1904145693368889,
-        "clean_mse": 0.08607158468815523,
-        "prediction_rms": 0.4079726030510031,
-        "train_loss": 0.2044075761437416,
-        "grad_norm": 0.8513986935416857,
-        "clip_fraction": 0.29733333333333334
+        "step": 15000,
+        "weighted_mse": 0.1622617978274968,
+        "clean_mse": 0.07663630103812298,
+        "prediction_rms": 0.41816291449723075,
+        "train_loss": 0.16702860634028913,
+        "grad_norm": 0.43069712162315843,
+        "clip_fraction": 0.0082
       },
-      "native_stream_checks": 3,
+      "native_stream_checks": 19,
       "exit_code": null
     },
     {
@@ -42,20 +42,20 @@
       "create_time": 1793185021.459846,
       "identity_live": true,
       "recorded_state": "RUNNING",
-      "completed_updates": 3000,
+      "completed_updates": 19500,
       "total_updates": 20000,
       "primed_CPU_percent": 100.0,
-      "RSS_bytes": 864763904,
+      "RSS_bytes": 881328128,
       "latest_saved_validation": {
-        "step": 2500,
-        "weighted_mse": 0.18963515304096148,
-        "clean_mse": 0.08582388506641063,
-        "prediction_rms": 0.40937518392917877,
-        "train_loss": 0.2031320256094138,
-        "grad_norm": 0.8658930937846502,
-        "clip_fraction": 0.30266666666666664
+        "step": 15000,
+        "weighted_mse": 0.16214356997271076,
+        "clean_mse": 0.07660597109665895,
+        "prediction_rms": 0.4180784818356818,
+        "train_loss": 0.1668890473753214,
+        "grad_norm": 0.4405890322625637,
+        "clip_fraction": 0.0088
       },
-      "native_stream_checks": 4,
+      "native_stream_checks": 20,
       "exit_code": null
     }
   ],

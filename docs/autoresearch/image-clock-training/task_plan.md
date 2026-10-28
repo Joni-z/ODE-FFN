@@ -21,6 +21,17 @@ nominating another architecture.
 - [ ] Plot the complete comparison, write report/limits, verify preservation,
   seal and publish. No automatic calibration, optimizer or constant rescue.
 
+## Acceptance work while the original controller runs
+- [x] Re-poll actual session5632 and verify controller70719/create-time; the
+  preceding authentication turn also confirmed direct GitHub publication.
+- [x] Hash the actual external pixels, split and manifest against native17;
+  all match and their metadata predates this training launch. The unused
+  download tarball is not an input to `data_for` and is not a native binding.
+- [ ] Register the curator before new FIDs: all32 endpoint rows,14primary rows,
+ 26primary ratios,75time-panel scores,210matrix summaries and144fixed examples.
+- [ ] Verify report numbers, plotted arrays, actual tool exits, external data,
+  protected scopes and source/parent preservation before sealing the runtime.
+
 ## Decisions
 Use the warm Mac mini CPU stack to retain comparability with the native
 baselines. Lenovo SSH probe 38914 exits 255 (timeout). Available RAM 4.75 GiB and

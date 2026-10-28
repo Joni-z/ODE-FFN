@@ -1,13 +1,13 @@
 # Recorded training progress
 
-Observed at `2026-10-28T11:01:10.328952+00:00`. This is a saved snapshot, not a live GitHub feed.
+Observed at `2026-10-28T11:23:35.145442+00:00`. This is a saved snapshot, not a live GitHub feed.
 
 Pipeline phase: `training`. Original controller identity live: `True`.
 
 | Control | Completed updates | Process identity live | CPU (%) | RSS (GiB) | Latest saved validation step |
 |---|---:|---|---:|---:|---:|
-| fixed06 | 2800/20000 | True | 100.0 | 0.801 | 2500 |
-| matched_silu64 | 3000/20000 | True | 100.0 | 0.805 | 2500 |
+| fixed06 | 18100/20000 | True | 100.0 | 0.827 | 15000 |
+| matched_silu64 | 19500/20000 | True | 100.0 | 0.821 | 15000 |
 
 All saved input-stream checks must match the sealed native trajectory. Training loss or validation regression alone does not establish a generative improvement.
 
