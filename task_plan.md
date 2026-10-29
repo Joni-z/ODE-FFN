@@ -12,20 +12,22 @@ files. Use [Report2 scope](reports/report2/README.md),
 [report plan](reports/report2/task_plan.md) for the ongoing deliverable.
 The current ISRU follow-up is Report2 work; it does not reopen Report1.
 
-## Current priority: ISRU positive-result follow-up (2026-10-29)
-The user asks why the existing positive ISRU design is not being pursued and
-requires maintaining Markdown to preserve progress. The immediate focus is
-[ISRU evidence](docs/autoresearch/isru-followup/README.md), its
-[task plan](docs/autoresearch/isru-followup/task_plan.md) and
-[continuity notes](docs/autoresearch/isru-followup/notes.md).
-- [x] Recover the exact winning operator and initial/transfer CSV observations.
-- [x] Preserve the Product16 win together with the dependent-sign and
-  half-mixture reversals; do not substitute original-ODE results for this design.
-- [ ] Assess training adequacy, recover exact states/configurations and
-  specify one justified follow-up before a new launch.
-Current stage: evidence review only; no new experiment launched. Baseline
-validation constrains the follow-up. Do not switch to another architecture
-family or the weak image screen merely because an old transfer gate failed.
+## Current priority: run the existing ISRU on CIFAR-10 (2026-10-29)
+The user explicitly authorized this transfer and selected Mac mini only.
+Use [the registered protocol](docs/autoresearch/isru-cifar10/README.md),
+[its plan](docs/autoresearch/isru-cifar10/task_plan.md) and
+[notes](docs/autoresearch/isru-cifar10/notes.md). Keep the complete
+[synthetic evidence](docs/autoresearch/isru-followup/README.md).
+- [x] Recover the exact operator and retain both positive and negative tasks.
+- [x] Check the official JiT recipe, warm environments and real MPS capacity.
+- [x] Register a width192/depth6 backbone, matched and wider SwiGLU controls,
+  shared batch512 training, EMA and a50k-update cap before quality outcomes.
+- [x] Implement physical resume, monitoring and scheduled FID/images/matrices.
+- [ ] Freeze and pass the fresh documented entrypoint checks, then launch.
+- [ ] Verify actual increasing steps and publish the launch; keep Report2 updated.
+No architecture conclusion follows until ordinary-baseline adequacy is shown.
+No Lenovo, MBP or torch dependency. This is a new benchmark, not a rescue
+or reinterpretation of the tiny historical image screen.
 
 ## Standing constraint: baseline validity (2026-10-29)
 The user challenged the image results because the ordinary baseline has not

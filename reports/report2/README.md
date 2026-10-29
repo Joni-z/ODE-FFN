@@ -15,7 +15,9 @@ Report1 identity and a Git-derived inventory of post-Report1 work.
 
 The current research focus is the positive
 [ISRU synthetic result](../../docs/autoresearch/isru-followup/README.md),
-its transfer boundaries, and unresolved training adequacy and attribution.
+its transfer boundaries, and the newly authorized
+[CIFAR-10 comparison](../../docs/autoresearch/isru-cifar10/README.md) on Mac
+mini. Training adequacy and attribution remain unresolved.
 Other post-finalization studies remain Report2 material even when they are
 not selected for the short main narrative. The
 [image-baseline validity correction](../../docs/autoresearch/baseline-validity-review.md)

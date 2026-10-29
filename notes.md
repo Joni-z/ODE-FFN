@@ -6,13 +6,19 @@ requested edit (994e660); all later work belongs to Report2. Use the separate
 [Report2 folder](reports/report2/README.md) and [evidence index](reports/report2/evidence-index.md).
 Do not edit or rebuild Report1, even though its archived README says draft.
 
-The user directs attention to the positive ISRU synthetic design and requires
-Markdown continuity. Read [ISRU follow-up](docs/autoresearch/isru-followup/README.md),
-[its plan](docs/autoresearch/isru-followup/task_plan.md) and
-[its notes](docs/autoresearch/isru-followup/notes.md) first. The Product16 gain
-is real within the recorded budget; failed transfer does not erase it. Training
-adequacy, attribution and generation remain unresolved. No new training is
-launched by this update; image baseline validity remains a standing constraint.
+The user authorized the existing ISRU design on CIFAR-10 and selected Mac mini
+only. [The new protocol](docs/autoresearch/isru-cifar10/README.md) registers
+a192-wide, six-layer JiT, three arms (ISRU, matched SwiGLU, wider SwiGLU),
+batch512 and a50k-update cap with warmup/constant LR and EMA. Real MPS
+calibration gives about6.17s per three-arm cohort; full training is roughly
+86hours plus evaluation. Original ISRU and SwiGLU gradients, active SDPA,
+real-data optimizer/EMA, physical disk resume and sampling pass the author
+witness. Frozen fresh-agent checks and actual launch are next; preparation
+is not a claimed training launch. Baseline competence remains unestablished.
+
+Retain [the complete synthetic evidence](docs/autoresearch/isru-followup/README.md):
+the Product16 gain is real within its budget, with task/budget-dependent
+reversals. Image transfer, attribution and convergence remain unresolved.
 
 ## Evidence used at setup
 - Canonical starting commit: `2d2259a8e34fb15d48e57f9492f18f4d026e57c8`.
