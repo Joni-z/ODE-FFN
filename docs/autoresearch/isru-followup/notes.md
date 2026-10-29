@@ -10,6 +10,10 @@ the immediate focus. Baseline adequacy remains a prerequisite for claims.
 1. Cubic local-flow screen: the tied/adaptive cubic split improves the old
    ODE but loses to strong ordinary controls. The independent `free_isru`
    control reaches Product16 oracle MSE 0.037159 versus Swi160 0.078178.
+   The other original tasks also remain explicit: Gaussian2D ISRU/Swi64/Swi160
+   MSEs are 0.005429/0.004192/0.004557; Ring8 values are 0.016694/0.017904/0.013921.
+   Ring8 therefore has a small same-parameter positive result, but loses to
+   the wider comparator. Do not silently use only the favorable budget.
 2. Cold dependent-sign transfer: the same ISRU model reaches 0.085073 versus
    Swi160 0.039790. This narrows its task scope, not the existence of the
    Product16 improvement.

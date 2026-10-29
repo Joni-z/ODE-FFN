@@ -22,7 +22,7 @@ W1 and W2 are independent, bias-free learned 64x64 matrices. Both start at
 `I + 0.3 P + 0.045 P^2`, using the original first P's cold state. The response
 comes from the exact local cubic subflow `y'=-y^3` at duration 0.6. The separate
 `cubic_split` candidate retains a tied P and adaptive clock; its result must
-not be substituted for the winning free-matrix ISRU arm.
+not be substituted for the Product16-positive free-matrix ISRU arm.
 
 This identifies the actual successful computation. It does not establish a
 new activation, an ODE-specific necessity or a converged-generator advantage.
@@ -33,11 +33,19 @@ All rows below are recorded 5,000-update oracle field MSEs; lower is better.
 Compare models within each row. Historical references are reused, not fresh
 replications.
 
-| Target law | Free ISRU | SwiGLU160 | Interpretation |
-|---|---:|---:|---|
-| Independent-sign Product16 | **0.037159** | 0.078178 | ISRU field error is 52.47% lower in this screen. |
-| Dependent signs | 0.085073 | **0.039790** | The advantage reverses after cold retraining. |
-| Half Product16 / half dependent signs | 0.163557 | **0.113254** | The reversal persists with all 65,536 original component locations retaining positive probability. |
+| Target law | Free ISRU | SwiGLU64, near parameters | SwiGLU160, wider | Interpretation |
+|---|---:|---:|---:|---|
+| Gaussian2D | 0.005429 | **0.004192** | 0.004557 | Worse than both ordinary controls. |
+| Ring8 | 0.016694 | 0.017904 | **0.013921** | Better than the near-parameter control, worse than the wider control. |
+| Independent-sign Product16 | **0.037159** | 0.164398 | 0.078178 | 52.47% lower field error than Swi160 in this screen. |
+| Dependent signs | 0.085073 | 0.051075 | **0.039790** | Worse than both ordinary controls after cold retraining. |
+| Half Product16 / half dependent signs | 0.163557 | 0.192344 | **0.113254** | Better than the near-parameter control, worse than the wider control. |
+
+The original three-task result is not a sweep-wide win. On Ring8, ISRU is
+6.76% better than near-parameter Swi64 but 19.92% worse than Swi160. Gaussian2D
+is worse than both. On the half-mixture, its ordering also depends on which
+budget control is used. Keep both ordinary budgets visible; do not describe
+all non-Product16 tasks as uniformly negative or omit their limitations.
 
 Sources: [initial experiment](../../research-cubic-split-2026-10-26/analysis-report.md),
 [dependent-sign transfer](../../research-joint-dependence-2026-10-26/analysis-report.md),

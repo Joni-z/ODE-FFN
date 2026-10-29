@@ -14,6 +14,8 @@ training extension, architecture, or hyperparameter search has been launched.
 - [x] Re-read the initial result, dependent-sign transfer and half-mixture
   control; preserve their positive and negative findings together.
 - [x] Check the actual 2.5k/5k CSV records and stored clipping windows.
+- [x] Retain all three original tasks and both Swi64/Swi160 budgets, plus
+  both transfer laws; record the partial Ring8 gain as well as its wider-control deficit.
 - [ ] P0: recover exact frozen model/config/optimizer/data identities and
   locate the reusable ISRU and ordinary-baseline checkpoints.
 - [ ] P0: assess baseline training adequacy and ISRU/oracle gaps using the
