@@ -1,0 +1,110 @@
+{
+  "hardware_only": true,
+  "formal_quality_data": false,
+  "runs": [
+    {
+      "status": "PASS",
+      "device": "mps",
+      "width": 192,
+      "depth": 6,
+      "rows": [
+        {
+          "arm": "isru",
+          "parameters": 2870064,
+          "FFN_parameters_per_block": 73728,
+          "FFN_dense_forward_MACs_per_token_per_block": 73728,
+          "scope": "dense FFN matrix work; pointwise and backbone excluded",
+          "batch": 128,
+          "median_update_seconds": 0.5833114578854293,
+          "MPS_allocated_bytes": 62439168,
+          "MPS_driver_bytes": 1537261568,
+          "kernel": "real full JiT forward/backward/Adam",
+          "input": "seeded synthetic image tensors; no quality outcomes"
+        },
+        {
+          "arm": "swiglu_matched",
+          "parameters": 2872752,
+          "FFN_parameters_per_block": 74176,
+          "FFN_dense_forward_MACs_per_token_per_block": 73728,
+          "scope": "dense FFN matrix work; pointwise and backbone excluded",
+          "batch": 128,
+          "median_update_seconds": 0.5757671669125557,
+          "MPS_allocated_bytes": 62651392,
+          "MPS_driver_bytes": 1369522176,
+          "kernel": "real full JiT forward/backward/Adam",
+          "input": "seeded synthetic image tensors; no quality outcomes"
+        },
+        {
+          "arm": "swiglu_wide",
+          "parameters": 4204464,
+          "FFN_parameters_per_block": 296128,
+          "FFN_dense_forward_MACs_per_token_per_block": 294912,
+          "scope": "dense FFN matrix work; pointwise and backbone excluded",
+          "batch": 128,
+          "median_update_seconds": 0.6456287920009345,
+          "MPS_allocated_bytes": 82646016,
+          "MPS_driver_bytes": 2426519552,
+          "kernel": "real full JiT forward/backward/Adam",
+          "input": "seeded synthetic image tensors; no quality outcomes"
+        }
+      ],
+      "estimated_cohort_update_seconds": 1.8047074167989194,
+      "formal_quality_training_started": false
+    },
+    {
+      "status": "PASS",
+      "device": "mps",
+      "width": 192,
+      "depth": 6,
+      "rows": [
+        {
+          "arm": "isru",
+          "parameters": 2870064,
+          "FFN_parameters_per_block": 73728,
+          "FFN_dense_forward_MACs_per_token_per_block": 73728,
+          "scope": "dense FFN matrix work; pointwise and backbone excluded",
+          "batch": 512,
+          "median_update_seconds": 2.026675916975364,
+          "SDPA": true,
+          "optimizer_foreach": true,
+          "MPS_allocated_bytes": 80613376,
+          "MPS_driver_bytes": 4484448256,
+          "kernel": "real full JiT forward/backward/Adam",
+          "input": "seeded synthetic image tensors; no quality outcomes"
+        },
+        {
+          "arm": "swiglu_matched",
+          "parameters": 2872752,
+          "FFN_parameters_per_block": 74176,
+          "FFN_dense_forward_MACs_per_token_per_block": 73728,
+          "scope": "dense FFN matrix work; pointwise and backbone excluded",
+          "batch": 512,
+          "median_update_seconds": 1.980124083114788,
+          "SDPA": true,
+          "optimizer_foreach": true,
+          "MPS_allocated_bytes": 80655104,
+          "MPS_driver_bytes": 4492869632,
+          "kernel": "real full JiT forward/backward/Adam",
+          "input": "seeded synthetic image tensors; no quality outcomes"
+        },
+        {
+          "arm": "swiglu_wide",
+          "parameters": 4204464,
+          "FFN_parameters_per_block": 296128,
+          "FFN_dense_forward_MACs_per_token_per_block": 294912,
+          "scope": "dense FFN matrix work; pointwise and backbone excluded",
+          "batch": 512,
+          "median_update_seconds": 2.159246375085786,
+          "SDPA": true,
+          "optimizer_foreach": true,
+          "MPS_allocated_bytes": 101962496,
+          "MPS_driver_bytes": 5583421440,
+          "kernel": "real full JiT forward/backward/Adam",
+          "input": "seeded synthetic image tensors; no quality outcomes"
+        }
+      ],
+      "estimated_cohort_update_seconds": 6.166046375175938,
+      "formal_quality_training_started": false
+    }
+  ]
+}

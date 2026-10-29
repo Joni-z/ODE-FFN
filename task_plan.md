@@ -23,11 +23,19 @@ Use [the registered protocol](docs/autoresearch/isru-cifar10/README.md),
 - [x] Register a width192/depth6 backbone, matched and wider SwiGLU controls,
   shared batch512 training, EMA and a50k-update cap before quality outcomes.
 - [x] Implement physical resume, monitoring and scheduled FID/images/matrices.
-- [ ] Freeze and pass the fresh documented entrypoint checks, then launch.
-- [ ] Verify actual increasing steps and publish the launch; keep Report2 updated.
+- [x] Freeze and pass the fresh documented entrypoint checks, then launch.
+- [x] Verify actual increasing steps and publish the launch; keep Report2 updated.
+- [ ] Inspect500-update validation and2k raw/EMA grids; record baseline quality
+  before interpreting the5k/10k/25k/50k FIDs.
 No architecture conclusion follows until ordinary-baseline adequacy is shown.
 No Lenovo, MBP or torch dependency. This is a new benchmark, not a rescue
 or reinterpretation of the tiny historical image screen.
+
+Source6bffa70 is frozen; both fresh documented invocations exit0. Detached
+controller95010/trainer95011 are live, all three arms reach25 updates with
+finite losses/gradients. Actual speed about6.3s/cohort; Apple GPU97–99%.
+[Running status](docs/autoresearch/isru-cifar10/status.md) and timestamped
+snapshot record the launch, not an image-quality result.
 
 ## Standing constraint: baseline validity (2026-10-29)
 The user challenged the image results because the ordinary baseline has not

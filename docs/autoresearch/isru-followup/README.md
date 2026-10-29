@@ -91,8 +91,11 @@ Follow [task_plan.md](task_plan.md) and [notes.md](notes.md). First recover the
 exact frozen ISRU/baseline states and assess learning curves, oracle error
 scales and sampling quality. Then specify one focused follow-up with adequate
 ordinary controls. Do not add a stack of tricks, assume that 5k is sufficient,
-or move to images using the weak current image baseline. No new training
-protocol or launch is selected by this note.
+or move to images using the weak current image baseline. The user's subsequent
+explicit authorization selects the separately registered
+[CIFAR-10 transfer](../isru-cifar10/README.md) with a larger shared backbone and
+matched/wider SwiGLU on Mac mini. Follow its execution plan for current status;
+neither baseline competence nor an image benefit is established yet.
 
 The original cubic screen and its transfer records remain unchanged. The
 current task is an explicit reassessment of a positive lead, not a claim that

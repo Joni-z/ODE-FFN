@@ -12,12 +12,13 @@ index as major results or interpretations change. Current ISRU follow-up is
 Report2 work. Historical draft wording in Report1 does not reopen it.
 
 ## Current research focus
-Read the [ISRU follow-up](isru-followup/README.md), its plan and notes before
-selecting another family. The user is directing attention to that existing
-positive result. Preserve its transfer failures without erasing the original
-gain or replacing it with original-ODE scores. First assess training adequacy
-and attribution. A new follow-up needs its own concrete protocol; no new run
-is selected by the continuity note, and old raw studies remain immutable.
+The user explicitly authorized the existing ISRU design on CIFAR-10 and
+selected Mac mini only. Follow the separately registered
+[transfer protocol](isru-cifar10/README.md), task plan and notes, while retaining
+[all synthetic outcomes](isru-followup/README.md). The new larger-backbone
+comparison runs ISRU alongside both ordinary controls; it introduces no new
+ODE trick. Baseline adequacy and attribution remain unresolved. Old source,
+raw studies and Report1 remain immutable.
 
 ## Immutable ground truth
 Keep registered datasets, train/validation split, FM coupling, oracle formulas, metric code, native checkpoint restoration and held-out test data fixed. Model seed is 0. Stream identifiers remain the historically recorded values. Do not change evaluation or data to obtain a win. Treat source snapshots and sealed studies as read-only. Keep checkpoints, datasets, environments and raw logs outside Git.
@@ -32,8 +33,11 @@ and a correct operator derivation do not supply that missing premise.
 
 Work first on an ordinary-baseline reproduction and training/evaluation
 validation with a source-supported recipe, adequate capacity, and quality
-and convergence assessment specified before architecture comparison. No new
-ODE-variant training is selected until that prerequisite is met. If a repaired
+and convergence assessment specified before interpreting architecture quality.
+The user's subsequent explicit CIFAR authorization selects concurrent training
+of the existing ISRU candidate and ordinary controls in a new benchmark;
+it does not establish baseline competence or authorize a quality verdict.
+If a repaired
 benchmark changes a recipe or evaluation protocol, register and version it
 separately; preserve all old data, protocols, scores and failed runs. This is
 benchmark validation, not relabeling an old failure or searching for an ODE win.

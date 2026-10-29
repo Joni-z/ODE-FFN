@@ -1,0 +1,202 @@
+{
+  "status": "PASS",
+  "runtime_source_commit": "6bffa70ef99649ec4eef421763dea1519bb19a93",
+  "bindings_sha256": "4df78d20e3eb786e7e01ff7ecb4c81f5835f6726f53dd1354bb8d0e4a5fdb396",
+  "fresh_agent": {
+    "schema_version": 1,
+    "role": "fresh agent-follows-doc readiness pass",
+    "runtime_root": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1",
+    "documents_read": [
+      "/Users/mr.z/.agents/skills/run-experiment/SKILL.md",
+      "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+      "/Users/mr.z/ODE-FFN-autoresearch/.aris/compute/macmini.md",
+      "/Users/mr.z/ODE-FFN-autoresearch/docs/autoresearch/isru-cifar10/README.md"
+    ],
+    "required_communication_skill_read": "/Users/mr.z/.codex/skills/expression-skill/SKILL.md",
+    "invocations_were_verbatim": true,
+    "invocations_were_sequential": true,
+    "formal_training_launched": false,
+    "package_installs": false,
+    "implementation_source_inspected": false,
+    "source_or_documentation_edited": false,
+    "training": {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/source/preflight.py --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1 --output /Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/documented-training",
+      "attempts": 1,
+      "tool_session_id": 77532,
+      "tool_calls": [
+        {
+          "chunk_id": "a66e85",
+          "wall_time_seconds": 1.002897459,
+          "session_id": 77532,
+          "original_token_count": 0,
+          "output": ""
+        },
+        {
+          "chunk_id": "ccea00",
+          "wall_time_seconds": 1.842472167,
+          "exit_code": 0,
+          "original_token_count": 24,
+          "output": "ORIGINAL_ISRU_AND_SWIGLU_PASS\nACTIVE_ATTENTION_FORWARD_AND_GRADIENT_PASS\nTRAINING_WITNESS_PASS\n"
+        }
+      ],
+      "terminal_exit_code": 0,
+      "observed_sentinels": [
+        "ORIGINAL_ISRU_AND_SWIGLU_PASS",
+        "ACTIVE_ATTENTION_FORWARD_AND_GRADIENT_PASS",
+        "TRAINING_WITNESS_PASS"
+      ],
+      "output_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/documented-training/result.json",
+      "result": {
+        "status": "PASS",
+        "device": "mps",
+        "original_ISRU_forward_and_gradients": true,
+        "original_SwiGLU_forward_and_gradients": true,
+        "ISRU_analytic_Jacobian": true,
+        "active_FFN_matrices": 12,
+        "attention_forward_max": 1.1920928955078125e-07,
+        "attention_input_gradient_max": 2.0116567611694336e-07,
+        "attention_parameter_gradient_max": 2.288818359375e-05,
+        "physical_resume_max": 1.0842021724855044e-19,
+        "RNG_resume_bitwise": true,
+        "full_state_resume": true,
+        "actual_real_CIFAR_optimizer_EMA_validation_and_sampler": true,
+        "formal_quality_training": false
+      }
+    },
+    "metrics": {
+      "command": "/Users/mr.z/ode-workspace-prep/.venv-image-metrics-v2/bin/python -B /Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/source/metrics.py fixture --root /Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1 --output /Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/documented-metrics.json",
+      "attempts": 1,
+      "tool_session_id": 68393,
+      "tool_calls": [
+        {
+          "chunk_id": "bbad9d",
+          "wall_time_seconds": 1.00281275,
+          "session_id": 68393,
+          "original_token_count": 0,
+          "output": ""
+        },
+        {
+          "chunk_id": "b96d97",
+          "wall_time_seconds": 3.1125e-05,
+          "exit_code": 0,
+          "original_token_count": 12,
+          "output": "FEATURES 8/8\nFEATURES 8/8\nMETRICS_WITNESS_PASS\n"
+        }
+      ],
+      "terminal_exit_code": 0,
+      "observed_sentinels": [
+        "METRICS_WITNESS_PASS"
+      ],
+      "output_path": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/documented-metrics.json",
+      "result": {
+        "status": "PASS",
+        "FID_low_rank_comparison": [
+          {
+            "n": 32,
+            "m": 40,
+            "d": 8,
+            "error": 7.105427357601002e-15
+          },
+          {
+            "n": 12,
+            "m": 15,
+            "d": 20,
+            "error": 1.397973896644089e-07
+          },
+          {
+            "n": 9,
+            "m": 11,
+            "d": 3,
+            "error": 2.6645352591003757e-15
+          }
+        ],
+        "pixel_roundtrip": true,
+        "CPU_MPS_feature_max": 5.7220458984375e-06,
+        "CPU_MPS_feature_RMS": 5.718784138493749e-07,
+        "inception_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+        "versions": {
+          "torch": "2.10.0",
+          "torchvision": "0.25.0",
+          "torch-fidelity": "0.3.0",
+          "scipy": "1.18.1",
+          "numpy": "2.2.6"
+        }
+      }
+    },
+    "invocation_vs_reality_discrepancies": [],
+    "documentation_naming_note": "README Execution and resources calls dc729a50 image-metrics; the ledger names that hash image-metrics-v2. The exact documented interpreter uses .venv-image-metrics-v2 and succeeded.",
+    "verification_limits": [
+      "Read and executed the documented readiness invocations only; no independent implementation source review.",
+      "Source/spec hashes were not read or recomputed; binding those hashes in documented-pass.json remains with the author."
+    ]
+  },
+  "training": {
+    "status": "PASS",
+    "device": "mps",
+    "original_ISRU_forward_and_gradients": true,
+    "original_SwiGLU_forward_and_gradients": true,
+    "ISRU_analytic_Jacobian": true,
+    "active_FFN_matrices": 12,
+    "attention_forward_max": 1.1920928955078125e-07,
+    "attention_input_gradient_max": 2.0116567611694336e-07,
+    "attention_parameter_gradient_max": 2.288818359375e-05,
+    "physical_resume_max": 1.0842021724855044e-19,
+    "RNG_resume_bitwise": true,
+    "full_state_resume": true,
+    "actual_real_CIFAR_optimizer_EMA_validation_and_sampler": true,
+    "formal_quality_training": false
+  },
+  "metrics": {
+    "status": "PASS",
+    "FID_low_rank_comparison": [
+      {
+        "n": 32,
+        "m": 40,
+        "d": 8,
+        "error": 7.105427357601002e-15
+      },
+      {
+        "n": 12,
+        "m": 15,
+        "d": 20,
+        "error": 1.397973896644089e-07
+      },
+      {
+        "n": 9,
+        "m": 11,
+        "d": 3,
+        "error": 2.6645352591003757e-15
+      }
+    ],
+    "pixel_roundtrip": true,
+    "CPU_MPS_feature_max": 5.7220458984375e-06,
+    "CPU_MPS_feature_RMS": 5.718784138493749e-07,
+    "inception_sha256": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+    "versions": {
+      "torch": "2.10.0",
+      "torchvision": "0.25.0",
+      "torch-fidelity": "0.3.0",
+      "scipy": "1.18.1",
+      "numpy": "2.2.6"
+    }
+  },
+  "receipt": {
+    "status": "PASS",
+    "bindings_sha256": "4df78d20e3eb786e7e01ff7ecb4c81f5835f6726f53dd1354bb8d0e4a5fdb396",
+    "fresh_agent": "/root/isru_cifar_doc_pass",
+    "training": {
+      "session_id": 77532,
+      "terminal_chunk": "ccea00",
+      "exit_code": 0,
+      "result_sha256": "0d713f1258d24dfe2d0a120e21dd0e6097894433cb388b85b646319b47c3de7e"
+    },
+    "metrics": {
+      "session_id": 68393,
+      "terminal_chunk": "b96d97",
+      "exit_code": 0,
+      "result_sha256": "bc3bfdc5db216cf2d49b53cf626e38217d92258e52636c65f6cad41a9eb3e3f8"
+    },
+    "basis": "fresh agent actual terminal receipts, each invocation once, sequentially",
+    "formal_training_started": false
+  }
+}

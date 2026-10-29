@@ -44,3 +44,23 @@ the fresh documented pass. Warm environments were not modified.
 Documentation edit: one combined patch failed on an absent notes line;
 the corrected targeted patch was applied. No experimental source/runtime
 was altered by that failed patch.
+
+## Formal launch
+Source6bffa70 was published, then frozen in `oct29-isru-cifar10-v1` with
+bindings SHA2564df78d20e3eb786e7e01ff7ecb4c81f5835f6726f53dd1354bb8d0e4a5fdb396.
+Fresh documented native77532/ccea00 and metric68393/b96d97 each exit0 once.
+No invocation mismatch. The metrics environment naming alias refers to the
+same spec/interpreter. Full receipts are in readiness.json/private runtime.
+
+Launch77701/d8ab5d exits0; controller95010/trainer95011 remain live after
+the launcher exits. Increasing1→5→10→25 updates are verified; all three
+25-update loss/gradient rows are finite. Real cohort speed about6.3seconds,
+driver allocation6.8GB, disk space about52GB. Both ordinary controls share
+the actual ISRU batch/noise/time stream; this is not just a PID check.
+
+MPS itself exposes no portable utilization counter, but an actual Apple
+`ioreg AGXAccelerator` probe succeeds with device97–99%. Added read-only
+telemetry95058,30s interval, frozen under separate telemetry-source and
+source-hashed. It does not alter/restart training or the registered recipe.
+The existing owned supervisor still records CPU/RSS/speed/phase and actual
+child exit, without automatic restart. No formal FID/quality result yet.

@@ -22,10 +22,10 @@ baseline competence before interpreting relative quality. No new ODE trick.
   ordinary control, common initialization scope, training/EMA/budget,
   sampling/evaluation and interpretation limits.
 - [x] Implement the entrypoint and monitoring; keep old sources/data sealed.
-- [ ] Commit and publish source; freeze an exclusive runtime.
-- [ ] Pass seeded kernel/gradient/resume/metric checks and a fresh documented
+- [x] Commit and publish source; freeze an exclusive runtime.
+- [x] Pass seeded kernel/gradient/resume/metric checks and a fresh documented
   invocation before formal launch.
-- [ ] Launch on an available authorized machine, verify actual progress and
+- [x] Launch on an available authorized machine, verify actual progress and
   monitor throughput, memory and GPU use where observable.
 - [ ] Keep Report2 evidence and progress updated; evaluate only at specified
   checkpoints, preserving both candidate and ordinary-control outcomes.
@@ -44,3 +44,14 @@ convergence or baseline-competence claim is implied by that budget.
 The author real-kernel/gradient/physical-resume witness passes; fresh frozen
 documented checks are next. No packages installed and no historical source
 or Report1 edited.
+
+## Running
+Registration6bffa70 was published and frozen before formal training.
+Fresh native77532/ccea00 and metric68393/b96d97 both exit0 once; hashes bind
+in `documented-pass.json`. Launch77701/d8ab5d exits0, controller95010 and
+trainer95011 are detached and live. All three arms reached25 updates with
+finite losses/gradients. Monitor and `caffeinate` are active. Separate
+Apple device telemetry95058 records97–99% utilization; the frozen training
+source was not changed. See [status.md](status.md) and the timestamped
+[launch snapshot](launch-status.json). Next:500-update validation/checkpoint,
+then2k fixed-start grids; image effectiveness remains unresolved.

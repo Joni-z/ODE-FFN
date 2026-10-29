@@ -1,0 +1,122 @@
+{
+  "observed_at": "2026-10-29T15:34:11.913573+08:00",
+  "state": "TRAINING",
+  "quality_result_available": false,
+  "runtime_source_commit": "6bffa70ef99649ec4eef421763dea1519bb19a93",
+  "runtime": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1",
+  "registration": {
+    "source_commit": "6bffa70ef99649ec4eef421763dea1519bb19a93",
+    "config": {
+      "study": "oct29-isru-cifar10-v1",
+      "model_seed": 0,
+      "stream_seed": 100000,
+      "validation_seed": 200000,
+      "sampling_seed": 300000,
+      "width": 192,
+      "depth": 6,
+      "patch_size": 4,
+      "heads": 3,
+      "batch": 512,
+      "steps": 50000,
+      "learning_rate": 0.0001,
+      "warmup_steps": 500,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "weight_decay": 0.0,
+      "gradient_clip": 1.0,
+      "ema_decay": 0.9999,
+      "time_logit_mean": -0.8,
+      "time_logit_std": 0.8,
+      "denominator_floor": 0.05,
+      "horizontal_flip": true,
+      "checkpoint_interval": 500,
+      "validation_interval": 500,
+      "validation_images": 1024,
+      "validation_batch": 128,
+      "milestones": [
+        2000,
+        5000,
+        10000,
+        25000,
+        50000
+      ],
+      "fid_milestones": [
+        5000,
+        10000,
+        25000,
+        50000
+      ],
+      "fid_generated_intermediate": 1024,
+      "fid_generated_final": 5000,
+      "fid_reference": 5000,
+      "sampling_steps": 50,
+      "sampling_batch": 128,
+      "sampler": "49 Heun intervals followed by one Euler interval; linear grid 0 to 1",
+      "minimum_free_gib": 8,
+      "arms": [
+        "isru",
+        "swiglu_matched",
+        "swiglu_wide"
+      ]
+    },
+    "bindings_sha256": "4df78d20e3eb786e7e01ff7ecb4c81f5835f6726f53dd1354bb8d0e4a5fdb396",
+    "state": "FROZEN_NOT_TRAINED"
+  },
+  "launch": {
+    "controller_pid": 95010,
+    "timestamp": 1793259085.372313,
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/source/supervise.py",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1"
+    ],
+    "bindings_sha256": "4df78d20e3eb786e7e01ff7ecb4c81f5835f6726f53dd1354bb8d0e4a5fdb396",
+    "root": "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1",
+    "resumed": false
+  },
+  "process": {
+    "controller_pid": 95010,
+    "training_pid": 95011,
+    "started": 1793259084.073579,
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-image-bridge/bin/python",
+      "-B",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1/source/train.py",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/autoresearch/oct29-isru-cifar10-v1"
+    ],
+    "policy": "one child; monitor only; no automatic restart"
+  },
+  "progress_snapshot": {
+    "phase": "TRAINING",
+    "step": 25,
+    "steps": 50000,
+    "pid": 95011,
+    "timestamp": 1793259243.471513,
+    "elapsed_seconds": 158.6757099579554,
+    "RSS_bytes": 466878464,
+    "MPS_allocated_bytes": 237427968,
+    "MPS_driver_bytes": 6816546816,
+    "cohort_seconds": 6.259544279503946
+  },
+  "GPU_snapshot": {
+    "timestamp": 1793259248.618112,
+    "training_pid": 95011,
+    "devices": [
+      {
+        "Alloc system memory": 8637841408,
+        "Device Utilization %": 99,
+        "In use system memory": 7220379648,
+        "In use system memory (driver)": 0,
+        "Renderer Utilization %": 12,
+        "Tiler Utilization %": 12
+      }
+    ]
+  },
+  "telemetry_source_sha256": "15bdc5e5ca92e40afecde73f518ba44e678b4fa61d864648d15c0fe25c1f1939",
+  "known_limit": "baseline competence and ISRU image transfer are not yet established"
+}

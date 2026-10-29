@@ -6,8 +6,10 @@ synthetic result and identify its operative mechanism before another design.
 Retain the full ODE-FFN objective; this evidence review is not goal completion.
 
 ## Current status
-Evidence inventory and code identification are complete. No new experiment,
-training extension, architecture, or hyperparameter search has been launched.
+Evidence inventory and code identification are complete. The user subsequently
+authorized [CIFAR-10 transfer](../isru-cifar10/README.md) and selected Mac mini
+only. Its separate [execution plan](../isru-cifar10/task_plan.md) records the
+actual state. This does not resolve synthetic convergence or attribution.
 
 ## Actions in priority order
 - [x] Locate `free_isru` and distinguish it from the tied `cubic_split` arm.
@@ -30,7 +32,8 @@ training extension, architecture, or hyperparameter search has been launched.
 
 ## Constraints and decisions
 - Model seed0 only; preserve historical streams separately from that seed.
-- No new image architecture screen until its ordinary baseline is competent.
+- The explicit CIFAR authorization selects concurrent candidate/control
+  training. Establish ordinary-baseline competence before a quality verdict.
 - No automatic continuation of the old tied cubic candidate or a parameter
   sweep. A separately specified follow-up must state exactly what it tests.
 - Preserve the original protocols, stopped-run outcomes, raw states and Report1.

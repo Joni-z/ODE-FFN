@@ -13,8 +13,11 @@ batch512 and a50k-update cap with warmup/constant LR and EMA. Real MPS
 calibration gives about6.17s per three-arm cohort; full training is roughly
 86hours plus evaluation. Original ISRU and SwiGLU gradients, active SDPA,
 real-data optimizer/EMA, physical disk resume and sampling pass the author
-witness. Frozen fresh-agent checks and actual launch are next; preparation
-is not a claimed training launch. Baseline competence remains unestablished.
+witness. Frozen fresh-agent checks both exit0 and formal launch is verified:
+controller95010/trainer95011, all three arms at25 updates, finite records,
+about6.3s/cohort and97–99% device GPU use. The
+[running status](docs/autoresearch/isru-cifar10/status.md) links source, receipts
+and the publication snapshot. Baseline competence remains unestablished.
 
 Retain [the complete synthetic evidence](docs/autoresearch/isru-followup/README.md):
 the Product16 gain is real within its budget, with task/budget-dependent
