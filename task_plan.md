@@ -4,6 +4,12 @@
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
 ## Current priority: reproduce an upstream baseline (1 November 2026)
+Lenovo has recovered and the user now explicitly authorizes execution there.
+Follow [the Lenovo deployment plan](docs/lenovo-baseline/task_plan.md): preserve
+old edits, use the upstream-derived checkout and a separate official CUDA
+environment, measure the full model, then launch the ordinary baseline with
+monitoring. This supersedes the earlier Mac-only host restriction.
+
 The user requires author code rather than a bespoke training framework,
 a small active repository, and an interchangeable FFN. FID below50 is the
 minimum image-baseline gate; scores above200 do not support architecture claims.

@@ -9,20 +9,20 @@
  
      with torch.cuda.amp.autocast(enabled=False):
          attn_weight = query.float() @ key.float().transpose(-2, -1) * scale_factor
-@@ -363,6 +363,13 @@
+@@ -362,6 +362,13 @@
+ def JiT_B_16(**kwargs):
      return JiT(depth=12, hidden_size=768, num_heads=12,
                 bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=16, **kwargs)
- 
++
 +
 +def JiT_B_2(**kwargs):
 +    # CIFAR resolution adapter; same official B body, different patch size.
 +    # This is not an upstream-published CIFAR recipe or result.
 +    return JiT(depth=12, hidden_size=768, num_heads=12,
 +               bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=2, **kwargs)
-+
+ 
  def JiT_B_32(**kwargs):
      return JiT(depth=12, hidden_size=768, num_heads=12,
-                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=32, **kwargs)
 @@ -385,6 +392,7 @@
  
  
@@ -137,7 +137,15 @@
 +    misc.barrier()
 --- a/main_jit.py
 +++ b/main_jit.py
-@@ -26,6 +26,7 @@
+@@ -4,6 +4,7 @@
+ import os
+ import time
+ from pathlib import Path
++from functools import partial
+ 
+ import torch
+ import torch.backends.cudnn as cudnn
+@@ -26,6 +27,7 @@
      # architecture
      parser.add_argument('--model', default='JiT-B/16', type=str, metavar='MODEL',
                          help='Name of the model to train')
@@ -145,7 +153,7 @@
      parser.add_argument('--img_size', default=256, type=int, help='Image size')
      parser.add_argument('--attn_dropout', type=float, default=0.0, help='Attention dropout rate')
      parser.add_argument('--proj_dropout', type=float, default=0.0, help='Projection dropout rate')
-@@ -86,6 +87,8 @@
+@@ -86,6 +88,8 @@
                          help='Generation batch size')
  
      # dataset
@@ -154,7 +162,7 @@
      parser.add_argument('--data_path', default='./data/imagenet', type=str,
                          help='Path to the dataset')
      parser.add_argument('--class_num', default=1000, type=int)
-@@ -118,6 +121,10 @@
+@@ -118,6 +122,10 @@
      print("Arguments:\n{}".format(args).replace(', ', ',\n'))
  
      device = torch.device(args.device)
@@ -165,7 +173,13 @@
  
      # Set seeds for reproducibility
      seed = args.seed + misc.get_rank()
-@@ -143,7 +150,13 @@
+@@ -138,12 +146,18 @@
+ 
+     # Data augmentation transforms
+     transform_train = transforms.Compose([
+-        transforms.Lambda(lambda img: center_crop_arr(img, args.img_size)),
++        transforms.Lambda(partial(center_crop_arr, image_size=args.img_size)),
+         transforms.RandomHorizontalFlip(),
          transforms.PILToTensor()
      ])
  
@@ -180,7 +194,7 @@
      print(dataset_train)
  
      sampler_train = torch.utils.data.DistributedSampler(
-@@ -179,8 +192,11 @@
+@@ -179,8 +193,11 @@
      print("Actual lr: {:.2e}".format(args.lr))
      print("Effective batch size: %d" % eff_batch_size)
  
@@ -194,7 +208,7 @@
  
      # Set up optimizer with weight decay adjustment for bias and norm layers
      param_groups = misc.add_weight_decay(model_without_ddp, args.weight_decay)
-@@ -190,13 +206,15 @@
+@@ -190,13 +207,15 @@
      # Resume from checkpoint if provided
      checkpoint_path = os.path.join(args.resume, "checkpoint-last.pth") if args.resume else None
      if checkpoint_path and os.path.exists(checkpoint_path):
@@ -213,6 +227,16 @@
          print("Resumed checkpoint from", args.resume)
  
          if 'optimizer' in checkpoint and 'epoch' in checkpoint:
+@@ -222,8 +241,7 @@
+     print(f"Start training for {args.epochs} epochs")
+     start_time = time.time()
+     for epoch in range(args.start_epoch, args.epochs):
+-        if args.distributed:
+-            data_loader_train.sampler.set_epoch(epoch)
++        data_loader_train.sampler.set_epoch(epoch)
+ 
+         train_one_epoch(model, model_without_ddp, data_loader_train, optimizer, device, epoch, log_writer=log_writer, args=args)
+ 
 @@ -247,10 +265,12 @@
  
          # Perform online evaluation at specified intervals
@@ -254,7 +278,9 @@
          x_reduce /= world_size
          return x_reduce.item()
      else:
--        return x+        return x
+-        return x
+\ No newline at end of file
++        return x
 --- a/util/model_util.py
 +++ b/util/model_util.py
 @@ -125,11 +125,11 @@
@@ -277,4 +303,6 @@
      emb_cos = np.cos(out) # (M, D/2)
  
      emb = np.concatenate([emb_sin, emb_cos], axis=1)  # (M, D)
--    return emb+    return emb
+-    return emb
+\ No newline at end of file
++    return emb

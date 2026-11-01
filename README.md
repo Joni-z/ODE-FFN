@@ -45,6 +45,8 @@ Use [the upstream ImageNet instructions](https://github.com/LTH14/JiT/tree/cbc74
 for the published recipe. Add `--ffn swiglu` or `--ffn isru`.
 For a single Mac process pass `--device mps --num_workers 0 --no_pin_mem`.
 CUDA distributed execution retains the upstream path.
+The native Windows RTX 4060 deployment is documented in
+[the Lenovo run notes](docs/lenovo-baseline/README.md).
 ImageNet online FID additionally needs the authors' reference files in
 `fid_stats/`, available in the pinned upstream repository. These data files
 are gitignored here; CIFAR uses the standard dataset reference instead.

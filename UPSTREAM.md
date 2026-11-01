@@ -24,7 +24,7 @@ search or extra loss enters active training.
 | `ffn.py` | Existing free-ISRU response and Taylor initialization; swap only block.mlp and preserve training RNG. P has the professor Linear initializer distribution, without claiming old random-draw positions. |
 | `model_jit.py` | Allocate bias on the input device; add B/2 as a patch-size-only CIFAR port of the author's B body. |
 | `util/model_util.py` | Nonpersistent buffers move original RoPE values with .to(device), retaining official checkpoint keys. |
-| `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard and CLI help. |
+| `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard, CLI help, a picklable crop for Windows workers and epoch-wise sampler shuffle in single-process mode. |
 | `engine_jit.py` | Gate CUDA AMP/synchronization, place labels on model device, guard barriers; pass standard CIFAR train reference to upstream FID. Non-CUDA FID uses CPU Inception. |
 | `util/misc.py` | Add a barrier helper that is a no-op without a process group. |
 

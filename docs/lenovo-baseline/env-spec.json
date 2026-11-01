@@ -1,0 +1,31 @@
+{
+  "base": "Windows x64; PSF-signed CPython 3.12.10; CUDA 12.4 PyTorch wheels",
+  "pip_phases": [
+    [
+      "torch==2.5.1",
+      "torchvision==0.20.1",
+      "--index-url",
+      "https://download.pytorch.org/whl/cu124"
+    ],
+    [
+      "numpy==2.2.6",
+      "scipy==1.16.3",
+      "einops==0.8.1",
+      "Pillow==12.3.0",
+      "opencv-python==4.11.0.86",
+      "tensorboard==2.20.0",
+      "tqdm==4.67.1",
+      "torch-fidelity @ https://codeload.github.com/LTH14/torch-fidelity/zip/bfe72b995473e4fee9351705d7b005f17442a4ca"
+    ]
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "TORCH_COMPILE_DISABLE": "1",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "smoke": {
+    "invocation": "python docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 16",
+    "expect": "CUDA_BASELINE_WITNESS_PASS"
+  }
+}
