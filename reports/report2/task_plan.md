@@ -11,8 +11,36 @@ while continuing the underlying ODE-FFN research objective.
 - Keep old protocols, sealed raw data and submitted Report1 unchanged.
 
 ## Current state
-Scope, an evidence index and a post-finalization inventory are prepared.
-Research is ongoing; no final Report2 result or completed manuscript is claimed.
+November1,2026: the user requests a Report2 draft and current effectiveness.
+The CIFAR run is live at about40.45k/50k updates. Completed5k/10k/25k FIDs
+remain poor; the25k ISRU/matched/wide scores are252.96/262.93/268.74.
+Draft from a fixed evidence snapshot; do not interrupt or change training.
+Use the submitted Report1 layout read-only, English, Zhizhe Zhang only,
+three pages maximum, no bibliography, and end with two-week hypotheses.
+
+## Draft execution — November1
+- [x] Freeze the completed25k CIFAR artifacts and validation through40k;
+  check source/data bindings, feature hashes, checkpoint identities and FID.
+- [x] Inspect raw/EMA fixed-start image cases and W1/W2 trajectories.
+- [x] Select the post-Report1 synthetic evidence, preserving all five ISRU
+  tasks and both SwiGLU budgets; distinguish field and generation metrics.
+- [x] Generate reproducible figures, numeric tables and an evidence map.
+- [x] Write report2.tex in the existing report format with explicit purposes,
+  observations, scoped mathematics and two-week hypotheses.
+- [x] Compile report2.pdf, verify at most three pages, read extracted text
+  and render/inspect pages; keep Report1 byte-identical.
+- [x] Update project notes/status and publish verified draft and evidence.
+
+## Draft verification
+The complete PDF is three pages with table and figures, English, sole author
+Zhizhe Zhang, no bibliography. All completed FIDs were independently recomputed
+from saved features; maximum difference0.0000233. Cold/25k FFN matrix summaries
+were checked against actual checkpoint tensors. The final PDF has embedded
+fonts, no undefined references, no overfull boxes and no placeholder markers.
+Report1's original tree/PDF hashes match. The live trainer was not changed.
+See [verification.json](verification.json), [EVIDENCE.md](EVIDENCE.md) and
+[analysis notes](analysis/analysis-report.md). Drafting is complete; the
+registered image run and final50k results are still outstanding.
 
 ## Actions
 - [x] Identify the last Report1 revision and verify its current tree is identical.

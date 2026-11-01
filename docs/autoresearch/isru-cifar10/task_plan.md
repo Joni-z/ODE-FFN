@@ -30,6 +30,19 @@ baseline competence before interpreting relative quality. No new ODE trick.
 - [ ] Keep Report2 evidence and progress updated; evaluate only at specified
   checkpoints, preserving both candidate and ordinary-control outcomes.
 
+## Latest — 1 November 2026
+- [x] Verify live progress beyond40k/50k, unchanged source/process,6.25s/cohort,
+  device GPU99%, no terminal exit.
+- [x] Collect every completed5k/10k/25k FID and fixed validation through40k.
+- [x] Independently check feature/generated hashes, FID from saved features,
+  and cold/25k FFN matrix statistics against checkpoint tensors.
+- [x] Inspect fixed raw/EMA cases, write and verify a three-page Report2 draft.
+- [ ] Finish the registered50k trajectory and final5000-generated evaluation.
+The25k EMA FIDs252.96/262.93/268.74 remain poor. Raw/EMA validation and
+sample differences identify substantial early lag; raw FID is unknown.
+The report proposes a separate diagnostic, not a changed evaluation or
+training rescue. See [interim results](interim-2026-11-01.md).
+
 ## Decisions so far
 The old three-layer,64-wide,20k CPU image screen does not meet the baseline
 requirement. The new setup must address capacity and training adequacy rather

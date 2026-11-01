@@ -1,23 +1,30 @@
 # ODE autoresearch notes
 
-## Current state — October 29, 2026
+## Current state — November 1, 2026
 **Current deliverable: Report2.** The user finalized Report1 after its last
 requested edit (994e660); all later work belongs to Report2. Use the separate
 [Report2 folder](reports/report2/README.md) and [evidence index](reports/report2/evidence-index.md).
 Do not edit or rebuild Report1, even though its archived README says draft.
 
 The user authorized the existing ISRU design on CIFAR-10 and selected Mac mini
-only. [The new protocol](docs/autoresearch/isru-cifar10/README.md) registers
-a192-wide, six-layer JiT, three arms (ISRU, matched SwiGLU, wider SwiGLU),
-batch512 and a50k-update cap with warmup/constant LR and EMA. Real MPS
-calibration gives about6.17s per three-arm cohort; full training is roughly
-86hours plus evaluation. Original ISRU and SwiGLU gradients, active SDPA,
-real-data optimizer/EMA, physical disk resume and sampling pass the author
-witness. Frozen fresh-agent checks both exit0 and formal launch is verified:
-controller95010/trainer95011, all three arms at25 updates, finite records,
-about6.3s/cohort and97–99% device GPU use. The
-[running status](docs/autoresearch/isru-cifar10/status.md) links source, receipts
-and the publication snapshot. Baseline competence remains unestablished.
+only. The unchanged three-arm run now exceeds40k/50k updates at about6.25s
+per cohort and GPU99%. Completed25k EMA FID is252.96/262.93/268.74 for
+ISRU/matched/wide SwiGLU. This is poor absolute quality; no architecture
+verdict follows. All completed FIDs were recomputed from saved features,
+and cold/25k matrix summaries checked against actual checkpoint tensors.
+
+The important diagnosis is raw versus EMA: ISRU validation0.14834/0.17124
+at25k narrows to0.14717/0.14905 at40k. Raw fixed cases retain texture while
+EMA is blurred. The decay retains8.2% cold parameters at25k, but parameter
+averaging does not decompose generation error. Raw FID and final50k FID
+are not available. Do not replace the registered EMA evaluation.
+
+[Report2 draft](reports/report2/report2.pdf) is exactly three pages including
+figures/table, English, author Zhizhe Zhang, no bibliography. Read the
+[evidence map](reports/report2/EVIDENCE.md), [verification](reports/report2/verification.json)
+and [interim status](docs/autoresearch/isru-cifar10/interim-2026-11-01.md).
+The running source/process/recipe and Report1 were untouched. Additional
+raw/EMA and longer synthetic comparisons are prospective hypotheses only.
 
 Retain [the complete synthetic evidence](docs/autoresearch/isru-followup/README.md):
 the Product16 gain is real within its budget, with task/budget-dependent

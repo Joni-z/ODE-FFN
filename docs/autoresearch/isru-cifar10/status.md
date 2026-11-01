@@ -1,5 +1,11 @@
 # ISRU CIFAR-10 — running
 
+**Latest update, 1 November 2026:** training is beyond40k/50k. Completed25k
+EMA FID is252.96/262.93/268.74 for ISRU/matched/wide; quality remains poor,
+with visible early EMA lag. Read the [interim result](interim-2026-11-01.md)
+and [three-page Report2 draft](../../../reports/report2/report2.pdf). The
+original launch snapshot below is retained as history, not current progress.
+
 October29,2026 launch snapshot. **Formal training is running on Mac mini MPS**,
 from the cold seed0 start. No image-quality conclusion is available yet.
 The authoritative current process state is in the private runtime logs;

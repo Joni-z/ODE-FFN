@@ -12,6 +12,12 @@ files. Use [Report2 scope](reports/report2/README.md),
 [report plan](reports/report2/task_plan.md) for the ongoing deliverable.
 The current ISRU follow-up is Report2 work; it does not reopen Report1.
 
+November1 update: [the three-page Report2 draft](reports/report2/report2.pdf)
+is complete and verified, including figures/table and two-week hypotheses.
+Its snapshot includes all completed FIDs through25k and validation through40k.
+Raw/EMA lag is material; image effectiveness remains unresolved. The live
+trainer continues unchanged beyond40k/50k at about6.25s/cohort and GPU99%.
+
 ## Current priority: run the existing ISRU on CIFAR-10 (2026-10-29)
 The user explicitly authorized this transfer and selected Mac mini only.
 Use [the registered protocol](docs/autoresearch/isru-cifar10/README.md),
@@ -25,8 +31,11 @@ Use [the registered protocol](docs/autoresearch/isru-cifar10/README.md),
 - [x] Implement physical resume, monitoring and scheduled FID/images/matrices.
 - [x] Freeze and pass the fresh documented entrypoint checks, then launch.
 - [x] Verify actual increasing steps and publish the launch; keep Report2 updated.
-- [ ] Inspect500-update validation and2k raw/EMA grids; record baseline quality
-  before interpreting the5k/10k/25k/50k FIDs.
+- [x] Inspect completed validation and2k/5k/10k/25k raw/EMA evidence;
+  independently recompute completed FIDs and cold/25k matrix summaries.
+- [x] Draft and verify Report2 without modifying Report1 or the live trainer.
+- [ ] Finish50k and inspect final baseline quality; additional raw/EMA
+  evaluation is a separately labeled hypothesis, not a changed registered score.
 No architecture conclusion follows until ordinary-baseline adequacy is shown.
 No Lenovo, MBP or torch dependency. This is a new benchmark, not a rescue
 or reinterpretation of the tiny historical image screen.

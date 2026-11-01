@@ -1,5 +1,16 @@
 # ISRU CIFAR-10 continuity notes
 
+## Current — 1 November 2026
+The run remains live beyond40k/50k, no restarts or source/recipe changes.
+All completed5k/10k/25k FIDs and cold/25k matrix statistics are checked by
+the Report2 CPU-only collector (91228/67900d, exit0). The latest completed
+FID252.96/262.93/268.74 is poor, not proof of an ISRU image advantage.
+Raw/EMA validation and fixed cases show early lag, narrowing by40k.
+Raw FID remains unknown. The [three-page Report2 draft](../../../reports/report2/report2.pdf)
+uses fixed validation through40k and all completed FIDs through25k. Its
+extra diagnostic/longer synthetic tests are future hypotheses, not new jobs.
+See [interim results](interim-2026-11-01.md) and report evidence/verification.
+
 Report2 work; Report1 is frozen at994e660. User requests actual CIFAR-10
 training of the existing ISRU design, with continued development.
 

@@ -1,5 +1,38 @@
 # Report2 continuity notes
 
+## Draft — 1 November 2026
+The user requested effectiveness and a Report2 draft. The live CIFAR process
+continues beyond40k/50k with GPU99%; no restart, recipe change, new fit,
+sampling, or feature extraction was performed for this draft.
+`collect_evidence.py` completed with exit0 (91228/67900d), checking frozen
+bindings, generated/feature hashes, all nine completed FIDs via an independent
+low-rank formula, and cold/25k matrix statistics from actual tensors.
+The report snapshot fixes validation at40k and FID at25k.
+
+The25k EMA FIDs252.96/262.93/268.74 for ISRU/matched/wide are still poor.
+The corresponding raw grids are more textured than EMA; raw FID is not known.
+ISRU raw/EMA loss0.14834/0.17124 at25k becomes0.14717/0.14905 at40k.
+The long EMA retains8.2% cold parameters at25k, a useful diagnostic lead,
+not proof that EMA explains all FID. Preserve the registered results.
+Mean W1/W2 spectral maxima grow1.27→1.84/1.60 with high entropy ranks;
+this does not demonstrate a spectral cause or justify a new penalty.
+
+The English draft is exactly three pages including figures/table, sole author
+Zhizhe Zhang. It retains all five synthetic tasks and both ordinary budgets,
+the input-frame thin-data improvement and K1/thick limitations, and ends
+with two prospective hypotheses. No references or seed-instability caveat.
+Report1 is byte-identical. Final endpoint and extra raw/EMA evaluations remain
+future work, not claimed results.
+
+Build notes: initial cached-only Tectonic compilation lacked Latin Modern8/6
+font resources; normal Tectonic fetched these and succeeded, without changing
+training environments. The first layout spilled each planned page; content
+was shortened to three pages at unchanged11pt/margins. A long inline/model
+name caused an overfull line and was rephrased. Final compilation is clean.
+One combined text patch failed on whitespace; targeted patches corrected it.
+The broad compiler-path search hit protected Library directories; the existing
+Homebrew Tectonic was sufficient and no protected path was modified.
+
 ## User instruction — October 29, 2026
 The last requested Report1 revision finalized Report1. All work after that
 point belongs to Report2. Do not interpret routine preservation of Report1
