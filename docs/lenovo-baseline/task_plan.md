@@ -28,3 +28,10 @@ increasing updates and 99% GPU load. The verified launch record accompanies this
 Recorded in notes.md: unsigned old interpreter blocked, slow direct downloads,
 bundle remote-ref clone failed, Windows-only colorama omitted, oversized SFTP
 message rejected. All have concrete resolutions; no security setting changed.
+
+## Follow-up: training status and interactive GPU monitor
+- [x] Read current process status, training log, checkpoint inventory and recent speed.
+- [x] Check the official nvitop Windows instructions and the user's SSH shell/PATH.
+- [x] Install nvitop separately from the training environment and expose the command.
+- [x] Verify a fresh SSH login and the interactive GPU display; preserve the job.
+- [x] Publish a timestamped status update and the exact usage instructions.

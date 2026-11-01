@@ -72,3 +72,14 @@
   read that pending file before transfer completion and exited without edits;
   the completed JSON transfers were used instead. All12launch source hashes
   match the reviewed source. Reports remain unchanged.
+
+## GPU monitor follow-up
+- Two completed baseline epochs took 20:18 and 20:14. Recent throughput is
+  0.1926 seconds/update (41.5 images/s); the latest full checkpoint exists.
+  Training loss near 0.16 is not an image-quality result; no FID is available.
+- Installed nvitop 1.7.2 in a separate utility environment using official PyPI
+  wheels. Both interactive SSH use and one-shot UTF-8 output passed. The
+  existing user-bin directory exposes the command without a PATH edit.
+- Per-process GPU memory is unavailable under this host's WDDM driver; total
+  memory, GPU utilization, temperature and training process are visible.
+- Training source, environment, scheduled task and both reports were preserved.
