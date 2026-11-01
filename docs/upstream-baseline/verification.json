@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "fresh_agent_receipt": {
+    "date": "2026-11-01",
+    "role": "fresh agent follows documented validation, without source inspection",
+    "working_directory": "/Users/mr.z/ODE-FFN-upstream",
+    "documents_read": [
+      "/Users/mr.z/.codex/skills/expression-skill/SKILL.md",
+      "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+      "/Users/mr.z/ODE-FFN-upstream/.aris/compute/macmini.md",
+      "/Users/mr.z/ODE-FFN-upstream/README.md",
+      "/Users/mr.z/ODE-FFN-upstream/UPSTREAM.md",
+      "/Users/mr.z/ODE-FFN-upstream/docs/upstream-baseline/validation.md"
+    ],
+    "invocations": [
+      {
+        "command": "/Users/mr.z/ode-workspace-prep/.venv-upstream-jit/bin/python -B /Users/mr.z/ODE-FFN-upstream/main_jit.py --help",
+        "runs": 1,
+        "chunk_id": "588a70",
+        "session_id": null,
+        "exit_code": 0,
+        "wall_time_seconds": 2.455968041,
+        "observed": "Normal argparse help includes --ffn {swiglu,isru}; no warning."
+      },
+      {
+        "command": "/Users/mr.z/ode-workspace-prep/.venv-upstream-jit/bin/python -B /Users/mr.z/ODE-FFN-upstream/tests/check_upstream.py --upstream /Users/mr.z/ode-workspace-prep/upstream-review-20261101/jit-official --output /Users/mr.z/ode-workspace-prep/upstream-review-20261101/documented-check.json",
+        "runs": 1,
+        "chunk_id": "5f8134",
+        "session_id": null,
+        "exit_code": 0,
+        "wall_time_seconds": 2.893712416,
+        "observed": "UPSTREAM_COMPATIBILITY_PASS and PASS JSON.",
+        "expected_warnings": [
+          "reference_model:99: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.",
+          "/Users/mr.z/ODE-FFN-upstream/model_jit.py:99: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead."
+        ],
+        "unexpected_warnings": []
+      }
+    ],
+    "emitted_result_file": "/Users/mr.z/ode-workspace-prep/upstream-review-20261101/documented-check.json",
+    "result_readback": {
+      "chunk_id": "4a314e",
+      "exit_code": 0,
+      "result": {
+        "status": "PASS",
+        "upstream": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+        "CPU_reference": "placement-only adaptations for the CUDA-only author code",
+        "native_state_and_RNG_bitwise": true,
+        "active_output_input_and_parameter_gradients_bitwise": true,
+        "official_epoch_Adam_and_two_EMAs_bitwise": true,
+        "official_Euler_and_Heun_bitwise": true,
+        "candidate_non_FFN_and_RNG_unchanged": true,
+        "candidate_gradcheck": true,
+        "official_checkpoint_roundtrip": true,
+        "MPS_forward_backward_optimizer": true,
+        "quality_or_FID_claim": false
+      }
+    },
+    "invocation_documentation_discrepancies": [],
+    "ledger_status_after_pass": "macmini.md still says 'Fresh documented commands pending'; this became stale after this successful pass. Ledger was not modified.",
+    "changes": "Only the documented command output JSON and this private receipt were written by this task.",
+    "boundaries": "No source inspected or edited; no docs edited; no retries, fixes, package installs, FID, or benchmark training."
+  },
+  "result": {
+    "status": "PASS",
+    "upstream": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+    "CPU_reference": "placement-only adaptations for the CUDA-only author code",
+    "native_state_and_RNG_bitwise": true,
+    "active_output_input_and_parameter_gradients_bitwise": true,
+    "official_epoch_Adam_and_two_EMAs_bitwise": true,
+    "official_Euler_and_Heun_bitwise": true,
+    "candidate_non_FFN_and_RNG_unchanged": true,
+    "candidate_gradcheck": true,
+    "official_checkpoint_roundtrip": true,
+    "MPS_forward_backward_optimizer": true,
+    "quality_or_FID_claim": false
+  },
+  "source_hashes": {
+    "engine_jit.py": "7f4d29a85462d6285e4318dafa9ce2e44ae84941864dd5b170153124d1e823a8",
+    "ffn.py": "fcde2667d38a35aeb8f33288dfd9af71a9abfc071f62056608c89caef2f26831",
+    "model_jit.py": "069b4b3eb87a51f1aa5e869ed995d1d6ceabf5c0ce120c4fe370acb93f5010c1",
+    "main_jit.py": "a74b5035620ed970dc63be5f2da412cbb7be818a420769cd23f790dadd6fbcd5",
+    "denoiser.py": "fbc7342ac09c80d77096648394c9d84412e8f51507c1bab177794c92890e4608",
+    "prepare_ref.py": "98cb886fa4b0d164404e0d42e13680a0208150ebf96d2598e37f40e54a06a333",
+    "util/misc.py": "e3d48eca0b0a0b82379eff6f22852861d24fc50a691ac3db0eb730af374ff709",
+    "util/model_util.py": "7dc86c801f984c13e38b154ad97254d78592536840acfcd31018f18d49528a91",
+    "util/crop.py": "08da8c1300202e66773806085fcaf2415acf1e38ac8923d5cdf79cafd770ccb6",
+    "util/lr_sched.py": "47765fbc75affedb8c8c062d8b784fd00a6ee4527c8a82edb8cf514235d7e048",
+    "tests/check_upstream.py": "ff261e79ae81c45c196a2c8b518b23707719d986d2aba758d22f3262575e6c09"
+  },
+  "image_baseline_FID_below_50_verified": false
+}

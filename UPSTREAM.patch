@@ -1,0 +1,280 @@
+--- a/model_jit.py
++++ b/model_jit.py
+@@ -94,7 +94,7 @@
+ def scaled_dot_product_attention(query, key, value, dropout_p=0.0) -> torch.Tensor:
+     L, S = query.size(-2), key.size(-2)
+     scale_factor = 1 / math.sqrt(query.size(-1))
+-    attn_bias = torch.zeros(query.size(0), 1, L, S, dtype=query.dtype).cuda()
++    attn_bias = torch.zeros(query.size(0), 1, L, S, dtype=query.dtype, device=query.device)
+ 
+     with torch.cuda.amp.autocast(enabled=False):
+         attn_weight = query.float() @ key.float().transpose(-2, -1) * scale_factor
+@@ -363,6 +363,13 @@
+     return JiT(depth=12, hidden_size=768, num_heads=12,
+                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=16, **kwargs)
+ 
++
++def JiT_B_2(**kwargs):
++    # CIFAR resolution adapter; same official B body, different patch size.
++    # This is not an upstream-published CIFAR recipe or result.
++    return JiT(depth=12, hidden_size=768, num_heads=12,
++               bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=2, **kwargs)
++
+ def JiT_B_32(**kwargs):
+     return JiT(depth=12, hidden_size=768, num_heads=12,
+                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=32, **kwargs)
+@@ -385,6 +392,7 @@
+ 
+ 
+ JiT_models = {
++    'JiT-B/2': JiT_B_2,
+     'JiT-B/16': JiT_B_16,
+     'JiT-B/32': JiT_B_32,
+     'JiT-L/16': JiT_L_16,
+--- a/denoiser.py
++++ b/denoiser.py
+@@ -1,6 +1,7 @@
+ import torch
+ import torch.nn as nn
+ from model_jit import JiT_models
++from ffn import replace_ffn
+ 
+ 
+ class Denoiser(nn.Module):
+@@ -16,6 +17,7 @@
+             attn_drop=args.attn_dropout,
+             proj_drop=args.proj_dropout,
+         )
++        replace_ffn(self.net, getattr(args, 'ffn', 'swiglu'))
+         self.img_size = args.img_size
+         self.num_classes = args.class_num
+ 
+--- a/engine_jit.py
++++ b/engine_jit.py
+@@ -34,7 +34,7 @@
+         x = x * 2.0 - 1.0
+         labels = labels.to(device, non_blocking=True)
+ 
+-        with torch.amp.autocast('cuda', dtype=torch.bfloat16):
++        with torch.amp.autocast('cuda', dtype=torch.bfloat16, enabled=device.type == 'cuda'):
+             loss = model(x, labels)
+ 
+         loss_value = loss.item()
+@@ -46,7 +46,10 @@
+         loss.backward()
+         optimizer.step()
+ 
+-        torch.cuda.synchronize()
++        if device.type == 'cuda':
++            torch.cuda.synchronize()
++        elif device.type == 'mps':
++            torch.mps.synchronize()
+ 
+         model_without_ddp.update_ema()
+ 
+@@ -67,6 +70,7 @@
+ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+ 
+     model_without_ddp.eval()
++    device = next(model_without_ddp.parameters()).device
+     world_size = misc.get_world_size()
+     local_rank = misc.get_rank()
+     num_steps = args.num_images // (batch_size * world_size) + 1
+@@ -104,12 +108,12 @@
+         start_idx = world_size * batch_size * i + local_rank * batch_size
+         end_idx = start_idx + batch_size
+         labels_gen = class_label_gen_world[start_idx:end_idx]
+-        labels_gen = torch.Tensor(labels_gen).long().cuda()
++        labels_gen = torch.Tensor(labels_gen).long().to(device)
+ 
+-        with torch.amp.autocast('cuda', dtype=torch.bfloat16):
++        with torch.amp.autocast('cuda', dtype=torch.bfloat16, enabled=device.type == 'cuda'):
+             sampled_images = model_without_ddp.generate(labels_gen)
+ 
+-        torch.distributed.barrier()
++        misc.barrier()
+ 
+         # denormalize images
+         sampled_images = (sampled_images + 1) / 2
+@@ -124,7 +128,7 @@
+             gen_img = gen_img.astype(np.uint8)[:, :, ::-1]
+             cv2.imwrite(os.path.join(save_folder, '{}.png'.format(str(img_id).zfill(5))), gen_img)
+ 
+-    torch.distributed.barrier()
++    misc.barrier()
+ 
+     # back to no ema
+     print("Switch back from ema")
+@@ -132,7 +136,9 @@
+ 
+     # compute FID and IS
+     if log_writer is not None:
+-        if args.img_size == 256:
++        if args.dataset == 'cifar10':
++            fid_statistics_file = None
++        elif args.img_size == 256:
+             fid_statistics_file = 'fid_stats/jit_in256_stats.npz'
+         elif args.img_size == 512:
+             fid_statistics_file = 'fid_stats/jit_in512_stats.npz'
+@@ -140,9 +146,10 @@
+             raise NotImplementedError
+         metrics_dict = torch_fidelity.calculate_metrics(
+             input1=save_folder,
+-            input2=None,
++            input2='cifar10-train' if args.dataset == 'cifar10' else None,
++            datasets_root=args.data_path,
+             fid_statistics_file=fid_statistics_file,
+-            cuda=True,
++            cuda=device.type == 'cuda',
+             isc=True,
+             fid=True,
+             kid=False,
+@@ -157,4 +164,4 @@
+         print("FID: {:.4f}, Inception Score: {:.4f}".format(fid, inception_score))
+         shutil.rmtree(save_folder)
+ 
+-    torch.distributed.barrier()
++    misc.barrier()
+--- a/main_jit.py
++++ b/main_jit.py
+@@ -26,6 +26,7 @@
+     # architecture
+     parser.add_argument('--model', default='JiT-B/16', type=str, metavar='MODEL',
+                         help='Name of the model to train')
++    parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru'))
+     parser.add_argument('--img_size', default=256, type=int, help='Image size')
+     parser.add_argument('--attn_dropout', type=float, default=0.0, help='Attention dropout rate')
+     parser.add_argument('--proj_dropout', type=float, default=0.0, help='Projection dropout rate')
+@@ -86,6 +87,8 @@
+                         help='Generation batch size')
+ 
+     # dataset
++    parser.add_argument('--dataset', default='imagenet', choices=('imagenet', 'cifar10'))
++    parser.add_argument('--download', action='store_true', help='Download CIFAR-10 with torchvision')
+     parser.add_argument('--data_path', default='./data/imagenet', type=str,
+                         help='Path to the dataset')
+     parser.add_argument('--class_num', default=1000, type=int)
+@@ -118,6 +121,10 @@
+     print("Arguments:\n{}".format(args).replace(', ', ',\n'))
+ 
+     device = torch.device(args.device)
++    if device.type != 'cuda':
++        if args.distributed:
++            raise ValueError('CPU/MPS support is single-process; use CUDA for upstream DDP')
++        torch._dynamo.config.disable = True
+ 
+     # Set seeds for reproducibility
+     seed = args.seed + misc.get_rank()
+@@ -143,7 +150,13 @@
+         transforms.PILToTensor()
+     ])
+ 
+-    dataset_train = datasets.ImageFolder(os.path.join(args.data_path, 'train'), transform=transform_train)
++    if args.dataset == 'cifar10':
++        if args.img_size != 32 or args.class_num != 10:
++            raise ValueError('CIFAR-10 requires --img_size 32 --class_num 10')
++        dataset_train = datasets.CIFAR10(args.data_path, train=True, transform=transform_train,
++                                         download=args.download)
++    else:
++        dataset_train = datasets.ImageFolder(os.path.join(args.data_path, 'train'), transform=transform_train)
+     print(dataset_train)
+ 
+     sampler_train = torch.utils.data.DistributedSampler(
+@@ -179,8 +192,11 @@
+     print("Actual lr: {:.2e}".format(args.lr))
+     print("Effective batch size: %d" % eff_batch_size)
+ 
+-    model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu])
+-    model_without_ddp = model.module
++    if args.distributed:
++        model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu])
++        model_without_ddp = model.module
++    else:
++        model_without_ddp = model
+ 
+     # Set up optimizer with weight decay adjustment for bias and norm layers
+     param_groups = misc.add_weight_decay(model_without_ddp, args.weight_decay)
+@@ -190,13 +206,15 @@
+     # Resume from checkpoint if provided
+     checkpoint_path = os.path.join(args.resume, "checkpoint-last.pth") if args.resume else None
+     if checkpoint_path and os.path.exists(checkpoint_path):
+-        checkpoint = torch.load(checkpoint_path, map_location='cpu')
++        checkpoint = torch.load(checkpoint_path, map_location='cpu', weights_only=False)
++        if getattr(checkpoint.get('args'), 'ffn', 'swiglu') != args.ffn:
++            raise ValueError('Resume with the FFN used to create this checkpoint')
+         model_without_ddp.load_state_dict(checkpoint['model'])
+ 
+         ema_state_dict1 = checkpoint['model_ema1']
+         ema_state_dict2 = checkpoint['model_ema2']
+-        model_without_ddp.ema_params1 = [ema_state_dict1[name].cuda() for name, _ in model_without_ddp.named_parameters()]
+-        model_without_ddp.ema_params2 = [ema_state_dict2[name].cuda() for name, _ in model_without_ddp.named_parameters()]
++        model_without_ddp.ema_params1 = [ema_state_dict1[name].to(device) for name, _ in model_without_ddp.named_parameters()]
++        model_without_ddp.ema_params2 = [ema_state_dict2[name].to(device) for name, _ in model_without_ddp.named_parameters()]
+         print("Resumed checkpoint from", args.resume)
+ 
+         if 'optimizer' in checkpoint and 'epoch' in checkpoint:
+@@ -247,10 +265,12 @@
+ 
+         # Perform online evaluation at specified intervals
+         if args.online_eval and (epoch % args.eval_freq == 0 or epoch + 1 == args.epochs):
+-            torch.cuda.empty_cache()
++            if device.type == 'cuda':
++                torch.cuda.empty_cache()
+             with torch.no_grad():
+                 evaluate(model_without_ddp, args, epoch, batch_size=args.gen_bsz, log_writer=log_writer)
+-            torch.cuda.empty_cache()
++            if device.type == 'cuda':
++                torch.cuda.empty_cache()
+ 
+         if misc.is_main_process() and log_writer is not None:
+             log_writer.flush()
+@@ -261,6 +281,6 @@
+ 
+ 
+ if __name__ == '__main__':
+-    args = get_args_parser().parse_args()
++    args = argparse.ArgumentParser('JiT', parents=[get_args_parser()]).parse_args()
+     Path(args.output_dir).mkdir(parents=True, exist_ok=True)
+     main(args)
+--- a/util/misc.py
++++ b/util/misc.py
+@@ -181,6 +181,11 @@
+     return True
+ 
+ 
++def barrier():
++    if is_dist_avail_and_initialized():
++        dist.barrier()
++
++
+ def get_world_size():
+     if not is_dist_avail_and_initialized():
+         return 1
+@@ -286,4 +291,4 @@
+         x_reduce /= world_size
+         return x_reduce.item()
+     else:
+-        return x+        return x
+--- a/util/model_util.py
++++ b/util/model_util.py
+@@ -125,11 +125,11 @@
+             cos_pad = torch.ones(num_cls_token, D, dtype=cos_img.dtype, device=cos_img.device)
+             sin_pad = torch.zeros(num_cls_token, D, dtype=sin_img.dtype, device=sin_img.device)
+ 
+-            self.freqs_cos = torch.cat([cos_pad, cos_img], dim=0).cuda()  # [N_cls+N_img, D]
+-            self.freqs_sin = torch.cat([sin_pad, sin_img], dim=0).cuda()
++            self.register_buffer('freqs_cos', torch.cat([cos_pad, cos_img], dim=0), persistent=False)
++            self.register_buffer('freqs_sin', torch.cat([sin_pad, sin_img], dim=0), persistent=False)
+         else:
+-            self.freqs_cos = freqs.cos().view(-1, freqs.shape[-1]).cuda()
+-            self.freqs_sin = freqs.sin().view(-1, freqs.shape[-1]).cuda()
++            self.register_buffer('freqs_cos', freqs.cos().view(-1, freqs.shape[-1]), persistent=False)
++            self.register_buffer('freqs_sin', freqs.sin().view(-1, freqs.shape[-1]), persistent=False)
+ 
+     def forward(self, t): return  t * self.freqs_cos + rotate_half(t) * self.freqs_sin
+ 
+@@ -198,4 +198,4 @@
+     emb_cos = np.cos(out) # (M, D/2)
+ 
+     emb = np.concatenate([emb_sin, emb_cos], axis=1)  # (M, D)
+-    return emb+    return emb

@@ -1,5 +1,24 @@
 # ODE autoresearch notes
 
+## Active code — upstream migration, 1 November 2026
+Canonical GitHub main now uses the author's JiT source, pinned at cbc743a2,
+with ffn.py as the only candidate-model extension. See UPSTREAM.md/patch/json.
+The new working tree is /Users/mr.z/ODE-FFN-upstream. The full previous code
+is preserved on research-archive-20261101 and in the original local checkout.
+The live old run uses its immutable external source6bffa70 and is unchanged.
+
+The user's minimum baseline gate is FID below50. Poor-image rankings,
+EMA-lag diagnosis and passing code checks are not architecture evidence.
+Official JiT publishes ImageNet settings; the CIFAR loader/B2 patch-size
+port and CPU/MPS placement adapters must not be labeled a validated recipe.
+Default SwiGLU, loss, sampler and EMA definitions remain author code.
+
+Author compatibility99495/b7ab70 and CLI7626/9650c9 exit0. Fresh documented
+CLI588a70 and full check5f8134 also exit0 once, no invocation discrepancy.
+The new separate .venv-upstream-jit has the pinned author torch-fidelity fork;
+old environments remain unchanged. Candidate/state/RNG pairing and a brief
+actual MPS forward/backward/Adam update pass. No new benchmark was launched.
+
 ## Current state — November 1, 2026
 **Current deliverable: Report2.** The user finalized Report1 after its last
 requested edit (994e660); all later work belongs to Report2. Use the separate

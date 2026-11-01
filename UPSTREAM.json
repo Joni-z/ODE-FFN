@@ -1,0 +1,47 @@
+{
+  "repository": "https://github.com/LTH14/JiT",
+  "commit": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+  "license": "MIT; Copyright (c) 2025 Tianhong Li",
+  "imported_files": {
+    "model_jit.py": "0293a23c01312317701c96704b85e7fe00b15d9261aa845731ea434103fd7563",
+    "denoiser.py": "3649319428f758080828b164266284a75dcd73b53ce81827302be0824bca91a4",
+    "engine_jit.py": "f3ef5b5df80734a4033da7e613325f7be5ef187c582dba1ea59d169ce1fbb3ce",
+    "main_jit.py": "00bf2423d4b28a66748a1d7695b392687e7fe32c032d61c47710f010740ce6c2",
+    "prepare_ref.py": "98cb886fa4b0d164404e0d42e13680a0208150ebf96d2598e37f40e54a06a333",
+    "environment.yaml": "3729d82da2fa38d3bb1c4bb50b12be41475aa42859c7008c30868a38bc2a5519",
+    "LICENSE": "27658d5a15c520f7029fd1218696517e8d6b362c10d11c7e2a8e1977a0d7beb8",
+    "util/misc.py": "7fbec8c02f58cd5cb168e64cfcdc02aa1af5eb772850fe0db4d1714aff4812d0",
+    "util/model_util.py": "f4f35cc86a41b374d9e3654c8a2cddc12fbb11d41a28d24f05cf667c008b912e",
+    "util/crop.py": "08da8c1300202e66773806085fcaf2415acf1e38ac8923d5cdf79cafd770ccb6",
+    "util/lr_sched.py": "47765fbc75affedb8c8c062d8b784fd00a6ee4527c8a82edb8cf514235d7e048"
+  },
+  "research_archive": "research-archive-20261101",
+  "published_CIFAR10_recipe": false,
+  "baseline_FID_below_50_verified": false,
+  "unchanged_files": [
+    "prepare_ref.py",
+    "environment.yaml",
+    "LICENSE",
+    "util/crop.py",
+    "util/lr_sched.py"
+  ],
+  "modified_files": [
+    "model_jit.py",
+    "denoiser.py",
+    "engine_jit.py",
+    "main_jit.py",
+    "util/misc.py",
+    "util/model_util.py"
+  ],
+  "unchanged_definition_checks": {
+    "Denoiser.forward": true,
+    "Denoiser.sample_t": true,
+    "Denoiser.drop_labels": true,
+    "Denoiser.generate": true,
+    "Denoiser._forward_sample": true,
+    "Denoiser._euler_step": true,
+    "Denoiser._heun_step": true,
+    "Denoiser.update_ema": true,
+    "SwiGLUFFN": true
+  }
+}

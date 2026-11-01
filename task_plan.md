@@ -3,6 +3,23 @@
 ## Goal
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
+## Current priority: reproduce an upstream baseline (1 November 2026)
+The user requires author code rather than a bespoke training framework,
+a small active repository, and an interchangeable FFN. FID below50 is the
+minimum image-baseline gate; scores above200 do not support architecture claims.
+- [x] Archive the complete prior source on research-archive-20261101 and keep
+  the original local checkout, reports and external frozen runtime intact.
+- [x] Copy the official JiT source at cbc743a2; preserve license/provenance.
+- [x] Expose only the block FFN choice; add necessary explicit dataset/device ports.
+- [x] Compare against pinned author code: default state/RNG, active gradients,
+  actual epoch/Adam/two-EMA update, Euler/Heun and checkpoint schema.
+- [x] Pass fresh documented CLI/kernel checks, including a brief MPS update.
+- [ ] Reproduce a qualifying ordinary CIFAR baseline before any FFN verdict.
+Use root main_jit.py/ffn.py and UPSTREAM.md. Old custom src/configs/synthetic/
+scripts/tests live in the archive and are not the active experiment framework.
+The author's public recipe is ImageNet; the CIFAR/MPS ports remain unvalidated
+for image quality. No new long training or changed old-run metric is selected.
+
 ## Current reporting deliverable: Report2
 The user finalized Report1 after its last requested revision, commit
 `994e660921d2885592704f5c471bd43a12b1c6ef`. All subsequent research belongs

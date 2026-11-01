@@ -1,5 +1,10 @@
 # Project working conventions
 
+- Active training is the pinned author JiT code at the repository root. Keep it small and upstream-derived. Use `ffn.py` for block FFNs. Do not revive removed bespoke trainers, experiment controllers or custom metrics as active code.
+- Complete earlier source is on `research-archive-20261101`. The original local checkout and frozen running runtime remain preserved. Historical `docs/` and reports are not imported by active training.
+- FID below50 is the user's minimum image-baseline gate. Rankings at FID200-plus and kernel checks cannot substantiate architecture conclusions. First reproduce a qualifying ordinary baseline with fixed evaluation.
+- Pin and attribute upstream. Preserve copied loss, sampler and EMA mathematics; record necessary device/dataset changes in `UPSTREAM.patch`. A CIFAR/MPS port is not an author-validated CIFAR recipe.
+
 - The canonical repository is https://github.com/Joni-z/ODE-FFN, branch `main`. The user reads code on GitHub. Push completed, verified changes promptly rather than accumulating local-only work. Normal pushes are authorized; do not force-push published history.
 - Use **Zhizhe Zhang** for Git author and committer names. **Jonathan Zhang** is also accepted. Do not create commits under a Chinese name. The repository's GitHub-associated email is `195848701+Joni-z@users.noreply.github.com`.
 - Keep the README and research reports in English. Explain results to the user in concise Chinese unless asked otherwise.
