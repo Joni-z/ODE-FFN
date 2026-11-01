@@ -1,6 +1,8 @@
 """Bounded real-CIFAR check of the upstream epoch; no benchmark quality claim."""
 import os
 os.environ['TORCH_COMPILE_DISABLE'] = '1'
+if os.name == 'nt':
+    os.environ.setdefault('TORCH_HOME', 'D:/Research/ODE-FFN/cache/torch')
 import argparse
 import copy
 import gc
@@ -32,6 +34,7 @@ def main():
     assert torch.cuda.is_available() and torch.cuda.is_bf16_supported()
     torch.set_num_threads(4)
     torch._dynamo.config.disable = True
+    torch.backends.cudnn.benchmark = True
     torch.manual_seed(0)
     args = get_args_parser().parse_args([
         '--model', 'JiT-B/2', '--dataset', 'cifar10', '--img_size', '32',

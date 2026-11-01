@@ -266,7 +266,7 @@ def main(args):
             )
 
         # Perform online evaluation at specified intervals
-        if args.online_eval and (epoch % args.eval_freq == 0 or epoch + 1 == args.epochs):
+        if args.online_eval and ((epoch + 1) % args.eval_freq == 0 or epoch + 1 == args.epochs):
             if device.type == 'cuda':
                 torch.cuda.empty_cache()
             with torch.no_grad():

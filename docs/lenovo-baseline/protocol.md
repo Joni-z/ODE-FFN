@@ -36,8 +36,9 @@ exact mid-epoch/RNG continuation. No automatic restart or rescue tuning.
 - Online FID uses 5,000 generated images and the standard 50,000-image
   `cifar10-train` reference through the author's pinned torch-fidelity fork.
   Keep generated PNGs per evaluation epoch, TensorBoard FID/IS and stdout.
-- Upstream schedule evaluates epoch indices 0,20,...,180 and199. These FID5k
-  points are progress diagnostics. They cannot satisfy the final FID50k gate.
+- Evaluate after completed epochs20,40,...,200. The one-based cadence avoids
+  an expensive first-epoch evaluation during warmup; objective/sampler equations
+  are unchanged. These FID5k points cannot satisfy the final FID50k gate.
 - Before admitting an FFN comparison, run the same standard evaluator with
   50,000 generated images on a clearly identified checkpoint; require FID50k
   below50 and inspect generated examples. Record final evaluation separately.
