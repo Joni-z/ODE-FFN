@@ -35,7 +35,7 @@ and verified dataset:
 $env:OMP_NUM_THREADS='4'
 $env:MKL_NUM_THREADS='4'
 $env:TORCH_COMPILE_DISABLE='1'
-& D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 16
+& D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 8
 ```
 
 This executes eight real-data updates through the copied epoch function,
@@ -44,5 +44,7 @@ both EMAs, and a short native sampling call. It prints
 It measures the actual B model, not the tiny CPU compatibility fixture.
 It saves no model checkpoint and establishes no FID claim.
 
-Full training configuration and measured resource budget will be fixed before
-the persistent task starts. Reports are unchanged by this deployment.
+The registered [configuration](train.json) uses batch8 and200epochs. Capacity
+checks measured5.292GiB peak allocation and0.323s/update for8 short updates,
+including startup; the longer training log determines steady throughput. Batch16
+needed7.380GiB and was slower per image. Reports are unchanged by this deployment.

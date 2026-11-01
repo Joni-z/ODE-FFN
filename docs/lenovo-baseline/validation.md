@@ -19,7 +19,7 @@ ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B D:/Resear
 ```
 
 ```sh
-ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B D:/Research/ODE-FFN/upstream/docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 16 --check-metrics
+ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B D:/Research/ODE-FFN/upstream/docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 8 --check-metrics
 ```
 
 Expected: pip reports no broken dependencies; CLI help includes the FFN switch;

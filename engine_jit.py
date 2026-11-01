@@ -152,6 +152,7 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
             datasets_root=args.data_path,
             fid_statistics_file=fid_statistics_file,
             cuda=device.type == 'cuda',
+            batch_size=min(batch_size, 64) if args.dataset == 'cifar10' else 64,
             isc=True,
             fid=True,
             kid=False,

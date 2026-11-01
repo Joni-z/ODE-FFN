@@ -125,7 +125,7 @@
              fid_statistics_file = 'fid_stats/jit_in256_stats.npz'
          elif args.img_size == 512:
              fid_statistics_file = 'fid_stats/jit_in512_stats.npz'
-@@ -140,9 +148,10 @@
+@@ -140,9 +148,11 @@
              raise NotImplementedError
          metrics_dict = torch_fidelity.calculate_metrics(
              input1=save_folder,
@@ -135,10 +135,11 @@
              fid_statistics_file=fid_statistics_file,
 -            cuda=True,
 +            cuda=device.type == 'cuda',
++            batch_size=min(batch_size, 64) if args.dataset == 'cifar10' else 64,
              isc=True,
              fid=True,
              kid=False,
-@@ -155,6 +164,7 @@
+@@ -155,6 +165,7 @@
          log_writer.add_scalar('fid{}'.format(postfix), fid, epoch)
          log_writer.add_scalar('is{}'.format(postfix), inception_score, epoch)
          print("FID: {:.4f}, Inception Score: {:.4f}".format(fid, inception_score))

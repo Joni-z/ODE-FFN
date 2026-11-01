@@ -28,7 +28,7 @@
     "TORCH_HOME": "D:/Research/ODE-FFN/cache/torch"
   },
   "smoke": {
-    "invocation": "python docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 16",
+    "invocation": "python docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 8",
     "expect": "CUDA_BASELINE_WITNESS_PASS"
   },
   "weight_dirs": {

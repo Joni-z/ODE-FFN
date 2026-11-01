@@ -26,7 +26,7 @@ from util import misc
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--data-path', required=True)
-    parser.add_argument('--batch-size', type=int, default=16)
+    parser.add_argument('--batch-size', type=int, default=8)
     parser.add_argument('--batches', type=int, default=8)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--check-metrics', action='store_true')

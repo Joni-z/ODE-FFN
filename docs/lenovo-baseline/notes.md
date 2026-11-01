@@ -48,3 +48,15 @@
 - Mac compatibility checks pass after both loader fixes and optional epoch-wise
   PNG retention. Native objective, gradients, both EMAs and sampler comparisons
   remain exact. These are correctness checks, not image-quality evidence.
+
+## Capacity decision
+- All packages installed, pip check exit0, official torch2.5.1+cu124 recognizes
+  the RTX4060 and BF16. No Windows security policy changed.
+- Full B model:129,881,868 parameters. Batch16:7.380GiB peak allocated,
+  7.764GiB reserved,1.190s/update. Batch8:5.292GiB allocated,5.645GiB reserved,
+  0.323s/update. Each is8 real-CIFAR updates including startup; not a definitive
+  steady-state speed comparison. Select batch8 for memory headroom.
+- Limit CIFAR Inception batches to the generation batch size (at most64) to
+  fit alongside the trained model/Adam/twoEMAs. No FID definition changes.
+- Both probes check active gradients, EMA updates and short native sampling;
+  neither establishes generation quality. Fresh documented validation remains.

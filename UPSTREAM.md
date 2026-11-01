@@ -25,7 +25,7 @@ search or extra loss enters active training.
 | `model_jit.py` | Allocate bias on the input device; add B/2 as a patch-size-only CIFAR port of the author's B body. |
 | `util/model_util.py` | Nonpersistent buffers move original RoPE values with .to(device), retaining official checkpoint keys. |
 | `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard, CLI help, a picklable crop for Windows workers and epoch-wise sampler shuffle in single-process mode, optional sample retention, and evaluation after completed epoch multiples (avoiding first-epoch warmup evaluation). |
-| `engine_jit.py` | Gate CUDA AMP/synchronization, place labels on model device, guard barriers; pass standard CIFAR train reference to upstream FID. Non-CUDA FID uses CPU Inception. Optional sample retention adds epoch-specific folders. |
+| `engine_jit.py` | Gate CUDA AMP/synchronization, place labels on model device, guard barriers; pass standard CIFAR train reference to upstream FID. Non-CUDA FID uses CPU Inception. Optional sample retention adds epoch-specific folders. CIFAR metric batches are capped by generation batch size for limited VRAM. |
 | `util/misc.py` | Add a barrier helper that is a no-op without a process group. |
 
 `util/crop.py`, `util/lr_sched.py`, `prepare_ref.py`, `environment.yaml` and
