@@ -1,5 +1,14 @@
 # ODE autoresearch notes
 
+## Current execution — Lenovo, 1 November 2026
+The user restored Lenovo and authorized execution. The upstream-derived
+SwiGLU baseline runs from frozen3b07a57, with batch8/seed0/200epochs.
+Fresh CPU/CUDA/Inception checks passed;99% GPU load and0.19s/update are
+execution evidence, not image quality. Follow
+[the current status](docs/lenovo-baseline/status.md), protocol and monitor.
+The old dirty Windows checkout, previous runtimes, Mac experiments and reports
+remain intact. The earlier Mac-only decision is superseded for new work.
+
 ## Active code — upstream migration, 1 November 2026
 Canonical GitHub main now uses the author's JiT source, pinned at cbc743a2,
 with ffn.py as the only candidate-model extension. See UPSTREAM.md/patch/json.

@@ -1,7 +1,7 @@
 # Lenovo upstream baseline
 
 The user authorized execution on the restored Lenovo on 1 November 2026.
-Run the author's native SwiGLU first. This is a local unconditional CIFAR-10
+The author's native SwiGLU baseline is now running; see [status.md](status.md). This is a local unconditional CIFAR-10
 port of JiT; the author's released recipe is for ImageNet. FID below 50 is the
 minimum gate before interpreting an ISRU comparison. Read [task_plan.md](task_plan.md)
 for the current deployment state; an installed environment is not a quality result.
@@ -48,3 +48,18 @@ The registered [configuration](train.json) uses batch8 and200epochs. Capacity
 checks measured5.292GiB peak allocation and0.323s/update for8 short updates,
 including startup; the longer training log determines steady throughput. Batch16
 needed7.380GiB and was slower per image. Reports are unchanged by this deployment.
+
+## Frozen execution
+
+Formal source is a detached Git worktree at
+`D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101`, commit3b07a57.
+The source checkout remains available for development. The scheduled task runs:
+
+```powershell
+D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -u D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101/docs/lenovo-baseline/run_monitored.py --config D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101/docs/lenovo-baseline/train.json --run-dir D:/Research/ODE-FFN/runs/jit_cifar10_swiglu_20261101
+```
+
+This is the **already running invocation**, not a command to launch again.
+The monitor refuses an existing output directory or dirty source checkout.
+The command, source hashes and environment are retained in launch.json.
+[Verification](verification.json) records four fresh documented checks.

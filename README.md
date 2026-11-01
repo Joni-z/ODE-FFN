@@ -55,8 +55,9 @@ are gitignored here; CIFAR uses the standard dataset reference instead.
 
 **A qualifying CIFAR baseline has not been reproduced.** Upstream publishes
 ImageNet recipes, not a CIFAR-10 recipe. Our dataset adapter and `JiT-B/2`
-patch-size variant are local ports, not published author results. They are
-not launched automatically.
+patch-size variant are local ports, not published author results. The first explicitly authorized
+SwiGLU baseline is running on Lenovo; see [current status](docs/lenovo-baseline/status.md).
+It has not yet met the quality gate.
 
 The relevant flags are:
 

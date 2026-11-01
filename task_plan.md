@@ -24,7 +24,9 @@ minimum image-baseline gate; scores above200 do not support architecture claims.
 Use root main_jit.py/ffn.py and UPSTREAM.md. Old custom src/configs/synthetic/
 scripts/tests live in the archive and are not the active experiment framework.
 The author's public recipe is ImageNet; the CIFAR/MPS ports remain unvalidated
-for image quality. No new long training or changed old-run metric is selected.
+for image quality. The Lenovo SwiGLU baseline is running from frozen3b07a57;
+see [status](docs/lenovo-baseline/status.md). The old Mac run and its metrics
+were not changed.
 
 ## Current reporting deliverable: Report2
 The user finalized Report1 after its last requested revision, commit

@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "source_commit": "3b07a57",
+  "environment": "upstream-jit@b74f62a7",
+  "fresh_documented_checks": [
+    {
+      "step": 1,
+      "command": "ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -m pip check",
+      "exit_code": 0,
+      "chunk_ids": [
+        "687e30"
+      ],
+      "sentinels": [
+        "No broken requirements found."
+      ],
+      "warnings": [],
+      "result": "PASS"
+    },
+    {
+      "step": 2,
+      "command": "ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B D:/Research/ODE-FFN/upstream/main_jit.py --help",
+      "exit_code": 0,
+      "chunk_ids": [
+        "9f1b2b",
+        "2b179d"
+      ],
+      "sentinels": [
+        "--ffn {swiglu,isru}"
+      ],
+      "warnings": [],
+      "result": "PASS"
+    },
+    {
+      "step": 3,
+      "command": "ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B D:/Research/ODE-FFN/upstream/tests/check_upstream.py --upstream D:/Research/ODE-FFN/references/jit-cbc743a2",
+      "exit_code": 0,
+      "chunk_ids": [
+        "11d727",
+        "9b7676"
+      ],
+      "sentinels": [
+        "UPSTREAM_COMPATIBILITY_PASS"
+      ],
+      "warnings": [
+        "reference_model:99: FutureWarning: torch.cuda.amp.autocast(args...) is deprecated; use torch.amp.autocast('cuda', args...) instead.",
+        "D:\\Research\\ODE-FFN\\upstream\\model_jit.py:99: same AMP FutureWarning."
+      ],
+      "result": "PASS"
+    },
+    {
+      "step": 4,
+      "command": "ssh lenovo D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -B D:/Research/ODE-FFN/upstream/docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 8 --check-metrics",
+      "exit_code": 0,
+      "chunk_ids": [
+        "5c4316",
+        "bd9cf2",
+        "411257"
+      ],
+      "sentinels": [
+        "CUDA_BASELINE_WITNESS_PASS"
+      ],
+      "warnings": [
+        "D:\\Research\\ODE-FFN\\upstream\\model_jit.py:99: FutureWarning: torch.cuda.amp.autocast(args...) is deprecated; use torch.amp.autocast('cuda', args...) instead."
+      ],
+      "result": "PASS"
+    }
+  ],
+  "fresh_cuda_witness": {
+    "batch_size": 8,
+    "batches": 8,
+    "dataset_examples": 50000,
+    "elapsed_seconds": 2.1814670999301597,
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "max_reserved_GiB": 5.64453125,
+    "official_Inception_CUDA_features": [
+      4,
+      2048
+    ],
+    "parameters": 129881868,
+    "peak_training_allocated_GiB": 5.29201078414917,
+    "quality_or_FID_claim": false,
+    "seconds_per_update": 0.27268338749126997,
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1+cu124"
+  },
+  "capacity_probes": [
+    {
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "batch_size": 16,
+      "batches": 8,
+      "parameters": 129881868,
+      "elapsed_seconds": 9.516707400092855,
+      "seconds_per_update": 1.1895884250116069,
+      "peak_training_allocated_GiB": 7.379992961883545,
+      "max_reserved_GiB": 7.763671875,
+      "dataset_examples": 50000,
+      "quality_or_FID_claim": false
+    },
+    {
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "batch_size": 8,
+      "batches": 8,
+      "parameters": 129881868,
+      "elapsed_seconds": 2.5815535000292584,
+      "seconds_per_update": 0.3226941875036573,
+      "peak_training_allocated_GiB": 5.29201078414917,
+      "max_reserved_GiB": 5.64453125,
+      "dataset_examples": 50000,
+      "quality_or_FID_claim": false
+    }
+  ],
+  "source_sha256": {
+    "main_jit.py": "6134df8fa6725cfe69447244c8c3849855cc5ced790facc14e148f0ac2d41198",
+    "engine_jit.py": "47fa357f69c1bfedbf45318f0c5e80110d4e5e3bfb4fe63d99fa021e9cb7aea6",
+    "denoiser.py": "fbc7342ac09c80d77096648394c9d84412e8f51507c1bab177794c92890e4608",
+    "model_jit.py": "069b4b3eb87a51f1aa5e869ed995d1d6ceabf5c0ce120c4fe370acb93f5010c1",
+    "ffn.py": "fcde2667d38a35aeb8f33288dfd9af71a9abfc071f62056608c89caef2f26831",
+    "util/misc.py": "e3d48eca0b0a0b82379eff6f22852861d24fc50a691ac3db0eb730af374ff709",
+    "util/model_util.py": "7dc86c801f984c13e38b154ad97254d78592536840acfcd31018f18d49528a91",
+    "util/crop.py": "08da8c1300202e66773806085fcaf2415acf1e38ac8923d5cdf79cafd770ccb6",
+    "util/lr_sched.py": "47765fbc75affedb8c8c062d8b784fd00a6ee4527c8a82edb8cf514235d7e048",
+    "docs/lenovo-baseline/check_cuda.py": "fffdcd4e2e9f0a9977e9cbca078047211cc50bb9b736d5ef5f1be1ed0498a53b",
+    "docs/lenovo-baseline/run_monitored.py": "8373a6be49211e1efa3ee33bcd4656b4d5b836110d19361f07b44faf132fae3e",
+    "docs/lenovo-baseline/train.json": "838ab5fc998f1408637eb250bec67e0e66183456779812c0724157e2cc5d2fda"
+  },
+  "package_hashes_verified_on_windows": 27,
+  "upstream_commit": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+  "author_fidelity_commit": "bfe72b995473e4fee9351705d7b005f17442a4ca",
+  "baseline_quality_verified": false,
+  "reports_changed": false
+}

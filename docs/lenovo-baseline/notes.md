@@ -60,3 +60,15 @@
   fit alongside the trained model/Adam/twoEMAs. No FID definition changes.
 - Both probes check active gradients, EMA updates and short native sampling;
   neither establishes generation quality. Fresh documented validation remains.
+
+## Launch verification
+- Fresh documented commands pass once each, four exit0 results. CUDA peak is
+  5.292 GiB; official Inception dispatch returns4x2048 features.
+- Scheduled task is running from detached3b07a57. Initial logs show growing
+  steps0,20,40,...,560; steady0.19s/update, GPU99%, about6.2GiB resident.
+- A combined read-only status query stalled; its own SSH probe was stopped.
+  Individual status/launch JSON transfers succeeded and the monitor heartbeat
+  advances. No training process was restarted. The first curator attempted to
+  read that pending file before transfer completion and exited without edits;
+  the completed JSON transfers were used instead. All12launch source hashes
+  match the reviewed source. Reports remain unchanged.
