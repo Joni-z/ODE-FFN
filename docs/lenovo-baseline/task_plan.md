@@ -45,3 +45,15 @@ message rejected. All have concrete resolutions; no security setting changed.
 Scope: read-only runtime inspection and documentation. Preserve the running
 checkpoint, training environment, and both reports. Any budget/architecture
 change must be presented as a changed experiment, not a transparent speedup.
+
+## Authorized pause and performance measurement
+The user approved the proposed checkpoint-preserving pause and bounded profiling.
+- [ ] Wait for the current epoch checkpoint while preparing the benchmark; verify and preserve it.
+- [ ] Stop only this run's training process tree; verify released GPU memory and recorded exit.
+- [ ] Reuse the frozen official epoch loop with20warmup and100measured updates per batch size.
+- [ ] Separate forward, backward, Adam and EMA timing without changing model equations.
+- [ ] Compare safe batch sizes and test only evidence-supported execution improvements.
+- [ ] Publish measured results, checkpoint identity and the justified continuation decision.
+
+Training mathematics, long-run budget and reports remain unchanged. Profiling
+updates are disposable and must never replace the saved training checkpoint.
