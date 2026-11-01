@@ -15,17 +15,27 @@
       "opencv-python==4.11.0.86",
       "tensorboard==2.20.0",
       "tqdm==4.67.1",
-      "torch-fidelity @ https://codeload.github.com/LTH14/torch-fidelity/zip/bfe72b995473e4fee9351705d7b005f17442a4ca"
+      "torch-fidelity @ https://codeload.github.com/LTH14/torch-fidelity/zip/bfe72b995473e4fee9351705d7b005f17442a4ca",
+      "colorama==0.4.6",
+      "sympy==1.13.1"
     ]
   ],
   "env": {
     "OMP_NUM_THREADS": "4",
     "MKL_NUM_THREADS": "4",
     "TORCH_COMPILE_DISABLE": "1",
-    "PYTHONUNBUFFERED": "1"
+    "PYTHONUNBUFFERED": "1",
+    "TORCH_HOME": "D:/Research/ODE-FFN/cache/torch"
   },
   "smoke": {
     "invocation": "python docs/lenovo-baseline/check_cuda.py --data-path D:/Research/ODE-FFN/datasets/cifar10 --batch-size 16",
     "expect": "CUDA_BASELINE_WITNESS_PASS"
+  },
+  "weight_dirs": {
+    "inception": {
+      "path": "D:/Research/ODE-FFN/cache/torch/hub/checkpoints/weights-inception-2015-12-05-6726825d.pth",
+      "source": "author torch-fidelity FeatureExtractorInceptionV3 official checkpoint",
+      "gated": false
+    }
   }
 }

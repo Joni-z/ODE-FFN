@@ -84,6 +84,8 @@ def get_args_parser():
                         help='Frequency (in epochs) for evaluation')
     parser.add_argument('--online_eval', action='store_true')
     parser.add_argument('--evaluate_gen', action='store_true')
+    parser.add_argument('--keep_samples', action='store_true',
+                        help='Keep generated PNGs in an epoch-specific folder after FID')
     parser.add_argument('--gen_bsz', type=int, default=256,
                         help='Generation batch size')
 

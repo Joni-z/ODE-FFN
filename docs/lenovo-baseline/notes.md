@@ -24,3 +24,27 @@
   DataLoader workers can start. The image operation is unchanged.
 - Call `DistributedSampler.set_epoch` in single-process mode as well, so a
   single-GPU run does not repeat the same sample ordering every epoch.
+
+## Staging resolution
+- Official Python3.12.10 installer SHA256
+  `67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb`;
+  Windows reports a valid Python Software Foundation signature. Installer exit0;
+  new venv Python also has a valid signature and executes normally.
+- CIFAR archive SHA256
+  `6d958be074577803d12ecdefd02955f39262c83c16fe9348329d7fe0b5c001ce` matches
+  on arrival; extracted without modifying the old synthetic dataset.
+- Torch wheel2.5.1+cu124 official-index SHA256
+  `3c3f705fb125edbd77f9579fa11a138c56af8968a10fc95834cdd9fdf4f1f1a6` verified
+  after a resumed range download. No alternate package or mirror substituted.
+- Direct `clone -b origin/main` from a bundle failed because it names a remote
+  ref, not a head. Explicit Git init/fetch/checkout succeeded; source8c3b377 then
+  fast-forwarded to the published6643a53. The failed direct clone is archived.
+- First offline auxiliary install stopped before installation because the
+  cross-platform resolver omitted Windows-only colorama. Add its pinned wheel;
+  do not bypass dependency checks.
+- Large transfers were slow through the shared SSH master. Independent SCP
+  with a131072-byte buffer passed16MiB in4.27s;262144 exceeded the server message
+  limit. Relay official verified chunks and verify the final Windows wheel hash.
+- Mac compatibility checks pass after both loader fixes and optional epoch-wise
+  PNG retention. Native objective, gradients, both EMAs and sampler comparisons
+  remain exact. These are correctness checks, not image-quality evidence.

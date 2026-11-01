@@ -3,6 +3,7 @@ import os
 os.environ['TORCH_COMPILE_DISABLE'] = '1'
 import argparse
 import copy
+import gc
 import json
 import sys
 import time
@@ -26,6 +27,7 @@ def main():
     parser.add_argument('--batch-size', type=int, default=16)
     parser.add_argument('--batches', type=int, default=8)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--check-metrics', action='store_true')
     a = parser.parse_args()
     assert torch.cuda.is_available() and torch.cuda.is_bf16_supported()
     torch.set_num_threads(4)
@@ -65,6 +67,20 @@ def main():
                    peak_training_allocated_GiB=training_peak / 2**30,
                    max_reserved_GiB=torch.cuda.max_memory_reserved() / 2**30,
                    dataset_examples=len(data), quality_or_FID_claim=False)
+    if a.check_metrics:
+        del model, optimizer, samples
+        gc.collect()
+        torch.cuda.empty_cache()
+        from torch_fidelity.registry import DATASETS_REGISTRY
+        from torch_fidelity.feature_extractor_inceptionv3 import FeatureExtractorInceptionV3
+        reference = DATASETS_REGISTRY['cifar10-train'](a.data_path, False)
+        assert len(reference) == 50000
+        extractor = FeatureExtractorInceptionV3('inception-v3-compat', ['2048']).cuda().eval()
+        pixels = torch.stack([reference[i] for i in range(4)]).cuda()
+        with torch.no_grad():
+            features = extractor(pixels)[0]
+        assert features.shape == (4, 2048) and torch.isfinite(features).all()
+        receipt['official_Inception_CUDA_features'] = list(features.shape)
     if a.output:
         with a.output.open('x') as f:
             json.dump(receipt, f, indent=2)
