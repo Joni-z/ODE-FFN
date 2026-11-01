@@ -1,7 +1,8 @@
 # Lenovo upstream baseline
 
 The user authorized execution on the restored Lenovo on 1 November 2026.
-The author's native SwiGLU baseline is now running; see [status.md](status.md). This is a local unconditional CIFAR-10
+The author's native SwiGLU baseline is paused after four completed epochs; see
+[status.md](status.md) and the completed [performance study](performance.md). This is a local unconditional CIFAR-10
 port of JiT; the author's released recipe is for ImageNet. FID below 50 is the
 minimum gate before interpreting an ISRU comparison. Read [task_plan.md](task_plan.md)
 for the current deployment state; an installed environment is not a quality result.
@@ -53,13 +54,27 @@ needed7.380GiB and was slower per image. Reports are unchanged by this deploymen
 
 Formal source is a detached Git worktree at
 `D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101`, commit3b07a57.
-The source checkout remains available for development. The scheduled task runs:
+The source checkout remains available for development. The scheduled task used:
 
 ```powershell
 D:/Research/ODE-FFN/envs/upstream-jit/Scripts/python.exe -u D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101/docs/lenovo-baseline/run_monitored.py --config D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101/docs/lenovo-baseline/train.json --run-dir D:/Research/ODE-FFN/runs/jit_cifar10_swiglu_20261101
 ```
 
-This is the **already running invocation**, not a command to launch again.
+This is the **original launch invocation**, not a command to launch again.
 The monitor refuses an existing output directory or dirty source checkout.
 The command, source hashes and environment are retained in launch.json.
 [Verification](verification.json) records four fresh documented checks.
+
+## Preserved checkpoint
+
+The user authorized a pause for profiling. A complete fourth-epoch checkpoint
+is retained at
+`D:/Research/ODE-FFN/runs/jit_cifar10_swiglu_20261101/preserved-before-profile/checkpoint-last.pth`.
+The original checkpoint has the same SHA256; [pause.json](pause.json) records
+the process identity and verified copy. No profiling weights were saved there.
+
+For a later authorized continuation, the upstream `--resume` argument takes
+that containing directory, and a new output directory must be used. The saved
+epoch index is3, so native resume begins at index4. This is epoch-level resume;
+exact RNG/minibatch replay is not claimed. Do not rerun the original scheduled
+task: its launch command has no resume argument and its output already exists.

@@ -1,8 +1,16 @@
 # Lenovo baseline status
 
+**Paused at the user's request on 1 November 2026, 22:09 Asia/Shanghai.**
+Four epochs (25,000 updates) are preserved in a verified full checkpoint.
+The original training process tree was stopped after saving; profiling updates
+were discarded. All six measurements are complete; the fastest tested setup
+still projects to60hours for200epochs. The long run remains paused.
+See [pause.json](pause.json) and [performance.md](performance.md).
+The observation below predates this pause.
+
 Snapshot: 2026-11-01T13:46:59.718850+00:00. Re-query before treating it as live.
 
-The native SwiGLU baseline is **running** on Lenovo's RTX 4060 Laptop. Source is
+At the earlier snapshot, the native SwiGLU baseline was **running** on Lenovo's RTX 4060 Laptop. Source is
 frozen at `3b07a570f0742c7e4c85cbadde475a93716656b6` in
 `D:/Research/ODE-FFN/runtimes/jit_cifar10_swiglu_20261101`.
 The supervisor calls the upstream main_jit.py; it does not implement training.

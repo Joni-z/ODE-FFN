@@ -93,3 +93,22 @@ performance assessment. No job, training source or report was modified.
 The first cross-platform hash check treated Windows backslashes as literal
 Mac filename characters; normalizing separators resolved all12paths. No source
 mismatch occurred.
+
+## Performance execution
+The completed fourth-epoch checkpoint was copied and SHA256 verified before
+stopping the original training tree. The first batch8 benchmark completed100
+timed updates and emitted its PASS receipt. PowerShell Start-Process exposed a
+null ExitCode after WaitForExit, so the outer launcher incorrectly reported a
+failure; the measured result and log are preserved. Remaining cases use Python
+subprocess return codes, with no repeat of the completed batch8 measurement.
+
+## Completed performance decision
+Six20-warmup/100-update cases completed. Native batch8 gives40.82images/s,
+batch12gives43.36, and batch16falls to13.66with a large shared-memory allocation
+in Windows adapter counters. Fused AdamW passes all182parameter-tensor update
+comparisons and gives44.78images/s at batch8,46.04at batch12. The best projection
+still needs60.3training hours for200epochs. Keep the long run paused; no
+architecture, LR, budget, or production optimizer change follows automatically.
+Both checkpoint hashes remain4043b910...1748faa92, and final GPU utilization
+is0% with391MiB resident. The submitted reports and formal source are untouched.
+See performance.md/performance-results.json for complete receipts and limits.

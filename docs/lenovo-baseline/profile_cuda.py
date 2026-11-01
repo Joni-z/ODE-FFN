@@ -29,6 +29,48 @@ class Window:
         return itertools.islice(self.iterator, self.length)
 
 
+def compare_adam_backends(optimizer):
+    """Compare independent real-gradient updates, one parameter pair at a time."""
+    import torch
+    total_error, total_update, maximum = 0.0, 0.0, 0.0
+    moment_error = {'exp_avg': [0.0, 0.0], 'exp_avg_sq': [0.0, 0.0]}
+    count = 0
+    for group in optimizer.param_groups:
+        kw = {k: group[k] for k in ('lr', 'betas', 'eps', 'weight_decay', 'amsgrad', 'maximize')}
+        for original in group['params']:
+            if original.grad is None:
+                continue
+            ref = torch.nn.Parameter(original.detach().clone())
+            fused = torch.nn.Parameter(original.detach().clone())
+            ref.grad, fused.grad = original.grad.clone(), original.grad.clone()
+            native_opt = torch.optim.AdamW([ref], **kw)
+            fused_opt = torch.optim.AdamW([fused], **kw, fused=True, foreach=False)
+            for opt, param, device in ((native_opt, ref, 'cpu'), (fused_opt, fused, original.device)):
+                opt.state[param] = {k: (v.detach().clone() if torch.is_tensor(v) else v)
+                                    for k, v in optimizer.state[original].items()}
+                opt.state[param]['step'] = opt.state[param]['step'].to(device)
+            native_opt.step()
+            fused_opt.step()
+            delta = ref.detach() - fused.detach()
+            total_error += delta.double().square().sum().item()
+            total_update += (ref.detach() - original.detach()).double().square().sum().item()
+            maximum = max(maximum, delta.abs().max().item())
+            for key, sums in moment_error.items():
+                left, right = native_opt.state[ref][key], fused_opt.state[fused][key]
+                sums[0] += (left-right).double().square().sum().item()
+                sums[1] += left.double().square().sum().item()
+            assert native_opt.state[ref]['step'].item() == fused_opt.state[fused]['step'].item()
+            count += 1
+    relative_update_error = (total_error / max(total_update, 1e-30))**.5
+    moment_relative = {k: (x/max(y, 1e-30))**.5 for k, (x, y) in moment_error.items()}
+    passed = (maximum <= 1e-6 and relative_update_error <= .005
+              and all(x <= 1e-5 for x in moment_relative.values()))
+    return dict(parameter_tensors=count, maximum_parameter_error=maximum,
+        relative_update_error=relative_update_error, moment_relative_errors=moment_relative,
+        tolerances={'parameter_max_abs': 1e-6, 'relative_update': .005, 'relative_moments': 1e-5},
+        passed=passed, bitwise_equivalence_claim=False)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, required=True)
@@ -40,6 +82,8 @@ def main():
     parser.add_argument('--steps', type=int, default=100)
     parser.add_argument('--instrument', action='store_true')
     parser.add_argument('--operator-profile', action='store_true')
+    parser.add_argument('--adam-fused', action='store_true')
+    parser.add_argument('--validate-adam', action='store_true')
     a = parser.parse_args()
     if a.output.exists():
         raise FileExistsError(a.output)
@@ -66,7 +110,12 @@ def main():
     model.ema_params1 = [cp['model_ema1'][n].cuda() for n, _ in model.named_parameters()]
     model.ema_params2 = [cp['model_ema2'][n].cuda() for n, _ in model.named_parameters()]
     optimizer = torch.optim.AdamW(misc.add_weight_decay(model, args.weight_decay),
-                                  lr=args.lr, betas=(.9, .95))
+                                  lr=args.lr, betas=(.9, .95),
+                                  fused=True if a.adam_fused else None)
+    if a.adam_fused:
+        # Set before load_state_dict so PyTorch places step counters on CUDA.
+        for group in cp['optimizer']['param_groups']:
+            group['fused'], group['foreach'] = True, False
     optimizer.load_state_dict(cp['optimizer'])
     checkpoint_epoch = cp['epoch']
     del cp
@@ -145,7 +194,7 @@ def main():
         state_hash.update(name.encode())
         state_hash.update(tensor.detach().cpu().contiguous().numpy().tobytes())
     receipt = dict(batch_size=a.batch_size, warmup_steps=a.warmup, measured_steps=a.steps,
-        phase_instrumentation=a.instrument, checkpoint=str(a.checkpoint),
+        phase_instrumentation=a.instrument, adam_fused=a.adam_fused, checkpoint=str(a.checkpoint),
         checkpoint_completed_epochs=checkpoint_epoch + 1, benchmark_lr_epoch=epoch,
         torch=torch.__version__, torchvision=torchvision.__version__, gpu=torch.cuda.get_device_name(),
         elapsed_seconds=elapsed, seconds_per_update=elapsed/a.steps,
@@ -158,6 +207,8 @@ def main():
     receipt['gpu_snapshot'] = subprocess.run(['nvidia-smi',
         '--query-gpu=utilization.gpu,memory.used,temperature.gpu,power.draw,clocks.sm',
         '--format=csv,noheader,nounits'], capture_output=True, text=True).stdout.strip()
+    if a.validate_adam:
+        receipt['adam_update_comparison'] = compare_adam_backends(optimizer)
     if a.operator_profile:
         with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU,
                                                 torch.profiler.ProfilerActivity.CUDA]) as prof:

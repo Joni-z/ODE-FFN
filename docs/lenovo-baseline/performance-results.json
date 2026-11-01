@@ -1,0 +1,480 @@
+{
+  "date": "2026-11-01",
+  "timezone": "Asia/Shanghai",
+  "formal_training_state": "PAUSED_AFTER_4_COMPLETED_EPOCHS",
+  "formal_source_commit": "3b07a570f0742c7e4c85cbadde475a93716656b6",
+  "baseline_profiler_commit": "36f9acd",
+  "baseline_profiler_sha256": "6475f4b664e8e85ead3ccb3b75a706fd4fb710215421594e7f87e8371b7879a0",
+  "fused_profiler_sha256": "ab234be6d3fc0ecaffe939adf8974d976d0aa18d6685e05439990d39806011b1",
+  "driver_version": "566.26",
+  "summary": {
+    "b8-plain": {
+      "images_per_second": 40.82359000545097,
+      "milliseconds_per_update": 195.96512699965388,
+      "peak_allocated_GiB": 5.299037933349609,
+      "training_hours_for_200_epochs": 68.04344687487982,
+      "throughput_ratio_to_b8_plain": 1.0
+    },
+    "b8-phases": {
+      "images_per_second": 40.96332887037298,
+      "milliseconds_per_update": 195.29662799905054,
+      "peak_allocated_GiB": 5.299037933349609,
+      "training_hours_for_200_epochs": 67.81132916633699,
+      "throughput_ratio_to_b8_plain": 1.0034229930514038
+    },
+    "b12-phases": {
+      "images_per_second": 43.355035804509264,
+      "milliseconds_per_update": 276.784455999732,
+      "peak_allocated_GiB": 6.332737922668457,
+      "training_hours_for_200_epochs": 64.06022464971575,
+      "throughput_ratio_to_b8_plain": 1.06200938718815
+    },
+    "b16-phases": {
+      "images_per_second": 13.656278894369512,
+      "milliseconds_per_update": 1171.6222349996679,
+      "peak_allocated_GiB": 7.358996868133545,
+      "training_hours_for_200_epochs": 203.40663802077566,
+      "throughput_ratio_to_b8_plain": 0.3345193034847268
+    },
+    "b8-fused": {
+      "images_per_second": 44.7829716153579,
+      "milliseconds_per_update": 178.63932900014333,
+      "peak_allocated_GiB": 5.300220489501953,
+      "training_hours_for_200_epochs": 62.02754479171644,
+      "throughput_ratio_to_b8_plain": 1.0969875900031882
+    },
+    "b12-fused": {
+      "images_per_second": 46.03609732576069,
+      "milliseconds_per_update": 260.66501500084996,
+      "peak_allocated_GiB": 6.33282470703125,
+      "training_hours_for_200_epochs": 60.329469582974504,
+      "throughput_ratio_to_b8_plain": 1.1276837073763901
+    }
+  },
+  "receipts": {
+    "b8-plain": {
+      "batch_size": 8,
+      "warmup_steps": 20,
+      "measured_steps": 100,
+      "phase_instrumentation": false,
+      "checkpoint": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+      "checkpoint_completed_epochs": 4,
+      "benchmark_lr_epoch": 6,
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "elapsed_seconds": 19.596512699965388,
+      "seconds_per_update": 0.19596512699965388,
+      "images_per_second": 40.82359000545097,
+      "peak_allocated_GiB": 5.299037933349609,
+      "peak_reserved_GiB": 5.63671875,
+      "phase_times": {},
+      "loss_mean": 0.1522361785173416,
+      "loss_last": 0.17088615894317627,
+      "final_model_sha256": "7ea5c77ead98015e7ba8999fddc751c899cb7bbb051b54c008d9b9c908cd4f61",
+      "rng_sha256": "4cbc97b2e78d1178e660cf1174f9dd35023e6c2286069e1727382a8be9a07379",
+      "quality_claim": false,
+      "checkpoint_written": false,
+      "gpu_snapshot": "27, 6297, 55, 17.99, 2505"
+    },
+    "b8-phases": {
+      "batch_size": 8,
+      "warmup_steps": 20,
+      "measured_steps": 100,
+      "phase_instrumentation": true,
+      "checkpoint": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+      "checkpoint_completed_epochs": 4,
+      "benchmark_lr_epoch": 6,
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "elapsed_seconds": 19.529662799905054,
+      "seconds_per_update": 0.19529662799905054,
+      "images_per_second": 40.96332887037298,
+      "peak_allocated_GiB": 5.299037933349609,
+      "peak_reserved_GiB": 5.63671875,
+      "phase_times": {
+        "forward_loss": {
+          "cuda_stream_ms_mean": 49.20629909515381,
+          "cuda_stream_ms_median": 49.09561538696289,
+          "host_call_ms_mean": 28.653960006777197
+        },
+        "backward": {
+          "cuda_stream_ms_mean": 90.3918539428711,
+          "cuda_stream_ms_median": 90.34859466552734,
+          "host_call_ms_mean": 52.929369994672015
+        },
+        "adam": {
+          "cuda_stream_ms_mean": 40.097275199890134,
+          "cuda_stream_ms_median": 40.099727630615234,
+          "host_call_ms_mean": 2.9011230054311454
+        },
+        "ema": {
+          "cuda_stream_ms_mean": 15.007545623779297,
+          "cuda_stream_ms_median": 14.854144096374512,
+          "host_call_ms_mean": 7.365952006075531
+        }
+      },
+      "loss_mean": 0.15223738551139832,
+      "loss_last": 0.1709074229001999,
+      "final_model_sha256": "c90e6f80051f74ef90f134d5c4bfb5590e9c473b8f58c5a83a44545fdab1827d",
+      "rng_sha256": "4cbc97b2e78d1178e660cf1174f9dd35023e6c2286069e1727382a8be9a07379",
+      "quality_claim": false,
+      "checkpoint_written": false,
+      "gpu_snapshot": "9, 6297, 50, 16.12, 2505",
+      "operators": [
+        {
+          "name": "aten::mul",
+          "calls": 2442,
+          "self_device_ms": 124.31,
+          "self_cpu_ms": 53.72911500000119
+        },
+        {
+          "name": "aten::copy_",
+          "calls": 2290,
+          "self_device_ms": 95.858,
+          "self_cpu_ms": 35.96143999999977
+        },
+        {
+          "name": "aten::mm",
+          "calls": 405,
+          "self_device_ms": 93.084,
+          "self_cpu_ms": 15.175581000001461
+        },
+        {
+          "name": "aten::add_",
+          "calls": 2038,
+          "self_device_ms": 61.668,
+          "self_cpu_ms": 19.78935399999936
+        },
+        {
+          "name": "aten::_to_copy",
+          "calls": 1757,
+          "self_device_ms": 47.672,
+          "self_cpu_ms": 83.84757900000423
+        },
+        {
+          "name": "aten::bmm",
+          "calls": 216,
+          "self_device_ms": 37.269,
+          "self_cpu_ms": 6.177453000000481
+        },
+        {
+          "name": "aten::addmm",
+          "calls": 168,
+          "self_device_ms": 33.591,
+          "self_cpu_ms": 7.711230999999508
+        },
+        {
+          "name": "aten::_foreach_addcdiv_",
+          "calls": 6,
+          "self_device_ms": 31.392,
+          "self_cpu_ms": 8.21484100000077
+        },
+        {
+          "name": "aten::to",
+          "calls": 2437,
+          "self_device_ms": 31.143,
+          "self_cpu_ms": 38.73711699999386
+        },
+        {
+          "name": "aten::mul_",
+          "calls": 1098,
+          "self_device_ms": 30.318,
+          "self_cpu_ms": 13.372201000001922
+        },
+        {
+          "name": "aten::as_strided",
+          "calls": 3504,
+          "self_device_ms": 30.062,
+          "self_cpu_ms": 2.2681890000073452
+        },
+        {
+          "name": "aten::result_type",
+          "calls": 3157,
+          "self_device_ms": 29.609,
+          "self_cpu_ms": 0.44349500000552505
+        },
+        {
+          "name": "aten::_foreach_addcmul_",
+          "calls": 6,
+          "self_device_ms": 25.95,
+          "self_cpu_ms": 11.24771999999805
+        },
+        {
+          "name": "aten::_foreach_add_",
+          "calls": 12,
+          "self_device_ms": 24.738,
+          "self_cpu_ms": 60.463575999997495
+        },
+        {
+          "name": "aten::item",
+          "calls": 1111,
+          "self_device_ms": 23.774,
+          "self_cpu_ms": 19.53696600000304
+        },
+        {
+          "name": "aten::detach",
+          "calls": 1644,
+          "self_device_ms": 23.145,
+          "self_cpu_ms": 30.51577999999764
+        },
+        {
+          "name": "aten::_foreach_lerp_",
+          "calls": 6,
+          "self_device_ms": 20.151,
+          "self_cpu_ms": 0.3053980000000447
+        },
+        {
+          "name": "aten::empty_strided",
+          "calls": 2311,
+          "self_device_ms": 19.641,
+          "self_cpu_ms": 4.450767999997475
+        },
+        {
+          "name": "aten::_foreach_div_",
+          "calls": 6,
+          "self_device_ms": 19.632,
+          "self_cpu_ms": 30.394083000000684
+        },
+        {
+          "name": "aten::_foreach_mul_",
+          "calls": 6,
+          "self_device_ms": 19.437,
+          "self_cpu_ms": 7.924242999998911
+        }
+      ]
+    },
+    "b12-phases": {
+      "batch_size": 12,
+      "warmup_steps": 20,
+      "measured_steps": 100,
+      "phase_instrumentation": true,
+      "checkpoint": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+      "checkpoint_completed_epochs": 4,
+      "benchmark_lr_epoch": 6,
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "elapsed_seconds": 27.6784455999732,
+      "seconds_per_update": 0.276784455999732,
+      "images_per_second": 43.355035804509264,
+      "peak_allocated_GiB": 6.332737922668457,
+      "peak_reserved_GiB": 6.783203125,
+      "phase_times": {
+        "forward_loss": {
+          "cuda_stream_ms_mean": 74.6184952545166,
+          "cuda_stream_ms_median": 74.43996810913086,
+          "host_call_ms_mean": 29.94788100128062
+        },
+        "backward": {
+          "cuda_stream_ms_mean": 146.520380859375,
+          "cuda_stream_ms_median": 146.3818588256836,
+          "host_call_ms_mean": 83.80987199721858
+        },
+        "adam": {
+          "cuda_stream_ms_mean": 40.0476953125,
+          "cuda_stream_ms_median": 40.04751968383789,
+          "host_call_ms_mean": 5.4441360011696815
+        },
+        "ema": {
+          "cuda_stream_ms_mean": 14.982595796585082,
+          "cuda_stream_ms_median": 14.870015621185303,
+          "host_call_ms_mean": 6.471821996383369
+        }
+      },
+      "loss_mean": 0.15273557603359222,
+      "loss_last": 0.1865404099225998,
+      "final_model_sha256": "40a1586b4d5ff909686a4055c1de0de588bc6dcd7e07fecc4a8c5af171eb285e",
+      "rng_sha256": "4cbc97b2e78d1178e660cf1174f9dd35023e6c2286069e1727382a8be9a07379",
+      "quality_claim": false,
+      "checkpoint_written": false,
+      "gpu_snapshot": "10, 7471, 53, 17.32, 2505"
+    },
+    "b16-phases": {
+      "batch_size": 16,
+      "warmup_steps": 20,
+      "measured_steps": 100,
+      "phase_instrumentation": true,
+      "checkpoint": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+      "checkpoint_completed_epochs": 4,
+      "benchmark_lr_epoch": 6,
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "elapsed_seconds": 117.16222349996679,
+      "seconds_per_update": 1.1716222349996679,
+      "images_per_second": 13.656278894369512,
+      "peak_allocated_GiB": 7.358996868133545,
+      "peak_reserved_GiB": 7.763671875,
+      "phase_times": {
+        "forward_loss": {
+          "cuda_stream_ms_mean": 573.7977423095704,
+          "cuda_stream_ms_median": 563.8952941894531,
+          "host_call_ms_mean": 31.538259998196736
+        },
+        "backward": {
+          "cuda_stream_ms_mean": 537.6828790283203,
+          "cuda_stream_ms_median": 518.8992004394531,
+          "host_call_ms_mean": 332.6992740028072
+        },
+        "adam": {
+          "cuda_stream_ms_mean": 44.33028789520264,
+          "cuda_stream_ms_median": 44.59812927246094,
+          "host_call_ms_mean": 31.69720500241965
+        },
+        "ema": {
+          "cuda_stream_ms_mean": 15.099850883483887,
+          "cuda_stream_ms_median": 14.877567768096924,
+          "host_call_ms_mean": 6.931212998460978
+        }
+      },
+      "loss_mean": 0.14837414026260376,
+      "loss_last": 0.19539856910705566,
+      "final_model_sha256": "4ebab17e48edd206f6b7e26e888219fd65b0f491d89b0224e8ceec0e0ee33894",
+      "rng_sha256": "4cbc97b2e78d1178e660cf1174f9dd35023e6c2286069e1727382a8be9a07379",
+      "quality_claim": false,
+      "checkpoint_written": false,
+      "gpu_snapshot": "10, 7783, 50, 32.95, 2505"
+    },
+    "b8-fused": {
+      "batch_size": 8,
+      "warmup_steps": 20,
+      "measured_steps": 100,
+      "phase_instrumentation": true,
+      "adam_fused": true,
+      "checkpoint": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+      "checkpoint_completed_epochs": 4,
+      "benchmark_lr_epoch": 6,
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "elapsed_seconds": 17.863932900014333,
+      "seconds_per_update": 0.17863932900014334,
+      "images_per_second": 44.7829716153579,
+      "peak_allocated_GiB": 5.300220489501953,
+      "peak_reserved_GiB": 5.63671875,
+      "phase_times": {
+        "forward_loss": {
+          "cuda_stream_ms_mean": 49.06768726348877,
+          "cuda_stream_ms_median": 49.01655960083008,
+          "host_call_ms_mean": 29.416325996862724
+        },
+        "backward": {
+          "cuda_stream_ms_mean": 90.04951179504394,
+          "cuda_stream_ms_median": 89.7801742553711,
+          "host_call_ms_mean": 52.48132199863903
+        },
+        "adam": {
+          "cuda_stream_ms_mean": 23.739110431671143,
+          "cuda_stream_ms_median": 23.73017692565918,
+          "host_call_ms_mean": 0.8213700004853308
+        },
+        "ema": {
+          "cuda_stream_ms_mean": 15.115664672851562,
+          "cuda_stream_ms_median": 14.946096420288086,
+          "host_call_ms_mean": 7.821209009271115
+        }
+      },
+      "loss_mean": 0.15223979949951172,
+      "loss_last": 0.1709265112876892,
+      "final_model_sha256": "e5d7108ea189b74eb51da175a8aca541d2db9c0261d22a8abd244d3cf3ca621b",
+      "rng_sha256": "4cbc97b2e78d1178e660cf1174f9dd35023e6c2286069e1727382a8be9a07379",
+      "quality_claim": false,
+      "checkpoint_written": false,
+      "gpu_snapshot": "9, 6297, 50, 16.60, 2505",
+      "adam_update_comparison": {
+        "parameter_tensors": 182,
+        "maximum_parameter_error": 7.450580596923828e-09,
+        "relative_update_error": 1.6643217785649476e-06,
+        "moment_relative_errors": {
+          "exp_avg": 2.824252287499877e-08,
+          "exp_avg_sq": 4.209382275208399e-08
+        },
+        "tolerances": {
+          "parameter_max_abs": 1e-06,
+          "relative_update": 0.005,
+          "relative_moments": 1e-05
+        },
+        "passed": true,
+        "bitwise_equivalence_claim": false
+      }
+    },
+    "b12-fused": {
+      "batch_size": 12,
+      "warmup_steps": 20,
+      "measured_steps": 100,
+      "phase_instrumentation": true,
+      "adam_fused": true,
+      "checkpoint": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+      "checkpoint_completed_epochs": 4,
+      "benchmark_lr_epoch": 6,
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "elapsed_seconds": 26.066501500084996,
+      "seconds_per_update": 0.26066501500085,
+      "images_per_second": 46.03609732576069,
+      "peak_allocated_GiB": 6.33282470703125,
+      "peak_reserved_GiB": 6.783203125,
+      "phase_times": {
+        "forward_loss": {
+          "cuda_stream_ms_mean": 74.62178260803222,
+          "cuda_stream_ms_median": 74.51852798461914,
+          "host_call_ms_mean": 30.219046999700367
+        },
+        "backward": {
+          "cuda_stream_ms_mean": 146.63157501220704,
+          "cuda_stream_ms_median": 146.5026397705078,
+          "host_call_ms_mean": 83.82503898930736
+        },
+        "adam": {
+          "cuda_stream_ms_mean": 23.843130283355713,
+          "cuda_stream_ms_median": 23.86841583251953,
+          "host_call_ms_mean": 0.7528749981429428
+        },
+        "ema": {
+          "cuda_stream_ms_mean": 14.944221439361572,
+          "cuda_stream_ms_median": 14.772607803344727,
+          "host_call_ms_mean": 6.628988004522398
+        }
+      },
+      "loss_mean": 0.1527382880449295,
+      "loss_last": 0.18656480312347412,
+      "final_model_sha256": "45cbf4b2be8abc8b31570ba8050e24efa6fa09579d2b8b93cbc22b7ccb03a505",
+      "rng_sha256": "4cbc97b2e78d1178e660cf1174f9dd35023e6c2286069e1727382a8be9a07379",
+      "quality_claim": false,
+      "checkpoint_written": false,
+      "gpu_snapshot": "9, 7471, 52, 19.70, 2505"
+    }
+  },
+  "wddm_adapter_observation_during_b16": {
+    "scope": "read-only Windows adapter memory query during batch16 profile, whose tail showed updates0,20,40 of100",
+    "adapter": "luid_0x00000000_0x0001141F_phys_0",
+    "DedicatedUsage": 8168157184,
+    "SharedUsage": 817811456,
+    "TotalCommitted": 9249615872,
+    "units": "bytes",
+    "interpretation": "large shared allocation coincides with slow batch16; adapter-wide, not a per-process paging trace"
+  },
+  "final_preservation_check": {
+    "pause_hash": "4043b9103e837a34e8d5fd8c43114457f9453c5cbb5ec1c072bb7861748faa92",
+    "original_checkpoint_hash": "4043b9103e837a34e8d5fd8c43114457f9453c5cbb5ec1c072bb7861748faa92",
+    "preserved_checkpoint_hash": "4043b9103e837a34e8d5fd8c43114457f9453c5cbb5ec1c072bb7861748faa92",
+    "remaining_training_or_profile_processes": [],
+    "gpu": "0, 391, 8188",
+    "task": {
+      "TaskName": "ODEFFN_JiT_CIFAR10_SwiGLU_20261101",
+      "State": 3
+    }
+  },
+  "timing_wrapper_check": {
+    "cuda_rng_equal": true,
+    "model_bitwise_equal": false,
+    "loss_mean_absolute_difference": 1.2069940567016602e-06,
+    "interpretation": "same source equations; CUDA runs are not bitwise-identical. No exact trajectory equivalence or quality claim."
+  },
+  "formal_code_modified": false,
+  "formal_checkpoint_replaced": false,
+  "reports_modified": false
+}

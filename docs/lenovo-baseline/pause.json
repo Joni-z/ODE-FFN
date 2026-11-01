@@ -1,0 +1,37 @@
+{
+  "utc": "2026-11-01T14:09:42.058873+00:00",
+  "state": "PAUSED_FOR_AUTHORIZED_PROFILE",
+  "checkpoint": {
+    "epoch": 3,
+    "completed_epochs": 4,
+    "model_entries": 183,
+    "optimizer_states": 182
+  },
+  "preserved_path": "D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\preserved-before-profile\\checkpoint-last.pth",
+  "sha256": "4043b9103e837a34e8d5fd8c43114457f9453c5cbb5ec1c072bb7861748faa92",
+  "bytes": 2596444635,
+  "stopped_process_identity": {
+    "ProcessId": 21124,
+    "ParentProcessId": 15928,
+    "CommandLine": "D:\\Research\\ODE-FFN\\envs\\upstream-jit\\Scripts\\python.exe -u D:\\Research\\ODE-FFN\\runtimes\\jit_cifar10_swiglu_20261101\\main_jit.py --model JiT-B/2 --ffn swiglu --dataset cifar10 --img_size 32 --class_num 10 --label_drop_prob 1 --cfg 0 --seed 0 --batch_size 8 --lr 0.0001 --epochs 200 --warmup_epochs 5 --lr_schedule constant --weight_decay 0 --ema_decay1 0.9999 --ema_decay2 0.9996 --P_mean -0.8 --P_std 0.8 --noise_scale 1 --t_eps 0.05 --sampling_method heun --num_sampling_steps 50 --gen_bsz 8 --num_images 5000 --eval_freq 20 --online_eval --keep_samples --save_last_freq 1 --log_freq 20 --data_path D:/Research/ODE-FFN/datasets/cifar10 --device cuda --num_workers 2 --pin_mem --output_dir D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\output"
+  },
+  "last_monitor_before_stop": {
+    "utc": "2026-11-01T14:09:32.256044+00:00",
+    "pid": 21124,
+    "supervisor_pid": 15928,
+    "state": "RUNNING",
+    "exit_code": null,
+    "gpu_csv": "0, 6346, 8188, 54, 7.91",
+    "log_tail": [
+      "[09:09:18.309807] Epoch: [3]  [6200/6250]  eta: 0:00:09  lr: 0.000080  loss: 0.1533 (0.1549)  time: 0.1927  data: 0.0003  max mem: 5424",
+      "[09:09:22.166660] Epoch: [3]  [6220/6250]  eta: 0:00:05  lr: 0.000080  loss: 0.1576 (0.1549)  time: 0.1927  data: 0.0000  max mem: 5424",
+      "[09:09:26.021147] Epoch: [3]  [6240/6250]  eta: 0:00:01  lr: 0.000080  loss: 0.1474 (0.1549)  time: 0.1926  data: 0.0002  max mem: 5424",
+      "[09:09:27.754377] Epoch: [3]  [6249/6250]  eta: 0:00:00  lr: 0.000080  loss: 0.1482 (0.1549)  time: 0.1926  data: 0.0002  max mem: 5424",
+      "[09:09:28.334124] Epoch: [3] Total time: 0:20:10 (0.1938 s / it)",
+      "[09:09:30.663604] log_dir: D:\\Research\\ODE-FFN\\runs\\jit_cifar10_swiglu_20261101\\output"
+    ],
+    "idle_sleep_request": true
+  },
+  "termination_exit_code": 0,
+  "mid_epoch_updates_are_not_checkpointed": true
+}

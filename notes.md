@@ -1,14 +1,22 @@
 # ODE autoresearch notes
 
 ## Current execution — Lenovo, 1 November 2026
+[Completed performance study](docs/lenovo-baseline/performance.md): the best
+tested throughput is46.04images/s (batch12,fusedAdamW), still60.3training hours
+for200epochs. The preserved fourth-epoch checkpoint is unchanged; no formal
+continuation was launched.
+
 [Runtime audit](docs/lenovo-baseline/runtime-audit.md): 67 hours follows from
 1.25M updates of a full B/2 model with the same token count as ImageNet B/16.
 The local LR/batch/epoch choices are not an official CIFAR recipe. Compilation
 is disabled, and unconditional sampling retains an unused conditional forward.
-No optimization speedup or convergence claim is established; the live run is unchanged.
+The user then approved pausing after a verified checkpoint. Four completed
+epochs are preserved; the original long run is stopped after bounded profiling
+completed. No convergence or speedup claim follows from the audit.
 
 The user restored Lenovo and authorized execution. The upstream-derived
-SwiGLU baseline runs from frozen3b07a57, with batch8/seed0/200epochs.
+SwiGLU baseline used frozen3b07a57, with batch8/seed0/200epochs; it is now
+paused after four completed epochs.
 Fresh CPU/CUDA/Inception checks passed;99% GPU load and0.19s/update are
 execution evidence, not image quality. Follow
 [the current status](docs/lenovo-baseline/status.md), protocol and monitor.

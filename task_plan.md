@@ -4,10 +4,16 @@
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
 ## Current priority: reproduce an upstream baseline (1 November 2026)
+The authorized pause and bounded profiling are complete; see
+[performance results](docs/lenovo-baseline/performance.md). Keep formal training
+paused until its model/budget decision is resolved. No new FFN study is selected.
+
 Runtime audit requested by the user: see [the official-recipe comparison](docs/lenovo-baseline/runtime-audit.md).
 The 200-epoch CIFAR allocation is unvalidated. Resolve its compute budget and
 execution efficiency before launching additional long runs; preserve the current
-checkpoint. The audit itself does not stop or alter the running job.
+checkpoint. The user subsequently authorized a checkpoint-preserving pause and bounded
+performance study. Four completed epochs are preserved; the original long run
+is stopped after disposable profiling completed.
 
 Lenovo has recovered and the user now explicitly authorizes execution there.
 Follow [the Lenovo deployment plan](docs/lenovo-baseline/task_plan.md): preserve
@@ -29,7 +35,7 @@ minimum image-baseline gate; scores above200 do not support architecture claims.
 Use root main_jit.py/ffn.py and UPSTREAM.md. Old custom src/configs/synthetic/
 scripts/tests live in the archive and are not the active experiment framework.
 The author's public recipe is ImageNet; the CIFAR/MPS ports remain unvalidated
-for image quality. The Lenovo SwiGLU baseline is running from frozen3b07a57;
+for image quality. The Lenovo SwiGLU baseline used frozen3b07a57 and is now paused after four epochs;
 see [status](docs/lenovo-baseline/status.md). The old Mac run and its metrics
 were not changed.
 
