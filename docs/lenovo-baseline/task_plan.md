@@ -35,3 +35,13 @@ message rejected. All have concrete resolutions; no security setting changed.
 - [x] Install nvitop separately from the training environment and expose the command.
 - [x] Verify a fresh SSH login and the interactive GPU display; preserve the job.
 - [x] Publish a timestamped status update and the exact usage instructions.
+
+## Runtime audit requested by the user
+- [x] Compare the live launch and copied training path against the pinned official JiT recipe.
+- [x] Verify current throughput, token count, batch budget, LR/EMA schedules, and evaluation cost.
+- [x] Identify supported conclusions and options without changing the running job.
+- [x] Publish a source-linked runtime audit and a concrete recommendation.
+
+Scope: read-only runtime inspection and documentation. Preserve the running
+checkpoint, training environment, and both reports. Any budget/architecture
+change must be presented as a changed experiment, not a transparent speedup.

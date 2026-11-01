@@ -83,3 +83,13 @@
 - Per-process GPU memory is unavailable under this host's WDDM driver; total
   memory, GPU utilization, temperature and training process are visible.
 - Training source, environment, scheduled task and both reports were preserved.
+
+## Runtime audit after the user's budget objection
+The source-linked [audit](runtime-audit.md) distinguishes correct timing from
+unvalidated configuration. Full B/2 retains ImageNet B/16 token counts. Batch8
+and200epochs imply1.25Mupdates; source copies do not validate local LR/EMA
+or a convergence budget. Compilation and unconditional sampling need separate
+performance assessment. No job, training source or report was modified.
+The first cross-platform hash check treated Windows backslashes as literal
+Mac filename characters; normalizing separators resolved all12paths. No source
+mismatch occurred.

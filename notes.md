@@ -1,6 +1,12 @@
 # ODE autoresearch notes
 
 ## Current execution — Lenovo, 1 November 2026
+[Runtime audit](docs/lenovo-baseline/runtime-audit.md): 67 hours follows from
+1.25M updates of a full B/2 model with the same token count as ImageNet B/16.
+The local LR/batch/epoch choices are not an official CIFAR recipe. Compilation
+is disabled, and unconditional sampling retains an unused conditional forward.
+No optimization speedup or convergence claim is established; the live run is unchanged.
+
 The user restored Lenovo and authorized execution. The upstream-derived
 SwiGLU baseline runs from frozen3b07a57, with batch8/seed0/200epochs.
 Fresh CPU/CUDA/Inception checks passed;99% GPU load and0.19s/update are

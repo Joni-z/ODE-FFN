@@ -4,6 +4,11 @@
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
 ## Current priority: reproduce an upstream baseline (1 November 2026)
+Runtime audit requested by the user: see [the official-recipe comparison](docs/lenovo-baseline/runtime-audit.md).
+The 200-epoch CIFAR allocation is unvalidated. Resolve its compute budget and
+execution efficiency before launching additional long runs; preserve the current
+checkpoint. The audit itself does not stop or alter the running job.
+
 Lenovo has recovered and the user now explicitly authorizes execution there.
 Follow [the Lenovo deployment plan](docs/lenovo-baseline/task_plan.md): preserve
 old edits, use the upstream-derived checkout and a separate official CUDA

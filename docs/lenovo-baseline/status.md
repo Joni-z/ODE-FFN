@@ -35,6 +35,10 @@ readiness do not establish ISRU effectiveness. See [protocol.md](protocol.md).
 GPU display: see [gpu-monitor.md](gpu-monitor.md) for the verified `ssh lenovo`
 then `nvitop` workflow.
 
+See [the runtime audit](runtime-audit.md): the 67-hour estimate is supported by
+throughput, but the local batch/LR/200-epoch CIFAR recipe remains unvalidated.
+No budget change or speedup was applied.
+
 ## Inspect without restarting
 
 ```powershell

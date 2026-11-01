@@ -1,0 +1,149 @@
+{
+  "scope": "read-only source and runtime audit; no performance intervention or new quality experiment",
+  "observation_time_asia_shanghai": "2026-11-01T21:56:30.811635+08:00",
+  "official_repository": "https://github.com/LTH14/JiT",
+  "official_commit": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+  "runtime_commit": "3b07a570f0742c7e4c85cbadde475a93716656b6",
+  "reference_hashes_match_record": {
+    "model_jit.py": true,
+    "denoiser.py": true,
+    "engine_jit.py": true,
+    "main_jit.py": true,
+    "prepare_ref.py": true,
+    "environment.yaml": true,
+    "LICENSE": true,
+    "util/misc.py": true,
+    "util/model_util.py": true,
+    "util/crop.py": true,
+    "util/lr_sched.py": true
+  },
+  "runtime_source_bindings": {
+    "denoiser.py": {
+      "launch_sha256": "fbc7342ac09c80d77096648394c9d84412e8f51507c1bab177794c92890e4608",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "engine_jit.py": {
+      "launch_sha256": "47fa357f69c1bfedbf45318f0c5e80110d4e5e3bfb4fe63d99fa021e9cb7aea6",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "ffn.py": {
+      "launch_sha256": "fcde2667d38a35aeb8f33288dfd9af71a9abfc071f62056608c89caef2f26831",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "main_jit.py": {
+      "launch_sha256": "6134df8fa6725cfe69447244c8c3849855cc5ced790facc14e148f0ac2d41198",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "model_jit.py": {
+      "launch_sha256": "069b4b3eb87a51f1aa5e869ed995d1d6ceabf5c0ce120c4fe370acb93f5010c1",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "prepare_ref.py": {
+      "launch_sha256": "98cb886fa4b0d164404e0d42e13680a0208150ebf96d2598e37f40e54a06a333",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "util/crop.py": {
+      "launch_sha256": "08da8c1300202e66773806085fcaf2415acf1e38ac8923d5cdf79cafd770ccb6",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "util/lr_sched.py": {
+      "launch_sha256": "47765fbc75affedb8c8c062d8b784fd00a6ee4527c8a82edb8cf514235d7e048",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "util/misc.py": {
+      "launch_sha256": "e3d48eca0b0a0b82379eff6f22852861d24fc50a691ac3db0eb730af374ff709",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "util/model_util.py": {
+      "launch_sha256": "7dc86c801f984c13e38b154ad97254d78592536840acfcd31018f18d49528a91",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "docs/lenovo-baseline/train.json": {
+      "launch_sha256": "838ab5fc998f1408637eb250bec67e0e66183456779812c0724157e2cc5d2fda",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    },
+    "docs/lenovo-baseline/run_monitored.py": {
+      "launch_sha256": "8373a6be49211e1efa3ee33bcd4656b4d5b836110d19361f07b44faf132fae3e",
+      "live_matches_launch": true,
+      "local_matches_launch": true
+    }
+  },
+  "unchanged_method_asts": {
+    "Denoiser.forward": true,
+    "Denoiser.generate": true,
+    "Denoiser._forward_sample": true,
+    "Denoiser._euler_step": true,
+    "Denoiser._heun_step": true,
+    "Denoiser.update_ema": true,
+    "SwiGLUFFN.forward": true,
+    "JiTBlock.forward": true,
+    "FinalLayer.forward": true
+  },
+  "status": {
+    "utc": "2026-11-01T13:56:30.811635+00:00",
+    "pid": 21124,
+    "supervisor_pid": 15928,
+    "state": "RUNNING",
+    "exit_code": null,
+    "gpu_csv": "99, 6346, 8188, 66, 76.78",
+    "log_tail": [
+      "[08:56:08.125910] Epoch: [3]  [2100/6250]  eta: 0:13:31  lr: 0.000067  loss: 0.1544 (0.1559)  time: 0.1924  data: 0.0000  max mem: 5424",
+      "[08:56:11.988883] Epoch: [3]  [2120/6250]  eta: 0:13:27  lr: 0.000067  loss: 0.1529 (0.1559)  time: 0.1931  data: 0.0000  max mem: 5424",
+      "[08:56:15.836793] Epoch: [3]  [2140/6250]  eta: 0:13:23  lr: 0.000067  loss: 0.1548 (0.1559)  time: 0.1924  data: 0.0000  max mem: 5424",
+      "[08:56:19.685548] Epoch: [3]  [2160/6250]  eta: 0:13:19  lr: 0.000067  loss: 0.1524 (0.1559)  time: 0.1924  data: 0.0000  max mem: 5424",
+      "[08:56:23.534940] Epoch: [3]  [2180/6250]  eta: 0:13:15  lr: 0.000067  loss: 0.1545 (0.1559)  time: 0.1925  data: 0.0000  max mem: 5424",
+      "[08:56:27.386881] Epoch: [3]  [2200/6250]  eta: 0:13:11  lr: 0.000067  loss: 0.1516 (0.1558)  time: 0.1926  data: 0.0000  max mem: 5424"
+    ],
+    "idle_sleep_request": true
+  },
+  "observed_recent_step_seconds_median": 0.1926,
+  "completed_epoch_wall_seconds": [
+    1218,
+    1214
+  ],
+  "workload": {
+    "images_per_epoch": 50000,
+    "batch": 8,
+    "epochs": 200,
+    "steps_per_epoch": 6250,
+    "total_updates": 1250000,
+    "estimated_training_hours": 66.875,
+    "evaluations_included_in_estimate": false
+  },
+  "recipe": {
+    "published_CIFAR_recipe": false,
+    "local_LR": 0.0001,
+    "upstream_blr": 5e-05,
+    "upstream_scaling_at_batch8": 1.5625e-06,
+    "override_ratio": 64,
+    "warmup_updates": 31250,
+    "EMA1_half_life_updates": 6931.125226233421,
+    "compile_disabled": true
+  },
+  "sampling": {
+    "field_evaluations_per_batch": 99,
+    "model_forwards_per_field": 2,
+    "model_forwards_per_5k_eval": 123948,
+    "finite_output_CFG0_branch_redundancy": true,
+    "measured_speedup": null
+  },
+  "unresolved": [
+    "per-component GPU timing",
+    "steady-state batch-size optimum",
+    "compiled or fused-kernel speedup and numerical compatibility",
+    "CIFAR convergence at the chosen budget"
+  ],
+  "training_changed": false,
+  "reports_changed": false
+}
