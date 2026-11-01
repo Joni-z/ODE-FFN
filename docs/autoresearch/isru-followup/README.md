@@ -4,6 +4,12 @@ Updated October 29, 2026. **Current research focus: revisit the existing ISRU
 synthetic result before inventing another architecture.** This update records
 the evidence and next work; it launches no training or new model.
 
+November 1: [a fresh synthetic audit](../../synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)
+recovered the frozen checkpoints and replayed the positive result. The actual
+backbone is a three-block vector velocity MLP without attention. The gain is
+task-specific; convergence, activation attribution and JiT transfer remain open.
+The audit selects no new training or continuation.
+
 **Reporting scope:** this follow-up belongs to [Report2](../../../reports/report2/README.md).
 Report1 is finalized and unchanged.
 

@@ -267,6 +267,8 @@ slurm-*.out
 /docs/**/monitoring/
 /docs/**/monitoring-local/
 # Keep reviewed JSON summaries, manifests, report figures and design PDFs.
+# Private review transcripts; curated audit conclusions are published under docs/.
+/.aris/traces/
 # Curated gate-study evidence; checkpoint/NPZ/JSONL ignores still apply.
 !/docs/research-2026-10-21-gates/results/
 !/docs/research-2026-10-24-lenovo/results/

@@ -6,6 +6,14 @@ is retained in [scope.json](scope.json). Inclusion here does not mean every
 experiment belongs in the three-page main report or meets an effectiveness
 criterion.
 
+November 1 audit: [model identity, numerical replay and claim limits](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md).
+The positive synthetic model is a width64/depth3 velocity MLP without attention.
+Its FreeISRU result remains a task-specific fixed-budget finding. The sentence
+at `report2.tex:38` needs target qualification: tied cubic improves the original
+ODE on Ring8/Product16, but not Gaussian2D. The draft source/PDF were not edited
+or rebuilt by this audit. Historical running-status entries below are snapshots,
+not newly verified process status.
+
 | Evidence area | Principal sources | Report2 use and current limit |
 |---|---|---|
 | Positive ISRU design | [Initial study](../../docs/research-cubic-split-2026-10-26/analysis-report.md), [current follow-up](../../docs/autoresearch/isru-followup/README.md) | Product16 field MSE 0.037159 versus Swi160 0.078178 is a positive finite-budget result. The winning free-matrix response, tied cubic candidate and baseline must remain distinct. The original Gaussian2D result loses to both Swi64/Swi160; Ring8 improves over Swi64 but loses to Swi160. Keep the complete three-task and budget readout visible. Training adequacy and attribution are unresolved. |

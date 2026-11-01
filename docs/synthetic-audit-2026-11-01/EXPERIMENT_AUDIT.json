@@ -1,0 +1,96 @@
+{
+  "audit_skill": "experiment-audit",
+  "date": "2026-11-01",
+  "generated_at": "2026-11-01T15:35:16.932012+00:00",
+  "verdict": "WARN",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reason_code": "task_specific_fixed_budget_evidence_with_attribution_and_transfer_gaps",
+  "summary": "Replayed Product16 FreeISRU field gain is valid within the recorded setup; general ODE, activation, convergence and image-transfer claims are unsupported.",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "requested_reviewer_model": "gpt-6-astra",
+  "reviewer_model": null,
+  "reviewer_identity_source": "native task path returned; no independent model identity field",
+  "reviewer_reasoning": "ultra (requested)",
+  "agent_id": "/root/synthetic_integrity_audit",
+  "review_completed": true,
+  "trace_path": ".aris/traces/experiment-audit/2026-11-01_run01",
+  "audited_input_hashes": {
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/ready.json": "da814150a434b6c3dd34797122092f87b3575f3cc40962ea6249b22507bc88ea",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/joint_dependence_20261026/ready.json": "f6e789bd7315766e49d749011e702a913204dc1031b0f119b973092bcb5843a9",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/gaussian_aniso_2d/ode_k2_direct/result.json": "b2c38d5ef3b170934c567451eb555b77c1510e544624f7fbb6125f78f255dcf1",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/gaussian_aniso_2d/free_isru/result.json": "44f1621d241e11d08d482b335f1390943600af8e9c60af194ebec8bdc4769b00",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/gaussian_aniso_2d/swiglu64/result.json": "83abed95b1c3ce8fce59c84b9c97270a834fee84d2fea247fd08db214aca9dd2",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/gaussian_aniso_2d/swiglu128_direct/result.json": "13fd086592e82eb44bde57e89a4bc18ad1535c6d152a57ae7bc53ed62d4c02a8",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/gaussian_aniso_2d/swiglu160/result.json": "f12a4624b3cb8eca0d9f1c8de09ae059594d27926bbc76e1420038aea3f67548",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/gmm_ring8_2d/ode_k2_direct/result.json": "3fa77575ea187bbf3a1de64026fba654e8c3b728815da9ccd82f55ddf92eba5a",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/gmm_ring8_2d/free_isru/result.json": "d98c9c8ee675e729337f1da1ff9422df6f609c70cbced5717b9f60f492129b9d",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/gmm_ring8_2d/swiglu64/result.json": "084d940e488abb4d10700f33a5d85696bafab9fe4d1a051ec4ce96728b8ed43d",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/gmm_ring8_2d/swiglu128_direct/result.json": "e7f578a7cc657dc9291a13d3505d6956ec0d583d692bcaecfc52dbfd4dc03071",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/gmm_ring8_2d/swiglu160/result.json": "bd0bb5652ac28b4a3f90affd765577dbbed76abcc23faecfb1fd70165d144307",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/rotated_product_bimodal_16d/ode_k2_direct/result.json": "bc75e0eabd282debb28ae880349027ea7aa8a2436a9017388c1baf29cfc48d3c",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/rotated_product_bimodal_16d/free_isru/result.json": "f16479f6bc225efd395186a760ab9a083543fe90d2e65b2eca260b3154c18efb",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/rotated_product_bimodal_16d/swiglu64/result.json": "0ac2b09f7ee96090bcbcf975ae114b7065319f62541744889b937697b1472d8c",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/output/runs/rotated_product_bimodal_16d/swiglu128_direct/result.json": "e2b86753ca098f8c2dd7ca1b81683147de57708dd419890f266e5e46a2f9cf87",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026/output/runs/rotated_product_bimodal_16d/swiglu160/result.json": "597074c1386b844d8473457eae3ed5b6420be6a0d2f8c4d1df695ef02dccb1f0",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/joint_dependence_20261026/output/runs/ode_k2/result.json": "167c8b3a6b1c3cb3a42f1ae29f4a565bb427ce94d35d7f39de166d3bbe3d7c7f",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/joint_dependence_20261026/output/runs/free_isru/result.json": "34a5c023d9cc0436e179b02de2c0d6c0d61f0ad5fbdc058a18710dc64b24a16b",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/joint_dependence_20261026/output/runs/swiglu64/result.json": "9bb66ab13f801b5741717b6b50cfe4b298bb2d318c6bb2b3a9135559a971692e",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/joint_dependence_20261026/output/runs/swiglu128/result.json": "2e7cd4fb325db226a1aba1436a931ac4f8ee759dd14a2baad795504a4ba7569a",
+    "/Users/mr.z/ode-workspace-prep/architecture-search/joint_dependence_20261026/output/runs/swiglu160/result.json": "b1e378c9f2ace50de9dd03b8c5f90d6c717948567bb395872592adb2900c56cb",
+    "docs/research-cubic-split-2026-10-26/comparison.csv": "de5ad7fc2cd867fc442c347a90e26fa975f2b2d3ce42a346a28e5d28a5f7a03b",
+    "docs/research-joint-dependence-2026-10-26/comparison.csv": "092e4a4b5f86e0cf9b25fb6ed3e8c09d3960b2a59a94a33935de124222725cdf",
+    "docs/autoresearch/cycle02-full-support/results/comparison.csv": "15d2f79abfd5c87146eb204562f536cf0d5cdbf89347ab0fd8ecee3e969ae14c"
+  },
+  "checks": {
+    "gt_provenance": {
+      "status": "pass",
+      "details": "Analytic target distributions; no learned-model ground truth."
+    },
+    "score_normalization": {
+      "status": "pass",
+      "details": "Raw field MSE and projected Wasserstein distance."
+    },
+    "result_existence": {
+      "status": "pass",
+      "details": "20 endpoint prediction replays and 15 Report2 CSV rows; exact limits in verification.json."
+    },
+    "dead_code": {
+      "status": "pass",
+      "details": "Metric paths used by snapshot and endpoint evaluation."
+    },
+    "scope": {
+      "status": "warn",
+      "details": "Small residual vector MLP; fixed 5k; initialization confounding; target-law reversals."
+    },
+    "eval_type": "simulation_only"
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "Product16 free-ISRU field gain at fixed5k under registered controls",
+      "impact": "supported"
+    },
+    {
+      "id": "C2",
+      "claim": "Converged or general generation advantage",
+      "impact": "unsupported"
+    },
+    {
+      "id": "C3",
+      "claim": "ODE-specific or activation-only mechanism",
+      "impact": "unsupported"
+    },
+    {
+      "id": "C4",
+      "claim": "Transformer or JiT image-transfer advantage",
+      "impact": "unsupported"
+    },
+    {
+      "id": "C5",
+      "claim": "Tied cubic beats old ODE on all initial tasks",
+      "impact": "needs correction: false on Gaussian2D"
+    }
+  ]
+}

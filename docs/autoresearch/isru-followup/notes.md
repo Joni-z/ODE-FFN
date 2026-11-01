@@ -8,7 +8,8 @@ the immediate focus. Baseline adequacy remains a prerequisite for claims.
 
 ## Completed history
 1. Cubic local-flow screen: the tied/adaptive cubic split improves the old
-   ODE but loses to strong ordinary controls. The independent `free_isru`
+   ODE on Ring8 and Product16, but is worse on Gaussian2D, and loses to strong
+   ordinary controls. The independent `free_isru`
    control reaches Product16 oracle MSE 0.037159 versus Swi160 0.078178.
    The other original tasks also remain explicit: Gaussian2D ISRU/Swi64/Swi160
    MSEs are 0.005429/0.004192/0.004557; Ring8 values are 0.016694/0.017904/0.013921.
@@ -34,8 +35,11 @@ the immediate focus. Baseline adequacy remains a prerequisite for claims.
 - [Half-mixture comparison](../cycle02-full-support/results/comparison.csv).
 - The study imports its historical native source from
   `/Users/mr.z/ode-workspace-prep/architecture-search/conservative_readout_20261026/source-v2`.
-  The exact ISRU runtime/checkpoint path is a pending recovery task; do not
-  invent it or launch a replacement run to avoid locating the old one.
+  The November 1 audit recovered the exact ISRU runtime at
+  `/Users/mr.z/ode-workspace-prep/architecture-search/cubic_split_20261026`;
+  checkpoints are under `output/runs/<dataset>/<family>/step_0005000.pt`.
+  Endpoint predictions and the key Product16 sample arrays were replayed;
+  see [the audit receipt](../../synthetic-audit-2026-11-01/verification.json).
 - Working checkout: `/Users/mr.z/ODE-FFN-autoresearch`, branch
   `autoresearch/oct27-ode`. Canonical remote: `Joni-z/ODE-FFN`, main.
 

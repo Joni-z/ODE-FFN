@@ -1,5 +1,16 @@
 # ODE autoresearch notes
 
+## Current decision — audit before further training
+The user asks whether the small synthetic backbone actually supports an FFN
+advantage. See [the audit evidence](docs/synthetic-audit-2026-11-01/notes.md).
+The positive ISRU study used a width64/depth3 vector residual network on CPU,
+without attention, trained to predict velocity. It was not a small JiT image
+model. Professor ODE K2 and free-matrix ISRU are distinct arms.
+Twenty full endpoint prediction replays and three Product16 sampling replays
+match the saved outputs exactly. Fixed-budget field improvements, converged
+sampling improvements and an ODE-specific mechanism remain separate questions.
+No new experiment or continuation was launched for this audit.
+
 ## Current execution — Lenovo, 1 November 2026
 [Completed performance study](docs/lenovo-baseline/performance.md): the best
 tested throughput is46.04images/s (batch12,fusedAdamW), still60.3training hours

@@ -91,6 +91,11 @@ A brief MPS update runs when available. This does not establish image quality.
 
 ## Previous work
 
+The [synthetic evidence audit](docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)
+reproduces a Product16 field-fitting gain for free-matrix ISRU in a small
+velocity MLP. It does not establish a general ODE or image-generation advantage.
+Further training is awaiting a concrete experimental decision.
+
 Complete earlier code is preserved on
 [research-archive-20261101](https://github.com/Joni-z/ODE-FFN/tree/research-archive-20261101).
 The original local checkout and frozen running experiment are retained.

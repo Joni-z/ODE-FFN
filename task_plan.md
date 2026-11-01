@@ -3,6 +3,13 @@
 ## Goal
 Use the autoresearch experiment loop to develop an evidence-supported ODE architecture for flow matching. A useful successor must face strong SwiGLU and compute controls, including both Product16 and dependent-sign data. Installing a loop or completing one diagnostic does not complete this goal.
 
+## Current priority: audit the synthetic premise (1 November 2026)
+The user requests an evidence audit before selecting further training. Follow
+[the completed audit](docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md). It recovers the actual
+vector backbone and original ODE/ISRU/SwiGLU operators, replays old checkpoints,
+and separates fixed-budget field fitting from generation and JiT transfer.
+No new training is authorized by this audit. Keep the Lenovo continuation paused.
+
 ## Current priority: reproduce an upstream baseline (1 November 2026)
 The authorized pause and bounded profiling are complete; see
 [performance results](docs/lenovo-baseline/performance.md). Keep formal training
