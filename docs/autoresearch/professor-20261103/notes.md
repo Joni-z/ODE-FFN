@@ -57,3 +57,12 @@ also have appreciable even error. Selected next: diag(abs(h)) at K1, holding
 conditional singular values matched at common P,h, plus known bilinear64 ordinary
 reference with the same projections as native Swi64. Full predictors are not
 forced odd; no general image/FM-specific claim.
+
+Historical cross-check: research-architecture-search/next-direction-evidence.md
+already separates target-Jacobian legality from approximation, and the
+research-conservative-readout-2026-10-26/results/analysis-report.md stops the
+known potential readout despite large parent-relative improvements. The earlier
+state-clock midpoint setting also completed without nomination. The new PD/raw
+nonlinear-flow note specializes an old distinction, not a novel restart. No
+previous signed-square/absolute-diagonal/bilinear64 entry was found outside
+the current study in the scoped Markdown search. This is not a novelty survey.

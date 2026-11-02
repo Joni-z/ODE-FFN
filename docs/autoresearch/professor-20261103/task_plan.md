@@ -45,3 +45,10 @@ Cycle5 live from f81663a after fresh documented CUDA/native-resume checks.
 Independent post-SSH60s witnesses show increasing baseline steps and90–91%
 GPU utilization.14 registered cells; complete/replay before selecting the next
 family. Four-checkpoint parity readout is registered in cycle5-parity.md.
+
+Historical screen before any new broad branch: posterior/Tweedie target geometry,
+complete-field potential readouts, covariance operators and state-feedback
+midpoint were already derived/tested in earlier studies. Their stopped settings
+remain closed. Do not rediscover target Jacobian PSD/symmetry as a new reason
+for another hidden-P constraint. Current sign/absolute-diagonal contrast was not
+found in that Markdown history and has its distinct matched-SV/parity premise.

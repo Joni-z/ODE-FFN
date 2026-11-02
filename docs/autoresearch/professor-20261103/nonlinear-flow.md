@@ -3,7 +3,11 @@
 This is a mathematical distinction, not a claim that the inherited implementation
 is wrong. The existing layer legitimately freezes its input-dependent operator
 at the entrance. It is a different construction from evolving that operator with
-the internal state. No training family is selected here before cycle4 closes.
+the internal state. This note alone does not select another training family.
+The general distinction was already derived in the earlier
+[state-clock review](../../research-architecture-search/state-clock-experiment-review.md).
+This note specializes it to current PD/raw input features; it is not a newly
+discovered motivation to rerun the previously stopped midpoint setting.
 
 ## Entrance-frozen linear solve
 
