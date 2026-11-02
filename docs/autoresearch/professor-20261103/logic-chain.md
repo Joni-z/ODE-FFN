@@ -14,6 +14,8 @@ JiT transfer still requires an adequate ordinary image baseline.
 | Placement alone is not sufficient | PD/DP/sandwich fail to beat strong controls; PD/DP ranking changes with optimizer. | Cycle1 holds PD fixed and changes one part of D construction. |
 | Better candidate fitting is not an FFN advantage | Strongest Product16 ordinary control remains MSE0.01567/SW2 0.07921. | Require ordinary controls and report sampling tradeoffs. |
 
+New descriptive evidence: the [row/column decomposition](spectrum/findings.md) finds large row-magnitude growth with much smaller changes in normalized directional coherence. This strengthens the scale question without proving its cause.
+
 ## Why A(h) must be measured
 
 For unconstrained diagonal D and an invertible constant diagonal C,
