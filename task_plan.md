@@ -1,3 +1,7 @@
+# Latest: professor follow-up wave2 complete
+
+All30 second-wave configurations completed and passed independent replay. [Findings and next decision](docs/research-muon-pd-2026-11-02/wave2/results/findings.md): direction matters beyond magnitude, tested decay harms fitting, and diagonal placements do not beat the strongest scalar/SwiGLU controls. Next inspect historical cold-order evidence before registering an optimizer-by-order study. No third-wave jobs launched; GPUs released. Earlier live-status entries below are historical.
+
 # Current priority — professor follow-up wave2
 
 The user authorizes further exploration on145/Lenovo. Follow [wave2 task plan](docs/research-muon-pd-2026-11-02/wave2/task_plan.md): first-wave replay/trajectory analysis are complete; all30 controlled follow-up cells are queued and both two-worker hosts are verified live after SSH exit. Await their endpoints for analysis. Earlier statements forbidding new automatic families describe the first-wave queue, not this new authorization.

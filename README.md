@@ -12,7 +12,7 @@ implementation come from upstream, not the old training framework.
 
 The current professor follow-up compares Muon updates and second-order `P D(h)`
 layers in an isolated, archived synthetic backbone. See the
-[replayed results](docs/research-muon-pd-2026-11-02/wave2/analysis/analysis-report.md)
+[latest replayed results](docs/research-muon-pd-2026-11-02/wave2/results/findings.md)
 and [second-wave protocol](docs/research-muon-pd-2026-11-02/wave2/protocol.md).
 It uses 145 and Lenovo and does not modify the image trainer or establish a JiT
 image-quality result.

@@ -32,6 +32,7 @@ def main():
     p.add_argument('--output-root', required=True, help='frozen first-wave outputs')
     p.add_argument('--save', required=True)
     p.add_argument('--device', choices=['cpu', 'cuda'], default='cuda')
+    p.add_argument('--wave2', action='store_true')
     args = p.parse_args()
     source = Path(args.source).resolve()
     sys.path.insert(0, str(source))
@@ -39,10 +40,17 @@ def main():
     runtime = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(runtime)
     runtime.verify_sources()
+    builder = runtime.build_model
+    experiment = 'muon_pd_20261102'
+    if args.wave2:
+        sys.path.insert(0, str(source/'wave2'))
+        from variants import build_model
+        builder = build_model
+        experiment = 'muon_pd_wave2_20261102'
     torch.set_num_threads(1)
     device = torch.device(args.device)
     rows, curves, updates = [], [], []
-    for folder in sorted((Path(args.output_root)/'muon_pd_20261102').glob('*/*/seed000')):
+    for folder in sorted((Path(args.output_root)/experiment).glob('*/*/seed000')):
         cfg = json.loads((folder/'config.json').read_text())
         cell = cfg['cell']
         metrics = [json.loads(x) for x in (folder/'metrics.jsonl').read_text().splitlines()]
@@ -60,7 +68,7 @@ def main():
         assert checkpoint['identity']['seed'] == 0
         assert (folder/'ADAPTER_COMPLETE').exists()
         torch.manual_seed(0)
-        model = runtime.build_model(ds['dim'], cell['family']).to(device)
+        model = builder(ds['dim'], cell['family']).to(device)
         runtime.train.restore_model(model, checkpoint)
         model.eval()
         distribution = runtime.train.load_distribution(ds)
@@ -113,6 +121,8 @@ def main():
                 for key in ('frobenius', 'stable_rank', 'entropy_rank'):
                     row[label+'_'+key] = mean(m[key] for m in available)
                 row[label+'_sigma_max'] = mean(m['singular_values'][0] for m in available)
+            for key in ('radial_cross_term', 'update_squared_norm', 'observed_weight_squared_norm_change'):
+                row[key] = mean(m['norm_energy'][key] for m in matrices if 'norm_energy' in m)
             updates.append(row)
         print(json.dumps(dict(cell=cell['id'], field_abs_error=field_error,
                               sw2_abs_error=sample_error, replay_max_abs_error=replay_error)), flush=True)

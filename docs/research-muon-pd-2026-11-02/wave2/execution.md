@@ -49,7 +49,11 @@ exits every2s. A failed cell stops subsequent dispatch. No automatic retry or
 unregistered sweep is enabled. After dispatch, verify PIDs and increasing metrics
 through separate SSH connections; a printed launch PID alone is insufficient.
 
-## Status
+## Completed status
+
+Both queues completed15/15 with exit0 and no pending cells. All30 final checkpoints passed sample replay and independent SW2 recalculation. See [findings](results/findings.md). The original launch snapshot below is historical; neither queue is still training.
+
+## Launch snapshot
 
 Both formal queues are running. Separate SSH observations confirmed increasing
 steps after the launching connections exited. Both report `failed=false` and

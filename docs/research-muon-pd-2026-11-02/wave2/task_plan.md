@@ -19,3 +19,9 @@ checkpoints is descriptive, not independent-replicate significance testing.
 Both formal queues are verified live after SSH exit. The implementation/launch
 task is complete; quality analysis awaits the registered endpoints. See execution.md
 for source, commands, process evidence and monitoring paths.
+
+## Authorized continuation
+
+- [x] Confirm both queues completed15/15 without failures.
+- [x] Replay all30 final checkpoints and independently recompute SW2.
+- [x] Compare direction, decay and placement with all first-wave controls; publish figures and a concrete next decision.
