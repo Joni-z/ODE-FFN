@@ -38,6 +38,7 @@ def main():
     p.add_argument('--anchor-output')
     p.add_argument('--only-complete', action='store_true')
     p.add_argument('--expected-count', type=int)
+    p.add_argument('--endpoint-step', type=int, default=20000)
     args = p.parse_args()
     source = Path(args.source).resolve()
     sys.path.insert(0, str(source))
@@ -75,12 +76,13 @@ def main():
         ds = manifest['datasets'][cell['dataset']]
         data = Path(cfg['data_root'])/cell['dataset']
         runtime.verify_data(Path(cfg['data_root']).parent, cell)
-        checkpoint = torch.load(folder/'checkpoints/step_0020000.pt', map_location=device, weights_only=False)
-        assert checkpoint['step'] == final['step'] == 20000
+        checkpoint_file = folder/f'checkpoints/step_{args.endpoint_step:07d}.pt'
+        checkpoint = torch.load(checkpoint_file, map_location=device, weights_only=False)
+        assert checkpoint['step'] == final['step'] == args.endpoint_step
         assert checkpoint['config_sha256'] == sha(folder/'config.json')
         assert checkpoint['dataset_manifest_sha256'] == sha(manifest_path)
         assert checkpoint['identity']['seed'] == 0
-        assert cfg['seeds'] == [0] and cfg['batch_size'] == 512 and cfg['steps'] == 20000
+        assert cfg['seeds'] == [0] and cfg['batch_size'] == 512 and cfg['steps'] == args.endpoint_step
         assert (folder/'ADAPTER_COMPLETE').exists()
         torch.manual_seed(0)
         model = builder(ds['dim'], cell['family']).to(device)
@@ -110,7 +112,7 @@ def main():
         rows.append(dict(cell, replayed_field_mse=error/count, numpy_test_sw2=sw2,
                          field_abs_error=field_error, sw2_abs_error=sample_error,
                          generated_replay_max_abs_error=replay_error,
-                         checkpoint_sha256=sha(folder/'checkpoints/step_0020000.pt')))
+                         checkpoint_sha256=sha(checkpoint_file)))
         if args.anchor_output and cell.get('role') == 'anchor':
             anchor = Path(args.anchor_output)/'muon_pd_20261102'/cell['dataset']/cell['id']/'seed000'
             with np.load(anchor/'final_test_examples.npz', allow_pickle=False) as old:
@@ -159,7 +161,7 @@ def main():
         del checkpoint, model, fixed
     if args.expected_count is not None:
         assert len(rows) == args.expected_count, (len(rows), args.expected_count)
-    result = dict(partial=args.only_complete, source=str(source), source_manifest_sha256=sha(source/'source_provenance.json'),
+    result = dict(partial=args.only_complete, endpoint_step=args.endpoint_step, source=str(source), source_manifest_sha256=sha(source/'source_provenance.json'),
                   torch=torch.__version__, device=args.device, passed=True,
                   endpoints=rows, curves=curves, updates=updates)
     path = Path(args.save)

@@ -8,8 +8,10 @@ cycle2/trial2.py, cycle3/trial3.py, cycle4/trial4.py and cycle5/trial5.py for th
 frozen. Registrations, numerical witnesses and analysis scripts are separately
 versioned; no new training loop is introduced.
 
-The adaptation intentionally retains20k updates rather than replacing historical
-comparisons with a five-minute cutoff; log actual elapsed time and parameter/MAC
+Cycles1–5 intentionally retain20k updates rather than replacing historical
+comparisons with a five-minute cutoff. Registered cycle6 alone uses80k for every
+arm, verifying exact20k numerical prefixes and retaining matched ordinary
+controls; it tests budget/convergence without a new model. Log actual elapsed time and parameter/MAC
 counts. Each host keeps its own task/device pairing. No language data, new packages,
 new loss, altered sampler, test-driven checkpoint selection, or all-network Muon.
 

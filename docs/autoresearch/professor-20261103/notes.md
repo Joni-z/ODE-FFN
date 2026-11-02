@@ -74,3 +74,10 @@ raw.011520 while odd error rises.015536 versus.012049. No parity-feature rescue.
 Bilinear ProductAdam.0003 has field.0682647/SW2.0705403, motivating terminal
 structure inspection rather than assuming either field MSE or random SW2 is
 sufficient alone. All14replays and four parity receipts pass. GPUs free.
+
+Sample audit proves neither random SW2 nor latent-axis averaged SW2 certifies
+all mixture coordinates. BilinearAdam.0003 mean gap9.06%, exactpopulation.52%;
+axis0gap32.45% versus3.04%. Allmodels have visible imperfections. C6 selects
+longer matched budgets for retained raw/Swi references using earlier validation
+rates; no secondary-metric model selection. Auditor gains explicit endpoint-step
+(default20k unchanged) for80k, with configuration/data/checkpoint integrity guards.

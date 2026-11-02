@@ -60,3 +60,10 @@ even energy. Stop this setting; retain bilinear as an ordinary reference.
 Next selected diagnostic: inspect saved Product16 latent-axis sample structure
 to distinguish a weak random-projection readout from valid terminal generation
 with a different field. No new architecture, loss or image training selected.
+
+Saved-sample audit complete74rows/71distinct arrays. Bilinear's low aggregate
+distances coexist with32.45% versus3.04% true gap mass on axis0. Ordinary
+models also retain smaller shape errors. Next registered cycle6 changes only
+the budget20k->80k: rawK1 versus native Swi64/128/192 on both tasks,8trajectories.
+No new architecture. Verify exact native8-step state equivalence, physicalresume,
+and original20k prefixes; existing stopped settings remain closed.
