@@ -357,3 +357,10 @@ The shape intervention thus holds matrix energy fixed while changing how it
 aligns with feature statistics. Its paired scalar arm controls the leading
 matrix norm, not every activation effect. Cycle8 must be interpreted with the
 existing conditional PD and term-amplitude histories, not singular values alone.
+
+The [feature-metric derivation](feature-metric.md) identifies P M P^T as an
+increment second-moment statistic invariant under admissible diagonal
+reparameterizations. It also states the assumptions needed for local functional
+steps. This is a possible diagnostic after cycle8, not a new optimizer or an
+accepted architecture. Its algebraic fixture passes; trained-feature evidence
+is still missing.

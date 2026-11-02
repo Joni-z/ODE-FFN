@@ -138,3 +138,9 @@ launched using exact published commands; next verify post-SSH progress, finish
 and replay all12, check four exact20k anchors and total post-relaxation logs.
 Latest145data2free snapshot7.9GiB (was29GiB); estimated new experiment artifacts
 are well below1GiB, recheck capacity while monitoring without deleting others.
+
+All4cycle8native20k anchors now match archived model/optimizer/buffers/allRNG
+states exactly, and generated arrays are exact. Early receipts explicitly mark
+partial scope; constrained cells still run. Feature-metric derivation and a
+seeded algebra witness are recorded as theory only, with no new optimizer or
+next experiment selected before cycle8 closes.
