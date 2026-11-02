@@ -71,3 +71,14 @@ Fresh f6bfefc v2 readiness passed on both hosts: all12actual native
 8->16continuations match continuous16, four no-op parent8states match exactly,
 and all parent/cache identities pass. Formal baseline-first queues launched
 from the published commands; final20k quality outcomes remain pending.
+
+## Registered final sample examples
+
+After all twelve native endpoint replays, inspect every arm without selection.
+Reuse the same fixed Product16 latent axes0/7/15 and gap/near-mode readouts from
+cycle6; show each family's three modes together. Ring8 uses the same indices
+0,4,...,4092 and frame[-4,4]^2, reporting outside-frame mass. Primary metrics
+still use all4096samples. Reuse the CPU-only sample_readouts helper with explicit
+endpoint-step20000, expected-count6 and cycle8 experiment id; its default80k
+behavior is retained for historical use. This adds no generation, checkpoint
+choice, metric replacement or training changes.
