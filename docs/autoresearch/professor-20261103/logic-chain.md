@@ -104,7 +104,7 @@ available to unconstrained affine-output D, not to this fixed bounded family.
 The same-function diagonal rescaling also changes optimization coordinates.
 Holding gate parameters fixed while differentiating P, let P'=P C^(-1),
 D'=C D. Since dP=dP' C, the loss gradient transforms as G'=G C^T.
-For a positive uniform C=cI, the ideal polar update obeys polar(cG)=polar(G).
+For a positive uniform C=cI, the ideal canonical partial-polar update (zero on null singular subspaces) obeys polar(cG)=polar(G).
 Thus using the same Muon LR gives the same P-coordinate displacement in the
 rescaled coordinates, but its contribution to the conditional operator changes:
 
@@ -123,3 +123,5 @@ updates controller/backbone parameters. SGD/Adam can also depend on coordinates,
 so it is not a proof of a unique Muon defect. It explains why Muon and the choice
 of D must be crossed experimentally, and why matching raw parameter-update norms
 alone does not establish matching effective dynamics or overall training speed.
+
+Capacity and speed claims also require the [explicit budget controls](budget-controls.md). Direct input gates reduce parameters but still reuse P twice; same parameter count does not imply same dense MACs or latency.
