@@ -48,13 +48,23 @@ Data are copies of the registered archived banks; manifest and individual file
 hashes are checked before every cell. Approximately 20 GiB were available before
 the study; expected study output is below 2 GiB.
 
-## Lenovo placement pending
+## Lenovo launch
 
-14 Ring8 cells will stay on one selected device for within-task pairing. A
-two-worker, 1000-update CPU/CUDA placement witness runs in separate directories.
-Only elapsed time is consulted; its field/sample metrics are not selection
-evidence and it does not replace any formal 20k cell. Record the selected device
-and launch command here after timing completes.
+Use RTX4060 GPU0, two workers. All 14 Ring8 cells remain on CUDA. Two-worker
+1000-update placement took 17.14s with CUDA versus19.29s with CPU, including
+startup and evaluation. GPU sampling was also faster (0.125s versus1.188s for
+the scalar-Muon endpoint). This timing comparison, not model quality, selected
+CUDA. It is a short workload estimate and does not guarantee an identical gain
+throughout the formal study. Raw timing summary is in verification/.
+
+```bash
+ssh lenovo 'set OMP_NUM_THREADS=1&& set OPENBLAS_NUM_THREADS=1&& set MKL_NUM_THREADS=1&& set CUDA_VISIBLE_DEVICES=0&& set PATH=D:\Research\ODE-FFN\tools\git\cmd;%PATH%&& D:\Research\ODE-FFN\envs\synthetic\Scripts\python.exe D:\Research\ODE-FFN\muon-pd-20261102\repo\studies\muon_pd_20261102\run_queue.py --host lenovo --device cuda --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/muon-pd-20261102/output --workers 2 --detach'
+```
+
+Output: `D:/Research/ODE-FFN/muon-pd-20261102/output`. Archived datasets are
+read in place with exact manifest/file-hash validation. Existing runs remain
+untouched. The shorter placement runs live in separate placement-cpu/cuda folders
+and do not replace any formal cell.
 
 ## Monitoring
 

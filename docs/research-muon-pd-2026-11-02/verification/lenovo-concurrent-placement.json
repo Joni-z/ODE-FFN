@@ -1,0 +1,38 @@
+{
+  "cpu": {
+    "host_elapsed_seconds": 19.29364050005097,
+    "workers": 2,
+    "cells": [
+      {
+        "cell": "gmm_ring8_2d__scalar_k2__muon_0.006",
+        "steps": 1000,
+        "loop_wall_seconds": 15.906000000075437,
+        "last_sampling_seconds": 1.187999999965541
+      },
+      {
+        "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+        "steps": 1000,
+        "loop_wall_seconds": 13.172000000020489,
+        "last_sampling_seconds": 1.672000000020489
+      }
+    ]
+  },
+  "cuda": {
+    "host_elapsed_seconds": 17.136041900026612,
+    "workers": 2,
+    "cells": [
+      {
+        "cell": "gmm_ring8_2d__scalar_k2__muon_0.006",
+        "steps": 1000,
+        "loop_wall_seconds": 14.125,
+        "last_sampling_seconds": 0.125
+      },
+      {
+        "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+        "steps": 1000,
+        "loop_wall_seconds": 10.125,
+        "last_sampling_seconds": 0.2029999999795109
+      }
+    ]
+  }
+}

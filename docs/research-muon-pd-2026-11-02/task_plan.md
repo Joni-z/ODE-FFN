@@ -6,7 +6,7 @@ Authorized 2 November2026: act on the professor's feedback; execute on145 and Le
 - [x] Inspect145/Lenovo capacity and preserved environments.
 - [x] Freeze a small optimizer/structure protocol, reusing archived operators/data/evaluation and pinning upstream Muon.
 - [x] Implement only the experiment adapter, explicit optimizer groups, spectral logging and monitored queue; verify derivatives, pairing, resume and upstream optimizer identity.
-- [ ] Run fresh documented witnesses on both machines, measure CPU/GPU throughput, and select efficient worker placement.
+- [x] Run fresh documented witnesses on both machines, measure CPU/GPU throughput, and select efficient worker placement.
 - [ ] Publish and deploy immutable source through Git; launch seed0 comparisons and verify increasing steps/monitoring.
 - [ ] Collect completed outcomes when available; separate trained-model gains, spectral observations and unresolved questions.
 
