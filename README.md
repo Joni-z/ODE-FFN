@@ -124,3 +124,5 @@ interim draft. Old CIFAR scores above 200 cannot substantiate architecture
 claims. Use the archive to reproduce those historical studies.
 
 The [matched 80k-budget study](docs/autoresearch/professor-20261103/cycle6-results/findings.md) is complete: Raw K1 retains a limited field-fitting tradeoff, with no overall advantage over ordinary SwiGLU controls.
+
+For the current professor-guided questions, controlled tests and decisions, read the [research map](docs/autoresearch/professor-20261103/research-map.md). The [spectral-relaxation study](docs/autoresearch/professor-20261103/cycle8.md) tests adaptation during training separately from the failed frozen spectral repair.

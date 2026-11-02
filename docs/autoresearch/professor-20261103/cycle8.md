@@ -55,8 +55,14 @@ is separate. Do not nominate a model if ordinary controls or sampling reveal
 the same earlier tradeoff. If this single relaxation setting fails, retain the
 negative evidence rather than automatically sweeping strengths, rates or gates.
 
-- [ ] Implement small optimizer adapter and source-bound grid; CPU witness.
+- [x] Implement small optimizer adapter and source-bound grid; CPU witness.
 - [ ] Publish/deploy immutable source; fresh documented native CUDA witnesses.
 - [ ] Baseline-first monitored queues on145/Lenovo, two workers per free GPU.
 - [ ] Finish/replay all12, verify four exact native anchors, then assess the
       adaptation question against parents and ordinary controls.
+
+Readiness history:4d381c6 Lenovo passed,145 stopped on the first cell because
+Product16 was incorrectly assigned the v1cache. No formal20k run started.
+Runtime f6bfefc copies every archived parent data version and checks all12
+bindings before model updates; separate cycle8-v2 worktrees preserve the failed
+attempt. Fresh documented-v2 native readiness is in progress.

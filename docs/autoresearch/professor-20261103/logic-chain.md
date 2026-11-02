@@ -329,3 +329,31 @@ This is a checkpoint sensitivity question, separate from training a constrained
 model. No spectral penalty or modified optimizer follows automatically.
 
 [Cycle7 completed54frozen cases](cycle7-results/findings.md): flat spectra at fixed Frobenius energy do not generally improve a learned function. The lone small Ring8/raw20k benefit reverses at80k. This separates a failed post-hoc repair from the still-untested possibility of adaptation during constrained training. Neither result is implied by Muon flattening its updates.
+
+## Equal matrix energy is not equal feature energy
+
+For q(h)=D(h)h and any fixed hidden-state distribution with a finite second
+moment M=E[q q^T], the exact increment-energy identity is
+
+```
+E ||P q||^2 = tr(P^T P M).
+```
+
+Preserving ||P||F therefore preserves this energy only for isotropic M, or
+for a special orientation-specific cancellation. For an illustrative independent
+standard-Gaussian hidden h and the raw diagonal q=h^2, Gaussian moments give
+M=2I+11^T, hence
+
+```
+E ||P h^2||^2 = 2 ||P||F^2 + ||P 1||^2.
+```
+
+For q=h abs(h), the same illustrative law instead has M=3I. The trained hidden
+features are not assumed to follow that law; this is an exact counterexample
+to treating equal Frobenius norms as equal activation effects. It is not a
+new justification for restarting the failed absolute-diagonal design.
+
+The shape intervention thus holds matrix energy fixed while changing how it
+aligns with feature statistics. Its paired scalar arm controls the leading
+matrix norm, not every activation effect. Cycle8 must be interpreted with the
+existing conditional PD and term-amplitude histories, not singular values alone.

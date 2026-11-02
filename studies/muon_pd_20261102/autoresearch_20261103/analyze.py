@@ -1,7 +1,7 @@
 """Publish completed registered trials, full controls, and validation-only decisions."""
 import argparse,csv,json
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--cycle2-parents');p.add_argument('--cycle3-parents');p.add_argument('--cycle4-parents');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--cycle2-parents');p.add_argument('--cycle3-parents');p.add_argument('--cycle4-parents');p.add_argument('--state-receipts',nargs='+');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
 root=Path(__file__).resolve().parents[3]
 out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
 receipts=[json.loads(Path(f).read_text()) for f in a.receipts]
@@ -25,15 +25,28 @@ for file in ['docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv','do
     old+=list(csv.DictReader((root/file).open()))
 for r in old:
     r['replayed_field_mse']=float(r['replayed_field_mse']);r['numpy_test_sw2']=float(r['numpy_test_sw2']);r['projection_lr']=float(r['projection_lr'])
+state_anchors={}
+if a.state_receipts:
+    states=[json.loads(Path(f).read_text()) for f in a.state_receipts]
+    assert all(s['passed'] for s in states)
+    state_anchors={r['cell']:r for s in states for r in s['anchors']}
 decisions=[]
 for r in rows:
+    if r.get('role')=='anchor' and r.get('parent_id'):
+        witness=state_anchors[r['id']]
+        assert witness['exact_numerical_state'] and witness['exact_samples'] and witness['parent_sha256']==r['parent_checkpoint_sha256']
+        original=next(x for x in old+cycle1+cycle2+cycle3+cycle4 if x['id']==r['parent_id'] and x['checkpoint_sha256']==r['parent_checkpoint_sha256'])
+        r['anchor_field_abs_error']=abs(r['replayed_field_mse']-float(original['replayed_field_mse']))
+        r['anchor_sample_max_abs_error']=0.
     if r.get('role')=='reference':
         decision='reference';parent=None;improvement=None;sampling_change=None
     elif r.get('role')=='anchor':
         assert r['anchor_field_abs_error']<2e-6 and r['anchor_sample_max_abs_error']<2e-5
         decision='anchor';parent=None;improvement=None;sampling_change=None
     else:
-        if r['family']=='pd_factorized_linear':reference,parent_family=cycle1,'pd_linear_sigmoid'
+        if r.get('relaxation') in ['shape','scale']:
+            reference=old+cycle1+cycle2+cycle3+cycle4;parent_family=r['family']
+        elif r['family']=='pd_factorized_linear':reference,parent_family=cycle1,'pd_linear_sigmoid'
         elif r['family']=='pd_direct_raw_k1':reference,parent_family=cycle2,'pd_direct_raw'
         elif r['family']=='pd_direct_abs_k1':reference,parent_family=cycle3,'pd_direct_raw_k1'
         elif r['family']=='pd_direct_bounded_k1':reference,parent_family=cycle2,'pd_direct_bounded'
@@ -41,6 +54,7 @@ for r in rows:
         elif r['family']=='scalar_k1':reference,parent_family=old,'scalar_k2'
         else:reference,parent_family=old,'vector_pd_k2'
         parent=next(x for x in reference if x['dataset']==r['dataset'] and x['family']==parent_family and x['optimizer']==r['optimizer'] and float(x['projection_lr'])==r['projection_lr'])
+        if r.get('relaxation') in ['shape','scale']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
         improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
         sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'
