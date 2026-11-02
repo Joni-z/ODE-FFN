@@ -1,3 +1,7 @@
+# Latest confirmed: signed-feature hypothesis rejected
+
+Cycle5 is complete with exact generated-array replay. Hidden odd increments did not improve full-predictor parity or fitting consistently. Current work checks saved-sample structure behind the field/SW2 disagreement; GPUs released. [Findings](docs/autoresearch/professor-20261103/cycle5-results/findings.md).
+
 # Current professor-guided autoresearch state
 
 Cycle5 is live, baseline first: ordinary bilinear64 versus absK1, with exact matched-state raw/abs singular spectra and measured parity-error motivation.90–91% GPU utilization in the post-SSH witness. Earlier76 trials and12 parity cases complete/replayed. No accepted ODE method; retain all ordinary controls. [Current brief](docs/autoresearch/professor-20261103/brief.md).

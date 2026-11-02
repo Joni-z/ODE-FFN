@@ -61,8 +61,8 @@ bilinear features weakens an ODE-specific interpretation.
 - [x] Check exact tensors/RNG, conditional singular-value identity, full Jacobians
       including zero coordinates, native optimizer serialization and actual8-to16 resume.
 - [x] Freeze/push, deploy new worktrees, pass fresh documented CUDA witness.
-- [ ] Run all14 with two monitored workers per free GPU; replay all outcomes.
-- [ ] Run the registered four-checkpoint parity readout, publish full controls,
+- [x] Run all14 with two monitored workers per free GPU; replay all outcomes.
+- [x] Run the registered four-checkpoint parity readout, publish full controls,
       and decide the next direction from the complete field/sampling evidence.
 
 CPU checks pass: exact inherited tensors/RNG, matching conditional spectra,
@@ -73,3 +73,8 @@ Formal grids dispatch the ordinary bilinear references before abs candidates.
 Fresh documented CUDA/native continuation passed on both hosts at f81663a.
 All14 queued, ordinary references first; two-worker post-SSH step increases
 verified independently over60s,90–91% GPU0 utilization, no failures.
+
+Closed: all6 abs candidates fail matching-parent validation comparisons; no
+accepted model. Four frozen parity cases do not show consistent full-model
+even-energy reduction. The signed-feature setting stops. Next action is a
+read-only saved-terminal-sample structure diagnostic; no new training family.

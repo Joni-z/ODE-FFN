@@ -66,3 +66,11 @@ state-clock midpoint setting also completed without nomination. The new PD/raw
 nonlinear-flow note specializes an old distinction, not a novel restart. No
 previous signed-square/absolute-diagonal/bilinear64 entry was found outside
 the current study in the scoped Markdown search. This is not a novelty survey.
+
+Cycle5 negative: absK1 best validation Ring.0123905/Product.0265689, versus raw
+.0109129/.0237107. All6 rate-matched field comparisons worsen. Ring even energy
+.006027 exceeds raw.005208; Product even energy.011044 only slightly below
+raw.011520 while odd error rises.015536 versus.012049. No parity-feature rescue.
+Bilinear ProductAdam.0003 has field.0682647/SW2.0705403, motivating terminal
+structure inspection rather than assuming either field MSE or random SW2 is
+sufficient alone. All14replays and four parity receipts pass. GPUs free.

@@ -52,3 +52,11 @@ midpoint were already derived/tested in earlier studies. Their stopped settings
 remain closed. Do not rediscover target Jacobian PSD/symmetry as a new reason
 for another hidden-P constraint. Current sign/absolute-diagonal contrast was not
 found in that Markdown history and has its distinct matched-SV/parity premise.
+
+Cycle5 closed:14/14 complete/replayed, generated arrays exact,4registered
+parity cases complete with validation-only selections. Abs worsens all6
+matching field comparisons and does not consistently reduce full-predictor
+even energy. Stop this setting; retain bilinear as an ordinary reference.
+Next selected diagnostic: inspect saved Product16 latent-axis sample structure
+to distinguish a weak random-projection readout from valid terminal generation
+with a different field. No new architecture, loss or image training selected.

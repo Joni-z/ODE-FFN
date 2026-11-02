@@ -1,7 +1,8 @@
 # A possible next contrast: identical conditional singular values, different features
 
-Mathematical branch under consideration, not a launched training cycle. Complete
-cycle4 and the registered frozen parity diagnostic before selecting it.
+This branch was subsequently selected in cycle5 and failed all6 matched field
+comparisons; see cycle5-results/findings.md. The pointwise identity below remains
+valid, but the feature intervention did not establish a useful model.
 
 Fix the same P and hidden input h. Write H=diag(h), B=diag(abs(h)), and
 S=diag(sign(h)), choosing sign0=1 at zero coordinates. Then H=B S and S is

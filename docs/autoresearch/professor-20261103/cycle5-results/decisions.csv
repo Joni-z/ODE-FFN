@@ -1,0 +1,15 @@
+cell,dataset,family,optimizer,lr,status,field_mse,test_sw2,parent,field_relative_improvement,test_sw2_relative_change,better_field_than_strongest_ordinary
+rotated_product_bimodal_16d__bilinear64__adamw_0.0003,rotated_product_bimodal_16d,bilinear64,adamw,0.0003,reference,0.06826471723708634,0.07054028941620015,,,,False
+rotated_product_bimodal_16d__bilinear64__adamw_0.001,rotated_product_bimodal_16d,bilinear64,adamw,0.001,reference,0.03733112113615675,0.07778064809864857,,,,False
+rotated_product_bimodal_16d__bilinear64__muon_0.006,rotated_product_bimodal_16d,bilinear64,muon,0.006,reference,0.03718602411921178,0.08537998682714151,,,,False
+rotated_product_bimodal_16d__bilinear64__muon_0.02,rotated_product_bimodal_16d,bilinear64,muon,0.02,reference,0.03544739866590929,0.07784551094225844,,,,False
+rotated_product_bimodal_16d__pd_direct_abs_k1__adamw_0.0003,rotated_product_bimodal_16d,pd_direct_abs_k1,adamw,0.0003,discard,0.14531777825528844,0.10389586737043538,rotated_product_bimodal_16d__pd_direct_raw_k1__adamw_0.0003,-0.038975921656172474,0.1547698747715831,False
+rotated_product_bimodal_16d__pd_direct_abs_k1__muon_0.006,rotated_product_bimodal_16d,pd_direct_abs_k1,muon,0.006,discard,0.029131884847821702,0.11115832425776802,rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006,-0.22864101078514198,0.00017362352247118906,False
+rotated_product_bimodal_16d__pd_direct_abs_k1__muon_0.02,rotated_product_bimodal_16d,pd_direct_abs_k1,muon,0.02,discard,0.026568888223914514,0.08981372844832246,rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.02,-0.05942207388761278,-0.20542985718234585,False
+gmm_ring8_2d__bilinear64__adamw_0.0003,gmm_ring8_2d,bilinear64,adamw,0.0003,reference,0.014754088464722122,0.1952108037073636,,,,False
+gmm_ring8_2d__bilinear64__adamw_0.001,gmm_ring8_2d,bilinear64,adamw,0.001,reference,0.0166963644580376,0.21067972249030573,,,,False
+gmm_ring8_2d__bilinear64__muon_0.006,gmm_ring8_2d,bilinear64,muon,0.006,reference,0.013280464420184412,0.18302666485278432,,,,False
+gmm_ring8_2d__bilinear64__muon_0.02,gmm_ring8_2d,bilinear64,muon,0.02,reference,0.0120449720903486,0.18139113542971802,,,,False
+gmm_ring8_2d__pd_direct_abs_k1__adamw_0.0003,gmm_ring8_2d,pd_direct_abs_k1,adamw,0.0003,discard,0.01381220124152091,0.18627256894650607,gmm_ring8_2d__pd_direct_raw_k1__adamw_0.0003,-0.17138678586383937,0.01483758553014014,False
+gmm_ring8_2d__pd_direct_abs_k1__muon_0.006,gmm_ring8_2d,pd_direct_abs_k1,muon,0.006,discard,0.012937939063622565,0.17849618999579758,gmm_ring8_2d__pd_direct_raw_k1__muon_0.006,-0.08073612507124506,0.03310136098234917,False
+gmm_ring8_2d__pd_direct_abs_k1__muon_0.02,gmm_ring8_2d,pd_direct_abs_k1,muon,0.02,discard,0.01239051119857032,0.17364804972595876,gmm_ring8_2d__pd_direct_raw_k1__muon_0.02,-0.135403209713562,-0.024032170697604327,False

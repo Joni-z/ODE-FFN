@@ -25,3 +25,14 @@ handles,labels=axes[0,0].get_legend_handles_labels();fig.legend(handles,labels,l
 fig.suptitle('Cycle5: raw versus absolute diagonal, with ordinary bilinear control')
 fig.tight_layout(rect=(0,.1,1,.96))
 for ext in ['png','pdf']:fig.savefig(study/f'cycle5-results/comparison.{ext}',dpi=180,bbox_inches='tight')
+parity=study/'cycle5-results/parity/endpoints.csv'
+if parity.exists():
+    previous=list(csv.DictReader((study/'symmetry-results/endpoints.csv').open()));current=list(csv.DictReader(parity.open()))
+    fig,axes=plt.subplots(1,2,figsize=(11,4))
+    for ax,ds,title in zip(axes,['gmm_ring8_2d','rotated_product_bimodal_16d'],['Ring8','Product16']):
+        choose=[next(r for r in previous if r['dataset']==ds and '__pd_direct_raw_k1__' in r['cell'])]+[next(r for r in current if r['dataset']==ds and f'__{family}__' in r['cell']) for family in ['pd_direct_abs_k1','bilinear64']]+[next(r for r in previous if r['dataset']==ds and f'__{family}__' in r['cell']) for family in ['swiglu64','swiglu128']]
+        odd=[float(r['odd_field_mse']) for r in choose];even=[float(r['even_energy']) for r in choose]
+        ax.bar(range(5),odd,color='#4477aa',label='Odd-part field error');ax.bar(range(5),even,bottom=odd,color='#ee7733',label='Even-part energy')
+        ax.set_xticks(range(5),['Raw K1','Abs K1','Bilinear64','Swi64','Swi128'],rotation=20);ax.set(title=title+' — validation-selected family checkpoints',ylabel='Paired diagnostic MSE');ax.legend(fontsize=8);ax.grid(axis='y',alpha=.2)
+    fig.tight_layout()
+    for ext in ['png','pdf']:fig.savefig(study/f'cycle5-results/parity-comparison.{ext}',dpi=180,bbox_inches='tight')

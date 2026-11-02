@@ -1,0 +1,297 @@
+{
+  "dataset": "gmm_ring8_2d",
+  "torch": "2.8.0+cu126",
+  "device": "cuda",
+  "rows": [
+    {
+      "cell": "gmm_ring8_2d__pd_direct_abs_k1__muon_0.02",
+      "checkpoint_sha256": "c18388fcbf8eedee3c199df351ec4a97bd7ec6c3e46b722d5233caf4b01749a9",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.012390511198570323,
+      "negative_validation_mse": 0.01310081667475102,
+      "paired_field_mse": 0.012745663936660672,
+      "odd_field_mse": 0.006718745726841981,
+      "even_energy": 0.00602691820981869,
+      "even_fraction": 0.4728602793678966,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 2.7755575615628914e-17,
+      "original_field_replay_error": 2.18818593453185e-10,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.01526638283509296,
+          "odd_field_mse": 0.005121723513347732,
+          "even_energy": 0.01014465932174523
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.009983878671592332,
+          "odd_field_mse": 0.003907344204381416,
+          "even_energy": 0.006076534467210916
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.011601471727712372,
+          "odd_field_mse": 0.008327228746909228,
+          "even_energy": 0.0032742429808031433
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.009742679165217386,
+          "odd_field_mse": 0.005480926861752213,
+          "even_energy": 0.004261752303465174
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.012157354035412713,
+          "odd_field_mse": 0.005530070934249536,
+          "even_energy": 0.006627283101163178
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.014050709751736829,
+          "odd_field_mse": 0.00762282295968109,
+          "even_energy": 0.006427886792055737
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.017855073350295427,
+          "odd_field_mse": 0.009007452129897557,
+          "even_energy": 0.008847621220397872
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.02080570480365225,
+          "odd_field_mse": 0.011895254789035215,
+          "even_energy": 0.008910450014617032
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.0091450388944861,
+          "odd_field_mse": 0.005821120214416442,
+          "even_energy": 0.0033239186800696563
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.005523932841730471,
+          "odd_field_mse": 0.0037130433145245645,
+          "even_energy": 0.001810889527205907
+        }
+      ]
+    },
+    {
+      "cell": "gmm_ring8_2d__bilinear64__muon_0.02",
+      "checkpoint_sha256": "7a0ceeffdf8900bd63ab396758359b42e753b1bd463059e112fe97a38c597e63",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.012044972090348598,
+      "negative_validation_mse": 0.013022706224875023,
+      "paired_field_mse": 0.012533839157611812,
+      "odd_field_mse": 0.008015424886443417,
+      "even_energy": 0.004518414271168395,
+      "even_fraction": 0.3604972278924098,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 1.1102230246251565e-16,
+      "original_field_replay_error": 3.29390171388555e-10,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.012197092445597992,
+          "odd_field_mse": 0.004426019387751764,
+          "even_energy": 0.0077710730578462285
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.009154043247303427,
+          "odd_field_mse": 0.004631551337773932,
+          "even_energy": 0.004522491909529495
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.011492847333564192,
+          "odd_field_mse": 0.009027565426421537,
+          "even_energy": 0.002465281907142656
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.008923968184455915,
+          "odd_field_mse": 0.0056382262981929665,
+          "even_energy": 0.003285741886262947
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.009803036443608314,
+          "odd_field_mse": 0.005752752716051401,
+          "even_energy": 0.004050283727556913
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.012738226683718433,
+          "odd_field_mse": 0.008649524858716388,
+          "even_energy": 0.004088701825002044
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.019257723450681406,
+          "odd_field_mse": 0.013611783781840015,
+          "even_energy": 0.0056459396688413885
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.02057187698882524,
+          "odd_field_mse": 0.013944111427091817,
+          "even_energy": 0.006627765561733423
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.01276155378616291,
+          "odd_field_mse": 0.009129167796564993,
+          "even_energy": 0.0036323859895979168
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.0072435737735775255,
+          "odd_field_mse": 0.004527448636064973,
+          "even_energy": 0.0027161251375125532
+        }
+      ]
+    }
+  ],
+  "interpretation": "Frozen paired diagnostic; no training, odd projection sampling, changed primary metric or causal claim.",
+  "selection_rule": "Lowest final validation oracle MSE within each registered family; no sampling/parity selection.",
+  "selection_pool": [
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__pd_direct_abs_k1__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "pd_direct_abs_k1",
+        "optimizer": "adamw",
+        "projection_lr": 0.0003,
+        "role": "candidate"
+      },
+      "validation_mse": 0.013812201499938965
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__pd_direct_abs_k1__muon_0.006",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "pd_direct_abs_k1",
+        "optimizer": "muon",
+        "projection_lr": 0.006,
+        "role": "candidate"
+      },
+      "validation_mse": 0.01293793888092041
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__pd_direct_abs_k1__muon_0.02",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "pd_direct_abs_k1",
+        "optimizer": "muon",
+        "projection_lr": 0.02,
+        "role": "candidate"
+      },
+      "validation_mse": 0.012390511417388917
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__bilinear64__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "bilinear64",
+        "optimizer": "adamw",
+        "projection_lr": 0.0003,
+        "role": "reference"
+      },
+      "validation_mse": 0.014754088497161866
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__bilinear64__adamw_0.001",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "bilinear64",
+        "optimizer": "adamw",
+        "projection_lr": 0.001,
+        "role": "reference"
+      },
+      "validation_mse": 0.01669636468887329
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__bilinear64__muon_0.006",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "bilinear64",
+        "optimizer": "muon",
+        "projection_lr": 0.006,
+        "role": "reference"
+      },
+      "validation_mse": 0.013280464553833008
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__bilinear64__muon_0.02",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "lenovo",
+        "family": "bilinear64",
+        "optimizer": "muon",
+        "projection_lr": 0.02,
+        "role": "reference"
+      },
+      "validation_mse": 0.012044972419738769
+    }
+  ],
+  "diagnostic_source_sha256": "a8d314edad885be2a14912defa451fd181db91fad897c5d9092d149ee6c4ff7d"
+}

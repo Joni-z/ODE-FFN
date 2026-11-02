@@ -1,3 +1,7 @@
+# Latest confirmed: cycle5 closed; saved-sample audit next
+
+All14 cycle5 trajectories and4 preregistered parity cases completed/replayed. AbsK1 fails all6 matched field comparisons. [Findings](docs/autoresearch/professor-20261103/cycle5-results/findings.md). Both GPUs released. Next selected action is a CPU/read-only Product16 terminal-sample structure diagnostic before choosing another training family. No accepted ODE model or image transfer. Earlier runtime entries below are historical.
+
 # Current runtime: cycle5 sign/orientation and ordinary bilinear control
 
 14 registered trajectories are live from frozen f81663a on145GPU0/LenovoGPU0, two workers each; fresh CUDA/native-resume and post-SSH60s witnesses pass. [Execution](docs/autoresearch/professor-20261103/cycle5-execution.md), [protocol](docs/autoresearch/professor-20261103/cycle5.md). Complete/replay all cells, then registered validation-selected parity readout. Earlier status entries below are historical.

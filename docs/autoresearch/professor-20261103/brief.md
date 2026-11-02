@@ -79,12 +79,19 @@ ordinary FFN remains a useful control. On Product16, excess even energy accounts
 for74% of rawK1's paired-error gap to Swi128. This is a diagnostic decomposition,
 not evidence that removing it improves sampled quality. A raw-versus-abs diagonal
 has exactly identical conditional singular values at matched P,h but even versus
-odd increments. It is the next selected contrast, with a matched ordinary bilinear
-FFN and all earlier SwiGLU controls. No symmetry projection or extra loss is added.
+odd increments. That contrast has now completed with a matched ordinary bilinear
+FFN and all earlier SwiGLU controls. Abs worsens all6 matched field comparisons
+and does not consistently reduce the composed predictor's even error. Stop
+this feature setting. No symmetry projection or extra loss was added.
+
+A new ordinary bilinear case has poor field error but low random-projection SW2
+on Product16. This does not alone establish either good generation or a broken
+metric. The next selected action inspects saved samples along the known mixture
+directions, with no new training or change to primary scores. Both GPUs are free.
 
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
 [cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
-[cycle4 results](cycle4-results/findings.md), [parity readout](symmetry-results/findings.md),
+[cycle4 results](cycle4-results/findings.md), [cycle5 results](cycle5-results/findings.md), [parity readout](symmetry-results/findings.md),
 [signed-diagonal branch](signed-diagonal.md),
 [two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).
