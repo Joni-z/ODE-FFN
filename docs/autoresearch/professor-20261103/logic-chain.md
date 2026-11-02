@@ -305,3 +305,27 @@ within the inherited initialization, not marketed as a new ODE method.
 ## Longer-budget outcome
 
 [All8 matched80k trajectories](cycle6-results/findings.md) are complete. Raw K1 improves field MSE over matched Swi64 by9.4%/2.9% on Ring8/Product16, but has worse sampling on both. It does not beat the wider ordinary frontier. The earlier short-budget Ring8 lead over Swi192 disappears. Neither80k nor the original20k is asserted to be converged. Next isolate singular-value shape from contraction on frozen checkpoints before adopting another P constraint.
+
+## A controlled spectral-shape question
+
+[Cycle7](cycle7.md) preserves each P's Frobenius norm while moving its singular
+values toward a common value. This changes shape without equating smaller
+weight energy with improvement. Its paired scalar contraction matches the
+resulting leading singular value, exposing a different amplitude explanation.
+
+The shape path has a useful local identity. For nonzero P=U diag(sigma) V^T,
+put q=||sigma||2, alpha=q/sqrt(r), and S=sum(sigma). Then at k=0,
+
+```
+P_shape'(0) = alpha U V^T - (alpha S/q^2) P
+<P, P_shape'(0)>F = 0.
+```
+
+Differentiate the normalized singular-value blend to obtain this expression;
+the zero Frobenius inner product means no first-order change in energy. It
+does not mean no first-order change in the network function or loss. A learned
+anisotropy can encode useful directions, and PD changes even though D is frozen.
+This is a checkpoint sensitivity question, separate from training a constrained
+model. No spectral penalty or modified optimizer follows automatically.
+
+[Cycle7 completed54frozen cases](cycle7-results/findings.md): flat spectra at fixed Frobenius energy do not generally improve a learned function. The lone small Ring8/raw20k benefit reverses at80k. This separates a failed post-hoc repair from the still-untested possibility of adaptation during constrained training. Neither result is implied by Muon flattening its updates.

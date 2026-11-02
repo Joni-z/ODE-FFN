@@ -73,9 +73,16 @@ negative cases and ordinary controls from cycle6 visible.
 
 ## Execution checklist
 
-- [ ] Implement and verify the matrix identities and exact k=0 native function.
-- [ ] Publish immutable source and deploy new worktrees on145/Lenovo.
-- [ ] Fresh agent executes documented CUDA self-test on both environments.
-- [ ] Run all54 frozen cases, preserve bindings and monitor processes/resources.
-- [ ] Independently verify anchors, constraints and complete outcomes; publish
+- [x] Implement and verify the matrix identities and exact k=0 native function.
+- [x] Publish immutable source and deploy new worktrees on145/Lenovo.
+- [x] Fresh agent executes documented CUDA self-test on both environments.
+- [x] Run all54 frozen cases, preserve bindings and monitor processes/resources.
+- [x] Independently verify anchors, constraints and complete outcomes; publish
       the result before selecting any constrained-training design.
+
+Completed at 35461dc. All six anchors reproduce saved arrays exactly; all54
+cases remain finite and pass independent shape/norm checks. See
+[the full outcome](cycle7-results/findings.md). Frozen spectrum flattening is
+not a general repair. A separately registered weak relaxation during training
+can test adaptation, without treating this negative intervention as a proof
+about constrained optimization from initialization.

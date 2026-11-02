@@ -567,3 +567,11 @@ a matched-Swi64 field tradeoff but loses sampling and wider ordinary controls.
 See docs/autoresearch/professor-20261103/cycle6-results/findings.md. Next: register
 a frozen Frobenius-preserving P-shape intervention against matched-operator-norm
 scalar contractions; no new training method is accepted.
+
+Cycle7 closed54frozen cases, six exact replay anchors, all finite. Norm/path
+checks pass independently. Only the smallest RawK1/Ring20k shape change improves
+slightly; it worsens at80k and all stronger flattening paths worsen fitting.
+Post-hoc flattening is not a repair. Next bounded question: can the native model
+adapt when weak spectrum relaxation is imposed throughout training? Register
+one relaxation time with untouched and paired scalar-contraction controls;
+no new gate, loss, schedule or rate sweep.

@@ -96,3 +96,16 @@ interventions. Shape flattening preserves Frobenius norm; paired contractions
 match each resulting operator norm. CPU matrix/native identity witness passed.
 Next: publish/deploy, fresh documented CUDA pass, all-case diagnostics, independent
 anchor/norm verification. This does not train or accept a constrained method.
+
+Cycle7 native CPU/CUDA matrix and exact-model identity witnesses passed, source
+35461dc. Both hosts run their27frozen cases with partial JSON progress and native
+logs in each cycle7/audit directory. Original checkpoints are read-only. Collect
+and independently check all54cases before selecting any training intervention.
+
+Cycle7 closed54frozen cases, six exact replay anchors, all finite. Norm/path
+checks pass independently. Only the smallest RawK1/Ring20k shape change improves
+slightly; it worsens at80k and all stronger flattening paths worsen fitting.
+Post-hoc flattening is not a repair. Next bounded question: can the native model
+adapt when weak spectrum relaxation is imposed throughout training? Register
+one relaxation time with untouched and paired scalar-contraction controls;
+no new gate, loss, schedule or rate sweep.
