@@ -7,3 +7,5 @@ Official Muon source: https://github.com/KellerJordan/Muon at f98f1cacc0263b0429
 Prior PD K1 study: docs/research-architecture-search/analysis-rate-order/analysis-report.md. PD worsened Ring8 and Product16 field error under its5000step AdamW screen; no new PD discovery is claimed. The new structure question retains K2 with frozen initial-state D: A=PD or DP and T2(A)=I+A+A²/2, including the noncommuting D/P cross terms. Existing original scalarK2 and ordinary SwiGLU remain controls.
 
 The new user instruction authorizes this study on145/Lenovo. It does not authorize deleting old runs, modifying submitted Report1 or resuming the long inadequate image baseline. Local Mac use is orchestration/documentation only; training and kernel benchmarks run remotely.
+
+Native documentation witness caught a Python module-name collision: queue.py shadowed the standard-library queue imported by torch2.8. Renamed the controller to run_queue.py before training; no formal cells had launched.

@@ -8,7 +8,7 @@ See the [registered protocol](../../docs/research-muon-pd-2026-11-02/protocol.md
 - `run.py`: model/optimizer adapter and additional spectral diagnostics.
 - `preflight.py`: exact polynomial/derivative, pairing, native optimizer and
   physical checkpoint-resume witnesses, followed by a throughput measurement.
-- `queue.py`: two-worker maximum, persistent logs/PIDs/resource samples,
+- `run_queue.py`: two-worker maximum, persistent logs/PIDs/resource samples,
   no automatic restart or overwrite. Failure stops dispatching new cells.
 - `reference/`: four audited modules plus five unchanged transitive model
   dependencies. The only reference edit is the optimizer-factory hook recorded

@@ -50,7 +50,7 @@ On each selected device, first run `run.py --cell CELL --data-root DATA_ROOT
 update spectra, step-8 checkpoint and `ADAPTER_COMPLETE`. Check scalar-Muon,
 PD-AdamW and SwiGLU-AdamW cells, with no formal budget changes.
 
-Then launch `queue.py --host HOST --device DEVICE --data-root DATA_ROOT
+Then launch `run_queue.py --host HOST --device DEVICE --data-root DATA_ROOT
 --output OUTPUT --workers 2 --detach`. Keep the chosen CUDA binding and one CPU
 thread per worker. The queue lock prevents duplicate starts; failures remain
 visible and require inspection. Verify increasing steps in `monitor/status.json`
