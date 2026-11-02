@@ -25,6 +25,44 @@ values alone do not determine the feature map. The [two ODE interpretations](non
 separate entrance-frozen linear dynamics from a state-dependent nonlinear flow.
 These are mathematical distinctions; they do not establish a new useful model.
 
+## Series convergence versus perturbation amplification
+
+The original recurrence has factorial denominators. For any finite matrix A,
+Q_K(A)=sum_{j=0}^K A^j/j! converges to exp(A) as K grows; no condition
+rho(A)<1 is required. This is different from a geometric/Neumann series.
+The trained layer uses a finite polynomial, which is defined for every A.
+What needs assessment is approximation accuracy and sensitivity at its learned
+unit-horizon operator, not convergence of the exponential series itself.
+
+For an arbitrary matrix perturbation E, without assuming A and E commute,
+
+```
+DQ_K(A)[E] = sum_{j=1}^K (1/j!) sum_{r=0}^{j-1} A^r E A^(j-1-r).
+||DQ_K(A)[E]||op <= Q_(K-1)(||A||op) * ||E||op.
+```
+
+Each term in the inner sum has norm at most ||A||^(j-1)||E|| and there are j
+terms, giving the bound directly. Integrating this derivative along A+tE gives
+the finite-perturbation bound
+
+```
+||Q_K(A+E)-Q_K(A)||op <= ||E||op * Q_(K-1)(||A||op+||E||op).
+```
+
+For K2 the derivative is E+(AE+EA)/2, with bound(1+||A||)||E||. With d held
+fixed, A=PD and E=DeltaP D. If both factors change, their exact operator
+increment is DeltaP D+P DeltaD+DeltaP DeltaD. An input perturbation also changes
+D(h), requiring the earlier input-Jacobian terms. Full-network sensitivity adds
+the other learned layers and can contain cancellations.
+
+The truncation error has the scalar majorant
+`||exp(A)-Q_K(A)||op <= sum_{j>K} ||A||op^j/j!`.
+Large norms can make a small K a poor approximation without making the series
+diverge. These are upper bounds, not measured amplification factors or evidence
+that more accurate exponential approximation improves the task. The decay and
+K1/K2 experiments already warn against treating either a smaller P or a closer
+Taylor approximation as a sufficient learning objective.
+
 ## Why A(h) must be measured
 
 For unconstrained diagonal D and an invertible constant diagonal C,
