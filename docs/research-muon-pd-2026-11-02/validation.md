@@ -61,6 +61,9 @@ thread per worker. The queue lock prevents duplicate starts; failures remain
 visible and require inspection. Verify increasing steps in `monitor/status.json`
 and resource samples in `monitor/history.jsonl`. Do not restart a living job
 after an SSH timeout. The queue does not send external notifications.
+Windows detached launch must use CREATE_BREAKAWAY_FROM_JOB: a detached process
+group alone was killed by OpenSSH before its first heartbeat. Require a new SSH
+connection to observe increasing child steps after the launch session exits.
 
 Formal source commits, selected devices, native witnesses and exact launch
 invocations will be recorded in `execution.md` before dispatch.

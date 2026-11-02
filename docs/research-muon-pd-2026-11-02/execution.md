@@ -1,6 +1,6 @@
 # Execution record
 
-Code snapshot: **295dd3e** (GitHub main). Formal runtime checkouts stay pinned
+Numerical code snapshot: **295dd3e** (GitHub main). Formal runtime checkouts stay pinned
 while documentation updates may advance main. Model seed 0; fixed grid in the
 registered protocol. Raw artifacts and environments remain outside Git.
 
@@ -84,3 +84,15 @@ ssh lenovo 'type D:\Research\ODE-FFN\muon-pd-20261102\output\monitor\status.json
 ```
 
 No quality conclusion is available at registration or readiness.
+
+## Windows background-process correction
+
+The first Lenovo detached-controller attempt returned PID28548 but exited with
+the SSH session before creating a queue lock, child training process or status
+file. It is not a training trajectory. The controller now sets Windows
+CREATE_BREAKAWAY_FROM_JOB in addition to DETACHED_PROCESS and a new process
+group. A separate child witness completed its five-second delayed file write
+after the launching SSH command had returned, establishing persistence. This
+changes process lifetime only; model, optimizer, data and numerical kernels are
+unchanged. Lenovo uses the corrected controller commit recorded with launch
+verification;145 keeps its existing running snapshot.

@@ -34,7 +34,10 @@ def main():
         raise FileExistsError('queue lock exists: inspect it, do not duplicate the queue')
     if args.detach:
         command = [sys.executable, '-u', str(Path(__file__).resolve())] + [x for x in sys.argv[1:] if x != '--detach']
-        flags = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP if os.name == 'nt' else 0
+        # Windows OpenSSH owns a job object that otherwise kills descendants
+        # when the SSH command exits. A new console/session alone is insufficient.
+        flags = (subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP |
+                 subprocess.CREATE_BREAKAWAY_FROM_JOB) if os.name == 'nt' else 0
         with (monitor/'queue-console.log').open('a') as console:
             child = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=console, stderr=console,
                                      creationflags=flags, start_new_session=os.name != 'nt')

@@ -10,6 +10,12 @@ is `--ffn isru`; its implementation and hook are in [ffn.py](ffn.py).
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 
+The current professor follow-up compares Muon updates and second-order `P D(h)`
+layers in an isolated, archived synthetic backbone. See the
+[registered protocol and execution record](docs/research-muon-pd-2026-11-02/execution.md).
+It uses 145 and Lenovo and does not modify the image trainer or establish a JiT
+image-quality result.
+
 ## Code
 
 ```text
