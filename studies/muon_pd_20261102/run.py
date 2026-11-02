@@ -126,6 +126,12 @@ class ProjectionOptimizer:
             rows = {}
             for name, p in self.selected:
                 row = dict(weight=spectral(p), delta=spectral(p.detach()-before[name]))
+                old_weight = before[name].double()
+                change = (p.detach().double()-old_weight)
+                row['norm_energy'] = dict(
+                    radial_cross_term=float(2*(old_weight*change).sum()),
+                    update_squared_norm=float(change.square().sum()),
+                    observed_weight_squared_norm_change=float(p.detach().double().square().sum()-old_weight.square().sum()))
                 if name in gradients:
                     row['clipped_gradient'] = spectral(gradients[name])
                 momentum = self.projections.state[p].get('momentum_buffer')

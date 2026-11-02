@@ -125,7 +125,7 @@ def sandwich(device):
     numerical = (layer((h+epsilon*direction)[None])[0]-layer((h-epsilon*direction)[None])[0])/(2*epsilon)
     close(jac@direction, numerical, 1e-8)
     stats = layer.activation_stats(h[None])
-    close(torch.tensor(stats['output_rms_over_input']), (y.square().mean()/h.square().mean()).sqrt().float(), 1e-6)
+    close(torch.tensor(stats['output_rms_over_input'], device=device), (y.square().mean()/h.square().mean()).sqrt().float(), 1e-6)
     assert 'centered_curvature_rms_over_input' not in stats
     return dict(parameter_count=model.parameter_count(), dense_and_derivatives=True,
                 similarity_identities=True, activation_diagnostics=True)
@@ -208,6 +208,12 @@ def native_smoke(data_root, output, device):
     with (root/'resume.log').open('x') as log:
         subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, check=True)
     assert (folder/'checkpoints/step_0000016.pt').exists() and (folder/'ADAPTER_COMPLETE').exists()
+    for line in (folder/'update_spectra.jsonl').read_text().splitlines():
+        for matrix in json.loads(line)['matrices'].values():
+            energy = matrix['norm_energy']
+            lhs = energy['observed_weight_squared_norm_change']
+            rhs = energy['radial_cross_term']+energy['update_squared_norm']
+            assert abs(lhs-rhs) < 1e-9
     return dict(cells=selected, native_resume_to_step=16)
 
 

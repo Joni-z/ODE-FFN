@@ -81,6 +81,12 @@ The positive-D gate derivative still contributes to the full layer Jacobian.
 Report field/SW2, P/update spectra, gate saturation and fixed-probe Jacobians
 together. Smaller P with worse fitting is not a success.
 
+At each registered update diagnostic also record the exact identity
+`||P+Delta||_F^2-||P||_F^2 = 2<P,Delta> + ||Delta||_F^2` in float64.
+This separates the measured radial contribution from update energy. It is logged
+at diagnostic steps only and must not be presented as a sum over unobserved
+updates. The first wave did not retain this inner product.
+
 ## C. Balanced diagonal placement
 
 Keep the same two-layer vector controller and positive range(0.2,1), with D
