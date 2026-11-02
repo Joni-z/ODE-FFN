@@ -1,3 +1,9 @@
+# Current priority — professor Muon / PD follow-up (2 November 2026)
+
+The user authorizes implementation and training on145/Lenovo. Follow [the bounded study plan](docs/research-muon-pd-2026-11-02/task_plan.md). Keep old image training paused; use only the registered optimizer and diagonal-generator changes. Record P and actual update spectra, preserve strong controls, and monitor every run. Earlier audit-only/no-training statements below are historical and superseded for this study only.
+
+---
+
 # ODE autoresearch task plan
 
 ## Goal

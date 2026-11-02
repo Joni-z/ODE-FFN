@@ -1,6 +1,7 @@
 # Project working conventions
 
 - Active training is the pinned author JiT code at the repository root. Keep it small and upstream-derived. Use `ffn.py` for block FFNs. Do not revive removed bespoke trainers, experiment controllers or custom metrics as active code.
+- The explicitly authorized professor follow-up is isolated in `studies/muon_pd_20261102/`, reusing a minimal pinned subset of audited synthetic source plus the official Muon implementation. This does not replace the author-derived image trainer.
 - Complete earlier source is on `research-archive-20261101`. The original local checkout and frozen running runtime remain preserved. Historical `docs/` and reports are not imported by active training.
 - FID below50 is the user's minimum image-baseline gate. Rankings at FID200-plus and kernel checks cannot substantiate architecture conclusions. First reproduce a qualifying ordinary baseline with fixed evaluation.
 - Pin and attribute upstream. Preserve copied loss, sampler and EMA mathematics; record necessary device/dataset changes in `UPSTREAM.patch`. A CIFAR/MPS port is not an author-validated CIFAR recipe.
@@ -15,5 +16,5 @@
 - State the hypothesis, exact operator, matched controls, budget and stopping criterion before a new experimental family. Avoid bundling tricks or reviving failed settings with unregistered rescues.
 - Preserve frozen source snapshots, raw runs, checkpoints and the submitted Report1. Keep datasets, environments, checkpoints and raw execution logs outside Git; publish code, configurations and curated evidence.
 - Monitor running studies. Re-poll an existing live process after an observation timeout; do not restart merely because the observation expired.
-- Run new experiments on **Mac mini and Lenovo**. Do not depend on MBP or torch for experiment execution. Configure GitHub publication on Mac mini directly rather than asking the user to restore another machine solely to push commits.
+- Current professor-follow-up experiments run on **145 and Lenovo**, explicitly authorized on2November2026. Mac mini coordinates and publishes; do not use MBP or torch for this study. Preserve unrelated existing runtimes.
 - Sync reachable machines through GitHub. Check for local changes before updating a checkout, and use fast-forward updates. Never discard another machine's work to make a pull succeed.

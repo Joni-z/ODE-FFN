@@ -1,0 +1,12 @@
+--- original/synthetic/train.py
++++ reference/synthetic/train.py
+@@ -202,7 +202,8 @@
+         if not isinstance(reference,dict) or set(reference)!={'checkpoint','sha256'}:
+             raise ValueError('backbone initialization requires checkpoint and sha256')
+         backbone_initialization=copy_common_backbone(model,root/Path(reference['checkpoint']),reference['sha256'])
+-    optimizer=torch.optim.AdamW(model.parameters(),lr=cfg['learning_rate'],weight_decay=cfg['weight_decay'])
++    optimizer=(args.optimizer_factory(model) if getattr(args,'optimizer_factory',None) else
++               torch.optim.AdamW(model.parameters(),lr=cfg['learning_rate'],weight_decay=cfg['weight_decay']))
+     data_rng=torch.Generator(device=device)
+     data_rng.manual_seed(args.seed+100000)
+     distribution=load_distribution(spec)
