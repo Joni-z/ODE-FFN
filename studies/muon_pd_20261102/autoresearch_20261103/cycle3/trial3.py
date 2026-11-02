@@ -3,9 +3,15 @@ from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from trial import base,torch
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'cycle2'))
+from trial2 import build_model as previous_builder
 
 
 def build_model(dim,family):
+    if family=='pd_direct_raw_k1':
+        model=previous_builder(dim,'pd_direct_raw')
+        for _,layer in model.ode_layers():layer.orders=1
+        return model
     if family=='scalar_k1':
         model=base.build_model(dim,'scalar_k2')
         for _,layer in model.ode_layers():layer.orders=1

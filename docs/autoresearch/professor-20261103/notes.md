@@ -24,3 +24,11 @@ Before candidate outcomes, identified a controller-rank confound: full affine ca
 learn rank64; original32-hidden MLP logit Jacobian has rank<=32. Record this explicitly,
 then distinguish using a factorized-linear control if affine suggests a lead.
 Do not label a win as evidence that nonlinear gate features are unnecessary.
+
+Cycle2 readout found very large local raw-D hidden Jacobians/term ratios, despite
+better Ring8 field fitting. Register a frozen precision case before interpretation:
+selected-by-validation raw-D rate (Ring8Muon.02/Product16Muon.006), original scalar
+best rate, and compute-matched SwiGLU128 best rate. Same checkpoints, fixed validation
+bank, whole-model float32 versus float64 predictions/field MSE and complete vector-field
+Jacobians at16 existing probes. This includes time-embedding precision; it is not a
+pure FFN-precision isolation or a retrained comparison. No sampling/metric replacement.

@@ -125,3 +125,35 @@ of D must be crossed experimentally, and why matching raw parameter-update norms
 alone does not establish matching effective dynamics or overall training speed.
 
 Capacity and speed claims also require the [explicit budget controls](budget-controls.md). Direct input gates reduce parameters but still reuse P twice; same parameter count does not imply same dense MACs or latency.
+
+## A concrete limit of P-only constraints
+
+Even perfectly benign P spectra do not certify the input-dependent map. In one
+dimension choose P=-1 and
+
+```
+d(h)=.2+.8 sigmoid(10(h-1)).
+```
+
+This has the professor's positive gate range and can be represented by the original
+SiLU controller: SiLU(h)-SiLU(-h)=h, so two hidden units give logit100(h-1)
+with tau10. At h=1, d=.6 and d'=2. P has spectral norm1, condition number1 and
+a strictly negative eigenvalue. Yet
+
+```
+F2(h)=h*(1-d(h)+d(h)^2/2)
+F2'(1)=.58+(-1+.6)*2=-.22.
+```
+
+The scalar entrance-frozen map folds locally despite the benign P. Replacing
+the polynomial by the entrance-frozen exact exponential does not remove the
+issue: H(h)=h*exp(-d(h)) has H'(1)=-exp(-.6)<0. Every fixed-duration linear
+solve is invertible, but selecting duration from the initial input is a different
+composite map. The example is not a claim that our trained checkpoints fold at
+these values or that folding is harmful to field prediction.
+
+This gives a precise reason to study D construction and J_d alongside P spectra,
+rather than relying only on eigenvalue caps or more accurate exponentials.
+The external FM sampler integrates the learned vector field; a hidden block is
+part of the predictor, not the complete transport map. Invertibility of each hidden
+map therefore is not automatically the right objective-specific design target.
