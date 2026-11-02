@@ -1,5 +1,7 @@
 # Current priority: professor-guided autoresearch,3November
 
+Cycle1 completed/replayed18 trajectories, including six exact anchors. Cycle2 now runs18 rank/factorization and direct-input-D candidates on145GPU0/LenovoGPU0 from d26ba5a. See [current execution](docs/autoresearch/professor-20261103/cycle2-execution.md). Continue collecting full outcomes before selecting another cycle.
+
 The user explicitly authorizes an autonomous autoresearch loop on Muon/spectrum and various D(h) constructions. Follow [the task-specific program](docs/autoresearch/professor-20261103/program.md) and [cycle1 plan](docs/autoresearch/professor-20261103/task_plan.md). Preserve original completed66 runs and image/report files. Cycle1 tests nonlinear versus affine PD controller and bounded versus affine gate output, crossed with optimizer; fresh baseline controls precede candidates.
 
 # Latest: professor follow-up wave2 complete

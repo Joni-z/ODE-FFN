@@ -1,0 +1,67 @@
+{
+  "host": "145",
+  "expected_runtime_commit": "d26ba5ace85f2617f2d614305f32ef6e225bc2fe",
+  "launcher_pid": 1524877,
+  "first_observation": {
+    "unix_time": 1793649260.659455,
+    "queue_pid": 1524877,
+    "running": [
+      {
+        "pid": 1524883,
+        "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+        "step": 6500
+      },
+      {
+        "pid": 1524884,
+        "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+        "step": 4500
+      }
+    ],
+    "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 83, 1189, 49140, 109.23",
+    "failed": false
+  },
+  "process_witness": {
+    "controller": 1524877,
+    "parent": 1,
+    "actual_cuda_training_pids": [
+      1524883,
+      1524884
+    ],
+    "source": "d26ba5ace85f2617f2d614305f32ef6e225bc2fe",
+    "gpu_uuid": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "gpu_memory_mib": 1189,
+    "gpu_utilization_percent": 92
+  },
+  "second_observation": {
+    "unix_time": 1793649320.8793664,
+    "queue_pid": 1524877,
+    "running": [
+      {
+        "pid": 1524883,
+        "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+        "step": 13500
+      },
+      {
+        "pid": 1524884,
+        "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+        "step": 9000
+      }
+    ],
+    "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 92, 1191, 49140, 111.30",
+    "failed": false,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "completed_count": 0,
+    "pending_count": 7
+  },
+  "heartbeat_delta_seconds": 60.219911336898804,
+  "checks": {
+    "heartbeat_increased_at_least_30s": true,
+    "steps_increased": true,
+    "queue_unchanged": true,
+    "expected_source_verified": true,
+    "actual_cuda_pids_verified": true,
+    "expected_gpu_binding": true,
+    "no_queue_failure": true
+  },
+  "note": "Read-only post-SSH observations. No edits, restarts or extra launches."
+}

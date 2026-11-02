@@ -2,8 +2,11 @@
 
 This adapts Karpathy autoresearch at228791fb499afffb54b46200aca536f79142f117;
 upstream README.md and program.md are unchanged. Its bundled LM/val_bpb task is
-not used. Reuse the established synthetic FM trainer and evaluation. The study
-changes are isolated in studies/muon_pd_20261102/autoresearch_20261103/trial.py.
+not used. Reuse the established synthetic FM trainer and evaluation. Each cycle has one isolated numerical adapter under
+studies/muon_pd_20261102/autoresearch_20261103/: trial.py for cycle1 and
+cycle2/trial2.py for cycle2. The copied trainer/evaluator and official Muon stay
+frozen. Registrations, numerical witnesses and analysis scripts are separately
+versioned; no new training loop is introduced.
 
 The adaptation intentionally retains20k updates rather than replacing historical
 comparisons with a five-minute cutoff; log actual elapsed time and parameter/MAC

@@ -1,0 +1,73 @@
+{
+  "host": "lenovo",
+  "expected_runtime_commit": "d26ba5ace85f2617f2d614305f32ef6e225bc2fe",
+  "launcher_pid": 27908,
+  "first_observation": {
+    "unix_time": 1793649260.6958876,
+    "queue_pid": 28456,
+    "running": [
+      {
+        "pid": 7340,
+        "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+        "step": 5500
+      },
+      {
+        "pid": 15696,
+        "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+        "step": 3500
+      }
+    ],
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 88, 810, 8188, 25.04",
+    "failed": false
+  },
+  "process_witness": {
+    "controller": 28456,
+    "launcher": 27908,
+    "wrapper_training_pids": [
+      7340,
+      15696
+    ],
+    "actual_cuda_training_pids": [
+      26192,
+      16640
+    ],
+    "source_and_gpu_query": [
+      "d26ba5ace85f2617f2d614305f32ef6e225bc2fe",
+      "GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 810 MiB, 90 %",
+      "26192, D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+      "16640, D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe"
+    ]
+  },
+  "second_observation": {
+    "unix_time": 1793649320.8311756,
+    "queue_pid": 28456,
+    "running": [
+      {
+        "pid": 7340,
+        "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+        "step": 12000
+      },
+      {
+        "pid": 15696,
+        "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+        "step": 8000
+      }
+    ],
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 81, 810, 8188, 25.12",
+    "failed": false,
+    "cuda_visible_devices": "0",
+    "completed_count": 0,
+    "pending_count": 7
+  },
+  "heartbeat_delta_seconds": 60.13528800010681,
+  "checks": {
+    "heartbeat_increased_at_least_30s": true,
+    "steps_increased": true,
+    "queue_unchanged": true,
+    "expected_source_verified": true,
+    "actual_cuda_pids_verified": true,
+    "expected_gpu_binding": true,
+    "no_queue_failure": true
+  },
+  "note": "Read-only post-SSH observations. No edits, restarts or extra launches."
+}

@@ -1,6 +1,6 @@
 # Active professor-guided autoresearch,3November
 
-[Program and decision chain](docs/autoresearch/professor-20261103/program.md). Cycle1 is running on145GPU0 andLenovoGPU0 from frozen01fe2df, two workers perhost. Six anchor reruns and12 PD controller/output-transform candidates. Native CUDA identities, derivatives and actual8->16 continuation pass; post-SSH progress confirmed. Analyze each completed cycle, preserve failures, then choose the next controlled question.
+[Program and decision chain](docs/autoresearch/professor-20261103/program.md). Cycle1 completed18 trajectories and passed replay; six anchors reproduce exactly. Two local validation leads do not beat ordinary controls. Cycle2 is running18 rank/factorization/direct-D candidates on145GPU0 andLenovoGPU0 from frozen d26ba5a, two workers perhost. Native CUDA identities, derivatives and actual8->16 continuation pass; post-SSH progress confirmed. Analyze each completed cycle, preserve failures, then choose the next controlled question.
 
 # Latest: professor follow-up wave2 complete
 

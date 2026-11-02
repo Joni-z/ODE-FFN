@@ -1,12 +1,12 @@
 """Publish completed registered trials, full controls, and validation-only decisions."""
 import argparse,csv,json
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
 root=Path(__file__).resolve().parents[3]
 out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
 receipts=[json.loads(Path(f).read_text()) for f in a.receipts]
 rows=[r for d in receipts for r in d['endpoints']]
-grid=json.loads(Path(__file__).with_name('grid.json').read_text())
+grid=json.loads((Path(a.grid) if a.grid else Path(__file__).with_name('grid.json')).read_text())
 assert len(rows)==len(grid['cells']) and {r['id'] for r in rows}=={r['id'] for r in grid['cells']}
 for r in rows:
     cell=next(c for c in grid['cells'] if c['id']==r['id']);assert all(r[k]==v for k,v in cell.items())
@@ -17,19 +17,22 @@ def save(name,records):
         w=csv.DictWriter(f,fieldnames=keys);w.writeheader();w.writerows(records)
 
 old=[]
+cycle1=list(csv.DictReader(Path(a.cycle1_parents).open())) if a.cycle1_parents else []
 for file in ['docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv','docs/research-muon-pd-2026-11-02/wave2/results/endpoints.csv']:
     old+=list(csv.DictReader((root/file).open()))
 for r in old:
     r['replayed_field_mse']=float(r['replayed_field_mse']);r['numpy_test_sw2']=float(r['numpy_test_sw2']);r['projection_lr']=float(r['projection_lr'])
 decisions=[]
 for r in rows:
-    if r['role']=='anchor':
+    if r.get('role')=='anchor':
         assert r['anchor_field_abs_error']<2e-6 and r['anchor_sample_max_abs_error']<2e-5
         decision='anchor';parent=None;improvement=None;sampling_change=None
     else:
-        parent=next(x for x in old if x['dataset']==r['dataset'] and x['family']=='vector_pd_k2' and x['optimizer']==r['optimizer'] and x['projection_lr']==r['projection_lr'])
-        improvement=1-r['replayed_field_mse']/parent['replayed_field_mse']
-        sampling_change=r['numpy_test_sw2']/parent['numpy_test_sw2']-1
+        reference = cycle1 if r['family']=='pd_factorized_linear' else old
+        parent_family = 'pd_linear_sigmoid' if r['family']=='pd_factorized_linear' else 'vector_pd_k2'
+        parent=next(x for x in reference if x['dataset']==r['dataset'] and x['family']==parent_family and x['optimizer']==r['optimizer'] and float(x['projection_lr'])==r['projection_lr'])
+        improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
+        sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'
     ordinary=min(x['replayed_field_mse'] for x in old if x['dataset']==r['dataset'] and x['family'].startswith('swiglu'))
     decisions.append(dict(cell=r['id'],dataset=r['dataset'],family=r['family'],optimizer=r['optimizer'],lr=r['projection_lr'],status=decision,
@@ -40,9 +43,13 @@ for name in ['curves','updates']:save(name+'.csv',[r for d in receipts for r in 
 verification=dict(endpoints=len(rows),max_field_replay_error=max(r['field_abs_error'] for r in rows),max_sw2_error=max(r['sw2_abs_error'] for r in rows),max_generated_error=max(r['generated_replay_max_abs_error'] for r in rows),max_anchor_field_error=max(r.get('anchor_field_abs_error',0) for r in rows),max_anchor_generated_error=max(r.get('anchor_sample_max_abs_error',0) for r in rows))
 (out/'verification.json').write_text(json.dumps(verification,indent=2)+'\n')
 ledger=Path(a.ledger);ledger.parent.mkdir(parents=True,exist_ok=True)
-assert not ledger.exists(),'Do not overwrite the append-only cycle ledger'
-with ledger.open('x') as f:
-    f.write('commit\tvalidation_mse\ttest_sw2\tstatus\tdescription\n')
+exists=ledger.exists()
+assert not exists or a.append_ledger,'Existing ledger requires explicit append; never overwrite'
+if exists:
+    previous={line.split('\t')[-1] for line in ledger.read_text().splitlines()[1:]}
+    assert not previous.intersection(row['cell'] for row in decisions),'Duplicate trial ledger entries'
+with ledger.open('a' if exists else 'x') as f:
+    if not exists:f.write('commit\tvalidation_mse\ttest_sw2\tstatus\tdescription\n')
     for row in decisions:f.write(f"{a.runtime_commit}\t{row['field_mse']:.10g}\t{row['test_sw2']:.10g}\t{row['status']}\t{row['cell']}\n")
 for row in decisions:print(json.dumps(row))
 print(json.dumps(verification))
