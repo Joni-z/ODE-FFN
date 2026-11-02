@@ -1,3 +1,16 @@
+# Current checkpoint: weak spectral relaxation during training
+
+Cycle8 is live from frozen f6bfefc on 145 GPU0 and Lenovo GPU0, with two workers
+per card. Twelve registered runs compare native, Frobenius-preserving shape and
+matched scalar-contraction updates for scalar K2 and raw K1. Both fresh native
+readiness passes and post-SSH progress checks passed. Finish all12, replay them,
+and verify the four exact20k native anchors before selecting another direction.
+[Execution](docs/autoresearch/professor-20261103/cycle8-execution.md) ·
+[Research map](docs/autoresearch/professor-20261103/research-map.md).
+
+Cycle6 long-budget and cycle7 frozen-shape checks are complete. Neither accepts
+an ODE replacement. Older runtime snapshots below are historical.
+
 # Current runtime: cycle6 budget-only confirmation
 
 Eight80k trajectories are live from frozen b33c837 on145GPU0/LenovoGPU0, two workers each: rawK1 and native Swi64/128/192, same earlier validation-selected rates. Fresh actual8-step old/new numerical equality and native8-to16 continuation pass for all4families on both hosts. Post-SSH steps/utilization verified. [Execution](docs/autoresearch/professor-20261103/cycle6-execution.md), [protocol](docs/autoresearch/professor-20261103/cycle6.md). P0 next: exact archived20k prefix audit after20500, then complete/replay80k. Earlier runtime entries below are historical.

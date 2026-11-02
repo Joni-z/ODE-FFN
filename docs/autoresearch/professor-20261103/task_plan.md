@@ -1,5 +1,14 @@
 # Professor-guided autoresearch
 
+## Current step
+
+Cycle8 is running from frozen f6bfefc after both v2 native readiness passes.
+Complete/replay all12, verify four exact20k anchor states and post-relaxation
+update logs, then decide whether training adaptation changes the negative frozen
+shape result. Cycle6 and cycle7 are closed. Earlier paragraphs below retain
+chronological decisions and the v1 readiness failure.
+
+
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
 - [x] Read installed Karpathy autoresearch adapter and unchanged upstream README/program.

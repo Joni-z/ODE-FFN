@@ -1,3 +1,16 @@
+# Current checkpoint: weak spectral relaxation during training
+
+Cycle8 is live from frozen f6bfefc on 145 GPU0 and Lenovo GPU0, with two workers
+per card. Twelve registered runs compare native, Frobenius-preserving shape and
+matched scalar-contraction updates for scalar K2 and raw K1. Both fresh native
+readiness passes and post-SSH progress checks passed. Finish all12, replay them,
+and verify the four exact20k native anchors before selecting another direction.
+[Execution](docs/autoresearch/professor-20261103/cycle8-execution.md) ·
+[Research map](docs/autoresearch/professor-20261103/research-map.md).
+
+Cycle6 long-budget and cycle7 frozen-shape checks are complete. Neither accepts
+an ODE replacement. Older runtime snapshots below are historical.
+
 # Current professor-guided study
 
 Cycle6 extends only training budget to80k for rawK1 versus all three native SwiGLU widths. Source b33c837, two workers per145/LenovoGPU0; fresh complete native prefix/resume checks and post-SSH progress pass. Exact old20k state checks precede later interpretation. [Sample-structure findings](docs/autoresearch/professor-20261103/sample-structure-results/findings.md) motivate convergence checks instead of another D design. No accepted ODE method.

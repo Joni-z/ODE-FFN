@@ -91,18 +91,31 @@ versus the population3.04%, despite favorable aggregate distances. Strong ordina
 models also retain smaller imperfections. Primary scores remain unchanged;
 actual marginal examples are required alongside them.
 
-Cycle6 now tests only budget/convergence: rawK1 and native Swi64/128/192 all run80k
-with the same frozen validation-selected rates. Fresh native old/new8-update
-state identities and actual checkpoint continuation passed on both hosts. Each
-new20k numerical state must reproduce its archived parent before later results
-are interpreted. No new architecture, scheduler, symmetry constraint or loss is
-added. This asks whether the short-budget Ring8 lead survives stronger ordinary
-convergence; the rejected abs setting remains closed.
+Cycle6 completed all eight80k trajectories with exact archived20k states and
+exact generated-array replay. Raw K1 improves matched-Swi64 field MSE by9.4%
+on Ring8 and2.9% on Product16, but worsens sampling on both and does not beat
+the wider ordinary frontier. The short-budget lead over Ring8 Swi192 disappears.
+No asymptotic convergence is asserted.
+
+Cycle7 then separates frozen singular-value flattening from scalar contraction
+at the same leading singular value, preserving Frobenius norm on the shape
+branch. All54cases and six exact anchors pass. Only a small RawK1/Ring20k shape
+change helps slightly; that benefit reverses at80k. Strong flattening always
+harms field fitting. Equal matrix energy also need not preserve feature energy:
+E||Pq||^2=tr(P^T P E[qq^T]). This closes a post-hoc repair, not the separate
+question of adaptation during constrained training.
+
+Cycle8 now tests that remaining question in12registered trajectories: native,
+weak spectral-shape relaxation and paired scalar contractions for original
+scalar K2 and raw K1 on both tasks. The model, loss, rates and official Muon are
+unchanged; a separate post-step operation acts every10updates with one fixed
+relaxation time. Both fresh native v2 readiness passes and monitored post-SSH
+progress checks pass. Final20k outcomes remain pending; no new method is accepted.
 
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
 [cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
 [cycle4 results](cycle4-results/findings.md), [cycle5 results](cycle5-results/findings.md), [parity readout](symmetry-results/findings.md),
 [signed-diagonal branch](signed-diagonal.md),
-[sample cases](sample-structure-results/findings.md), [current budget study](cycle6-execution.md),
+[sample cases](sample-structure-results/findings.md), [completed budget study](cycle6-results/findings.md), [shape intervention](cycle7-results/findings.md), [current training study](cycle8-execution.md),
 [two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).

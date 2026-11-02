@@ -10,19 +10,19 @@ is `--ffn isru`; its implementation and hook are in [ffn.py](ffn.py).
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 
-The professor-guided autoresearch loop explores Muon/spectral geometry and
-input-dependent diagonal ODE generators in an isolated synthetic backbone.
-See the [current program](docs/autoresearch/professor-20261103/program.md),
-[evidence chain](docs/autoresearch/professor-20261103/logic-chain.md), and
-[current brief](docs/autoresearch/professor-20261103/brief.md).
-The latest [order and budget controls](docs/autoresearch/professor-20261103/cycle3-results/findings.md)
-and [frozen solver checks](docs/autoresearch/professor-20261103/solver-results/findings.md)
-are complete and replayed.
-The subsequent [diagonal feature contrasts](docs/autoresearch/professor-20261103/cycle4-results/findings.md)
-and [paired parity diagnostic](docs/autoresearch/professor-20261103/symmetry-results/findings.md)
-motivate the [registered abs-diagonal/bilinear comparison](docs/autoresearch/professor-20261103/cycle5.md).
-Earlier [66 replayed configurations](docs/research-muon-pd-2026-11-02/wave2/results/findings.md)
-remain available. These vector-field experiments do not establish JiT image quality.
+The professor-guided autoresearch loop tests Muon/spectral geometry and
+input-dependent diagonal generators in a separate synthetic backbone. The
+[research map](docs/autoresearch/professor-20261103/research-map.md) connects
+questions, derivations, controlled tests and decisions.
+
+The [matched 80k study](docs/autoresearch/professor-20261103/cycle6-results/findings.md)
+retains a limited fitting-versus-sampling tradeoff, with no overall advantage
+over ordinary SwiGLU. The [frozen spectral-shape test](docs/autoresearch/professor-20261103/cycle7-results/findings.md)
+rejects post-hoc flattening as a general repair. The current
+[registered training test](docs/autoresearch/professor-20261103/cycle8.md) compares
+native updates, weak shape relaxation and paired scalar contraction on 145 and
+Lenovo, with [persistent monitors](docs/autoresearch/professor-20261103/cycle8-execution.md).
+These vector experiments do not establish JiT image quality.
 
 ## Code
 
@@ -122,7 +122,3 @@ The original local checkout and frozen experiment artifacts are retained.
 Report1 is final and unchanged; [Report2](reports/report2/README.md) remains an
 interim draft. Old CIFAR scores above 200 cannot substantiate architecture
 claims. Use the archive to reproduce those historical studies.
-
-The [matched 80k-budget study](docs/autoresearch/professor-20261103/cycle6-results/findings.md) is complete: Raw K1 retains a limited field-fitting tradeoff, with no overall advantage over ordinary SwiGLU controls.
-
-For the current professor-guided questions, controlled tests and decisions, read the [research map](docs/autoresearch/professor-20261103/research-map.md). The [spectral-relaxation study](docs/autoresearch/professor-20261103/cycle8.md) tests adaptation during training separately from the failed frozen spectral repair.

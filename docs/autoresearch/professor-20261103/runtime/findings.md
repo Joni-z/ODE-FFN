@@ -1,10 +1,10 @@
 # Measured run cost
 
-The90 completed cycle1–5 trajectories now have their native training-loop wall
-times attached to the replayed endpoints. Recorded field and sampling values
-were checked against the independent replay before attaching the times. The
-sum of process wall times is16,458.6s; workers overlap, so this is not GPU hours
-or elapsed queue time.
+The table covers98 completed training trajectories from cycles1–6:90 at20k
+updates and eight at80k. Native wall times are attached only after recorded
+field/sampling scores match independent replay. Their summed process wall time
+is21,556.2s; workers overlap, so this is not GPU hours or elapsed queue time.
+Cycle7 is frozen analysis, and ongoing cycle8 is excluded.
 
 Examples from the same native task/host,20k updates with two workers per GPU:
 
