@@ -23,6 +23,9 @@ def main():
     p.add_argument('--data-root', required=True)
     p.add_argument('--output', required=True)
     p.add_argument('--workers', type=int, default=2)
+    p.add_argument('--grid', default=str(HERE/'grid.json'))
+    p.add_argument('--runner', default=str(HERE/'run.py'))
+    p.add_argument('--experiment-id', default='muon_pd_20261102')
     p.add_argument('--detach', action='store_true')
     args = p.parse_args()
     if args.workers not in (1, 2):
@@ -46,36 +49,44 @@ def main():
     descriptor = os.open(monitor/'queue.lock', os.O_CREAT | os.O_EXCL | os.O_WRONLY)
     with os.fdopen(descriptor, 'w') as f:
         f.write(str(os.getpid()))
-    grid = json.loads((HERE/'grid.json').read_text())
+    grid = json.loads(Path(args.grid).read_text())
     pending = [c for c in grid['cells'] if c['host'] == args.host]
     launched, active, done = [], {}, []
     env = dict(os.environ, OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1',
                PYTHONUNBUFFERED='1')
     started = time.time()
     failed = False
+    last_status = 0.
     try:
         while pending or active:
+            changed = False
+            for pid, (proc, console, row) in list(active.items()):
+                code = proc.poll()
+                if code is not None:
+                    console.close()
+                    complete = output/args.experiment_id/row['dataset']/row['cell']/'seed000'/'ADAPTER_COMPLETE'
+                    row.update(exit_code=code, finished=time.time(), complete=complete.exists())
+                    failed |= code != 0 or not complete.exists()
+                    done.append(row)
+                    del active[pid]
+                    changed = True
             while pending and len(active) < args.workers and not failed:
                 cell = pending.pop(0)
-                command = [sys.executable, '-u', str(HERE/'run.py'), '--cell', cell['id'],
+                command = [sys.executable, '-u', str(Path(args.runner).resolve()), '--cell', cell['id'],
                            '--data-root', args.data_root, '--output', str(output), '--device', args.device]
                 console = (monitor/f"{cell['id']}.log").open('x')
                 proc = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=console, stderr=console, env=env)
                 row = dict(cell=cell['id'], dataset=cell['dataset'], pid=proc.pid, started=time.time(), command=command)
                 active[proc.pid] = (proc, console, row)
                 launched.append(row)
-            for pid, (proc, console, row) in list(active.items()):
-                code = proc.poll()
-                if code is not None:
-                    console.close()
-                    complete = output/'muon_pd_20261102'/row['dataset']/row['cell']/'seed000'/'ADAPTER_COMPLETE'
-                    row.update(exit_code=code, finished=time.time(), complete=complete.exists())
-                    failed |= code != 0 or not complete.exists()
-                    done.append(row)
-                    del active[pid]
+                changed = True
+            if not changed and time.monotonic()-last_status < 30:
+                time.sleep(2)
+                continue
+            last_status = time.monotonic()
             running = []
             for _, _, row in active.values():
-                folder = output/'muon_pd_20261102'/row['dataset']/row['cell']/'seed000'
+                folder = output/args.experiment_id/row['dataset']/row['cell']/'seed000'
                 last = None
                 if (folder/'metrics.jsonl').exists():
                     lines = (folder/'metrics.jsonl').read_text().splitlines()
@@ -102,7 +113,7 @@ def main():
             if failed and not active:
                 break
             if pending or active:
-                time.sleep(30)
+                time.sleep(2)
         write(monitor/'queue-finished.json', dict(unix_time=time.time(), failed=failed,
                                                  completed=done, unstarted=pending))
     finally:

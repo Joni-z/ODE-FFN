@@ -91,7 +91,7 @@ def spectral(tensor):
 
 class ProjectionOptimizer:
     """Two native optimizers with disjoint groups and serializable state."""
-    def __init__(self, model, name, lr, log_path=None):
+    def __init__(self, model, name, lr, log_path=None, weight_decay=0.):
         self.selected = projection_parameters(model)
         ids = {id(p) for _, p in self.selected}
         if len(ids) != len(self.selected) or not ids:
@@ -101,9 +101,9 @@ class ProjectionOptimizer:
             raise ValueError('optimizer parameter partition failed')
         params = [p for _, p in self.selected]
         if name == 'muon':
-            self.projections = SingleDeviceMuon(params, lr=lr, momentum=.95, weight_decay=0)
+            self.projections = SingleDeviceMuon(params, lr=lr, momentum=.95, weight_decay=weight_decay)
         elif name == 'adamw':
-            self.projections = torch.optim.AdamW(params, lr=lr, weight_decay=0)
+            self.projections = torch.optim.AdamW(params, lr=lr, weight_decay=weight_decay)
         else:
             raise ValueError(name)
         self.aux = torch.optim.AdamW(rest, lr=3e-4, weight_decay=0)
@@ -131,6 +131,9 @@ class ProjectionOptimizer:
                 momentum = self.projections.state[p].get('momentum_buffer')
                 if momentum is not None:
                     row['muon_momentum'] = spectral(momentum)
+                shadow = getattr(self.projections, 'shadow_norms', {}).get(p)
+                if shadow is not None:
+                    row['same_gradient_muon_update_frobenius'] = float(shadow)
                 rows[name] = row
             train.json_line(self.log_path, dict(step=self.count, optimizer=self.name, matrices=rows))
 
@@ -187,14 +190,16 @@ def jacobian_probe(model, fixed):
     return results
 
 
-def execute(args):
+def execute(args, *, grid_path=None, experiment_id='muon_pd_20261102',
+            model_builder=None, optimizer_builder=None):
     verify_sources()
-    grid = json.loads((HERE/'grid.json').read_text())
+    grid_path = Path(grid_path) if grid_path is not None else HERE/'grid.json'
+    grid = json.loads(grid_path.read_text())
     cell = next(c for c in grid['cells'] if c['id'] == args.cell)
     folder = verify_data(args.data_root, cell)
     output = Path(args.output).resolve()
     config_path = output/'configs'/f"{cell['id']}.json"
-    cfg = dict(experiment_id='muon_pd_20261102', datasets=[cell['dataset']],
+    cfg = dict(experiment_id=experiment_id, datasets=[cell['dataset']],
                models=[cell['id']], seeds=[0], data_root=str(folder.resolve()),
                steps=grid['steps'], batch_size=grid['batch_size'], learning_rate=3e-4,
                weight_decay=0., grad_clip=1., model_options={}, eval_interval=500,
@@ -202,7 +207,7 @@ def execute(args):
                milestone_steps=[1000, 2500, 5000, 10000, 15000, 20000],
                sample_count=4096, sliced_directions=256, heun_steps=32,
                sampling_split='validation', training_targets='bank_pair', cell=cell,
-               grid_sha256=digest(HERE/'grid.json'))
+               grid_sha256=digest(grid_path))
     if config_path.exists():
         if json.loads(config_path.read_text()) != cfg:
             raise ValueError('existing configuration differs')
@@ -219,11 +224,13 @@ def execute(args):
     models = []
 
     def factory(dim, ignored, **kwargs):
-        model = build_model(dim, cell['family'])
+        model = (model_builder or build_model)(dim, cell['family'])
         models.append(model)
         return model
 
     def optimizer_factory(model):
+        if optimizer_builder is not None:
+            return optimizer_builder(model, cell, run_dir/'update_spectra.jsonl')
         return ProjectionOptimizer(model, cell['optimizer'], cell['projection_lr'],
                                    run_dir/'update_spectra.jsonl')
 
@@ -260,7 +267,7 @@ def execute(args):
     (run_dir/'ADAPTER_COMPLETE').write_text('training and required final evaluation complete\n')
 
 
-if __name__ == '__main__':
+def argument_parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--cell', required=True)
     p.add_argument('--data-root', required=True)
@@ -268,4 +275,8 @@ if __name__ == '__main__':
     p.add_argument('--device', choices=['cpu', 'cuda'], required=True)
     p.add_argument('--steps', type=int, help='preflight only; formal runs omit this')
     p.add_argument('--resume')
-    execute(p.parse_args())
+    return p
+
+
+if __name__ == '__main__':
+    execute(argument_parser().parse_args())
