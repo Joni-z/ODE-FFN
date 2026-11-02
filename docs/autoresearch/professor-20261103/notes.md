@@ -46,3 +46,5 @@ checkpoint/run is modified. CPU float64 forward with native BF16 NS is deliberat
 
 All22 completed and independently replayed from14ab235; generated arrays exact. Original scalar K1 improves field error in8/8 pairings, sampled distance in5/8. RawK1 Ring8Muon.02 reaches.0109129 but SW2.177924 versus matched Swi64.150384; Product16 rawK1.0237107 is worse than Swi64.0187811. The field margin against strongest Ring8 ordinary is only2.8%. Treat this as quadratic-feature evidence, not an accepted ODE method. Frozen Heun32/64/128 retains all six-case rankings; no coarse-solver explanation for the Product16 gap. Complete CSVs/figures in cycle3-results and solver-results. A redundant process poll returned Unknown process id after normal completion; no evaluation was retried.
 
+
+Table audit correction: Product16 Swi128Adam.0003 has field.0168548645/SW2.0818476662; Swi192Adam.0003 has.0156676032/.0792062049. The cycle3 prose table initially mislabeled the former field value with the latter; corrected directly against the replayed source CSV. Raw endpoints, plots, candidate decisions and validation-selected solver checkpoints were unaffected.

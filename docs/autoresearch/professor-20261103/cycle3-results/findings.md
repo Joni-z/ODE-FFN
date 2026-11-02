@@ -30,7 +30,8 @@ validation improvement. Raw K1 is not a generally better architecture.
 |Product16 raw K1, Muon.006|0.023711|0.111139|
 |Product16 scalar K1, Muon.02|0.019950|0.091687|
 |Product16 SwiGLU64, AdamW.001|0.018781|0.081061|
-|Product16 SwiGLU128, AdamW.0003|0.015668|0.081848|
+|Product16 SwiGLU128, AdamW.0003|0.016855|0.081848|
+|Product16 SwiGLU192, AdamW.0003|0.015668|0.079206|
 
 Rows summarize the lowest validation error in each shown family, not a sampler-
 selected result. All rates remain in endpoints.csv and the comparison figure.

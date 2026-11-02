@@ -12,9 +12,18 @@ JiT transfer still requires an adequate ordinary image baseline.
 | Simply shrinking P is harmful in tested runs | Decay lowers local Jacobians but raises error about2.7–3x. | A smaller matrix is not a success criterion. |
 | Input-dependent diagonal modulation changes the operator | A(h)=P D(h); dA[v]=P diag(J_d v). Both values and input derivatives matter. | Is useful variation limited by the nonlinear controller or by its output transform? |
 | Placement alone is not sufficient | PD/DP/sandwich fail to beat strong controls; PD/DP ranking changes with optimizer. | Cycle1 holds PD fixed and changes one part of D construction. |
-| Better candidate fitting is not an FFN advantage | Strongest Product16 ordinary control remains MSE0.01567/SW2 0.07921. | Require ordinary controls and report sampling tradeoffs. |
+| Better candidate fitting is not an FFN advantage | Lowest-field Product16 ordinary control is SwiGLU192, MSE0.01567 and SW2 0.07921. | Require ordinary controls and report sampling tradeoffs. |
+| Tied K2 is not supported as the present mechanism | Scalar K1 improves all8 paired field settings; rawK1 Ring8 is a small field lead with worse sampling. | Cycle4 distinguishes the deterministic diagonal features at K1. |
+| Coarse sampling is not supported as the frozen discrepancy's cause | Heun32/64/128 retains all six-checkpoint rankings. | Keep primary Heun32 and inspect field structure without sampler-based selection. |
 
 New descriptive evidence: the [row/column decomposition](spectrum/findings.md) finds large row-magnitude growth with much smaller changes in normalized directional coherence. This strengthens the scale question without proving its cause.
+
+The [local-step derivation](muon-metric.md) explains why ideal Muon constrains
+raw matrix updates rather than P itself or PD automatically. The
+[signed-diagonal contrast](signed-diagonal.md) shows that conditional singular
+values alone do not determine the feature map. The [two ODE interpretations](nonlinear-flow.md)
+separate entrance-frozen linear dynamics from a state-dependent nonlinear flow.
+These are mathematical distinctions; they do not establish a new useful model.
 
 ## Why A(h) must be measured
 
