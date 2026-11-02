@@ -57,6 +57,11 @@ the same known Product16 marginal examples/gap counts without replacing primary
 metrics or selecting a checkpoint from them. No image-quality claim.
 Extend only the existing read-only matrix/update logger to40k/60k/80k; retain
 all earlier logging points. No new gradient or optimizer computation is inserted.
+Final examples include all4selected models per task. Product16 uses the same
+0/7/15 latent-axis histograms and predeclared gap readouts. Ring8 displays fixed
+indices0,4,...,4092 (1024points) from each4096-sample final array, with the same
+target indices and frame[-4,4]^2; report any outside-frame mass. This is a visual
+subsample only; primary metrics keep all4096samples.
 
 The earlier controls already establish the20k recipe. Launch matched Swi64 and
 raw together, then fill the next slot with Swi192, two workers per freeGPU0 on
