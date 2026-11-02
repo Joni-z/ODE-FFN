@@ -36,3 +36,8 @@ Continue without asking the user whether to proceed; stop immediately on an expl
 user stop. Do not automatically widen to image training or unrelated architecture
 search. Fresh native witnesses and actual process/resource monitoring precede each
 new numerical runtime.
+
+Cycle7 is an explicitly registered read-only intervention diagnostic, not a new
+training cycle. Its54 frozen cases preserve the native evaluator and six fixed
+checkpoints. Record sensitivity outcomes separately from training keep/discard;
+no new training-model claim can follow from this diagnostic alone.

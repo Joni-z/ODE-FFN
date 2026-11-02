@@ -90,3 +90,9 @@ a matched-Swi64 field tradeoff but loses sampling and wider ordinary controls.
 See docs/autoresearch/professor-20261103/cycle6-results/findings.md. Next: register
 a frozen Frobenius-preserving P-shape intervention against matched-operator-norm
 scalar contractions; no new training method is accepted.
+
+Cycle7 registered: six fixed original-scalar/raw20k/raw80k checkpoints,54frozen
+interventions. Shape flattening preserves Frobenius norm; paired contractions
+match each resulting operator norm. CPU matrix/native identity witness passed.
+Next: publish/deploy, fresh documented CUDA pass, all-case diagnostics, independent
+anchor/norm verification. This does not train or accept a constrained method.
