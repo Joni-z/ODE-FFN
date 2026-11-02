@@ -22,6 +22,9 @@ causal separation of sign, amplitude and derivatives. Different d give different
 initial functions and effective step scales even with identical P. Constant1 is
 an ordinary linear residual control within the same two-solve skeleton; the
 SiLU between solves and surrounding native backbone remain present.
+In fact its full FFN is exactly a bias-free two-linear-layer SiLU FFN with
+W1=I+P1,W2=I+P2. Interpret a win as an ordinary feature/control outcome, not a
+new ODE architecture.
 
 For bounded d, J=I+Pdiag(d+h*d'); for shifted d, J=I+Pdiag(2h+1);
 for constant d, J=I+P. Native witnesses check these dense full derivatives at

@@ -218,3 +218,39 @@ The [frozen solver diagnostic](solver-results/findings.md) retains ordering at
 Heun32/64/128. Thus coarse integration is not supported as the explanation for
 the observed Product16 raw-K2 sampling deficit. Finite field errors and local
 Jacobians still do not identify a transport cause or certify the global bound.
+
+## Why constant versus shifted D is a useful minimal contrast
+
+Let L(h)=h+Ph and S(h)=h+Ph+P(h*h), with identical P. At h=0,
+L(0)=S(0)=0 and J_L(0)=J_S(0)=I+P. Their local difference is precisely quadratic:
+
+```
+S(h)-L(h)=P(h*h),
+D^2 S(0)[u,v]=2P(u*v),     D^2 L(0)[u,v]=0.
+```
+
+Thus these two cycle4 arms match the initial value and first derivative at zero
+while adding a structured curvature tensor with no new parameters. They do not
+match at all hidden states, or in their complete network predictions. The
+surrounding time-modulated LayerNorm also shifts the actual state away from zero.
+
+For bounded d=.2+.8sigmoid(h/10), the coordinate feature has the local expansion
+
+```
+h*d(h)=.6h+.02h^2-h^4/60000+O(h^6).
+```
+
+This arm is mostly a linear feature near zero, unlike the raw quadratic branch.
+The first solve therefore contrasts different local feature mixtures, not just
+different eigenvalues of a fixed operator. The second solve sees the output of
+the existing SiLU and need not share the first solve's input distribution.
+We should inspect both layers' recorded state/term statistics before claiming
+that one local expansion describes the complete trained FFN.
+
+The constant-D full FFN is exactly `(I+P2) SiLU((I+P1)h)`: a bias-free ordinary
+width64 two-linear-layer FFN under W_i=I+P_i. With no selected-matrix weight decay,
+the affine translation does not change its parameter gradients or the optimizer
+update rule; it does change the initialization compared with a standard randomly
+initialized W. Therefore a constant-D success would not establish a benefit from
+input-dependent dynamics. This control must be interpreted as an ordinary FFN
+within the inherited initialization, not marketed as a new ODE method.
