@@ -58,6 +58,10 @@ follow identical norm trajectories, since their gradients diverge. Log both
 the actual update and its same-gradient hypothetical Muon norm. Copy the
 official momentum/NS functions unchanged and keep only this ablation local.
 The control is a mechanistic experiment, not a proposed new optimizer.
+The logged `same_gradient_muon_update_frobenius` is `||U||_F` before
+learning-rate multiplication; multiply it by the selected-matrix LR to compare
+with `delta.frobenius`, the actual parameter displacement. These control arms
+have zero decay, so no shrinkage term enters that comparison.
 
 ## B. Decay of P, not an asserted hard spectral projection
 

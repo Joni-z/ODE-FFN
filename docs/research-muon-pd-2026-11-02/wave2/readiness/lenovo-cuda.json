@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "frozen_run_sha256": "74becaa561899955a2e0aca9d38aa8a00e97350a591592a27ab2b56652220952",
+  "exact_three_update_controls": [
+    "scalar_k2/adamw",
+    "scalar_k2/muon",
+    "vector_dp_k2/adamw",
+    "vector_dp_k2/muon",
+    "vector_pd_k2/adamw",
+    "vector_pd_k2/muon",
+    "swiglu128/adamw",
+    "swiglu128/muon",
+    "swiglu192/adamw",
+    "swiglu192/muon"
+  ],
+  "matched_update": {
+    "maximum_actual_update_norm_difference": 5.960464477539063e-08,
+    "direction_preserved": true
+  },
+  "sandwich": {
+    "parameter_count": 81858,
+    "dense_and_derivatives": true,
+    "similarity_identities": true,
+    "activation_diagnostics": true
+  },
+  "exact_physical_resume": [
+    "scalar_k2/matched_momentum/wd0.0",
+    "swiglu128/matched_momentum/wd0.0",
+    "scalar_k2/muon/wd0.1",
+    "swiglu128/muon/wd0.5",
+    "vector_sandwich_k2/adamw/wd0.0",
+    "vector_sandwich_k2/muon/wd0.0"
+  ],
+  "native_smoke": {
+    "cells": [
+      {
+        "cell": "gmm_ring8_2d__scalar_k2__matched_momentum_0.006_wd0",
+        "steps": 8,
+        "complete": true
+      },
+      {
+        "cell": "gmm_ring8_2d__scalar_k2__muon_0.02_wd0.1",
+        "steps": 8,
+        "complete": true
+      },
+      {
+        "cell": "gmm_ring8_2d__vector_sandwich_k2__muon_0.006_wd0",
+        "steps": 8,
+        "complete": true
+      }
+    ],
+    "native_resume_to_step": 16
+  }
+}

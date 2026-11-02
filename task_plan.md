@@ -1,6 +1,6 @@
 # Current priority — professor follow-up wave2
 
-The user authorizes further exploration on145/Lenovo. Follow [wave2 task plan](docs/research-muon-pd-2026-11-02/wave2/task_plan.md): replay the completed grid, inspect trajectories, then register and launch controlled follow-ups. Earlier statements forbidding new automatic families describe the first-wave queue, not this new authorization.
+The user authorizes further exploration on145/Lenovo. Follow [wave2 task plan](docs/research-muon-pd-2026-11-02/wave2/task_plan.md): first-wave replay/trajectory analysis are complete; all30 controlled follow-up cells are queued and both two-worker hosts are verified live after SSH exit. Await their endpoints for analysis. Earlier statements forbidding new automatic families describe the first-wave queue, not this new authorization.
 
 # Current priority — professor Muon / PD follow-up (2 November 2026)
 

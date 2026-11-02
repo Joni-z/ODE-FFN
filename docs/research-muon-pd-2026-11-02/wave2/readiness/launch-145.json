@@ -1,0 +1,74 @@
+{
+  "host": "145",
+  "expected_runtime_commit": "ec5d2b14e127726917d6f000c289593ea3614f51",
+  "launcher_pid": 1881221,
+  "first_observation": {
+    "unix_time": 1793609212.5903003,
+    "queue_pid": 1881221,
+    "running": [
+      {
+        "pid": 1881222,
+        "cell": "rotated_product_bimodal_16d__scalar_k2__matched_momentum_0.006_wd0",
+        "step": 1500
+      },
+      {
+        "pid": 1881223,
+        "cell": "rotated_product_bimodal_16d__scalar_k2__matched_momentum_0.02_wd0",
+        "step": 1500
+      }
+    ],
+    "gpu": "GPU5: 1195 MiB; 92%",
+    "failed": false
+  },
+  "second_observation": {
+    "unix_time": 1793609333.291376,
+    "queue_pid": 1881221,
+    "running": [
+      {
+        "pid": 1881222,
+        "cell": "rotated_product_bimodal_16d__scalar_k2__matched_momentum_0.006_wd0",
+        "step": 10500,
+        "latest": {
+          "step": 10500,
+          "validation_oracle_mse": 0.03550774440765381,
+          "wall_seconds": 142.43139979429543,
+          "sample": null
+        }
+      },
+      {
+        "pid": 1881223,
+        "cell": "rotated_product_bimodal_16d__scalar_k2__matched_momentum_0.02_wd0",
+        "step": 10500,
+        "latest": {
+          "step": 10500,
+          "validation_oracle_mse": 0.05066743755340576,
+          "wall_seconds": 144.10656457953155,
+          "sample": null
+        }
+      }
+    ],
+    "pending_count": 13,
+    "completed_count": 0,
+    "failed": false,
+    "cuda_visible_devices": "GPU-ce799976-7805-c539-9913-3bbadcdbadbf",
+    "gpu": "5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 92, 1195, 49140, 106.74"
+  },
+  "heartbeat_delta_seconds": 120.70107579231262,
+  "checks": {
+    "heartbeat_increased_at_least_30_seconds": true,
+    "both_original_cells_steps_increased": true,
+    "queue_pid_unchanged": true,
+    "expected_gpu_binding": true,
+    "source_commit_verified": true,
+    "no_queue_failure": true,
+    "ssh_reads_exit_zero": true
+  },
+  "identity_process_gpu_witness": {
+    "exit_code": 0,
+    "stdout": "ec5d2b14e127726917d6f000c289593ea3614f51\n    PID    PPID ELAPSED COMMAND\n1881221       1     168 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/run_queue.py --host 145 --device cuda --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/output --workers 2 --grid /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/grid.json --runner /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/train_wave2.py --experiment-id muon_pd_wave2_20261102\n1881222 1881221     168 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/train_wave2.py --cell rotated_product_bimodal_16d__scalar_k2__matched_momentum_0.006_wd0 --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/output --device cuda\n1881223 1881221     168 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/train_wave2.py --cell rotated_product_bimodal_16d__scalar_k2__matched_momentum_0.02_wd0 --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/muon-pd-wave2-20261102/output --device cuda\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 1195 MiB, 92 %\n1881223, /data2/zz5070/miniconda3/envs/py312/bin/python, 590 MiB\n1881222, /data2/zz5070/miniconda3/envs/py312/bin/python, 590 MiB",
+    "stderr": "",
+    "observed_unix": 1793609351.421535
+  },
+  "note": "Read-only observations after launching SSH exited. No restart, source update, extra training or queue launch performed by verifier.",
+  "raw_receipt_sha256": "1a0e9d09388357a1dbea6d9c1945f8f6f955da05408f98993bbedcfa3a53acca"
+}

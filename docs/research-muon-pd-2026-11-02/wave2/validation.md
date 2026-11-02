@@ -51,3 +51,7 @@ and the source manifest. Original `preflight/native-smoke` directories and
 `resume.log` failures are preserved. The commands above now use the distinct
 `preflight/native-smoke-rngfix` directory for one corrected witness per host.
 No formal cell ran before this correction.
+
+## Completed witness
+
+The corrected commands passed on both hosts at `ec5d2b14e127726917d6f000c289593ea3614f51`. All ten original-arm three-update comparisons were exact; matched-update norm differences were at most5.96e-8; sandwich algebra/derivatives and six physical optimizer resumes passed. Three native eight-step jobs completed per host and actual8-to16 continuation passed. See `readiness/145-cuda.json` and `readiness/lenovo-cuda.json`. These are correctness checks, not quality results.

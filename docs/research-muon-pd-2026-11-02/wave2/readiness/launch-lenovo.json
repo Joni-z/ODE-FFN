@@ -1,0 +1,76 @@
+{
+  "host": "lenovo",
+  "expected_runtime_commit": "ec5d2b14e127726917d6f000c289593ea3614f51",
+  "launcher_pid": 16520,
+  "first_observation": {
+    "unix_time": 1793609219.1654139,
+    "queue_pid": 440,
+    "running": [
+      {
+        "pid": 17112,
+        "cell": "gmm_ring8_2d__scalar_k2__matched_momentum_0.006_wd0",
+        "step": 1500,
+        "real_cuda_pid": 16108
+      },
+      {
+        "pid": 10464,
+        "cell": "gmm_ring8_2d__scalar_k2__matched_momentum_0.02_wd0",
+        "step": 1500,
+        "real_cuda_pid": 13180
+      }
+    ],
+    "gpu": "GPU0: 816 MiB; 81% in status, 85% in independent query",
+    "failed": false
+  },
+  "second_observation": {
+    "unix_time": 1793609339.4030352,
+    "queue_pid": 440,
+    "running": [
+      {
+        "pid": 17112,
+        "cell": "gmm_ring8_2d__scalar_k2__matched_momentum_0.006_wd0",
+        "step": 9500,
+        "latest": {
+          "step": 9500,
+          "validation_oracle_mse": 0.022579423904418944,
+          "wall_seconds": 146.125,
+          "sample": null
+        }
+      },
+      {
+        "pid": 10464,
+        "cell": "gmm_ring8_2d__scalar_k2__matched_momentum_0.02_wd0",
+        "step": 9500,
+        "latest": {
+          "step": 9500,
+          "validation_oracle_mse": 0.02460908203125,
+          "wall_seconds": 145.89100000006147,
+          "sample": null
+        }
+      }
+    ],
+    "pending_count": 13,
+    "completed_count": 0,
+    "failed": false,
+    "cuda_visible_devices": "0",
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 90, 816, 8188, 23.78"
+  },
+  "heartbeat_delta_seconds": 120.23762130737305,
+  "checks": {
+    "heartbeat_increased_at_least_30_seconds": true,
+    "both_original_cells_steps_increased": true,
+    "queue_pid_unchanged": true,
+    "expected_gpu_binding": true,
+    "source_commit_verified": true,
+    "no_queue_failure": true,
+    "ssh_reads_exit_zero": true
+  },
+  "identity_process_gpu_witness": {
+    "exit_code": 0,
+    "stdout": "ec5d2b14e127726917d6f000c289593ea3614f51\n[{\"ProcessId\":16520,\"ParentProcessId\":5112,\"CommandLine\":\"D:\\\\Research\\\\ODE-FFN\\\\envs\\\\synthetic\\\\Scripts\\\\python.exe -u D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\repo\\\\studies\\\\muon_pd_20261102\\\\run_queue.py --host lenovo --device cuda --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/muon-pd-wave2-20261102/output --workers 2 --grid D:/Research/ODE-FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/grid.json --runner D:/Research/ODE-FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/train_wave2.py --experiment-id muon_pd_wave2_20261102\"},{\"ProcessId\":440,\"ParentProcessId\":16520,\"CommandLine\":\"\\\"D:\\\\Research\\\\ODE-FFN\\\\tools\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe\\\"  -u D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\repo\\\\studies\\\\muon_pd_20261102\\\\run_queue.py --host lenovo --device cuda --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/muon-pd-wave2-20261102/output --workers 2 --grid D:/Research/ODE-FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/grid.json --runner D:/Research/ODE-FFN/muon-pd-wave2-20261102/repo/studies/muon_pd_20261102/wave2/train_wave2.py --experiment-id muon_pd_wave2_20261102\"},{\"ProcessId\":17112,\"ParentProcessId\":440,\"CommandLine\":\"D:\\\\Research\\\\ODE-FFN\\\\envs\\\\synthetic\\\\Scripts\\\\python.exe -u D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\repo\\\\studies\\\\muon_pd_20261102\\\\wave2\\\\train_wave2.py --cell gmm_ring8_2d__scalar_k2__matched_momentum_0.006_wd0 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\output --device cuda\"},{\"ProcessId\":10464,\"ParentProcessId\":440,\"CommandLine\":\"D:\\\\Research\\\\ODE-FFN\\\\envs\\\\synthetic\\\\Scripts\\\\python.exe -u D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\repo\\\\studies\\\\muon_pd_20261102\\\\wave2\\\\train_wave2.py --cell gmm_ring8_2d__scalar_k2__matched_momentum_0.02_wd0 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\output --device cuda\"},{\"ProcessId\":16108,\"ParentProcessId\":17112,\"CommandLine\":\"\\\"D:\\\\Research\\\\ODE-FFN\\\\tools\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe\\\"  -u D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\repo\\\\studies\\\\muon_pd_20261102\\\\wave2\\\\train_wave2.py --cell gmm_ring8_2d__scalar_k2__matched_momentum_0.006_wd0 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\output --device cuda\"},{\"ProcessId\":13180,\"ParentProcessId\":10464,\"CommandLine\":\"\\\"D:\\\\Research\\\\ODE-FFN\\\\tools\\\\python\\\\cpython-3.12-windows-x86_64-none\\\\python.exe\\\"  -u D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\repo\\\\studies\\\\muon_pd_20261102\\\\wave2\\\\train_wave2.py --cell gmm_ring8_2d__scalar_k2__matched_momentum_0.02_wd0 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\\\Research\\\\ODE-FFN\\\\muon-pd-wave2-20261102\\\\output --device cuda\"}]\n0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 816 MiB, 94 %\n13180, D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe, [N/A]\n16108, D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe, [N/A]",
+    "stderr": "",
+    "observed_unix": 1793609349.9677498
+  },
+  "note": "Read-only observations after launching SSH exited. No restart, source update, extra training or queue launch performed by verifier.",
+  "raw_receipt_sha256": "9da0bc0d49bfa29eca30ad1f4b4cabdc7901e40fb140dcb400022e37688dc157"
+}

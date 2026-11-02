@@ -26,8 +26,9 @@ CPU witnesses passed on both hosts. The initial CUDA native runs found a real
 inherited restore error: RNG bytes mapped to CUDA could not be restored. The
 minimal `.cpu()` correction is recorded in `reference.patch` and its hash manifest.
 Failed smoke output is preserved; corrected witnesses use `native-smoke-rngfix`.
-See [exact validation commands](validation.md). Formal dispatch waits for both
-native CUDA witnesses, including actual8-to16 checkpoint continuation.
+See [exact validation commands](validation.md). Both native CUDA witnesses passed at the frozen runtime commit, including
+actual8-to16 checkpoint continuation. The [145 receipt](readiness/145-cuda.json)
+and [Lenovo receipt](readiness/lenovo-cuda.json) retain the exact check results.
 
 ## Registered launch commands
 
@@ -50,6 +51,22 @@ through separate SSH connections; a printed launch PID alone is insufficient.
 
 ## Status
 
-Prepared; corrected native CUDA witnesses in progress. No formal wave2 job has
-been launched yet. Update this section with observed processes and progress after
-successful dispatch.
+Both formal queues are running. Separate SSH observations confirmed increasing
+steps after the launching connections exited. Both report `failed=false` and
+retain the frozen runtime commit. Before dispatch both worktrees were clean;
+145 had15GiB free on/data2 and the selected GPUs had no compute jobs.
+
+| Host | Controller | Two observed training progressions | GPU at second check |
+|---|---|---|---|
+|145|1881221, parent1|Both1,500 to10,500 updates over120.7s|GPU5,92%,1,195MiB|
+|Lenovo|440, launcher16520|Both1,500 to9,500 updates over120.2s|GPU0,90% heartbeat/94% direct query,816MiB|
+
+145 CUDA trainer PIDs are1881222/1881223. Lenovo CUDA PIDs are16108/13180,
+under venv wrappers17112/10464. Each host had two active cells and thirteen
+pending at that observation. This snapshot demonstrates execution, not a new
+quality result. Full receipts: [145](readiness/launch-145.json) and
+[Lenovo](readiness/launch-lenovo.json).
+
+Next: let the registered queues complete, then replay endpoints and compare all
+three intervention blocks with their audited first-wave controls. Do not update
+a running numerical checkout or add another sweep automatically.

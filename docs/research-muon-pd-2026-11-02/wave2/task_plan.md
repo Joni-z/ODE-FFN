@@ -7,11 +7,15 @@ controls, unchanged data/objective/budget, and monitored efficient execution.
 - [x] Replay all36 first-wave endpoints and independently recompute saved-sample SW2.
 - [x] Collect loss/gate/P/update/Jacobian trajectories and produce descriptive figures.
 - [x] Use those findings and relevant primary literature to register a small second-wave grid with explicit counterfactuals.
-- [ ] Reuse the existing trainer; implement only necessary optimizer/operator adapters and verify pairing, mathematics and checkpoint continuation.
-- [ ] Publish source, deploy separate immutable runtimes, obtain fresh documented native witnesses, and launch monitored queues on145/Lenovo.
-- [ ] Confirm increasing steps after SSH exits; publish status and remaining analysis questions.
+- [x] Reuse the existing trainer; implement only necessary optimizer/operator adapters and verify pairing, mathematics and checkpoint continuation.
+- [x] Publish source, deploy separate immutable runtimes, obtain fresh documented native witnesses, and launch monitored queues on145/Lenovo.
+- [x] Confirm increasing steps after SSH exits; publish status and remaining analysis questions.
 
 No new image experiment, report-PDF revision, activation search, or unregistered
 follow-on sweep. Do not infer mechanism from endpoint spectral correlations.
 Preserve all first-wave artifacts and frozen runtimes. Inference over repeated
 checkpoints is descriptive, not independent-replicate significance testing.
+
+Both formal queues are verified live after SSH exit. The implementation/launch
+task is complete; quality analysis awaits the registered endpoints. See execution.md
+for source, commands, process evidence and monitoring paths.

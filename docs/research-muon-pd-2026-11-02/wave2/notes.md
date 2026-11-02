@@ -23,3 +23,7 @@ test-only CPU/CUDA device mismatch in a scalar diagnostic assertion; corrected
 at539b1a4 before any native smoke or formal wave2training.
 
 CUDA readiness found an actual inherited trainer resume failure on both hosts: RNG bytes were mapped to CUDA. Fix only `data_rng.set_state(... .cpu())`; preserve failed smoke outputs and use a new `native-smoke-rngfix` witness path. Formal queues have not started.
+
+Corrected native CUDA witnesses passed onbothhosts at ec5d2b1, including actual8-to16 continuation. Formal two-worker queues dispatched:145 PID1881221, Lenovo launcherPID16520. Independent post-SSH verification follows. Numeric runtime worktrees are frozen; GitHub docs may advance.
+
+Post-SSH continuation verified over120s:145 bothcells1500->10500; Lenovo bothcells1500->9500. GPU92% and90-94%; no queue failures, ec5d2b1 remains unchanged. Curated receipts in readiness/. Await completed endpoints before interpreting new quality.
