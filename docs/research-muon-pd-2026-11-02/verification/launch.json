@@ -1,0 +1,67 @@
+{
+  "observed_utc": "2026-11-02T07:21:27.130940+00:00",
+  "note": "Process/launch evidence only; endpoints require the registered complete-control analysis",
+  "hosts": [
+    {
+      "host": "145",
+      "device": "cuda",
+      "workers": 2,
+      "queue_pid": 1156083,
+      "failed": false,
+      "unix_time": 1793604073.3071513,
+      "source_commit": "295dd3e",
+      "pending_count": 18,
+      "completed_count": 2,
+      "completed": [
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__adamw_0.0003",
+          "exit_code": 0,
+          "complete": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.006",
+          "exit_code": 0,
+          "complete": true
+        }
+      ],
+      "running": [
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__adamw_0.001",
+          "pid": 1180389,
+          "latest_step": 15500
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02",
+          "pid": 1188452,
+          "latest_step": 6000
+        }
+      ],
+      "gpu_resource_csv": "5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 91, 1189, 49140, 108.25"
+    },
+    {
+      "host": "lenovo",
+      "device": "cuda",
+      "workers": 2,
+      "queue_pid": 25028,
+      "failed": false,
+      "unix_time": 1793604059.499653,
+      "source_commit": "ae4560e",
+      "pending_count": 12,
+      "completed_count": 0,
+      "completed": [],
+      "running": [
+        {
+          "cell": "gmm_ring8_2d__scalar_k2__adamw_0.0003",
+          "pid": 27364,
+          "latest_step": 8500
+        },
+        {
+          "cell": "gmm_ring8_2d__scalar_k2__muon_0.006",
+          "pid": 21344,
+          "latest_step": 6000
+        }
+      ],
+      "gpu_resource_csv": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 90, 792, 8188, 24.39"
+    }
+  ]
+}

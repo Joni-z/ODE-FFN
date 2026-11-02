@@ -7,7 +7,7 @@ Authorized 2 November2026: act on the professor's feedback; execute on145 and Le
 - [x] Freeze a small optimizer/structure protocol, reusing archived operators/data/evaluation and pinning upstream Muon.
 - [x] Implement only the experiment adapter, explicit optimizer groups, spectral logging and monitored queue; verify derivatives, pairing, resume and upstream optimizer identity.
 - [x] Run fresh documented witnesses on both machines, measure CPU/GPU throughput, and select efficient worker placement.
-- [ ] Publish and deploy immutable source through Git; launch seed0 comparisons and verify increasing steps/monitoring.
+- [x] Publish and deploy immutable source through Git; launch seed0 comparisons. Independent post-SSH verification passed on both hosts; records are in execution.md.
 - [ ] Collect completed outcomes when available; separate trained-model gains, spectral observations and unresolved questions.
 
 ## Constraints
@@ -22,3 +22,6 @@ Reuse the exact archived population/data/model code. Historical PD implementatio
 ## Issues encountered
 - Shared environment-contract reference in installed run-experiment skill is missing. Existing environment ledger and explicit native witnesses will be used; no package rebuild is planned.
 - Windows git is not on the default shell PATH; locate the installed Git executable before synchronization.
+
+## Next checkpoint
+Collect all36 registered20k endpoints, validate final sampling completion and source/data identity, then compare every optimizer rate and both ordinary controls. Two early ODE-only endpoints are complete; their matched-control evidence is not complete. No additional family is queued automatically.

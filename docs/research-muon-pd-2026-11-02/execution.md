@@ -96,3 +96,23 @@ after the launching SSH command had returned, establishing persistence. This
 changes process lifetime only; model, optimizer, data and numerical kernels are
 unchanged. Lenovo uses the corrected controller commit recorded with launch
 verification;145 keeps its existing running snapshot.
+
+## Confirmed running state
+
+Independent fresh-SSH observations separated by60.34s (145) and90.22s (Lenovo)
+confirmed increasing steps and live CUDA processes after launch connections
+closed. See `verification/ssh-persistence.json` and timestamped `launch.json`.
+
+- 145: snapshot295dd3e, controller1156083 (parent1), GPU5;22 registered cells.
+- Lenovo: snapshotae4560e, actual controller25028 under venv launcher21296,
+  GPU0;14 registered cells. The extra Windows venv process layer is expected.
+- At2026-11-02 07:21UTC,145 had2 completed cells and2 running; Lenovo had2
+  running. Both controllers reported failed=false. GPU snapshots were91% and90%
+  utilization, with1189MiB and792MiB used. Utilization is a point observation.
+- No trained-model conclusion is made from the first ODE-only endpoints while
+  the corresponding ordinary controls remain pending. The fixed grid does not
+  launch unregistered follow-ups.
+
+The root image trainer and both report PDFs are unchanged. Report1 SHA256
+165d46476362f006db6124f0035bcb6964cb163e509f52eb49adbf4de5839ecf;
+Report2 SHA25682c97fbcb1a073043a8fb4258a1c499468d464a421437750fe92214b97b67648.

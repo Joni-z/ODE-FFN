@@ -1,6 +1,6 @@
 # Current follow-up: 2 November 2026
 
-Professor-authorized Muon/PD study: [protocol](docs/research-muon-pd-2026-11-02/protocol.md), [execution](docs/research-muon-pd-2026-11-02/execution.md). Numerical/source witnesses and native-trainer smoke checks pass on 145 and Lenovo. Formal source295dd3e; published changes use Zhizhe Zhang. Existing reports and image runtime remain unchanged.
+Professor-authorized Muon/PD study: [protocol](docs/research-muon-pd-2026-11-02/protocol.md), [execution](docs/research-muon-pd-2026-11-02/execution.md). Numerical/source witnesses and native-trainer smoke checks pass on 145 and Lenovo. Shared numerical source295dd3e; Lenovo controller fixae4560e. Both CUDA queues and post-SSH persistence are verified; monitoring is live. Published changes use Zhizhe Zhang. Existing reports and image runtime remain unchanged.
 
 # ODE autoresearch notes
 

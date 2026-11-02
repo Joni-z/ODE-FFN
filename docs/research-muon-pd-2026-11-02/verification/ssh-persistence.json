@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "scope": "Independent fresh-SSH persistence check; no retraining",
+  "145": {
+    "source": "295dd3ea81ac22c3241ca397e023f526fa6e9d1c",
+    "queue_pid": 1156083,
+    "parent_pid": 1,
+    "heartbeat_seconds": [
+      1793603982.817,
+      1793604043.154
+    ],
+    "steps": {
+      "scalar_adamw_0.001": [
+        6000,
+        12500
+      ],
+      "scalar_muon_0.02": [
+        null,
+        4000
+      ]
+    },
+    "failed": false
+  },
+  "lenovo": {
+    "source": "ae4560e1888cf5bf6ccdf54f0eeae65106aa7573",
+    "queue_pid": 25028,
+    "venv_launcher_pid": 21296,
+    "heartbeat_seconds": [
+      1793603969.283,
+      1793604059.5
+    ],
+    "steps": {
+      "scalar_adamw_0.0003": [
+        null,
+        8500
+      ],
+      "scalar_muon_0.006": [
+        null,
+        6000
+      ]
+    },
+    "failed": false
+  }
+}
