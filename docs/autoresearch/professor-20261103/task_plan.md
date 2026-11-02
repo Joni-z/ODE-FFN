@@ -29,3 +29,10 @@ actual8-to16 trainer continuation. Published runtime c3dbe27 now runs18 cells
 on freeGPU0, two workers each, with independent post-SSH step increases and
 90–94% utilization. Next: complete/replay before new selection; then registered
 frozen symmetry diagnostic.
+
+Cycle4 and12 frozen parity cases complete/replayed. Shift1 does not improve
+the best candidate; constant D is a useful ordinary control. Product16 rawK1
+even energy explains74% of its paired-error gap to Swi128 algebraically. Next
+selected cycle: raw-versus-abs K1 feature (6cells) and native bilinear64 ordinary
+reference (8cells), after registration, CPU/CUDA checks and fresh documented pass.
+No symmetry projection, augmentation, new loss or image transfer.

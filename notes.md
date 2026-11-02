@@ -1,3 +1,7 @@
+# Latest confirmed results
+
+Cycle4 and the frozen parity readout completed. The next test follows the exact raw-versus-abs singular-spectrum equivalence and measured excess even error; include ordinary bilinear and all SwiGLU controls. See [brief](docs/autoresearch/professor-20261103/brief.md).
+
 # Current runtime and rationale
 
 Cycle4 is live after fresh CUDA checks: constant1, bounded sigmoid and h+1 diagonals atK1, same P initialization and no learned controller. This distinguishes linear, weakly quadratic and raw/shifted quadratic features. [Protocol](docs/autoresearch/professor-20261103/cycle4.md). No report PDFs or image code changed.

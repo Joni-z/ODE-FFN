@@ -53,8 +53,8 @@ tasks; changing the denominator is not a rescue. Publish every endpoint.
       checkpoint resume, original parent arm and actual8-to16 trainer continuation.
 - [x] Freeze/push runtime; deploy new detached worktrees and fresh documented
       CUDA witness on both hosts; never overwrite completed runtimes.
-- [ ] Run two monitored workers per free GPU, complete all18, replay independently.
-- [ ] Analyze D shape, optimizer interaction and ordinary controls; choose the
+- [x] Run two monitored workers per free GPU, complete all18, replay independently.
+- [x] Analyze D shape, optimizer interaction and ordinary controls; choose the
       next question from complete outcomes rather than a favorable test sample.
 
 Local preflight diagnosis: the first adapter reused the archived feature_mode
@@ -69,3 +69,8 @@ unchanged cycle2 builder explicitly. Neither issue reached a formal queue.
 CPU witnesses pass: all three full derivatives, exact inherited weights/RNG,
 eight original optimizer-arm equivalences, and physical model/optimizer/RNG
 continuation. Full native8-to16 trainer smokes remain required on both GPUs.
+
+Closed: all18 complete/replayed, no new arm beats strongest ordinary field
+controls. Constant D is an ordinary FFN and retains a useful sampling tradeoff.
+Frozen parity diagnostics provide the next raw-versus-abs/ordinary-bilinear
+question; see cycle4-results and symmetry-results.

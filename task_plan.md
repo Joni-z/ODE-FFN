@@ -1,3 +1,7 @@
+# Latest: cycle4 and parity diagnostic complete
+
+All18 cycle4 trajectories replayed exactly; all12 frozen parity cases complete. No new accepted ODE model. [Cycle4 findings](docs/autoresearch/professor-20261103/cycle4-results/findings.md), [parity evidence](docs/autoresearch/professor-20261103/symmetry-results/findings.md). Next selected controlled question: K1 abs diagonal and matched ordinary bilinear64, before any image transfer. Prior runtime entries below are historical.
+
 # Current runtime: cycle4 diagonal features
 
 Cycle4 runs18 registered K1 diagonal-function contrasts from frozen c3dbe27 on145GPU0/LenovoGPU0, two workers each. Fresh documented CUDA witnesses and post-SSH progress passed. [Execution](docs/autoresearch/professor-20261103/cycle4-execution.md), [registration](docs/autoresearch/professor-20261103/cycle4.md). Complete/replay before selecting the next candidate; frozen symmetry diagnostic follows GPU release.

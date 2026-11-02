@@ -69,17 +69,22 @@ concerns feature construction and optimization, with an unresolved gap between
 field fitting and sampling. A matched ordinary FFN remains the necessary control.
 No current result justifies image transfer or an FM-specific inductive-bias claim.
 
-Cycle4 now runs a smaller K1 feature contrast: constant1, bounded direct sigmoid,
+Cycle4 completed a smaller K1 feature contrast: constant1, bounded direct sigmoid,
 and h+1 diagonals, holding P/common tensors and all training settings fixed.
 The constant arm is an ordinary bias-free SiLU FFN under W=I+P; the shifted arm
 adds quadratic curvature at the same local value/Jacobian at zero. Afterward,
-a frozen parity diagnostic checks a known property of both population targets:
-u(-x,t)=-u(x,t). A possible next raw-versus-abs diagonal has exactly identical
-conditional singular values at matched P,h but even versus odd increments.
-It remains a proposed contrast until complete results justify selecting it.
+a frozen parity diagnostic verified a known property of both population targets:
+u(-x,t)=-u(x,t). The shift1 arm does not improve the best result; the constant
+ordinary FFN remains a useful control. On Product16, excess even energy accounts
+for74% of rawK1's paired-error gap to Swi128. This is a diagnostic decomposition,
+not evidence that removing it improves sampled quality. A raw-versus-abs diagonal
+has exactly identical conditional singular values at matched P,h but even versus
+odd increments. It is the next selected contrast, with a matched ordinary bilinear
+FFN and all earlier SwiGLU controls. No symmetry projection or extra loss is added.
 
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
 [cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
-[current cycle](cycle4-execution.md), [signed-diagonal branch](signed-diagonal.md),
+[cycle4 results](cycle4-results/findings.md), [parity readout](symmetry-results/findings.md),
+[signed-diagonal branch](signed-diagonal.md),
 [two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).

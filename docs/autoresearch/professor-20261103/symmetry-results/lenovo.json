@@ -1,0 +1,590 @@
+{
+  "dataset": "gmm_ring8_2d",
+  "torch": "2.8.0+cu126",
+  "device": "cuda",
+  "rows": [
+    {
+      "cell": "gmm_ring8_2d__scalar_k2__muon_0.006",
+      "checkpoint_sha256": "1a2a6a3a6c4432072843a99cdbe0c6f23dd5947b4e09013e8c037d70d014b592",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.013400951220431199,
+      "negative_validation_mse": 0.014119545229090124,
+      "paired_field_mse": 0.013760248224760662,
+      "odd_field_mse": 0.008179626108403316,
+      "even_energy": 0.005580622116357348,
+      "even_fraction": 0.4055611516015667,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 1.1102230246251565e-16,
+      "original_field_replay_error": 2.1640287825586135e-10,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.015482665560176545,
+          "odd_field_mse": 0.004785628036796736,
+          "even_energy": 0.010697037523379811
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.012823492086768938,
+          "odd_field_mse": 0.007289314863688133,
+          "even_energy": 0.0055341772230808025
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.013575730841018485,
+          "odd_field_mse": 0.009748113837003995,
+          "even_energy": 0.0038276170040144886
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.011174869347025364,
+          "odd_field_mse": 0.007036702746781467,
+          "even_energy": 0.004138166600243897
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.01115024860128555,
+          "odd_field_mse": 0.007784678852103693,
+          "even_energy": 0.003365569749181855
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.012372203405638773,
+          "odd_field_mse": 0.008667419874052385,
+          "even_energy": 0.0037047835315863874
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.01731429993321931,
+          "odd_field_mse": 0.011269041259845911,
+          "even_energy": 0.006045258673373397
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.021104857589372042,
+          "odd_field_mse": 0.012596123756690095,
+          "even_energy": 0.00850873383268195
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.013833098412441115,
+          "odd_field_mse": 0.008343561121377603,
+          "even_energy": 0.005489537291063508
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.007677590276200502,
+          "odd_field_mse": 0.0037544329638734175,
+          "even_energy": 0.003923157312327084
+        }
+      ]
+    },
+    {
+      "cell": "gmm_ring8_2d__scalar_k1__muon_0.006",
+      "checkpoint_sha256": "9d2b920d6894c349a1eee80cd6ecf4fe8f5fcd2a99850667388f54054a5f4774",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.011618667186800779,
+      "negative_validation_mse": 0.012107645303783818,
+      "paired_field_mse": 0.011863156245292297,
+      "odd_field_mse": 0.006967358268079067,
+      "even_energy": 0.004895797977213231,
+      "even_fraction": 0.4126893278638263,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 2.7755575615628914e-17,
+      "original_field_replay_error": 2.5183373789094965e-10,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.011175148323348554,
+          "odd_field_mse": 0.0029814753679247353,
+          "even_energy": 0.00819367295542382
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.011298319725078622,
+          "odd_field_mse": 0.0044379348905578975,
+          "even_energy": 0.006860384834520724
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.007869503419239338,
+          "odd_field_mse": 0.0039571404041601425,
+          "even_energy": 0.003912363015079196
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.007949625354351592,
+          "odd_field_mse": 0.0048433705436755296,
+          "even_energy": 0.003106254810676062
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.011261104949602642,
+          "odd_field_mse": 0.006717457117739029,
+          "even_energy": 0.004543647831863614
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.012463339322959795,
+          "odd_field_mse": 0.008212063438304731,
+          "even_energy": 0.004251275884655064
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.016284194647876084,
+          "odd_field_mse": 0.011234461929097335,
+          "even_energy": 0.005049732718778752
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.022076711307206166,
+          "odd_field_mse": 0.014717250618947143,
+          "even_energy": 0.0073594606882590235
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.011520595640616768,
+          "odd_field_mse": 0.008202850460767885,
+          "even_energy": 0.0033177451798488814
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.005647248117874655,
+          "odd_field_mse": 0.003687253930834784,
+          "even_energy": 0.00195999418703987
+        }
+      ]
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_direct_raw__muon_0.02",
+      "checkpoint_sha256": "5db3ff451934588de9d253ed328489fd446c9f3cf13f268986e514d598322d13",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.01210491370107894,
+      "negative_validation_mse": 0.012367369154578652,
+      "paired_field_mse": 0.012236141427828797,
+      "odd_field_mse": 0.0075690617778033315,
+      "even_energy": 0.004667079650025464,
+      "even_fraction": 0.38141759618853954,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 1.3877787807814457e-17,
+      "original_field_replay_error": 1.0468912195471525e-11,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.014160772380160624,
+          "odd_field_mse": 0.005831706689079185,
+          "even_energy": 0.00832906569108144
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.011249679334982275,
+          "odd_field_mse": 0.006241594411156369,
+          "even_energy": 0.005008084923825906
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.020406701075804435,
+          "odd_field_mse": 0.015699128559708675,
+          "even_energy": 0.004707572516095752
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.011832515320387068,
+          "odd_field_mse": 0.007208759374746736,
+          "even_energy": 0.004623755945640331
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.01099196169059815,
+          "odd_field_mse": 0.006209679471721955,
+          "even_energy": 0.004782282218876195
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.010855947433831569,
+          "odd_field_mse": 0.006648438052117899,
+          "even_energy": 0.00420750938171367
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.012389922968244352,
+          "odd_field_mse": 0.007952781017582513,
+          "even_energy": 0.004437141950661843
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.015967645958072846,
+          "odd_field_mse": 0.010359131174687052,
+          "even_energy": 0.005608514783385795
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.00831976678466354,
+          "odd_field_mse": 0.005426733327038152,
+          "even_energy": 0.002893033457625388
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.0051228234198529505,
+          "odd_field_mse": 0.003376959985267242,
+          "even_energy": 0.001745863434585709
+        }
+      ]
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02",
+      "checkpoint_sha256": "d7c4d383f62ee9278300e3ee024e85d9e06614d60d99d41fc68258f101e00ead",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.010912873147237429,
+      "negative_validation_mse": 0.011560759030867413,
+      "paired_field_mse": 0.01123681608905242,
+      "odd_field_mse": 0.006029122768412408,
+      "even_energy": 0.005207693320640013,
+      "even_fraction": 0.46344919053304257,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 6.938893903907228e-18,
+      "original_field_replay_error": 2.5522580576753384e-11,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.011267910869045876,
+          "odd_field_mse": 0.0033660343347916,
+          "even_energy": 0.007901876534254277
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.010910711069986048,
+          "odd_field_mse": 0.00479880585152147,
+          "even_energy": 0.006111905218464577
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.011968151095177508,
+          "odd_field_mse": 0.008727104922000605,
+          "even_energy": 0.003241046173176903
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.008649611461057184,
+          "odd_field_mse": 0.0051904810084198805,
+          "even_energy": 0.0034591304526373034
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.009184813476861495,
+          "odd_field_mse": 0.004687845136208982,
+          "even_energy": 0.004496968340652513
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.011303157667028699,
+          "odd_field_mse": 0.006517105937866936,
+          "even_energy": 0.004786051729161763
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.014389483619331822,
+          "odd_field_mse": 0.007680862770173179,
+          "even_energy": 0.006708620849158642
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.01871880584955142,
+          "odd_field_mse": 0.010329011227694905,
+          "even_energy": 0.008389794621856513
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.009230179486856775,
+          "odd_field_mse": 0.0047093484446860765,
+          "even_energy": 0.004520831042170698
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.005670077625623317,
+          "odd_field_mse": 0.0036729354848084226,
+          "even_energy": 0.0019971421408148944
+        }
+      ]
+    },
+    {
+      "cell": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "checkpoint_sha256": "2c33cae81099b9c7e5815bf3d460a65cebc7a2505b674e43878de7eca0212461",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.011279251485630548,
+      "negative_validation_mse": 0.012289293454151624,
+      "paired_field_mse": 0.011784272469891088,
+      "odd_field_mse": 0.007299927397094302,
+      "even_energy": 0.004484345072796784,
+      "even_fraction": 0.3805364382276736,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 1.1102230246251565e-16,
+      "original_field_replay_error": 2.9163030497436626e-10,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.013360399126314978,
+          "odd_field_mse": 0.003947311402781107,
+          "even_energy": 0.00941308772353387
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.010353614613909738,
+          "odd_field_mse": 0.004784710607971917,
+          "even_energy": 0.00556890400593782
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.010728825172474971,
+          "odd_field_mse": 0.008167763193022296,
+          "even_energy": 0.002561061979452674
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.008258008748754429,
+          "odd_field_mse": 0.005195111618332666,
+          "even_energy": 0.003062897130421762
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.009469791010792093,
+          "odd_field_mse": 0.006209489248484782,
+          "even_energy": 0.003260301762307311
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.011473235362243062,
+          "odd_field_mse": 0.008013725377967636,
+          "even_energy": 0.003459509984275424
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.017147833715952295,
+          "odd_field_mse": 0.011526528671925352,
+          "even_energy": 0.005621305044026942
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.01878137175234039,
+          "odd_field_mse": 0.01239408037798796,
+          "even_energy": 0.006387291374352426
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.010238122967173245,
+          "odd_field_mse": 0.007151902147671882,
+          "even_energy": 0.003086220819501363
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.006912332793245612,
+          "odd_field_mse": 0.004944578201328288,
+          "even_energy": 0.0019677545919173246
+        }
+      ]
+    },
+    {
+      "cell": "gmm_ring8_2d__swiglu128__muon_0.02",
+      "checkpoint_sha256": "94d9ff6ee8d36dbe84e151fbf2d27a3f961ad27964e79d75be6f931775d9efcd",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "validation_count": 10000,
+      "original_validation_mse": 0.011484199200521872,
+      "negative_validation_mse": 0.012456125283733755,
+      "paired_field_mse": 0.011970162242127814,
+      "odd_field_mse": 0.007255042052124813,
+      "even_energy": 0.004715120190003001,
+      "even_fraction": 0.39390612212494475,
+      "oracle_symmetry_max_error": 8.43769498715119e-15,
+      "decomposition_max_error": 2.7755575615628914e-17,
+      "original_field_replay_error": 3.730161492188078e-11,
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "paired_field_mse": 0.014271896953810943,
+          "odd_field_mse": 0.004639188694524641,
+          "even_energy": 0.009632708259286301
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "paired_field_mse": 0.009982552730832652,
+          "odd_field_mse": 0.004306131724806555,
+          "even_energy": 0.005676421006026097
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "paired_field_mse": 0.009165377264786818,
+          "odd_field_mse": 0.006501071284571635,
+          "even_energy": 0.002664305980215181
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "paired_field_mse": 0.007801504230703871,
+          "odd_field_mse": 0.004630715771519275,
+          "even_energy": 0.0031707884591845943
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "paired_field_mse": 0.009387743878053453,
+          "odd_field_mse": 0.006315232115604071,
+          "even_energy": 0.003072511762449381
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "paired_field_mse": 0.013436294415689498,
+          "odd_field_mse": 0.00984808584600712,
+          "even_energy": 0.003588208569682378
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "paired_field_mse": 0.0181807258516472,
+          "odd_field_mse": 0.012072374921918667,
+          "even_energy": 0.006108350929728533
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "paired_field_mse": 0.020313786677369407,
+          "odd_field_mse": 0.013412043612902247,
+          "even_energy": 0.006901743064467158
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "paired_field_mse": 0.009795550485107763,
+          "odd_field_mse": 0.006095985418146892,
+          "even_energy": 0.0036995650669608728
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "paired_field_mse": 0.00607476166995151,
+          "odd_field_mse": 0.0039291138429464745,
+          "even_energy": 0.0021456478270050344
+        }
+      ]
+    }
+  ],
+  "interpretation": "Frozen paired diagnostic; no training, odd projection sampling, changed primary metric or causal claim."
+}

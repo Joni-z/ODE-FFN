@@ -48,3 +48,12 @@ All22 completed and independently replayed from14ab235; generated arrays exact. 
 
 
 Table audit correction: Product16 Swi128Adam.0003 has field.0168548645/SW2.0818476662; Swi192Adam.0003 has.0156676032/.0792062049. The cycle3 prose table initially mislabeled the former field value with the latter; corrected directly against the replayed source CSV. Raw endpoints, plots, candidate decisions and validation-selected solver checkpoints were unaffected.
+
+Cycle4 complete18, exact sample replay; no ordinary field win. Constant Product16
+Muon.02 MSE.0189632/SW2.0755200 is an ordinary bias-free SiLU FFN, not an ODE
+method. Symmetry diagnostic original scores replay within4.8e-10 and identity
+closes1.11e-16. Product16 rawK1 even fraction48.9%, Ring46.3%; ordinary controls
+also have appreciable even error. Selected next: diag(abs(h)) at K1, holding
+conditional singular values matched at common P,h, plus known bilinear64 ordinary
+reference with the same projections as native Swi64. Full predictors are not
+forced odd; no general image/FM-specific claim.
