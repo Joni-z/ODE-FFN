@@ -301,3 +301,7 @@ update rule; it does change the initialization compared with a standard randomly
 initialized W. Therefore a constant-D success would not establish a benefit from
 input-dependent dynamics. This control must be interpreted as an ordinary FFN
 within the inherited initialization, not marketed as a new ODE method.
+
+## Longer-budget outcome
+
+[All8 matched80k trajectories](cycle6-results/findings.md) are complete. Raw K1 improves field MSE over matched Swi64 by9.4%/2.9% on Ring8/Product16, but has worse sampling on both. It does not beat the wider ordinary frontier. The earlier short-budget Ring8 lead over Swi192 disappears. Neither80k nor the original20k is asserted to be converged. Next isolate singular-value shape from contraction on frozen checkpoints before adopting another P constraint.

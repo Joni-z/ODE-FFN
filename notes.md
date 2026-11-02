@@ -726,3 +726,10 @@ The user challenged the FID170–200 image screen and the premises of subsequent
 Editing error: one multi-file patch was rejected because a guessed notes header did not exist; inspection confirmed no partial change, and the corrected patch plus append succeeded.
 
 ISRU endpoint completeness (Report2): original Gaussian2D0.005429 versus near-parameter Swi640.004192/wider Swi1600.004557; Ring80.016694 versus0.017904/0.013921. Ring8 is6.76%better than the near-parameter comparator,19.92%worse than the wider one. Product16 remains the strongest field-fit positive result. Canonical ISRU table now keeps all five laws and both ordinary budget controls; Report2 index carries this qualification. No new training or frozen-report changes.
+
+Cycle6 closed: all8 final80k trajectories, exact20k numerical prefixes and native
+endpoint replays pass; all generated arrays reproduce exactly. Raw K1 retains
+a matched-Swi64 field tradeoff but loses sampling and wider ordinary controls.
+See docs/autoresearch/professor-20261103/cycle6-results/findings.md. Next: register
+a frozen Frobenius-preserving P-shape intervention against matched-operator-norm
+scalar contractions; no new training method is accepted.

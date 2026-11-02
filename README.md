@@ -122,3 +122,5 @@ The original local checkout and frozen experiment artifacts are retained.
 Report1 is final and unchanged; [Report2](reports/report2/README.md) remains an
 interim draft. Old CIFAR scores above 200 cannot substantiate architecture
 claims. Use the archive to reproduce those historical studies.
+
+The [matched 80k-budget study](docs/autoresearch/professor-20261103/cycle6-results/findings.md) is complete: Raw K1 retains a limited field-fitting tradeoff, with no overall advantage over ordinary SwiGLU controls.

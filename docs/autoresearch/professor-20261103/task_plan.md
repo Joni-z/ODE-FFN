@@ -83,3 +83,10 @@ archived parents, both final receipts4rows/no pending. Remaining P0: finish all
 comparison and registered sample/P readouts. Prepared budget analysis is syntax
 checked; its quality outputs await complete data. Costs now cover all90completed
 20k autoresearch trajectories, excluding the ongoing80k study.
+
+Cycle6 closed: all8 final80k trajectories, exact20k numerical prefixes and native
+endpoint replays pass; all generated arrays reproduce exactly. Raw K1 retains
+a matched-Swi64 field tradeoff but loses sampling and wider ordinary controls.
+See docs/autoresearch/professor-20261103/cycle6-results/findings.md. Next: register
+a frozen Frobenius-preserving P-shape intervention against matched-operator-norm
+scalar contractions; no new training method is accepted.

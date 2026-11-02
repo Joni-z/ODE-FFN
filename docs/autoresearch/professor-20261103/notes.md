@@ -81,3 +81,10 @@ axis0gap32.45% versus3.04%. Allmodels have visible imperfections. C6 selects
 longer matched budgets for retained raw/Swi references using earlier validation
 rates; no secondary-metric model selection. Auditor gains explicit endpoint-step
 (default20k unchanged) for80k, with configuration/data/checkpoint integrity guards.
+
+Cycle6 closed: all8 final80k trajectories, exact20k numerical prefixes and native
+endpoint replays pass; all generated arrays reproduce exactly. Raw K1 retains
+a matched-Swi64 field tradeoff but loses sampling and wider ordinary controls.
+See docs/autoresearch/professor-20261103/cycle6-results/findings.md. Next: register
+a frozen Frobenius-preserving P-shape intervention against matched-operator-norm
+scalar contractions; no new training method is accepted.

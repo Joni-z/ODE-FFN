@@ -560,3 +560,10 @@ The common-direction priority rule fails; retain own-space negative witnesses wi
 - [x] Apply the original gate: timeFID172.04 versus native173.44 is0.80%better, below5%; both fitting guards pass. Stop this setting without rescue.
 - [x] Seal313raw/runtime files (ff9bad0e) and publish verified evidence1b1732d.
 - [ ] Review the shared10k-to20k fitting/generation mismatch against earlier image evidence before selecting any new architecture. No new model selected; broader useful-ODE goal remains active.
+
+Cycle6 closed: all8 final80k trajectories, exact20k numerical prefixes and native
+endpoint replays pass; all generated arrays reproduce exactly. Raw K1 retains
+a matched-Swi64 field tradeoff but loses sampling and wider ordinary controls.
+See docs/autoresearch/professor-20261103/cycle6-results/findings.md. Next: register
+a frozen Frobenius-preserving P-shape intervention against matched-operator-norm
+scalar contractions; no new training method is accepted.

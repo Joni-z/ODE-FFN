@@ -32,3 +32,5 @@ Neither is a count of independent training runs.
 [Cycle5 abs/bilinear comparison and registered parity readout](../../docs/autoresearch/professor-20261103/cycle5-results/findings.md) completed: abs fails all6 matched validation comparisons and does not consistently reduce full-model even error. Stop this setting; inspect stored terminal-sample structure before new architecture selection. Submitted PDFs remain unchanged.
 
 [Saved Product16 sample audit](../../docs/autoresearch/professor-20261103/sample-structure-results/findings.md) demonstrates a blurred axis despite low aggregate distances. [Cycle6](../../docs/autoresearch/professor-20261103/cycle6.md) tests only80k convergence with raw and all three native SwiGLU widths; exact numerical-prefix checks preserve20k comparability. Existing report PDFs are unchanged.
+
+[Cycle6 final80k comparison](../../docs/autoresearch/professor-20261103/cycle6-results/findings.md) is complete with exact prefixes and generated-array replays. Raw K1 has a field-versus-sampling tradeoff against matched Swi64 and no wider-control win. Submitted PDFs remain unchanged.

@@ -72,11 +72,12 @@ wall time and the extra budget are reported separately from model quality.
       actual-entry witness using unchanged parent builders/trainer.
 - [x] Freeze/push; deploy new worktrees and pass fresh documented CUDA checks.
 - [x] Launch all8 with monitors and verify all8 exact archived20k numerical prefixes.
-- [ ] Finish/replay80k endpoints, retained learning curves and P/sample readouts.
-- [ ] Decide whether raw's lead survives matched ordinary convergence, then choose
+- [x] Finish/replay80k endpoints, retained learning curves and P/sample readouts.
+- [x] Decide whether raw's lead survives the longer ordinary-control budget, then choose
       the next research question without reopening stopped feature families.
 
-Native readiness passed at b33c837 on both hosts: all4actual8-update old/new
-budget numerical states match and all4new runs resume8-to16. Formal queues now
-run2workers perhost; independent post-SSH increasing steps and91–93% GPU use
-verified.20k prefix and80k quality checks are still outstanding.
+Native readiness passed at b33c837 on both hosts. All eight formal trajectories
+and exact archived 20k prefixes now pass; final generated arrays replay exactly.
+See [the completed comparison](cycle6-results/findings.md). No overall ODE
+advantage is established. The next question is a frozen shape-versus-scale
+intervention, not another longer-budget or diagonal-feature search.

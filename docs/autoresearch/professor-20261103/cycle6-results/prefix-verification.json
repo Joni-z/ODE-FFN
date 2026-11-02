@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "exact_prefixes": 8,
+  "receipts": [
+    {
+      "passed": true,
+      "rows": [
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.001__budget80000",
+          "parent": "rotated_product_bimodal_16d__swiglu64__adamw_0.001",
+          "parent_checkpoint_sha256": "1036eb9fa8d3dc35b09f92c6cd62ff0cd201982f862b111d55c647cef05a47f3",
+          "new_prefix_sha256": "3352229c40554eef38f287c31a7a928f59a3598eb05c7d0deb6f28d0836547f6",
+          "exact_numerical_state": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__budget80000",
+          "parent": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006",
+          "parent_checkpoint_sha256": "9230d521cca90aa11f58f67957a3edd92085ba5d36791d8cd35bd88193836415",
+          "new_prefix_sha256": "a9fcf83f8fb0863d53eb7f1aa63059dcdd16edcc54e50e0353bd39a5f35e0d61",
+          "exact_numerical_state": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu128__adamw_0.0003__budget80000",
+          "parent": "rotated_product_bimodal_16d__swiglu128__adamw_0.0003",
+          "parent_checkpoint_sha256": "f354071f5d2085aeba6967bb1a21e33e801977599fca37cbe746d7053c079614",
+          "new_prefix_sha256": "0b32925c4917bfdce477451b9efa459c5975b7bced42e0e87f8e9f7c7f14259e",
+          "exact_numerical_state": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003__budget80000",
+          "parent": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+          "parent_checkpoint_sha256": "8ee010918e79a2d7b8fe2b3ae93a99dfc866cc1f2ff99ac6fb63f496d078773e",
+          "new_prefix_sha256": "ab98331f625cd1ec19eaae37c341858f4660976c9d85c1c6a8e7db7dd5090bad",
+          "exact_numerical_state": true
+        }
+      ],
+      "pending": [],
+      "scope": "All numerical model/optimizer/buffer/RNG states match; different explicit configuration/run metadata retained."
+    },
+    {
+      "passed": true,
+      "rows": [
+        {
+          "cell": "gmm_ring8_2d__swiglu64__muon_0.02__budget80000",
+          "parent": "gmm_ring8_2d__swiglu64__muon_0.02",
+          "parent_checkpoint_sha256": "2c33cae81099b9c7e5815bf3d460a65cebc7a2505b674e43878de7eca0212461",
+          "new_prefix_sha256": "2b76f9f11c7b774ede71f4948917dcc83c781ddc651c19daccc929f1a32251a8",
+          "exact_numerical_state": true
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__budget80000",
+          "parent": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02",
+          "parent_checkpoint_sha256": "d7c4d383f62ee9278300e3ee024e85d9e06614d60d99d41fc68258f101e00ead",
+          "new_prefix_sha256": "cebc4ca8bc555489f552463fdede4f74cadf6f97cdf052751984d54a0771cf6a",
+          "exact_numerical_state": true
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu128__muon_0.02__budget80000",
+          "parent": "gmm_ring8_2d__swiglu128__muon_0.02",
+          "parent_checkpoint_sha256": "94d9ff6ee8d36dbe84e151fbf2d27a3f961ad27964e79d75be6f931775d9efcd",
+          "new_prefix_sha256": "163acd3da30de9301327240cc1c68a495b28a05f785ec22188ad10d933bb3a7f",
+          "exact_numerical_state": true
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu192__muon_0.02__budget80000",
+          "parent": "gmm_ring8_2d__swiglu192__muon_0.02",
+          "parent_checkpoint_sha256": "2c6e79bfc4b6b3d210879bbacb0e4da8e8c65e253f40f8fcf924e9eed3e5ac99",
+          "new_prefix_sha256": "8b995744a4d0aaa6af0c61e18564cb16b1b0e332c9af3fb124b3a17052f133b5",
+          "exact_numerical_state": true
+        }
+      ],
+      "pending": [],
+      "scope": "All numerical model/optimizer/buffer/RNG states match; different explicit configuration/run metadata retained."
+    }
+  ]
+}
