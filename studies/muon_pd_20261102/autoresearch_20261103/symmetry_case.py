@@ -4,13 +4,27 @@ from pathlib import Path
 import numpy as np
 import torch
 
-p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--old-output',required=True);p.add_argument('--cycle2-output',required=True);p.add_argument('--cycle3-output',required=True);p.add_argument('--dataset',required=True);p.add_argument('--save',required=True);p.add_argument('--device',default='cuda');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--old-output',required=True);p.add_argument('--cycle2-output',required=True);p.add_argument('--cycle3-output',required=True);p.add_argument('--cycle5-output');p.add_argument('--dataset',required=True);p.add_argument('--save',required=True);p.add_argument('--device',default='cuda');a=p.parse_args()
 source=Path(a.source);sys.path.insert(0,str(source/'autoresearch_20261103/cycle3'))
 from trial3 import base,build_model as builder3
 from trial2 import build_model as builder2
 base.verify_sources();torch.set_num_threads(1);ds=a.dataset;ring=ds=='gmm_ring8_2d';device=torch.device(a.device)
 old=Path(a.old_output);two=Path(a.cycle2_output);three=Path(a.cycle3_output)
 settings=[('scalar_k2','muon',.006 if ring else .02,'muon_pd_20261102',old),('scalar_k1','muon',.006 if ring else .02,'professor_autoresearch_cycle3_20261103',three),('pd_direct_raw','muon',.02 if ring else .006,'professor_autoresearch_cycle2_20261103',two),('pd_direct_raw_k1','muon',.02 if ring else .006,'professor_autoresearch_cycle3_20261103',three),('swiglu64','muon' if ring else 'adamw',.02 if ring else .001,'professor_autoresearch_cycle3_20261103',three),('swiglu128','muon' if ring else 'adamw',.02 if ring else .0003,'muon_pd_20261102',old)]
+selection_pool=[]
+if a.cycle5_output:
+    sys.path.insert(0,str(source/'autoresearch_20261103/cycle5'))
+    from trial5 import build_model as builder5
+    settings=[];experiment='professor_autoresearch_cycle5_20261103';root=Path(a.cycle5_output)
+    for family,count in [('pd_direct_abs_k1',3),('bilinear64',4)]:
+        candidates=[]
+        for folder in sorted((root/experiment/ds).glob(f'{ds}__{family}__*/seed000')):
+            assert (folder/'ADAPTER_COMPLETE').exists()
+            cfg=json.loads((folder/'config.json').read_text());final=json.loads((folder/'metrics.jsonl').read_text().splitlines()[-1]);assert final['step']==20000
+            candidates.append(dict(cell=cfg['cell'],validation_mse=final['validation_oracle_mse']))
+        assert len(candidates)==count
+        selection_pool.extend(candidates);chosen=min(candidates,key=lambda x:x['validation_mse'])['cell']
+        settings.append((family,chosen['optimizer'],chosen['projection_lr'],experiment,root))
 rows=[]
 for family,method,lr,experiment,root in settings:
     cell=f'{ds}__{family}__{method}_{lr}';folder=root/experiment/ds/cell/'seed000';cfg=json.loads((folder/'config.json').read_text());file=folder/'checkpoints/step_0020000.pt'
@@ -21,7 +35,7 @@ for family,method,lr,experiment,root in settings:
     x,t,u=fixed['x'],fixed['t'],fixed['oracle'];xn=x.cpu().numpy();tn=t.cpu().numpy()
     oracle_error=float(np.max(np.abs(distribution.velocity(-xn,tn)+distribution.velocity(xn,tn))))
     assert oracle_error<1e-10
-    torch.manual_seed(0);model=(builder2 if family=='pd_direct_raw' else builder3)(spec['dim'],family).to(device);base.train.restore_model(model,state);model.eval()
+    torch.manual_seed(0);model=(builder5 if a.cycle5_output else builder2 if family=='pd_direct_raw' else builder3)(spec['dim'],family).to(device);base.train.restore_model(model,state);model.eval()
     with torch.no_grad():
         positive=torch.cat([model(xx,tt) for xx,tt in zip(x.split(1024),t.split(1024))]).double()
         negative=torch.cat([model(-xx,tt) for xx,tt in zip(x.split(1024),t.split(1024))]).double()
@@ -36,4 +50,6 @@ for family,method,lr,experiment,root in settings:
         profile.append(dict(t_start=i/10,t_end=(i+1)/10,count=int(mask.sum()),paired_field_mse=float(paired[mask].mean()),odd_field_mse=float(odd_error[mask].mean()),even_energy=float(even_energy[mask].mean())))
     row=dict(cell=cell,checkpoint_sha256=base.digest(file),manifest_sha256=base.digest(manifest_file),validation_count=len(x),original_validation_mse=float(plus.mean()),negative_validation_mse=float(minus.mean()),paired_field_mse=float(paired.mean()),odd_field_mse=float(odd_error.mean()),even_energy=float(even_energy.mean()),even_fraction=float(even_energy.mean()/paired.mean()),oracle_symmetry_max_error=oracle_error,decomposition_max_error=residual,original_field_replay_error=replay_error,time_profile=profile)
     rows.append(row);print(json.dumps(row),flush=True)
-base.dump(a.save,dict(dataset=ds,torch=torch.__version__,device=a.device,rows=rows,interpretation='Frozen paired diagnostic; no training, odd projection sampling, changed primary metric or causal claim.'))
+result=dict(dataset=ds,torch=torch.__version__,device=a.device,rows=rows,interpretation='Frozen paired diagnostic; no training, odd projection sampling, changed primary metric or causal claim.')
+if a.cycle5_output:result.update(selection_rule='Lowest final validation oracle MSE within each registered family; no sampling/parity selection.',selection_pool=selection_pool,diagnostic_source_sha256=base.digest(__file__))
+base.dump(a.save,result)

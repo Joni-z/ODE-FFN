@@ -18,6 +18,9 @@ See the [current program](docs/autoresearch/professor-20261103/program.md),
 The latest [order and budget controls](docs/autoresearch/professor-20261103/cycle3-results/findings.md)
 and [frozen solver checks](docs/autoresearch/professor-20261103/solver-results/findings.md)
 are complete and replayed.
+The subsequent [diagonal feature contrasts](docs/autoresearch/professor-20261103/cycle4-results/findings.md)
+and [paired parity diagnostic](docs/autoresearch/professor-20261103/symmetry-results/findings.md)
+motivate the [registered abs-diagonal/bilinear comparison](docs/autoresearch/professor-20261103/cycle5.md).
 Earlier [66 replayed configurations](docs/research-muon-pd-2026-11-02/wave2/results/findings.md)
 remain available. These vector-field experiments do not establish JiT image quality.
 
