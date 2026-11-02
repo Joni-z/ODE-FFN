@@ -70,13 +70,27 @@ does not persist with longer training; stronger flattening always harms fitting.
 
 This rejects a post-hoc repair. It leaves a distinct adaptation question:
 can the network learn effectively if a **weak** shape constraint is present
-throughout training? Cycle8 tests that one factor with native, shape and paired
-scalar arms for both original scalar K2 and raw K1. It keeps the same loss,
-model, rates and ordinary controls. A failure will not automatically trigger
-a new strength/gate sweep.
+throughout training? Cycle8 tested that one factor with native, shape and paired
+scalar arms for both original scalar K2 and raw K1, retaining the same loss,
+model, rates and ordinary controls.
 
 Evidence: [gauge identity](logic-chain.md), [frozen shape/scale controls](cycle7-results/findings.md),
 [constrained-training registration](cycle8.md).
+
+Cycle8 has now completed: all four shape constraints increase P stable rank
+but worsen field fitting, and both constrained modes worsen sampling. The
+[full result](cycle8-results/findings.md) rejects this one setting. No automatic
+strength/gate sweep follows.
+
+## 4. Which spectrum describes the increment on actual features?
+
+For q=D(h)h, define M=E[qq^T]. Then E||Pq||^2=tr(PMP^T), which depends on both
+P and feature statistics. Unlike raw P, PMP^T is invariant under admissible
+constant-diagonal reparameterizations. On Product16 scalar K2, the constrained
+model's P norm decreases while its first-term/input RMS increases. This measured
+mismatch motivates inspecting M and PMP^T on native hidden probes before
+selecting another constraint. The [derivation](feature-metric.md) is complete;
+its algebra witness is not trained-feature evidence or a new optimizer.
 
 ## Current judgment
 
@@ -84,5 +98,6 @@ The useful progress is a sharper separation of mechanisms: optimizer geometry,
 weight amplitude, spectral shape, diagonal features and polynomial order are
 different hypotheses. Several attractive explanations have failed controlled
 tests. There is no accepted new ODEFFN method from this study yet. The next
-decision depends on the registered adaptation experiment, not on selecting
-another favorable synthetic endpoint or starting image training prematurely.
+decision depends on actual feature/operator evidence, without
+selecting another favorable synthetic endpoint or starting image training
+prematurely.

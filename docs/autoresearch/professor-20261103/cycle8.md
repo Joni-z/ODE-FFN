@@ -58,7 +58,7 @@ negative evidence rather than automatically sweeping strengths, rates or gates.
 - [x] Implement small optimizer adapter and source-bound grid; CPU witness.
 - [x] Publish/deploy immutable source; fresh documented native CUDA witnesses.
 - [x] Baseline-first monitored queues on145/Lenovo, two workers per free GPU.
-- [ ] Finish/replay all12, verify four exact native anchors, then assess the
+- [x] Finish/replay all12, verify four exact native anchors, then assess the
       adaptation question against parents and ordinary controls.
 
 Readiness history:4d381c6 Lenovo passed,145 stopped on the first cell because
@@ -82,3 +82,8 @@ still use all4096samples. Reuse the CPU-only sample_readouts helper with explici
 endpoint-step20000, expected-count6 and cycle8 experiment id; its default80k
 behavior is retained for historical use. This adds no generation, checkpoint
 choice, metric replacement or training changes.
+
+Closed: all12formal20k trajectories and native endpoint replays pass; four
+native20k states/samples exactly match archives. Both constrained modes worsen
+all four parents. [Results and decisions](cycle8-results/findings.md). No strength
+or rate sweep selected; the next question is frozen actual-feature moments.

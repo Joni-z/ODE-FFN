@@ -24,3 +24,8 @@ with94%GPU utilization and1191MiB; Lenovo3.5k/5.5k with90%and812MiB.
 145controller2489535/children2489555,2489556; Lenovo launcher13808, persistent
 controller24900/children30064,23348. Source is immutable f6bfefc. No failures.
 GPU activity is a resource-use measure, not a throughput or model-quality claim.
+
+Closed: both queues completed6/6, no failures or pending cells. Native six-cell
+endpoint replays and CPU state/update checks pass on both hosts. Four exact
+archived20k anchors and twelve exact generated-array replays. Quality results
+are in cycle8-results/findings.md; the two training GPUs are released.

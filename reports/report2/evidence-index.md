@@ -36,3 +36,5 @@ Neither is a count of independent training runs.
 [Cycle6 final80k comparison](../../docs/autoresearch/professor-20261103/cycle6-results/findings.md) is complete with exact prefixes and generated-array replays. Raw K1 has a field-versus-sampling tradeoff against matched Swi64 and no wider-control win. Submitted PDFs remain unchanged.
 
 [Cycle7 frozen spectral-shape controls](../../docs/autoresearch/professor-20261103/cycle7-results/findings.md):54cases and six exact anchors distinguish Frobenius-preserving flattening from operator-norm-matched contraction. No general post-hoc repair; constrained training remains a separate question. PDFs unchanged.
+
+[Cycle8 constrained-training comparison](../../docs/autoresearch/professor-20261103/cycle8-results/findings.md) completed12replayed runs with four exact native anchors. Flatter P spectra do not improve fitting or sampling in this setting. The [research map](../../docs/autoresearch/professor-20261103/research-map.md) now connects both professor proposals through controls, mathematical distinctions and decisions. Submitted PDFs remain unchanged.

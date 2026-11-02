@@ -105,17 +105,19 @@ harms field fitting. Equal matrix energy also need not preserve feature energy:
 E||Pq||^2=tr(P^T P E[qq^T]). This closes a post-hoc repair, not the separate
 question of adaptation during constrained training.
 
-Cycle8 now tests that remaining question in12registered trajectories: native,
-weak spectral-shape relaxation and paired scalar contractions for original
-scalar K2 and raw K1 on both tasks. The model, loss, rates and official Muon are
-unchanged; a separate post-step operation acts every10updates with one fixed
-relaxation time. Both fresh native v2 readiness passes and monitored post-SSH
-progress checks pass. Final20k outcomes remain pending; no new method is accepted.
+Cycle8 completed that adaptation question: all12trajectories and native replays
+pass; four20k native states/samples exactly match the archives. Shape relaxation
+increases P stable rank in all four settings but worsens field MSE by3.5–11.2%.
+Scalar contraction also worsens all four. Both modes worsen test SW2. Reject
+this setting, without a new strength/rate sweep. Product16 scalar K2 also shows
+a useful diagnostic contradiction: lower P norm accompanies a larger first-term
+response. A frozen actual-feature moment study is the next question; the
+feature-metric derivation is theory, not a new optimizer or quality result.
 
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
 [cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
 [cycle4 results](cycle4-results/findings.md), [cycle5 results](cycle5-results/findings.md), [parity readout](symmetry-results/findings.md),
 [signed-diagonal branch](signed-diagonal.md),
-[sample cases](sample-structure-results/findings.md), [completed budget study](cycle6-results/findings.md), [shape intervention](cycle7-results/findings.md), [current training study](cycle8-execution.md),
+[sample cases](sample-structure-results/findings.md), [completed budget study](cycle6-results/findings.md), [shape intervention](cycle7-results/findings.md), [completed constraint study](cycle8-results/findings.md),
 [two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).

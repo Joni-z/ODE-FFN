@@ -18,10 +18,11 @@ questions, derivations, controlled tests and decisions.
 The [matched 80k study](docs/autoresearch/professor-20261103/cycle6-results/findings.md)
 retains a limited fitting-versus-sampling tradeoff, with no overall advantage
 over ordinary SwiGLU. The [frozen spectral-shape test](docs/autoresearch/professor-20261103/cycle7-results/findings.md)
-rejects post-hoc flattening as a general repair. The current
-[registered training test](docs/autoresearch/professor-20261103/cycle8.md) compares
-native updates, weak shape relaxation and paired scalar contraction on 145 and
-Lenovo, with [persistent monitors](docs/autoresearch/professor-20261103/cycle8-execution.md).
+rejects post-hoc flattening as a general repair. The subsequent
+[training constraint comparison](docs/autoresearch/professor-20261103/cycle8-results/findings.md)
+also rejects the registered weak-relaxation setting: P spectra become less
+concentrated but field fitting and sampling worsen. The next diagnostic concerns
+[actual feature moments](docs/autoresearch/professor-20261103/feature-metric.md).
 These vector experiments do not establish JiT image quality.
 
 ## Code

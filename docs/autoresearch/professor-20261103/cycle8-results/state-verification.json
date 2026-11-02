@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "exact_anchors": 4,
+  "receipts": [
+    {
+      "passed": true,
+      "partial": false,
+      "host": "145",
+      "rows": [
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02__relax_none",
+          "checkpoint_sha256": "1ead487e80ee0097d98cc9f3ff87b206e225243274a995bc7ce07e40c212f07d",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.877932241784601e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.0,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__relax_none",
+          "checkpoint_sha256": "784eb65373fe5eaec94d23d77adb4f72a0768cf5013d2e6cf18fab199cfaf3cf",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.4973849266646594e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.0,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02__relax_shape",
+          "checkpoint_sha256": "aaa2df92908271fc57cee97a260de40ad2991792105253108091c3c5a3a49b51",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.8555203076008563e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.11337964313340981,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__relax_shape",
+          "checkpoint_sha256": "3d14c8244a2e9677f3cac8f55defabeab9e36fc1fa6dc4a103f867b91ded9d6e",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 3.6244937530353047e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.1364535322737531,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02__relax_scale",
+          "checkpoint_sha256": "5f4f28f36d026f6ee1b0848a6db919236d3b703f1a1bc88f26d5bd1d456564ea",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 3.6661660396385166e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.08010955458906394,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__relax_scale",
+          "checkpoint_sha256": "9e3c455b583e8a1cca576361fa481fbc47bb7d63f3bca59c8fac6539ef2a07b7",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.544388052312211e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.09178043890735621,
+          "logger_delta_is_total_post_relaxation": true
+        }
+      ],
+      "anchors": [
+        {
+          "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02__relax_none",
+          "parent": "rotated_product_bimodal_16d__scalar_k2__muon_0.02",
+          "parent_sha256": "d04c10df8b920c80d5877c93335c2832a9db7fa712225f32b20fa84b6459cd26",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__relax_none",
+          "parent": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006",
+          "parent_sha256": "9230d521cca90aa11f58f67957a3edd92085ba5d36791d8cd35bd88193836415",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        }
+      ],
+      "analysis_source_sha256": "d7afc5c6f25b459800ab1db5d447e7a533661dc9f8d94829fe1e40b1c8e54b7c",
+      "scope": "Native anchor states/samples exact; final logged spectra match checkpoint; total-delta energy identities and zero-relaxation events checked. Logged deltas are not independently replayed from unsaved pre-step states."
+    },
+    {
+      "passed": true,
+      "partial": false,
+      "host": "lenovo",
+      "rows": [
+        {
+          "cell": "gmm_ring8_2d__scalar_k2__muon_0.006__relax_none",
+          "checkpoint_sha256": "2f4413d9f3d36abb2b89a83468ba7c6234d366aaf25448c8aca6f838e971c500",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.530221580465844e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.0,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__relax_none",
+          "checkpoint_sha256": "7974a75ed8f13177ec5f34e11f01d0680fdfccbe0ada7cab7b9d794b278afe5c",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.3197108264744397e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.0,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "gmm_ring8_2d__scalar_k2__muon_0.006__relax_shape",
+          "checkpoint_sha256": "9b128507808837dff92557036307cc30f559683a0f1d9571e8c5ba87e55bb0c1",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.4580275714058217e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.15923152052916353,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__relax_shape",
+          "checkpoint_sha256": "edee38c2c6f51bcc3d52d6c50471a97738b4b3a4bf44a13ba2f0a7675d90bc13",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 2.5756054824568797e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.12354410260169739,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "gmm_ring8_2d__scalar_k2__muon_0.006__relax_scale",
+          "checkpoint_sha256": "bd9b8c62f33178192b671479c8a8780605b9eb34b829504e43f495603e4c2d03",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 3.125104142526188e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.10964499364259386,
+          "logger_delta_is_total_post_relaxation": true
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__relax_scale",
+          "checkpoint_sha256": "2b8be4b9ba186618ca3126cd2f32fcc35c03efb8bfeeb7ada71501040ecfa222",
+          "events": 10,
+          "total_delta_energy_identity_max_relative_error": 3.7933754852815206e-16,
+          "final_logged_weight_spectrum_error": 0.0,
+          "median_relaxation_over_native_delta_frobenius": 0.0783626718956026,
+          "logger_delta_is_total_post_relaxation": true
+        }
+      ],
+      "anchors": [
+        {
+          "cell": "gmm_ring8_2d__scalar_k2__muon_0.006__relax_none",
+          "parent": "gmm_ring8_2d__scalar_k2__muon_0.006",
+          "parent_sha256": "1a2a6a3a6c4432072843a99cdbe0c6f23dd5947b4e09013e8c037d70d014b592",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__relax_none",
+          "parent": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02",
+          "parent_sha256": "d7c4d383f62ee9278300e3ee024e85d9e06614d60d99d41fc68258f101e00ead",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        }
+      ],
+      "analysis_source_sha256": "d7afc5c6f25b459800ab1db5d447e7a533661dc9f8d94829fe1e40b1c8e54b7c",
+      "scope": "Native anchor states/samples exact; final logged spectra match checkpoint; total-delta energy identities and zero-relaxation events checked. Logged deltas are not independently replayed from unsaved pre-step states."
+    }
+  ]
+}

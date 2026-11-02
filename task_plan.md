@@ -1,15 +1,16 @@
-# Current checkpoint: weak spectral relaxation during training
+# Current checkpoint: spectral-relaxation study closed
 
-Cycle8 is live from frozen f6bfefc on 145 GPU0 and Lenovo GPU0, with two workers
-per card. Twelve registered runs compare native, Frobenius-preserving shape and
-matched scalar-contraction updates for scalar K2 and raw K1. Both fresh native
-readiness passes and post-SSH progress checks passed. Finish all12, replay them,
-and verify the four exact20k native anchors before selecting another direction.
-[Execution](docs/autoresearch/professor-20261103/cycle8-execution.md) ·
-[Research map](docs/autoresearch/professor-20261103/research-map.md).
+Cycle8 completed all12 native20k trajectories at frozen f6bfefc on145/Lenovo.
+All generated arrays replay exactly; four native anchors match archived model,
+optimizer, buffers and RNG states exactly. Shape relaxation worsens all four
+parents despite increasing P stable rank. No new model is accepted and neither
+GPU has an active training queue. [Full evidence](docs/autoresearch/professor-20261103/cycle8-results/findings.md).
 
-Cycle6 long-budget and cycle7 frozen-shape checks are complete. Neither accepts
-an ODE replacement. Older runtime snapshots below are historical.
+Next: register a frozen actual-feature moment diagnostic for M=E[qq^T] and
+PMP^T, guided by the measured mismatch between P norms and increment responses.
+No new optimizer or strength/rate sweep is selected. Older snapshots below are
+historical; the [research map](docs/autoresearch/professor-20261103/research-map.md)
+tracks the complete question/test/decision chain.
 
 # Current runtime: cycle6 budget-only confirmation
 

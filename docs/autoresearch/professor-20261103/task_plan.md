@@ -2,12 +2,11 @@
 
 ## Current step
 
-Cycle8 is running from frozen f6bfefc after both v2 native readiness passes.
-Complete/replay all12, verify four exact20k anchor states and post-relaxation
-update logs, then decide whether training adaptation changes the negative frozen
-shape result. Cycle6 and cycle7 are closed. Earlier paragraphs below retain
-chronological decisions and the v1 readiness failure.
-
+Cycle8 is complete: all12replays pass and four exact20k native states/samples
+match archives. All eight constrained candidates worsen field and sampling.
+Publish the complete figures/negative decision, then register frozen feature
+moments M and increment statistics PMP^T. No new training method or hyperparameter
+sweep is selected. Earlier paragraphs preserve the decisions and v1 failure.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 

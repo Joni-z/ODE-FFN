@@ -1,10 +1,10 @@
 # Measured run cost
 
-The table covers98 completed training trajectories from cycles1–6:90 at20k
+The table covers110 completed training trajectories from cycles1–6 and8:102 at20k
 updates and eight at80k. Native wall times are attached only after recorded
 field/sampling scores match independent replay. Their summed process wall time
-is21,556.2s; workers overlap, so this is not GPU hours or elapsed queue time.
-Cycle7 is frozen analysis, and ongoing cycle8 is excluded.
+is24,412.1s; workers overlap, so this is not GPU hours or elapsed queue time.
+Cycle7 is frozen analysis and is excluded from training counts.
 
 Examples from the same native task/host,20k updates with two workers per GPU:
 
@@ -29,11 +29,10 @@ is active time, not a measurement of peak compute efficiency or MFU.
 [All run times and config hashes](trajectories.csv). No training was rerun to
 collect these records. Cycle5 is included; cycle6 uses a separately registered80k budget and remains live.
 
-## Matched80k-budget extension
+## Budget and constraint extensions
 
-The table now includes all98completed training trajectories from cycles1–6,
-with eight80k cases distinguished by cycle6. Cycle7 is a frozen diagnostic
-and is not counted as training. Cycle8 is ongoing and is not in this table.
-Times remain per-process wall measurements under two-worker sharing, including
-periodic native evaluation/logging/checkpoints. Their sum is not GPU-hours,
-and mixed budgets must not be used for an equal-time efficiency claim.
+Cycle6 adds eight80k cases, clearly distinguished from20k comparisons in the
+CSV. Cycle8 adds twelve20k native/shape/contraction cases; its SVD cost is part
+of the native timer. Frozen cycle7 cases are not training trajectories. Mixed
+budgets cannot establish equal-time efficiency, and two-worker dispatch is not
+an isolated latency measurement.
