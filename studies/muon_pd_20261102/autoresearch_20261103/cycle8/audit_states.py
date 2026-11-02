@@ -4,11 +4,12 @@ from pathlib import Path
 import numpy as np
 import torch
 
-p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--output-root',required=True);p.add_argument('--old-output',required=True);p.add_argument('--cycle3-output',required=True);p.add_argument('--host',required=True);p.add_argument('--save',required=True);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--source',required=True);p.add_argument('--output-root',required=True);p.add_argument('--old-output',required=True);p.add_argument('--cycle3-output',required=True);p.add_argument('--host',required=True);p.add_argument('--save',required=True);p.add_argument('--only-anchors',action='store_true');a=p.parse_args()
 source=Path(a.source);sys.path.insert(0,str(source/'autoresearch_20261103/cycle8'));from trial8 import base,STRENGTH,CADENCE
 sys.path.insert(0,str(source/'autoresearch_20261103/cycle6'));from prefix import numerical_equal
 base.verify_sources();torch.set_num_threads(1);grid=json.loads((source/'autoresearch_20261103/cycle8/grid.json').read_text());rows=[];anchors=[]
 for cell in [c for c in grid['cells'] if c['host']==a.host]:
+    if a.only_anchors and cell['relaxation']!='none':continue
     folder=Path(a.output_root)/'professor_autoresearch_cycle8_20261103'/cell['dataset']/cell['id']/'seed000'
     assert (folder/'ADAPTER_COMPLETE').exists()
     file=folder/'checkpoints/step_0020000.pt';state=torch.load(file,map_location='cpu',weights_only=False)
@@ -41,6 +42,6 @@ for cell in [c for c in grid['cells'] if c['host']==a.host]:
             if event['step']==20000:
                 expected=base.spectral(state['model'][name]);err=max(abs(x-y) for x,y in zip(expected['singular_values'],m['weight']['singular_values']));max_weight_error=max(max_weight_error,err);assert err<1e-10
     rows.append(dict(cell=cell['id'],checkpoint_sha256=base.digest(file),events=len(events),total_delta_energy_identity_max_relative_error=max_energy_error,final_logged_weight_spectrum_error=max_weight_error,median_relaxation_over_native_delta_frobenius=float(np.median(ratios)) if ratios else 0.,logger_delta_is_total_post_relaxation=True))
-assert len(rows)==6 and len(anchors)==2
-base.dump(a.save,dict(passed=True,host=a.host,rows=rows,anchors=anchors,scope='Native anchor states/samples exact; final logged spectra match checkpoint; total-delta energy identities and zero-relaxation events checked. Logged deltas are not independently replayed from unsaved pre-step states.'))
+assert len(rows)==(2 if a.only_anchors else 6) and len(anchors)==2
+base.dump(a.save,dict(passed=True,partial=a.only_anchors,host=a.host,rows=rows,anchors=anchors,analysis_source_sha256=base.digest(__file__),scope='Native anchor states/samples exact; final logged spectra match checkpoint; total-delta energy identities and zero-relaxation events checked. Logged deltas are not independently replayed from unsaved pre-step states.'))
 print(json.dumps(dict(passed=True,rows=len(rows),exact_anchors=len(anchors))))
