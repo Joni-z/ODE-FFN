@@ -31,8 +31,9 @@ Git: `D:/Research/ODE-FFN/tools/git/cmd/git.exe`. The old dirty `repo/` and
 Windows application-control policy and driver installation are unchanged.
 The study's `.gitattributes` requires LF line endings. Pinned upstream hashes
 must match raw bytes on Windows too; do not normalize files inside verification
-to conceal a mismatch. A fresh study checkout may require `git checkout-index
---force --all` after adding the attributes, only after confirming it is clean.
+to conceal a mismatch. The already-cloned Windows snapshot required exact Git-blob restoration plus
+`git add --renormalize` to refresh its index (empty staged diff). Merely invoking
+`checkout-index --force` left CRLF bytes unchanged. See execution.md.
 
 ```bash
 ssh lenovo 'set OMP_NUM_THREADS=1&& set OPENBLAS_NUM_THREADS=1&& set MKL_NUM_THREADS=1&& D:\Research\ODE-FFN\envs\synthetic\Scripts\python.exe D:\Research\ODE-FFN\muon-pd-20261102\repo\studies\muon_pd_20261102\preflight.py --device cpu --output D:\Research\ODE-FFN\muon-pd-20261102\preflight\cpu.json'

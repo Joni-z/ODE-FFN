@@ -1,0 +1,66 @@
+{
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "cuda_name": "NVIDIA RTX 6000 Ada Generation",
+  "source_manifest_sha256": "dd80bc8a7e7ad5df9046c453edda4112e5b7f77b3efdbbc05ed7649ceb2a3168",
+  "mathematics": {
+    "dense_polynomial_max_abs_error": 2.498001805406602e-16,
+    "counts": {
+      "scalar_k2": 82056,
+      "vector_dp_k2": 81858,
+      "vector_pd_k2": 81858,
+      "swiglu128": 81792,
+      "swiglu192": 106818
+    },
+    "pairing": true,
+    "gate_derivatives": true,
+    "original_forward_identity": true
+  },
+  "optimizers": {
+    "adamw": {
+      "native_update_exact": true,
+      "serialized_resume_exact": true,
+      "loss": 1.292118787765503
+    },
+    "muon": {
+      "native_update_exact": true,
+      "serialized_resume_exact": true,
+      "loss": 1.3356270790100098
+    }
+  },
+  "benchmark": [
+    {
+      "family": "scalar_k2",
+      "optimizer": "adamw",
+      "seconds_per_update": 0.008516704756766557,
+      "loss": 1.9912819862365723,
+      "gradient_norm": 0.3022353947162628,
+      "peak_cuda_bytes": 34641408
+    },
+    {
+      "family": "scalar_k2",
+      "optimizer": "muon",
+      "seconds_per_update": 0.012212854763492941,
+      "loss": 1.9703280925750732,
+      "gradient_norm": 0.32722437381744385,
+      "peak_cuda_bytes": 34543104
+    },
+    {
+      "family": "vector_pd_k2",
+      "optimizer": "adamw",
+      "seconds_per_update": 0.008365326949084798,
+      "loss": 1.9913862943649292,
+      "gradient_norm": 0.3018451929092407,
+      "peak_cuda_bytes": 34478592
+    },
+    {
+      "family": "swiglu192",
+      "optimizer": "muon",
+      "seconds_per_update": 0.008456016145646571,
+      "loss": 1.9032492637634277,
+      "gradient_norm": 0.3959014117717743,
+      "peak_cuda_bytes": 32208896
+    }
+  ],
+  "passed": true
+}

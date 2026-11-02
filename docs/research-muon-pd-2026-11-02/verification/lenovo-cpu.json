@@ -1,0 +1,66 @@
+{
+  "device": "cpu",
+  "torch": "2.8.0+cu126",
+  "cuda_name": null,
+  "source_manifest_sha256": "dd80bc8a7e7ad5df9046c453edda4112e5b7f77b3efdbbc05ed7649ceb2a3168",
+  "mathematics": {
+    "dense_polynomial_max_abs_error": 2.220446049250313e-16,
+    "counts": {
+      "scalar_k2": 82056,
+      "vector_dp_k2": 81858,
+      "vector_pd_k2": 81858,
+      "swiglu128": 81792,
+      "swiglu192": 106818
+    },
+    "pairing": true,
+    "gate_derivatives": true,
+    "original_forward_identity": true
+  },
+  "optimizers": {
+    "adamw": {
+      "native_update_exact": true,
+      "serialized_resume_exact": true,
+      "loss": 1.2960158586502075
+    },
+    "muon": {
+      "native_update_exact": true,
+      "serialized_resume_exact": true,
+      "loss": 1.3519368171691895
+    }
+  },
+  "benchmark": [
+    {
+      "family": "scalar_k2",
+      "optimizer": "adamw",
+      "seconds_per_update": 0.0071434958333459996,
+      "loss": 2.0598337650299072,
+      "gradient_norm": 0.3243306875228882,
+      "peak_cuda_bytes": null
+    },
+    {
+      "family": "scalar_k2",
+      "optimizer": "muon",
+      "seconds_per_update": 0.009541421665926465,
+      "loss": 2.0384609699249268,
+      "gradient_norm": 0.3495379090309143,
+      "peak_cuda_bytes": null
+    },
+    {
+      "family": "vector_pd_k2",
+      "optimizer": "adamw",
+      "seconds_per_update": 0.0074559491671000915,
+      "loss": 2.059946298599243,
+      "gradient_norm": 0.3240078389644623,
+      "peak_cuda_bytes": null
+    },
+    {
+      "family": "swiglu192",
+      "optimizer": "muon",
+      "seconds_per_update": 0.008839166666924332,
+      "loss": 1.976445198059082,
+      "gradient_norm": 0.417194128036499,
+      "peak_cuda_bytes": null
+    }
+  ],
+  "passed": true
+}
