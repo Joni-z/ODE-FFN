@@ -18,3 +18,8 @@ Cycle2 completed/replayed18 trials. Direct h is a Ring8 lead, still below strong
 Cycle3 deployed/fresh-CUDA-checked/launched from14ab235,22 cells. Post-SSH step increases verified on both hosts. Current task: finish, replay and compare order/parameter/compute controls, then register the next evidence-based action. Source worktrees stay immutable.
 
 Cycle3 complete/replayed22, with exact generated arrays. ScalarK1 improves all8 field comparisons; rawK1 Ring8 is a small field lead but loses sampled distance, and Product16 still favors ordinary controls. Registered frozen solver diagnostics completed on all6 checkpoints; increasing Heun resolution does not change ordering. Next: register a small K1 diagonal-function contrast, preserving the new matched ordinary controls and avoiding an unsupported second-order story.
+
+Cycle4 registered18 K1 diagonal-function cells in cycle4.md: constant1, bounded
+sigmoid and h+1. Same P/common initialization and no learned controller. CPU
+witness must pass after the recorded local attribute-name correction; then freeze,
+deploy, fresh CUDA witness, run and replay. Ordinary controls remain fixed.
