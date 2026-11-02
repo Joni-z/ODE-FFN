@@ -18,3 +18,9 @@ every30s with PIDs, completed/pending cells and GPU utilization/memory/power.
 Inspect post-SSH progress rather than treating launcher success as persistence.
 Final state/update checks use cycle8/audit_states.py; native final replay uses
 audit_completed.py with variant-module cycle8/trial8.py and endpoint-step20000.
+
+Post-SSH persistence confirmed over60s:145native scalar/raw advanced to4k/6k
+with94%GPU utilization and1191MiB; Lenovo3.5k/5.5k with90%and812MiB.
+145controller2489535/children2489555,2489556; Lenovo launcher13808, persistent
+controller24900/children30064,23348. Source is immutable f6bfefc. No failures.
+GPU activity is a resource-use measure, not a throughput or model-quality claim.

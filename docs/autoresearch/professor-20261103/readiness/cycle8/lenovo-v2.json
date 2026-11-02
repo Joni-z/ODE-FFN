@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "rows": [
+    {
+      "family": "scalar_k2",
+      "native_none_16_steps_exact": true,
+      "post_step_shape_scale_matches_formula": true
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "native_none_16_steps_exact": true,
+      "post_step_shape_scale_matches_formula": true
+    }
+  ],
+  "strength": 0.000999500166624978,
+  "all_parent_data_versions_match": true,
+  "dataset": "gmm_ring8_2d",
+  "native": [
+    {
+      "family": "scalar_k2",
+      "relaxation": "none",
+      "native_resume16_exact_continuous16": true,
+      "native_eight_step_parent_exact": true,
+      "crossed_step10_relaxation": true
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "relaxation": "none",
+      "native_resume16_exact_continuous16": true,
+      "native_eight_step_parent_exact": true,
+      "crossed_step10_relaxation": true
+    },
+    {
+      "family": "scalar_k2",
+      "relaxation": "shape",
+      "native_resume16_exact_continuous16": true,
+      "native_eight_step_parent_exact": false,
+      "crossed_step10_relaxation": true
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "relaxation": "shape",
+      "native_resume16_exact_continuous16": true,
+      "native_eight_step_parent_exact": false,
+      "crossed_step10_relaxation": true
+    },
+    {
+      "family": "scalar_k2",
+      "relaxation": "scale",
+      "native_resume16_exact_continuous16": true,
+      "native_eight_step_parent_exact": false,
+      "crossed_step10_relaxation": true
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "relaxation": "scale",
+      "native_resume16_exact_continuous16": true,
+      "native_eight_step_parent_exact": false,
+      "crossed_step10_relaxation": true
+    }
+  ]
+}

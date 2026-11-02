@@ -122,3 +122,10 @@ No formal20k launch. Correct grid to each hash-bound parent data_version
 (product16_v1 forProduct16), add all12parent/cache assertions to preflight,
 retain old logs/worktree and use a new cycle8-v2 runtime/readiness directory.
 Native model, optimizer and relaxation math are unchanged.
+
+Cycle8 f6bfefc v2 fresh native readiness passes on both hosts,12/12resume states
+exact versus continuous16 and4/4parent8anchors. Formal baseline-first queues
+launched using exact published commands; next verify post-SSH progress, finish
+and replay all12, check four exact20k anchors and total post-relaxation logs.
+Latest145data2free snapshot7.9GiB (was29GiB); estimated new experiment artifacts
+are well below1GiB, recheck capacity while monitoring without deleting others.

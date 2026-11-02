@@ -28,3 +28,12 @@ is active time, not a measurement of peak compute efficiency or MFU.
 
 [All run times and config hashes](trajectories.csv). No training was rerun to
 collect these records. Cycle5 is included; cycle6 uses a separately registered80k budget and remains live.
+
+## Matched80k-budget extension
+
+The table now includes all98completed training trajectories from cycles1–6,
+with eight80k cases distinguished by cycle6. Cycle7 is a frozen diagnostic
+and is not counted as training. Cycle8 is ongoing and is not in this table.
+Times remain per-process wall measurements under two-worker sharing, including
+periodic native evaluation/logging/checkpoints. Their sum is not GPU-hours,
+and mixed budgets must not be used for an equal-time efficiency claim.

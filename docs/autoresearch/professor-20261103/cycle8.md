@@ -56,8 +56,8 @@ the same earlier tradeoff. If this single relaxation setting fails, retain the
 negative evidence rather than automatically sweeping strengths, rates or gates.
 
 - [x] Implement small optimizer adapter and source-bound grid; CPU witness.
-- [ ] Publish/deploy immutable source; fresh documented native CUDA witnesses.
-- [ ] Baseline-first monitored queues on145/Lenovo, two workers per free GPU.
+- [x] Publish/deploy immutable source; fresh documented native CUDA witnesses.
+- [x] Baseline-first monitored queues on145/Lenovo, two workers per free GPU.
 - [ ] Finish/replay all12, verify four exact native anchors, then assess the
       adaptation question against parents and ordinary controls.
 
@@ -66,3 +66,8 @@ Product16 was incorrectly assigned the v1cache. No formal20k run started.
 Runtime f6bfefc copies every archived parent data version and checks all12
 bindings before model updates; separate cycle8-v2 worktrees preserve the failed
 attempt. Fresh documented-v2 native readiness is in progress.
+
+Fresh f6bfefc v2 readiness passed on both hosts: all12actual native
+8->16continuations match continuous16, four no-op parent8states match exactly,
+and all parent/cache identities pass. Formal baseline-first queues launched
+from the published commands; final20k quality outcomes remain pending.
