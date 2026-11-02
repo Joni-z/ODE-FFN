@@ -54,6 +54,7 @@ for r in rows:
 save('endpoints.csv',rows);save('decisions.csv',decisions)
 for name in ['curves','updates']:save(name+'.csv',[r for d in receipts for r in d[name]])
 verification=dict(endpoints=len(rows),max_field_replay_error=max(r['field_abs_error'] for r in rows),max_sw2_error=max(r['sw2_abs_error'] for r in rows),max_generated_error=max(r['generated_replay_max_abs_error'] for r in rows),max_anchor_field_error=max(r.get('anchor_field_abs_error',0) for r in rows),max_anchor_generated_error=max(r.get('anchor_sample_max_abs_error',0) for r in rows))
+verification['endpoint_steps']=sorted({receipt.get('endpoint_step',20000) for receipt in receipts})
 (out/'verification.json').write_text(json.dumps(verification,indent=2)+'\n')
 ledger=Path(a.ledger);ledger.parent.mkdir(parents=True,exist_ok=True)
 exists=ledger.exists()

@@ -1,9 +1,9 @@
 # Measured run cost
 
-The76 completed cycle1–4 trajectories now have their native training-loop wall
+The90 completed cycle1–5 trajectories now have their native training-loop wall
 times attached to the replayed endpoints. Recorded field and sampling values
 were checked against the independent replay before attaching the times. The
-sum of process wall times is14,363.3s; workers overlap, so this is not GPU hours
+sum of process wall times is16,458.6s; workers overlap, so this is not GPU hours
 or elapsed queue time.
 
 Examples from the same native task/host,20k updates with two workers per GPU:
@@ -27,4 +27,4 @@ exclude optimizer and diagnostic work. The recorded90–94% nvidia-smi utilizati
 is active time, not a measurement of peak compute efficiency or MFU.
 
 [All run times and config hashes](trajectories.csv). No training was rerun to
-collect these records. Current cycle5 costs will be attached after completion.
+collect these records. Cycle5 is included; cycle6 uses a separately registered80k budget and remains live.

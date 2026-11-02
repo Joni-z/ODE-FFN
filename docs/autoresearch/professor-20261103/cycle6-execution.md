@@ -21,3 +21,9 @@ all model/optimizer/buffer/RNG numerical states match their archived parents
 exactly. Four of8prefixes verified; each host still lists pending Swi128/192.
 Receipts:readiness/cycle6/{145-prefix-early,lenovo-prefix-early}.json. This is
 comparability evidence, not an80k quality result.
+
+Full20k prefix milestone PASSED:8/8 model/optimizer/buffer/RNG states exactly
+match original parents; no pending cells in either final receipt. Both commands
+ran once after their four selected children passed20500. Bindings/hashes pass;
+source remains b33c837. Receipts:readiness/cycle6/{145-prefix,lenovo-prefix}.json.
+Remaining task: finish and replay80k, not another prefix or architecture search.

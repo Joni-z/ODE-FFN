@@ -66,7 +66,7 @@ wall time and the extra budget are reported separately from model quality.
 - [x] Implement a budget-only entry/grid, source-bound prefix auditor and native
       actual-entry witness using unchanged parent builders/trainer.
 - [x] Freeze/push; deploy new worktrees and pass fresh documented CUDA checks.
-- [ ] Launch/monitor all8; verify exact20k prefixes before interpreting later steps.
+- [x] Launch all8 with monitors and verify all8 exact archived20k numerical prefixes.
 - [ ] Finish/replay80k endpoints, retained learning curves and P/sample readouts.
 - [ ] Decide whether raw's lead survives matched ordinary convergence, then choose
       the next research question without reopening stopped feature families.

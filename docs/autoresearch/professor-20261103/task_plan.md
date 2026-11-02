@@ -76,3 +76,10 @@ then complete/replay all8at80k. No new model is selected.
 Early prefix milestone:4/8actual20k states match archived model/optimizer/RNG
 exactly (first Swi64/raw pair perhost). Remaining Swi128/192 prefixes pending
 their dispatch/progress. Do not report the partial receipt as all-eight closure.
+
+All8actual20k prefixes now pass exact model/optimizer/buffer/RNG equality with
+archived parents, both final receipts4rows/no pending. Remaining P0: finish all
+80k cells, native endpoint replay (explicit --endpoint-step80000), full ordinary
+comparison and registered sample/P readouts. Prepared budget analysis is syntax
+checked; its quality outputs await complete data. Costs now cover all90completed
+20k autoresearch trajectories, excluding the ongoing80k study.
