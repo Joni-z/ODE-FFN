@@ -70,7 +70,17 @@ sampling disagree, inspect the frozen external-solver/time-error readout while
 keeping primary Heun32 results. A useful method must survive those tests before
 image transfer or any claim of an FM-specific inductive bias.
 
+Cycle4 now runs a smaller K1 feature contrast: constant1, bounded direct sigmoid,
+and h+1 diagonals, holding P/common tensors and all training settings fixed.
+The constant arm is an ordinary bias-free SiLU FFN under W=I+P; the shifted arm
+adds quadratic curvature at the same local value/Jacobian at zero. Afterward,
+a frozen parity diagnostic checks a known property of both population targets:
+u(-x,t)=-u(x,t). A possible next raw-versus-abs diagonal has exactly identical
+conditional singular values at matched P,h but even versus odd increments.
+It remains a proposed contrast until complete results justify selecting it.
+
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
 [cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
-[literature branches](literature-directions.md).
+[current cycle](cycle4-execution.md), [signed-diagonal branch](signed-diagonal.md),
+[two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).
