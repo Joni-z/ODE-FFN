@@ -36,6 +36,8 @@ def main():
     p.add_argument('--variant-module')
     p.add_argument('--experiment-id')
     p.add_argument('--anchor-output')
+    p.add_argument('--only-complete', action='store_true')
+    p.add_argument('--expected-count', type=int)
     args = p.parse_args()
     source = Path(args.source).resolve()
     sys.path.insert(0, str(source))
@@ -51,16 +53,18 @@ def main():
         builder = build_model
         experiment = 'muon_pd_wave2_20261102'
     if args.variant_module:
-        import importlib
+        from importlib import import_module
         entry = source/args.variant_module
         sys.path.insert(0, str(entry.parent))
-        builder = importlib.import_module(entry.stem).build_model
+        builder = import_module(entry.stem).build_model
     if args.experiment_id:
         experiment = args.experiment_id
     torch.set_num_threads(1)
     device = torch.device(args.device)
     rows, curves, updates = [], [], []
     for folder in sorted((Path(args.output_root)/experiment).glob('*/*/seed000')):
+        if args.only_complete and not (folder/'ADAPTER_COMPLETE').exists():
+            continue
         cfg = json.loads((folder/'config.json').read_text())
         cell = cfg['cell']
         metrics = [json.loads(x) for x in (folder/'metrics.jsonl').read_text().splitlines()]
@@ -153,7 +157,9 @@ def main():
                               sw2_abs_error=sample_error, replay_max_abs_error=replay_error)), flush=True)
         # Release GPU-resident optimizer state loaded from the checkpoint too.
         del checkpoint, model, fixed
-    result = dict(source=str(source), source_manifest_sha256=sha(source/'source_provenance.json'),
+    if args.expected_count is not None:
+        assert len(rows) == args.expected_count, (len(rows), args.expected_count)
+    result = dict(partial=args.only_complete, source=str(source), source_manifest_sha256=sha(source/'source_provenance.json'),
                   torch=torch.__version__, device=args.device, passed=True,
                   endpoints=rows, curves=curves, updates=updates)
     path = Path(args.save)

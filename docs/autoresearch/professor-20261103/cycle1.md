@@ -35,3 +35,19 @@ These conditional spectra are local probes, not global stability certificates.
 If useful directions appear, isolate their cause before combining. If both fail,
 consider direct input-derived D as a distinct construction, then the already planned
 optimizer-by-order comparison. No family is accepted merely for increasing rank.
+
+## Interpretation refinement before outcomes
+
+Although the affine controller has almost the same parameter count, its64x64
+matrix can become full rank. The parent logit Jacobian W2 diag(SiLU') W1 has
+rank at most32 at every input. The affine initialization matches that rank32
+tangent, but later training can increase its rank. Therefore this is a controller
+budget/parameterization comparison, not an isolated proof that removing SiLU helps.
+A successful affine arm requires a factorized-linear control with the same32-wide
+bottleneck before attributing the gain to nonlinearity versus rank.
+
+An exact local matching construction for that prospective control is
+W1'=W1,b1'=b1,W2'=W2 diag(SiLU'(b1)),
+b2'=b2+W2[SiLU(b1)-SiLU'(b1)*b1], with hidden activation replaced by identity.
+This preserves the logit value and Jacobian at h=0, parameter count and rank cap;
+it does not match the parent at all h. Keep all current results regardless.

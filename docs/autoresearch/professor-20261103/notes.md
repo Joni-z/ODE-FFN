@@ -19,3 +19,8 @@ row/column magnitudes. P=diag(r)R gives ||P||2<=max(r)||R||2; this is an inequal
 not an exact multiplicative attribution. Checkpoint/config hashes are retained.
 This asks whether our P growth resembles magnitude drift discussed by Muown, without
 introducing Muown or any new optimizer trick. CPU-only readout; training is unchanged.
+
+Before candidate outcomes, identified a controller-rank confound: full affine can
+learn rank64; original32-hidden MLP logit Jacobian has rank<=32. Record this explicitly,
+then distinguish using a factorized-linear control if affine suggests a lead.
+Do not label a win as evidence that nonlinear gate features are unnecessary.

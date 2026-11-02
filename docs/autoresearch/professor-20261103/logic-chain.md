@@ -43,6 +43,8 @@ nonlinear MLP (32 fewer parameters per solve). Matching its value and Jacobian
 at the zero hidden anchor avoids an arbitrary constant initialization shift;
 it does not make the initial functions identical at all hidden inputs.
 
+The affine controller can also grow to rank64 while the original logit Jacobian is capped at32. It reallocates controller capacity; a factorized-linear follow-up is needed to separate rank from nonlinear features. This confound was recorded before reading candidate endpoints.
+
 The affine output keeps the identical MLP tensors but removes sigmoid saturation
 and the(.2,1) constraint. It changes those two coupled properties together, so a
 positive outcome would need a follow-up that separates them. The earlier failed

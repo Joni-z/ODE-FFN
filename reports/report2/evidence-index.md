@@ -22,3 +22,7 @@ The archived area inventories in [scope.json](scope.json) and the current
 [attempt inventory](attempt-inventory.json) serve different purposes: the former
 tracks post-Report1 Git changes, the latter covers the preserved documentation.
 Neither is a count of independent training runs.
+
+## Professor-guided autoresearch,3November
+
+[Current logic chain](../../docs/autoresearch/professor-20261103/logic-chain.md), [new spectral decomposition](../../docs/autoresearch/professor-20261103/spectrum/findings.md), and [cycle1 registration](../../docs/autoresearch/professor-20261103/cycle1.md). Row-magnitude growth dominates the observed raw P growth more than normalized row-coherence growth; this remains descriptive. New PD controller/output-transform trials are running. This index changes; the submitted report PDFs do not.
