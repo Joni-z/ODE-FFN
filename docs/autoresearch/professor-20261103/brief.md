@@ -49,7 +49,7 @@ conditional block.
 The raw-input lead computes explicit quadratic/cubic features. Its very large
 hidden Jacobians do not translate directly into huge complete-field Jacobians,
 and frozen float32/float64 checks do not explain its field gain as a precision
-artifact. The next registered comparison removes the tied second-order term,
+artifact. The registered order comparison removes the tied second-order term,
 for both the original scalar and direct-input candidates. A smaller native
 SwiGLU64 completes the parameter-budget comparison; SwiGLU128 already nearly
 matches the direct K2 dense-MAC budget. All22 trials completed and replayed.
@@ -64,11 +64,10 @@ Product16 raw-K2 sampling gap to SwiGLU persists. Coarse integration is not
 supported as the explanation for that frozen discrepancy. Time-binned field
 errors describe the remaining mismatch without proving its transport cause.
 
-The chain remains falsifiable: if K1 retains the benefit, weaken the second-order
-story; if a matched ordinary FFN explains it, retain that comparison; if field and
-sampling disagree, inspect the frozen external-solver/time-error readout while
-keeping primary Heun32 results. A useful method must survive those tests before
-image transfer or any claim of an FM-specific inductive bias.
+These completed tests weaken the second-order explanation. The remaining lead
+concerns feature construction and optimization, with an unresolved gap between
+field fitting and sampling. A matched ordinary FFN remains the necessary control.
+No current result justifies image transfer or an FM-specific inductive-bias claim.
 
 Cycle4 now runs a smaller K1 feature contrast: constant1, bounded direct sigmoid,
 and h+1 diagonals, holding P/common tensors and all training settings fixed.

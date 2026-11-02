@@ -36,7 +36,8 @@ Rows summarize the lowest validation error in each shown family, not a sampler-
 selected result. All rates remain in endpoints.csv and the comparison figure.
 Ring8 raw K1 improves field error3.3% against matched SwiGLU64 and2.8% against
 the strongest larger ordinary reference; its SW2 is18.3% worse than SwiGLU64.
-The field margin is below the preregistered5% improvement scale. This is a local
+The field margin is small. The registered5% keep rule applies to the matching
+K2 parent, not to a post-hoc ordinary-baseline threshold. This is a local
 field-fitting lead, not an accepted generative method. Product16 still favors
 ordinary controls, including the newly completed smaller reference.
 
