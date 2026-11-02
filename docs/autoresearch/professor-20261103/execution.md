@@ -17,3 +17,7 @@ ssh lenovo 'set CUDA_VISIBLE_DEVICES=0&& set OMP_NUM_THREADS=1&& set OPENBLAS_NU
 ```
 
 Status: running, post-SSH continuation verified.145 controller1429857, CUDA1429858/1429859; Lenovo controller30072 under launcher29944, CUDA18820/3108. Over60s the PD/scalar anchors advanced2500->9000 and2000->6500 on145,2500->8500 and1500->5500 onLenovo. GPU92%/91%; no failures. Source remains01fe2df. Monitor is output/monitor/{status.json,history.jsonl}; failures stop dispatch, never silently retry.
+
+## Completed cycle1
+
+Both hosts completed9/9 with no failures. All18 checkpoints replayed; six anchors are exact reruns. See cycle1-results/findings.md. The earlier live launch snapshot is historical. Cycle2 uses a separate worktree/output and registration.

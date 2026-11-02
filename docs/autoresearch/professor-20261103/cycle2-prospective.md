@@ -1,7 +1,8 @@
 # Prospective cycle2: rank control and direct input diagonals
 
-Status: design prepared while the final two cycle1 candidates per task finish.
-No cycle2 dispatch until cycle1 replay/decisions are published and native checks pass.
+Status: registered after all18 cycle1 endpoints passed replay, including exact
+reproduction of the six anchors. Cycle1 has two local validation leads, no ordinary
+control advantage. Dispatch requires fresh native CUDA witnesses.
 The user explicitly requests various D constructions; these are not additional
 placement or temperature sweeps.
 
@@ -42,3 +43,7 @@ compute the same affine logit at every h in exact arithmetic, not merely at zero
 They start from the same complete function with different factorization/rank
 constraints and parameter-gradient geometry. A later difference is therefore
 not an initial-function effect; it still cannot be attributed to rank alone.
+
+## Registered decision
+
+Factorized-linear is compared primarily with cycle1 full-affine at the same optimizer/rate; their initial functions match. Also retain the MLP parent. The two direct gates are compared head-to-head for their input transform and with the learned PD parent for practical quality. Provisional keep uses >=5% lower validation MSE versus the named parent, never test SW2; report every sampling tradeoff and ordinary control. Candidate1 parent is full affine; candidates2/3 parent is the learned bounded PD.
