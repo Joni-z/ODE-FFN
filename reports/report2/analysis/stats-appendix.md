@@ -1,27 +1,33 @@
-# Statistical scope
+# Statistical and comparison scope
 
-The comparison unit is the registered model trajectory on a fixed task and
-budget. Checkpoints along one trajectory are repeated observations, not
-independent replications. Image methods share actual minibatches and noise;
-the synthetic table reuses its audited historical controls where recorded.
+Report2 is a descriptive synthesis of fixed-budget studies. A record in the
+attempt ledger is an evidence family, not an independent trial. Reused controls,
+checkpoint histories, derivative panels and mathematical fixtures must not be
+counted as independent model replications. No p-values, significance claims or
+uncertainty bands are added.
 
-This draft reports descriptive endpoint values and complete available curves.
-There are no p-values, confidence intervals, significance claims, or invented
-run-variation estimates. Model seed0 and the separately named data generators
-are recorded in the protocol/config. No inference about seed instability is
-made or added to the report.
+The main readout/cubic field metric is the source protocol's random-time
+validation oracle MSE. The static-map and frozen-affine/head diagnostics use
+their own panel definitions. Do not pool them as one common test set. The
+128D frame study separates ambient field MSE and tangent generation SW2, since
+normal-direction errors can dominate the ambient score.
 
-Image FID uses standard2048-dimensional Inception features and empirical
-sample covariances with denominator n−1. The independently checked identity is
-`||meanX-meanY||² + ||A||F² + ||B||F² - 2*sum(svd(A B^T))`, with centered,
-normalized sample factors A/B. Numerical agreement is below0.000024 on all
-completed rows. This verifies a metric calculation; it is not a quality result.
+SW2 is sensitive to sample count and reference bank: the gate study retains
+both2048/8192 counts and its validation/test distinction. The Ring8 case's
+far-from-mode fraction is a descriptive threshold, not a confidence statement.
+The figure reports endpoint bars only, not variability or convergence.
 
-Validation uses1024fixed held-out noisy examples under the registered time
-distribution. These losses differ from the oracle-field errors of synthetic
-tasks and should not be compared numerically across the two benchmarks.
+Parameter matching, dense-matrix-work matching and wall-time matching are
+separate controls. The readout and frame tables expose actual counts. Complete
+gradient readout costs more than its direct parent. Free effective maps can
+change their feasible function set and optimizer geometry even when initially
+function-matched; no pure optimizer explanation is inferred.
 
-Matrix bands are the observed minimum/maximum across six blocks. They are
-not uncertainty bands. The entropy effective rank uses normalized singular
-values, rather than squared values; a maximum of192 applies to each square
-ISRU map. These statistics do not bound the entire normalized residual model.
+Training, frozen intervention, teacher regression and oracle-assisted correction
+answer different questions. A bad frozen exponential substitution does not
+reject cold-trained exponentials. A low oracle-probe error is not an achieved
+model score. A correct local ODE identity does not guarantee full-model stability.
+
+Old image data remain available, but no image ranking contributes an architecture
+verdict. The FID<50 threshold is the user's adequacy prerequisite; reaching it
+would not by itself establish convergence, fairness or a method advantage.

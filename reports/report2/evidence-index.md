@@ -1,36 +1,23 @@
-# Report2 evidence index
+# Report2 evidence index — ODEFFN mainline
 
-All research after the finalized Report1 revision is in scope. The entries
-below organize the main evidence; the complete Git-derived area inventory
-is retained in [scope.json](scope.json). Inclusion here does not mean every
-experiment belongs in the three-page main report or meets an effectiveness
-criterion.
+The November 2 rewrite supersedes the previous ISRU-centered narrative.
+Start with the [report](report2.pdf), then the [complete attempt ledger](attempts.md).
+All post-finalization research belongs to Report2. Early material is included
+as labeled context; Report1 remains unchanged.
 
-November 1 audit: [model identity, numerical replay and claim limits](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md).
-The positive synthetic model is a width64/depth3 velocity MLP without attention.
-Its FreeISRU result remains a task-specific fixed-budget finding. The sentence
-at `report2.tex:38` needs target qualification: tied cubic improves the original
-ODE on Ring8/Product16, but not Gaussian2D. The draft source/PDF were not edited
-or rebuilt by this audit. Historical running-status entries below are snapshots,
-not newly verified process status.
-
-| Evidence area | Principal sources | Report2 use and current limit |
+| Research question | Evidence route | Current interpretation |
 |---|---|---|
-| Positive ISRU design | [Initial study](../../docs/research-cubic-split-2026-10-26/analysis-report.md), [current follow-up](../../docs/autoresearch/isru-followup/README.md) | Product16 field MSE 0.037159 versus Swi160 0.078178 is a positive finite-budget result. The winning free-matrix response, tied cubic candidate and baseline must remain distinct. The original Gaussian2D result loses to both Swi64/Swi160; Ring8 improves over Swi64 but loses to Swi160. Keep the complete three-task and budget readout visible. Training adequacy and attribution are unresolved. |
-| ISRU task boundaries | [Dependent-sign study](../../docs/research-joint-dependence-2026-10-26/analysis-report.md), [half-mixture control](../../docs/autoresearch/cycle02-full-support/analysis.md) | Retain both reversals: ISRU/Swi160 MSE 0.085073/0.039790 and 0.163557/0.113254. These reversals are against Swi160; the half-mixture still improves over near-parameter Swi64. They constrain generalization and rule out literal component count alone as a sufficient explanation; they do not erase the Product16 positive result. |
-| Input-dependent P directions | [Frame study](../../docs/autoresearch/cycle11-conditional-frame/analysis.md) | Thin-data field MSE 0.000685 versus Swi192 0.003095, with visible eight-cluster recovery. Thick-data transfer and a second-order-specific benefit are not established. This is another positive design observation with explicit boundaries. |
-| Other synthetic designs and controls | [Architecture-search review](../../docs/research-architecture-search/next-direction-evidence.md), [autoresearch index](../../docs/autoresearch/README.md) | Preserve fixed-budget outcomes and their controls. Do not treat implementation/audit success as model effectiveness, or failed fixed screens as universal impossibility results. |
-| Mathematical structure and prediction objective | [Cubic-flow derivation](../../docs/research-cubic-split-2026-10-26/prior-and-theory.md), [denoiser dynamics](../../docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md), [real-state optimizer coordinates](../../docs/autoresearch/p-coordinate-steps/analysis.md) | Select only mathematics needed to explain the method and its limits. Local flow identities, optimizer-coordinate equivalence and conditional-mean dynamics do not by themselves prove a generation benefit. |
-| Image exploration and its validity limit | [Image-budget study](../../docs/autoresearch/image-budget-continuation/analysis-report.md), [clock comparison](../../docs/autoresearch/cold-clock-source/results/analysis-report.md), [validity correction](../../docs/autoresearch/baseline-validity-review.md) | Report as limited small-model exploration. The weak, unvalidated baseline prevents architecture-effectiveness claims from FID172–200 rankings. Keep the correction visible. |
-| Ordinary controls and initialization | [Cold clock/SiLU controls](../../docs/autoresearch/image-clock-training/analysis-report.md), [matched SwiGLU initialization](../../docs/autoresearch/image-swiglu-initialization/results/analysis-report.md) | These expose parameterization and initialization confounds in that screen. They do not replace validation of a competent image baseline. |
-| ISRU CIFAR-10 transfer | [Registered protocol](../../docs/autoresearch/isru-cifar10/README.md), [interim results](../../docs/autoresearch/isru-cifar10/interim-2026-11-01.md), [draft PDF](report2.pdf) | Ongoing past40k/50k. Completed25k EMA FID252.96/262.93/268.74 for ISRU/matched/wide, still poor. All completed FIDs recomputed from saved features. Fixed raw/EMA cases and losses show substantial early EMA lag, narrowing by40k. No architecture or convergence verdict; final50k and raw FID remain unavailable. |
-| Current and next-two-week work | [ISRU plan](../../docs/autoresearch/isru-followup/task_plan.md), [Report2 plan](task_plan.md) | The authorized CIFAR transfer tests the existing design with a larger ordinary baseline. Baseline adequacy, convergence and attribution remain unresolved. State hypotheses prospectively. |
+| Do P constraints or higher Taylor orders help? | [Spectral/order analysis](../../docs/research-2026-10-20/analysis-output/analysis-report.md), [frozen exact-flow intervention](../../docs/research-2026-10-20-followup/analysis-report.md) | Smaller local sensitivity or more accurate integration does not guarantee better fitting/generation. Frozen substitutions are not cold-training comparisons. |
+| What does the original clock contribute? | [Gate case study](../../docs/research-2026-10-21-gates/findings.md), [derivative study](../../docs/research-2026-10-21-gate-geometry/findings.md), [architecture review](../../docs/research-architecture-search/next-direction-evidence.md) | Helps Ring8 separation against constants, with extra capacity; vector clocks, range, reuse and ordering have limited transfer. |
+| Does changing the whole field help? | [Complete readout](../../docs/research-conservative-readout-2026-10-26/results/analysis-report.md), [orientation](../../docs/research-derivative-orientation-2026-10-26/results/analysis-report.md) | Original ODE improves strongly on Product16, but the useful computation is also available to ordinary backbones. |
+| Can P act in useful input-dependent directions? | [Conditional frame](../../docs/autoresearch/cycle11-conditional-frame/analysis.md), [independent second coefficient](../../docs/autoresearch/cycle14-independent-coefficient/analysis-report.md) | Thin-target gain; no established K2 requirement or thick-target sampling gain. |
+| Is the gap linear, noisy-label driven, or confined to the head? | [Affine decomposition](../../docs/research-affine-error-2026-10-26/analysis-report.md), [population labels](../../docs/research-architecture-search/analysis-population-noise/analysis-report.md), [head refit](../../docs/research-frozen-features-2026-10-26/analysis-report.md), [local teacher](../../docs/research-local-ffn-teacher-2026-10-26/analysis-report.md) | These limited repairs do not close the main nonlinear-task gap. This is not an approximation lower bound. |
+| Does a nonlinear internal flow help? | [Cubic split](../../docs/research-cubic-split-2026-10-26/analysis-report.md), [dependent signs](../../docs/research-joint-dependence-2026-10-26/analysis-report.md), [half mixture](../../docs/autoresearch/cycle02-full-support/analysis.md) | Tied cubic improves Product16, but the better free-ISRU control gives up the tying and has clear task boundaries. |
+| Which dynamics are supervised? | [Exact ordinary-flow realization](../../docs/autoresearch/cycle03-gated-shear/analysis.md), [denoiser dynamics](../../docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md) | An ODE realization is not sufficient evidence of a useful bias. The conditional mean is not a conserved endpoint map. |
+| What do image runs establish? | [Baseline validity correction](../../docs/autoresearch/baseline-validity-review.md), [author-code checks](../../docs/upstream-baseline/validation.md), [synthetic identity audit](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md) | No adequate image baseline and no justified FFN quality verdict. Synthetic MLP evidence does not establish JiT transfer. |
 
-## Working narrative
-
-Start from the project question, then explain the useful synthetic design
-signals and what the controls changed in their interpretation. The current
-ISRU lead is a candidate main thread, with the validity/convergence gap stated
-directly. Include other completed work only when it changes the argument or
-explains a decision. End with specific hypotheses for the next two weeks.
-This is a provisional organization, not a frozen Report2 conclusion.
+For every smaller branch, use the ledger's stable IDs and primary source links.
+The archived area inventories in [scope.json](scope.json) and the current
+[attempt inventory](attempt-inventory.json) serve different purposes: the former
+tracks post-Report1 Git changes, the latter covers the preserved documentation.
+Neither is a count of independent training runs.

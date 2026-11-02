@@ -1,3 +1,25 @@
+# Current task — ODEFFN mainline report, 2 November 2026
+
+The user asks to organize every ODEFFN attempt and make that the center of Report2.
+The previously proposed ISRU-centered continuation is not the current report narrative.
+
+## Executable plan
+- [x] Inventory all archived experimental families, controls and diagnostics, separating prior Report1 context from later work.
+- [x] Read existing protocols/results; write a complete linked attempt ledger with purposes, observations, and limits.
+- [x] Rebuild the three-page report around original P/clock/Taylor structure and the evidence that changed our understanding.
+- [x] Verify selected values/figures, compile and inspect all PDF pages, and confirm Report1/source/runs remain untouched.
+- [x] Update the evidence map and continuity notes; push verified changes to GitHub.
+
+## Constraints
+English, sole author Zhizhe Zhang, no bibliography, at most three PDF pages including selected figures. Full inventory is separate Markdown/data within Report2. Start with project/progress, finish with next-two-week hypotheses. No training or checkpoint mutation.
+
+## Status
+Complete: 127 linked evidence records, a three-page ODEFFN report, source-row/number checks, embedded-font/layout checks and visual inspection of all three pages. Report1 and primary experiment documents remain identical. Publish these verified files to canonical GitHub main and confirm its head matches the local commit. Previous draft remains in Git at 5c48a97.
+
+---
+
+The sections below are historical plans; current scope and progress are above.
+
 # Report2 plan
 
 ## Goal

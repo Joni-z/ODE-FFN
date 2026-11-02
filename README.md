@@ -91,6 +91,12 @@ A brief MPS update runs when available. This does not establish image quality.
 
 ## Previous work
 
+The [revised Report2](reports/report2/README.md) follows the original ODEFFN
+line, with a [complete attempt ledger](reports/report2/attempts.md). It covers
+P constraints, clocks, polynomial order, full-gradient readouts, conditional
+frames and their ordinary controls. The synthetic gains remain task-specific;
+a general advantage of the original Taylor coupling is unproven.
+
 The [synthetic evidence audit](docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)
 reproduces a Product16 field-fitting gain for free-matrix ISRU in a small
 velocity MLP. It does not establish a general ODE or image-generation advantage.
@@ -98,7 +104,7 @@ Further training is awaiting a concrete experimental decision.
 
 Complete earlier code is preserved on
 [research-archive-20261101](https://github.com/Joni-z/ODE-FFN/tree/research-archive-20261101).
-The original local checkout and frozen running experiment are retained.
+The original local checkout and frozen experiment artifacts are retained.
 Report1 is final and unchanged; [Report2](reports/report2/README.md) remains an
 interim draft. Old CIFAR scores above 200 cannot substantiate architecture
 claims. Use the archive to reproduce those historical studies.

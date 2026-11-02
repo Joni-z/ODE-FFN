@@ -1,10 +1,16 @@
-"""Check the actual PDF, curated numbers, frozen Report1 and referenced assets."""
+"""Verify Report2 source bindings, catalogue, PDF and frozen Report1.
+
+This verifies reporting artifacts; it does not rerun training or claim fresh
+independent reproduction of every archived experiment.
+"""
 from __future__ import annotations
+import argparse
 import csv
 import datetime
 import hashlib
 import json
 import re
+import statistics
 import subprocess
 from pathlib import Path
 
@@ -13,36 +19,130 @@ REPO = ROOT.parents[1]
 
 
 def sha(path):
-    with Path(path).open('rb') as handle:
-        return hashlib.file_digest(handle, 'sha256').hexdigest()
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def run(*command):
     return subprocess.check_output(command, text=True)
 
 
+def rows(path):
+    with Path(path).open() as handle:
+        return list(csv.DictReader(handle))
+
+
+def selected(path, selector):
+    found = [r for r in rows(path) if all(r[k] == v for k, v in selector.items())]
+    assert len(found) == 1, (path, selector, len(found))
+    return found[0]
+
+
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--require-visual-review', action='store_true')
+    args = parser.parse_args()
     pdf = ROOT/'report2.pdf'
     tex = (ROOT/'report2.tex').read_text()
     info = run('pdfinfo', str(pdf))
     pages = int(re.search(r'^Pages:\s+(\d+)', info, re.M)[1])
     assert pages == 3, pages
     assert re.search(r'^Author:\s+Zhizhe Zhang\s*$', info, re.M)
-    assert pdf.stat().st_size > 100000
     text = run('pdftotext', '-layout', str(pdf), '-')
     assert len([p for p in text.split('\f') if p.strip()]) == 3
-    assert '1 November 2026' in text and 'Draft' in text
+    assert '2 November 2026' in text and 'Draft' in text
     assert 'Hypotheses for the next two weeks' in text.split('\f')[2]
-    assert not any(marker in text for marker in ('??','[?]','[VERIFY]','[CLAIM NEEDS EVIDENCE]'))
+    assert not any(marker in text for marker in ('??', '[?]', '[VERIFY]', '[CLAIM NEEDS EVIDENCE]'))
     assert not re.search(r'\\(?:cite|bibliography|bibliographystyle)|thebibliography', tex)
-    assert not re.search(r'^(References|Bibliography)\s*$',text,re.M)
-    for phrase in ('252.96','262.93','268.74','0.14834','0.17124','0.14717','0.14905','186.6','188.3'):
-        assert phrase in text, phrase
-    with (ROOT/'data/synthetic.csv').open() as handle:
-        synthetic = list(csv.DictReader(handle))
-    assert len(synthetic) == 15
-    for row in synthetic:
-        assert f"{float(row['oracle_mse']):.6f}" in text
+    assert not re.search(r'^(References|Bibliography)\s*$', text, re.M)
+
+    # Every extracted chart/table value must identify one exact source row.
+    source_hashes = json.loads((ROOT/'data/ode-mainline-sources.json').read_text())
+    for relative, digest in source_hashes.items():
+        assert sha(REPO/relative) == digest, relative
+    values = rows(ROOT/'data/ode-mainline.csv')
+    for r in values:
+        original = selected(REPO/r['source'], json.loads(r['selector']))
+        assert float(r['value']) == float(original[r['metric']]), r
+    checked_numbers = []
+
+    def present(value, digits):
+        printed = f'{float(value):.{digits}f}'
+        assert printed in text, printed
+        checked_numbers.append(printed)
+
+    for study, dataset, arm, metric, digits in [
+        ('readout','rotated_product_bimodal_16d','ode_k2_direct','oracle_mse',6),
+        ('readout','rotated_product_bimodal_16d','ode_k2_gradient','oracle_mse',6),
+        ('readout','rotated_product_bimodal_16d','swiglu192_gradient','oracle_mse',6),
+        ('readout','rotated_product_bimodal_16d','swiglu192_direct','oracle_mse',6),
+        ('readout','gmm_ring8_2d','ode_k2_gradient','oracle_mse',6),
+        ('readout','gmm_ring8_2d','swiglu192_gradient','oracle_mse',6),
+        ('frame','thin','ode_k2','oracle_mse',6),
+        ('frame','thin','frame_k2','oracle_mse',6),
+        ('frame','thin','frame_k1','oracle_mse',6),
+        ('frame','thin','swiglu192','oracle_mse',6),
+        ('frame','thin','frame_k1','tangent_sw2',4),
+        ('frame','thin','frame_k2','tangent_sw2',4),
+        ('frame','thick','frame_k2','tangent_sw2',4),
+        ('frame','thick','swiglu192','tangent_sw2',4),
+        ('frame','thick','swiglu257','tangent_sw2',4),
+        ('cubic','rotated_product_bimodal_16d','cubic_split','oracle_mse',6),
+        ('cubic','rotated_product_bimodal_16d','free_isru','oracle_mse',6),
+        ('cubic','rotated_product_bimodal_16d','swiglu160','oracle_mse',6),
+        ('cubic','rotated_product_bimodal_16d','free_isru','sw2',5),
+        ('cubic','rotated_product_bimodal_16d','swiglu64','sw2',5),
+    ]:
+        matching = [r for r in values if (r['study'],r['dataset'],r['arm'],r['metric'])
+                    == (study,dataset,arm,metric)]
+        assert len(matching) == 1
+        present(matching[0]['value'], digits)
+    for r in rows(ROOT/'data/synthetic.csv'):
+        if r['law'] in ('Dependent signs', 'Half mixture') and r['arm'] in ('free_isru','swiglu160'):
+            present(r['oracle_mse'], 6)
+    case_path = REPO/'docs/research-2026-10-21-gates/results/ring8-case-study.json'
+    for r in json.loads(case_path.read_text()):
+        if r['model'] in ('target','ode_original','ode_fixed','swiglu'):
+            present(100*r['off_mode_fraction'], 1)
+    gate_path = REPO/'docs/research-2026-10-21-gates/results/endpoint-diagnostics.json'
+    for r in json.loads(gate_path.read_text())['results']:
+        if r['dataset']=='gmm_ring8_2d' and r['step']==5000 and r['model'] in ('ode_original','ode_fixed'):
+            present(statistics.mean(x['sigma_max_P'] for x in r['layers']), 3)
+            present(statistics.mean(x['full_layer_jacobian_norm']['mean'] for x in r['layers']), 3)
+    frozen = REPO/'docs/research-2026-10-20-followup/frozen-order-results.csv'
+    for order in ('2','exact'):
+        present(selected(frozen,dict(dataset='gmm_ring8_2d',label='gate_k2_input',eval_order=order))['sw2'],4)
+    static = REPO/'docs/research-architecture-search/evidence/static_20261024/comparison.csv'
+    for label in ('fixed_k2','collapsed'):
+        present(selected(static,dict(dataset='gmm_ring8_2d',label=label))['field_mse'],4)
+
+    inventory = json.loads((ROOT/'attempt-inventory.json').read_text())
+    ledger = json.loads((ROOT/'attempt-ledger.json').read_text())
+    records = ledger['records']
+    areas = {r['area'] for r in inventory['areas']}
+    assert areas <= {r['area'] for r in records}
+    assert len(areas) == ledger['coverage_areas']
+    assert len({r['id'] for r in records}) == len(records)
+    catalogue = (ROOT/'attempts.md').read_text()
+    for r in records:
+        assert catalogue.count('| '+r['id']+' ·') == 1
+        if r['source'].startswith('https://'):
+            assert r['kind'] == 'legacy configuration inventory'
+            legacy = run('git','-C',str(REPO),'ls-tree','-r','--name-only',
+                         'research-archive-20261101','--','archive/imagenet/configs').splitlines()
+            assert sorted(legacy) == sorted(r['legacy_files'])
+        else:
+            assert sha(REPO/r['source']) == r['source_sha256'], r['id']
+        assert all((REPO/p).is_file() for p in r['tables']), r['id']
+    csv_ledger = rows(ROOT/'attempt-ledger.csv')
+    assert len(csv_ledger) == len(records)
+    for original, rendered in zip(records, csv_ledger):
+        assert all(original[k] == v for k, v in rendered.items())
+
+    for path in [ROOT/'README.md',ROOT/'EVIDENCE.md',ROOT/'evidence-index.md',ROOT/'attempts.md',
+                 ROOT/'analysis/analysis-report.md',ROOT/'analysis/figure-catalog.md']:
+        for link in re.findall(r'\]\(([^)]+)\)', path.read_text()):
+            if '://' not in link and not link.startswith('#'):
+                assert (path.parent/link.split('#')[0]).exists(), (path,link)
     fonts = run('pdffonts', str(pdf))
     embedded = []
     for line in fonts.splitlines():
@@ -50,33 +150,36 @@ def main():
         if match:
             embedded.append(match[1] == 'yes')
     assert embedded and all(embedded)
-    log = ROOT/'report2.log'
-    if log.exists():
-        content = log.read_text(errors='replace')
-        assert not re.search(r'Overfull \\[hv]box|undefined|! LaTeX Error',content,re.I)
-    assets = [ROOT/'report2.tex', ROOT/'matrix-observation.tex']
-    assets.extend(ROOT/path for path in re.findall(r'\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}', tex))
+    content = (ROOT/'report2.log').read_text(errors='replace')
+    assert not re.search(r'Overfull \\[hv]box|undefined|! LaTeX Error',content,re.I)
+    assets = [ROOT/'report2.tex']
+    assets.extend(ROOT/path for path in re.findall(r'\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}',tex))
     for path in assets:
-        assert path.is_file() and path.stat().st_mtime <= pdf.stat().st_mtime, str(path)
-    hashes = json.loads((ROOT/'data/file-hashes.json').read_text())
-    for relative, digest in hashes.items():
+        assert path.is_file() and path.stat().st_mtime <= pdf.stat().st_mtime, path
+    for relative,digest in json.loads((ROOT/'data/file-hashes.json').read_text()).items():
         assert sha(ROOT/relative) == digest, relative
     old = json.loads((ROOT/'scope.json').read_text())['report1']
     assert run('git','-C',str(REPO),'rev-parse','HEAD:reports/report1').strip() == old['git_tree']
     assert sha(REPO/'reports/report1/report1.pdf') == old['pdf_sha256']
     assert run('git','-C',str(REPO),'diff',old['last_requested_revision_commit'],'--','reports/report1') == ''
-    numeric = json.loads((ROOT/'data/FID-verification.json').read_text())
-    assert len(numeric)==9
-    result = dict(status='PASS', observed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),
-        pdf='report2.pdf', pages=pages, total_pages_including_figures=pages, author='Zhizhe Zhang',
-        language='English', bibliography=False, all_fonts_embedded=True,
-        undefined_references=False, overfull_boxes=False, curated_data_hashes_verified=True,
-        all_synthetic_table_numbers_checked=True, all_nine_FIDs_verified=True,
-        maximum_FID_recalculation_difference=max(r['abs_difference'] for r in numeric),
-        Report1_unchanged=True, Report1_pdf_sha256=old['pdf_sha256'],
-        no_new_training_or_sampling=True, final_50k_FID_available=False,
-        input_hashes={str(p.relative_to(ROOT)):sha(p) for p in assets}, pdf_sha256=sha(pdf),
-        visual_review='All three pages rendered and inspected by the authoring assistant; fixed-case images and chart labels are readable.')
+    assert run('git','-C',str(REPO),'diff',inventory['snapshot_commit'],'--','docs') == ''
+    visual_path = ROOT/'visual-review.json'
+    visual = json.loads(visual_path.read_text()) if visual_path.exists() else {}
+    visual_ok = visual.get('pdf_sha256') == sha(pdf) and visual.get('pages_reviewed') == [1,2,3]
+    if args.require_visual_review:
+        assert visual_ok, 'Render and inspect the current PDF before renewing the receipt.'
+    result = dict(status='PASS' if visual_ok else 'LAYOUT_PASS_VISUAL_REVIEW_PENDING',
+        observed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),
+        pages=pages,total_pages_including_figures=pages,author='Zhizhe Zhang',language='English',
+        bibliography=False,all_fonts_embedded=True,undefined_references=False,overfull_boxes=False,
+        source_bound_values=len(values),printed_numeric_values_checked=checked_numbers,
+        documentation_areas_covered=len(areas),ledger_records=len(records),
+        ledger_is_independent_run_count=False,ledger_source_hashes_verified=True,
+        old_evidence_snapshot_unchanged=True,primary_experiment_docs_unchanged=True,
+        Report1_unchanged=True,Report1_pdf_sha256=old['pdf_sha256'],
+        no_new_training_or_sampling=True,all_historical_experiments_rerun=False,
+        input_hashes={str(p.relative_to(ROOT)):sha(p) for p in assets},pdf_sha256=sha(pdf),
+        visual_review_receipt_valid=visual_ok)
     (ROOT/'verification.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))
 

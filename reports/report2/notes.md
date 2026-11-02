@@ -1,5 +1,37 @@
 # Report2 continuity notes
 
+## ODEFFN mainline rewrite — 2 November 2026
+
+The user explicitly restored the original ODEFFN investigation as the mainline
+and requested all attempts in Report2. Replaced the image/ISRU-centered draft
+with the original P/clock/Taylor question, complete-gradient readout and
+conditional-frame evidence, local response diagnoses and objective-level math.
+Free ISRU remains a useful control, with independent matrices and target-law
+reversals explicit. No image ranking is credited as effectiveness.
+
+The full catalogue has127 records covering116 preserved documentation areas,
+additional architecture subquestions and legacy config presence. These counts
+are coverage bookkeeping, not independent experiments or a progress claim.
+Each record labels evidence type and links a hashed primary source. The old
+ImageNet configs do not have newly recovered completed-run bindings.
+
+The report uses the existing11pt/.8in layout. Initial page1 taxonomy table
+spilled onto a fourth page; replacing that table with concise prose restored
+three pages without reducing the font. Current chart source values are
+extracted from three tracked CSVs. The former draft remains in Git at5c48a97;
+old data/figures/scripts are preserved and explicitly marked historical.
+
+Report1, experiment sources, raw artifacts and trainers are untouched. The
+report hypotheses are prospective, not training authorization. The preceding
+November1 synthetic replay remains earlier evidence; this pass checks report
+provenance, values and presentation rather than rerunning the experiments.
+
+Verification completed:186 source-bound chart/table values,36 printed numeric values, all127 catalogue records/source links, embedded PDF fonts and three rendered pages. The report has no overfull boxes or unresolved references. The Report1 tree/PDF and preserved image evidence hashes still match.
+
+All entries below are historical snapshots; their process-status statements
+were not refreshed by this reporting task.
+
+
 ## Draft — 1 November 2026
 The user requested effectiveness and a Report2 draft. The live CIFAR process
 continues beyond40k/50k with GPU99%; no restart, recipe change, new fit,
@@ -47,7 +79,7 @@ The last commit touching `reports/report1/` is
 Report1 tree when this scope was established. The exact PDF hash and evidence
 inventory snapshot are in [scope.json](scope.json).
 
-## Current research feeding Report2
+## Historical ISRU focus — superseded by the November 2 instruction
 The user wants to pursue the positive ISRU synthetic design. Its canonical
 [research note](../../docs/autoresearch/isru-followup/README.md),
 [tasks](../../docs/autoresearch/isru-followup/task_plan.md) and

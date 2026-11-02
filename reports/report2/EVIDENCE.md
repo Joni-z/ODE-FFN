@@ -1,57 +1,46 @@
-# Report2 evidence map — 1 November 2026
+# Report2 claim-to-evidence map — 2 November 2026
 
-Draft: [report2.tex](report2.tex), [report2.pdf](report2.pdf).
-The three-page narrative selects evidence after finalized Report1. It does not
-claim that every completed project experiment appears in the main text.
-The wider inventory remains in [evidence-index.md](evidence-index.md).
+Current deliverables: [PDF](report2.pdf), [source](report2.tex),
+[full attempt ledger](attempts.md). Original ODEFFN is the mainline.
+The source snapshot is `5c48a97bc0edb255da3f62f940b0500b00f3a4eb`.
+This is a retrospective synthesis, not a live training-status report.
 
-## Evidence cutoff and preservation
+## Main-text claims
 
-The image run is ongoing. Use all completed registered FID points at5k/10k/25k,
-validation through40k, and matrix snapshots at0/2k/5k/10k/25k. Final50k FID is
-not available in this draft. This is a fixed snapshot, not best-checkpoint
-selection. The current training process and frozen runtime are untouched.
-
-The CPU-only collector is [collect_evidence.py](collect_evidence.py).
-Private snapshot: `/Users/mr.z/ode-workspace-prep/report2-evidence-20261101-v1`.
-It checks every frozen source/data binding, all completed generated/feature
-hashes, and the reference feature bank. It independently recomputes every
-completed FID from saved features using the low-rank trace identity, rather
-than the producer's covariance-eigenvalue implementation. The maximum absolute
-difference is below0.000024, immaterial to the reported two-decimal scores.
-It recomputes cold and25k FFN matrix summaries from the actual saved checkpoint
-tensors for all arms. It performs no new training, sampling or feature extraction.
-
-## Claim-to-artifact map
-
-| Report location | Evidence | Allowed reading and limit |
+| Report location | Primary evidence | Interpretation and limit |
 |---|---|---|
-| Sections1–2: cubic response and free maps | [Original implementation](../../docs/research-cubic-split-2026-10-26/cubic_core.py), [registered protocol](../../docs/research-cubic-split-2026-10-26/protocol.md), image [model](../../docs/autoresearch/isru-cifar10/model.py) | `y'=-y^3` gives `phi_s(u)=u/sqrt(1+2su²)`. The two free maps start at the same Taylor half-flow and then untie. This is not a new activation or proof that ODE coupling supplies the gain. |
-| Section3/Table1: every synthetic law and ordinary budget | [synthetic.csv](data/synthetic.csv), source paths in each row; initial/dependent-sign/half-mixture comparison CSVs | All fifteen field/SW2 endpoints are retained. Product16 ISRU field MSE0.0371592 vs Swi1600.0781781; Gaussian and dependent signs lose to both budgets. Ring and mixture improve over the small control only. |
-| Section3: generation does not mirror field fit | Same CSV, Product16 `sw2` | ISRU0.0928982, Swi640.0927582, Swi1600.0978353. No comparable generation gain over the smaller ordinary control follows. |
-| Section4/Figure1: actual CIFAR recipe/curves/FID | [config](../../docs/autoresearch/isru-cifar10/config.json), [snapshot](data/snapshot.json), [validation](data/cifar-validation.csv), [FID](data/cifar-fid.csv), [numerical check](data/FID-verification.json) | The25k EMA scores252.96/262.93/268.74 are interim observations on1024generated/5000reference images. No architecture superiority, convergence or competent-baseline claim. At10k, wide SwiGLU is better than ISRU. |
-| Section4/Figure2: raw versus EMA cases | Six exact grids `data/*-25k.png`; source PNG hashes in snapshot | The same first four source indices are shown, without quality selection or interpolation filtering. Raw texture and EMA blur are visual observations, not raw FID or semantic-quality scores. |
-| Section4: EMA lag | Validation CSV and exact decay0.9999 in frozen source | ISRU raw/EMA loss0.148339/0.171237 at25k,0.147174/0.149046 at40k. Cold parameter mass is `0.9999^25000=0.0820747`. This does not decompose FID or equate parameter and prediction averaging. |
-| Section5/Eq3/Figure3: sensitivity and learned maps | [matrix CSV](data/cifar-matrices.csv), [tensor verification](data/matrix-verification.json), direct chain rule | Mean spectral maxima1.26683→1.83575(W1)/1.60362(W2); mean entropy ranks186.578/188.328 at25k. The bare-FFN norm bound is not a complete residual-network guarantee or evidence for a spectral penalty. |
-| Section6: direction-conditioned operator case | [curated comparison](data/conditional-frame.csv), [original analysis](../../docs/autoresearch/cycle11-conditional-frame/analysis.md), frozen generation cases there | Thin frameK2 MSE0.0006851 vs original0.002729 and Swi1920.003095. K1 nearly matches field error and has better tangent SW2. Thick frameK2 tangent SW20.31734 vs Swi1920.24708. No K2-specific mechanism or robust-transfer claim. |
-| Section7: next-two-week hypotheses | Prospective tests, not experimental outcomes | The report does not launch a new family, retune EMA, change sampling or claim future results. |
+| Section 1: synthetic model and protocol | [Model audit](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md), [readout protocol](../../docs/research-conservative-readout-2026-10-26/protocol.md), [frame protocol](../../docs/autoresearch/cycle11-conditional-frame/protocol.md) | Width64/depth3 vector MLP has no attention/patches. Most reported direct-velocity studies use 5k updates, batch512, AdamW3e-4. Thin/thick uses a clean head. This is not a claim that every archived study uses identical settings. |
+| Section 2: complete original-layer Jacobian | [Gate derivative derivation](../../docs/research-2026-10-21-gates/gate-counterexample.md), [observations](../../docs/research-2026-10-21-gates/findings.md) | Differentiate both the frozen polynomial and its scalar input clock. P spectra omit the rank-one clock derivative. Normalized residual-backbone stability needs additional terms. |
+| Section 2: prior spectral and order context | [Cap study](../../docs/research-2026-10-19/results.md), [order intervention table](../../docs/research-2026-10-20-followup/frozen-order-results.csv) | Six lower Jacobian norms but only three SW2 improvements. Ring8 native K2 .1848201 versus exact .3813333 at the same frozen checkpoint. Earlier Report1 context, not newly obtained results. |
+| Section 2: Ring8 case and P histories | [Findings](../../docs/research-2026-10-21-gates/findings.md), [endpoint diagnostics](../../docs/research-2026-10-21-gates/results/endpoint-diagnostics.json) | Far-from-mode fractions: fixed19.9%, input8.3%, Swi3.4%, target1.0%. Mean P norms1.837/2.139 and complete local Jacobians3.176/2.703 use the saved six-layer probes. Parameter counts differ. |
+| Section 2: static free matrices and other local variants | [Static study](../../docs/research-architecture-search/evidence/static-summary.md), [full ledger](attempts.md) | Ring8 .076519 to .028901 at matched parameters and lower matrix work; feasible-map sets and optimizer coordinates differ. Other variant claims are scoped to their own comparisons. |
+| Section 3: complete gradient readout | [Comparison CSV](../../docs/research-conservative-readout-2026-10-26/results/comparison.csv), [orientation](../../docs/research-derivative-orientation-2026-10-26/results/analysis-report.md) | Product16 ODE .325527→.037320; gradient Swi192 .033826 at183104/182336 inference MACs. Ring8 ODE .014462 versus gradient Swi192 .016419. Gaussian SW2 worsens .079723→.094981 despite better field MSE. Extra parent compute and ordinary controls stay visible. |
+| Section 3: directions and geometry | [Frame table](../../docs/autoresearch/cycle11-conditional-frame/results/comparison.csv), [protocol](../../docs/autoresearch/cycle11-conditional-frame/protocol.md), [readout limitation](../../docs/autoresearch/cycle08-readout-invariant/analysis.md) | Thin K2 .0006851 versus original .0027286 and Swi192 .0030951. K1 .0007131 has lower tangent SW2 .1950 than K2 .2041. Thick K2 .3173 loses to Swi192 .2471 and Swi257 .2593. Conditional frames preserve pointwise spectra but add input derivatives. |
+| Section 4/Table 1: tied cubic and free ISRU | [Cubic table](../../docs/research-cubic-split-2026-10-26/comparison.csv), [implementation](../../docs/research-cubic-split-2026-10-26/cubic_core.py), [all task endpoints](data/synthetic.csv) | Original/tied/free/Swi160 Product16 field .325527/.092938/.037159/.078178. Free matrices are independent after special initialization. Dependent-sign and half-mixture losses to Swi160 remain. Exact local cubic integration gives no full-network stability or ODE-specific benefit theorem. |
+| Section 4: error diagnoses | [Affine error](../../docs/research-affine-error-2026-10-26/analysis-report.md), [frozen features](../../docs/research-frozen-features-2026-10-26/analysis-report.md), [local teacher](../../docs/research-local-ffn-teacher-2026-10-26/analysis-report.md) | Affine share3.89–3.93% and head-refit gap closure about1% are separate frozen-probe metrics, not the uniform-time training endpoint. Teacher fits are finite-optimization evidence. |
+| Section 4: objective-level counterexample | [Derivation and numerical fixtures](../../docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md) | For Gaussian data, the conditional mean's material derivative is nonzero along the true flow. This rules out identifying that target with an invariant endpoint map, not every possible learned hidden ODE. |
+| Section 4: image limit | [Validity correction](../../docs/autoresearch/baseline-validity-review.md), [preserved image snapshot](data/cifar-fid.csv), [upstream validation](../../docs/upstream-baseline/validation.md) | FID<50 is the user's prerequisite for an informative comparison, not a universal convergence theorem. No image result is used to select/reject ODEFFN here. |
+| Final section: next two weeks | Prospective hypotheses using the preceding controls | No new training was launched. Failed screens remain failed; any extension needs an explicit new protocol and the researcher's decision. |
 
-## Mathematical checks and boundaries
+## Numerical provenance and figure
 
-For `f(h)=W2 phi_.6(W1 h)`, the chain rule gives
-`J=W2 diag((1+1.2(W1h)^2)^(-3/2)) W1`. Every diagonal entry lies in(0,1],
-so the operator norm is at most `||W2|| ||W1||`. Equality at some inputs is
-not asserted. Added residual and normalization terms must be differentiated
-separately. Earlier native preflight verified the same analytic Jacobian.
+[make_mainline_figures.py](make_mainline_figures.py) extracts all relevant rows
+from three original tables into [ode-mainline.csv](data/ode-mainline.csv).
+Each metric keeps its source path and unique row selector. Source hashes are
+in [ode-mainline-sources.json](data/ode-mainline-sources.json).
+The figure compares within each task only. Bars are fixed endpoint values,
+not confidence intervals. Dense MAC counts exclude non-matrix overhead and
+must not be equated with measured latency.
 
-At fixed input, orthogonal similarity preserves eigenvalues/singular values
-of P; derivatives of the input-dependent frame contribute to the whole map.
-The old conditional-frame experiment is reused from its audited artifacts,
-not rerun or presented as a new image experiment.
+The complete ledger covers each area of [attempt-inventory.json](attempt-inventory.json)
+and additional root-level subquestions. It hashes the exact primary source
+for every local record and distinguishes training, frozen interventions,
+proofs, implementation and proposals. The six legacy ImageNet configuration
+files lack a newly recovered validated completed-run/result binding.
 
-## Output verification
-
-[verification.json](verification.json) records final PDF checks and Report1
-identity. The current source is English, sole author Zhizhe Zhang, with no
-bibliography, no statistical-significance claim, and no claim of instability
-from the choice of model seed. The next-two-week hypotheses end the report.
+This pass checks catalogue coverage/links, source hashes, selected numerical
+claims, chart source rows, PDF layout/fonts and Report1 identity. It does not
+recompute every historical experiment. The November1 checkpoint replay remains
+separate evidence; no new training or sampling was used for this report.
+Old image snapshots, scripts and figures are retained for historical
+reproduction, not presented as current process observations.

@@ -1,71 +1,78 @@
-# Report2 — ODE-FFN
+# Report2 — ODEFFN mainline
 
-Author: **Zhizhe Zhang**. Status: **draft for review**, 1 November 2026.
+**Zhizhe Zhang · 2 November 2026 · Draft for review**
 
-[Read the three-page PDF](report2.pdf) · [LaTeX source](report2.tex) ·
-[Evidence map](EVIDENCE.md) · [Verification](verification.json)
+[Three-page PDF](report2.pdf) · [LaTeX](report2.tex) ·
+[Complete attempt ledger](attempts.md) · [Evidence map](EVIDENCE.md) ·
+[Verification](verification.json)
 
-The draft covers the free-ISRU synthetic lead and task boundaries, interim
-CIFAR-10 results with raw/EMA cases, learned W1/W2 matrices, and the separate
-input-frame result. It ends with two testable next-two-week hypotheses.
-The entire PDF is three pages, including its table and figures. It has no
-bibliography or extra appendix pages. This is an interim draft, not a claim
-that the running CIFAR experiment has completed.
+The report follows the professor's original ODELayer: two input-clocked
+Taylor maps around SiLU. It asks what the clock, generator P and polynomial
+coupling actually contribute. Free ISRU is retained as a useful control and
+a conditional field-fitting result, rather than credited as proof that the
+original ODE structure works.
 
-The evidence snapshot uses all completed5k/10k/25k FIDs and validation through
-40k. ISRU's25k EMA FID252.96 is lower than the controls262.93/268.74, but the
-absolute quality remains poor. Raw/EMA validation and cases reveal a large
-early lag. Raw FID and final50k FID remain unmeasured/unavailable here.
+The main evidence is:
 
-Report1 was finalized after the last requested revision at commit
-`994e660921d2885592704f5c471bd43a12b1c6ef` on October 20, 2026. Its source,
-PDF, figures and supporting files are frozen. The user confirmed on
-October 29 that all subsequent work belongs to **Report2**. Historical draft
-wording inside Report1's own README does not reopen it.
+- P-only constraints and more accurate internal integration do not reliably
+  improve generated distributions. Gate derivatives matter to the full layer.
+- A complete gradient readout substantially improves the original ODE's
+  Product16 field fitting, but ordinary backbones also benefit.
+- Input-dependent orthogonal frames improve thin-manifold fitting. K1 nearly
+  matches K2, and the sampling advantage fails on the thick distribution.
+- Local response, teacher, label-noise and head-refit studies narrow several
+  explanations for the remaining gap without proving an expressivity limit.
+- Existing image runs do not meet the project's baseline-quality requirement.
+  Neither poor FID rankings nor implementation checks establish effectiveness.
 
-Report2 is maintained independently in this directory. Start with the
-[evidence index](evidence-index.md), [task plan](task_plan.md) and
-[continuity notes](notes.md). [scope.json](scope.json) records the frozen
-Report1 identity and a Git-derived inventory of post-Report1 work.
+The entire PDF is **three pages including its table and figure**, with no
+bibliography. It starts with the project and progress, and ends with two
+prospective hypotheses. These are proposals for author discussion, not new
+training launches or an automatic reopening of failed protocols.
 
-The current research focus is the positive
-[ISRU synthetic result](../../docs/autoresearch/isru-followup/README.md),
-its transfer boundaries, and the newly authorized
-[CIFAR-10 comparison](../../docs/autoresearch/isru-cifar10/README.md) on Mac
-mini. Training adequacy and attribution remain unresolved.
-Other post-finalization studies remain Report2 material even when they are
-not selected for the short main narrative. The
-[image-baseline validity correction](../../docs/autoresearch/baseline-validity-review.md)
-must accompany interpretation of the image results.
+## Complete history and evidence boundary
 
-When drafting the report, use the previously requested short academic format:
-a brief project/progress description at the start, evidence-led experiment
-purposes and observations with selected cases, and hypotheses for the next
-two weeks at the end. Keep the main report within three pages; references
-and data visualizations/examples can be separate when needed. Write natural
-English and distinguish results from hypotheses. The evidence inventory is
-supporting material, not a list to paste into the main report.
+[attempts.md](attempts.md) organizes all 116 documentation areas inventoried
+at `5c48a97`, additional architecture subquestions, and the early ImageNet
+configuration inventory into 127 linked records. These are evidence families,
+not 127 independent experiments. Some reuse the same controls; others are
+proofs, diagnostics, proposals or implementation checks. The six archived
+ImageNet configurations are not counted as completed runs without recovered
+result bindings. Earlier Report1 evidence is labeled as context.
 
-No Report1 file is changed or regenerated by this reporting update. This
-report is ready for author review and is not finalized.
+The catalogue is also available as [JSON](attempt-ledger.json) and
+[CSV](attempt-ledger.csv). [attempt-inventory.json](attempt-inventory.json)
+records its coverage; the [evidence index](evidence-index.md) gives a shorter
+reading route. Primary records remain intact. Selected report/chart values
+are checked directly against their source tables; this reporting pass does
+not rerun every archived model. The earlier
+[synthetic replay audit](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)
+is separately identified.
+
+Report1 remains final at `994e660921d2885592704f5c471bd43a12b1c6ef`.
+[scope.json](scope.json) retains its tree/PDF identities. No Report1 file,
+experiment source, raw dataset, checkpoint or trainer was changed for this
+rewrite. Historical image data and figures remain here for traceability, but
+are not the current report's main narrative or live-process status.
 
 ## Rebuild
 
-From the repository root, regenerate figures and the matrix observation from
-the curated CSVs/grids, then compile:
+From the repository root:
 
 ```sh
-python3 -B reports/report2/make_figures.py
+python3 -B reports/report2/render_attempts.py
+python3 -B reports/report2/make_mainline_figures.py
 bash reports/report2/build.sh
 python3 -B reports/report2/verify_report.py
 ```
 
-NumPy, Matplotlib and Pillow are sufficient to rebuild figures. Compilation
-uses latexmk, Tectonic, or pdflatex. Tectonic may fetch missing font resources;
-this does not alter the experiment environments. `pdfinfo`, `pdftotext` and
-`pdffonts` are used for verification. Raw arrays/checkpoints stay outside Git.
+The figure builder needs NumPy and Matplotlib and reads only tracked CSVs.
+Compilation uses latexmk, Tectonic or pdflatex. Verification uses `pdfinfo`,
+`pdftotext` and `pdffonts`, and checks source-row bindings and Report1 identity.
+A visual-review receipt is valid only for its recorded PDF hash; a fresh PDF
+must be rendered and inspected again before that receipt is renewed.
 
-The CPU-only collector requires the private runtime and existing metrics
-environment. It preserves an exclusive evidence snapshot and never touches
-the running trainer. No dataset or model state is needed to rebuild the
-published draft from its curated data.
+`collect_evidence.py` and `make_figures.py` belong to the **superseded November 1
+image-centered draft**. They are preserved for reproducing that snapshot;
+they are not required to rebuild the current report. There is no need to
+access private checkpoints or remote machines for the current build.
