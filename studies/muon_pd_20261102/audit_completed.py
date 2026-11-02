@@ -33,6 +33,9 @@ def main():
     p.add_argument('--save', required=True)
     p.add_argument('--device', choices=['cpu', 'cuda'], default='cuda')
     p.add_argument('--wave2', action='store_true')
+    p.add_argument('--variant-module')
+    p.add_argument('--experiment-id')
+    p.add_argument('--anchor-output')
     args = p.parse_args()
     source = Path(args.source).resolve()
     sys.path.insert(0, str(source))
@@ -47,6 +50,13 @@ def main():
         from variants import build_model
         builder = build_model
         experiment = 'muon_pd_wave2_20261102'
+    if args.variant_module:
+        import importlib
+        entry = source/args.variant_module
+        sys.path.insert(0, str(entry.parent))
+        builder = importlib.import_module(entry.stem).build_model
+    if args.experiment_id:
+        experiment = args.experiment_id
     torch.set_num_threads(1)
     device = torch.device(args.device)
     rows, curves, updates = [], [], []
@@ -66,6 +76,7 @@ def main():
         assert checkpoint['config_sha256'] == sha(folder/'config.json')
         assert checkpoint['dataset_manifest_sha256'] == sha(manifest_path)
         assert checkpoint['identity']['seed'] == 0
+        assert cfg['seeds'] == [0] and cfg['batch_size'] == 512 and cfg['steps'] == 20000
         assert (folder/'ADAPTER_COMPLETE').exists()
         torch.manual_seed(0)
         model = builder(ds['dim'], cell['family']).to(device)
@@ -96,6 +107,14 @@ def main():
                          field_abs_error=field_error, sw2_abs_error=sample_error,
                          generated_replay_max_abs_error=replay_error,
                          checkpoint_sha256=sha(folder/'checkpoints/step_0020000.pt')))
+        if args.anchor_output and cell.get('role') == 'anchor':
+            anchor = Path(args.anchor_output)/'muon_pd_20261102'/cell['dataset']/cell['id']/'seed000'
+            with np.load(anchor/'final_test_examples.npz', allow_pickle=False) as old:
+                assert np.array_equal(old['target'], target)
+                rows[-1]['anchor_sample_max_abs_error'] = float(np.max(np.abs(old['generated']-generated)))
+            old_final = json.loads((anchor/'metrics.jsonl').read_text().splitlines()[-1])
+            rows[-1]['anchor_field_abs_error'] = abs(final['validation_oracle_mse']-old_final['validation_oracle_mse'])
+            assert rows[-1]['anchor_sample_max_abs_error'] < 2e-5 and rows[-1]['anchor_field_abs_error'] < 2e-6
         for metric in metrics:
             activations = [l['activation'] for l in metric['ode_layers']]
             row = dict(cell=cell['id'], dataset=cell['dataset'], family=cell['family'],
@@ -103,13 +122,19 @@ def main():
                        step=metric['step'], field_mse=metric['validation_oracle_mse'],
                        validation_sw2=metric.get('sample', {}).get('sliced_w2'))
             for key in ('s_mean', 's_std', 's_sample_std', 's_channel_std',
-                        'clock_outer_saturated_fraction', 'output_rms_over_input',
+                        'clock_outer_saturated_fraction', 's_negative_fraction',
+                        's_below_original_floor_fraction', 's_above_original_ceiling_fraction',
+                        'output_rms_over_input',
                         'term1_rms_over_input', 'term2_rms_over_input'):
                 row[key] = mean(a[key] for a in activations if key in a)
             for key in ('sigma_max', 'stable_rank', 'spectral_radius', 'nonnormality'):
                 row['p_'+key] = mean(l['raw'][key] for l in metric['ode_layers'])
             jac = [v for values in metric.get('layer_jacobian_sigma_max', {}).values() for v in values]
             row['probe_jacobian_max'] = max(jac) if jac else None
+            generators = [g for a in activations for g in a.get('conditional_generator_spectra', [])]
+            for key in ('frobenius', 'stable_rank', 'entropy_rank'):
+                row['generator_'+key] = mean(g[key] for g in generators)
+            row['generator_sigma_max'] = mean(g['singular_values'][0] for g in generators)
             curves.append(row)
         for line in (folder/'update_spectra.jsonl').read_text().splitlines():
             event = json.loads(line)

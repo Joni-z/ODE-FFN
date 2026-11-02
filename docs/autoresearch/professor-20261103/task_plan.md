@@ -4,8 +4,8 @@ Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on
 
 - [x] Read installed Karpathy autoresearch adapter and unchanged upstream README/program.
 - [x] Audit earlier range, ordering and shared-feature evidence; preserve negative results.
-- [ ] Register cycle1: PD gate representation versus range, crossed with optimizer; verify controls and derivatives.
-- [ ] Publish, deploy separate worktrees, obtain a fresh documented CUDA witness on both hosts.
+- [x] Register cycle1: PD gate representation versus range, crossed with optimizer; verify controls and derivatives.
+- [x] Publish, deploy separate worktrees, obtain a fresh documented CUDA witness on both hosts.
 - [ ] Run baseline first, then controlled candidates; inspect all outcomes and replay checkpoints.
 - [ ] Write the mathematical/evidence chain, update candidate decisions and select the next single-axis cycle.
 

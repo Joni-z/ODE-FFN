@@ -1,3 +1,7 @@
+# Active professor-guided autoresearch,3November
+
+[Program and decision chain](docs/autoresearch/professor-20261103/program.md). Cycle1 is running on145GPU0 andLenovoGPU0 from frozen01fe2df, two workers perhost. Six anchor reruns and12 PD controller/output-transform candidates. Native CUDA identities, derivatives and actual8->16 continuation pass; post-SSH progress confirmed. Analyze each completed cycle, preserve failures, then choose the next controlled question.
+
 # Latest: professor follow-up wave2 complete
 
 All30 second-wave configurations completed and passed independent replay. [Findings and next decision](docs/research-muon-pd-2026-11-02/wave2/results/findings.md): direction matters beyond magnitude, tested decay harms fitting, and diagonal placements do not beat the strongest scalar/SwiGLU controls. Historical order evidence was checked: AdamW3e-4/5k on2D tasks, not the current Muon interaction. A focused eight-cell K1 follow-up is specified in [the prospective protocol](docs/research-muon-pd-2026-11-02/wave2/next-order-protocol.md); implementation/readiness and dispatch remain outstanding. No third-wave jobs launched; GPUs released. Earlier live-status entries below are historical.

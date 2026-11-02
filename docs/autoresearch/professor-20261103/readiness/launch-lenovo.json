@@ -1,0 +1,94 @@
+{
+  "host": "lenovo",
+  "source_commit": "01fe2df8624d4e20c8f24cd765fee526b51960f3",
+  "first": {
+    "unix_time": 1793647854.750127,
+    "queue_pid": 30072,
+    "cuda_visible_devices": "0",
+    "failed": false,
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 90, 810, 8188, 24.83",
+    "running": [
+      {
+        "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+        "pid": 15516,
+        "latest": {
+          "step": 2500,
+          "validation_oracle_mse": 0.1766741500854492,
+          "wall_seconds": 25.25,
+          "sample": {
+            "heun_steps": 32,
+            "nfe": 64,
+            "reference_floor": 0.15047864615917206,
+            "seconds": 0.14099999994505197,
+            "sliced_w2": 0.2839483320713043
+          }
+        }
+      },
+      {
+        "cell": "gmm_ring8_2d__scalar_k2__muon_0.02",
+        "pid": 19600,
+        "latest": {
+          "step": 1500,
+          "validation_oracle_mse": 0.046886354446411135,
+          "wall_seconds": 22.25,
+          "sample": null
+        }
+      }
+    ],
+    "completed": 0,
+    "pending": 7
+  },
+  "second": {
+    "unix_time": 1793647914.9222014,
+    "queue_pid": 30072,
+    "cuda_visible_devices": "0",
+    "failed": false,
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 91, 810, 8188, 24.91",
+    "running": [
+      {
+        "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+        "pid": 15516,
+        "latest": {
+          "step": 8500,
+          "validation_oracle_mse": 0.027695534896850588,
+          "wall_seconds": 83.43699999991804,
+          "sample": null
+        }
+      },
+      {
+        "cell": "gmm_ring8_2d__scalar_k2__muon_0.02",
+        "pid": 19600,
+        "latest": {
+          "step": 5500,
+          "validation_oracle_mse": 0.01822730360031128,
+          "wall_seconds": 80.53200000000652,
+          "sample": null
+        }
+      }
+    ],
+    "completed": 0,
+    "pending": 7
+  },
+  "heartbeat_delta_seconds": 60.17207431793213,
+  "checks": {
+    "heartbeat_increased_at_least30": true,
+    "steps_increased": true,
+    "queue_pid_unchanged": true,
+    "no_queue_failure": true,
+    "source_commit_verified": true,
+    "expected_gpu_binding": true
+  },
+  "process_witness": {
+    "launcher_pid": 29944,
+    "controller_pid": 30072,
+    "venv_wrappers": [
+      15516,
+      19600
+    ],
+    "cuda_trainers": [
+      18820,
+      3108
+    ]
+  },
+  "note": "Read-only post-SSH observations. No source edits, restarts or extra training."
+}

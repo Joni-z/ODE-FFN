@@ -1,0 +1,94 @@
+{
+  "host": "145",
+  "source_commit": "01fe2df8624d4e20c8f24cd765fee526b51960f3",
+  "first": {
+    "unix_time": 1793647854.6442273,
+    "queue_pid": 1429857,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "failed": false,
+    "running": [
+      {
+        "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+        "pid": 1429858,
+        "latest": {
+          "step": 2500,
+          "validation_oracle_mse": 0.43085068130493165,
+          "wall_seconds": 23.736075120046735,
+          "sample": {
+            "heun_steps": 32,
+            "nfe": 64,
+            "reference_floor": 0.05105132982134819,
+            "seconds": 0.12754258327186108,
+            "sliced_w2": 0.09549728780984879
+          }
+        }
+      },
+      {
+        "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02",
+        "pid": 1429859,
+        "latest": {
+          "step": 2000,
+          "validation_oracle_mse": 0.07303546257019043,
+          "wall_seconds": 25.85365209169686,
+          "sample": null
+        }
+      }
+    ],
+    "completed": 0,
+    "pending": 7,
+    "gpu": [
+      "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 91, 1191, 49140, 109.13"
+    ]
+  },
+  "second": {
+    "unix_time": 1793647914.9159071,
+    "queue_pid": 1429857,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "failed": false,
+    "running": [
+      {
+        "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+        "pid": 1429858,
+        "latest": {
+          "step": 9000,
+          "validation_oracle_mse": 0.15243613052368163,
+          "wall_seconds": 82.82112279906869,
+          "sample": null
+        }
+      },
+      {
+        "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02",
+        "pid": 1429859,
+        "latest": {
+          "step": 6500,
+          "validation_oracle_mse": 0.03881042013168335,
+          "wall_seconds": 82.6635986994952,
+          "sample": null
+        }
+      }
+    ],
+    "completed": 0,
+    "pending": 7,
+    "gpu": [
+      "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 92, 1191, 49140, 110.72"
+    ]
+  },
+  "heartbeat_delta_seconds": 60.27167987823486,
+  "checks": {
+    "heartbeat_increased_at_least30": true,
+    "steps_increased": true,
+    "queue_pid_unchanged": true,
+    "no_queue_failure": true,
+    "source_commit_verified": true,
+    "expected_gpu_binding": true
+  },
+  "process_witness": {
+    "controller_pid": 1429857,
+    "controller_ppid": 1,
+    "cuda_trainers": [
+      1429858,
+      1429859
+    ]
+  },
+  "note": "Read-only post-SSH observations. No source edits, restarts or extra training."
+}
