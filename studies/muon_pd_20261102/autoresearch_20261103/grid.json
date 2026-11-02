@@ -1,0 +1,187 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "vector_pd_k2",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "anchor"
+    },
+    {
+      "id": "gmm_ring8_2d__scalar_k2__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "scalar_k2",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "anchor"
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu128__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "swiglu128",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "anchor"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_linear_sigmoid__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_linear_sigmoid",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_linear_sigmoid__muon_0.006",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_linear_sigmoid",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_linear_sigmoid__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_linear_sigmoid",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_mlp_affine",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_mlp_affine",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_mlp_affine",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "vector_pd_k2",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "anchor"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__scalar_k2__muon_0.02",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "scalar_k2",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "anchor"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu128__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "swiglu128",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "anchor"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_linear_sigmoid__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_linear_sigmoid",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_linear_sigmoid__muon_0.006",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_linear_sigmoid",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_linear_sigmoid__muon_0.02",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_linear_sigmoid",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_mlp_affine",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_mlp_affine",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_mlp_affine",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "candidate"
+    }
+  ]
+}
