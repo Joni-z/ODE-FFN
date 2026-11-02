@@ -209,6 +209,12 @@ def execute(args):
     else:
         dump(config_path, cfg)
     run_dir = output/cfg['experiment_id']/cell['dataset']/cell['id']/'seed000'
+    tracked = {str(p.relative_to(HERE)): digest(p) for p in HERE.rglob('*')
+               if p.is_file() and p.suffix in ('.py', '.json', '.patch')}
+    source_record = dict(source_sha256=tracked, cell=cell, python=sys.executable, pid=os.getpid())
+    dump(output/'invocations'/f"{cell['id']}-{time.time_ns()}.json", source_record)
+    if args.resume:
+        (run_dir/'ADAPTER_COMPLETE').unlink(missing_ok=True)
     raw_evaluate = train.evaluate
     models = []
 
@@ -250,10 +256,7 @@ def execute(args):
         np.savez_compressed(run_dir/'final_test_examples.npz',
                             generated=generated.cpu().numpy(),
                             target=fixed['sample_target'].cpu().numpy())
-    tracked = {str(p.relative_to(HERE)): digest(p) for p in HERE.rglob('*')
-               if p.is_file() and p.suffix in ('.py', '.json', '.patch')}
-    dump(run_dir/'adapter_provenance.json', dict(source_sha256=tracked, cell=cell,
-                                               python=sys.executable, pid=os.getpid()))
+    dump(run_dir/'adapter_provenance.json', source_record)
     (run_dir/'ADAPTER_COMPLETE').write_text('training and required final evaluation complete\n')
 
 

@@ -9,3 +9,8 @@ Prior PD K1 study: docs/research-architecture-search/analysis-rate-order/analysi
 The new user instruction authorizes this study on145/Lenovo. It does not authorize deleting old runs, modifying submitted Report1 or resuming the long inadequate image baseline. Local Mac use is orchestration/documentation only; training and kernel benchmarks run remotely.
 
 Native documentation witness caught a Python module-name collision: queue.py shadowed the standard-library queue imported by torch2.8. Renamed the controller to run_queue.py before training; no formal cells had launched.
+
+Lenovo's first source check caught Git autocrlf rewriting pinned Python files.
+The normalized hash matched but raw bytes did not. Added study-local LF
+attributes and refreshed the clean new checkout; verification still requires
+the exact registered bytes. Historical worktrees were not touched.

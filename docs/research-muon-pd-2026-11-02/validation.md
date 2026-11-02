@@ -29,6 +29,10 @@ Existing Python: `D:/Research/ODE-FFN/envs/synthetic/Scripts/python.exe`.
 Git: `D:/Research/ODE-FFN/tools/git/cmd/git.exe`. The old dirty `repo/` and
 `upstream/` checkouts are preserved; this study uses a separate snapshot.
 Windows application-control policy and driver installation are unchanged.
+The study's `.gitattributes` requires LF line endings. Pinned upstream hashes
+must match raw bytes on Windows too; do not normalize files inside verification
+to conceal a mismatch. A fresh study checkout may require `git checkout-index
+--force --all` after adding the attributes, only after confirming it is clean.
 
 ```bash
 ssh lenovo 'set OMP_NUM_THREADS=1&& set OPENBLAS_NUM_THREADS=1&& set MKL_NUM_THREADS=1&& D:\Research\ODE-FFN\envs\synthetic\Scripts\python.exe D:\Research\ODE-FFN\muon-pd-20261102\repo\studies\muon_pd_20261102\preflight.py --device cpu --output D:\Research\ODE-FFN\muon-pd-20261102\preflight\cpu.json'
