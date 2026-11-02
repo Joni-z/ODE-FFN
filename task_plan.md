@@ -1,6 +1,6 @@
 # Current priority — professor Muon / PD follow-up (2 November 2026)
 
-The user authorizes implementation and training on145/Lenovo. The36-cell seed0 grid is published;145 and Lenovo queues are launched with two CUDA workers each. Runtime and readiness evidence: [execution record](docs/research-muon-pd-2026-11-02/execution.md). Follow [the bounded study plan](docs/research-muon-pd-2026-11-02/task_plan.md). Keep old image training paused; use only the registered optimizer and diagonal-generator changes. Record P and actual update spectra, preserve strong controls, and monitor every run. Earlier audit-only/no-training statements below are historical and superseded for this study only.
+The user authorizes implementation and training on145/Lenovo. All36 seed0 cells finished successfully. Recorded endpoints are in [the endpoint audit](docs/research-muon-pd-2026-11-02/endpoint-audit.md); independent metric replay and trajectory analysis remain pending. Runtime and readiness evidence: [execution record](docs/research-muon-pd-2026-11-02/execution.md). Follow [the bounded study plan](docs/research-muon-pd-2026-11-02/task_plan.md). Keep old image training paused; use only the registered optimizer and diagonal-generator changes. Record P and actual update spectra, preserve strong controls, and monitor every run. Earlier audit-only/no-training statements below are historical and superseded for this study only.
 
 ---
 

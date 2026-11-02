@@ -116,3 +116,7 @@ closed. See `verification/ssh-persistence.json` and timestamped `launch.json`.
 The root image trainer and both report PDFs are unchanged. Report1 SHA256
 165d46476362f006db6124f0035bcb6964cb163e509f52eb49adbf4de5839ecf;
 Report2 SHA25682c97fbcb1a073043a8fb4258a1c499468d464a421437750fe92214b97b67648.
+
+## Completion check — 2 November 2026,08:01 UTC
+
+Both controllers finished normally:14522/22,Lenovo14/14. Every run has20k endpoint metrics and ADAPTER_COMPLETE including final sampling. No failures or unstarted cells. The first endpoint audit is in [endpoint-audit.md](endpoint-audit.md); this supersedes the earlier live snapshots. No new family was launched.

@@ -1,6 +1,6 @@
 # Current follow-up: 2 November 2026
 
-Professor-authorized Muon/PD study: [protocol](docs/research-muon-pd-2026-11-02/protocol.md), [execution](docs/research-muon-pd-2026-11-02/execution.md). Numerical/source witnesses and native-trainer smoke checks pass on 145 and Lenovo. Shared numerical source295dd3e; Lenovo controller fixae4560e. Both CUDA queues and post-SSH persistence are verified; monitoring is live. Published changes use Zhizhe Zhang. Existing reports and image runtime remain unchanged.
+Professor-authorized Muon/PD study: [protocol](docs/research-muon-pd-2026-11-02/protocol.md), [execution](docs/research-muon-pd-2026-11-02/execution.md). Numerical/source witnesses and native-trainer smoke checks pass on 145 and Lenovo. Shared numerical source295dd3e; Lenovo controller fixae4560e. Both CUDA queues finished successfully (36/36); the recorded endpoint audit is available. Muon improves Product16 original-ODE fitting but does not surpass the ordinary controls; PD does not beat DP field error. Independent replay and trajectory analysis remain pending. Published changes use Zhizhe Zhang. Existing reports and image runtime remain unchanged.
 
 # ODE autoresearch notes
 
