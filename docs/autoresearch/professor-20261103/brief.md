@@ -86,12 +86,23 @@ this feature setting. No symmetry projection or extra loss was added.
 
 A new ordinary bilinear case has poor field error but low random-projection SW2
 on Product16. This does not alone establish either good generation or a broken
-metric. The next selected action inspects saved samples along the known mixture
-directions, with no new training or change to primary scores. Both GPUs are free.
+metric. A frozen audit now shows a concrete failure: its axis0 gap mass is32.45%
+versus the population3.04%, despite favorable aggregate distances. Strong ordinary
+models also retain smaller imperfections. Primary scores remain unchanged;
+actual marginal examples are required alongside them.
+
+Cycle6 now tests only budget/convergence: rawK1 and native Swi64/128/192 all run80k
+with the same frozen validation-selected rates. Fresh native old/new8-update
+state identities and actual checkpoint continuation passed on both hosts. Each
+new20k numerical state must reproduce its archived parent before later results
+are interpreted. No new architecture, scheduler, symmetry constraint or loss is
+added. This asks whether the short-budget Ring8 lead survives stronger ordinary
+convergence; the rejected abs setting remains closed.
 
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
 [cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
 [cycle4 results](cycle4-results/findings.md), [cycle5 results](cycle5-results/findings.md), [parity readout](symmetry-results/findings.md),
 [signed-diagonal branch](signed-diagonal.md),
+[sample cases](sample-structure-results/findings.md), [current budget study](cycle6-execution.md),
 [two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).

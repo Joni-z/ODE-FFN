@@ -67,3 +67,8 @@ models also retain smaller shape errors. Next registered cycle6 changes only
 the budget20k->80k: rawK1 versus native Swi64/128/192 on both tasks,8trajectories.
 No new architecture. Verify exact native8-step state equivalence, physicalresume,
 and original20k prefixes; existing stopped settings remain closed.
+
+Cycle6 live at b33c837 after fresh native4-family prefix/continuation witnesses
+on both GPUs. Post-SSH progress verified,91–93% utilization. Next P0: exact
+archived20k numerical-state checks as each new child advances beyond20500;
+then complete/replay all8at80k. No new model is selected.

@@ -1,3 +1,7 @@
+# Current runtime: cycle6 budget-only confirmation
+
+Eight80k trajectories are live from frozen b33c837 on145GPU0/LenovoGPU0, two workers each: rawK1 and native Swi64/128/192, same earlier validation-selected rates. Fresh actual8-step old/new numerical equality and native8-to16 continuation pass for all4families on both hosts. Post-SSH steps/utilization verified. [Execution](docs/autoresearch/professor-20261103/cycle6-execution.md), [protocol](docs/autoresearch/professor-20261103/cycle6.md). P0 next: exact archived20k prefix audit after20500, then complete/replay80k. Earlier runtime entries below are historical.
+
 # Latest confirmed: cycle5 closed; saved-sample audit next
 
 All14 cycle5 trajectories and4 preregistered parity cases completed/replayed. AbsK1 fails all6 matched field comparisons. [Findings](docs/autoresearch/professor-20261103/cycle5-results/findings.md). Both GPUs released. Next selected action is a CPU/read-only Product16 terminal-sample structure diagnostic before choosing another training family. No accepted ODE model or image transfer. Earlier runtime entries below are historical.

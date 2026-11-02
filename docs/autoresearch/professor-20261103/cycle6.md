@@ -63,10 +63,15 @@ raw together, then fill the next slot with Swi192, two workers per freeGPU0 on
 each host. This permits overlap while retaining all strong controls. Actual
 wall time and the extra budget are reported separately from model quality.
 
-- [ ] Implement a budget-only entry/grid, source-bound prefix auditor and native
+- [x] Implement a budget-only entry/grid, source-bound prefix auditor and native
       actual-entry witness using unchanged parent builders/trainer.
-- [ ] Freeze/push; deploy new worktrees and pass fresh documented CUDA checks.
+- [x] Freeze/push; deploy new worktrees and pass fresh documented CUDA checks.
 - [ ] Launch/monitor all8; verify exact20k prefixes before interpreting later steps.
 - [ ] Finish/replay80k endpoints, retained learning curves and P/sample readouts.
 - [ ] Decide whether raw's lead survives matched ordinary convergence, then choose
       the next research question without reopening stopped feature families.
+
+Native readiness passed at b33c837 on both hosts: all4actual8-update old/new
+budget numerical states match and all4new runs resume8-to16. Formal queues now
+run2workers perhost; independent post-SSH increasing steps and91–93% GPU use
+verified.20k prefix and80k quality checks are still outstanding.

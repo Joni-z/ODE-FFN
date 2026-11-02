@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "parameters": {
+    "pd_direct_raw_k1": 58512,
+    "swiglu64": 58572,
+    "swiglu128": 83598,
+    "swiglu192": 108624
+  },
+  "new_model_code": false,
+  "budget": 80000,
+  "native": [
+    {
+      "family": "swiglu64",
+      "native_old_new_eight_step_prefix_exact": true,
+      "native_resume_step": 16
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "native_old_new_eight_step_prefix_exact": true,
+      "native_resume_step": 16
+    },
+    {
+      "family": "swiglu128",
+      "native_old_new_eight_step_prefix_exact": true,
+      "native_resume_step": 16
+    },
+    {
+      "family": "swiglu192",
+      "native_old_new_eight_step_prefix_exact": true,
+      "native_resume_step": 16
+    }
+  ],
+  "dataset": "rotated_product_bimodal_16d"
+}

@@ -1,3 +1,7 @@
+# Current professor-guided study
+
+Cycle6 extends only training budget to80k for rawK1 versus all three native SwiGLU widths. Source b33c837, two workers per145/LenovoGPU0; fresh complete native prefix/resume checks and post-SSH progress pass. Exact old20k state checks precede later interpretation. [Sample-structure findings](docs/autoresearch/professor-20261103/sample-structure-results/findings.md) motivate convergence checks instead of another D design. No accepted ODE method.
+
 # Latest confirmed: signed-feature hypothesis rejected
 
 Cycle5 is complete with exact generated-array replay. Hidden odd increments did not improve full-predictor parity or fitting consistently. Current work checks saved-sample structure behind the field/SW2 disagreement; GPUs released. [Findings](docs/autoresearch/professor-20261103/cycle5-results/findings.md).

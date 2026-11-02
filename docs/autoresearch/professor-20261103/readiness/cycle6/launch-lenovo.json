@@ -1,0 +1,69 @@
+{
+  "unix_time": 1793657578.3276918,
+  "started": 1793657488.0502763,
+  "queue_pid": 27876,
+  "host": "lenovo",
+  "device": "cuda",
+  "workers": 2,
+  "cuda_visible_devices": "0",
+  "running": [
+    {
+      "cell": "gmm_ring8_2d__swiglu64__muon_0.02__budget80000",
+      "dataset": "gmm_ring8_2d",
+      "pid": 18584,
+      "started": 1793657488.0502763,
+      "command": [
+        "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe",
+        "-u",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle6-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle6\\trial6.py",
+        "--cell",
+        "gmm_ring8_2d__swiglu64__muon_0.02__budget80000",
+        "--data-root",
+        "D:/Research/ODE-FFN/datasets/synthetic",
+        "--output",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle6-20261103\\output",
+        "--device",
+        "cuda"
+      ],
+      "latest": {
+        "step": 8500,
+        "validation_oracle_mse": 0.01754131679534912,
+        "wall_seconds": 86.42200000002049,
+        "sample": null
+      }
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__budget80000",
+      "dataset": "gmm_ring8_2d",
+      "pid": 16852,
+      "started": 1793657488.065981,
+      "command": [
+        "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe",
+        "-u",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle6-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle6\\trial6.py",
+        "--cell",
+        "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__budget80000",
+        "--data-root",
+        "D:/Research/ODE-FFN/datasets/synthetic",
+        "--output",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle6-20261103\\output",
+        "--device",
+        "cuda"
+      ],
+      "latest": {
+        "step": 8000,
+        "validation_oracle_mse": 0.01349900484085083,
+        "wall_seconds": 83.57799999997951,
+        "sample": null
+      }
+    }
+  ],
+  "completed": [],
+  "pending": [
+    "gmm_ring8_2d__swiglu128__muon_0.02__budget80000",
+    "gmm_ring8_2d__swiglu192__muon_0.02__budget80000"
+  ],
+  "failed": false,
+  "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 91, 808, 8188, 22.97",
+  "gpu_query_exit": 0
+}
