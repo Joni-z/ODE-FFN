@@ -115,3 +115,10 @@ One10k-update relaxation time, every10updates, native loss/model/trainer/Muon
 unchanged. CPU witness checks exact native-none16steps and both post-step
 formulas. Next publish/deploy, fresh full native8->16versus continuous16 checks
 on all6hostcells, then monitored baseline-first training.
+
+Readiness failure at4d381c6:145first scalar-none8-step cell stopped with
+KeyError rotated_product_bimodal_16d because the generated grid hardcoded v1.
+No formal20k launch. Correct grid to each hash-bound parent data_version
+(product16_v1 forProduct16), add all12parent/cache assertions to preflight,
+retain old logs/worktree and use a new cycle8-v2 runtime/readiness directory.
+Native model, optimizer and relaxation math are unchanged.

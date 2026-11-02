@@ -1,5 +1,5 @@
 """Native no-op equality and real constrained8-to16 resume witness."""
-import argparse,copy,json,subprocess,sys
+import argparse,copy,csv,json,subprocess,sys
 from pathlib import Path
 from trial8 import base,build_model,RelaxedOptimizer,variants,torch,STRENGTH
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'cycle6'))
@@ -7,6 +7,14 @@ from prefix import same,numerical_equal
 
 def verify(device):
     base.verify_sources();torch.set_num_threads(1);rows=[]
+    parents=[]
+    repo=base.HERE.parents[1]
+    for f in ['docs/autoresearch/professor-20261103/cycle3-results/endpoints.csv','docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv']:
+        parents+=list(csv.DictReader((repo/f).open()))
+    grid=json.loads(Path(__file__).with_name('grid.json').read_text())
+    for cell in grid['cells']:
+        parent=next(r for r in parents if r['id']==cell['parent_id'] and r['checkpoint_sha256']==cell['parent_checkpoint_sha256'])
+        assert cell['data_version']==parent['data_version'],(cell['id'],'parent data version differs')
     for family in ['scalar_k2','pd_direct_raw_k1']:
         torch.manual_seed(0);model=build_model(16,family).to(device)
         reference=copy.deepcopy(model);native=base.ProjectionOptimizer(reference,'muon',.006)
@@ -34,7 +42,7 @@ def verify(device):
                 native_delta=q.double()-before[n].double();relax_delta=p.double()-q.double();total=p.double()-before[n].double()
                 assert torch.allclose(total,native_delta+relax_delta,rtol=0,atol=1e-14)
         rows.append(dict(family=family,native_none_16_steps_exact=True,post_step_shape_scale_matches_formula=True))
-    return dict(passed=True,device=device,torch=torch.__version__,rows=rows,strength=STRENGTH)
+    return dict(passed=True,device=device,torch=torch.__version__,rows=rows,strength=STRENGTH,all_parent_data_versions_match=True)
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--device',required=True);p.add_argument('--output',required=True);p.add_argument('--data-root');p.add_argument('--dataset');p.add_argument('--smoke-output');a=p.parse_args();result=verify(a.device)
