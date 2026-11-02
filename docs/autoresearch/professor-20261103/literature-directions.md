@@ -28,6 +28,18 @@ in itself as a new idea. Our P D(h) has input-dependent diagonal factors and a
 polynomial map, so a fixed-matrix LoRA method cannot simply be assumed applicable.
 Full method/code review would precede any implementation.
 
+Follow-up scoped PDF read: Sections3–4, Eqs6–14, of the
+[conference paper](https://proceedings.iclr.cc/paper_files/paper/2026/file/8505a7e1da40320bf5692d7edec5aa45-Paper-Conference.pdf)
+specify tangent projection, momentum transport, orthogonalization and fixed-rank
+retraction. Orthogonalizing factors separately is not the intrinsic update.
+Their tangent-projected orthogonal step is approximate; they report that more
+accurately solving the tangent-space local subproblem brought little convergence
+benefit in their experiments. This narrows the relevant prior beyond the abstract.
+Our conditional PD(h) is not one fixed-rank adapter, so copying that optimizer
+would require a new function-space metric and treatment of singular D. No such
+implementation or novelty claim is made. The separate fixed-D calculation in
+muon-metric.md is a local identity, not a derived Riemannion extension.
+
 [Reassessing Muon for Matrix Factorization, TAG-DS2026](https://proceedings.mlr.press/v334/parviz26a.html)
 reports that Muon's superiority over tuned AdamW is not consistent in its controlled
 matrix-factorization setting. This supports our use of ordinary baselines and
