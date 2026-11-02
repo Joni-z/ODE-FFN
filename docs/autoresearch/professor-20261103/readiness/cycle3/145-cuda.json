@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "anchor_exact_three_updates": [
+    "scalar_k2/adamw",
+    "scalar_k2/muon",
+    "vector_pd_k2/adamw",
+    "vector_pd_k2/muon",
+    "swiglu128/adamw",
+    "swiglu128/muon",
+    "swiglu192/adamw",
+    "swiglu192/muon"
+  ],
+  "candidates": [
+    {
+      "family": "pd_linear_sigmoid",
+      "parameters": 83472,
+      "dense_and_full_derivative": true,
+      "physical_resume": true
+    },
+    {
+      "family": "pd_mlp_affine",
+      "parameters": 83664,
+      "dense_and_full_derivative": true,
+      "physical_resume": true
+    }
+  ],
+  "cycle3": [
+    {
+      "family": "scalar_k1",
+      "parameters": 83862,
+      "dense_full_derivatives": true,
+      "physical_resume": true
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "parameters": 58512,
+      "dense_full_derivatives": true,
+      "physical_resume": true
+    },
+    {
+      "family": "swiglu64",
+      "parameters": 58572,
+      "dense_full_derivatives": true,
+      "physical_resume": true
+    }
+  ],
+  "actual_native_resume_to_step": 16
+}

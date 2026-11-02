@@ -1,3 +1,7 @@
+# Latest professor autoresearch state
+
+Cycle3 is running22 scalarK1/directrawK1/SwiGLU64 trajectories at14ab235. Cycles1/2 have36 completed/replayed trajectories (six exact anchors). RawD gives Ring8 MSE.012105/SW2.172697, below the strongest tested scalar ODE error.013401 but above ordinary SwiGLU. Full float32/float64 field checks show only1e-9-scale MSE differences despite very large local hidden Jacobians. [Evidence chain](docs/autoresearch/professor-20261103/logic-chain.md), [cycle2 readout](docs/autoresearch/professor-20261103/cycle2-results/findings.md), [current runtime](docs/autoresearch/professor-20261103/cycle3-execution.md).
+
 # Active professor-guided autoresearch,3November
 
 [Program and decision chain](docs/autoresearch/professor-20261103/program.md). Cycle1 completed18 trajectories and passed replay; six anchors reproduce exactly. Two local validation leads do not beat ordinary controls. Cycle2 is running18 rank/factorization/direct-D candidates on145GPU0 andLenovoGPU0 from frozen d26ba5a, two workers perhost. Native CUDA identities, derivatives and actual8->16 continuation pass; post-SSH progress confirmed. Analyze each completed cycle, preserve failures, then choose the next controlled question.

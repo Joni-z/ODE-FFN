@@ -1,0 +1,100 @@
+{
+  "host": "lenovo",
+  "expected_runtime_commit": "14ab235799d287e0695d9aedab18a9e4fd714d8f",
+  "first_observation": {
+    "unix_time": 1793651168.6371787,
+    "queue_pid": 1288,
+    "host": "lenovo",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "0",
+    "failed": false,
+    "running": [
+      {
+        "pid": 12012,
+        "cell": "gmm_ring8_2d__scalar_k1__adamw_0.0003",
+        "step": 3000
+      },
+      {
+        "pid": 20452,
+        "cell": "gmm_ring8_2d__scalar_k1__adamw_0.001",
+        "step": 3000
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 9,
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 90, 800, 8188, 24.39"
+  },
+  "process_witness": [
+    {
+      "ProcessId": 18216,
+      "ParentProcessId": 13636,
+      "CommandLine": "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe -u D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\repo\\studies\\muon_pd_20261102\\run_queue.py --host lenovo --device cuda --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/professor-autoresearch-cycle3-20261103/output --workers 2 --grid D:/Research/ODE-FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json --runner D:/Research/ODE-FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py --experiment-id professor_autoresearch_cycle3_20261103"
+    },
+    {
+      "ProcessId": 1288,
+      "ParentProcessId": 18216,
+      "CommandLine": "\"D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12-windows-x86_64-none\\python.exe\"  -u D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\repo\\studies\\muon_pd_20261102\\run_queue.py --host lenovo --device cuda --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/professor-autoresearch-cycle3-20261103/output --workers 2 --grid D:/Research/ODE-FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json --runner D:/Research/ODE-FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py --experiment-id professor_autoresearch_cycle3_20261103"
+    },
+    {
+      "ProcessId": 12012,
+      "ParentProcessId": 1288,
+      "CommandLine": "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe -u D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle3\\trial3.py --cell gmm_ring8_2d__scalar_k1__adamw_0.0003 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\output --device cuda"
+    },
+    {
+      "ProcessId": 20452,
+      "ParentProcessId": 1288,
+      "CommandLine": "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe -u D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle3\\trial3.py --cell gmm_ring8_2d__scalar_k1__adamw_0.001 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\output --device cuda"
+    },
+    {
+      "ProcessId": 22608,
+      "ParentProcessId": 12012,
+      "CommandLine": "\"D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12-windows-x86_64-none\\python.exe\"  -u D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle3\\trial3.py --cell gmm_ring8_2d__scalar_k1__adamw_0.0003 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\output --device cuda"
+    },
+    {
+      "ProcessId": 17104,
+      "ParentProcessId": 20452,
+      "CommandLine": "\"D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12-windows-x86_64-none\\python.exe\"  -u D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle3\\trial3.py --cell gmm_ring8_2d__scalar_k1__adamw_0.001 --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:\\Research\\ODE-FFN\\professor-autoresearch-cycle3-20261103\\output --device cuda"
+    }
+  ],
+  "second_observation": {
+    "unix_time": 1793651198.7001674,
+    "queue_pid": 1288,
+    "host": "lenovo",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "0",
+    "failed": false,
+    "running": [
+      {
+        "pid": 12012,
+        "cell": "gmm_ring8_2d__scalar_k1__adamw_0.0003",
+        "step": 6500
+      },
+      {
+        "pid": 20452,
+        "cell": "gmm_ring8_2d__scalar_k1__adamw_0.001",
+        "step": 7000
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 9,
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 88, 800, 8188, 23.77"
+  },
+  "heartbeat_delta_seconds": 30.062988758087158,
+  "checks": {
+    "heartbeat_increased_at_least_30_seconds": true,
+    "both_original_cells_steps_increased": true,
+    "queue_pid_unchanged": true,
+    "no_queue_failure": true,
+    "expected_gpu_binding": true,
+    "source_commit_verified": true,
+    "actual_cuda_pids_verified": true
+  },
+  "identity_process_gpu_witness": {
+    "exit_code": 0,
+    "stdout": "14ab235799d287e0695d9aedab18a9e4fd714d8f\n0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 800 MiB, 91 %\r\n2728, C:\\Windows\\System32\\dwm.exe\r\n9412, C:\\Windows\\System32\\ShellHost.exe\r\n16644, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe\r\n16156, C:\\Windows\\explorer.exe\r\n19688, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe\r\n19700, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe\r\n20992, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\156.0.4314.58\\msedgewebview2.exe\r\n22476, C:\\Windows\\System32\\NahimicSvc64.exe\r\n17572, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe\r\n24664, C:\\Users\\Jonat\\AppData\\Local\\Programs\\@opencodedesktop\\OpenCode.exe\r\n24924, C:\\Program Files\\Razer\\RazerAppEngine\\app-4.0.827\\RazerAppEngine.exe\r\n28748, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\156.0.4314.58\\msedgewebview2.exe\r\n23364, C:\\Windows\\System32\\ApplicationFrameHost.exe\r\n20756, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe\r\n16968, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe\r\n9492, C:\\Program Files\\WindowsApps\\A-Volute.Nahimic_1.10.15.0_x64__w2gh52qy24etm\\Nahimic3.exe\r\n16976, C:\\Program Files\\WindowsApps\\Microsoft.YourPhone_1.26092.119.0_x64__8wekyb3d8bbwe\\PhoneExperienceHost.exe\r\n22608, D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe\r\n17104, D:\\Research\\ODE-FFN\\tools\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe\r\n",
+    "observed_unix": 1793651228.1593778
+  },
+  "note": "Read-only observations after launching SSH exited. No source edits, restarts, extra queues or training."
+}

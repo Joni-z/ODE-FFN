@@ -1,7 +1,7 @@
 """Publish completed registered trials, full controls, and validation-only decisions."""
 import argparse,csv,json
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--cycle2-parents');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
 root=Path(__file__).resolve().parents[3]
 out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
 receipts=[json.loads(Path(f).read_text()) for f in a.receipts]
@@ -18,23 +18,28 @@ def save(name,records):
 
 old=[]
 cycle1=list(csv.DictReader(Path(a.cycle1_parents).open())) if a.cycle1_parents else []
+cycle2=list(csv.DictReader(Path(a.cycle2_parents).open())) if a.cycle2_parents else []
 for file in ['docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv','docs/research-muon-pd-2026-11-02/wave2/results/endpoints.csv']:
     old+=list(csv.DictReader((root/file).open()))
 for r in old:
     r['replayed_field_mse']=float(r['replayed_field_mse']);r['numpy_test_sw2']=float(r['numpy_test_sw2']);r['projection_lr']=float(r['projection_lr'])
 decisions=[]
 for r in rows:
-    if r.get('role')=='anchor':
+    if r.get('role')=='reference':
+        decision='reference';parent=None;improvement=None;sampling_change=None
+    elif r.get('role')=='anchor':
         assert r['anchor_field_abs_error']<2e-6 and r['anchor_sample_max_abs_error']<2e-5
         decision='anchor';parent=None;improvement=None;sampling_change=None
     else:
-        reference = cycle1 if r['family']=='pd_factorized_linear' else old
-        parent_family = 'pd_linear_sigmoid' if r['family']=='pd_factorized_linear' else 'vector_pd_k2'
+        if r['family']=='pd_factorized_linear':reference,parent_family=cycle1,'pd_linear_sigmoid'
+        elif r['family']=='pd_direct_raw_k1':reference,parent_family=cycle2,'pd_direct_raw'
+        elif r['family']=='scalar_k1':reference,parent_family=old,'scalar_k2'
+        else:reference,parent_family=old,'vector_pd_k2'
         parent=next(x for x in reference if x['dataset']==r['dataset'] and x['family']==parent_family and x['optimizer']==r['optimizer'] and float(x['projection_lr'])==r['projection_lr'])
         improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
         sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'
-    ordinary=min(x['replayed_field_mse'] for x in old if x['dataset']==r['dataset'] and x['family'].startswith('swiglu'))
+    ordinary=min(float(x['replayed_field_mse']) for x in old+rows if x['dataset']==r['dataset'] and x['family'].startswith('swiglu'))
     decisions.append(dict(cell=r['id'],dataset=r['dataset'],family=r['family'],optimizer=r['optimizer'],lr=r['projection_lr'],status=decision,
         field_mse=r['replayed_field_mse'],test_sw2=r['numpy_test_sw2'],parent=parent['id'] if parent else None,
         field_relative_improvement=improvement,test_sw2_relative_change=sampling_change,better_field_than_strongest_ordinary=r['replayed_field_mse']<ordinary))

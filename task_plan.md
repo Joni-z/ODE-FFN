@@ -1,3 +1,7 @@
+# Latest active run: professor autoresearch cycle3
+
+Cycles1/2 completed36 trajectories and passed endpoint replay; six original anchors reproduce exactly. Cycle3 runs22 order/budget comparisons from frozen14ab235 on145GPU0 andLenovoGPU0. See [current execution](docs/autoresearch/professor-20261103/cycle3-execution.md) and [cycle2 findings](docs/autoresearch/professor-20261103/cycle2-results/findings.md). Current raw-D Ring8 lead is below stronger ordinary controls; inspect K1 and matched smaller SwiGLU before acceptance.
+
 # Current priority: professor-guided autoresearch,3November
 
 Cycle1 completed/replayed18 trajectories, including six exact anchors. Cycle2 now runs18 rank/factorization and direct-input-D candidates on145GPU0/LenovoGPU0 from d26ba5a. See [current execution](docs/autoresearch/professor-20261103/cycle2-execution.md). Continue collecting full outcomes before selecting another cycle.

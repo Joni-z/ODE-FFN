@@ -1,0 +1,68 @@
+{
+  "host": "145",
+  "expected_runtime_commit": "14ab235799d287e0695d9aedab18a9e4fd714d8f",
+  "first_observation": {
+    "unix_time": 1793651168.6267266,
+    "queue_pid": 1650044,
+    "host": "145",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "failed": false,
+    "running": [
+      {
+        "pid": 1650086,
+        "cell": "rotated_product_bimodal_16d__scalar_k1__adamw_0.0003",
+        "step": 3000
+      },
+      {
+        "pid": 1650087,
+        "cell": "rotated_product_bimodal_16d__scalar_k1__adamw_0.001",
+        "step": 3000
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 9,
+    "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 88, 1179, 49140, 107.44"
+  },
+  "second_observation": {
+    "unix_time": 1793651198.7630515,
+    "queue_pid": 1650044,
+    "host": "145",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "failed": false,
+    "running": [
+      {
+        "pid": 1650086,
+        "cell": "rotated_product_bimodal_16d__scalar_k1__adamw_0.0003",
+        "step": 7000
+      },
+      {
+        "pid": 1650087,
+        "cell": "rotated_product_bimodal_16d__scalar_k1__adamw_0.001",
+        "step": 7000
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 9,
+    "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 89, 1179, 49140, 108.32"
+  },
+  "heartbeat_delta_seconds": 30.136324882507324,
+  "checks": {
+    "heartbeat_increased_at_least_30_seconds": true,
+    "both_original_cells_steps_increased": true,
+    "queue_pid_unchanged": true,
+    "no_queue_failure": true,
+    "expected_gpu_binding": true,
+    "source_commit_verified": true,
+    "actual_cuda_pids_verified": true
+  },
+  "identity_process_gpu_witness": {
+    "exit_code": 0,
+    "stdout": "14ab235799d287e0695d9aedab18a9e4fd714d8f\n    PID    PPID ELAPSED COMMAND\n1650044       1      89 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/run_queue.py --host 145 --device cuda --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/output --workers 2 --grid /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json --runner /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py --experiment-id professor_autoresearch_cycle3_20261103\n1650086 1650044      89 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py --cell rotated_product_bimodal_16d__scalar_k1__adamw_0.0003 --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/output --device cuda\n1650087 1650044      89 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py --cell rotated_product_bimodal_16d__scalar_k1__adamw_0.001 --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/professor-autoresearch-cycle3-20261103/output --device cuda\n0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 1179 MiB, 90 %\n1650086, /data2/zz5070/miniconda3/envs/py312/bin/python, 582 MiB\n1650087, /data2/zz5070/miniconda3/envs/py312/bin/python, 582 MiB\n",
+    "observed_unix": 1793651227.902325
+  },
+  "note": "Read-only observations after launching SSH exited. No source edits, restarts, extra queues or training."
+}

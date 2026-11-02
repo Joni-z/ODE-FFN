@@ -14,3 +14,5 @@ Continue autonomously within the professor's directions. Maintain append-only tr
 Cycle1 complete/replayed: two provisional validation leads, no ordinary-control win. Cycle2 is registered: rank-matched factorization and direct input diagonals. Native CPU checks pass; fresh CUDA witness, deployment and formal launch are next.
 
 Cycle2 completed/replayed18 trials. Direct h is a Ring8 lead, still below stronger ordinary controls and task-dependent. Frozen float32/float64 field and complete-Jacobian checks pass at the stated local probes. Cycle3 registered22 trajectories: scalarK1,direct-rawK1,SwiGLU64. Native CPU checks passed; deploy and fresh CUDA witness next.
+
+Cycle3 deployed/fresh-CUDA-checked/launched from14ab235,22 cells. Post-SSH step increases verified on both hosts. Current task: finish, replay and compare order/parameter/compute controls, then register the next evidence-based action. Source worktrees stay immutable.
