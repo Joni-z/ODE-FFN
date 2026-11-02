@@ -22,7 +22,9 @@ for method,lr in [('adamw',.0003),('adamw',.001),('muon',.006),('muon',.02)]:
             sr=np.linalg.svd(r,compute_uv=False)[0];sc=np.linalg.svd(c,compute_uv=False)[0]
             assert s[0]<=rownorm.max()*sr+1e-10 and s[0]<=colnorm.max()*sc+1e-10
             rows.append(dict(dataset=a.dataset,optimizer=method,lr=lr,step=step,layer=name,
-                sigma_max=float(s[0]),stable_rank=float(np.sum(s*s)/s[0]**2),
+                sigma_max=float(s[0]),sigma_min=float(s[-1]),condition_number=float(s[0]/s[-1]),
+                singular_value_cv=float(s.std()/s.mean()),top8_energy_fraction=float((s[:8]**2).sum()/(s*s).sum()),
+                singular_values=json.dumps(s.tolist()),stable_rank=float(np.sum(s*s)/s[0]**2),
                 row_norm_mean=float(rownorm.mean()),row_norm_max=float(rownorm.max()),row_normalized_sigma=float(sr),
                 col_norm_mean=float(colnorm.mean()),col_norm_max=float(colnorm.max()),col_normalized_sigma=float(sc),
                 row_bound_slack=float(rownorm.max()*sr/s[0]),col_bound_slack=float(colnorm.max()*sc/s[0]),

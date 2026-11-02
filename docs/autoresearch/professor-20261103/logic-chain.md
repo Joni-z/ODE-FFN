@@ -71,3 +71,55 @@ and strong ordinary controls. This is a prospective branch, not a current result
 These papers motivate questions, not expected wins or a theorem of FM-specific
 architectural advantage. Our algebra above is a direct derivation; our controlled
 training must determine whether it is useful.
+
+## A bound connecting both professor suggestions
+
+Let d(h) be the vector diagonal, A=P diag(d), H=||h||2, p=||P||2,
+a=||A||2 and b=||J_d(h)||2. Differentiating the exact entrance-frozen
+K2 computation gives the local bound
+
+```
+||J_F(h)||2 <= 1+a+a^2/2 + H*p*b*(1+a).
+```
+
+For any direction v, dA[v]=P diag(J_d v), hence
+||dA[v]||2<=p*b*||v||2. Apply this to
+v+A v+(dA[v])h+.5[(dA[v])A h+A(dA[v])h+A^2v].
+The inequality follows by triangle/submultiplicative bounds. It is loose and local;
+it does not predict training error or certify the surrounding network.
+
+This separates four quantities: P scale, the actual conditional A scale,
+controller input sensitivity, and the hidden input magnitude. Muon and different
+D constructions can affect different pieces. Lowering just p is neither necessary
+nor sufficient for quality, as our decay intervention already illustrates.
+
+For the bounded-positive parent, every d lies in(.2,1), so
+`.2*||P||2 <= ||P D||2 <= ||P||2` at every entrance state.
+The lower bound follows from P=(PD)D^(-1). A decreasing gate can compensate only
+within this finite range; the exact arbitrary scale symmetry described above is
+available to unconstrained affine-output D, not to this fixed bounded family.
+
+## Why the optimizer and D parameterization cannot be treated independently
+
+The same-function diagonal rescaling also changes optimization coordinates.
+Holding gate parameters fixed while differentiating P, let P'=P C^(-1),
+D'=C D. Since dP=dP' C, the loss gradient transforms as G'=G C^T.
+For a positive uniform C=cI, the ideal polar update obeys polar(cG)=polar(G).
+Thus using the same Muon LR gives the same P-coordinate displacement in the
+rescaled coordinates, but its contribution to the conditional operator changes:
+
+```
+original DeltaA_P = -eta polar(G) D
+rescaled DeltaA'_P = -eta polar(G) cD = c DeltaA_P.
+```
+
+The two starting functions are identical, yet the same nominal LR produces a
+different effective-operator step. For a nonuniform diagonal C, even the update
+singular directions can change. The practical finite-NS, epsilon, clipping and
+momentum version must be measured rather than assumed exactly scale-invariant.
+
+This is a frozen-gate partial-update calculation; the full training step also
+updates controller/backbone parameters. SGD/Adam can also depend on coordinates,
+so it is not a proof of a unique Muon defect. It explains why Muon and the choice
+of D must be crossed experimentally, and why matching raw parameter-update norms
+alone does not establish matching effective dynamics or overall training speed.

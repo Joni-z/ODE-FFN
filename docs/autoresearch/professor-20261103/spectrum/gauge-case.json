@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "checkpoint_step": 1000,
+  "checkpoint_sha256": "a7140e0baefe49505784c6a976dd5addc265930ccde0e93288240c634b7b4eb5",
+  "model": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+  "calculation_dtype": "float64",
+  "full_prediction_max_error": 2.220446049250313e-15,
+  "layers": [
+    {
+      "layer": "blocks.0.ffn.ode1",
+      "initial_p_sigma": 1.4418844094477878,
+      "changed_p_sigma": 7.561189489324111,
+      "conditional_generator_max_error": 1.3877787807814457e-16,
+      "full_layer_jacobian_max_error": 2.498001805406602e-16
+    },
+    {
+      "layer": "blocks.0.ffn.ode2",
+      "initial_p_sigma": 1.165523662165041,
+      "changed_p_sigma": 6.96524526151007,
+      "conditional_generator_max_error": 1.6653345369377348e-16,
+      "full_layer_jacobian_max_error": 2.220446049250313e-16
+    },
+    {
+      "layer": "blocks.1.ffn.ode1",
+      "initial_p_sigma": 1.5800237264505188,
+      "changed_p_sigma": 7.422501090515485,
+      "conditional_generator_max_error": 2.636779683484747e-16,
+      "full_layer_jacobian_max_error": 4.0245584642661925e-16
+    },
+    {
+      "layer": "blocks.1.ffn.ode2",
+      "initial_p_sigma": 1.2520369096372483,
+      "changed_p_sigma": 7.417756446415095,
+      "conditional_generator_max_error": 1.8041124150158794e-16,
+      "full_layer_jacobian_max_error": 2.220446049250313e-16
+    },
+    {
+      "layer": "blocks.2.ffn.ode1",
+      "initial_p_sigma": 1.4445168655999305,
+      "changed_p_sigma": 7.945854649650457,
+      "conditional_generator_max_error": 1.3877787807814457e-16,
+      "full_layer_jacobian_max_error": 2.3592239273284576e-16
+    },
+    {
+      "layer": "blocks.2.ffn.ode2",
+      "initial_p_sigma": 1.2790306013104715,
+      "changed_p_sigma": 7.757483521735626,
+      "conditional_generator_max_error": 1.942890293094024e-16,
+      "full_layer_jacobian_max_error": 2.220446049250313e-16
+    }
+  ],
+  "interpretation": "Frozen reparameterization identity; not retraining, not a quality improvement, and not generally realizable by the bounded-sigmoid parent."
+}

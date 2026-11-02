@@ -10,12 +10,13 @@ is `--ffn isru`; its implementation and hook are in [ffn.py](ffn.py).
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 
-The current professor follow-up compares Muon updates and second-order `P D(h)`
-layers in an isolated, archived synthetic backbone. See the
-[latest replayed results](docs/research-muon-pd-2026-11-02/wave2/results/findings.md)
-and [second-wave protocol](docs/research-muon-pd-2026-11-02/wave2/protocol.md).
-It uses 145 and Lenovo and does not modify the image trainer or establish a JiT
-image-quality result.
+The professor-guided autoresearch loop explores Muon/spectral geometry and
+input-dependent diagonal ODE generators in an isolated synthetic backbone.
+See the [current program](docs/autoresearch/professor-20261103/program.md),
+[evidence chain](docs/autoresearch/professor-20261103/logic-chain.md), and
+[execution record](docs/autoresearch/professor-20261103/execution.md).
+Earlier [66 replayed configurations](docs/research-muon-pd-2026-11-02/wave2/results/findings.md)
+remain available. These vector-field experiments do not establish JiT image quality.
 
 ## Code
 
