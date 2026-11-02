@@ -58,9 +58,9 @@ bilinear features weakens an ODE-specific interpretation.
 ## Plan
 
 - [x] Implement isolated trial5.py and fixed grid using the existing trainer.
-- [ ] Check exact tensors/RNG, conditional singular-value identity, full Jacobians
+- [x] Check exact tensors/RNG, conditional singular-value identity, full Jacobians
       including zero coordinates, native optimizer serialization and actual8-to16 resume.
-- [ ] Freeze/push, deploy new worktrees, pass fresh documented CUDA witness.
+- [x] Freeze/push, deploy new worktrees, pass fresh documented CUDA witness.
 - [ ] Run all14 with two monitored workers per free GPU; replay all outcomes.
 - [ ] Run the registered four-checkpoint parity readout, publish full controls,
       and decide the next direction from the complete field/sampling evidence.
@@ -69,3 +69,7 @@ CPU checks pass: exact inherited tensors/RNG, matching conditional spectra,
 full derivatives at zero/signed inputs, all original optimizer-arm identities
 and physical state continuation. Fresh CUDA/native trainer smokes remain required.
 Formal grids dispatch the ordinary bilinear references before abs candidates.
+
+Fresh documented CUDA/native continuation passed on both hosts at f81663a.
+All14 queued, ordinary references first; two-worker post-SSH step increases
+verified independently over60s,90–91% GPU0 utilization, no failures.

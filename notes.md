@@ -1,3 +1,7 @@
+# Current professor-guided autoresearch state
+
+Cycle5 is live, baseline first: ordinary bilinear64 versus absK1, with exact matched-state raw/abs singular spectra and measured parity-error motivation.90–91% GPU utilization in the post-SSH witness. Earlier76 trials and12 parity cases complete/replayed. No accepted ODE method; retain all ordinary controls. [Current brief](docs/autoresearch/professor-20261103/brief.md).
+
 # Latest confirmed results
 
 Cycle4 and the frozen parity readout completed. The next test follows the exact raw-versus-abs singular-spectrum equivalence and measured excess even error; include ordinary bilinear and all SwiGLU controls. See [brief](docs/autoresearch/professor-20261103/brief.md).

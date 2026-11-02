@@ -1,0 +1,72 @@
+{
+  "unix_time": 1793654576.9097264,
+  "started": 1793654486.470501,
+  "queue_pid": 2048269,
+  "host": "145",
+  "device": "cuda",
+  "workers": 2,
+  "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+  "running": [
+    {
+      "cell": "rotated_product_bimodal_16d__bilinear64__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "pid": 2048270,
+      "started": 1793654486.4710052,
+      "command": [
+        "/data2/zz5070/miniconda3/envs/py312/bin/python",
+        "-u",
+        "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle5-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle5/trial5.py",
+        "--cell",
+        "rotated_product_bimodal_16d__bilinear64__adamw_0.0003",
+        "--data-root",
+        "/data2/zz5070/ODE_FFN/muon-pd-20261102/data",
+        "--output",
+        "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle5-20261103/output",
+        "--device",
+        "cuda"
+      ],
+      "latest": {
+        "step": 18500,
+        "validation_oracle_mse": 0.08767622528076172,
+        "wall_seconds": 86.68975506909192,
+        "sample": null
+      }
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__bilinear64__adamw_0.001",
+      "dataset": "rotated_product_bimodal_16d",
+      "pid": 2048271,
+      "started": 1793654486.471456,
+      "command": [
+        "/data2/zz5070/miniconda3/envs/py312/bin/python",
+        "-u",
+        "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle5-20261103/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle5/trial5.py",
+        "--cell",
+        "rotated_product_bimodal_16d__bilinear64__adamw_0.001",
+        "--data-root",
+        "/data2/zz5070/ODE_FFN/muon-pd-20261102/data",
+        "--output",
+        "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle5-20261103/output",
+        "--device",
+        "cuda"
+      ],
+      "latest": {
+        "step": 19000,
+        "validation_oracle_mse": 0.037163000106811526,
+        "wall_seconds": 85.62325957044959,
+        "sample": null
+      }
+    }
+  ],
+  "completed": [],
+  "pending": [
+    "rotated_product_bimodal_16d__bilinear64__muon_0.006",
+    "rotated_product_bimodal_16d__bilinear64__muon_0.02",
+    "rotated_product_bimodal_16d__pd_direct_abs_k1__adamw_0.0003",
+    "rotated_product_bimodal_16d__pd_direct_abs_k1__muon_0.006",
+    "rotated_product_bimodal_16d__pd_direct_abs_k1__muon_0.02"
+  ],
+  "failed": false,
+  "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 91, 1175, 49140, 111.56\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 0, 2, 49140, 24.60\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 0, 2, 49140, 22.18\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 0, 2, 49140, 21.09\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 95, 39332, 49140, 213.54\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 97, 39326, 49140, 212.06\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 100, 39328, 49140, 208.73\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 100, 39328, 49140, 219.30",
+  "gpu_query_exit": 0
+}

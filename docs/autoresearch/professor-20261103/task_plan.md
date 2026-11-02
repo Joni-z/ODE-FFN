@@ -40,3 +40,8 @@ No symmetry projection, augmentation, new loss or image transfer.
 Cycle5 registered14: six absK1 candidates and eight ordinary bilinear64
 references, with baseline-first grid. Native CPU witness passed; next freeze,
 deploy separate worktrees and fresh documented CUDA/native8-to16 continuation.
+
+Cycle5 live from f81663a after fresh documented CUDA/native-resume checks.
+Independent post-SSH60s witnesses show increasing baseline steps and90–91%
+GPU utilization.14 registered cells; complete/replay before selecting the next
+family. Four-checkpoint parity readout is registered in cycle5-parity.md.

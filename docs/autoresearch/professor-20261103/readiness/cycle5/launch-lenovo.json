@@ -1,0 +1,72 @@
+{
+  "unix_time": 1793654575.2477367,
+  "started": 1793654484.998392,
+  "queue_pid": 4112,
+  "host": "lenovo",
+  "device": "cuda",
+  "workers": 2,
+  "cuda_visible_devices": "0",
+  "running": [
+    {
+      "cell": "gmm_ring8_2d__bilinear64__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "pid": 10320,
+      "started": 1793654485.0140684,
+      "command": [
+        "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe",
+        "-u",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle5-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle5\\trial5.py",
+        "--cell",
+        "gmm_ring8_2d__bilinear64__adamw_0.0003",
+        "--data-root",
+        "D:/Research/ODE-FFN/datasets/synthetic",
+        "--output",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle5-20261103\\output",
+        "--device",
+        "cuda"
+      ],
+      "latest": {
+        "step": 18000,
+        "validation_oracle_mse": 0.0138669340133667,
+        "wall_seconds": 87.82799999997951,
+        "sample": null
+      }
+    },
+    {
+      "cell": "gmm_ring8_2d__bilinear64__adamw_0.001",
+      "dataset": "gmm_ring8_2d",
+      "pid": 11112,
+      "started": 1793654485.0327938,
+      "command": [
+        "D:\\Research\\ODE-FFN\\envs\\synthetic\\Scripts\\python.exe",
+        "-u",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle5-20261103\\repo\\studies\\muon_pd_20261102\\autoresearch_20261103\\cycle5\\trial5.py",
+        "--cell",
+        "gmm_ring8_2d__bilinear64__adamw_0.001",
+        "--data-root",
+        "D:/Research/ODE-FFN/datasets/synthetic",
+        "--output",
+        "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle5-20261103\\output",
+        "--device",
+        "cuda"
+      ],
+      "latest": {
+        "step": 17500,
+        "validation_oracle_mse": 0.016141424179077147,
+        "wall_seconds": 85.59400000004098,
+        "sample": null
+      }
+    }
+  ],
+  "completed": [],
+  "pending": [
+    "gmm_ring8_2d__bilinear64__muon_0.006",
+    "gmm_ring8_2d__bilinear64__muon_0.02",
+    "gmm_ring8_2d__pd_direct_abs_k1__adamw_0.0003",
+    "gmm_ring8_2d__pd_direct_abs_k1__muon_0.006",
+    "gmm_ring8_2d__pd_direct_abs_k1__muon_0.02"
+  ],
+  "failed": false,
+  "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 90, 796, 8188, 24.61",
+  "gpu_query_exit": 0
+}

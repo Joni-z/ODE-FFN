@@ -1,3 +1,7 @@
+# Current runtime: cycle5 sign/orientation and ordinary bilinear control
+
+14 registered trajectories are live from frozen f81663a on145GPU0/LenovoGPU0, two workers each; fresh CUDA/native-resume and post-SSH60s witnesses pass. [Execution](docs/autoresearch/professor-20261103/cycle5-execution.md), [protocol](docs/autoresearch/professor-20261103/cycle5.md). Complete/replay all cells, then registered validation-selected parity readout. Earlier status entries below are historical.
+
 # Latest: cycle4 and parity diagnostic complete
 
 All18 cycle4 trajectories replayed exactly; all12 frozen parity cases complete. No new accepted ODE model. [Cycle4 findings](docs/autoresearch/professor-20261103/cycle4-results/findings.md), [parity evidence](docs/autoresearch/professor-20261103/symmetry-results/findings.md). Next selected controlled question: K1 abs diagonal and matched ordinary bilinear64, before any image transfer. Prior runtime entries below are historical.
