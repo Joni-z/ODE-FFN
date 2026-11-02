@@ -1,0 +1,80 @@
+{
+  "host": "lenovo",
+  "expected_runtime_commit": "c3dbe27d4216a5970a866f68fce21a8d49540178",
+  "first_observation": {
+    "unix_time": 1793653047.330835,
+    "queue_pid": 3136,
+    "host": "lenovo",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "0",
+    "failed": false,
+    "running": [
+      {
+        "pid": 14624,
+        "cell": "gmm_ring8_2d__pd_constant_k1__adamw_0.0003",
+        "step": 4500
+      },
+      {
+        "pid": 3748,
+        "cell": "gmm_ring8_2d__pd_constant_k1__muon_0.006",
+        "step": 2500
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 7,
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 91, 802, 8188, 24.19"
+  },
+  "last_observation": {
+    "unix_time": 1793653077.4085875,
+    "queue_pid": 3136,
+    "host": "lenovo",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "0",
+    "failed": false,
+    "running": [
+      {
+        "pid": 14624,
+        "cell": "gmm_ring8_2d__pd_constant_k1__adamw_0.0003",
+        "step": 10000
+      },
+      {
+        "pid": 3748,
+        "cell": "gmm_ring8_2d__pd_constant_k1__muon_0.006",
+        "step": 5500
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 7,
+    "gpu": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 90, 802, 8188, 24.09"
+  },
+  "heartbeat_delta_seconds": 30.077752351760864,
+  "checks": {
+    "heartbeat_increased_at_least_30_seconds": true,
+    "both_original_cells_steps_increased": true,
+    "queue_pid_unchanged": true,
+    "no_queue_failure": true,
+    "expected_gpu_binding": true,
+    "source_commit_verified": true,
+    "source_clean_verified": true,
+    "actual_cuda_pids_verified": true
+  },
+  "identity_process_gpu_witness": {
+    "observed_unix": 1793653143.323961,
+    "source_clean": true,
+    "source_commit": "c3dbe27d4216a5970a866f68fce21a8d49540178",
+    "queue_pid": 3136,
+    "cuda_pids": [
+      22016,
+      3884
+    ],
+    "gpu0_memory_mib": 802,
+    "gpu0_utilization_percent": 90,
+    "windows_venv_pid_map": {
+      "14624": 22016,
+      "3748": 3884
+    }
+  },
+  "note": "Read-only observations after launching SSH exited. No source edits, restarts or extra queues. Final GPU/process query was subsequent to the second stored heartbeat; Windows CUDA child PIDs were mapped to queue children with Win32_Process."
+}

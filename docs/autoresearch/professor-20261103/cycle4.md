@@ -49,9 +49,9 @@ tasks; changing the denominator is not a rescue. Publish every endpoint.
 ## Execution plan
 
 - [x] Implement only cycle4/trial4.py numerical adapter and fixed grid.
-- [ ] Verify exact inherited tensors/RNG, full derivatives, native optimizer
+- [x] Verify exact inherited tensors/RNG, full derivatives, native optimizer
       checkpoint resume, original parent arm and actual8-to16 trainer continuation.
-- [ ] Freeze/push runtime; deploy new detached worktrees and fresh documented
+- [x] Freeze/push runtime; deploy new detached worktrees and fresh documented
       CUDA witness on both hosts; never overwrite completed runtimes.
 - [ ] Run two monitored workers per free GPU, complete all18, replay independently.
 - [ ] Analyze D shape, optimizer interaction and ordinary controls; choose the

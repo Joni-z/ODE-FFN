@@ -1,3 +1,7 @@
+# Current runtime: cycle4 diagonal features
+
+Cycle4 runs18 registered K1 diagonal-function contrasts from frozen c3dbe27 on145GPU0/LenovoGPU0, two workers each. Fresh documented CUDA witnesses and post-SSH progress passed. [Execution](docs/autoresearch/professor-20261103/cycle4-execution.md), [registration](docs/autoresearch/professor-20261103/cycle4.md). Complete/replay before selecting the next candidate; frozen symmetry diagnostic follows GPU release.
+
 # Latest confirmed: cycle3 and frozen solver diagnostics complete
 
 All58 new autoresearch trajectories completed/replayed. Scalar K1 improves all8 paired field comparisons. Raw K1 Ring8 is a small field lead with worse sampling; Product16 retains ordinary-control superiority. See [cycle3](docs/autoresearch/professor-20261103/cycle3-results/findings.md) and [solver readout](docs/autoresearch/professor-20261103/solver-results/findings.md). The next selected question is the K1 diagonal feature, before any image transfer. Earlier status entries below are historical.

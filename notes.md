@@ -1,3 +1,7 @@
+# Current runtime and rationale
+
+Cycle4 is live after fresh CUDA checks: constant1, bounded sigmoid and h+1 diagonals atK1, same P initialization and no learned controller. This distinguishes linear, weakly quadratic and raw/shifted quadratic features. [Protocol](docs/autoresearch/professor-20261103/cycle4.md). No report PDFs or image code changed.
+
 # Latest professor-guided evidence
 
 Cycle3 and frozen solver diagnostics are complete. Full results and mathematical implications are in [the brief](docs/autoresearch/professor-20261103/brief.md). No original image files or submitted report PDFs changed.

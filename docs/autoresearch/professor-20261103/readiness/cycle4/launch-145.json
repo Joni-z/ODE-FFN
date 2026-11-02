@@ -1,0 +1,77 @@
+{
+  "host": "145",
+  "expected_runtime_commit": "c3dbe27d4216a5970a866f68fce21a8d49540178",
+  "first_observation": {
+    "unix_time": 1793653048.8986034,
+    "queue_pid": 1923252,
+    "host": "145",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "failed": false,
+    "running": [
+      {
+        "pid": 1923253,
+        "cell": "rotated_product_bimodal_16d__pd_constant_k1__adamw_0.0003",
+        "step": 4500
+      },
+      {
+        "pid": 1923254,
+        "cell": "rotated_product_bimodal_16d__pd_constant_k1__muon_0.006",
+        "step": 2500
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 7,
+    "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 82, 1185, 49140, 107.14"
+  },
+  "last_observation": {
+    "unix_time": 1793653078.9928985,
+    "queue_pid": 1923252,
+    "host": "145",
+    "device": "cuda",
+    "workers": 2,
+    "cuda_visible_devices": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "failed": false,
+    "running": [
+      {
+        "pid": 1923253,
+        "cell": "rotated_product_bimodal_16d__pd_constant_k1__adamw_0.0003",
+        "step": 10500
+      },
+      {
+        "pid": 1923254,
+        "cell": "rotated_product_bimodal_16d__pd_constant_k1__muon_0.006",
+        "step": 5500
+      }
+    ],
+    "completed_count": 0,
+    "pending_count": 7,
+    "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 93, 1185, 49140, 108.43"
+  },
+  "heartbeat_delta_seconds": 30.094295024871826,
+  "checks": {
+    "heartbeat_increased_at_least_30_seconds": true,
+    "both_original_cells_steps_increased": true,
+    "queue_pid_unchanged": true,
+    "no_queue_failure": true,
+    "expected_gpu_binding": true,
+    "source_commit_verified": true,
+    "source_clean_verified": true,
+    "actual_cuda_pids_verified": true
+  },
+  "identity_process_gpu_witness": {
+    "observed_unix": 1793653143.3235562,
+    "source_clean": true,
+    "source_commit": "c3dbe27d4216a5970a866f68fce21a8d49540178",
+    "queue_pid": 1923252,
+    "cuda_pids": [
+      1923253,
+      1923254
+    ],
+    "gpu0_memory_mib": 1185,
+    "gpu0_utilization_percent": 94,
+    "windows_venv_pid_map": null
+  },
+  "note": "Read-only observations after launching SSH exited. No source edits, restarts or extra queues. Final GPU/process query was subsequent to the second stored heartbeat; Windows CUDA child PIDs were mapped to queue children with Win32_Process."
+}

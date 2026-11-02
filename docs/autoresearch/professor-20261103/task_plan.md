@@ -23,3 +23,9 @@ Cycle4 registered18 K1 diagonal-function cells in cycle4.md: constant1, bounded
 sigmoid and h+1. Same P/common initialization and no learned controller. CPU
 witness must pass after the recorded local attribute-name correction; then freeze,
 deploy, fresh CUDA witness, run and replay. Ordinary controls remain fixed.
+
+Cycle4 CPU and fresh documented CUDA witnesses pass on both hosts, including
+actual8-to16 trainer continuation. Published runtime c3dbe27 now runs18 cells
+on freeGPU0, two workers each, with independent post-SSH step increases and
+90–94% utilization. Next: complete/replay before new selection; then registered
+frozen symmetry diagnostic.
