@@ -16,3 +16,5 @@ Cycle1 complete/replayed: two provisional validation leads, no ordinary-control 
 Cycle2 completed/replayed18 trials. Direct h is a Ring8 lead, still below stronger ordinary controls and task-dependent. Frozen float32/float64 field and complete-Jacobian checks pass at the stated local probes. Cycle3 registered22 trajectories: scalarK1,direct-rawK1,SwiGLU64. Native CPU checks passed; deploy and fresh CUDA witness next.
 
 Cycle3 deployed/fresh-CUDA-checked/launched from14ab235,22 cells. Post-SSH step increases verified on both hosts. Current task: finish, replay and compare order/parameter/compute controls, then register the next evidence-based action. Source worktrees stay immutable.
+
+Cycle3 complete/replayed22, with exact generated arrays. ScalarK1 improves all8 field comparisons; rawK1 Ring8 is a small field lead but loses sampled distance, and Product16 still favors ordinary controls. Registered frozen solver diagnostics completed on all6 checkpoints; increasing Heun resolution does not change ordering. Next: register a small K1 diagonal-function contrast, preserving the new matched ordinary controls and avoiding an unsupported second-order story.

@@ -1,0 +1,278 @@
+{
+  "dataset": "gmm_ring8_2d",
+  "torch": "2.8.0+cu126",
+  "device": "cuda",
+  "rows": [
+    {
+      "cell": "gmm_ring8_2d__pd_direct_raw__muon_0.02",
+      "checkpoint_sha256": "5db3ff451934588de9d253ed328489fd446c9f3cf13f268986e514d598322d13",
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "numpy_test_sw2": 0.17269697824141267,
+          "sampling_seconds": 0.1775904999813065,
+          "baseline_sample_max_error": 0.0
+        },
+        {
+          "heun_steps": 64,
+          "nfe": 128,
+          "numpy_test_sw2": 0.17353118135218154,
+          "sampling_seconds": 0.21253269992303103,
+          "baseline_sample_max_error": null
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "numpy_test_sw2": 0.17445212699897145,
+          "sampling_seconds": 0.42502860003151,
+          "baseline_sample_max_error": null
+        }
+      ],
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "field_mse": 0.0147188359554884
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "field_mse": 0.011166801817838296
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "field_mse": 0.020839132931594073
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "field_mse": 0.01160674844379387
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "field_mse": 0.011220069020638428
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "field_mse": 0.010429074672610757
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "field_mse": 0.012457751845435587
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "field_mse": 0.014936953446830409
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "field_mse": 0.007524997563777626
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "field_mse": 0.005104560889102397
+        }
+      ],
+      "sampling_floor": 0.15325688414561206
+    },
+    {
+      "cell": "gmm_ring8_2d__scalar_k2__muon_0.006",
+      "checkpoint_sha256": "1a2a6a3a6c4432072843a99cdbe0c6f23dd5947b4e09013e8c037d70d014b592",
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "numpy_test_sw2": 0.18181902066742708,
+          "sampling_seconds": 0.16162210004404187,
+          "baseline_sample_max_error": 0.0
+        },
+        {
+          "heun_steps": 64,
+          "nfe": 128,
+          "numpy_test_sw2": 0.18162816500664564,
+          "sampling_seconds": 0.21208799991291016,
+          "baseline_sample_max_error": null
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "numpy_test_sw2": 0.18230212689029332,
+          "sampling_seconds": 0.5325521000195295,
+          "baseline_sample_max_error": null
+        }
+      ],
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "field_mse": 0.01633410106594202
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "field_mse": 0.012787744605943412
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "field_mse": 0.013812692227523706
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "field_mse": 0.011026873804579718
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "field_mse": 0.011641118576145849
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "field_mse": 0.01164308888192657
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "field_mse": 0.01711080229065159
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "field_mse": 0.018732753429410765
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "field_mse": 0.012332513012641834
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "field_mse": 0.007612435876069299
+        }
+      ],
+      "sampling_floor": 0.15325688414561206
+    },
+    {
+      "cell": "gmm_ring8_2d__swiglu128__muon_0.02",
+      "checkpoint_sha256": "94d9ff6ee8d36dbe84e151fbf2d27a3f961ad27964e79d75be6f931775d9efcd",
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "numpy_test_sw2": 0.16451997369812557,
+          "sampling_seconds": 0.05361599999014288,
+          "baseline_sample_max_error": 0.0
+        },
+        {
+          "heun_steps": 64,
+          "nfe": 128,
+          "numpy_test_sw2": 0.16468687082596178,
+          "sampling_seconds": 0.1044984000036493,
+          "baseline_sample_max_error": null
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "numpy_test_sw2": 0.16466214370827809,
+          "sampling_seconds": 0.21000009996350855,
+          "baseline_sample_max_error": null
+        }
+      ],
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1035,
+          "field_mse": 0.015108246902802975
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 959,
+          "field_mse": 0.009971905768359176
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 1030,
+          "field_mse": 0.009334357282582138
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 983,
+          "field_mse": 0.007751179460500974
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 961,
+          "field_mse": 0.009829525485261522
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 985,
+          "field_mse": 0.012242954888932275
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 1019,
+          "field_mse": 0.01789107716494158
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 1089,
+          "field_mse": 0.018107232632915974
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 958,
+          "field_mse": 0.007440075392292937
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 981,
+          "field_mse": 0.0059380638808939085
+        }
+      ],
+      "sampling_floor": 0.15325688414561206
+    }
+  ],
+  "interpretation": "Frozen checkpoints; primary Heun32 retained; higher NFE is not a theoretical truth."
+}

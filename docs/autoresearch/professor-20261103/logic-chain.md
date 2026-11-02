@@ -186,3 +186,35 @@ Our experiments then supply the other necessary caution: reducing the measured
 local norm need not improve field fitting or sampled distributions.
 
 The [native P-only coordinate case](spectrum/coordinate-step.json) checks the uniform rescaling with the trained momentum and actual five-BF16-NS implementation. The effective DeltaA ratio is2.9983 at the same LR and0.9994 after inverse LR compensation, with the stated frozen-auxiliary/no-clipping scope. This is experimental support for the coordinate coupling, not a full-training invariance guarantee.
+
+## Order and feature interpretation after cycle3
+
+The registered K1 contrast now completed: the original scalar improves validation
+field error in all8 pairings. Direct h improves in all3 Ring8 pairings, but not
+consistently on Product16. The tied K2 term is not supported as the source of
+the current benefit. This conclusion is specific to these models/20k budgets.
+
+For raw D, K1 is exactly F(h)=h+P(h*h), J=I+2Pdiag(h). The branch uses quadratic
+features while the identity path retains the odd component. In particular,
+F(h)-F(-h)=2h for one such block. The composed FFN with SiLU need not have that
+symmetry. K2 adds a tied cubic expression, not a free cubic feature map.
+
+A minimal next D family is d(h)=h+c, giving
+
+```
+F_c(h)=h+P(h*h)+c*P*h,
+J_Fc(h)=I+P*diag(2*h+c).
+```
+
+The fixed c=1 contrast introduces a tied linear feature without new parameters.
+Constant d=1 removes input dependence: F(h)=(I+P)h. Bounded d=.2+.8sigmoid(h/10)
+replaces the unbounded quadratic feature by h*d(h); its Jacobian is
+I+Pdiag(d+h*d'), d'=.08sigmoid(h/10)(1-sigmoid(h/10)). Together these distinguish
+the role of input dependence, range and linear/quadratic mixture. They change
+initial functions and effective scale, so outcomes cannot attribute a gain to
+one abstract property independently of those changes.
+
+The [frozen solver diagnostic](solver-results/findings.md) retains ordering at
+Heun32/64/128. Thus coarse integration is not supported as the explanation for
+the observed Product16 raw-K2 sampling deficit. Finite field errors and local
+Jacobians still do not identify a transport cause or certify the global bound.

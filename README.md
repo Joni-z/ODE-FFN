@@ -14,7 +14,10 @@ The professor-guided autoresearch loop explores Muon/spectral geometry and
 input-dependent diagonal ODE generators in an isolated synthetic backbone.
 See the [current program](docs/autoresearch/professor-20261103/program.md),
 [evidence chain](docs/autoresearch/professor-20261103/logic-chain.md), and
-[execution record](docs/autoresearch/professor-20261103/execution.md).
+[current brief](docs/autoresearch/professor-20261103/brief.md).
+The latest [order and budget controls](docs/autoresearch/professor-20261103/cycle3-results/findings.md)
+and [frozen solver checks](docs/autoresearch/professor-20261103/solver-results/findings.md)
+are complete and replayed.
 Earlier [66 replayed configurations](docs/research-muon-pd-2026-11-02/wave2/results/findings.md)
 remain available. These vector-field experiments do not establish JiT image quality.
 

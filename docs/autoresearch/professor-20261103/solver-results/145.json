@@ -1,0 +1,278 @@
+{
+  "dataset": "rotated_product_bimodal_16d",
+  "torch": "2.8.0+cu128",
+  "device": "cuda",
+  "rows": [
+    {
+      "cell": "rotated_product_bimodal_16d__pd_direct_raw__muon_0.006",
+      "checkpoint_sha256": "41d164248de74d50e3cab598288f43f4b7d16d29d527f927b962c9431c2dc63a",
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "numpy_test_sw2": 0.10742546171227646,
+          "sampling_seconds": 0.18245601654052734,
+          "baseline_sample_max_error": 0.0
+        },
+        {
+          "heun_steps": 64,
+          "nfe": 128,
+          "numpy_test_sw2": 0.10722396417111442,
+          "sampling_seconds": 0.1617946047335863,
+          "baseline_sample_max_error": null
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "numpy_test_sw2": 0.10748670891206163,
+          "sampling_seconds": 0.3274155557155609,
+          "baseline_sample_max_error": null
+        }
+      ],
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1879,
+          "field_mse": 0.017889112453373237
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 1935,
+          "field_mse": 0.012757425803767939
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 2030,
+          "field_mse": 0.014569303420700681
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 1987,
+          "field_mse": 0.021876598682636632
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 2081,
+          "field_mse": 0.029057405490779994
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 2026,
+          "field_mse": 0.036364491040979975
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 2104,
+          "field_mse": 0.04072384503821981
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 2036,
+          "field_mse": 0.03713567142725454
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 1872,
+          "field_mse": 0.023128842521960503
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 2050,
+          "field_mse": 0.011866865631166925
+        }
+      ],
+      "sampling_floor": 0.058493305432893675
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__scalar_k2__muon_0.02",
+      "checkpoint_sha256": "d04c10df8b920c80d5877c93335c2832a9db7fa712225f32b20fa84b6459cd26",
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "numpy_test_sw2": 0.08809789305891158,
+          "sampling_seconds": 0.13232985883951187,
+          "baseline_sample_max_error": 0.0
+        },
+        {
+          "heun_steps": 64,
+          "nfe": 128,
+          "numpy_test_sw2": 0.08806859457448356,
+          "sampling_seconds": 0.25446106493473053,
+          "baseline_sample_max_error": null
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "numpy_test_sw2": 0.08851678351534495,
+          "sampling_seconds": 0.5131046958267689,
+          "baseline_sample_max_error": null
+        }
+      ],
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1879,
+          "field_mse": 0.012888032269323321
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 1935,
+          "field_mse": 0.007376055762295175
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 2030,
+          "field_mse": 0.011263442694420783
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 1987,
+          "field_mse": 0.021536012771193408
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 2081,
+          "field_mse": 0.02814459740645607
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 2026,
+          "field_mse": 0.03457216659870836
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 2104,
+          "field_mse": 0.040502777596861876
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 2036,
+          "field_mse": 0.03909694505170019
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 1872,
+          "field_mse": 0.027098564623582337
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 2050,
+          "field_mse": 0.013986654769101478
+        }
+      ],
+      "sampling_floor": 0.058493305432893675
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__swiglu128__adamw_0.0003",
+      "checkpoint_sha256": "f354071f5d2085aeba6967bb1a21e33e801977599fca37cbe746d7053c079614",
+      "sampling": [
+        {
+          "heun_steps": 32,
+          "nfe": 64,
+          "numpy_test_sw2": 0.08184766622517348,
+          "sampling_seconds": 0.05514063499867916,
+          "baseline_sample_max_error": 0.0
+        },
+        {
+          "heun_steps": 64,
+          "nfe": 128,
+          "numpy_test_sw2": 0.08166478402262098,
+          "sampling_seconds": 0.10895639285445213,
+          "baseline_sample_max_error": null
+        },
+        {
+          "heun_steps": 128,
+          "nfe": 256,
+          "numpy_test_sw2": 0.08208673487532774,
+          "sampling_seconds": 0.2179879192262888,
+          "baseline_sample_max_error": null
+        }
+      ],
+      "time_profile": [
+        {
+          "t_start": 0.0,
+          "t_end": 0.1,
+          "count": 1879,
+          "field_mse": 0.007245140603897789
+        },
+        {
+          "t_start": 0.1,
+          "t_end": 0.2,
+          "count": 1935,
+          "field_mse": 0.0047866124817368925
+        },
+        {
+          "t_start": 0.2,
+          "t_end": 0.3,
+          "count": 2030,
+          "field_mse": 0.0063152043887203515
+        },
+        {
+          "t_start": 0.3,
+          "t_end": 0.4,
+          "count": 1987,
+          "field_mse": 0.012776006813780744
+        },
+        {
+          "t_start": 0.4,
+          "t_end": 0.5,
+          "count": 2081,
+          "field_mse": 0.01951961822559472
+        },
+        {
+          "t_start": 0.5,
+          "t_end": 0.6,
+          "count": 2026,
+          "field_mse": 0.02472541475284385
+        },
+        {
+          "t_start": 0.6,
+          "t_end": 0.7,
+          "count": 2104,
+          "field_mse": 0.029177745006998896
+        },
+        {
+          "t_start": 0.7,
+          "t_end": 0.8,
+          "count": 2036,
+          "field_mse": 0.031068667538915153
+        },
+        {
+          "t_start": 0.8,
+          "t_end": 0.9,
+          "count": 1872,
+          "field_mse": 0.02060989528348842
+        },
+        {
+          "t_start": 0.9,
+          "t_end": 1.0,
+          "count": 2050,
+          "field_mse": 0.010767932926641856
+        }
+      ],
+      "sampling_floor": 0.058493305432893675
+    }
+  ],
+  "interpretation": "Frozen checkpoints; primary Heun32 retained; higher NFE is not a theoretical truth."
+}

@@ -42,3 +42,7 @@ function/gradient covariance, native five-NS update directions, conditional Delt
 norms at common hidden states and post-step predictions. This is not a complete
 training step, an architecture improvement, or a new optimizer proposal; no actual
 checkpoint/run is modified. CPU float64 forward with native BF16 NS is deliberate.
+# Cycle3 closure and next question
+
+All22 completed and independently replayed from14ab235; generated arrays exact. Original scalar K1 improves field error in8/8 pairings, sampled distance in5/8. RawK1 Ring8Muon.02 reaches.0109129 but SW2.177924 versus matched Swi64.150384; Product16 rawK1.0237107 is worse than Swi64.0187811. The field margin against strongest Ring8 ordinary is only2.8%. Treat this as quadratic-feature evidence, not an accepted ODE method. Frozen Heun32/64/128 retains all six-case rankings; no coarse-solver explanation for the Product16 gap. Complete CSVs/figures in cycle3-results and solver-results. A redundant process poll returned Unknown process id after normal completion; no evaluation was retried.
+

@@ -1,3 +1,7 @@
+# Latest professor-guided evidence
+
+Cycle3 and frozen solver diagnostics are complete. Full results and mathematical implications are in [the brief](docs/autoresearch/professor-20261103/brief.md). No original image files or submitted report PDFs changed.
+
 # Latest professor autoresearch state
 
 Cycle3 is running22 scalarK1/directrawK1/SwiGLU64 trajectories at14ab235. Cycles1/2 have36 completed/replayed trajectories (six exact anchors). RawD gives Ring8 MSE.012105/SW2.172697, below the strongest tested scalar ODE error.013401 but above ordinary SwiGLU. Full float32/float64 field checks show only1e-9-scale MSE differences despite very large local hidden Jacobians. [Evidence chain](docs/autoresearch/professor-20261103/logic-chain.md), [cycle2 readout](docs/autoresearch/professor-20261103/cycle2-results/findings.md), [current runtime](docs/autoresearch/professor-20261103/cycle3-execution.md).

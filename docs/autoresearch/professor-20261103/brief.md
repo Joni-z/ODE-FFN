@@ -52,7 +52,17 @@ and frozen float32/float64 checks do not explain its field gain as a precision
 artifact. The next registered comparison removes the tied second-order term,
 for both the original scalar and direct-input candidates. A smaller native
 SwiGLU64 completes the parameter-budget comparison; SwiGLU128 already nearly
-matches the direct K2 dense-MAC budget. These22 trials are currently running.
+matches the direct K2 dense-MAC budget. All22 trials completed and replayed.
+Scalar K1 improves field error in all eight paired settings. Ring8 raw K1 reaches
+0.01091, slightly below the strongest ordinary0.01123, but its sampling remains
+worse than matched SwiGLU64 (0.17792 versus0.15038); Product16 still loses to
+ordinary controls. The quadratic feature interpretation is now more credible
+than a benefit from the tied second-order Taylor term in this setting.
+
+The frozen Heun32/64/128 check also completed. Ordering does not change, and the
+Product16 raw-K2 sampling gap to SwiGLU persists. Coarse integration is not
+supported as the explanation for that frozen discrepancy. Time-binned field
+errors describe the remaining mismatch without proving its transport cause.
 
 The chain remains falsifiable: if K1 retains the benefit, weaken the second-order
 story; if a matched ordinary FFN explains it, retain that comparison; if field and
@@ -62,4 +72,5 @@ image transfer or any claim of an FM-specific inductive bias.
 
 Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
-[current execution](cycle3-execution.md), [literature branches](literature-directions.md).
+[cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
+[literature branches](literature-directions.md).

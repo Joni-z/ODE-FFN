@@ -1,3 +1,7 @@
+# Latest confirmed: cycle3 and frozen solver diagnostics complete
+
+All58 new autoresearch trajectories completed/replayed. Scalar K1 improves all8 paired field comparisons. Raw K1 Ring8 is a small field lead with worse sampling; Product16 retains ordinary-control superiority. See [cycle3](docs/autoresearch/professor-20261103/cycle3-results/findings.md) and [solver readout](docs/autoresearch/professor-20261103/solver-results/findings.md). The next selected question is the K1 diagonal feature, before any image transfer. Earlier status entries below are historical.
+
 # Latest active run: professor autoresearch cycle3
 
 Cycles1/2 completed36 trajectories and passed endpoint replay; six original anchors reproduce exactly. Cycle3 runs22 order/budget comparisons from frozen14ab235 on145GPU0 andLenovoGPU0. See [current execution](docs/autoresearch/professor-20261103/cycle3-execution.md) and [cycle2 findings](docs/autoresearch/professor-20261103/cycle2-results/findings.md). Current raw-D Ring8 lead is below stronger ordinary controls; inspect K1 and matched smaller SwiGLU before acceptance.
