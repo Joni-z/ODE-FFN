@@ -4,7 +4,7 @@
 
 [Three-page PDF](report2.pdf) · [LaTeX](report2.tex) ·
 [Complete attempt ledger](attempts.md) · [Evidence map](EVIDENCE.md) ·
-[Verification](verification.json)
+[Verification](verification.json) · [Professor meeting brief (Chinese)](meeting-brief.md)
 
 The report follows the professor's original ODELayer: two input-clocked
 Taylor maps around SiLU. It asks what the clock, generator P and polynomial

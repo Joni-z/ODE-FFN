@@ -1,3 +1,15 @@
+# Current task — professor briefing, 2 November 2026
+
+Prepare a logical explanation of the original ODEFFN attempts and likely professor questions. Use the preserved results and distinguish training comparisons, frozen interventions and theoretical identities. Do not change the formal report or start experiments.
+
+- [x] Check the original operator, targeted controls, quantitative outcomes and comparison limits.
+- [x] Write a reusable meeting brief with a short opening, experimental chain, anticipated questions and concrete next decisions.
+- [x] Check source links/numbers, publish the briefing and progress notes, then explain it in Chinese.
+
+Status: complete. Checked all source links, 19 source-CSV values, five mode fractions and the unchanged formal PDF. Publish the briefing to canonical GitHub main with this documentation update.
+
+---
+
 # Current task — ODEFFN mainline report, 2 November 2026
 
 The user asks to organize every ODEFFN attempt and make that the center of Report2.

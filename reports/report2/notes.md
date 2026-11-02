@@ -1,5 +1,22 @@
 # Report2 continuity notes
 
+## Professor briefing — 2 November 2026
+
+Added `meeting-brief.md` in Chinese for the user's imminent professor meeting.
+It organizes attempts by P/spectral control, clock versus polynomial tying,
+internal integration accuracy, complete-gradient readout, conditional frames,
+and cubic/free-ISRU response. Main distinctions checked: spectral cap is not
+spectral flattening; fixed-gate P/B comparison has equal initial function and
+parameter count but different map sets/coordinates; vector clocks have20k
+follow-ups; gradient readout includes inference derivative cost; conditional
+frames preserve a given P's spectrum, not spectra across trained models;
+free ISRU also changes the clock, so it is not a pure untying ablation.
+The main report, raw experiments and training remain unchanged. Anticipated
+questions cover model identity, convergence, oracle labels, time variables,
+metric disagreement and the scope of an ODE-specific contribution.
+Validation passed for all briefing source links,19 selected CSV values and
+five mode fractions; the current Report2 PDF hash remains unchanged.
+
 ## ODEFFN mainline rewrite — 2 November 2026
 
 The user explicitly restored the original ODEFFN investigation as the mainline
