@@ -2,6 +2,8 @@
 
 All36 registered seed-0 cells reached20,000updates:22 on145 and14 onLenovo. Both queues finished without failures; no new training was launched. The records include prescribed final test sampling and adapter completion markers.
 
+Later verification: [all36 checkpoint/sample replays and trajectory analysis](wave2/analysis/analysis-report.md) are complete. The descriptions of pending checks below record the earlier endpoint-only stage. A separately registered [second wave](wave2/protocol.md) now follows the user's renewed authorization.
+
 ## What is checked
 
 Every cell matches the registered grid, seed, batch size and20k endpoint. Saved configuration hashes match provenance. Each run has41 metric records and the final sampling result. File hashes for metrics, saved examples, spectra and provenance are retained in `endpoints/source-records.json`. These checks establish file/configuration consistency. Independent saved-example metric recomputation, checkpoint replay and full trajectory analysis remain pending.

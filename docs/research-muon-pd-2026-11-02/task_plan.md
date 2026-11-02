@@ -9,7 +9,7 @@ Authorized 2 November2026: act on the professor's feedback; execute on145 and Le
 - [x] Run fresh documented witnesses on both machines, measure CPU/GPU throughput, and select efficient worker placement.
 - [x] Publish and deploy immutable source through Git; launch seed0 comparisons. Independent post-SSH verification passed on both hosts; records are in execution.md.
 - [x] Collect all36 recorded20k outcomes and verify grid/configuration/completion metadata; see endpoint-audit.md.
-- [ ] Independently recompute saved-example metrics and replay checkpoint probes; analyze complete spectral and loss trajectories before mechanism claims.
+- [x] Independently replay36 checkpoints/samples and recompute SW2; publish complete descriptive trajectories in wave2/analysis. Mechanism claims remain hypotheses pending registered counterfactuals.
 
 ## Constraints
 No changes to Report1 or existing formal Report2 PDF. No image-quality claim from inadequate CIFAR baselines. No new loss, P penalty, temperature or unrelated trick. Raw data/checkpoints/logs outside Git. Use native official Muon code with pinned SHA and license, not a handwritten optimizer. Original JiT root stays small; the synthetic follow-up is isolated under studies/ with minimal copies of audited archived components.
@@ -24,8 +24,8 @@ Reuse the exact archived population/data/model code. Historical PD implementatio
 - Shared environment-contract reference in installed run-experiment skill is missing. Existing environment ledger and explicit native witnesses will be used; no package rebuild is planned.
 - Windows git is not on the default shell PATH; locate the installed Git executable before synchronization.
 
-## Next checkpoint
-Collect all36 registered20k endpoints, validate final sampling completion and source/data identity, then compare every optimizer rate and both ordinary controls. Two early ODE-only endpoints are complete; their matched-control evidence is not complete. No additional family is queued automatically.
+## Current next checkpoint
+First-wave replay and trajectory analysis are complete. Continue with the separately authorized [second-wave plan](wave2/task_plan.md): verify corrected native CUDA continuation, then launch only the registered30 cells on145/Lenovo. Historical status below is retained as an execution record.
 
 ## 2 November 16:01 CST status check
 Both queues report finished (14522/22, Lenovo14/14), no failures. Current work: verify per-run completion/configuration and collect final field/sample metrics; then audit saved examples and spectral trajectories. No new training is being launched.
