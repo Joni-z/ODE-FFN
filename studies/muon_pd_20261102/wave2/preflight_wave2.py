@@ -24,7 +24,8 @@ def frozen_runtime(path):
         source = subprocess.check_output(['git', '-C', str(PARENT), 'show',
                                          '295dd3e:studies/muon_pd_20261102/run.py'])
         filename = PARENT/'run.py'
-    # The numerical reference modules themselves are immutable and hash-checked.
+    # Model/loss/integration definitions are unchanged and hash-checked.
+    # The trainer additionally restores RNG bytes on CPU (reference.patch).
     module = types.ModuleType('first_wave_frozen_reference')
     module.__file__ = str(filename)
     exec(compile(source, str(filename), 'exec'), module.__dict__)

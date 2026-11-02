@@ -281,7 +281,7 @@ def run(args):
             raise ValueError('resume configuration, dataset, model, or seed differs')
         restore_model(model,checkpoint)
         optimizer.load_state_dict(checkpoint['optimizer'])
-        data_rng.set_state(checkpoint['data_rng'])
+        data_rng.set_state(checkpoint['data_rng'].cpu())
         torch.set_rng_state(checkpoint['torch_rng'].cpu())
         if checkpoint['cuda_rng'] is not None:
             torch.cuda.set_rng_state_all([s.cpu() for s in checkpoint['cuda_rng']])

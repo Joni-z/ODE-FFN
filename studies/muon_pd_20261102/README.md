@@ -11,8 +11,9 @@ See the [registered protocol](../../docs/research-muon-pd-2026-11-02/protocol.md
 - `run_queue.py`: two-worker maximum, persistent logs/PIDs/resource samples,
   no automatic restart or overwrite. Failure stops dispatching new cells.
 - `reference/`: four audited modules plus five unchanged transitive model
-  dependencies. The only reference edit is the optimizer-factory hook recorded
-  in `reference.patch`. Keeping these dependencies unchanged avoids rewriting
+  dependencies. The reference edits are the optimizer-factory hook and CPU placement
+  of restored RNG bytes, both recorded in `reference.patch`. Keeping the
+  model, loss and integration logic unchanged avoids rewriting
   the established model; the grid exposes only the five specified families.
 - `vendor/muon.py`: unchanged official SingleDeviceMuon; MIT license and pinned
   SHA in `source_provenance.json`.
