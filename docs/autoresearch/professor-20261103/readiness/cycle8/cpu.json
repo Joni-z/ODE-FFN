@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "torch": "2.10.0",
+  "rows": [
+    {
+      "family": "scalar_k2",
+      "native_none_16_steps_exact": true,
+      "post_step_shape_scale_matches_formula": true
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "native_none_16_steps_exact": true,
+      "post_step_shape_scale_matches_formula": true
+    }
+  ],
+  "strength": 0.000999500166624978
+}

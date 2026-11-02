@@ -109,3 +109,9 @@ Post-hoc flattening is not a repair. Next bounded question: can the native model
 adapt when weak spectrum relaxation is imposed throughout training? Register
 one relaxation time with untouched and paired scalar-contraction controls;
 no new gate, loss, schedule or rate sweep.
+
+Cycle8 registered12trajectories, scalarK2/rawK1 x2tasks x native/shape/scale.
+One10k-update relaxation time, every10updates, native loss/model/trainer/Muon
+unchanged. CPU witness checks exact native-none16steps and both post-step
+formulas. Next publish/deploy, fresh full native8->16versus continuous16 checks
+on all6hostcells, then monitored baseline-first training.

@@ -41,3 +41,10 @@ Cycle7 is an explicitly registered read-only intervention diagnostic, not a new
 training cycle. Its54 frozen cases preserve the native evaluator and six fixed
 checkpoints. Record sensitivity outcomes separately from training keep/discard;
 no new training-model claim can follow from this diagnostic alone.
+
+Registered cycle8 returns to20k training: an explicit optimizer adapter applies
+a weak norm-preserving spectral relaxation every10native updates, with one
+registered10k-update relaxation time and paired scalar-contraction/native arms.
+The copied trainer, loss, model builders and official Muon are unchanged; the
+post-step constraint and its total-update logging are intentionally isolated.
+No strength/rate/gate sweep is authorized automatically by a negative outcome.
