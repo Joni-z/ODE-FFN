@@ -32,3 +32,13 @@ best rate, and compute-matched SwiGLU128 best rate. Same checkpoints, fixed vali
 bank, whole-model float32 versus float64 predictions/field MSE and complete vector-field
 Jacobians at16 existing probes. This includes time-embedding precision; it is not a
 pure FFN-precision isolation or a retrained comparison. No sampling/metric replacement.
+
+Register a native-Muon coordinate diagnostic before execution: final Product16
+cycle1 affine-PD/Muon.006 checkpoint; identical held validation pairs; three copied
+models with original coordinates, uniform P'=P/3,D'=3D at same LR, and the same
+rescaling with LR/3. Transform the P momentum covariantly (M'=3M). Freeze auxiliary
+parameters and omit clipping for this isolated P-only step. Measure pre-step exact
+function/gradient covariance, native five-NS update directions, conditional DeltaA
+norms at common hidden states and post-step predictions. This is not a complete
+training step, an architecture improvement, or a new optimizer proposal; no actual
+checkpoint/run is modified. CPU float64 forward with native BF16 NS is deliberate.

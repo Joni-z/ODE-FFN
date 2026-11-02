@@ -157,3 +157,32 @@ rather than relying only on eigenvalue caps or more accurate exponentials.
 The external FM sampler integrates the learned vector field; a hidden block is
 part of the predictor, not the complete transport map. Invertibility of each hidden
 map therefore is not automatically the right objective-specific design target.
+
+## Why eigenvalues alone are insufficient even with a constant gate
+
+Consider the real two-dimensional matrix
+
+```
+P = [[-1, M], [0, -1]],    s=.6.
+```
+
+Both eigenvalues stay at -1 for every M. However,
+
+```
+Q2(sP) = [[.58, .24 M], [0, .58]]
+exp(sP) = exp(-.6) * [[1, .6 M], [0, 1]].
+```
+
+Their operator norms grow without bound with M. This is nonnormal amplification,
+not an error repaired by increasing Taylor order. The example can be embedded
+in the64-dimensional P. It does not assert that our trained matrices equal this
+Jordan block. It explains why we record singular values and nonnormality in
+addition to eigenvalues, and why a strictly negative eigenvalue constraint is
+not an operator-norm guarantee for a general learned real P.
+
+A singular-norm bound does give ||P^k||2<=||P||2^k, but still does not bound the
+input-gate derivative term in the full layer Jacobian without additional assumptions.
+Our experiments then supply the other necessary caution: reducing the measured
+local norm need not improve field fitting or sampled distributions.
+
+The [native P-only coordinate case](spectrum/coordinate-step.json) checks the uniform rescaling with the trained momentum and actual five-BF16-NS implementation. The effective DeltaA ratio is2.9983 at the same LR and0.9994 after inverse LR compensation, with the stated frozen-auxiliary/no-clipping scope. This is experimental support for the coordinate coupling, not a full-training invariance guarantee.

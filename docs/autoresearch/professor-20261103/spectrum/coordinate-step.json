@@ -1,0 +1,37 @@
+{
+  "checkpoint_sha256": "763093ad0d8b7cb5e69cd4c9a2ea5ea5b359fc3c7fc79976f7020ee154ce30df",
+  "model": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+  "rescaling": 3.0,
+  "passed": true,
+  "torch": "2.8.0+cu128",
+  "rows": [
+    {
+      "mode": "original",
+      "pre_step_prediction_max_error": 0.0,
+      "gradient_covariance_max_relative_error": 0.0,
+      "conditional_update_norm_ratio": 1.0,
+      "mean_parameter_update_cosine": 1.0,
+      "post_step_prediction_rms_change": 0.017924553479905833,
+      "post_step_prediction_max_difference_from_original": 0.0
+    },
+    {
+      "mode": "rescaled_same_lr",
+      "pre_step_prediction_max_error": 8.881784197001252e-15,
+      "gradient_covariance_max_relative_error": 3.4265535862708657e-15,
+      "conditional_update_norm_ratio": 2.9982518406126015,
+      "mean_parameter_update_cosine": 0.9982549018381707,
+      "post_step_prediction_rms_change": 0.05357866450747968,
+      "post_step_prediction_max_difference_from_original": 0.19261701466543457
+    },
+    {
+      "mode": "rescaled_compensated_lr",
+      "pre_step_prediction_max_error": 8.881784197001252e-15,
+      "gradient_covariance_max_relative_error": 3.4265535862708657e-15,
+      "conditional_update_norm_ratio": 0.9994172802042006,
+      "mean_parameter_update_cosine": 0.9982549018381702,
+      "post_step_prediction_rms_change": 0.01793896310324947,
+      "post_step_prediction_max_difference_from_original": 0.0009047825794907816
+    }
+  ],
+  "scope": "Copied frozen checkpoint, held validation pair loss, auxiliary parameters frozen, clipping omitted, P-only step using actual pinned five-BF16-NS Muon with covariantly transformed trained momentum; not end-to-end training or a quality claim."
+}

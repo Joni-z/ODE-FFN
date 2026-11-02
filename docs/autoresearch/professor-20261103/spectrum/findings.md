@@ -70,3 +70,25 @@ condition number is not lower. Minimum singular directions remain important;
 stable rank and spectral CV do not certify a well-conditioned or invertible map.
 These are descriptive layer averages, not confidence estimates. All rates and
 per-layer values remain in the CSV rather than choosing only favorable metrics.
+
+## Native Muon confirms the coordinate coupling in a frozen P-only step
+
+Use the final Product16 affine-PD/Muon.006 checkpoint, copied parameters, held
+validation pair labels, and the trained P momentum transformed covariantly.
+Freeze auxiliary parameters and omit clipping for this isolated diagnostic.
+Uniformly set P'=P/3,D'=3D, so the pre-step functions agree within8.9e-15.
+The P-gradient covariance relation holds to3.43e-15 relative error.
+
+With the actual pinned five-BF16-NS Muon at the same nominal LR, the conditional
+DeltaA norm at common hidden inputs becomes2.9983 times the original. Predictor
+RMS change grows0.01792 to0.05358. With the transformed P LR divided by3, DeltaA
+norm ratio is0.9994 and predictor RMS change0.01794. The update cosine is0.9983,
+not exactly1: approximate NS does not reproduce ideal-polar invariance perfectly.
+Full post-step predictions also do not match exactly (max difference0.000905
+in the compensated case). Retain these deviations rather than reporting exactness.
+
+See coordinate-step.json for source/checkpoint identity and every measured value.
+This is not a full training step: controller/backbone updates and global clipping
+are deliberately excluded. It supplies a concrete native-optimizer case for the
+algebra in ../logic-chain.md, not a new optimizer, proposed LR rescue or quality win.
+It motivates comparing functional PD updates as well as raw P spectra.
