@@ -72,3 +72,7 @@ Cycle6 live at b33c837 after fresh native4-family prefix/continuation witnesses
 on both GPUs. Post-SSH progress verified,91–93% utilization. Next P0: exact
 archived20k numerical-state checks as each new child advances beyond20500;
 then complete/replay all8at80k. No new model is selected.
+
+Early prefix milestone:4/8actual20k states match archived model/optimizer/RNG
+exactly (first Swi64/raw pair perhost). Remaining Swi128/192 prefixes pending
+their dispatch/progress. Do not report the partial receipt as all-eight closure.

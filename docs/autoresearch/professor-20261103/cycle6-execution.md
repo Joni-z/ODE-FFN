@@ -15,3 +15,9 @@ ssh lenovo 'set CUDA_VISIBLE_DEVICES=0&& set OMP_NUM_THREADS=1&& set OPENBLAS_NU
 ```
 
 Status: live and independently verified after SSH exit. Over30s145Swi64 advanced12000->18500 and raw6000->9000; Lenovo5500->8500 and5000->8000.145GPU0utilization93%/1183MiB, Lenovo91%/808MiB.145controller2238359/CUDA2238360,2238361; Lenovo launcher16300/controller27876/actualCUDA23348,10584. Both source worktrees stay clean at b33c837, no failures. Next verify exact archived20k numerical prefixes after each loop passes20500. Persistent monitor:output/monitor/status.json and history.jsonl. Failed cells stop dispatch; no silent retries.80k endpoints remain unfinished.
+
+Early20k prefix audit PASSED for the first Swi64/raw pair on both hosts:
+all model/optimizer/buffer/RNG numerical states match their archived parents
+exactly. Four of8prefixes verified; each host still lists pending Swi128/192.
+Receipts:readiness/cycle6/{145-prefix-early,lenovo-prefix-early}.json. This is
+comparability evidence, not an80k quality result.

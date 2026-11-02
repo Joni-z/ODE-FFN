@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.001__budget80000",
+      "parent": "rotated_product_bimodal_16d__swiglu64__adamw_0.001",
+      "parent_checkpoint_sha256": "1036eb9fa8d3dc35b09f92c6cd62ff0cd201982f862b111d55c647cef05a47f3",
+      "new_prefix_sha256": "3352229c40554eef38f287c31a7a928f59a3598eb05c7d0deb6f28d0836547f6",
+      "exact_numerical_state": true
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__budget80000",
+      "parent": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006",
+      "parent_checkpoint_sha256": "9230d521cca90aa11f58f67957a3edd92085ba5d36791d8cd35bd88193836415",
+      "new_prefix_sha256": "a9fcf83f8fb0863d53eb7f1aa63059dcdd16edcc54e50e0353bd39a5f35e0d61",
+      "exact_numerical_state": true
+    }
+  ],
+  "pending": [
+    "rotated_product_bimodal_16d__swiglu128__adamw_0.0003__budget80000",
+    "rotated_product_bimodal_16d__swiglu192__adamw_0.0003__budget80000"
+  ],
+  "scope": "All numerical model/optimizer/buffer/RNG states match; different explicit configuration/run metadata retained."
+}
