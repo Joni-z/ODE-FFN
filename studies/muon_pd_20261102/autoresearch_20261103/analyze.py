@@ -42,10 +42,13 @@ for r in rows:
         improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
         sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'
-    ordinary=min(float(x['replayed_field_mse']) for x in old+cycle3+rows if x['dataset']==r['dataset'] and x['family'].startswith('swiglu'))
+    ordinary=min(float(x['replayed_field_mse']) for x in old+cycle3+rows if x['dataset']==r['dataset'] and (x['family'].startswith('swiglu') or x['family']=='pd_constant_k1'))
     decisions.append(dict(cell=r['id'],dataset=r['dataset'],family=r['family'],optimizer=r['optimizer'],lr=r['projection_lr'],status=decision,
         field_mse=r['replayed_field_mse'],test_sw2=r['numpy_test_sw2'],parent=parent['id'] if parent else None,
         field_relative_improvement=improvement,test_sw2_relative_change=sampling_change,better_field_than_strongest_ordinary=r['replayed_field_mse']<ordinary))
+    if r['family'] in ['pd_constant_k1','pd_direct_bounded_k1','pd_direct_shift_k1']:
+        raw=next(x for x in cycle3 if x['dataset']==r['dataset'] and x['family']=='pd_direct_raw_k1' and x['optimizer']==r['optimizer'] and float(x['projection_lr'])==r['projection_lr'])
+        decisions[-1].update(raw_k1_field_relative_improvement=1-r['replayed_field_mse']/float(raw['replayed_field_mse']),raw_k1_test_sw2_relative_change=r['numpy_test_sw2']/float(raw['numpy_test_sw2'])-1)
 save('endpoints.csv',rows);save('decisions.csv',decisions)
 for name in ['curves','updates']:save(name+'.csv',[r for d in receipts for r in d[name]])
 verification=dict(endpoints=len(rows),max_field_replay_error=max(r['field_abs_error'] for r in rows),max_sw2_error=max(r['sw2_abs_error'] for r in rows),max_generated_error=max(r['generated_replay_max_abs_error'] for r in rows),max_anchor_field_error=max(r.get('anchor_field_abs_error',0) for r in rows),max_anchor_generated_error=max(r.get('anchor_sample_max_abs_error',0) for r in rows))

@@ -53,6 +53,18 @@ F2=h+P q(h)+.5 P[d(h)*P q(h)].
 ```
 
 A successful D may provide useful gated features even if the second tied term
-is unnecessary. The already planned K1/K2 comparison is the discriminator;
-ODE representability alone cannot establish an FM-specific bias. Complete the
-registered D construction cycle first, then choose this test from its evidence.
+is unnecessary. The completed K1/K2 comparison improves the original scalar in
+all8 field comparisons and retains a small raw-D Ring8 lead. ODE representability
+alone therefore cannot establish an FM-specific bias. Cycle4 now distinguishes
+constant, bounded and shifted K1 features.
+
+The same primary paper's Section2 explicitly includes a bilinear FFN with the
+gate activation omitted: output=W3[(W1h+b1)*(W2h+b2)]. This is an established
+quadratic feature reference, not a new proposal or a frontier-paper recommendation.
+If a quadratic-feature arm remains the lead after cycle4, a native smaller
+SwiGLU with just SiLU replaced by identity is a useful ordinary control. It would
+keep the exact same learned tensors/initialization/linear-MAC budget as that
+SwiGLU, while testing whether an ordinary learned bilinear feature explains the
+gain without a tied ODE polynomial. Paper bias settings differ from our inherited
+native implementation; record that difference rather than calling it an exact
+paper replication. No such family is launched in cycle4.
