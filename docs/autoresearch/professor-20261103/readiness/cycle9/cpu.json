@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "torch": "2.10.0",
+  "hooked_prediction_exact": true,
+  "layers": [
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.0.ffn.ode1",
+      "trace_error": 1.211156601679888e-16,
+      "series_error": 1.1718258869990673e-16,
+      "native_reconstruction_error": 6.119162331083463e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.0.ffn.ode2",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 5.96175734628877e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.1.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 6.283652298269919e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.1.ffn.ode2",
+      "trace_error": 0.0,
+      "series_error": 1.1212269275749097e-16,
+      "native_reconstruction_error": 6.148097905299844e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.2.ffn.ode1",
+      "trace_error": 1.1345996087807373e-16,
+      "series_error": 1.1326811987900502e-16,
+      "native_reconstruction_error": 6.335159689098218e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.2.ffn.ode2",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 5.953197996420191e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.0.ffn.ode1",
+      "trace_error": 2.272692142411317e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 1.0852267367563177e-07
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.0.ffn.ode2",
+      "trace_error": 1.3289583579564352e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 1.3180691196842336e-07
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.1.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 1.1102280576232924e-07
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.1.ffn.ode2",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 1.3394389323818006e-07
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.2.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 1.0881962383741795e-07
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.2.ffn.ode2",
+      "trace_error": 1.5007511944970844e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 1.5075403217970387e-07
+    }
+  ],
+  "symmetric_decomposition_relative_error": 1.1488658766085235e-14,
+  "analysis_source_sha256": "86f7376bf61e0f57d3d21ed47405cb3dfdd3fe7fcb527b748c0e089dc186a6ac",
+  "cases_sha256": "4a075ba4774239051251643082ab1e25a99416e0c3caeb137b3ca6eb3038079a"
+}

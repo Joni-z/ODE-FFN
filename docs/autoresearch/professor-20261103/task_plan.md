@@ -143,3 +143,11 @@ states exactly, and generated arrays are exact. Early receipts explicitly mark
 partial scope; constrained cells still run. Feature-metric derivation and a
 seeded algebra witness are recorded as theory only, with no new optimizer or
 next experiment selected before cycle8 closes.
+
+Cycle9 registered14frozen checkpoints/84layers and ten matched model pairs.
+Historical projection-geometry diagnosis already rejected a P-only whitening
+interpretation; preserve it. This narrower readout reconciles the new spectral
+constraint outcomes through actual q=D(h)h moments, normalized first-term energy
+and finite K2 term alignment, with symmetric descriptive accounting only.
+CPU algebra/native-output/hook witness passed; next publish/deploy and fresh
+documented CUDA checks, collect all14, independently replay saved arrays.

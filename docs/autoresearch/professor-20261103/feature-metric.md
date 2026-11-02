@@ -3,6 +3,12 @@
 This is a derivation for a possible diagnostic, not a selected optimizer or a
 new training result. Complete cycle8 before choosing the next experiment.
 
+Historical scope: the earlier [projection-geometry analysis](../../research-architecture-search/analysis-projection-geometry/analysis-report.md)
+already measured uncentered input moments and downstream responses, and did not
+select P-only whitening. The present calculation specializes that question to
+the PD first-term features and recent constrained-training outcomes. It is not
+a discovery that anisotropic features exist, or a reason to reopen whitening.
+
 ## The object that is invariant under a diagonal rescaling
 
 At one frozen K1 layer write q(h)=D(h)h, increment r=Pq, and

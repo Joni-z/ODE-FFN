@@ -48,3 +48,8 @@ registered10k-update relaxation time and paired scalar-contraction/native arms.
 The copied trainer, loss, model builders and official Muon are unchanged; the
 post-step constraint and its total-update logging are intentionally isolated.
 No strength/rate/gate sweep is authorized automatically by a negative outcome.
+
+Registered cycle9 is a read-only native-feature/finite-series accounting
+follow-up to cycle8, not a new architecture or training trial. It preserves the
+earlier no-whitening decision and every primary quality metric. No matrix
+inverse, feature transform, gradient update or test-driven selection is used.
