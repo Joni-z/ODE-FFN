@@ -1,0 +1,147 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "rotated_product_bimodal_16d__bilinear64__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "bilinear64",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "reference"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__bilinear64__adamw_0.001",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "bilinear64",
+      "optimizer": "adamw",
+      "projection_lr": 0.001,
+      "role": "reference"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__bilinear64__muon_0.006",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "bilinear64",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "reference"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__bilinear64__muon_0.02",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "bilinear64",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "reference"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_direct_abs_k1__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_direct_abs_k1",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_direct_abs_k1__muon_0.006",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_direct_abs_k1",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "candidate"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_direct_abs_k1__muon_0.02",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_direct_abs_k1",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__bilinear64__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "bilinear64",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "reference"
+    },
+    {
+      "id": "gmm_ring8_2d__bilinear64__adamw_0.001",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "bilinear64",
+      "optimizer": "adamw",
+      "projection_lr": 0.001,
+      "role": "reference"
+    },
+    {
+      "id": "gmm_ring8_2d__bilinear64__muon_0.006",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "bilinear64",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "reference"
+    },
+    {
+      "id": "gmm_ring8_2d__bilinear64__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "bilinear64",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "reference"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_direct_abs_k1__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_direct_abs_k1",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_direct_abs_k1__muon_0.006",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_direct_abs_k1",
+      "optimizer": "muon",
+      "projection_lr": 0.006,
+      "role": "candidate"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_direct_abs_k1__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_direct_abs_k1",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "candidate"
+    }
+  ]
+}

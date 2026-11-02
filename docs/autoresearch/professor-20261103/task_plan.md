@@ -36,3 +36,7 @@ even energy explains74% of its paired-error gap to Swi128 algebraically. Next
 selected cycle: raw-versus-abs K1 feature (6cells) and native bilinear64 ordinary
 reference (8cells), after registration, CPU/CUDA checks and fresh documented pass.
 No symmetry projection, augmentation, new loss or image transfer.
+
+Cycle5 registered14: six absK1 candidates and eight ordinary bilinear64
+references, with baseline-first grid. Native CPU witness passed; next freeze,
+deploy separate worktrees and fresh documented CUDA/native8-to16 continuation.

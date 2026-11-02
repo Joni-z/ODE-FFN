@@ -1,7 +1,7 @@
 """Publish completed registered trials, full controls, and validation-only decisions."""
 import argparse,csv,json
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--cycle2-parents');p.add_argument('--cycle3-parents');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('receipts',nargs='+');p.add_argument('--out',required=True);p.add_argument('--ledger',required=True);p.add_argument('--runtime-commit',required=True);p.add_argument('--grid');p.add_argument('--cycle1-parents');p.add_argument('--cycle2-parents');p.add_argument('--cycle3-parents');p.add_argument('--cycle4-parents');p.add_argument('--append-ledger',action='store_true');a=p.parse_args()
 root=Path(__file__).resolve().parents[3]
 out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
 receipts=[json.loads(Path(f).read_text()) for f in a.receipts]
@@ -20,6 +20,7 @@ old=[]
 cycle1=list(csv.DictReader(Path(a.cycle1_parents).open())) if a.cycle1_parents else []
 cycle2=list(csv.DictReader(Path(a.cycle2_parents).open())) if a.cycle2_parents else []
 cycle3=list(csv.DictReader(Path(a.cycle3_parents).open())) if a.cycle3_parents else []
+cycle4=list(csv.DictReader(Path(a.cycle4_parents).open())) if a.cycle4_parents else []
 for file in ['docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv','docs/research-muon-pd-2026-11-02/wave2/results/endpoints.csv']:
     old+=list(csv.DictReader((root/file).open()))
 for r in old:
@@ -34,6 +35,7 @@ for r in rows:
     else:
         if r['family']=='pd_factorized_linear':reference,parent_family=cycle1,'pd_linear_sigmoid'
         elif r['family']=='pd_direct_raw_k1':reference,parent_family=cycle2,'pd_direct_raw'
+        elif r['family']=='pd_direct_abs_k1':reference,parent_family=cycle3,'pd_direct_raw_k1'
         elif r['family']=='pd_direct_bounded_k1':reference,parent_family=cycle2,'pd_direct_bounded'
         elif r['family'] in ['pd_constant_k1','pd_direct_shift_k1']:reference,parent_family=cycle3,'pd_direct_raw_k1'
         elif r['family']=='scalar_k1':reference,parent_family=old,'scalar_k2'
@@ -42,7 +44,7 @@ for r in rows:
         improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
         sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'
-    ordinary=min(float(x['replayed_field_mse']) for x in old+cycle3+rows if x['dataset']==r['dataset'] and (x['family'].startswith('swiglu') or x['family']=='pd_constant_k1'))
+    ordinary=min(float(x['replayed_field_mse']) for x in old+cycle3+cycle4+rows if x['dataset']==r['dataset'] and (x['family'].startswith(('swiglu','bilinear')) or x['family']=='pd_constant_k1'))
     decisions.append(dict(cell=r['id'],dataset=r['dataset'],family=r['family'],optimizer=r['optimizer'],lr=r['projection_lr'],status=decision,
         field_mse=r['replayed_field_mse'],test_sw2=r['numpy_test_sw2'],parent=parent['id'] if parent else None,
         field_relative_improvement=improvement,test_sw2_relative_change=sampling_change,better_field_than_strongest_ordinary=r['replayed_field_mse']<ordinary))
