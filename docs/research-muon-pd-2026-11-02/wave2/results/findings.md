@@ -77,9 +77,12 @@ the existing AdamW/Muon rates, and retain both ordinary widths. K1 changes only
 and wall time alongside field and SW2. Equal updates do not mean equal compute.
 The existing K2 controls can be reused only after native identity checks.
 
-Historical order studies already exist. Audit their optimizer and training
-settings before registering this interaction as new; do not repeat an answered
-comparison or describe a frozen K2-to-K1 substitution as a cold K1 training result.
+The [historical order study](../../../research-2026-10-20/protocol.md) used
+AdamW3e-4 for5k steps on Gaussian/Ring8/Moons. It does not answer the new
+Muon-by-order question on the20k Product16/Ring8 protocol. Preserve its
+negative evidence against a universal high-order benefit. Never describe a
+frozen K2-to-K1 substitution as a cold K1 training result. See the
+[focused prospective protocol](../next-order-protocol.md).
 No third-wave training was launched in this analysis pass. Both completed queues
 have released their GPUs. This is synthetic vector-field evidence, not image FID.
 
