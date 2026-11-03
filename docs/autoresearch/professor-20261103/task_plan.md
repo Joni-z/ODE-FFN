@@ -2,11 +2,11 @@
 
 ## Current step
 
-Cycles8and9 are closed:12native trajectories, four exact native20k anchors,
-and14frozen-model feature records. No accepted method or active training queue.
-Review a specific D(h) functional change and its amplitude/ordinary controls
-before selecting the next training test. Whitening and P-shape sweeps stay
-closed; earlier paragraphs preserve decisions and the v1 readiness failure.
+Cycles8and9 are closed. Cycle10 is registered and CPU-checked: radial D(h)
+versus fixed scaling, raw K1 and SwiGLU64/128/192 on both tasks, twelve20k
+trajectories. Publish and deploy immutable worktrees, then require the fresh
+documented native CUDA/continuation witness before formal launch. No accepted
+method yet. Whitening and P-shape sweeps stay closed.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -158,3 +158,16 @@ responses increase despite lower P norms through feature/alignment changes;
 flatter P need not flatten increment spectra. No uniform catastrophicK2
 cancellation or whitening rationale. Next select only a specific functional
 change with amplitude/coordinate controls, after reviewing prior coverage.
+
+Cycle10registered12cells: radialD and fixed1/sqrt2D versus raw and all three
+SwiGLU widths on both tasks. No P constraint or new optimizer/loss. The functional
+axis preserves raw quadratic directions/parity at common h but softens radial
+growth; static match at unitRMS is not global initial-function equivalence.
+CPU full-layer derivatives/Hessians/source pairing passed. Next publish/deploy,
+fresh documented CUDA and six-cell actual native resume/parent8checks, then
+monitored baseline-first training. Prior normalization/whitening settings remain
+closed; the new proposal claims neither global model repair nor FM-specificity.
+
+Cycle10 pre-publication checks: all new Python files compile, diff whitespace
+check passes. Live resources rechecked: GPU0 free on both hosts;145/data2 now
+has28GiB free. No packages rebuilt and no unrelated jobs touched.

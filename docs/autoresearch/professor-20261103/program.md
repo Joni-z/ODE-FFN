@@ -53,3 +53,8 @@ Registered cycle9 is a read-only native-feature/finite-series accounting
 follow-up to cycle8, not a new architecture or training trial. It preserves the
 earlier no-whitening decision and every primary quality metric. No matrix
 inverse, feature transform, gradient update or test-driven selection is used.
+
+Registered cycle10is a separate D-function question: input-radial versus static
+scaling, with raw and three native ordinary references. Vanilla Muon/native loss
+return unchanged; no rejected P constraint is combined. Fixed20k screen, with
+any continuation requiring its own matched-budget registration.
