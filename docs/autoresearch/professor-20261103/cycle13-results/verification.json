@@ -1,0 +1,72 @@
+{
+  "endpoints": 18,
+  "max_field_replay_error": 5.677950470905913e-10,
+  "max_sw2_error": 8.585316929599074e-09,
+  "max_generated_error": 0.0,
+  "max_anchor_field_error": 0,
+  "max_anchor_generated_error": 0,
+  "endpoint_steps": [
+    20000
+  ],
+  "exact_native_anchors": 10,
+  "finite_endpoints": 18,
+  "continuation_eligible": 0,
+  "all_registered_comparisons": [
+    {
+      "cell": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "optimizer": "adamw",
+      "lr": "0.0003",
+      "validation_mse": 0.009773368993968311,
+      "test_sw2": 0.14590744598470184,
+      "constant_field_gain": 0.3218021980513449,
+      "free_field_gain": 0.02248046536697168,
+      "constant_test_sw2_change": -0.26606567112204094,
+      "free_test_sw2_change": -0.15848102683615217,
+      "strongest_ordinary_field": 0.009998131646174562,
+      "continuation_eligible": false
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_isru_k1__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "optimizer": "muon",
+      "lr": "0.02",
+      "validation_mse": 0.012933064721529143,
+      "test_sw2": 0.16713193492669284,
+      "constant_field_gain": -0.048313946083246906,
+      "free_field_gain": 0.4309171719074606,
+      "constant_test_sw2_change": -0.024532814410256676,
+      "free_test_sw2_change": 0.13475358642038682,
+      "strongest_ordinary_field": 0.009998131646174562,
+      "continuation_eligible": false
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "optimizer": "adamw",
+      "lr": "0.0003",
+      "validation_mse": 0.016058958201585746,
+      "test_sw2": 0.08573748796614619,
+      "constant_field_gain": 0.7870409899375828,
+      "free_field_gain": -0.045776834050106574,
+      "constant_test_sw2_change": -0.15592920337516802,
+      "free_test_sw2_change": 0.016839743785871386,
+      "strongest_ordinary_field": 0.015356008737918083,
+      "continuation_eligible": false
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_isru_k1__muon_0.02",
+      "dataset": "rotated_product_bimodal_16d",
+      "optimizer": "muon",
+      "lr": "0.02",
+      "validation_mse": 0.028137292193369804,
+      "test_sw2": 0.11673342152087296,
+      "constant_field_gain": -0.4837805697075903,
+      "free_field_gain": -0.026033454275439016,
+      "constant_test_sw2_change": 0.5457283008526155,
+      "free_test_sw2_change": 0.2935975308548584,
+      "strongest_ordinary_field": 0.015356008737918083,
+      "continuation_eligible": false
+    }
+  ]
+}

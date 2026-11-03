@@ -32,6 +32,8 @@ a_t=(t sigma^2-(1-t))/v_t, b_t=m(1-t)/v_t, c_t=t m/v_t.
 Conditioning the two symmetric Gaussian components gives this formula. It
 motivates an affine-plus-bounded-odd response, not a theorem about hidden
 normalized coordinates. The ordinary free ISRU shares that motivation.
+Only q is odd: the retained middle SiLU and surrounding normalized network do
+not become odd, so this is not a parity-enforcement method.
 Verify the formula against the native oracle. [ISRU is established prior art](https://arxiv.org/abs/1710.09967v2);
 the abstract was rechecked and the exact implementation is copied from our
 preserved historical source, not presented as a new activation.
@@ -69,6 +71,10 @@ No K2/coefficient/temperature/clipping/optimizer rescue follows a failure.
 - [x] Isolated adapter and provenance-pinned copied control.
 - [x] CPU checks: common tensors/RNG, complete derivatives, local matching,
       exact copied control, native oracle and optimizer groups.
-- [ ] Freeze/publish/deploy; fresh documented CUDA/native8->16 checks.
-- [ ] Baseline-first monitored runs;18 endpoints and ten exact anchors.
-- [ ] Independent replay, full controls/curves/spectra/cost and decision.
+- [x] Freeze/publish/deploy; fresh documented CUDA/native8->16 checks.
+- [x] Baseline-first monitored runs;18 endpoints and ten exact anchors.
+- [x] Independent replay, full controls/curves/spectra/cost and decision.
+
+Closed: [complete analysis](cycle13-results/analysis-report.md). Two AdamW parent
+gains are retained; none qualifies against the registered ordinary-control
+gates. No80k or image continuation is selected from this screen.

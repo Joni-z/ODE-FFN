@@ -167,3 +167,11 @@ Primary artifacts: [question-to-decision map](research-map.md),
 [radial results](cycle10-results/findings.md), [radial derivation](radial-diagonal.md)
 and [complete controller/output comparison](cycle11-results/findings.md) and
 [frozen output-swap analysis](cycle12-results/analysis-report.md).
+
+The latest [bounded-odd D study](cycle13-results/analysis-report.md) provides a
+more competitive candidate: AdamW ISRU-D reaches Ring8 MSE.009773 versus
+Swi192.011231. Yet ordinary free ISRU is.009998, and onProduct16 it is better
+than ISRU-D (.015356 versus.016059). The structural lead is not established;
+the5%free-control continuation threshold fails. The useful distinction is
+feature-response benefit versus an ODE mechanism, with an optimizer interaction
+that the present spectra describe but do not causally explain.

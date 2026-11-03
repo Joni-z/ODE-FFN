@@ -23,3 +23,10 @@ professor_autoresearch_cycle13_20261103 --expected-count9 --endpoint-step20000.
 Run cycle13/anchors.py with all three original-output roots; require five exact
 20k numerical states/saved arrays per host. Full controls and both metrics must
 remain visible. No further method selection from incomplete results.
+
+Closed:9/9completed perhost, no failed/pending/running cells. Controllers were
+1453200609andLenovo26156(actual persistent PID; launcher26884). Monitor histories
+verify progressing native steps after SSH exits and normal completion. All18
+final arrays replay exactly and ten archived numerical state/sample anchors
+match. Queues took617.95s/832.11s; GPU0 was released. Runtime source remains
+frozen5dd1e16; later edits are analysis/docs only.

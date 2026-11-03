@@ -48,6 +48,8 @@ for r in rows:
             reference=old+cycle1+cycle2+cycle3+cycle4;parent_family=r['family']
         elif r['family']=='pd_factorized_affine':
             reference,parent_family=cycle2,'pd_factorized_linear'
+        elif r['family']=='pd_isru_k1':
+            reference,parent_family=cycle4,'pd_constant_k1'
         elif r['family'] in ['pd_radial_k1','pd_scaled_raw_k1']:
             reference,parent_family=cycle3,'pd_direct_raw_k1'
         elif r['family']=='pd_factorized_linear':reference,parent_family=cycle1,'pd_linear_sigmoid'
@@ -59,11 +61,11 @@ for r in rows:
         else:reference,parent_family=old,'vector_pd_k2'
         parent=next(x for x in reference if x['dataset']==r['dataset'] and x['family']==parent_family and x['optimizer']==r['optimizer'] and float(x['projection_lr'])==r['projection_lr'])
         if r.get('relaxation') in ['shape','scale']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
-        if r['family'] in ['pd_radial_k1','pd_scaled_raw_k1','pd_factorized_affine']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
+        if r['family'] in ['pd_radial_k1','pd_scaled_raw_k1','pd_factorized_affine','pd_isru_k1']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
         improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
         sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'
-    ordinary=min(float(x['replayed_field_mse']) for x in old+cycle3+cycle4+rows if x['dataset']==r['dataset'] and (x['family'].startswith(('swiglu','bilinear')) or x['family']=='pd_constant_k1'))
+    ordinary=min(float(x['replayed_field_mse']) for x in old+cycle3+cycle4+rows if x['dataset']==r['dataset'] and (x['family'].startswith(('swiglu','bilinear')) or x['family'] in ['pd_constant_k1','free_isru']))
     decisions.append(dict(cell=r['id'],dataset=r['dataset'],family=r['family'],optimizer=r['optimizer'],lr=r['projection_lr'],status=decision,
         field_mse=r['replayed_field_mse'],test_sw2=r['numpy_test_sw2'],parent=parent['id'] if parent else None,
         field_relative_improvement=improvement,test_sw2_relative_change=sampling_change,better_field_than_strongest_ordinary=r['replayed_field_mse']<ordinary))

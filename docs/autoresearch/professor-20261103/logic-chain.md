@@ -364,3 +364,17 @@ reparameterizations. It also states the assumptions needed for local functional
 steps. This is a possible diagnostic after cycle8, not a new optimizer or an
 accepted architecture. Its algebraic fixture passes; trained-feature evidence
 is still missing.
+
+## Bounded odd input diagonal: separate a response gain from an ODE gain
+
+Cycle13 starts from a preserved ordinary ISRU lead and the exact latent
+affine-plus-tanh oracle, not a claim that hidden P should equal data geometry.
+The new D gives q=ISRU(h), so F=h+Pq and J=I+Pdiag(q'). It matches constant D
+through the origin Hessian, but shares its norm bound; boundedness alone cannot
+explain a quality gain. Under AdamW it improves over constant D on both tasks.
+Free ISRU reproduces most or more of the field benefit. Ring8's2.25%separation
+fails the registered5%free-control gate; Product16 favors the ordinary model.
+Muon broadens updates and grows P here while fitting worsens, reversing its
+benefit for the constant control. Thus the measured chain ends at a
+response/optimizer interaction, not an accepted ODE benefit or a proven
+spectral cause. No rescue follows. [All comparisons](cycle13-results/analysis-report.md).

@@ -1,0 +1,145 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "rows": [
+    {
+      "dim": 2,
+      "family": "pd_isru_k1",
+      "parameters": 56706,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 2,
+      "family": "free_isru",
+      "parameters": 56706,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 2,
+      "family": "pd_constant_k1",
+      "parameters": 56706,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 2,
+      "family": "swiglu64",
+      "parameters": 56766,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 2,
+      "family": "swiglu128",
+      "parameters": 81792,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 2,
+      "family": "swiglu192",
+      "parameters": 106818,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 16,
+      "family": "pd_isru_k1",
+      "parameters": 58512,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 16,
+      "family": "free_isru",
+      "parameters": 58512,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 16,
+      "family": "pd_constant_k1",
+      "parameters": 58512,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 16,
+      "family": "swiglu64",
+      "parameters": 58572,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 16,
+      "family": "swiglu128",
+      "parameters": 83598,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    },
+    {
+      "dim": 16,
+      "family": "swiglu192",
+      "parameters": 108624,
+      "matrices": 6,
+      "common_surrounding_buffers_rng_exact": true
+    }
+  ],
+  "complete_jacobian_max_error": 2.220446049250313e-16,
+  "zero_hessian_exact": true,
+  "third_feature_derivative": -3.6,
+  "copy_source_exact": true,
+  "oracle_max_error": 1.5543122344752192e-15,
+  "all_parent_records_match": true,
+  "dataset": "gmm_ring8_2d",
+  "native": [
+    {
+      "cell": "gmm_ring8_2d__pd_constant_k1__muon_0.02__isruD_anchor",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "cell": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_isru_k1__muon_0.02",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "cell": "gmm_ring8_2d__free_isru__muon_0.02",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_constant_k1__adamw_0.0003__isruD_anchor",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "cell": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "cell": "gmm_ring8_2d__swiglu128__muon_0.02__isruD_anchor",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "cell": "gmm_ring8_2d__swiglu192__muon_0.02__isruD_anchor",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    }
+  ]
+}

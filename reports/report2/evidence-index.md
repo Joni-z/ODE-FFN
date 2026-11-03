@@ -55,3 +55,12 @@ qualifies. Submitted report PDFs remain unchanged.
 complete all24paired checkpoints, exact native/restoration anchors and48saved-array
 sampling checks. No immediate output repair or trained-method advantage. The
 analysis bundle states its fixed-cohort scope; submitted PDFs are unchanged.
+
+## Bounded odd input diagonal,3November
+
+[Cycle13 complete analysis](../../docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
+compares ISRU-D with tensor-paired constant D, copied ordinary free ISRU and
+three SwiGLU widths. AdamW Ring8 improves over SwiGLU, but only2.25%field
+separation remains from free ISRU; Product16 favors the ordinary model. No
+registered continuation or ODE-specific gain. All18endpoints and ten
+references replay exactly. Submitted report PDFs/source remain unchanged.

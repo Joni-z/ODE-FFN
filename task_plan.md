@@ -1,16 +1,15 @@
-# Current checkpoint: frozen output-swap analysis closed
+# Current checkpoint: bounded-odd input-D study closed
 
-Cycle12 completed24native/swap checkpoint pairs with exact native arrays,
-restored probes and unchanged tensors. Independent saved-array sampling checks
-pass for all48outcomes. Every Product16swap worsens field/sampling; two small
-Ring8field gains remain behind nearly parameter-matched Swi128. No immediate
-output repair, accepted new ODEFFN method or active queue.
-[Analysis](docs/autoresearch/professor-20261103/cycle12-results/analysis-report.md) ·
-[Research map](docs/autoresearch/professor-20261103/research-map.md).
-
-Review prior bounded-feature evidence before a distinct input-D proposal.
-Earlier constraint/radial/range/order rescues remain closed. Older entries below
-are historical; submitted report PDFs and author-derived image code are unchanged.
+Cycle13 completed/replayed18formal cells and ten exact archived references.
+AdamW ISRU-D improves Ring8 over all three SwiGLU widths, but its field lead
+over ordinary free ISRU is only2.25%; Product16 favors the ordinary model.
+The registered continuation gate fails; no new model accepted or queue active.
+[Full analysis](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
+and [research map](docs/autoresearch/professor-20261103/research-map.md).
+Keep the positive response evidence and negative structural/optimizer contrasts.
+No80k/coefficient/order/rate rescue or image transfer is selected. Submitted
+report PDFs and author-derived image source remain unchanged. Older entries
+below are historical.
 
 # Current runtime: cycle6 budget-only confirmation
 

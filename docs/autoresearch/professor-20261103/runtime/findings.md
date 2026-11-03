@@ -1,9 +1,9 @@
 # Measured run cost
 
-The table covers132 completed training trajectories from cycles1–6,8,10and11:124 at20k
+The table covers150 completed training trajectories from cycles1–6,8,10,11and13:142 at20k
 updates and eight at80k. Native wall times are attached only after recorded
 field/sampling scores match independent replay. Their summed process wall time
-is28,732.1s; workers overlap, so this is not GPU hours or elapsed queue time.
+is31,461.9s; workers overlap, so this is not GPU hours or elapsed queue time.
 Cycle7 is frozen analysis and is excluded from training counts.
 
 Examples from the same native task/host,20k updates with two workers per GPU:
@@ -44,3 +44,9 @@ isolated-hardware speed claim follows from these concurrent observations.
 
 Cycle11 adds ten20k native/missing-corner trajectories after complete replay.
 Its18reused archived corners are not counted again as new training.
+
+Cycle13 adds eighteen20k ISRU-D/constant/free-ISRU/ordinary cases after complete
+replay. Its native queue spans were617.95s on145and832.11s onLenovo; recorded
+two-worker GPU0 utilization medians were89%and90%. Startup/dispatch zero-use
+snapshots remain in raw monitors. These are not continuous utilization or MFU.
+Frozen cycles7/9/12remain outside training counts.

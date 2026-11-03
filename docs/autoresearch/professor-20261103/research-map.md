@@ -155,3 +155,20 @@ tests. There is no accepted new ODEFFN method from this study yet. The radial te
 sufficient explanation for an improvement in this setting.
 The earlier P-shape/whitening settings remain closed; no image transfer follows
 from a weak-parent synthetic gain.
+
+## 8. Does an odd bounded feature help inside P D(h)?
+
+The old free-ISRU lead motivates a response test, not an ODE claim. The new
+[cycle13 registration](cycle13.md) sets d_i=(1+1.2h_i^2)^(-1/2), so K1
+computes h+P ISRU(h), while retaining two solves and their original middle SiLU.
+Constant-D1 controls local linear behavior with exactly common tensors; copied
+free ISRU tests whether an ordinary architecture exploits the same response
+better. Three native SwiGLU widths remain visible. The oracle's latent
+affine-plus-tanh form motivates the question but does not prove that hidden
+coordinates should use ISRU. The [completed study](cycle13-results/analysis-report.md) finds an AdamW Ring8
+lead over all three SwiGLU widths, but only2.25%field gain over free ISRU.
+Product16 favors free ISRU/Swi192. Both new nonlinear families fit worse under
+the registered Muon setting, with broader updates and larger learned matrices.
+This identifies a response/optimizer interaction to understand; it does not
+validate an ODE-specific method or a spectral cause. All18runs replay, ten
+references match exactly; no registered continuation qualifies.

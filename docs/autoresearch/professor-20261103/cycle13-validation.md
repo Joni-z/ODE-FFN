@@ -20,3 +20,5 @@ ssh lenovo 'set CUDA_VISIBLE_DEVICES=0&& set OMP_NUM_THREADS=1&& set OPENBLAS_NU
 ```
 
 Pass: exit0, passed=true, device=cuda, twelve kernel/model rows, nine native rows with exact resume states, five parent8 anchors. No repair or retry by the witness agent. Lenovo Git is D:/Research/ODE-FFN/tools/git/cmd/git.exe. Readiness is not quality evidence.
+
+Both commands passed verbatim once at clean5dd1e1644ab4eb69bee3e1cd1b44f4cfc0af6dcf: nine exact continuations and five parent8 anchors perhost. No divergence/repair/retry. [Fresh receipt](readiness/cycle13/documented-witness.json).

@@ -150,3 +150,15 @@ keep the distinction between a trained-model result and frozen sensitivity.
 Historical free ISRU is ordinary, task-specific and only5k; it is not current ODE evidence. Register a coordinatewise ISRU input diagonal against constant D and the exact copied free control before implementation. All native Muon/AdamW/Swi controls remain. Read-only lookups initially guessed nonexistent distributions.py and autoresearch replay.py; actual files were located with rg --files (data.py and collect.py). A combined registration patch failed its context match atomically; no file changed; the corrected patch then succeeded. No runtime or result changed.
 
 Cycle13 CPU readiness: first attempt used a nonexistent data factory name; corrected to the native suite() before any remote use. Second attempt exposed inconsistent trailing-newline handling in copied-definition hashes; standardized trailing-whitespace normalization and kept full original byte hash. Final CPU check passes: full Jacobian error2.22e-16, oracle1.78e-15, twelve model/count/group rows. Neither correction changes the numerical candidate.
+
+Cycle13 analysis preparation: two additional read-only guessed names were absent (cycle10 source-bindings.json and cycle6 samples.py); rg located existing sample_readouts.py. No input or runtime modified. Shared analyzer extends only the new family-to-constant parent mapping and labels free ISRU ordinary; frozen runtime remains5dd1e16.
+
+## Cycle13 closure
+All18formal native endpoints and ten archived references pass exact replay.
+ISRU-D AdamW Ring field.00977337/test.145907; free ISRU.00999813/.173386;
+Swi192.01123051/.165805. Product ISRU-D.01605896/.0857375 versus free
+.01535601/.0843176 and Swi192.01566760/.0792062. Both new families fit worse
+under registeredMuon.02 thanAdamW.0003, despite broader updates and larger P/W.
+No causal spectral explanation or general optimizer claim. None passes the
+registered continuation rule; no80k/rescue/new image runs selected. All five
+figures inspected; long Product titles were split without metric changes.

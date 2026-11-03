@@ -2,12 +2,12 @@
 
 ## Current step
 
-Cycle12 is closed:24native anchors/24swaps, exact native generated arrays and
-round-trip probes, all48finite saved-array distances independently verified.
-Every Product16field/test swap worsens; two small Ring8field gains remain below
-Swi128. No immediate-output repair or accepted new model. Cycle13 is registered
-in cycle13.md: coordinatewise ISRU-D, constant-D1 and copied ordinary free ISRU,
-with all three SwiGLU references. Implement/check before deployment or launch.
+Cycle13 is closed: all18endpoints replay exactly, all ten native references
+match archived numerical states/samples, and the full analysis is in
+cycle13-results/analysis-report.md. AdamW ISRU-D has a Ring8 lead over SwiGLU,
+but only2.25%field gain over free ISRU; Product16 favors the ordinary control.
+No registered continuation, accepted method or active queue. Preserve the
+bounded-feature evidence; do not rescue its coefficient/order/rate settings.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -242,3 +242,11 @@ pass. Results-analysis bundle includes three viewed figures, full48endpoints,
 24paired changes,288layer rows, statistical scope and source bindings. Both
 formal PIDs exited; training ledger remains132unique rows. No saturation-cause
 claim or automatic new training follows.
+
+Cycle13 CPU/CUDA actual-entry readiness passed all eighteen resume checks and ten parent8 anchors. Formal queues launched at frozen5dd1e16 with two workers/GPU0; source packages unchanged. Analysis and fixed cases are registered separately before endpoint inspection. A documentation insertion initially missed an exact wrapped line; corrected context only, without changing numerical source.
+
+Cycle13 complete/replayed with150unique training ledger entries. Five figures
+viewed; Product case title layout corrected without numerical changes. AdamW
+feature gains are real fixed-setting evidence, but no ODE-specific superiority
+follows. Native whole-cohort array replay/ten exact anchors pass. No new runtime
+selected; submitted PDFs and image source remain unchanged.

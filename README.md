@@ -15,6 +15,11 @@ input-dependent diagonal generators in a separate synthetic backbone. The
 [research map](docs/autoresearch/professor-20261103/research-map.md) connects
 questions, derivations, controlled tests and decisions.
 
+The latest [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
+finds an AdamW Ring8 lead over SwiGLU, but only2.25%field separation from
+ordinary free ISRU; Product16 favors the ordinary model. All eighteen20k runs
+and ten native references replay exactly. No ODE-specific advantage is established.
+
 The [matched 80k study](docs/autoresearch/professor-20261103/cycle6-results/findings.md)
 retains a limited fitting-versus-sampling tradeoff, with no overall advantage
 over ordinary SwiGLU. The [frozen spectral-shape test](docs/autoresearch/professor-20261103/cycle7-results/findings.md)

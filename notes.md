@@ -1,3 +1,20 @@
+# Latest confirmed professor-follow-up evidence
+
+[Cycle13 analysis](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
+closes all18runs with exact array replay/ten exact references. AdamW Ring8
+ISRU-D field.009773 versus free ISRU.009998 and Swi192.011231; Product16
+ordinary free ISRU is better. This retains a response-function lead without
+an ODE-specific claim. No continuation qualifies or queue remains active.
+
+# Latest professor-follow-up decision
+
+[Cycle13](docs/autoresearch/professor-20261103/cycle13.md) is registered after
+all twelve previous cycles closed. A bounded odd D-function is compared with
+its constant-D parent and exact historical ordinary free-ISRU control; this
+keeps a previous positive lead without calling it ODE evidence. CPU checks
+pass; native CUDA/readiness passed at5dd1e16. Formal queues launched; complete
+endpoint replay/analysis remains.
+
 # Current checkpoint: frozen output-swap analysis closed
 
 Cycle12 completed24native/swap checkpoint pairs with exact native arrays,
