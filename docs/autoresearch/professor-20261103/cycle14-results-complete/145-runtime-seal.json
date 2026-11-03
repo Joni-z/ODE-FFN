@@ -1,0 +1,1837 @@
+{
+  "head": "7d4cac9b188632dd69fa10c395f31f0655a4c2b0",
+  "clean": true,
+  "original_source_files_unchanged": 25,
+  "files": [
+    {
+      "path": "output/monitor/history.jsonl",
+      "sha256": "72fc039f86a679e10c5f4565db8aebb2c08cfe82798541a7332ac3c17978029b",
+      "bytes": 22002
+    },
+    {
+      "path": "output/monitor/queue-console.log",
+      "sha256": "cde8917bf2a4a8db73dc06c6bdae18c8d8efae75a16d6b00967976de12a9fbc7",
+      "bytes": 1864
+    },
+    {
+      "path": "output/monitor/queue-finished.json",
+      "sha256": "a5c37a8befb270efd1d641a9a28e8253d032d904dbfb8a0e4d77ac5220429db7",
+      "bytes": 4286
+    },
+    {
+      "path": "output/monitor/queue.lock",
+      "sha256": "9fe97ec73dba44593c13b2a1e0d3b7ac0e03ca77032ca84947660699e986b603",
+      "bytes": 7
+    },
+    {
+      "path": "output/monitor/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14.log",
+      "sha256": "f6333cd50ab53ae8778fc5342bb590262599362819e960a1cd48fabaf439eb9e",
+      "bytes": 3306
+    },
+    {
+      "path": "output/monitor/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14.log",
+      "sha256": "d3900afbe9f2b67db20d625f1ac38987787e6f8c1b25e1cb508be9fbe0c1dad1",
+      "bytes": 3306
+    },
+    {
+      "path": "output/monitor/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14.log",
+      "sha256": "dc24355269e8b5ac781189cdaea1e14a6ef5b93c8f3b654df996e6427589e6c2",
+      "bytes": 3320
+    },
+    {
+      "path": "output/monitor/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14.log",
+      "sha256": "c966cbf221a507915a387d1c2de8ebe44a29322b4e943d9f73ffd4e04b6a8088",
+      "bytes": 3307
+    },
+    {
+      "path": "output/monitor/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14.log",
+      "sha256": "b6fc30ffa14f09c61072a3f55afd4127df1fd9306b929df1b8747cd4670c665f",
+      "bytes": 3317
+    },
+    {
+      "path": "output/monitor/status.json",
+      "sha256": "53dd1f1226347ee7ef085ee7e1ddb3a05f839856fc9d9977522207407621709c",
+      "bytes": 5064
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/binding.json",
+      "sha256": "b073a69089cf42369e590baf45ade497377a0aebf838adaab7f2e4883da69df1",
+      "bytes": 5870
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/field_10000.npz",
+      "sha256": "94aa2b6d1eed4c7eb0b44e8670682a08282e065ef1ef9943cefc7f8e621c74cf",
+      "bytes": 2381570
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/field_15000.npz",
+      "sha256": "3935d25960b1cc61b781cdee72051d4739d396b8795706354ca2cceef841e268",
+      "bytes": 2381973
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/field_20000.npz",
+      "sha256": "d5ceda73a6d8f700d1c964f53e01098090cf3ba2a2dfa11117dc689a0a08ce2f",
+      "bytes": 2381665
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b0_h128.npy",
+      "sha256": "a43e1cd45674be4b60e55343b07093312b1d9f407b94f6cc572ad36ff4a5007f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b0_h32.npy",
+      "sha256": "f32c27190b4fd0b9adc27751d19d295bc52ed48b5851c20db6d5a7ea721b1533",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b1_h128.npy",
+      "sha256": "65ee468bf2cc045f605f327dbf3a4b6459091b3b87273b6f9bcc797ccb8483dc",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b1_h32.npy",
+      "sha256": "76074a55021097ed6d6823e065445038a26a1513bd1ba1d42452cf3cf0781b7d",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b2_h128.npy",
+      "sha256": "89a409d28699e914e430c1689417328974bb046e3bf0da309070af9d6c755f66",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b2_h32.npy",
+      "sha256": "239e4662a45ee251fe22ef9c0990918f99c32b4cbefbc0ccb55bdf40ed58b3f9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b3_h128.npy",
+      "sha256": "24288844c8ee0da20c2012ff346af20f1564c66ea37f427033383dcc82cdabcc",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b3_h32.npy",
+      "sha256": "14a53affe3417c4c182074e2209c5d0c3eb5a6ad057e86c6635d04c2d3be33f9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b4_h128.npy",
+      "sha256": "c7675f1a2d6bf55737ebd3d5b9d2a984c67ffc0f13f369c0e08fba128dfa6287",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b4_h32.npy",
+      "sha256": "2fc051f5273b8bad998cad33a8b24d54852642f96e57a506bea32ed9321faad2",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b5_h128.npy",
+      "sha256": "32db92df65bd3ac8ad63eee80b9423fd53e6d1af71cd30bd58be192d577a5caf",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b5_h32.npy",
+      "sha256": "1951a0f791e23c168ff683d2923dd9282078aa79a9898b37e8dd579daae5307c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b6_h128.npy",
+      "sha256": "2b1cea1c50552eb364004a6e62dc3bf446c2e6a325692b72504e991a361c60c5",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b6_h32.npy",
+      "sha256": "93784e5d36e2053d59b711d82c350599f60884885dc47532d794826701c5a90d",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b7_h128.npy",
+      "sha256": "90d307deef1a45bbf30d7a06572e943740a23508a6a174bedfb61b7c92c14588",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_10000_b7_h32.npy",
+      "sha256": "a7271fcff3b141e26e0335a2f11997b21e97d61bd18e8180f7588d0100c872f7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b0_h128.npy",
+      "sha256": "7eca785b9aa32379ff0d64ad1a1e4c3d5d574cadde26cc80fdb7a779031579fe",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b0_h32.npy",
+      "sha256": "faf1bcaa430a22b1f25fb45489608d3a409fef2f6eb16e2bcc065088bb453e4c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b1_h128.npy",
+      "sha256": "69c04b96b7594f3fa6b67ab7f787b4056df1e9a7d5656601de965d9991efb334",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b1_h32.npy",
+      "sha256": "36ed722404a68ac21cf914b072174ea473e9fb64167aef624f38c41b6aa9d225",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b2_h128.npy",
+      "sha256": "4806ed578e758d6e749e78ad14889a6ad4af05c527de75b039672a83936d24b1",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b2_h32.npy",
+      "sha256": "7b68b41ffe2f21eb1205056b9a8f1a1f14dfdaf1d54e9848bb9b6c36aba3c0cd",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b3_h128.npy",
+      "sha256": "d743c509c377400bda157550d2ca60d9a133650f12c15309c09f2f2bd69d5a84",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b3_h32.npy",
+      "sha256": "4e03d10535639dad540f55c1406c52e94052cd6e6e7d4b4798db64ce6c776c6f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b4_h128.npy",
+      "sha256": "6918a0d27c66e82cbcc4eeaa4cf577a25d1252791a1c64a17e2bb1d4e7ada76a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b4_h32.npy",
+      "sha256": "21af88dc50973e9e48853b1e565a6efe9e64b729d175b56cba75c6d202194bde",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b5_h128.npy",
+      "sha256": "80837954464b144008c06bc908bd96eaed3c6d07035d61dc61b92a16437d5b69",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b5_h32.npy",
+      "sha256": "5a5884a624b45412125f60e4201bcd720344efd45b10f1bbf83c494222e88113",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b6_h128.npy",
+      "sha256": "b798d4e073b7d1b3769336a9612da48591a4b8c57dd3492e7a548acb198a202d",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b6_h32.npy",
+      "sha256": "cd6ac06756f2a90811974f77f00c90120adba12418ad73b757b76209345fa640",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b7_h128.npy",
+      "sha256": "d541b93f26ad4126c22f866ac9760c713f11b10cd9825285dcebe5b64f082748",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_15000_b7_h32.npy",
+      "sha256": "e50149f413eefaf226c17d5f624ee161a3f742b55db3820de8f569ed622fdac3",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b0_h128.npy",
+      "sha256": "accde63917f455bed769a00b3da68114ad7cd82f02b0ac00763190482d25d7f3",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b0_h32.npy",
+      "sha256": "a5551561927b545b6843ce35466b988ade7f9da82e95ee08fe3afba7bd4235d4",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b1_h128.npy",
+      "sha256": "ef024ad0bc221c07a88a85024445b562592c3887b927127913c3eb0644deda4b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b1_h32.npy",
+      "sha256": "90f2227c831733b1c01a3091e839428bbd7687c898ca111348e51f1b4c3558d9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b2_h128.npy",
+      "sha256": "4eff8721c8319500df59410b055b6d630674373a58bc2047387cc05b0079bd33",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b2_h32.npy",
+      "sha256": "f5771bd900f6c49745daa045eb1f4d7e17ab067fa1a1d133b67aa97330c8a288",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b3_h128.npy",
+      "sha256": "836f78ff6e275b23f8c5676edfbdaabf97829fba0e1b36b763eb79b897e81ef0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b3_h32.npy",
+      "sha256": "91ab451c19bced3007c5cb5edc3e856eb69ea23231b5fe8cd8ce7eab95dd5d39",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b4_h128.npy",
+      "sha256": "e651320198e91307ac39583a478bc796977180a1763b8b3dddfd4f3ceb3ee6bb",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b4_h32.npy",
+      "sha256": "d36ecc4c95c97d08cb745f58d704d236085e97653ec2bc0392a9107590ec87e0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b5_h128.npy",
+      "sha256": "26a700b2b049b18cedba0b5ae32fd791a9b21bc54fdf63123202dc78b5f7a876",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b5_h32.npy",
+      "sha256": "86901ba2bbadf156c93acf3d096f7dd9333ed17b5064c4f842813eed3f8200d6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b6_h128.npy",
+      "sha256": "89b3cd43f71d4b2a5c1784784e3d9288d44b4f4613f4e973c93c6584585939cb",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b6_h32.npy",
+      "sha256": "09f1b0206f66fe85fc9920668d2d8264f75fbdb6927fb2e371b46cf8d761d471",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b7_h128.npy",
+      "sha256": "8892b76001e25ff2e2e25a5dbf822ebb2f2d2f615b9abe115108d7fa99f7b4a9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/generated_20000_b7_h32.npy",
+      "sha256": "c1e6a45f530b01a4454846c37984d140fbf6652d3274a17b89140d303b6d1303",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/metrics.jsonl",
+      "sha256": "c46ba1a3a72bc3687a4d95e20a090e0ff30ef2d061c31e0d899498355e43a9ef",
+      "bytes": 11425
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/native_anchor.json",
+      "sha256": "b1256ffb461ed9b98cef5bcce34aadb00423c518b1c223eea42a83d6eec67d14",
+      "bytes": 477
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/native_anchor.npz",
+      "sha256": "0709240a14ef7a8a138ffc9c26c47c1ecfa1cc6dac6f008c0ad74bb8406118e1",
+      "bytes": 746178
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/progress.json",
+      "sha256": "84ab664f798ebe9834303b13361642bd132b47e8f49be12736ec7db7698b0425",
+      "bytes": 1123
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/result.json",
+      "sha256": "0c33056362b946df001d80aa7859b3048da4d451323505b2d2946fa64ea2eb99",
+      "bytes": 3562
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/seed000/rows.jsonl",
+      "sha256": "685ce3da24606f31caefb61bad7ec41171ab7057e7fa1837cf19b716aeeb8418",
+      "bytes": 44143
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/binding.json",
+      "sha256": "ea06735fd67ee84a1f5d9206662666e660911995bd51f95045a0c1730e2bbe0f",
+      "bytes": 6096
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/field_10000.npz",
+      "sha256": "4b529bc197ad2686914fa7377c81f398be3f106589e54b13debe79a2f669a111",
+      "bytes": 2381594
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/field_15000.npz",
+      "sha256": "ff40969b299ab69dd9a3f9a422883c5839650a78e38dcc7ec3616ab23d2b5875",
+      "bytes": 2381583
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/field_20000.npz",
+      "sha256": "0a9fd48a16b6b6cc1ba968257e4580a3b00b17dba46fba0f4c0879d43503efee",
+      "bytes": 2381898
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b0_h128.npy",
+      "sha256": "4857d9a1498ca1cbf7c828824b7b755b3c4031eaa6d3fe05bd8e7a186188c6b2",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b0_h32.npy",
+      "sha256": "c3df144a34399b1c30f152218ee0d2d7a021a5b4eaf122ff49d0ca6961c1a7f5",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b1_h128.npy",
+      "sha256": "75f2accc69bb78cc1550bd87303ce620e446e0f615b896ceeb2aac6842ce259c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b1_h32.npy",
+      "sha256": "1f544f49a18dc5f47c42dc9eb4f2a8e1a802985f55c034ecdb3e47e44e3151e1",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b2_h128.npy",
+      "sha256": "aa770f210fa7946c109c0e13a9549864502ef74520b036e3a39b96e5b285e44e",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b2_h32.npy",
+      "sha256": "4a0588cf6baa070be92c254e0be4ad14bf13e9c95a1de182c67e569fbc56b74c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b3_h128.npy",
+      "sha256": "ca4e5a27732a27ef86516c8c8cafe1bdbd03d0086323e45fee4c889cfa0b99e6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b3_h32.npy",
+      "sha256": "18525b3287f49a04f48bc87a345610d3061a694245bb54c743bcebf37620f9d0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b4_h128.npy",
+      "sha256": "cfe1fba8c37f1f68de68934076a77315985cbd9ad16bc7f1b470f493bb97e9ee",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b4_h32.npy",
+      "sha256": "abefde52fd7fe2f11355de16aac04321332a9b82405738a6ab2b9c6167d54ecc",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b5_h128.npy",
+      "sha256": "2a5797e5c30d2e62ad7cf21b8321fd168dbb02935647905ab6e368d05a543f41",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b5_h32.npy",
+      "sha256": "23d305e1d1535ab075bda03dee71a2e910c61a77de996ff64781acfd1a1bd9cf",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b6_h128.npy",
+      "sha256": "e949ec2eb148c318b03a2458af3911bee897e772303cada0ad4c61034c511230",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b6_h32.npy",
+      "sha256": "08a3c4fc1d03601775c7383c5eea5f7875ccafc64ec970773495de06b5c462b0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b7_h128.npy",
+      "sha256": "42f9e4209b03c1c3a17eb4860b0338902cc23b16e800c1d8dbefabcc179fea11",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_10000_b7_h32.npy",
+      "sha256": "ba752a5bd97530aa2ee4b03eb60de088420a1bca83208959a0a0203cd9f4d9d6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b0_h128.npy",
+      "sha256": "ff58d06cae1c0479700c3432e894cc8bc0c9a6435e90dde6db93391ed59340cb",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b0_h32.npy",
+      "sha256": "a93d9cc8bc9b78bcf814cbfd3954cadf8913a0d61d10ddd769a8a654047c22ba",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b1_h128.npy",
+      "sha256": "434fc406d243d623ebdc5cc52e38bfd45de624e890fbb69c2673237f2ef0df72",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b1_h32.npy",
+      "sha256": "6debf4d3eb76355b4f54ba7c2a45a2cbbacf5bed57dba009a0084d793ebac637",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b2_h128.npy",
+      "sha256": "16c042a9cc7e412d6d24a0e3dea91cba7aa5c163d401e4a47a555f8dce0d95e0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b2_h32.npy",
+      "sha256": "af01328bf4608fa5d4bdc063fb48848eca081c242f61b2ddbe17a5779560518f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b3_h128.npy",
+      "sha256": "20b64bf34e9f2687056a21de2adb39835d34de1995bf8d9eab5065fa3a6f8a15",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b3_h32.npy",
+      "sha256": "bcec31529b40112f4c9f7715cf9cf9d467f799693b5a153a92f1e7a1a984b17b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b4_h128.npy",
+      "sha256": "d2d42f79cb21385470291af28579e3ed99f721f4ccbe4e40554786cd447fd29a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b4_h32.npy",
+      "sha256": "298ed7e4d180a815c557d47bcf2a4dbddff0d74c354a40411379634d67459f70",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b5_h128.npy",
+      "sha256": "fe9a1562011f137787aff0377cc0c9212e54b91cc097f26c1cd68b071c51379a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b5_h32.npy",
+      "sha256": "ee41544386ae8dd37a7edf78ab08f2d26c781368036bf85699f28dd77b3b9416",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b6_h128.npy",
+      "sha256": "82bdbe0d5637e0f8069a482ed490f5afdeeecd7a4701695540288b4e733cba08",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b6_h32.npy",
+      "sha256": "ab55badab56c67cbc0b776cdf5139576a07fb1d7ab08fbedc1fec8b375aa870f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b7_h128.npy",
+      "sha256": "2a8b6ae492c27b807332b6105ce3ba4176edd75de912fbce5bccaf613f9fd3cd",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_15000_b7_h32.npy",
+      "sha256": "334481f73199d3055d3c4ee897058e793b75307403b3d4f787e197d479c159f2",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b0_h128.npy",
+      "sha256": "5e27ec9279178f7d71b18ec754e30b1e968138cf68c20ff1d027da39a602b129",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b0_h32.npy",
+      "sha256": "29fa8b87cbba17d05ba2c11618a3b51b004c58d464f0ee0fad104ac64f3f4f70",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b1_h128.npy",
+      "sha256": "c000b295665ae6f6895e4a4047f0c999d20ea62e8605c9d355cb9d5694840018",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b1_h32.npy",
+      "sha256": "cf1e7e7aaa041028fb733350c617a0e7032855179b95bc1e4bfc66ee1a1c99d0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b2_h128.npy",
+      "sha256": "8733fc2941fec8343e824788376bbd2ee823e473649ed334e03f759840149f5a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b2_h32.npy",
+      "sha256": "313e81993d4bf8a75a5d1c82a81030dd989e93f3834e694d4491c7a6528dc362",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b3_h128.npy",
+      "sha256": "5a5f99b13477d5d7101948dc71c291ca6fed5b0673170e11315e5c6f7b3620b9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b3_h32.npy",
+      "sha256": "00d07c23e21459cf080c74f58947d32ba518b2b3ee61fd62fc41a1d4964999d7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b4_h128.npy",
+      "sha256": "cb512bfac7c6cb1ce994be2dca7aa5fc61d787fc1d78eab3523fccf9401cafe8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b4_h32.npy",
+      "sha256": "f861338c108d28b3025db5e51db49c430abb0ef5b79560c192c00272a03cbbca",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b5_h128.npy",
+      "sha256": "f24273eeecaaf657e568e09019d7e29270b4ce8023eb42e8b03348f65cb8b5b7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b5_h32.npy",
+      "sha256": "fcd0e239cff949da55fa7af6c4349405fad050624b69aced05d6b608395a63c6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b6_h128.npy",
+      "sha256": "c12f656e8a5cd42930a580c79008d4610d709649bcf8a221e16c07adbb651144",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b6_h32.npy",
+      "sha256": "2bc5b45103ce6948ac68eef435c8d4a18ef4719097af60a0f1d8196bcd281c4f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b7_h128.npy",
+      "sha256": "312eb789d1459e17583951fafced8dedf8040963e6ab2940e04f4a5dd0606753",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/generated_20000_b7_h32.npy",
+      "sha256": "5e254dde187b9b75881d0ba1be6a505e666b558bf09ab5706b96fdb01079ae41",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/metrics.jsonl",
+      "sha256": "de791913ff835397a4b718fd40a807b5c01919d93fbd8790d2f57875e7d6f56a",
+      "bytes": 11382
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/native_anchor.json",
+      "sha256": "ca4853e7ce9669806e1e1dfb1c7fbcd17bfe5256961efa02b994678ed27956aa",
+      "bytes": 478
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/native_anchor.npz",
+      "sha256": "d294bce10d0270fe41830e3518438ef297456bdea3e00b3e6023782e5f416a2d",
+      "bytes": 746134
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/progress.json",
+      "sha256": "1d1aa32125dc06d87b0d12acfd6a8e6886ede41387d4dc09dc52c08e14450f5a",
+      "bytes": 1120
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/result.json",
+      "sha256": "488125f7189eb1d8fa7fb810a58de4c5cbad56f0abda93c8b58f5b10c283878d",
+      "bytes": 3562
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000/rows.jsonl",
+      "sha256": "75c0cd54e51de0701f77557bc3aa8d996d328f52a209ee82b20a40e3b4792c5b",
+      "bytes": 44264
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/binding.json",
+      "sha256": "71750a2c8e35d5ffc5ab14ca12f237d2b2fbe5fb154873507d80bf453373cdb8",
+      "bytes": 6200
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/field_10000.npz",
+      "sha256": "cc524c6e9ab2e71cdfd181154734ceb399be6c13354896086586e9eacaabe546",
+      "bytes": 2382117
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/field_15000.npz",
+      "sha256": "2c40c0a96dd03390d14928cc8b891493f8bcf6251421da405f09e240ef42400e",
+      "bytes": 2381731
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/field_20000.npz",
+      "sha256": "f5a9a85bd89752e237e26fee386537ce7aca8fd636685bf59891677b80a0486b",
+      "bytes": 2381887
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b0_h128.npy",
+      "sha256": "5b4312632ddb70d11d2c1f09dc4d63ad3b88a641cbcfd3fc0f909d2a49839fce",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b0_h32.npy",
+      "sha256": "79d8e0ebdbc140fb9159f891fc407e6c1d724d092b1dd86739692351802c896c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b1_h128.npy",
+      "sha256": "8c6b88968bbef5edf3730be5a433084bde0f41dd701cedc8005c82339805a398",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b1_h32.npy",
+      "sha256": "7c319bf36f85cb0091e1b9328cdaa7e41b9e2b932b539055a4976784947d2d02",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b2_h128.npy",
+      "sha256": "0967a6226009b77fde17ea2ab6dddabc85bcb6b5e4937900217811112859fcb3",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b2_h32.npy",
+      "sha256": "caf1be3d57094d50f0645f527342f82c04ad753fac7e8d3776ce232d79bebf34",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b3_h128.npy",
+      "sha256": "a1042c2c2dc451246eb9f6155708206d2c47837df578c802ab82ea60b72a7883",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b3_h32.npy",
+      "sha256": "bd1408f23a170a4f6a68834550e0e55fe80c901a8485c0d2558210c0270206a6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b4_h128.npy",
+      "sha256": "52253ca8c17e441a4aee7c56f82d64c882bfa01152756baecb3dc58fd2abbc5b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b4_h32.npy",
+      "sha256": "38471a643c3a6678b9eaff68df968baae4ca0e21c2fe0ec04b24a29d5cc00818",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b5_h128.npy",
+      "sha256": "d4f2172ef20a988d83828b413b1345ee62604a77c32123be5a6e7045c2c98b65",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b5_h32.npy",
+      "sha256": "911dd3ee9917e1e9f4749b1047db8528dbf6efab6634dd9150868b21eab7d77d",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b6_h128.npy",
+      "sha256": "6ebee147f04810db227ebd9a321df57340923d986a2036f529aedc6f2879adf3",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b6_h32.npy",
+      "sha256": "c933c84b691815f3e1e5c35278535e25ad2225cc134176b5cacd2a15b7403953",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b7_h128.npy",
+      "sha256": "dbe7f32d456812149542c40283f5397c83330455cc1b053182d92882e466d37f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_10000_b7_h32.npy",
+      "sha256": "35221cb376b51d77a02165bb978b083521b21c51e6ce06a432d3d8e1e60a70f6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b0_h128.npy",
+      "sha256": "102b5fc3e021e704ff2f0112c92fb0ca6afca3b7825017f3a28f76028f8d922b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b0_h32.npy",
+      "sha256": "0f847283d96c01012441fb91dc8fb62234b0d4d8f1ecffb7e171cc86cf06dca9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b1_h128.npy",
+      "sha256": "23403b56ae4528698d599ab628a8664b6867914263d41f2289175300db867da4",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b1_h32.npy",
+      "sha256": "9a7fd144e8f1f933635636729098dfcee21535a41b833005b81fac057094a406",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b2_h128.npy",
+      "sha256": "e741b042d8efa2c324e1776b50663cc0b622c81e8925a415ec5f012e38cf8936",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b2_h32.npy",
+      "sha256": "d693ac3477b8f966cdd8ca6e938f558d114960909790d72ffbe3be2a3855041c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b3_h128.npy",
+      "sha256": "1eda9fd404c2a68e623f058b2020db54fc8698aef1504a477d60d1cc80e1bfb7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b3_h32.npy",
+      "sha256": "cef17723428fc4915e208f53aaed4f355baa41850402fc597c8d0ef07d5f4d5c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b4_h128.npy",
+      "sha256": "4fe039f27ce58ba03ff6546723d7f0447e1899bc35400deee2a8634ad85ed4aa",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b4_h32.npy",
+      "sha256": "2d95f9be8a4c31b6bb1679189f49119025032c23278e6100f9ea3a2c930007e0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b5_h128.npy",
+      "sha256": "eb2134e7b60834d8829171e47683805b3377ee815ef6de2e592342e2a9c69945",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b5_h32.npy",
+      "sha256": "8a7a131813875ab9edfa90a5430c7789b41c80c795a218e86a1dd62ebbb266e1",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b6_h128.npy",
+      "sha256": "0b74e4036aff4182ea9be7644d2bf7e33c3fad37d7a56bc086557382aecb71cb",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b6_h32.npy",
+      "sha256": "1b914c59d4e1d723599f2ca4d85133f9c71dfc4a6c0fbffe66bd10ba55c28221",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b7_h128.npy",
+      "sha256": "79144941ca2f582af4dfa302c3ba707f184909049fe95d44f79ad0d7f5fd77b5",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_15000_b7_h32.npy",
+      "sha256": "85a17f89f25ee1b569363cd6f1356417c254afe35c92fe361d8b8605718a55ee",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b0_h128.npy",
+      "sha256": "99273b11e65888cda47b647d688350f8da69c4cf77323fd09c2e4ad8860629f0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b0_h32.npy",
+      "sha256": "8ca6de4a75d11c8165751ab4a631c90c1a8556b181a939637f6671072c0c923e",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b1_h128.npy",
+      "sha256": "a958c04376e54f9eaf4cdfec1a34f300b8090fef87dc16670e74bf37919e8643",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b1_h32.npy",
+      "sha256": "484a67376adf07a8b832e18ffb72bf959acc8c8d26b42c501fd9123397b9a017",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b2_h128.npy",
+      "sha256": "6bb5e165ecb4d0c20d8461c8e55ad542c4ef12d6ae1fe5168511d3a5ba598485",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b2_h32.npy",
+      "sha256": "c919b3622b3d81e81022986f4db80b1b063ae126d1989a480780a7258b29e274",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b3_h128.npy",
+      "sha256": "42dd5a62be441106a82a68a346a44ba5b5c8c5fbd007c7fb163cf1ce53191404",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b3_h32.npy",
+      "sha256": "473664fb0311eb0283eb83dd0a77ee60fe4f369b67ea6b87073bb18815403ae8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b4_h128.npy",
+      "sha256": "dbfe0a4f6dd05882e64ff33dbb9a3f28493544965bd91fb6d57830b1648691f6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b4_h32.npy",
+      "sha256": "b82dceac93abcdfafec9bc63a75948c2a5226667112206ab10a5c61a45f58395",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b5_h128.npy",
+      "sha256": "18f04f15ae88cad49db33cddcd38bea9de45fb7b54c689b49a2d71b0ce5bb2a8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b5_h32.npy",
+      "sha256": "5915d546d266efc9889b19524308bd642a4cbf41a8beffc71feffc8353c95a69",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b6_h128.npy",
+      "sha256": "a8f1dc9f143e8c05879d05af4e24450b3709ce4853eda7295ebe5609de3ce1c4",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b6_h32.npy",
+      "sha256": "b5ea2a64cbf260702365df6ad1bf9aa64cce7b6d50279f5039c2448fe299820d",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b7_h128.npy",
+      "sha256": "b498b72df51fef9794b174456ab5fe14efd37f15f130d996c33f8aaa4ab20511",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/generated_20000_b7_h32.npy",
+      "sha256": "a8cea8d72d5d5560f5ff3b1a2ecdc3753db0bc55d44682166339cedd74f46a45",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/metrics.jsonl",
+      "sha256": "fcdd40b5b9d4edb09dae9ab424af1c9c7838648ba97de2bebaa2dc37fccfeecd",
+      "bytes": 11447
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/native_anchor.json",
+      "sha256": "65d467d4129d991710d47c25c6f5c127713288111f9046ad58f673de50ccb848",
+      "bytes": 478
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/native_anchor.npz",
+      "sha256": "e5c527f0b2ce340fde5546d38a308cf6928f7173af813f2fd3d69053ca96c852",
+      "bytes": 746156
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/progress.json",
+      "sha256": "78b03802caf7d1fab35ff62dfd959fda3297cfeafabadbaf9e537d230df85d8a",
+      "bytes": 1124
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/result.json",
+      "sha256": "16e883ccb7ca08a7959b57ef04451106a777c3ed96fb366538c40dce7cb3e1d0",
+      "bytes": 3576
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/seed000/rows.jsonl",
+      "sha256": "75c34af56b3d38058520b67aa489a1703b9fd07ac9ae87175b2fe35453d96be4",
+      "bytes": 45490
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/binding.json",
+      "sha256": "5f006147bc749b99f17f49e7b2a072eac00ee2517ffe8c89cfc7fa3550b6da9e",
+      "bytes": 5846
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/field_10000.npz",
+      "sha256": "21bbbe46bfaced41268349c724e0bd7686c519afc4649e4d434aa2c7b921602f",
+      "bytes": 2381604
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/field_15000.npz",
+      "sha256": "beb386dfb13b0b59db3520fcd77e10d1898c431fea210b2726d09ea012a5e2b7",
+      "bytes": 2381799
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/field_20000.npz",
+      "sha256": "17bf8e4a69b1f3c4d9a12f19be4b8194aa48ccae7163bf07cc429d4ffe8481e4",
+      "bytes": 2381847
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b0_h128.npy",
+      "sha256": "3fc87df499ae8d835ddb11eb6c8da9dd7420c3fa18e076dbd8ab102456fd2409",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b0_h32.npy",
+      "sha256": "8246e7f3e5cfa34d508549391aa1f0295b4a65421763abe8b6c92badacf10d08",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b1_h128.npy",
+      "sha256": "4f44923cf2369e7941073d9a1f0b0bae103d94c4dac035ab590c093e1837ae85",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b1_h32.npy",
+      "sha256": "945a738cb676944eca976431264cab3d9684227c2e728ff834aaa65c58bc8e91",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b2_h128.npy",
+      "sha256": "187667e808e8bbc3303d31dadeb82b742a6d806f7bc1f2520b549fa3c7d8e710",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b2_h32.npy",
+      "sha256": "7b4f7eca1cb28b84e210b5044909e1a96cc4076b11d20dc84d300628ccd8c9d6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b3_h128.npy",
+      "sha256": "378d593f007041888682a90135db6a82efa19eff94b800b7ce275337fe1b2c25",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b3_h32.npy",
+      "sha256": "7d77f8e339e0828e77114fb8819b886566ad988db4dc61f5eec5e4821b0ab1b8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b4_h128.npy",
+      "sha256": "17136d798fed20a20f15bcd62461160c7a85901abcce6f05025a5452ac8ae3e7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b4_h32.npy",
+      "sha256": "ccfd2018c4e1358a2276d8a955348dbc74723cbcf508a9dd1fd98e048c243b60",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b5_h128.npy",
+      "sha256": "cc3138eebb7844170a5d7ebfa840e909a39408c7811e702460e4293756905826",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b5_h32.npy",
+      "sha256": "8f0b47e28d929eaa15cded69a11436b7eea250b91dbce49ecdd24c29b16dafb3",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b6_h128.npy",
+      "sha256": "366ef5f12a4ba16c4ace7e5088ab9ca3365c065ff2c609dfdc96554d7100d797",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b6_h32.npy",
+      "sha256": "f70cf9fd699f7ec80b9da91494c152010285235f4a1f9d313a5454f350471c84",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b7_h128.npy",
+      "sha256": "d10253dc39eaed75131b263089a12fc9fd55ec8388110e9448a3b5e04d911027",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_10000_b7_h32.npy",
+      "sha256": "d11d02fd11de2cf2dc9f6bab34a941d18697a558c2540e439c090cf18fed82d0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b0_h128.npy",
+      "sha256": "0da8da060799b332a045b70a6fb1b54b7d33b21dc87133fe711661fff9114a42",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b0_h32.npy",
+      "sha256": "946adc340c0641b286689bc9175d8fba1a3ec40d7c9da303079ef0efacb78498",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b1_h128.npy",
+      "sha256": "f347c81d364105c2f242c61b5bdab908f70b10b2d0f878922dc802c36e84cb2f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b1_h32.npy",
+      "sha256": "51b0ac0d75bc0f184c005e164e2cf5ea1cca3492625941c950e710bebb69c40b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b2_h128.npy",
+      "sha256": "6353abd7df27040be8c0801835f9011f5f74d713162f1532376a927aa4e96850",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b2_h32.npy",
+      "sha256": "4d30e23f6b6b3c28448c1e7acda302b549db8060bf68884feaa50ad0d3af9618",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b3_h128.npy",
+      "sha256": "28cd85b0a809af62ad6a2ed5fd529429e3d9ce8b134dbccc393d3ff4c812c457",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b3_h32.npy",
+      "sha256": "4fb85e6df0ee0d7dbee51b13c56f9847aff5ccb6259f712dfb5aecf89aaf3a53",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b4_h128.npy",
+      "sha256": "d6b334ea2c762bf238006bc687b0176b6d26c7515e40f9db0b6524e8b6444fd9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b4_h32.npy",
+      "sha256": "85c98cba59199838d76dc14534988b33f67e9c913aab0524438e92af3820d211",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b5_h128.npy",
+      "sha256": "c3ebd3f149f145bf744c429ef9a0065895115f8ea4d07d884cf72a8ba7963c65",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b5_h32.npy",
+      "sha256": "d5073aeeb2f3e8a6691ba7374331d3a07e6871f552751db3bd181efcb5ca7d90",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b6_h128.npy",
+      "sha256": "330bf0ebe1756e814f7bac93aaea1b28096ff9cabb449053b9645a43affeae74",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b6_h32.npy",
+      "sha256": "0d9ca3c338128c0576565be74b0c84a582e48d7b753807797628308e04b00a5a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b7_h128.npy",
+      "sha256": "e224807fc30bc7313d242e6669b4c645c3cb39d1afcfd8d27329bf8aec8c1bd1",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_15000_b7_h32.npy",
+      "sha256": "c2ad1e8e9a46ba27912098922837d729b99ba87d47811b6d8810cd682eef0407",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b0_h128.npy",
+      "sha256": "f3b241001cb933177b5b12aed399a0163e10c5f12d047e855cab2320dc0f5005",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b0_h32.npy",
+      "sha256": "e0f55ee8043a706f9507b6551c44904ff6d823823b4fa6a0cbd62f9bf9801830",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b1_h128.npy",
+      "sha256": "26d73f3c6c6f5300750855dea8da6281b6c356885a7f32fed1283463b63817b0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b1_h32.npy",
+      "sha256": "fc14beec0170bd474e4f7e554b3c0c181c8777f5f4f4f80d02698ecadadc408d",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b2_h128.npy",
+      "sha256": "2be855cfcd2bd4e993c263be7e902870150c63a061cb517d67cf3058f1f31ee7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b2_h32.npy",
+      "sha256": "56b244220f3ab555e9b6407c320011ff85f33edda70da26d1ab7480598fb32a5",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b3_h128.npy",
+      "sha256": "a1c6badfb3edeb87fdd0e7624e127a7a7200a60f16f85ce8bf1a6855090280ef",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b3_h32.npy",
+      "sha256": "2fffd521c72bb5555569a48d394d41a473334996cea99265f36f9bbf8ae972c7",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b4_h128.npy",
+      "sha256": "47ebcea2923e91bdba2c9167c858c58be0320da5cebf30bd7c8ef669525c7506",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b4_h32.npy",
+      "sha256": "ac8b8d0ea97130f34eedb375d8398f3c82622a988c4ab874ede6a7eda9f6414a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b5_h128.npy",
+      "sha256": "c6091ae7dccccf027f3c834478e108c323ae6fbea42c86e570f82bd4db10e152",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b5_h32.npy",
+      "sha256": "b4ea1435da2c703013a30196c816c957b07bea75540347be43d39bfacb63b15a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b6_h128.npy",
+      "sha256": "7cfce03e7be3a422125314f9da18227102e302a2d76f32d3f73c7405a3b4541c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b6_h32.npy",
+      "sha256": "65ea2452fe28b4cb4b2dd4d2e23c1ee3ed1123defd439e983d2b9c9968d0d2e8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b7_h128.npy",
+      "sha256": "9f8db465c5b7038e97a834fd4a695509614e3253ddedd23c7bb4e848a2590b08",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/generated_20000_b7_h32.npy",
+      "sha256": "74e893f7250b8d720af1fb5ddc2f8a9131c6ba37cfb72fc41f4d0d9cb14fe31e",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/metrics.jsonl",
+      "sha256": "5c599ff1f043bd8fbb14b2f47fec99d0c6e1081599c12bfedf8a4ebaf6775acf",
+      "bytes": 11441
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/native_anchor.json",
+      "sha256": "38e63822262e73375b539beb7cafda4316d5f370e3e23bcb383cef80de65e414",
+      "bytes": 478
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/native_anchor.npz",
+      "sha256": "17746a0f467603d02e44bf6e92d0d798d6d53d9c2d2dff288f005d3d26239676",
+      "bytes": 746114
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/progress.json",
+      "sha256": "2a85b7590187a2f1dcbc0a9b1bbae7f77169afbef0a19a3a6483909e29f60b41",
+      "bytes": 1124
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/result.json",
+      "sha256": "15bfe049e9bc04a2b0af5aea218d5cd9cf024cbff915353f09c8ce52ee3635d1",
+      "bytes": 3563
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/seed000/rows.jsonl",
+      "sha256": "778b03ad3b2397e316d5d8d8ad32fd67d44343017a46228968685438b1e44521",
+      "bytes": 43999
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/binding.json",
+      "sha256": "6fdee5c02e531a73b10b33de8164526df9ecd11c8627edc2016b6c6ceec7393b",
+      "bytes": 6178
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/field_10000.npz",
+      "sha256": "0e54bf9f5cddd31137cb223f65930feab8b88f2d29bc0e3a3148c814103ddb87",
+      "bytes": 2381821
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/field_15000.npz",
+      "sha256": "521c256615872b9332a7b7bd23489858912016b9c1b62c1ff123c1fc1dc9f5b2",
+      "bytes": 2382040
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/field_20000.npz",
+      "sha256": "da4b2edca395cf8f7b25ee04f63bbc12e450fbf6b8e4ae5f37cefff628d6ebef",
+      "bytes": 2381888
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b0_h128.npy",
+      "sha256": "2efaf1584d389ebf1b4ba1253559c2a82b8e8fdf02801ad6f7ee3cbcb266d67c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b0_h32.npy",
+      "sha256": "0ef43b860e96df8da42386ac471f49aeb78e662e33e48b5fea7158ea38985546",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b1_h128.npy",
+      "sha256": "d1b5337c94ce825d6da600289bb280701c65025a9becc18d062b7359bc3a6dcc",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b1_h32.npy",
+      "sha256": "1cc47f1e8fdd285c22019b3008aed8c4c41d6a0e91f1e099c74eb1f7cc824dea",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b2_h128.npy",
+      "sha256": "ac8a6cd0d87ac669346ace4745aaf27ba28ae199652eb7fe7368796ae8668a4a",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b2_h32.npy",
+      "sha256": "1655b89b7b34a2ebc7a69a90f132b108d1de0888cca1c92bd67b744072c8900b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b3_h128.npy",
+      "sha256": "86e57884b57ace4421326f9eac717926812a588c012d31aacad0f9fcc4d58b9b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b3_h32.npy",
+      "sha256": "05fe384879ca3e699adc0d412066df269de64c606a07fcb3649cd98d0c27762b",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b4_h128.npy",
+      "sha256": "c54de00f3a0cb1f6d40d0b2637a74bc571b67b271ebab2c69ff5c61cc0b8ffbd",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b4_h32.npy",
+      "sha256": "4821e5e077d92b2696478846257dad0590c49e3bf27fdf2360102ce1e9afd251",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b5_h128.npy",
+      "sha256": "c7f73f65e2d8fe99f66fecd8e2b9c719277de680887cd23543883468c954ea62",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b5_h32.npy",
+      "sha256": "4d3b12a465d8b7b10b93e1b0f08fee386abb4062a4bb791d8be34ae29f86ee6f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b6_h128.npy",
+      "sha256": "23acb817538278becb3486f725d4d8b9c1e54056921513a83bb576181ac76a64",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b6_h32.npy",
+      "sha256": "03169ac2072e5155b3c4174aa48bea73ee3ef493667d86c85fcf5264343cc948",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b7_h128.npy",
+      "sha256": "ca33a4f288747a96b5d9242d06403faa8230246e2880b009905a502509d32493",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_10000_b7_h32.npy",
+      "sha256": "c3771cef187bc34c40244af2d2b009dc3d294b952e6513d656b87b407590f33f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b0_h128.npy",
+      "sha256": "7475c7971cb9af0ef8c1841d4e1f97e349c8b81c2b6f136c0c9e9b547fcd149f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b0_h32.npy",
+      "sha256": "5d1dde296bfbd31e5c50cced171c51c5662982b706f9021aa76e4a89133c5343",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b1_h128.npy",
+      "sha256": "e1b404a346542f4931255b4b70f522b5331bf5de89217b30cc2f0d0761b6b518",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b1_h32.npy",
+      "sha256": "0d9c6a0d935ed383988ce3b6ed0841fb9e59d04e15d35a7f02be92b12f0df391",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b2_h128.npy",
+      "sha256": "1545738ba7ba7942df0e1c465a0573ce581cb93e50427cc0f05d8c763e4c51e0",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b2_h32.npy",
+      "sha256": "70bad15ff7510ee5f47267158fab44c8e96ab616d29fe00f5af7a1b159724929",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b3_h128.npy",
+      "sha256": "bda3240b849cac2dce292f730ce5e87c93a5920c7153b95b375778189edf37f9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b3_h32.npy",
+      "sha256": "fd96984235940b7a0a27ceddea1653eaf745afdb1d354fec5e1a226cd685d350",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b4_h128.npy",
+      "sha256": "3551ee41e0920c74fb7dc5d59bc2eb5e4d0c83f97793d92143f04080a667793c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b4_h32.npy",
+      "sha256": "62ad78f20660e39f74fccb03f8deda8e2292010d6f0c3785b11b46e47efaa439",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b5_h128.npy",
+      "sha256": "ba082d6324764f4c57b07675ab5042c84e60836b6ffff16c2c72031f3448dbeb",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b5_h32.npy",
+      "sha256": "9832d462857320762c81cc0909109be1cde7a9b84bbf666850dfb6a8cab4acde",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b6_h128.npy",
+      "sha256": "3e26e0984644c1b087833b7e8d29f3af5db464c48e19e661a79ef53c9dabcb2f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b6_h32.npy",
+      "sha256": "0ddc901ca514e2e70497b4e9bde2ab3b1c189c2df0ed0c15f98ac825626bcab6",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b7_h128.npy",
+      "sha256": "637e24866a9410423314ce95b998a80d09a62a58258a3bd08fa6a01a3b35575c",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_15000_b7_h32.npy",
+      "sha256": "419af559a4db123b9051014ded986e107ff5501b763a170b81590bfd859e51a1",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b0_h128.npy",
+      "sha256": "6e58c7517174fb071a2961e3b1666ca3670adedb069b417d904bf6b1f03f7903",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b0_h32.npy",
+      "sha256": "7a24f2e3f2bd26184262b65680033438a6e7a5a4ba2323694a6c96716dc088fc",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b1_h128.npy",
+      "sha256": "8eb9d53249212ab39923198de8169cc5a812a15075809c3318075606af178df8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b1_h32.npy",
+      "sha256": "3d4c805a439b7641f985eebc22c0135576db4a29c48db0aca0b5179d433e3939",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b2_h128.npy",
+      "sha256": "f1328db699694219bb8f75dab980192ba42a20eec6daf61ebb386c943905f1b9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b2_h32.npy",
+      "sha256": "e97122d8a1e6fa482ea40e41d19ae39f8ebc8fd1fd4c30c5132869860c832af8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b3_h128.npy",
+      "sha256": "aed14a63f6fb9849c5a99c4439314c5d3d547cb2298f2899714a0c0cc84e56c8",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b3_h32.npy",
+      "sha256": "e7b4f5c375237851d7471a97044bcaddcf01a279c8eea19a0b2b59c35b445b24",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b4_h128.npy",
+      "sha256": "09662a20c9df47c93931758d70942298cd416a12f257bd8427f767910b9001f9",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b4_h32.npy",
+      "sha256": "dda35c1e796a419788b096349d367e601b551c1c339723a2df3de1c977994687",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b5_h128.npy",
+      "sha256": "29ff311e02da7c953916992f81641fb85be8f5dbbb93c5a968d3390cfad946e5",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b5_h32.npy",
+      "sha256": "bcb024d0d545cc8c5c229e160e4d6f1a3b9ff6b3e6174e81cfe127ff45724ff4",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b6_h128.npy",
+      "sha256": "04a62a35cd0d2a398023e04fe2df4b5c8d9c7d355e2c2a7a5456e5c60bea1c71",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b6_h32.npy",
+      "sha256": "ec47853d9477e64718c55d998416cedbeecb7e28138e8de77cc1b811d5467319",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b7_h128.npy",
+      "sha256": "fa0222102f9b4cabd48393c1c523aec3892633e6275618140be130e518ed95b4",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/generated_20000_b7_h32.npy",
+      "sha256": "d21afa7365b5b0b540fc9f727b77c2327e58d8b3f196cefd712fff720533db0f",
+      "bytes": 262272
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/metrics.jsonl",
+      "sha256": "5f8e95602eb33f340ce3223b8827be94e86d0987cdcebc9220c200b5d09ed139",
+      "bytes": 11395
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/native_anchor.json",
+      "sha256": "249d6382fc5871792ea76a46e25c8b4cb56a10c2fa2f304b7165e9810ab1acfc",
+      "bytes": 477
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/native_anchor.npz",
+      "sha256": "a4d4c05e34145a79c00dc1c3400d39c0aefb621c53d6f9b847679761fd98f6cc",
+      "bytes": 746152
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/progress.json",
+      "sha256": "f5e68b4c4043c4ef72065361c355659f2d7aacf2d8d217b5ae38e855aa9a2847",
+      "bytes": 1121
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/result.json",
+      "sha256": "0c685123cce4506c9733d9c9ff4aa557c5da3be59771f0d3185acb23f81f73a8",
+      "bytes": 3573
+    },
+    {
+      "path": "output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/seed000/rows.jsonl",
+      "sha256": "782607ecf942a0d41c97137667559873d51ab8a7f27484e041bdfe4f137bd17a",
+      "bytes": 45198
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/binding.json",
+      "sha256": "b073a69089cf42369e590baf45ade497377a0aebf838adaab7f2e4883da69df1",
+      "bytes": 5870
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/dispatches.json",
+      "sha256": "452457b28edc023f4c2d9e86a597f910c6ae5656392d02ee6e2ad915fc19ab9e",
+      "bytes": 303
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/field_10000.npz",
+      "sha256": "94aa2b6d1eed4c7eb0b44e8670682a08282e065ef1ef9943cefc7f8e621c74cf",
+      "bytes": 2381570
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/field_15000.npz",
+      "sha256": "3935d25960b1cc61b781cdee72051d4739d396b8795706354ca2cceef841e268",
+      "bytes": 2381973
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/field_20000.npz",
+      "sha256": "d5ceda73a6d8f700d1c964f53e01098090cf3ba2a2dfa11117dc689a0a08ce2f",
+      "bytes": 2381665
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/native_anchor.json",
+      "sha256": "b1256ffb461ed9b98cef5bcce34aadb00423c518b1c223eea42a83d6eec67d14",
+      "bytes": 477
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/native_anchor.npz",
+      "sha256": "0709240a14ef7a8a138ffc9c26c47c1ecfa1cc6dac6f008c0ad74bb8406118e1",
+      "bytes": 746178
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/progress.json",
+      "sha256": "a17d56d88a37b0b795d8b76b94ad6f4064eb07dca512528ac2dee4cd63151a67",
+      "bytes": 1122
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14/result.json",
+      "sha256": "51a367aeb15de799d9f08a3da36fffef0dd8e56dc2b1bd4d9d02ac0bdd0626d8",
+      "bytes": 3899
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/binding.json",
+      "sha256": "ea06735fd67ee84a1f5d9206662666e660911995bd51f95045a0c1730e2bbe0f",
+      "bytes": 6096
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/dispatches.json",
+      "sha256": "452457b28edc023f4c2d9e86a597f910c6ae5656392d02ee6e2ad915fc19ab9e",
+      "bytes": 303
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/field_10000.npz",
+      "sha256": "4b529bc197ad2686914fa7377c81f398be3f106589e54b13debe79a2f669a111",
+      "bytes": 2381594
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/field_15000.npz",
+      "sha256": "ff40969b299ab69dd9a3f9a422883c5839650a78e38dcc7ec3616ab23d2b5875",
+      "bytes": 2381583
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/field_20000.npz",
+      "sha256": "0a9fd48a16b6b6cc1ba968257e4580a3b00b17dba46fba0f4c0879d43503efee",
+      "bytes": 2381898
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/native_anchor.json",
+      "sha256": "ca4853e7ce9669806e1e1dfb1c7fbcd17bfe5256961efa02b994678ed27956aa",
+      "bytes": 478
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/native_anchor.npz",
+      "sha256": "d294bce10d0270fe41830e3518438ef297456bdea3e00b3e6023782e5f416a2d",
+      "bytes": 746134
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/progress.json",
+      "sha256": "3d8b2c6d5b9f10170c4467b1f0e8615d721f31e84f1a26bd85019cf41018717b",
+      "bytes": 1119
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/result.json",
+      "sha256": "11e8c87839283d5556172327a33093ef99d5d574504b26dd454bf4ffc4fa9576",
+      "bytes": 3896
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/binding.json",
+      "sha256": "71750a2c8e35d5ffc5ab14ca12f237d2b2fbe5fb154873507d80bf453373cdb8",
+      "bytes": 6200
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/dispatches.json",
+      "sha256": "452457b28edc023f4c2d9e86a597f910c6ae5656392d02ee6e2ad915fc19ab9e",
+      "bytes": 303
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/field_10000.npz",
+      "sha256": "cc524c6e9ab2e71cdfd181154734ceb399be6c13354896086586e9eacaabe546",
+      "bytes": 2382117
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/field_15000.npz",
+      "sha256": "2c40c0a96dd03390d14928cc8b891493f8bcf6251421da405f09e240ef42400e",
+      "bytes": 2381731
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/field_20000.npz",
+      "sha256": "f5a9a85bd89752e237e26fee386537ce7aca8fd636685bf59891677b80a0486b",
+      "bytes": 2381887
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/native_anchor.json",
+      "sha256": "65d467d4129d991710d47c25c6f5c127713288111f9046ad58f673de50ccb848",
+      "bytes": 478
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/native_anchor.npz",
+      "sha256": "e5c527f0b2ce340fde5546d38a308cf6928f7173af813f2fd3d69053ca96c852",
+      "bytes": 746156
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/progress.json",
+      "sha256": "519ef34fd596cf9f8531a248fa0290a23300022ba584efe6c0c6698c5750ec3d",
+      "bytes": 1123
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14/result.json",
+      "sha256": "b646be590a69f0863bc89f235d2cfb5b751c5fd9005771db9edf5a6ed1b2cf66",
+      "bytes": 3915
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/binding.json",
+      "sha256": "5f006147bc749b99f17f49e7b2a072eac00ee2517ffe8c89cfc7fa3550b6da9e",
+      "bytes": 5846
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/dispatches.json",
+      "sha256": "452457b28edc023f4c2d9e86a597f910c6ae5656392d02ee6e2ad915fc19ab9e",
+      "bytes": 303
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/field_10000.npz",
+      "sha256": "21bbbe46bfaced41268349c724e0bd7686c519afc4649e4d434aa2c7b921602f",
+      "bytes": 2381604
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/field_15000.npz",
+      "sha256": "beb386dfb13b0b59db3520fcd77e10d1898c431fea210b2726d09ea012a5e2b7",
+      "bytes": 2381799
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/field_20000.npz",
+      "sha256": "17bf8e4a69b1f3c4d9a12f19be4b8194aa48ccae7163bf07cc429d4ffe8481e4",
+      "bytes": 2381847
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/native_anchor.json",
+      "sha256": "38e63822262e73375b539beb7cafda4316d5f370e3e23bcb383cef80de65e414",
+      "bytes": 478
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/native_anchor.npz",
+      "sha256": "17746a0f467603d02e44bf6e92d0d798d6d53d9c2d2dff288f005d3d26239676",
+      "bytes": 746114
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/progress.json",
+      "sha256": "b4364a867934a83f7d645f47f0e0f3a824c668d823ed36e711a808cfdb396259",
+      "bytes": 1123
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14/result.json",
+      "sha256": "a75b16e9ae08ba850f377a7c0a990bca2953da2f9c05ebe016a9d1615725bc61",
+      "bytes": 3900
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/ADAPTER_COMPLETE",
+      "sha256": "46ed352c7428fb2cc766ba871fd05f72d421281e5aa57226e95c23565981431e",
+      "bytes": 42
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/banks.npz",
+      "sha256": "a154e421eab434da6d65b30fd9e4265fd6fdb1f3ce39fe0ce17fe007d3428877",
+      "bytes": 5856688
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/binding.json",
+      "sha256": "6fdee5c02e531a73b10b33de8164526df9ecd11c8627edc2016b6c6ceec7393b",
+      "bytes": 6178
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/dispatches.json",
+      "sha256": "452457b28edc023f4c2d9e86a597f910c6ae5656392d02ee6e2ad915fc19ab9e",
+      "bytes": 303
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/field_10000.npz",
+      "sha256": "0e54bf9f5cddd31137cb223f65930feab8b88f2d29bc0e3a3148c814103ddb87",
+      "bytes": 2381821
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/field_15000.npz",
+      "sha256": "521c256615872b9332a7b7bd23489858912016b9c1b62c1ff123c1fc1dc9f5b2",
+      "bytes": 2382040
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/field_20000.npz",
+      "sha256": "da4b2edca395cf8f7b25ee04f63bbc12e450fbf6b8e4ae5f37cefff628d6ebef",
+      "bytes": 2381888
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/native_anchor.json",
+      "sha256": "249d6382fc5871792ea76a46e25c8b4cb56a10c2fa2f304b7165e9810ab1acfc",
+      "bytes": 477
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/native_anchor.npz",
+      "sha256": "a4d4c05e34145a79c00dc1c3400d39c0aefb621c53d6f9b847679761fd98f6cc",
+      "bytes": 746152
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/progress.json",
+      "sha256": "db7d1d305f8d5eb1b4b184c361101fe7401bde954cfc9fedf887753fbde2c361",
+      "bytes": 1120
+    },
+    {
+      "path": "preflight/documented/rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14/result.json",
+      "sha256": "d85f6e630aa5035522a248886c97e961b8a15e1c03714f0d2b5b094eebe0cfb6",
+      "bytes": 3909
+    },
+    {
+      "path": "preflight/documented/witness.json",
+      "sha256": "82da805e4b3266eae03d5ac11a017f0305a429bd25c35132de63247e18bdce5d",
+      "bytes": 22613
+    }
+  ]
+}

@@ -84,11 +84,11 @@ formal execution. Preserve every failure, nonfinite outcome and old file.
 
 - [x] Implement the minimal native-evaluator wrapper and CPU checks.
 - [x] Publish/deploy immutable source on both hosts; Lenovo fresh v2 CUDA pass.
-- [ ] Complete145 fresh CUDA witness when its GPU is free.
+- [x] Complete145 fresh CUDA witness on the newly free original GPU.
 - [x] Run/replay all240 Ring8 evaluations, all fields/anchors and pooled diagnostic.
-- [ ] Run/replay Product16 and compare the complete cohort.
+- [x] Run/replay Product16 and compare the complete480evaluation cohort.
 - [x] Write verified Ring8 results/decision and publish with Product16 marked pending.
-- [ ] Close the complete cohort after Product16; keep Report2 unchanged.
+- [x] Close the complete cohort after Product16; keep Report2 unchanged.
 
 ## Precision diagnostic selected after the Ring8 bank audit
 

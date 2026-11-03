@@ -15,12 +15,12 @@ input-dependent diagonal generators in a separate synthetic backbone. The
 [research map](docs/autoresearch/professor-20261103/research-map.md) connects
 questions, derivations, controlled tests and decisions.
 
-The latest [frozen-checkpoint validation](docs/autoresearch/professor-20261103/cycle14-results-ring8/analysis-report.md)
-finds lower ISRU-D field error at all three Ring8 checkpoints, but primary
-sampling nearly ties the selected SwiGLU64 control. Its eight-bank mean SW2 is
-0.17110 versus Free ISRU 0.17930 and selected SwiGLU64 0.17145. A separately
-reported pooled-sample diagnostic retains a modest lead; Product16 validation
-is pending for a free GPU on145. No new training or image transfer is selected.
+The [complete frozen-checkpoint validation](docs/autoresearch/professor-20261103/cycle14-results-complete/analysis-report.md)
+retains a Ring8 field-fitting lead for ISRU-D, with sampling close to selected
+SwiGLU64. Product16 favors ordinary references: mean SW2 is0.08900 for ISRU-D,
+0.08596 for Free ISRU and0.08350 for selected SwiGLU192. Both tasks use common
+sampling banks and fixed checkpoints. The next [transport-error diagnostic](docs/autoresearch/professor-20261103/cycle15.md)
+compares saved models by time, direction and oracle-field replacement.
 
 The preceding [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
 finds an AdamW Ring8 lead over SwiGLU, but only2.25%field separation from

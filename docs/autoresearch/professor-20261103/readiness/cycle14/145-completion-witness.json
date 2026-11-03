@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "readiness_only": true,
+  "host": "145",
+  "device": "cuda",
+  "source_repo": "/data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/repo",
+  "source_head_before": "7d4cac9b188632dd69fa10c395f31f0655a4c2b0",
+  "source_head_after": "7d4cac9b188632dd69fa10c395f31f0655a4c2b0",
+  "source_clean_before": true,
+  "source_clean_after": true,
+  "source_detached_before": true,
+  "source_detached_after": true,
+  "gpu_index": 0,
+  "gpu_uuid": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+  "preflight_memory_used_mib": 2,
+  "invocations": 1,
+  "returncode": 0,
+  "started_utc": "2026-11-03T18:12:33.026947+00:00",
+  "finished_utc": "2026-11-03T18:12:50.983914+00:00",
+  "kernel_fixtures": 8,
+  "unique_physical_checkpoints": 15,
+  "native_4096_bitwise_anchors": 5,
+  "finite_64_sample_heun128_dispatches": 15,
+  "all_model_parameters_and_runtime_buffers_unchanged": true,
+  "all_restored_kernel_outputs_exact": true,
+  "native_anchor_details": [
+    {
+      "cell": "rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14",
+      "samples": 4096,
+      "anchor_policy": "bitwise",
+      "generated_exact": true,
+      "target_exact": true,
+      "generated_max_abs_error": 0.0
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__free_isru__adamw_0.0003__validation14",
+      "samples": 4096,
+      "anchor_policy": "bitwise",
+      "generated_exact": true,
+      "target_exact": true,
+      "generated_max_abs_error": 0.0
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.0003__validation14",
+      "samples": 4096,
+      "anchor_policy": "bitwise",
+      "generated_exact": true,
+      "target_exact": true,
+      "generated_max_abs_error": 0.0
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.001__isruD_anchor__validation14",
+      "samples": 4096,
+      "anchor_policy": "bitwise",
+      "generated_exact": true,
+      "target_exact": true,
+      "generated_max_abs_error": 0.0
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor__validation14",
+      "samples": 4096,
+      "anchor_policy": "bitwise",
+      "generated_exact": true,
+      "target_exact": true,
+      "generated_max_abs_error": 0.0
+    }
+  ],
+  "source_discrepancies": [],
+  "native_discrepancies": [],
+  "data_version": "product16_v1",
+  "command_file": "command.sh",
+  "command_sha256": "f6d52580bd23b98c190b5abd54c95340b61b662addca6970b66eca20da7b7190",
+  "stdout_stderr_log": "witness.log",
+  "remote_output": "/data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/preflight/documented",
+  "remote_file_manifest": "postflight.json",
+  "local_metadata_manifest": "collected-files.json",
+  "metadata_copied_files": 31,
+  "actions_not_performed": [
+    "Lenovo invocation",
+    "repair",
+    "retry",
+    "source edit",
+    "formal queue launch",
+    "training"
+  ]
+}

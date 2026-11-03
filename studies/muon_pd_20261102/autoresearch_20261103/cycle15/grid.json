@@ -1,0 +1,75 @@
+{
+  "kind": "frozen_common_transport_diagnostic",
+  "model_seed": 0,
+  "source_grid_sha256": "9b61d7acd256eb77edeacb37b6ee3b872a2c56d046343efef6bb0180d1f57333",
+  "dataset": "gmm_ring8_2d",
+  "host": "lenovo",
+  "sampling_bank": 0,
+  "sampling_stream": 2026110400,
+  "samples": 4096,
+  "heun_steps": 128,
+  "oracle_resolutions": [
+    128,
+    256,
+    512
+  ],
+  "profile_stride": 4,
+  "jacobian_samples": 256,
+  "switch_steps": [
+    32,
+    64,
+    96
+  ],
+  "teacher": "native analytic marginal velocity",
+  "source_runtime": "D:/Research/ODE-FFN/professor-validation14-v2-20261104/output",
+  "cells": [
+    {
+      "id": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15",
+      "source_case": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__validation14",
+      "checkpoint_step": 15000,
+      "host": "lenovo",
+      "dataset": "gmm_ring8_2d",
+      "family": "pd_isru_k1"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15",
+      "source_case": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__validation14",
+      "checkpoint_step": 20000,
+      "host": "lenovo",
+      "dataset": "gmm_ring8_2d",
+      "family": "pd_isru_k1"
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15",
+      "source_case": "gmm_ring8_2d__free_isru__adamw_0.0003__validation14",
+      "checkpoint_step": 15000,
+      "host": "lenovo",
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru"
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15",
+      "source_case": "gmm_ring8_2d__free_isru__adamw_0.0003__validation14",
+      "checkpoint_step": 20000,
+      "host": "lenovo",
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru"
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15",
+      "source_case": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__validation14",
+      "checkpoint_step": 15000,
+      "host": "lenovo",
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64"
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15",
+      "source_case": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__validation14",
+      "checkpoint_step": 20000,
+      "host": "lenovo",
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64"
+    }
+  ]
+}

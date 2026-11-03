@@ -1,3 +1,17 @@
+# Current research: transport-error diagnosis, 4 November 2026
+
+The user reviewed the completed report and prioritizes explaining the observed
+fitting/sampling mismatch. Keep model seed0. Pairwise common-bank comparisons
+already exist. Product16 cycle14 is now complete and all480evaluations independently replay;
+next
+use frozen Ring8 ISRU-D, Free ISRU and selected Swi64 at15k/20k for a common
+trajectory diagnostic. Register the state distribution, error decomposition,
+solver checks and interpretation before execution. No new architecture or
+image training. The completed three-page Report2 stays unchanged in this pass.
+Canonical research plan: docs/autoresearch/professor-20261103/task_plan.md.
+
+Earlier entries below are historical.
+
 # Current deliverable: Report2 revision, 4 November 2026
 
 The user requests direct factual writing and a completed report. Update the

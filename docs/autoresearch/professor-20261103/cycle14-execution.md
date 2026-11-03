@@ -57,3 +57,13 @@ to that commit. Report2 PDF SHA256 remains
 and TeX SHA256 remains
 13c46c380294ec6931af40c09e7d64ab86b01614ce847702bfc437f0cbc3d3b2.
 No report compilation, new training, image experiment or ledger append occurred.
+
+4November continuation:145GPU0 became free. A fresh independent documented
+CUDA witness passed once; five exact native anchors and all15physical bindings.
+Native controller3151157 completed all fiveProduct16cells/240evaluations with
+exit0. Full480evaluation independent replay passes, maximumSW2error5.56e-17;
+all ten native anchors are exact. Complete findings: cycle14-results-complete.
+145archive196,189,444bytes SHA256
+a1eb6d73faad70ffcaba38798a57c7f1fd3532e1dc08fec04295989e92eeb1f3.
+Original25files per host unchanged. Ring8-only snapshot/report preserve their
+earlier pending status; the full cohort is now complete.

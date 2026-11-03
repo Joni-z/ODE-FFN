@@ -2,13 +2,19 @@
 
 ## Current step
 
-Current focus,4November: Ring8 cycle14 finished240native frozen evaluations;
-all saved arrays independently replay. Field fitting favors ISRU-D across all
-three checkpoints; primary sampling nearly ties selected Swi64. The post-outcome
-32,768sample pool retains a modest lead, strongest against Free ISRU and the
-same-AdamW control. Product16 remains pending for a free145GPU and fresh CUDA
-witness. Seed0only; no new architecture/training/image transfer selected.
-See cycle14-results-ring8/analysis-report.md and cycle14-execution.md.
+4November user review: complete the pending Product16 common-bank control,
+then examine common-trajectory errors for Ring8 ISRU-D, Free ISRU and selected
+Swi64,15k versus20k. Model seed0remains fixed. The paired-bank result already
+exists; no new training seeds, architecture or JiT transfer is selected.
+
+- [x] Fresh original documented145CUDA witness; finish/replay cycle14 Product16.
+- [x] Register common-state flow/error/derivative diagnostics before outcomes.
+- [x] Implement using native models/oracle/sampler and pass CPU fixtures.
+- [ ] Pass fresh native-checkpoint CUDA witness before cycle15formal runs.
+- [ ] Run the bounded frozen cohort and produce exact arrays, paired analysis and figures.
+- [ ] State which measured mechanism to pursue; publish code/evidence promptly.
+
+The completed Report2 PDF/source remain unchanged during this research step.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 

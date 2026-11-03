@@ -16,8 +16,8 @@ Post-outcome pooling of the saved samples retains an8.34%Free-ISRU gap, but the
 selected-Swi64 gap is2.80%with one leave-bank-out reversal. These estimators
 are reported separately. No ODE-specific mechanism follows from their ranking.
 
-Product16 is pending for an unoccupied145GPU. Finish that control before a new
-layer. The next proposed explanation concerns complete-field errors along
+The [complete Product16 control](cycle14-results-complete/analysis-report.md)
+favors Free ISRU and the selected ordinary SwiGLU references. The next proposed explanation concerns complete-field errors along
 common transport states and their propagation, using the existing analytic
 oracle and ordinary models. It must explain a measured difference; a sampled
 Jacobian is not a global stability certificate. Report2 remains unchanged.

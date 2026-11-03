@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "rows": [
+    {
+      "family": "pd_isru_k1",
+      "nonzero_jacobian": true,
+      "native_step_exact": true,
+      "batch_independent": true
+    },
+    {
+      "family": "free_isru",
+      "nonzero_jacobian": true,
+      "native_step_exact": true,
+      "batch_independent": true
+    },
+    {
+      "family": "swiglu64",
+      "nonzero_jacobian": true,
+      "native_step_exact": true,
+      "batch_independent": true
+    }
+  ],
+  "oracle_jacobian_max_error": 9.83017045541601e-09,
+  "switch_boundaries_exact": true,
+  "producer_sha256": "ad69f4673df5e62e4286640a125700c5b84b1ef97b1ddb476e9dbaee885bbcdb"
+}
