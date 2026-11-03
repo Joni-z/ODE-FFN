@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "all_parent_data_versions_match": true,
+  "rows": [
+    {
+      "family": "pd_factorized_affine",
+      "parameters": 83664,
+      "common_tensors_buffers_rng_exact": true,
+      "rank_cap": 32,
+      "complete_layer_derivative_passed": true,
+      "zero_anchor_layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "logit_error": 8.45294584328471e-09,
+          "logit_jacobian_error": 5.7093485564263524e-09,
+          "full_jacobian_error": 2.6934732222372304e-11,
+          "scalar_pullback_hessian_error": 5.285083529398948e-11,
+          "cubic_fourth_difference_max": 8.881784197001252e-16
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "logit_error": 7.268104645907769e-09,
+          "logit_jacobian_error": 5.7200448908695245e-09,
+          "full_jacobian_error": 2.146186006690698e-11,
+          "scalar_pullback_hessian_error": 6.867192440238902e-11,
+          "cubic_fourth_difference_max": 1.1102230246251565e-15
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "logit_error": 7.471845392403864e-09,
+          "logit_jacobian_error": 5.585510163760854e-09,
+          "full_jacobian_error": 2.1186816190343905e-11,
+          "scalar_pullback_hessian_error": 7.159312620958489e-11,
+          "cubic_fourth_difference_max": 6.661338147750939e-16
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "logit_error": 8.267359463687285e-09,
+          "logit_jacobian_error": 4.766055723692819e-09,
+          "full_jacobian_error": 2.261556220073402e-11,
+          "scalar_pullback_hessian_error": 7.354673022940544e-11,
+          "cubic_fourth_difference_max": 8.881784197001252e-16
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "logit_error": 7.393253620424645e-09,
+          "logit_jacobian_error": 4.594072575483943e-09,
+          "full_jacobian_error": 1.9917692495319272e-11,
+          "scalar_pullback_hessian_error": 4.3759065381648865e-11,
+          "cubic_fourth_difference_max": 1.3322676295501878e-15
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "logit_error": 7.664228085513258e-09,
+          "logit_jacobian_error": 4.903267318209781e-09,
+          "full_jacobian_error": 2.223113360066975e-11,
+          "scalar_pullback_hessian_error": 5.4122805006164357e-11,
+          "cubic_fourth_difference_max": 1.3322676295501878e-15
+        }
+      ]
+    }
+  ],
+  "dataset": "rotated_product_bimodal_16d",
+  "native": [
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006__factorial_anchor",
+      "family": "pd_factorized_linear",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.001__factorial_anchor",
+      "family": "swiglu64",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "family": "pd_factorized_affine",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+      "family": "pd_factorized_affine",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+      "family": "pd_factorized_affine",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    }
+  ]
+}

@@ -1,15 +1,17 @@
-# Current checkpoint: radial-diagonal comparison closed
+# Current checkpoint: controller/output factorial running
 
-Cycle10 completed/replayed all twelve20k cases with eight exact archived native
-anchors. Radial improves Ring8 field error3.73% but does not fix its sampling;
-Product16 field worsens9.22%. Neither passes the registered raw/static5%
-continuation rule. No accepted new ODEFFN method or active training queue.
-[Results](docs/autoresearch/professor-20261103/cycle10-results/findings.md) ·
-[Research map](docs/autoresearch/professor-20261103/research-map.md).
+Cycle11 runs ten registered20k cases on145GPU0/LenovoGPU0 from frozene493b05,
+after fresh native CUDA/resume checks. It completes the missing rank32 linear
+controller/affine-output corner, with native references first. Finish/replay all
+ten and verify four exact archived anchors before interpreting the24-corner
+table. No accepted new ODEFFN method.
+[Protocol](docs/autoresearch/professor-20261103/cycle11.md) ·
+[Execution](docs/autoresearch/professor-20261103/cycle11-execution.md).
 
-Review prior controller/output/order coverage before a distinct next comparison.
-P-shape, whitening and this radial-strength/rate rescue remain closed. Older
-entries below are historical. Submitted report PDFs remain unchanged.
+Cycle10 is closed: radial reduces hidden responses but fails its registered
+continuation threshold. [Results](docs/autoresearch/professor-20261103/cycle10-results/findings.md).
+No radial/range/order rescue or image transfer is selected. Older entries below
+are historical. Submitted report PDFs remain unchanged.
 
 # Current runtime: cycle6 budget-only confirmation
 

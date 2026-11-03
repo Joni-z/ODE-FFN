@@ -28,6 +28,8 @@ select whitening or a new optimizer.
 The completed [radial-diagonal study](docs/autoresearch/professor-20261103/cycle10-results/findings.md)
 reduces hidden responses, with only a small Ring8 fitting gain and worse
 Product16 fitting. Neither passes its registered continuation criterion.
+The registered [controller/output factorial](docs/autoresearch/professor-20261103/cycle11.md)
+now completes one missing rank-matched comparison from the earlier studies.
 These vector experiments do not establish JiT image quality.
 
 ## Code

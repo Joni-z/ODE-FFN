@@ -1,6 +1,6 @@
 # Cycle11 execution commands
 
-Record the frozen runtime commit after publication. Use separate cycle11
+Runtime e493b054e5e7726f91b61c852f0df9ad07f69941 is frozen. Use separate cycle11
 worktrees and require both fresh documented CUDA passes before launch.
 
 ```bash
@@ -18,3 +18,8 @@ Verify increasing steps after SSH exits. Finish all ten, replay with explicit
 cycle11 experiment id/endpoint20000/count5 and exact-check two archived20k
 references/host. Full factorial interpretation uses all eighteen hash-bound
 archived corners; retain negative outcomes and the ordinary frontier.
+
+Post-SSH persistence verified beyond300s: both hosts progressed from native
+references into candidates, with no failures.145controller2896557 and Lenovo
+controller15300 (launcher23272) remain active. Native logs/30s monitor retain
+worker PIDs, steps and resource samples; these are not quality results.

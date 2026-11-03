@@ -76,7 +76,7 @@ Any sampling deterioration remains an explicit tradeoff, not acceptance.
 No image transfer, K1/range/strength rescue or added mechanism follows failure.
 
 - [x] Implement minimal adapter/grid and verify CPU algebra/zero-anchor jets.
-- [ ] Publish/deploy immutable source and pass fresh documented native CUDA
+- [x] Publish/deploy immutable source and pass fresh documented native CUDA
       five-cell continuation and two parent8 reference checks perhost.
 - [ ] Run monitored baseline-first queues, complete/replay ten endpoints and
       four exact final reference states; publish the complete factorial table.

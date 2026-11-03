@@ -28,3 +28,12 @@ Pass: exit0, passed=true, CUDA device, one function row/six anchor layers,
 five exact native resumes and two parent8references perhost. Record clean
 source commit and grid/trial/check SHA256. This is implementation readiness,
 not positive evidence for the new corner.
+
+Both commands passed verbatim once at clean e493b054e5e7726f91b61c852f0df9ad07f69941.
+Each reports one function row, six zero-anchor layers, five exact continuations
+and two original8-step anchors. [Fresh witness](readiness/cycle11/documented-witness.json).
+The native JSON exposes aggregate parent success, rather than enumerated counts.
+An independent [membership receipt](readiness/cycle11/parent-bindings.json)
+additionally checks every field of eighteen archived records against four
+hash-bound CSVs and enumerates ten exact parent data versions. These are
+separate receipts and neither implies a training-quality result.

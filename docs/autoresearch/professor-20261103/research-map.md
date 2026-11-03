@@ -113,6 +113,20 @@ Product16 field worsens9.22% over raw. Reject this setting without a strength
 or rate sweep. Its much smaller hidden responses do not establish useful
 dynamics or support a global stability claim.
 
+## 6. Does controller nonlinearity interact with its output transform?
+
+[Cycle11](cycle11.md) fills the missing rank32-linear-controller/affine-output
+corner of cycles1/2. The other three corners are already replayed. A full-rank
+linear controller is excluded from this table because it changes the rank cap.
+One output attribute changes; native K2, all tensors, rates and training remain.
+
+The existing zero-anchor logit value/Jacobian match implies a block difference
+only from cubic order onward. The [derivation and analysis contract](cycle11-analysis.md)
+state the noncommuting polynomial identity, native rounding limit and descriptive
+factorial interaction. This is a local control, not global function equivalence.
+All three fixed optimizer/rate settings, both tasks and strong ordinary references
+remain visible. The new ten trajectories are running; no outcome is available.
+
 ## Current judgment
 
 The useful progress is a sharper separation of mechanisms: optimizer geometry,

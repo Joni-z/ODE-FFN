@@ -125,3 +125,10 @@ Cycle10 final: twelve endpoints/eight native anchors pass, zero sample replay
 error. Radial continuation fails on both tasks; full results and all five
 figures in cycle10-results. Review existing controller-by-output coverage rather
 than sweeping normalization constants or adding another simultaneous mechanism.
+
+Cycle11 closes the missing rank-matched controller/output corner, after the
+completed radial rejection. CPU and fresh native CUDA/continuation witnesses
+pass at frozene493b05. Baseline-first five-cell queues perhost are running.
+Independent source-field membership verifies18archived corners/4CSVs and
+10parent data versions; no raw native-receipt count is invented. Full factorial
+analysis is prepared, syntax checked and awaits ten complete/replayed endpoints.

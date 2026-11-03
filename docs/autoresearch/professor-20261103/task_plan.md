@@ -2,12 +2,11 @@
 
 ## Current step
 
-Cycle10 is closed: all twelve20k endpoints replay, every generated array is
-exact, and eight native20k reference states/samples match archived parents.
-Radial gives a3.73% Ring8 field gain but no meaningful sampling change; Product16
-field worsens9.22%. Neither task passes the registered raw/static5% criterion.
-No80k rescue, accepted new model or active training queue. Review existing
-controller/output/order coverage before choosing a distinct next comparison.
+Cycle11 is published/deployed at e493b05; CPU and fresh native CUDA checks
+pass on both hosts, including five actual-entry continuations and two parent8
+anchors each. Baseline-first queues are launched; verify persistence after SSH
+exits, then finish all ten before factorial interpretation. No accepted method.
+Cycle10 is closed and its radial setting does not qualify for continuation.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -207,3 +206,13 @@ scalar-pullback Hessian checks, cubic finite differences. Next freeze/publish,
 deploy separate worktrees and fresh documented five-cell native CUDA checks.
 One harmless first CPU check emitted a requires-grad-to-float warning; witness
 scalars now detach before conversion. No model/math/training change resulted.
+
+Cycle11 native readiness passed once perhost without divergences. Native JSON
+reports an aggregate; independent local CSV-membership receipt enumerates all18
+archived corners and10parent data versions. Native source remains frozene493b05.
+
+Cycle11 post-SSH persistence confirmed beyond300s: both original reference
+workers finish normally and candidate dispatch advances without failures.
+Lenovocontroller15300 (launcher23272), native children13652/15572;145
+controller2896557, original children2896560/2896561. Current candidate PIDs
+are recorded in the native30s monitors. Complete comparison remains pending.
