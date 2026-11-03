@@ -88,3 +88,5 @@ MBP checkout at `/Users/zzz/Documents/NYU/Researches/ODE FFN/ODE-FFN`.
 Check for local changes before pulling; preserve them. Verify the delivered
 PDF SHA-256 against the reviewed source copy. A GitHub push alone is not the
 completed report delivery.
+The latest [delivery receipt](delivery.json) records the reviewed PDF/TeX hashes
+and the clean MBP fast-forward. Delivery does not finalize the draft.

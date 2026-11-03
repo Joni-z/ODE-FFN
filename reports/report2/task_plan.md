@@ -10,11 +10,12 @@ pages including the selected graphics. Write findings directly.
 - [x] Compress readout/frame follow-ups; explain cubic flow -> ISRU -> ISRU-D.
 - [x] Add the shape/mass checkpoint figure and a concise boundary-flux derivation.
 - [x] Update evidence bindings; compile and verify values, three pages and layout.
-- [ ] Inspect every rendered page; publish and fast-forward MBP with matching hashes.
+- [x] Inspect every rendered page; publish and fast-forward MBP with matching hashes.
 
-Status: draft revision and all three-page visual checks pass; GitHub publication
-and verified MBP delivery are the remaining step. No experiment, training,
-sampling or Report1 edit.
+Status: draft revision, source/value checks and all three-page visual checks
+pass. Report commit `06470b3` is published and delivered to a clean MBP checkout;
+PDF/TeX SHA256 values match the reviewed files. Report2 remains editable.
+No experiment, training, sampling or Report1 edit.
 Baseline for report-only preservation checks: `5075b3b312d00986648a19ad828bbc9bbfd51de0`.
 Previous revision entries below are historical, not finalization decisions.
 

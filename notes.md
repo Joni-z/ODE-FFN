@@ -4,8 +4,9 @@ The user has not submitted Report2 and will explicitly decide when it is final.
 The earlier unchanged-PDF decision applied to that research pass only. The
 current report revision includes completed Product16 controls and the Ring8
 mode-allocation diagnosis, with factual prose and a three-page limit. Report1
-remains frozen. The revised PDF now passes source-value, font/layout and
-three-page visual review. See [report plan](reports/report2/task_plan.md).
+remains frozen. The revised PDF passes source-value, font/layout and
+three-page visual review. Report commit `06470b3` is on GitHub and the clean
+MBP checkout; delivered PDF/TeX hashes match. See [report plan](reports/report2/task_plan.md).
 
 # Latest: frozen transport diagnosis, 4 November
 

@@ -22,8 +22,9 @@ analytic-density-weighted boundary flux and weak oracle/model interpolation.
 It must calibrate the first-order response before using it to choose a new
 ODE-layer constraint or optimizer control. That follow-up has not been run.
 
-Report2 is now being revised at the user's explicit request. It has not been
-submitted and remains a draft until the user finalizes it. The preceding
+Report2 now incorporates this evidence at the user's explicit request and
+has been delivered to MBP. It has not been submitted and remains editable
+until the user finalizes it. The preceding
 unchanged-PDF statement applied only to the completed diagnostic pass.
 [Reporting plan](../../../reports/report2/task_plan.md).
 
