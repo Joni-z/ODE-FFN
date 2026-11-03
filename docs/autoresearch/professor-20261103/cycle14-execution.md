@@ -44,3 +44,16 @@ with366files,19,946,866byte archive SHA256
 64157c4179c887ba260a9e35d70a022192cafd3bee8790b63dbba03bf28ff0cb.
 Primary results, post-outcome pooling, viewed figures and decision are in
 [analysis](cycle14-results-ring8/analysis-report.md). Product16 is still pending.
+
+The pending145 capacity watch ended after ten checks over ten minutes. The
+specified GPU0 stayed occupied (last5,244MiB); no CUDA witness or formal
+Product16 evaluation ran. The watcher is no longer active. Its supplementary
+receipt is readiness/cycle14/145-capacity-wait.json. Recheck capacity before
+resuming the still-pending documented invocation; no source repair is needed.
+
+Ring8 findings published atca1e358. The clean MBP main checkout fast-forwarded
+to that commit. Report2 PDF SHA256 remains
+023a6339088d3231ee653a5aa82e2debf94a00f2a7e6d18c629593c5ee6759ea,
+and TeX SHA256 remains
+13c46c380294ec6931af40c09e7d64ab86b01614ce847702bfc437f0cbc3d3b2.
+No report compilation, new training, image experiment or ledger append occurred.

@@ -1,0 +1,178 @@
+{
+  "scope": "Pending145 fresh documented witness continuation only",
+  "started_utc": "2026-11-03T17:08:40.028992+00:00",
+  "source_head_expected": "7d4cac9b188632dd69fa10c395f31f0655a4c2b0",
+  "documented_command": "ssh 145 'CUDA_VISIBLE_DEVICES=GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python /data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle14/audit.py --device cuda --host 145 --witness --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/preflight/documented'",
+  "documented_invocations": 0,
+  "original_lenovo_receipt_hashes": {
+    "receipt.json": "efb629654ed3d24dd0b07c219cd31691d0b563130c68f7e0e2a6edb894b58233",
+    "receipt.md": "b409e55059fe4efff0f0f0e40deff6e2ece13bb8a7adc751a276aba757961bfa",
+    "lenovo-invocation.json": "9f8d054c4a73c1b5a8f7b63e49aae783079efb171f123fd93f1634f2aea518ae",
+    "lenovo-witness.log": "ea993bf40eb0ba4d0ea89101c761efe6dce42501dd739035fd0c41f92c3084e3"
+  },
+  "formal_jobs_launched": 0,
+  "repairs": 0,
+  "retries": 0,
+  "errors": [],
+  "status": "pending_capacity_timeout",
+  "finished_utc": "2026-11-03T17:19:17.381985+00:00",
+  "capacity_checks": [
+    {
+      "check_number": 1,
+      "started_utc": "2026-11-03T17:09:17.335738+00:00",
+      "finished_utc": "2026-11-03T17:09:18.884885+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5222 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5222,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 2,
+      "started_utc": "2026-11-03T17:10:17.344969+00:00",
+      "finished_utc": "2026-11-03T17:10:20.220488+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5222 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5222,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 3,
+      "started_utc": "2026-11-03T17:11:17.350521+00:00",
+      "finished_utc": "2026-11-03T17:11:19.042542+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5222 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5222,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 4,
+      "started_utc": "2026-11-03T17:12:17.350462+00:00",
+      "finished_utc": "2026-11-03T17:12:19.044396+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5222 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5222,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 5,
+      "started_utc": "2026-11-03T17:13:17.355771+00:00",
+      "finished_utc": "2026-11-03T17:13:19.064018+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5222 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5222,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 6,
+      "started_utc": "2026-11-03T17:14:17.364637+00:00",
+      "finished_utc": "2026-11-03T17:14:19.036226+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5242 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5242,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 7,
+      "started_utc": "2026-11-03T17:15:17.365950+00:00",
+      "finished_utc": "2026-11-03T17:15:19.056374+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5242 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5242,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 8,
+      "started_utc": "2026-11-03T17:16:17.370968+00:00",
+      "finished_utc": "2026-11-03T17:16:19.102123+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5244 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5244,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 9,
+      "started_utc": "2026-11-03T17:17:17.376501+00:00",
+      "finished_utc": "2026-11-03T17:17:19.039338+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5244 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5244,
+      "memory_total_mib": 49140
+    },
+    {
+      "check_number": 10,
+      "started_utc": "2026-11-03T17:18:17.378941+00:00",
+      "finished_utc": "2026-11-03T17:18:19.068354+00:00",
+      "argv": [
+        "ssh",
+        "145",
+        "nvidia-smi --id=0 --query-gpu=index,uuid,memory.used,memory.total --format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 5244 MiB, 49140 MiB\n",
+      "stderr": "",
+      "memory_used_mib": 5244,
+      "memory_total_mib": 49140
+    }
+  ],
+  "original_lenovo_receipts_unchanged": true,
+  "capacity_watch_deadline_utc": "2026-11-03T17:18:40.028992+00:00",
+  "capacity_watch_maximum_seconds": 600,
+  "last_capacity_mib": 5244,
+  "source_verified_in_this_continuation": false,
+  "source_verification_reason": "GPU0 never became free; the conditional source recheck and witness invocation were never reached.",
+  "next_unblock": "Required145 GPU0 must use less than500 MiB before the still-pending documented CUDA witness can run."
+}
