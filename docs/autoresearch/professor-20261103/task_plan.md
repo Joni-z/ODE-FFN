@@ -5,8 +5,9 @@
 Cycle12 is closed:24native anchors/24swaps, exact native generated arrays and
 round-trip probes, all48finite saved-array distances independently verified.
 Every Product16field/test swap worsens; two small Ring8field gains remain below
-Swi128. No immediate-output repair, accepted new model or active queue. Review
-prior bounded-feature evidence before proposing a distinct input-D function.
+Swi128. No immediate-output repair or accepted new model. Cycle13 is registered
+in cycle13.md: coordinatewise ISRU-D, constant-D1 and copied ordinary free ISRU,
+with all three SwiGLU references. Implement/check before deployment or launch.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 

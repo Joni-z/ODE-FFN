@@ -145,3 +145,8 @@ trips pass. Independent NumPy W2 maxerror4.18e-8; 22of24field swaps worsen,
 allProduct16field/test swaps worsen. No swapped field beats near-paramSwi128.
 Raw P spectra are identical across actions. Reject immediate-output repair;
 keep the distinction between a trained-model result and frozen sensitivity.
+
+## Cycle13 selection and lookup errors
+Historical free ISRU is ordinary, task-specific and only5k; it is not current ODE evidence. Register a coordinatewise ISRU input diagonal against constant D and the exact copied free control before implementation. All native Muon/AdamW/Swi controls remain. Read-only lookups initially guessed nonexistent distributions.py and autoresearch replay.py; actual files were located with rg --files (data.py and collect.py). A combined registration patch failed its context match atomically; no file changed; the corrected patch then succeeded. No runtime or result changed.
+
+Cycle13 CPU readiness: first attempt used a nonexistent data factory name; corrected to the native suite() before any remote use. Second attempt exposed inconsistent trailing-newline handling in copied-definition hashes; standardized trailing-whitespace normalization and kept full original byte hash. Final CPU check passes: full Jacobian error2.22e-16, oracle1.78e-15, twelve model/count/group rows. Neither correction changes the numerical candidate.

@@ -69,3 +69,9 @@ Registered cycle12 is a read-only24checkpoint/48evaluation outer-transform
 swap study after cycle11. No optimizer, tensor, data, loss, sampler or training
 update changes. Keep every failed/nonfinite intervention and the native anchors;
 these records are not training keeps and do not enter the training TSV.
+
+Registered cycle13 tests a coordinatewise ISRU input diagonal with constant-D1,
+the exact copied historical free-ISRU ordinary control, and three SwiGLU widths.
+Only D changes in the candidate. Native trainer/official optimizer remain fixed;
+the ordinary copied matrix names are explicitly selected as FFN matrices.
+Eighteen20k cells; no failed-branch rescue or new coefficient/rate sweep.
