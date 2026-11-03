@@ -58,3 +58,9 @@ Registered cycle10is a separate D-function question: input-radial versus static
 scaling, with raw and three native ordinary references. Vanilla Muon/native loss
 return unchanged; no rejected P constraint is combined. Fixed20k screen, with
 any continuation requiring its own matched-budget registration.
+
+Registered cycle11 completes the rank32-controller by output-transform
+comparison from cycles1/2: one missing factorized-linear/affine-output cell at
+the three existing optimizer/rate settings pertask, plus native references.
+K2 and the native trainer/official optimizers remain unchanged. This is not
+continuation of rejected radial or historical K1/DP range settings.

@@ -192,3 +192,18 @@ threshold. Native environment unchanged; no source/runtime or submitted-PDF edit
 Default local python3 lacks torch (NumPy/Matplotlib available); CPU kernel
 witnesses must use an existing research environment, not install into system
 Python. Rendering/curation uses only the verified available packages.
+
+Cycle11 selected and registered before implementation: complete the missing
+rank32 linear-controller/affine-output corner of cycles1/2. Ten20k trajectories,
+including four exact native reference repeats; existing full ordinary frontier
+retained. One output-attribute change, same K2/optimizer/loss. Verify local
+logit and full-layer value/Jacobian/Hessian matching before native readiness.
+Historical vectorK1 DP and range experiments were reviewed and remain closed;
+no new order/range rescue is selected.
+
+Cycle11 CPU witness passed: same factorized parent tensors/buffers/RNG, full
+64x64layer derivative at three scales, all six zero-anchor logit/Jacobian and
+scalar-pullback Hessian checks, cubic finite differences. Next freeze/publish,
+deploy separate worktrees and fresh documented five-cell native CUDA checks.
+One harmless first CPU check emitted a requires-grad-to-float warning; witness
+scalars now detach before conversion. No model/math/training change resulted.

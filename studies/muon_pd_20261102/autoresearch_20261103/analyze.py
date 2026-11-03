@@ -46,6 +46,8 @@ for r in rows:
     else:
         if r.get('relaxation') in ['shape','scale']:
             reference=old+cycle1+cycle2+cycle3+cycle4;parent_family=r['family']
+        elif r['family']=='pd_factorized_affine':
+            reference,parent_family=cycle2,'pd_factorized_linear'
         elif r['family'] in ['pd_radial_k1','pd_scaled_raw_k1']:
             reference,parent_family=cycle3,'pd_direct_raw_k1'
         elif r['family']=='pd_factorized_linear':reference,parent_family=cycle1,'pd_linear_sigmoid'
@@ -57,7 +59,7 @@ for r in rows:
         else:reference,parent_family=old,'vector_pd_k2'
         parent=next(x for x in reference if x['dataset']==r['dataset'] and x['family']==parent_family and x['optimizer']==r['optimizer'] and float(x['projection_lr'])==r['projection_lr'])
         if r.get('relaxation') in ['shape','scale']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
-        if r['family'] in ['pd_radial_k1','pd_scaled_raw_k1']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
+        if r['family'] in ['pd_radial_k1','pd_scaled_raw_k1','pd_factorized_affine']:assert parent['id']==r['parent_id'] and parent['checkpoint_sha256']==r['parent_checkpoint_sha256']
         improvement=1-r['replayed_field_mse']/float(parent['replayed_field_mse'])
         sampling_change=r['numpy_test_sw2']/float(parent['numpy_test_sw2'])-1
         decision='keep' if improvement>=.05 else 'discard'

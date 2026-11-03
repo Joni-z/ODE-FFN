@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "torch": "2.10.0",
+  "all_parent_data_versions_match": true,
+  "rows": [
+    {
+      "family": "pd_factorized_affine",
+      "parameters": 83664,
+      "common_tensors_buffers_rng_exact": true,
+      "rank_cap": 32,
+      "complete_layer_derivative_passed": true,
+      "zero_anchor_layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "logit_error": 8.45294584328471e-09,
+          "logit_jacobian_error": 5.7093485564263524e-09,
+          "full_jacobian_error": 2.693786860241687e-11,
+          "scalar_pullback_hessian_error": 5.285082014226412e-11,
+          "cubic_fourth_difference_max": 8.881784197001252e-16
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "logit_error": 7.268104645907769e-09,
+          "logit_jacobian_error": 5.7200448908695245e-09,
+          "full_jacobian_error": 2.144953659133364e-11,
+          "scalar_pullback_hessian_error": 6.867210934017459e-11,
+          "cubic_fourth_difference_max": 8.881784197001252e-16
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "logit_error": 7.471845392403864e-09,
+          "logit_jacobian_error": 5.585510163760854e-09,
+          "full_jacobian_error": 2.1188703569485767e-11,
+          "scalar_pullback_hessian_error": 7.159312560649743e-11,
+          "cubic_fourth_difference_max": 6.661338147750939e-16
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "logit_error": 8.267359463687285e-09,
+          "logit_jacobian_error": 4.766055723692819e-09,
+          "full_jacobian_error": 2.261556220073402e-11,
+          "scalar_pullback_hessian_error": 7.354673044624588e-11,
+          "cubic_fourth_difference_max": 8.881784197001252e-16
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "logit_error": 7.393253620424645e-09,
+          "logit_jacobian_error": 4.594072575483943e-09,
+          "full_jacobian_error": 1.99742167250605e-11,
+          "scalar_pullback_hessian_error": 4.375901393625578e-11,
+          "cubic_fourth_difference_max": 6.661338147750939e-16
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "logit_error": 7.664228085513258e-09,
+          "logit_jacobian_error": 4.903267318209781e-09,
+          "full_jacobian_error": 2.208463967257046e-11,
+          "scalar_pullback_hessian_error": 5.412272160391224e-11,
+          "cubic_fourth_difference_max": 8.881784197001252e-16
+        }
+      ]
+    }
+  ]
+}
