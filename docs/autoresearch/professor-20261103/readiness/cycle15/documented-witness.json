@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "checks": {
+    "invoked_exactly_once": true,
+    "exit_zero": true,
+    "cuda_passed": true,
+    "copied_witness_equals_stdout": true,
+    "kernel_passed": true,
+    "three_nonzero_native_step_fixtures": true,
+    "exact_switch_boundaries": true,
+    "six_physical_checkpoints": true,
+    "six_exact_native4096_replays": true,
+    "six_exact_helper128_rollouts": true,
+    "six_exact_degenerate_policies": true,
+    "six_finite_model_jacobians": true,
+    "six_unchanged_tensors": true,
+    "same_clean_detached_source_after": true,
+    "gpu_free_before_and_after": true
+  },
+  "expected_actual_discrepancies": [],
+  "oracle_jacobian_max_error": 9.848021065295143e-09,
+  "kernel_detail_limit": "Constant-field fixture internals are covered by kernel passed=true; no separate constant-field result field is serialized. Source was not inspected under the docs-only witness constraint.",
+  "progress": {
+    "completed": 6,
+    "rows": [
+      {
+        "cell": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15",
+        "native4096_exact": true,
+        "helper128_exact": true,
+        "policy_degenerate_exact": true,
+        "jacobian_finite": true,
+        "tensors_unchanged": true,
+        "checkpoint_sha256": "f5c72d74bc360196444b721bb1e99f5d5b9262f7e730218bed836feb83023f35",
+        "config_sha256": "3bc8802a3aadd3f1e01089a69cce2cfee150de10fbc2f646ff77228bc700046b",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      {
+        "cell": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15",
+        "native4096_exact": true,
+        "helper128_exact": true,
+        "policy_degenerate_exact": true,
+        "jacobian_finite": true,
+        "tensors_unchanged": true,
+        "checkpoint_sha256": "3376c2feb76284d97fe4d9399180ab34abbb269f517b9173efdd60798b3577d2",
+        "config_sha256": "3bc8802a3aadd3f1e01089a69cce2cfee150de10fbc2f646ff77228bc700046b",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      {
+        "cell": "gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15",
+        "native4096_exact": true,
+        "helper128_exact": true,
+        "policy_degenerate_exact": true,
+        "jacobian_finite": true,
+        "tensors_unchanged": true,
+        "checkpoint_sha256": "000c243d2e4844d45fc196a1837a809d989975c501403f5fba05a1374e715ed2",
+        "config_sha256": "fcd80d014fcf885505b991944a841c4f2db956a784547d0696c44bf1eadcb96f",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      {
+        "cell": "gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15",
+        "native4096_exact": true,
+        "helper128_exact": true,
+        "policy_degenerate_exact": true,
+        "jacobian_finite": true,
+        "tensors_unchanged": true,
+        "checkpoint_sha256": "9ec778697b5d07b82a7345a0c1555f832d5b74830d88f1172a6fb0b6d5aa3906",
+        "config_sha256": "fcd80d014fcf885505b991944a841c4f2db956a784547d0696c44bf1eadcb96f",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      {
+        "cell": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15",
+        "native4096_exact": true,
+        "helper128_exact": true,
+        "policy_degenerate_exact": true,
+        "jacobian_finite": true,
+        "tensors_unchanged": true,
+        "checkpoint_sha256": "45b40d0d81c8a45e9b3d34712523b1fc3fbb842b690096452f96ff48f21eb6b8",
+        "config_sha256": "29d6d20d5df827140af991cff16137f6fd2acf962f2a09c07b7308237e731b47",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      {
+        "cell": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15",
+        "native4096_exact": true,
+        "helper128_exact": true,
+        "policy_degenerate_exact": true,
+        "jacobian_finite": true,
+        "tensors_unchanged": true,
+        "checkpoint_sha256": "f0d385eea3c2060cf04846e5a0765694ca0b174f95f7e8f98d78938d3f9f8853",
+        "config_sha256": "29d6d20d5df827140af991cff16137f6fd2acf962f2a09c07b7308237e731b47",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      }
+    ]
+  },
+  "remote_output": "D:/Research/ODE-FFN/professor-transport15-20261104/preflight/documented",
+  "changed_scope": "Local receipt directory and documented remote preflight output only; remote source remained clean and detached."
+}

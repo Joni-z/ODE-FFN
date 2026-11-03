@@ -17,10 +17,19 @@ selected-Swi64 gap is2.80%with one leave-bank-out reversal. These estimators
 are reported separately. No ODE-specific mechanism follows from their ranking.
 
 The [complete Product16 control](cycle14-results-complete/analysis-report.md)
-favors Free ISRU and the selected ordinary SwiGLU references. The next proposed explanation concerns complete-field errors along
-common transport states and their propagation, using the existing analytic
-oracle and ordinary models. It must explain a measured difference; a sampled
-Jacobian is not a global stability certificate. Report2 remains unchanged.
+favors Free ISRU and the selected ordinary SwiGLU references. The completed
+[common-transport diagnosis](cycle15-results/analysis-report.md) finds that all
+three Ring8 models improve centered-residual distributions while their sector
+probabilities drift farther from the known equal weights. Early/middle paths
+contain most observed sector crossings; gross crossings and net mass are
+reported separately. Median directional propagation does not show a new
+amplification blow-up.
+
+The [mode-mass derivation](mode-mass-derivation.md) supplies the next test:
+continuity relates sector mass to net boundary-normal flux, and its first-order
+response depends on q(h), downstream derivatives and boundary geometry. Test
+that predictor in weak oracle/model interpolations before choosing a new
+feature or update constraint. Report2's completed PDF/TeX stay unchanged.
 
 ## 1. Does Muon make the learned dynamics better behaved?
 

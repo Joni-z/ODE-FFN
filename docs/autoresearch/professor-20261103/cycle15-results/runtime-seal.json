@@ -1,0 +1,482 @@
+{
+  "head": "6fe9e7fe5242e66f86f4023282f21122b2a7422e",
+  "clean": true,
+  "parent_cycle14_files_unchanged": 366,
+  "files": [
+    {
+      "path": "audit/manifest.json",
+      "sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "bytes": 17609
+    },
+    {
+      "path": "common/binding.json",
+      "sha256": "1475a41fa9506f14bc54dd6a33a9c67a6693e694dd465f53d20476231a995298",
+      "bytes": 1606
+    },
+    {
+      "path": "common/common.npz",
+      "sha256": "7164cc354135ae8f0b2918b2976a7da0c219629616de326eddfc0b15f3f097de",
+      "bytes": 4094075
+    },
+    {
+      "path": "common/COMPLETE",
+      "sha256": "7b4eb57410c5419774f8806abd16ba3de7700fdd22d4d8c2a426139051febc3a",
+      "bytes": 42
+    },
+    {
+      "path": "output/monitor/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15.log",
+      "sha256": "aafff7ba0c2cd430552c2e0815d669937dd1fc0e12cc08fa24a97146911d5936",
+      "bytes": 190
+    },
+    {
+      "path": "output/monitor/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15.log",
+      "sha256": "c098620aa8ba29fda1ce03f5f1b6cb1164baebae01ab528da55950a7e613722e",
+      "bytes": 190
+    },
+    {
+      "path": "output/monitor/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15.log",
+      "sha256": "dff0cb247ac4746ea50db24dd46da55a39b4fa3b7dca206d0cbac874f9ff5ea7",
+      "bytes": 191
+    },
+    {
+      "path": "output/monitor/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15.log",
+      "sha256": "282bc3c42ccdbde148a2f9318cdd6ec2f2b1a3380ea3ca73c2d8a2c88a448d66",
+      "bytes": 191
+    },
+    {
+      "path": "output/monitor/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15.log",
+      "sha256": "035deff08d779169cba702455a62dbf8e8026149378702f06432194e0a9c2fb2",
+      "bytes": 200
+    },
+    {
+      "path": "output/monitor/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15.log",
+      "sha256": "0655e33e3fe3c28b48f39bf794f04454b1fe55abf53f8dc0dbc43d280cf49b52",
+      "bytes": 200
+    },
+    {
+      "path": "output/monitor/history.jsonl",
+      "sha256": "735dcacfe1b58464c8744c8cfe990d12b334424af09974b48b86502f5831d117",
+      "bytes": 13374
+    },
+    {
+      "path": "output/monitor/queue-console.log",
+      "sha256": "f05ab6620055e11d41dd0e1a4aea8f3db3ec0aabe95c763d803c68c8a3bd8881",
+      "bytes": 821
+    },
+    {
+      "path": "output/monitor/queue-finished.json",
+      "sha256": "6a8ce4b4d14a16b11ee2cc37d55294ebc07c29297a9a5f1db51149fcea30b95e",
+      "bytes": 5162
+    },
+    {
+      "path": "output/monitor/queue.lock",
+      "sha256": "6b6803d3f23f64d048b7d5e5d1b828c90aac1b68bec5c590100122902a400876",
+      "bytes": 4
+    },
+    {
+      "path": "output/monitor/status.json",
+      "sha256": "2938e9989cb64a2a2b2d9fc72cfcd6e6c0ebf89e5d9cc698cacebbd9e2c2bbbe",
+      "bytes": 5426
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/ADAPTER_COMPLETE",
+      "sha256": "aa98ec0ecaa13a354072412c9d4daa8b50a40b483ab13cc0ed8400f1cfa5d8cd",
+      "bytes": 39
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/learned_0.npy",
+      "sha256": "f75ede72a60fe7a4c1b868f010372975a40d7cc62d8a01f1d87b96ef59ba846e",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/learned_path.npy",
+      "sha256": "740de6ced15f3749a96aab5e93b246ae6b24b06f932fdbc33a9e0439c648d62b",
+      "bytes": 4227200
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/learned_prefix_32.npy",
+      "sha256": "afa39f552fc97817e33719a5c6c328904f375341b0e51521b2aaede4b6896c25",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/learned_prefix_64.npy",
+      "sha256": "175732233576526ae4dc25b69f14628053fb0808c66c036e24bdc1cac489024c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/learned_prefix_96.npy",
+      "sha256": "b8da1a3ebbbdfd60525fbf2d4d6f7a1cda78d0cb4df1e3797778dfcf02451710",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/metrics.jsonl",
+      "sha256": "d7ec360da386c130c9f39a63bad4c6ae46f8eccb9f811ab2c6bb49de24a0d4c0",
+      "bytes": 20898
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/oracle_0.npy",
+      "sha256": "37dc2e313367c2f005a91895bcdd2fa5979107840524f8ba0e571bb456d0119c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/oracle_prefix_32.npy",
+      "sha256": "7aeefa6e86961b8af15da349847503f45f79ad50aeeb03789ac04f30a46bfb3a",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/oracle_prefix_64.npy",
+      "sha256": "fe3e9a818b32a99d051b450770db2bf9556eba9ecb0343549c254c6a7bef56c0",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/oracle_prefix_96.npy",
+      "sha256": "c367073cc60ece33041a8d06b3d5fca162be9777f6e2d23fa1fb0fd89cae5f33",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/profiles.npz",
+      "sha256": "38e9f29c80a6857022921a00b17756af8cb83709714712a08cf8a10e8956d9e7",
+      "bytes": 7185639
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step15000__transport15/seed000/result.json",
+      "sha256": "21440bca6c97f8cfca8db5eb4bb0eed7bcc9ac8fe53b6ede97038a6f0fb8b566",
+      "bytes": 64436
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/ADAPTER_COMPLETE",
+      "sha256": "aa98ec0ecaa13a354072412c9d4daa8b50a40b483ab13cc0ed8400f1cfa5d8cd",
+      "bytes": 39
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/learned_0.npy",
+      "sha256": "e78339fe4981f583384383d38c14806dd0ae254f0f683032f0d2daef975e0a99",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/learned_path.npy",
+      "sha256": "c6daf1360f18ed4dd6c75ac4d510721c00b1acc53c3697aa92b268dbc1e06f39",
+      "bytes": 4227200
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/learned_prefix_32.npy",
+      "sha256": "8c515c59f57c175d8cb0d07d9515b5908b244da729001773fd903442a8c81d53",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/learned_prefix_64.npy",
+      "sha256": "384f209cc014610a837b5a9d3aa817ba036ec293915faf0521c76a4b66b39953",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/learned_prefix_96.npy",
+      "sha256": "107076e7a538d0db7da7f1ff916dc40fa394c98d52b32ff0f99740e218001761",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/metrics.jsonl",
+      "sha256": "dd7f82ddb3b0fb2e383a380065503bb8dbd68078fd34a06343e82b1b5804951e",
+      "bytes": 20932
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/oracle_0.npy",
+      "sha256": "37dc2e313367c2f005a91895bcdd2fa5979107840524f8ba0e571bb456d0119c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/oracle_prefix_32.npy",
+      "sha256": "d75ebeb6beef9f33a531e266d8787526d14fd495e8e0971dbece8eee6a580057",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/oracle_prefix_64.npy",
+      "sha256": "7ac082f66443d7d3d3302341303f775a2fbf09db7f0a4c6497b1f2881b83d1ef",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/oracle_prefix_96.npy",
+      "sha256": "91d85a9b8a290c0b3bbc1c6d2bcce2b493d974dc5ef54dac6645363ce60eb59d",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/profiles.npz",
+      "sha256": "5082ae8066a867dfc3dfea63cec0ff00a7e18163a0125b2671e94cceb8033ea5",
+      "bytes": 7184754
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__step20000__transport15/seed000/result.json",
+      "sha256": "8128474f8178c462e462cc2db9eed9bddc8cd277b34978222e97f941586def62",
+      "bytes": 64437
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/ADAPTER_COMPLETE",
+      "sha256": "aa98ec0ecaa13a354072412c9d4daa8b50a40b483ab13cc0ed8400f1cfa5d8cd",
+      "bytes": 39
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/learned_0.npy",
+      "sha256": "d01e653d0763b22972b2571d4e640f8ef8642cf131273b1d8e25c35072f5db3d",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/learned_path.npy",
+      "sha256": "0aa68f65898815020f361f901cfb25cc1161a62e64490f273b3084cbcd2589b0",
+      "bytes": 4227200
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/learned_prefix_32.npy",
+      "sha256": "4dedb228f5d6d6ebb10ac07dba407ad03fd1f5504359396f26100eb94acb1974",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/learned_prefix_64.npy",
+      "sha256": "c470b51ecf2087a9a9b6ec956a2162c710395faa76eb751ea0f43d98600d8d28",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/learned_prefix_96.npy",
+      "sha256": "1c61d871b6f95d5a9f1c20682268fed646d3cc40738bbee94b7145e8996f7647",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/metrics.jsonl",
+      "sha256": "b7a68cc8b06feb8d915f0a78a42040b1de408275a8543975086159553543d82c",
+      "bytes": 20893
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/oracle_0.npy",
+      "sha256": "37dc2e313367c2f005a91895bcdd2fa5979107840524f8ba0e571bb456d0119c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/oracle_prefix_32.npy",
+      "sha256": "6d2e4efde6954302fa26d29ba53a78f231052f469ac07f6a9cc6efa1f3982eae",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/oracle_prefix_64.npy",
+      "sha256": "0014d323bbb6880dfc7db219006dc404d200d5ea2240f46cc1fc4dbd66fc86ad",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/oracle_prefix_96.npy",
+      "sha256": "0955058e404fc7675fb7c67902e02e7fa3f7d97b390b0e3fd1ec624bc0c532d1",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/profiles.npz",
+      "sha256": "e7bd9481b5f16c9da00d8b68ce64dfe7d9f1254fce9d9c7a3b352ab8459b3e3c",
+      "bytes": 7185505
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step15000__transport15/seed000/result.json",
+      "sha256": "546c21f5d520c257884e575fa08a35a09d93c4455abece5a6286e04c5bf3d58b",
+      "bytes": 64509
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/ADAPTER_COMPLETE",
+      "sha256": "aa98ec0ecaa13a354072412c9d4daa8b50a40b483ab13cc0ed8400f1cfa5d8cd",
+      "bytes": 39
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/learned_0.npy",
+      "sha256": "651d63eeb3ab1ef4a2c05172c75be0e3f2e65eee5fe60cf581f088baf162071e",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/learned_path.npy",
+      "sha256": "afd9a148dffe2faf3dd595dab9c785e4302f739cfb01a9ee49fc110b92bd7e17",
+      "bytes": 4227200
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/learned_prefix_32.npy",
+      "sha256": "e28ce41dfe308a03e9d445cce2c71dc7aeac205d880bbc3e6f4c39b62adde7c4",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/learned_prefix_64.npy",
+      "sha256": "8478976c4f960cb87a79ff68a0e96b30bfe6dff482a150604634f6d90486ed77",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/learned_prefix_96.npy",
+      "sha256": "ffa78c35cc71b1c062ce21e69df86f3bbd3c108c59773d81003804f1aa8cbc5d",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/metrics.jsonl",
+      "sha256": "0c3fb77011078ba63cbf15e3f1b6c25b4d243ff4150b69921114243b229f6f6f",
+      "bytes": 20939
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/oracle_0.npy",
+      "sha256": "37dc2e313367c2f005a91895bcdd2fa5979107840524f8ba0e571bb456d0119c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/oracle_prefix_32.npy",
+      "sha256": "1dda1d3091b77a9b4afc3a8a0a7477eb10618df269afaa79d616bed9ed5b457a",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/oracle_prefix_64.npy",
+      "sha256": "e104f6e6ef53396cafab334d37f93324350df247b600d093583a089364baa950",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/oracle_prefix_96.npy",
+      "sha256": "3bee8b3870b17403fae8aa0253fb4ebbc061393802aa6e492fffc61f9f854840",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/profiles.npz",
+      "sha256": "91fbb00543f6dd193b2b0b4d41d46e62f3fb88aff738ee25a4c34bc1fe36f132",
+      "bytes": 7184394
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__step20000__transport15/seed000/result.json",
+      "sha256": "3a8b01a388c4f86edf8fe9e01ed646e5537d95a9dbcd3b324d80707f26e36713",
+      "bytes": 64476
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/ADAPTER_COMPLETE",
+      "sha256": "aa98ec0ecaa13a354072412c9d4daa8b50a40b483ab13cc0ed8400f1cfa5d8cd",
+      "bytes": 39
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/learned_0.npy",
+      "sha256": "c5558b08842008d42b9a57322d6bda67837da4e2d68c7f4b5f414e2fd989ae29",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/learned_path.npy",
+      "sha256": "b222d6a926b0f1a3568a37dd516071d019335ef9aeb0ceb06c95bb094d15a069",
+      "bytes": 4227200
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/learned_prefix_32.npy",
+      "sha256": "3da055d7ccdfd7c34b8069a8907519097398ea9bd0d035512dc6b0a627731d0f",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/learned_prefix_64.npy",
+      "sha256": "8ad40c555314131495d1fc9de40a4290a8d29d70b2a17f5d3f894c8494f14a0f",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/learned_prefix_96.npy",
+      "sha256": "c1686708df6c3aa31ac2039f65a46571b8b0f9c6c752f33250b0b8f2c14fdd8c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/metrics.jsonl",
+      "sha256": "6924a3c8787e994ad2b503aa83cba758517a201ecfbb6e34f9c17d1f51190d44",
+      "bytes": 20926
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/oracle_0.npy",
+      "sha256": "37dc2e313367c2f005a91895bcdd2fa5979107840524f8ba0e571bb456d0119c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/oracle_prefix_32.npy",
+      "sha256": "8cdc56dd6b59ac77070752034daabaa5a86cea7afad691373dee2209a302d9d1",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/oracle_prefix_64.npy",
+      "sha256": "2312d9e9effd0cab17d424d1793c63cfcc1eb2dcf28b21595f514c89d9dfa653",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/oracle_prefix_96.npy",
+      "sha256": "004ef7f91092991d4981952c7a29d65abb5a6317f10edd16752255a0c895e11d",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/profiles.npz",
+      "sha256": "271ee7360dd4253b488e021d1feb77825e197958d0cf9522aacfadc615c11b59",
+      "bytes": 7185628
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step15000__transport15/seed000/result.json",
+      "sha256": "c5c718e0d68394febdb32472bb6f15a19ca9410c6787cdf19cbebca899eea0d9",
+      "bytes": 64524
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/ADAPTER_COMPLETE",
+      "sha256": "aa98ec0ecaa13a354072412c9d4daa8b50a40b483ab13cc0ed8400f1cfa5d8cd",
+      "bytes": 39
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/learned_0.npy",
+      "sha256": "2dd32de46a19f5252f0601c5c17a6d294dff0824513af88c7a1f198790e397a9",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/learned_path.npy",
+      "sha256": "e450a8e1485e5e2ef7b692faada549e79c82981ce2106b8441c2dcbf40a4f6f0",
+      "bytes": 4227200
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/learned_prefix_32.npy",
+      "sha256": "c972ab144d71bd1a0019ddb9764d44b356cb722ad904a21a4afeed22b6da616b",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/learned_prefix_64.npy",
+      "sha256": "2393ccfd57e525e4ad1d4275fda005b317e4ae472239598bb7fb9843e870e4a7",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/learned_prefix_96.npy",
+      "sha256": "11528fc5bee6a27b1bd9c26dacd8708cc3d17c8bc7b3626bfae17cb9fb18e750",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/metrics.jsonl",
+      "sha256": "338081eb74c58a526c9d130053af24f00d34c6464e1471ce74a9167d57e88948",
+      "bytes": 20949
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/oracle_0.npy",
+      "sha256": "37dc2e313367c2f005a91895bcdd2fa5979107840524f8ba0e571bb456d0119c",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/oracle_prefix_32.npy",
+      "sha256": "6f050dcc117017b37ab66602663e29de5b31a7f06ab2da2b6ae99842873a8cc5",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/oracle_prefix_64.npy",
+      "sha256": "104b0cfe1024033cde4c09d4549dbe22c901fcd20287238a94c135a65c1c6a7f",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/oracle_prefix_96.npy",
+      "sha256": "a99c913dea805886521b0cba4e342cd5b2fcb6d0556dcb0539b67ae87a7135a0",
+      "bytes": 32896
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/profiles.npz",
+      "sha256": "a7a01a90731de1222fe94f003b8ebdb01af34e60807ed21d71c6b4bbe0d5cdc0",
+      "bytes": 7185178
+    },
+    {
+      "path": "output/professor_transport15_20261104/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__step20000__transport15/seed000/result.json",
+      "sha256": "ab980191504e506db3566814c8261e32dcc6324c45db7aa2d47164f7aaf27565",
+      "bytes": 64456
+    },
+    {
+      "path": "preflight/documented/progress.json",
+      "sha256": "7546b2768541a08b6e466795b1e411c9a7ae593fa49bcb8e18f8ccd33ec733f9",
+      "bytes": 3346
+    },
+    {
+      "path": "preflight/documented/witness.json",
+      "sha256": "0a4c0c7be147e546df9c27cf7c8f9528f21577d06a499dc9c12c9579655705e8",
+      "bytes": 4141
+    }
+  ]
+}

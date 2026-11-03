@@ -74,3 +74,19 @@ references replay exactly. Submitted report PDFs/source remain unchanged.
 ## Ring8 sampling validation,4November
 
 [Complete analysis and figures](../../docs/autoresearch/professor-20261103/cycle14-results-ring8/analysis-report.md) are incorporated in the current PDF. ISRU-D fits the analytic field better than four ordinary controls at all three checkpoints. Its primary sampling mean nearly ties selected Swi64. The separate32,768sample precision check retains a modest lead. The report distinguishes same-AdamW controls, selected-Muon controls and original Product16 scores; Product16 expanded sampling remains pending.
+
+## Post-report research, 4 November
+
+The [full Cycle14 cohort](../../docs/autoresearch/professor-20261103/cycle14-results-complete/analysis-report.md)
+now includes completed Product16 common-bank controls; these favor the ordinary
+references. The [Cycle15 frozen-transport analysis](../../docs/autoresearch/professor-20261103/cycle15-results/analysis-report.md)
+finds improved centered residuals alongside drifting mode-sector probabilities
+from 15k to 20k. All three model families show the pattern. Common-path and
+switch results, full pooled/omission data, sector counts and six figures are
+published separately from the completed report.
+
+The [mathematical note](../../docs/autoresearch/professor-20261103/mode-mass-derivation.md)
+derives sector mass from boundary flux and connects its first-order response
+to P q(h). Calibration under weak oracle/model interpolation is the next
+proposed test. This entry adds research evidence; it does not revise the Nov4
+Report2 PDF/TeX. Report1 remains final.

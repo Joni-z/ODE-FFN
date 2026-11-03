@@ -98,5 +98,46 @@ source/file hashes and fresh documented model/oracle checks before full runs.
 All raw arrays remain outside Git. The completed Report2 PDF/TeX stay fixed.
 
 - [x] Implement native trace/step/profile/oracle-switch wrapper and CPU fixtures.
-- [ ] Publish/deploy source and pass fresh documented original-checkpoint CUDA checks.
-- [ ] Run/replay the finite cohort and write figures, exact data and next decision.
+- [x] Publish/deploy source and pass fresh documented original-checkpoint CUDA checks.
+- [x] Run/replay the finite cohort and write figures, exact data and next decision.
+
+Completed from frozen source `6fe9e7f` on Lenovo. See the
+[execution record](cycle15-execution.md), [analysis](cycle15-results/analysis-report.md),
+and [mode-mass derivation](mode-mass-derivation.md). The registrations below
+retain the order in which saved-array follow-ups were chosen.
+
+## Post-outcome precision check selected before recomputation
+
+The preselected bank0 reverses the mean-of-eight checkpoint trend: all three
+models improve SW2 from15k to20k there. It is therefore a counterexample to
+assuming a bank-specific switch explains the average trend. Before more model
+calls or architecture, recompute the same six checkpoints with all saved eight
+banks concatenated (32,768 samples), plus all leave-one-bank-out pools. Publish
+all24within-model bank differences and all54pooled/omission scores. Keep the
+original mean-of-banks endpoint and the preselected bank0 diagnostics intact.
+No sampling or training is rerun and no bank is selected to restore a result.
+
+Also use the known Ring8 mixture means/weights to report posterior-component
+frequencies and within-component residual energy for every saved bank0 switch
+endpoint and the pooled native endpoints. Compare frequencies to both the
+empirical target and the analytic weights, with assignment confidence. These
+are descriptive diagnostics, not new primary performance metrics. This checks
+whether a low finite-bank distance reflects target-bank mass matching. The
+common-source oracle endpoint MSE measures transport-map discrepancy; it is
+not the minimum distributional Wasserstein coupling.
+
+## Follow-up selected after the pooled checkpoint check
+
+Pooled15k/20k SW2 retains a deterioration for ISRU-D and selected Swi64, while
+Free ISRU changes little. Component counts move farther from the known equal
+weights in all three models as center-residual energy moves closer to the
+analytic variance. Before new field/model evaluations, use saved paths to
+count angular-sector changes (gross crossings and net mass), and split common-
+source endpoint error by agreement with the oracle sector. Validate native
+oracle reflection symmetry numerically on sector boundaries. Record the exact
+sector-invariance derivation and distinguish necessary mass balance from a
+particular particle-to-mode coupling. Also separate component centroid bias
+and covariance error from the previously reported residual energy. All are
+post-outcome diagnostics on existing arrays; no new primary metric or sampler.
+
+Final saved-array decomposition: evaluate the unchanged finite-projection SW2 formula after mapping all pooled samples to their assigned component means, and separately after subtracting those means. The first depends only on component counts and center geometry; the second probes centered residuals. Retain all six cases and empirical targets; these diagnostic distances are not an additive decomposition or replacement for native SW2. No model calls.

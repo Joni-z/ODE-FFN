@@ -1,5 +1,28 @@
 # Evidence and decisions
 
+## 4 November: mode allocation is the next measured question
+
+Cycle14 is complete on both tasks: 480 frozen evaluations replay, ten native
+anchors are exact. Product16 favors ordinary references. Cycle15 then examined
+six fixed Ring8 checkpoints on Lenovo, using common paths and oracle switches.
+All completed; [analysis](cycle15-results/analysis-report.md).
+
+From 15k to 20k, all three models improve field MSE and centered-residual SW2,
+while sector counts move farther from equal probabilities. ISRU-D pooled SW2
+changes 0.117271 to 0.132610 as residual SW2 changes 0.017683 to 0.015018.
+Most observed sector crossings occur before t=.75. Bank0 reverses the primary
+mean trend, so its switch study locates map differences rather than explaining
+the aggregate score by itself. All banks and omission pools remain visible.
+
+The [derivation](mode-mass-derivation.md) relates sector mass to net boundary
+flux and its first-order response to q(h), downstream derivatives and P updates.
+Next proposed question: does that flux predict actual mass drift under weak
+oracle/model interpolation? Calibrate before choosing another layer or update
+constraint. Keep seed 0; no new training or image transfer. Report2 body remains
+at the completed Nov4 version.
+
+Earlier entries below preserve their state when recorded.
+
 Prior36+30 trajectories are complete and replayed. Muon produces higher-rank updates
 but larger P; matched-magnitude momentum does not explain all field gains. Selected
 matrix decay0.1/0.5 harms fitting. PD/DP/sandwich ordering alone does not beat SwiGLU.

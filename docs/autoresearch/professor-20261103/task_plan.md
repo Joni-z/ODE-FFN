@@ -2,17 +2,25 @@
 
 ## Current step
 
-4November user review: complete the pending Product16 common-bank control,
-then examine common-trajectory errors for Ring8 ISRU-D, Free ISRU and selected
-Swi64,15k versus20k. Model seed0remains fixed. The paired-bank result already
-exists; no new training seeds, architecture or JiT transfer is selected.
+4 November: Product16 validation and the six Ring8 frozen-transport diagnostics
+are complete. The same checkpoints improve field fitting and centered-residual
+SW2 while their mode-sector allocation drifts. This shared response selects
+a probability-mass question before another layer design. Model seed 0 stays
+fixed; no new training, architecture or JiT transfer is selected.
 
 - [x] Fresh original documented145CUDA witness; finish/replay cycle14 Product16.
 - [x] Register common-state flow/error/derivative diagnostics before outcomes.
 - [x] Implement using native models/oracle/sampler and pass CPU fixtures.
-- [ ] Pass fresh native-checkpoint CUDA witness before cycle15formal runs.
-- [ ] Run the bounded frozen cohort and produce exact arrays, paired analysis and figures.
-- [ ] State which measured mechanism to pursue; publish code/evidence promptly.
+- [x] Pass fresh native-checkpoint CUDA witness before cycle15 formal runs.
+- [x] Run the bounded frozen cohort and produce exact arrays, paired analysis and figures.
+- [x] Derive sector-mass response from boundary flux and connect it to P q(h).
+- [x] State the measured next question in the analysis and publish code/evidence.
+
+[Cycle15 analysis](cycle15-results/analysis-report.md), [execution](cycle15-execution.md),
+and [derivation](mode-mass-derivation.md). The next proposed bounded test is
+analytic-density-weighted boundary flux and weak oracle/model interpolation.
+It must calibrate the first-order response before using it to choose a new
+ODE-layer constraint or optimizer control. That follow-up has not been run.
 
 The completed Report2 PDF/source remain unchanged during this research step.
 

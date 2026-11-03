@@ -19,8 +19,14 @@ The [complete frozen-checkpoint validation](docs/autoresearch/professor-20261103
 retains a Ring8 field-fitting lead for ISRU-D, with sampling close to selected
 SwiGLU64. Product16 favors ordinary references: mean SW2 is0.08900 for ISRU-D,
 0.08596 for Free ISRU and0.08350 for selected SwiGLU192. Both tasks use common
-sampling banks and fixed checkpoints. The next [transport-error diagnostic](docs/autoresearch/professor-20261103/cycle15.md)
-compares saved models by time, direction and oracle-field replacement.
+sampling banks and fixed checkpoints.
+
+The completed [transport-error diagnosis](docs/autoresearch/professor-20261103/cycle15-results/analysis-report.md)
+finds a shared Ring8 tradeoff from 15k to 20k: field fitting and centered-residual
+SW2 improve, while mode-sector frequencies drift farther from equal weights.
+The [derivation](docs/autoresearch/professor-20261103/mode-mass-derivation.md)
+connects sector-mass change to boundary-normal field error and P q(h) updates.
+Calibrating that response is the next question before choosing another layer.
 
 The preceding [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
 finds an AdamW Ring8 lead over SwiGLU, but only2.25%field separation from

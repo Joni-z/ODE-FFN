@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "source_sha256": "ad69f4673df5e62e4286640a125700c5b84b1ef97b1ddb476e9dbaee885bbcdb",
+  "grid_sha256": "5dae653aa29bfc95cb11c915260aa50799fcebcb22353d8eeabc6e7dd919e7fa",
+  "array_hashes": {
+    "source": "8415ab1d8aab0b1b9a54396fa8cb2c3cabdb2d33c7e97c0d0401daf7d83b4421",
+    "target": "f7d47d57c9b242ee397ff27fb5b387364a7a7471927255dbbd2531df83447576",
+    "target2": "b3151df2d3c0c4829f0bdb85ef8b038e95b07877e3ebc65e5b612b655f7f25dc",
+    "directions": "9deff18ad3296b4734447f3a1565b4fb734866e0bca06bfd950bc95ef7d1dae2",
+    "oracle_path": "5755708fc27e89e494db2edf0bd9c526c28bfbdeb6c4230bb3e6f4ba9276094c",
+    "oracle_end_128": "5792e9cac89d09364e21a17e9d53463e754f84c93a3480fd489ae516eaa4d7bf",
+    "oracle_end_256": "d0148acd47d7106bd6470ba64a7c6c92e3c0015f875a20a6ae97b67c181b7387",
+    "oracle_end_512": "eb409a9a150eaa461954eaf622268a4e57f89e2fb87a376a7d7b65b688842278"
+  },
+  "oracle_rows": [
+    {
+      "steps": 128,
+      "sw2": 0.14093705673030218
+    },
+    {
+      "steps": 256,
+      "sw2": 0.14095492489832726
+    },
+    {
+      "steps": 512,
+      "sw2": 0.14095947505693993
+    }
+  ],
+  "resolution_differences": {
+    "128_vs_256": {
+      "rmse": 9.504041643181577e-05,
+      "maximum": 0.0019345879554748535
+    },
+    "256_vs_512": {
+      "rmse": 2.6235474893862613e-05,
+      "maximum": 0.0007780194282531738
+    },
+    "128_vs_512": {
+      "rmse": 0.00012108946869926663,
+      "maximum": 0.0027126073837280273
+    }
+  },
+  "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+}

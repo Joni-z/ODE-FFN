@@ -1,3 +1,18 @@
+# Latest: frozen transport diagnosis, 4 November
+
+The completed [Cycle15 analysis](docs/autoresearch/professor-20261103/cycle15-results/analysis-report.md)
+finds a shared Ring8 checkpoint tradeoff: better field fitting and centered
+residuals, but worse mode-sector balance. Product16 common-bank controls are
+also complete and favor ordinary models. No new training or seed was added.
+
+The [derivation](docs/autoresearch/professor-20261103/mode-mass-derivation.md)
+uses continuity and Ring8 symmetry to make net boundary flux the next testable
+quantity. Its calibration, not another architecture sweep, is the proposed
+next step. All frozen runs finished; evidence is recorded in GitHub. The
+completed Nov4 Report2 PDF/TeX and Report1 remain unchanged.
+
+Earlier entries below are historical.
+
 # Report2 narrative rebalanced
 
 User clarified that the report must cover the full exploration and avoid

@@ -1,13 +1,14 @@
 # Current research: transport-error diagnosis, 4 November 2026
 
-The user reviewed the completed report and prioritizes explaining the observed
-fitting/sampling mismatch. Keep model seed0. Pairwise common-bank comparisons
-already exist. Product16 cycle14 is now complete and all480evaluations independently replay;
-next
-use frozen Ring8 ISRU-D, Free ISRU and selected Swi64 at15k/20k for a common
-trajectory diagnostic. Register the state distribution, error decomposition,
-solver checks and interpretation before execution. No new architecture or
-image training. The completed three-page Report2 stays unchanged in this pass.
+The frozen-checkpoint diagnosis is complete. Across Ring8 ISRU-D, Free ISRU
+and selected Swi64, 15k-to-20k field MSE and centered-residual SW2 improve,
+while sector frequencies move farther from the known equal weights. Product16
+cycle14 is also complete; all 480 evaluations independently replay. The
+[new analysis](docs/autoresearch/professor-20261103/cycle15-results/analysis-report.md)
+and [mode-mass derivation](docs/autoresearch/professor-20261103/mode-mass-derivation.md)
+select boundary-normal flux as the next quantity to calibrate before another
+architecture. All six frozen diagnostics completed on Lenovo; no training
+or new model seed was added. The completed three-page Report2 stays unchanged.
 Canonical research plan: docs/autoresearch/professor-20261103/task_plan.md.
 
 Earlier entries below are historical.
