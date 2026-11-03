@@ -1,0 +1,244 @@
+{
+  "passed": true,
+  "complete": true,
+  "witness": true,
+  "kernel": {
+    "passed": true,
+    "device": "cuda",
+    "torch": "2.8.0+cu126",
+    "scalar_formulas_derivatives": true,
+    "rows": [
+      {
+        "family": "vector_pd_k2",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      },
+      {
+        "family": "pd_factorized_linear",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      },
+      {
+        "family": "pd_mlp_affine",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      },
+      {
+        "family": "pd_factorized_affine",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      }
+    ]
+  },
+  "path_bindings": [
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "checkpoint_sha256": "e54f256b439bd1c228ccdec1fc0a209f80aba78faab33f962e1e289ba83bc127",
+      "config_sha256": "56d33c9a24a6b11f470fa958b05dd64bd5ee9725a5bd4d44f5cf489607483dbf",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0",
+      "checkpoint_sha256": "8750a164fc93fbbfdca47dfb49c7acb4cce1b0d7c5b4cd634ac479ece63893d2",
+      "config_sha256": "1dc55732635e853b77ce58654a73ef0ce0fe9da775e56c637e4fa39a49ebd0b8",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0",
+      "checkpoint_sha256": "23bc61edbfd8aa890f6164f3fe625210cf4cb288bc8a36179ea8a587388c2786",
+      "config_sha256": "cea38fceacf6f0e5373d4e3324888f0ab6797be84a3132765450368d2e6aa1ab",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "checkpoint_sha256": "1b1a21cdc9441dd842db8049c4fd79a99b31f707c74c805ba39f5dd922e532c7",
+      "config_sha256": "0ac3d37238bcd8ab16a6331000d079b1a8dfb9d7c243a438765b0a63050a4451",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+      "checkpoint_sha256": "5a8b98427d8c4a8fe0dcd96a45e62b521794fd8ba0fd9e0794d27deda36fd0f8",
+      "config_sha256": "9bdc8f89b71663c077912badf01649e0241a5e84163bc651344eb11aede858f0",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+      "checkpoint_sha256": "185a5b9a3368e6392d9883765d74492254c4f612d23956d58df5622eb75784e7",
+      "config_sha256": "c72cb51d336dab7aac906272c57be19bb4f2434b14e5a8578e5f32a40242f07f",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+      "checkpoint_sha256": "fd1bc3e67ce1ebb8b0a7abfdfe3c1a3bd337d81d3c9d69b9f9eca7fb30151f1a",
+      "config_sha256": "86ece5d1cccd4c66c698d683f1e4fc7496e10155d1c75a5a223956591cf735a2",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+      "checkpoint_sha256": "03f09d866a0a6815c30f1d1c1f41d2b60370f5c317e1042c491841c387afbda7",
+      "config_sha256": "86b5676dd94f203f6adeaabde9639fd8dd94107c19625cbc9b88c0752ba8157d",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+      "checkpoint_sha256": "a53f145f025318d2f6166f9cd0260982ebe0f6a3b11c3be9c83eef067f62f830",
+      "config_sha256": "75445099b605c7dfa936222008b296a57e63d27c90961bd5837d786337b3354e",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+      "checkpoint_sha256": "e38a7db93a964f978875ffe615f3bce580f79b6782fcfc01eeee8352c695a5e6",
+      "config_sha256": "99508c472f47e5b4e698e81b4b0efecfabd3c48f1e18a7b0b8c810c780d3004a",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.006",
+      "checkpoint_sha256": "a6cbceb289af6df6b52216661603c9d5c784fc7d3e00d70aa6a32626e84afdf8",
+      "config_sha256": "f84c905a760174c8106123bfddb81e196cf93f87115a55e6cf5b7902b9dde348",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.02",
+      "checkpoint_sha256": "218016eb1310a7a6a720867bcd1a524f92b5a88052e13f94366657519aac5caa",
+      "config_sha256": "a84163c1273a8b5adb343cd3e8de661128dbb7f2526d333e847a9da404be825d",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+    }
+  ],
+  "cohort_records_verified": 24,
+  "source_csvs_verified": 5,
+  "host": "lenovo",
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "rows": [
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "family": "vector_pd_k2",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "family": "pd_mlp_affine",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+      "family": "pd_factorized_linear",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+      "family": "pd_factorized_affine",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    }
+  ],
+  "bindings": [
+    {
+      "id": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "vector_pd_k2",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "e54f256b439bd1c228ccdec1fc0a209f80aba78faab33f962e1e289ba83bc127",
+      "native_field_mse": 0.014422689242284707,
+      "native_test_sw2": 0.22417465557993602,
+      "native_transform": "sigmoid",
+      "run_dir": "muon-pd-20261102",
+      "experiment_id": "muon_pd_20261102",
+      "source_csv": "docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv",
+      "config_sha256": "56d33c9a24a6b11f470fa958b05dd64bd5ee9725a5bd4d44f5cf489607483dbf",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "checkpoint_path": "D:\\Research\\ODE-FFN\\muon-pd-20261102\\output\\muon_pd_20261102\\gmm_ring8_2d\\gmm_ring8_2d__vector_pd_k2__adamw_0.0003\\seed000\\checkpoints\\step_0020000.pt",
+      "config_path": "D:\\Research\\ODE-FFN\\muon-pd-20261102\\output\\muon_pd_20261102\\gmm_ring8_2d\\gmm_ring8_2d__vector_pd_k2__adamw_0.0003\\seed000\\config.json"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_mlp_affine",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "1b1a21cdc9441dd842db8049c4fd79a99b31f707c74c805ba39f5dd922e532c7",
+      "native_field_mse": 0.013457458726075362,
+      "native_test_sw2": 0.22131161738118008,
+      "native_transform": "affine",
+      "run_dir": "professor-autoresearch-20261103",
+      "experiment_id": "professor_autoresearch_20261103",
+      "source_csv": "docs/autoresearch/professor-20261103/cycle1-results/endpoints.csv",
+      "config_sha256": "0ac3d37238bcd8ab16a6331000d079b1a8dfb9d7c243a438765b0a63050a4451",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "checkpoint_path": "D:\\Research\\ODE-FFN\\professor-autoresearch-20261103\\output\\professor_autoresearch_20261103\\gmm_ring8_2d\\gmm_ring8_2d__pd_mlp_affine__adamw_0.0003\\seed000\\checkpoints\\step_0020000.pt",
+      "config_path": "D:\\Research\\ODE-FFN\\professor-autoresearch-20261103\\output\\professor_autoresearch_20261103\\gmm_ring8_2d\\gmm_ring8_2d__pd_mlp_affine__adamw_0.0003\\seed000\\config.json"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_factorized_linear",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "fd1bc3e67ce1ebb8b0a7abfdfe3c1a3bd337d81d3c9d69b9f9eca7fb30151f1a",
+      "native_field_mse": 0.015186167280723263,
+      "native_test_sw2": 0.22245879057696802,
+      "native_transform": "sigmoid",
+      "run_dir": "professor-autoresearch-cycle2-20261103",
+      "experiment_id": "professor_autoresearch_cycle2_20261103",
+      "source_csv": "docs/autoresearch/professor-20261103/cycle2-results/endpoints.csv",
+      "config_sha256": "86ece5d1cccd4c66c698d683f1e4fc7496e10155d1c75a5a223956591cf735a2",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "checkpoint_path": "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle2-20261103\\output\\professor_autoresearch_cycle2_20261103\\gmm_ring8_2d\\gmm_ring8_2d__pd_factorized_linear__adamw_0.0003\\seed000\\checkpoints\\step_0020000.pt",
+      "config_path": "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle2-20261103\\output\\professor_autoresearch_cycle2_20261103\\gmm_ring8_2d\\gmm_ring8_2d__pd_factorized_linear__adamw_0.0003\\seed000\\config.json"
+    },
+    {
+      "id": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "lenovo",
+      "family": "pd_factorized_affine",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "e38a7db93a964f978875ffe615f3bce580f79b6782fcfc01eeee8352c695a5e6",
+      "native_field_mse": 0.014666162228183092,
+      "native_test_sw2": 0.213267398980714,
+      "native_transform": "affine",
+      "run_dir": "professor-autoresearch-cycle11-20261103",
+      "experiment_id": "professor_autoresearch_cycle11_20261103",
+      "source_csv": "docs/autoresearch/professor-20261103/cycle11-results/endpoints.csv",
+      "config_sha256": "99508c472f47e5b4e698e81b4b0efecfabd3c48f1e18a7b0b8c810c780d3004a",
+      "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+      "checkpoint_path": "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle11-20261103\\output\\professor_autoresearch_cycle11_20261103\\gmm_ring8_2d\\gmm_ring8_2d__pd_factorized_affine__adamw_0.0003\\seed000\\checkpoints\\step_0020000.pt",
+      "config_path": "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle11-20261103\\output\\professor_autoresearch_cycle11_20261103\\gmm_ring8_2d\\gmm_ring8_2d__pd_factorized_affine__adamw_0.0003\\seed000\\config.json"
+    }
+  ],
+  "producer_sha256": "f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f",
+  "cohort_sha256": "5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678",
+  "native_source_manifest_sha256": "f968d416b004192b48a2ec599f65453609ab1cac19c259aeb38499bd04708a01",
+  "scope": "Frozen attribute swaps only; no training, tensor update or model selection."
+}

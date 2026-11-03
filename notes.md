@@ -1,15 +1,16 @@
-# Current checkpoint: controller/output factorial closed
+# Current checkpoint: frozen output-swap analysis closed
 
-Cycle11 completed/replayed all ten20k cases and four exact native references.
-The complete24-corner comparison finds one weak-parent interaction, while all
-six new candidates lose to almost parameter-matched Swi128 on field/sampling.
-No candidate qualifies for continuation; no accepted new ODEFFN method or
-active training queue. [Results](docs/autoresearch/professor-20261103/cycle11-results/findings.md) ·
+Cycle12 completed24native/swap checkpoint pairs with exact native arrays,
+restored probes and unchanged tensors. Independent saved-array sampling checks
+pass for all48outcomes. Every Product16swap worsens field/sampling; two small
+Ring8field gains remain behind nearly parameter-matched Swi128. No immediate
+output repair, accepted new ODEFFN method or active queue.
+[Analysis](docs/autoresearch/professor-20261103/cycle12-results/analysis-report.md) ·
 [Research map](docs/autoresearch/professor-20261103/research-map.md).
 
-Inspect existing frozen functions before another design. Radial, P-shape and
-historical range/order rescue settings remain closed. Older entries below are
-historical. Submitted report PDFs remain unchanged.
+Review prior bounded-feature evidence before a distinct input-D proposal.
+Earlier constraint/radial/range/order rescues remain closed. Older entries below
+are historical; submitted report PDFs and author-derived image code are unchanged.
 
 # Current professor-guided study
 

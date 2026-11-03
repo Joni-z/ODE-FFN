@@ -131,6 +131,21 @@ parameter-matched Swi128 on both metrics. No setting passes continuation.
 Inspect current trained functions before attributing the interaction to sigmoid
 saturation or proposing another architecture.
 
+## 7. Can an immediate output replacement repair the interaction?
+
+[Cycle12](cycle12-results/analysis-report.md) keeps every tensor fixed and swaps
+sigmoid/affine output at all24factorial checkpoints. All24native arrays and
+restored probes are exact; every raw P spectrum is unchanged. Nevertheless,
+all12Product16swaps worsen field/sampling. Two small Ring8field gains remain
+below the ordinary reference. This closes an immediate-output repair, without
+identifying the complete training cause or a better cold-training architecture.
+
+The positive lesson is a comparison requirement: D's function, its derivatives
+and the learned representation must be assessed together. P-only regularity,
+range summaries and a locally matched initialization are not sufficient grounds
+for claiming a useful generative FFN. The existing strong ordinary frontier
+remains the acceptance test.
+
 ## Current judgment
 
 The useful progress is a sharper separation of mechanisms: optimizer geometry,

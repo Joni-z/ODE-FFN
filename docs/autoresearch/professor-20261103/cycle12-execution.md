@@ -1,6 +1,6 @@
 # Cycle12 frozen execution
 
-Record the immutable source revision after publication. Launch only after both
+Immutable source is290359d596cfac5214e229367397f6fbe9b49f32. Launch only after both
 fresh native readiness passes. One read-only producer perhost, no optimizer or
 training process. The native batch/sampler are retained. Each producer records
 case-by-case GPU/PID progress in progress.json/history.jsonl and retains partial
@@ -25,3 +25,10 @@ or repaired. Require all24native array anchors and exact round-trip predictions,
 then independently recompute every finite saved-array sliced-W2 score. These
 48evaluations do not add rows to the training TSV. Both GPUs are released when
 the producers exit; no automatic new training follows a favorable frozen swap.
+
+Closed: both producers completed12checkpoints/24outcomes each after SSH exit,
+with matching results/finished digests.145PID3045509, LenovoactualPID18676
+(launcher6328) exited; GPUs returned to idle2/415MiB. Native timed loops took
+about9.7/6.1s, excluding imports/startup. All24native arrays/round-trip probes
+are exact, and all48finite saved-array metrics reproduce within4.18e-8.
+No training rows were appended. [Analysis](cycle12-results/analysis-report.md).

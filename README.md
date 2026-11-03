@@ -31,6 +31,8 @@ Product16 fitting. Neither passes its registered continuation criterion.
 The completed [controller/output factorial](docs/autoresearch/professor-20261103/cycle11-results/findings.md)
 finds one controller/output interaction, while all new cases remain behind
 near-parameter-matched SwiGLU.
+The [frozen output swaps](docs/autoresearch/professor-20261103/cycle12-results/analysis-report.md)
+keep all tensors fixed and reject a simple present-day output repair.
 These vector experiments do not establish JiT image quality.
 
 ## Code

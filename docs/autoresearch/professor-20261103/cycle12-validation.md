@@ -29,3 +29,10 @@ complete=true, witness=true,24cohort records/five CSVs verified,12path bindings,
 four kernel-family rows, four actual-checkpoint rows and bindings perhost. Every
 round-trip probe/rollout and parameter/buffer check must pass. Record clean Git
 revision and producer/cohort hashes. No source repairs or silent retries.
+
+Both commands passed verbatim once at clean290359d596cfac5214e229367397f6fbe9b49f32.
+Each source/cache audit covers12paths,24records/five CSVs; four nonzero kernel
+fixtures and four real checkpoint probe/Heun64round trips pass. All91recorded
+study hashes remain unchanged and equal across hosts. No repairs or retries.
+[Fresh witness](readiness/cycle12/documented-witness.json). These are readiness
+checks, distinct from the complete48formal evaluations.

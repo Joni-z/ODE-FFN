@@ -1,0 +1,244 @@
+{
+  "passed": true,
+  "complete": true,
+  "witness": true,
+  "kernel": {
+    "passed": true,
+    "device": "cuda",
+    "torch": "2.8.0+cu128",
+    "scalar_formulas_derivatives": true,
+    "rows": [
+      {
+        "family": "vector_pd_k2",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      },
+      {
+        "family": "pd_factorized_linear",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      },
+      {
+        "family": "pd_mlp_affine",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      },
+      {
+        "family": "pd_factorized_affine",
+        "nonzero_readout": true,
+        "nontrivial_swap": true,
+        "round_trip_prediction_exact": true,
+        "tensors_buffers_unchanged": true
+      }
+    ]
+  },
+  "path_bindings": [
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "checkpoint_sha256": "b461ab7967c7ec72d08dc9e41bac1e7773c556e41f89307fc8cd812a73c9fb22",
+      "config_sha256": "63d06a7e2debf9cf3aa5fbcfccea54a48dce4348115dc07198bd061cc0a750e5",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0",
+      "checkpoint_sha256": "7cca2190980f2fa110dc3b67b3ceddac51be69747bdc8d89aaf4d8ad142758aa",
+      "config_sha256": "7407a07a572b83d359c28cbbd5243d2c2a7e84c7050a843efb0efb7eba1aaac3",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0",
+      "checkpoint_sha256": "288eec12b1625fce07f021a83317cc4e27ebc7704c1ebbfc9fd7daf64b61664f",
+      "config_sha256": "98f366c9de3c710fff58aeae2768796d5da3f35d90c6025b5e6fa8c6f1fcc16b",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "checkpoint_sha256": "950d0aba590e7cc7d1191013b3705f157cacc52334d341f2c8a1ff845cb6aafe",
+      "config_sha256": "6a8ab9a8bb3f6051b7ba451ec013a4a676498d12703addcfd22b68ce0f2e6985",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+      "checkpoint_sha256": "763093ad0d8b7cb5e69cd4c9a2ea5ea5b359fc3c7fc79976f7020ee154ce30df",
+      "config_sha256": "884bc6aa5ca108bcbce6ebf7b03ed2949d6552250270a18186d3ec234f31dc8a",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+      "checkpoint_sha256": "c4fec1bd500f88e181400949ab587b3356e6e707d42e52c4e321fe911e4f61df",
+      "config_sha256": "bde4a6f5a1eb70ba0a6f149cca5144a641f34744f9223ef376cdcbd188a5dc49",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+      "checkpoint_sha256": "7e12538762f12c43ab6de05e7a73ef7f550e331446f0da65d735e70eabf3ef00",
+      "config_sha256": "784f82793906ee73badf59891901373b46c09d21546a197c8bc287c2172c13cf",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+      "checkpoint_sha256": "78b8feff4beef5198ebea08e8354495c7fc4ce6ff86e564d159af699f43538da",
+      "config_sha256": "07f9455d99764dfbb249897fc4bf52ebf91a60654de644030ab4ba85ee3b2e3a",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02",
+      "checkpoint_sha256": "866e6feb3cdd969faa1cfc4b021734f8c06739dad78e852f4813ed64e5783e1a",
+      "config_sha256": "de04e3bbb5962aaa906bb350320a3c7718f2ccc40869f0ef9fa6c8ac6002c03a",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "checkpoint_sha256": "41d03aa0690ca6935e5c4dac8cf08da540f54ae74f66b08b6642a7f1d72756af",
+      "config_sha256": "297e44218a273f9b13c321c24cdbd3923b9d8c79e03a01e899df9392d249428b",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+      "checkpoint_sha256": "05a442207e0537847733a40db224771844c866344d844d3e737160dbdf7baba2",
+      "config_sha256": "acb64e4295c829bd7e3460a757b992a46af32684bde1431bf30847ab1e4a2079",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+      "checkpoint_sha256": "14111f24724d5082355baf6a3983fef5f98bfcc693b3deedd04c4e95dc436025",
+      "config_sha256": "6da69fa9a9e126781ece196719136986d8e76f23cb90351157a0becaac9c486d",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    }
+  ],
+  "cohort_records_verified": 24,
+  "source_csvs_verified": 5,
+  "host": "145",
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "rows": [
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "family": "vector_pd_k2",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "family": "pd_mlp_affine",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+      "family": "pd_factorized_linear",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "family": "pd_factorized_affine",
+      "native_probe_finite": true,
+      "swapped_probe_finite": true,
+      "round_trip_probe_exact": true,
+      "round_trip_native_heun64_exact": true,
+      "tensors_buffers_unchanged": true
+    }
+  ],
+  "bindings": [
+    {
+      "id": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "vector_pd_k2",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "b461ab7967c7ec72d08dc9e41bac1e7773c556e41f89307fc8cd812a73c9fb22",
+      "native_field_mse": 0.05150495698277761,
+      "native_test_sw2": 0.08792371774014424,
+      "native_transform": "sigmoid",
+      "run_dir": "muon-pd-20261102",
+      "experiment_id": "muon_pd_20261102",
+      "source_csv": "docs/research-muon-pd-2026-11-02/wave2/analysis/endpoints.csv",
+      "config_sha256": "63d06a7e2debf9cf3aa5fbcfccea54a48dce4348115dc07198bd061cc0a750e5",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+      "checkpoint_path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/output/muon_pd_20261102/rotated_product_bimodal_16d/rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003/seed000/checkpoints/step_0020000.pt",
+      "config_path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/output/muon_pd_20261102/rotated_product_bimodal_16d/rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003/seed000/config.json"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_mlp_affine",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "950d0aba590e7cc7d1191013b3705f157cacc52334d341f2c8a1ff845cb6aafe",
+      "native_field_mse": 0.06627778054539163,
+      "native_test_sw2": 0.097663574914465,
+      "native_transform": "affine",
+      "run_dir": "professor-autoresearch-20261103",
+      "experiment_id": "professor_autoresearch_20261103",
+      "source_csv": "docs/autoresearch/professor-20261103/cycle1-results/endpoints.csv",
+      "config_sha256": "6a8ab9a8bb3f6051b7ba451ec013a4a676498d12703addcfd22b68ce0f2e6985",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+      "checkpoint_path": "/data2/zz5070/ODE_FFN/professor-autoresearch-20261103/output/professor_autoresearch_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003/seed000/checkpoints/step_0020000.pt",
+      "config_path": "/data2/zz5070/ODE_FFN/professor-autoresearch-20261103/output/professor_autoresearch_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003/seed000/config.json"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_factorized_linear",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "7e12538762f12c43ab6de05e7a73ef7f550e331446f0da65d735e70eabf3ef00",
+      "native_field_mse": 0.051597818048686385,
+      "native_test_sw2": 0.10621718218149565,
+      "native_transform": "sigmoid",
+      "run_dir": "professor-autoresearch-cycle2-20261103",
+      "experiment_id": "professor_autoresearch_cycle2_20261103",
+      "source_csv": "docs/autoresearch/professor-20261103/cycle2-results/endpoints.csv",
+      "config_sha256": "784f82793906ee73badf59891901373b46c09d21546a197c8bc287c2172c13cf",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+      "checkpoint_path": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle2-20261103/output/professor_autoresearch_cycle2_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003/seed000/checkpoints/step_0020000.pt",
+      "config_path": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle2-20261103/output/professor_autoresearch_cycle2_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003/seed000/config.json"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_factorized_affine",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "checkpoint_sha256": "41d03aa0690ca6935e5c4dac8cf08da540f54ae74f66b08b6642a7f1d72756af",
+      "native_field_mse": 0.03355342002974146,
+      "native_test_sw2": 0.09698299405001394,
+      "native_transform": "affine",
+      "run_dir": "professor-autoresearch-cycle11-20261103",
+      "experiment_id": "professor_autoresearch_cycle11_20261103",
+      "source_csv": "docs/autoresearch/professor-20261103/cycle11-results/endpoints.csv",
+      "config_sha256": "297e44218a273f9b13c321c24cdbd3923b9d8c79e03a01e899df9392d249428b",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+      "checkpoint_path": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle11-20261103/output/professor_autoresearch_cycle11_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003/seed000/checkpoints/step_0020000.pt",
+      "config_path": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle11-20261103/output/professor_autoresearch_cycle11_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003/seed000/config.json"
+    }
+  ],
+  "producer_sha256": "f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f",
+  "cohort_sha256": "5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678",
+  "native_source_manifest_sha256": "f968d416b004192b48a2ec599f65453609ab1cac19c259aeb38499bd04708a01",
+  "scope": "Frozen attribute swaps only; no training, tensor update or model selection."
+}

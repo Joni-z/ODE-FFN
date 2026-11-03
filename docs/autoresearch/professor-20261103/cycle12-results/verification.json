@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checkpoints": 24,
+  "evaluations": 48,
+  "exact_native_array_anchors": 24,
+  "exact_round_trip_probes": 24,
+  "unchanged_tensor_buffer_checks": 24,
+  "finite_sampling_scores": 48,
+  "max_numpy_sw2_error": 4.175740730971711e-08,
+  "max_native_field_replay_error": 1.3877787807814457e-17,
+  "max_native_sw2_replay_error": 8.384914373937846e-09,
+  "field_improves_by_task": {
+    "gmm_ring8_2d": 2,
+    "rotated_product_bimodal_16d": 0
+  },
+  "scope": "Paired frozen checkpoint contrasts; no training-method acceptance or inferential replication."
+}

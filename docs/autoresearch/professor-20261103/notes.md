@@ -139,3 +139,9 @@ new cases lose to nearly parameter-matched Swi128 on field and sampling. The
 interaction is not explained by similar P/PD/response/range summaries. No
 new cold-training method selected. Focused primary-source reading is recorded
 in literature-optimizer-conditions.md with exact read scopes and limitations.
+
+Cycle12 final: all48finite outcomes/24native anchors and parameter/probe round
+trips pass. Independent NumPy W2 maxerror4.18e-8; 22of24field swaps worsen,
+allProduct16field/test swaps worsen. No swapped field beats near-paramSwi128.
+Raw P spectra are identical across actions. Reject immediate-output repair;
+keep the distinction between a trained-model result and frozen sensitivity.

@@ -144,6 +144,15 @@ on field and sampling, at almost identical parameter count. The next diagnostic
 must distinguish an immediate output-transform effect from the function learned
 through training. No new method or longer-run rescue is accepted.
 
+Cycle12 tests an immediate-output explanation at fixed weights: swapping
+sigmoid/affine on all24factorial checkpoints. All Product16swaps worsen fitting
+and sampling. Only two small Ring8field improvements occur, both below Swi128.
+Native arrays and restoration are exact, and all saved-array distances reproduce.
+This rules out that frozen repair; it does not establish the full cause of
+training differences or promote a new method. Raw P spectra remain identical
+while the conditional function changes, reinforcing the need to examine D and
+the full predictor rather than raw weights alone.
+
 Primary artifacts: [question-to-decision map](research-map.md),
 [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [controller/range results](cycle1-results/findings.md),
@@ -156,4 +165,5 @@ Primary artifacts: [question-to-decision map](research-map.md),
 [training constraints](cycle8-results/findings.md),
 [actual feature responses](cycle9-results/findings.md),
 [radial results](cycle10-results/findings.md), [radial derivation](radial-diagonal.md)
-and [complete controller/output comparison](cycle11-results/findings.md).
+and [complete controller/output comparison](cycle11-results/findings.md) and
+[frozen output-swap analysis](cycle12-results/analysis-report.md).

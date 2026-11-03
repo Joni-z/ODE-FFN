@@ -2,12 +2,11 @@
 
 ## Current step
 
-Cycle11 is closed: ten native20k trajectories, exact generated arrays, four
-exact archived native anchors and the complete24-corner table. One weak Adam
-Product16 comparison improves35%/49% over ODE parents, but all six new cases
-lose to nearly parameter-matched Swi128 on field and sampling. No continuation
-qualifies, accepted method or active queue. Inspect existing frozen functions
-before selecting another design; cycle10 radial remains closed.
+Cycle12 is closed:24native anchors/24swaps, exact native generated arrays and
+round-trip probes, all48finite saved-array distances independently verified.
+Every Product16field/test swap worsens; two small Ring8field gains remain below
+Swi128. No immediate-output repair, accepted new model or active queue. Review
+prior bounded-feature evidence before proposing a distinct input-D function.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -235,3 +234,10 @@ attributes, preserves all model/buffer tensors and uses native field/sampling
 utilities.24cohort records match five archived CSVs; formal native arrays must
 be exact. Source/cache path audit and four real-checkpoint CUDA/Heun64 witness
 perhost precede all48formal evaluations. Next freeze/publish and fresh doc pass.
+
+Cycle12 closed under frozen290359d. Fresh native CUDA/kernel/checkpoint path
+witnesses pass on both hosts; formal paired metrics and all24native anchors
+pass. Results-analysis bundle includes three viewed figures, full48endpoints,
+24paired changes,288layer rows, statistical scope and source bindings. Both
+formal PIDs exited; training ledger remains132unique rows. No saturation-cause
+claim or automatic new training follows.

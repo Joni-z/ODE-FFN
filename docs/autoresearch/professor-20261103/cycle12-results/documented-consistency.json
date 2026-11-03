@@ -1,0 +1,1499 @@
+{
+  "passed": true,
+  "created_utc": "2026-11-03T02:17:29.681317+00:00",
+  "scope": "Independent read-only saved-evidence and documentation consistency pass; no native numerical reruns, readiness reruns, training or source edits. Fixed-cohort descriptive contrasts only. Closure/checklist/status edits are pre-close.",
+  "checks": {
+    "all_30_bound_raw_input_hashes": true,
+    "cohort_analysis_ordinary_hashes": true,
+    "all_5_source_csv_hashes": true,
+    "csv_counts_48_24_288": true,
+    "145_formal_results_complete": true,
+    "145_producer_cohort_hashes": true,
+    "145_clean_runtime_head": true,
+    "145_formal_pid_gone": true,
+    "145_gpu0_idle": true,
+    "145_physical_hashes_native_anchors": true,
+    "lenovo_formal_results_complete": true,
+    "lenovo_producer_cohort_hashes": true,
+    "lenovo_clean_runtime_head": true,
+    "lenovo_formal_pid_gone": true,
+    "lenovo_gpu0_idle": true,
+    "lenovo_physical_hashes_native_anchors": true,
+    "24_probes_invariances_anchors": true,
+    "48_scores_finite_match_numpy": true,
+    "48_endpoint_csv_scores_match_raw": true,
+    "24_pair_ratios_and_swi128_references": true,
+    "48_activation_records_6_layers_and_24_raw_P_pairs": true,
+    "2_ring_0_product_gains_no_swi128_field_win": true,
+    "source_binding_checkpoint_records_match": true,
+    "verification_max_error_matches": true,
+    "all_4_product_adam_table_rows_exact": true,
+    "report_missing_zero_descriptive_scope": true,
+    "all_6_figure_files_exist": true,
+    "145_all_cache_manifest_file_hashes": true,
+    "lenovo_all_cache_manifest_file_hashes": true,
+    "145_native_source_manifest_digest": true,
+    "145_91_runtime_study_hashes_unchanged_since_witness": true,
+    "lenovo_native_source_manifest_digest": true,
+    "lenovo_91_runtime_study_hashes_unchanged_since_witness": true
+  },
+  "counts": {
+    "bound_raw_inputs": 30,
+    "checkpoint_bindings": 24,
+    "native_array_anchors": 24,
+    "round_trip_probe_pairs": 24,
+    "recorded_tensor_buffer_invariances": 24,
+    "finite_numpy_sw2_scores": 48,
+    "activation_records": 48,
+    "layers_per_activation": 6,
+    "layer_csv_rows": 288,
+    "unchanged_raw_P_checkpoint_pairs": 24,
+    "field_gains_by_task": {
+      "rotated_product_bimodal_16d": 0,
+      "gmm_ring8_2d": 2
+    },
+    "swapped_field_wins_over_swi128": 0,
+    "missing_outcomes": 0
+  },
+  "max_numpy_sw2_error": 4.175740730971711e-08,
+  "paired_details": [
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "field_ratio": 45.521074328136415,
+      "test_ratio": 8.192382256233877,
+      "field_gain_pct": -4452.107432813641,
+      "test_gain_pct": -719.2382256233877
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0",
+      "field_ratio": 32.320736411825216,
+      "test_ratio": 2.5801028340778105,
+      "field_gain_pct": -3132.0736411825214,
+      "test_gain_pct": -158.01028340778106
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0",
+      "field_ratio": 67.86745730384513,
+      "test_ratio": 6.814796397732284,
+      "field_gain_pct": -6686.745730384513,
+      "test_gain_pct": -581.4796397732284
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "field_ratio": 7.311975953473864,
+      "test_ratio": 2.8807959119887174,
+      "field_gain_pct": -631.1975953473864,
+      "test_gain_pct": -188.07959119887175
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+      "field_ratio": 2.4469531647947376,
+      "test_ratio": 1.5612350416725138,
+      "field_gain_pct": -144.69531647947375,
+      "test_gain_pct": -56.12350416725138
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+      "field_ratio": 11.789171339212833,
+      "test_ratio": 2.9405971887795674,
+      "field_gain_pct": -1078.9171339212833,
+      "test_gain_pct": -194.05971887795675
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+      "field_ratio": 39.881266439076256,
+      "test_ratio": 5.0811967175892025,
+      "field_gain_pct": -3888.1266439076257,
+      "test_gain_pct": -408.1196717589203
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+      "field_ratio": 32.37434701366293,
+      "test_ratio": 4.735435357060323,
+      "field_gain_pct": -3137.4347013662928,
+      "test_gain_pct": -373.54353570603234
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02",
+      "field_ratio": 36.78546212934843,
+      "test_ratio": 2.576662711127902,
+      "field_gain_pct": -3578.546212934843,
+      "test_gain_pct": -157.6662711127902
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "field_ratio": 17.054803964358435,
+      "test_ratio": 3.2856276835916436,
+      "field_gain_pct": -1605.4803964358434,
+      "test_gain_pct": -228.56276835916435
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+      "field_ratio": 1.8874574728104718,
+      "test_ratio": 1.465447352687526,
+      "field_gain_pct": -88.74574728104719,
+      "test_gain_pct": -46.5447352687526
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+      "field_ratio": 13.576808627913211,
+      "test_ratio": 2.1360612136815167,
+      "field_gain_pct": -1257.680862791321,
+      "test_gain_pct": -113.60612136815166
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "field_ratio": 50.22648168371274,
+      "test_ratio": 1.5546196261433132,
+      "field_gain_pct": -4922.648168371275,
+      "test_gain_pct": -55.46196261433132
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0",
+      "field_ratio": 1.3339370340827437,
+      "test_ratio": 1.0466781546841353,
+      "field_gain_pct": -33.39370340827437,
+      "test_gain_pct": -4.667815468413528
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0",
+      "field_ratio": 110.14052244559964,
+      "test_ratio": 2.104470409170749,
+      "field_gain_pct": -10914.052244559964,
+      "test_gain_pct": -110.44704091707489
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "field_ratio": 6.209717665332135,
+      "test_ratio": 1.3577096265539437,
+      "field_gain_pct": -520.9717665332134,
+      "test_gain_pct": -35.77096265539437
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+      "field_ratio": 0.9685231433372584,
+      "test_ratio": 0.9567980604933445,
+      "field_gain_pct": 3.147685666274158,
+      "test_gain_pct": 4.320193950665551
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+      "field_ratio": 2.455253155598827,
+      "test_ratio": 0.931821580252264,
+      "field_gain_pct": -145.5253155598827,
+      "test_gain_pct": 6.817841974773597
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+      "field_ratio": 245.24323057917266,
+      "test_ratio": 2.8184390912238544,
+      "field_gain_pct": -24424.323057917267,
+      "test_gain_pct": -181.84390912238544
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+      "field_ratio": 1.533470469770347,
+      "test_ratio": 1.0621597665544968,
+      "field_gain_pct": -53.347046977034694,
+      "test_gain_pct": -6.215976655449684
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+      "field_ratio": 80.60483182464829,
+      "test_ratio": 1.9949687066154376,
+      "field_gain_pct": -7960.483182464829,
+      "test_gain_pct": -99.49687066154375
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+      "field_ratio": 7.84592021502204,
+      "test_ratio": 1.0707416567467616,
+      "field_gain_pct": -684.5920215022039,
+      "test_gain_pct": -7.074165674676158
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.006",
+      "field_ratio": 0.9942386552093043,
+      "test_ratio": 0.9466626710446602,
+      "field_gain_pct": 0.5761344790695677,
+      "test_gain_pct": 5.333732895533982
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.02",
+      "field_ratio": 2.4029106406794893,
+      "test_ratio": 0.9346417707591742,
+      "field_gain_pct": -140.29106406794892,
+      "test_gain_pct": 6.535822924082579
+    }
+  ],
+  "scores": [
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.08792371774014422,
+      "native_sw2": 0.08792372047901154,
+      "abs_error": 2.7388673135009256e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.720304685796914,
+      "native_sw2": 0.7203047275543213,
+      "abs_error": 4.175740730971711e-08
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0",
+      "action": "native",
+      "numpy_sw2": 0.0941534063600622,
+      "native_sw2": 0.09415340423583984,
+      "abs_error": 2.124222353572236e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0",
+      "action": "swap",
+      "numpy_sw2": 0.24292546438711243,
+      "native_sw2": 0.2429254651069641,
+      "abs_error": 7.19851678265826e-10
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0",
+      "action": "native",
+      "numpy_sw2": 0.09325563797748711,
+      "native_sw2": 0.09325563907623291,
+      "abs_error": 1.09874580267455e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0",
+      "action": "swap",
+      "numpy_sw2": 0.6355181891729952,
+      "native_sw2": 0.6355181932449341,
+      "abs_error": 4.071938897176608e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.097663574914465,
+      "native_sw2": 0.09766357392072678,
+      "abs_error": 9.937382305924558e-10
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.2813488283702711,
+      "native_sw2": 0.2813488245010376,
+      "abs_error": 3.869233489162127e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+      "action": "native",
+      "numpy_sw2": 0.09700099498083416,
+      "native_sw2": 0.09700099378824234,
+      "abs_error": 1.1925918169675143e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+      "action": "swap",
+      "numpy_sw2": 0.15144134391970615,
+      "native_sw2": 0.15144135057926178,
+      "abs_error": 6.659555629173752e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+      "action": "native",
+      "numpy_sw2": 0.09410265601259592,
+      "native_sw2": 0.0941026508808136,
+      "abs_error": 5.131782318534839e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+      "action": "swap",
+      "numpy_sw2": 0.2767179991102542,
+      "native_sw2": 0.27671799063682556,
+      "abs_error": 8.473428625421775e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.10621718218149565,
+      "native_sw2": 0.10621718317270279,
+      "abs_error": 9.912071441409154e-10
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.539710414039251,
+      "native_sw2": 0.5397104024887085,
+      "abs_error": 1.1550542522442697e-08
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+      "action": "native",
+      "numpy_sw2": 0.09968779089786843,
+      "native_sw2": 0.09968778491020203,
+      "abs_error": 5.987666404361214e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+      "action": "swap",
+      "numpy_sw2": 0.47206507302871076,
+      "native_sw2": 0.4720650613307953,
+      "abs_error": 1.1697915469621734e-08
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02",
+      "action": "native",
+      "numpy_sw2": 0.0942858249240288,
+      "native_sw2": 0.09428582340478897,
+      "abs_error": 1.5192398311603128e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02",
+      "action": "swap",
+      "numpy_sw2": 0.24294277273987006,
+      "native_sw2": 0.24294276535511017,
+      "abs_error": 7.3847598869303255e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.09698299405001393,
+      "native_sw2": 0.09698299318552017,
+      "abs_error": 8.644937543600406e-10
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.318650011072684,
+      "native_sw2": 0.3186500072479248,
+      "abs_error": 3.8247591760409705e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+      "action": "native",
+      "numpy_sw2": 0.09649164085807828,
+      "native_sw2": 0.09649164229631424,
+      "abs_error": 1.438235960882217e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+      "action": "swap",
+      "numpy_sw2": 0.1414034197365703,
+      "native_sw2": 0.1414034217596054,
+      "abs_error": 2.0230351005512404e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+      "action": "native",
+      "numpy_sw2": 0.09484757864798846,
+      "native_sw2": 0.09484757483005524,
+      "abs_error": 3.817933219574243e-09
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+      "action": "swap",
+      "numpy_sw2": 0.2026002376902538,
+      "native_sw2": 0.20260022580623627,
+      "abs_error": 1.188401752005852e-08
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.22417465557993602,
+      "native_sw2": 0.22417466342449188,
+      "abs_error": 7.84455586599897e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.3485063248925057,
+      "native_sw2": 0.3485063314437866,
+      "abs_error": 6.551280906652579e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0",
+      "action": "native",
+      "numpy_sw2": 0.20384432570915315,
+      "native_sw2": 0.2038443237543106,
+      "abs_error": 1.954842537843504e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0",
+      "action": "swap",
+      "numpy_sw2": 0.213359399308696,
+      "native_sw2": 0.21335940062999725,
+      "abs_error": 1.3213012628465748e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0",
+      "action": "native",
+      "numpy_sw2": 0.19094806936789394,
+      "native_sw2": 0.19094806909561157,
+      "abs_error": 2.7228236332277334e-10
+    },
+    {
+      "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0",
+      "action": "swap",
+      "numpy_sw2": 0.40184455102858674,
+      "native_sw2": 0.4018445611000061,
+      "abs_error": 1.00714193651541e-08
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.22131161738118005,
+      "native_sw2": 0.22131161391735077,
+      "abs_error": 3.463829278960162e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.3004769033287082,
+      "native_sw2": 0.30047690868377686,
+      "abs_error": 5.35506866627955e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+      "action": "native",
+      "numpy_sw2": 0.20972649438052718,
+      "native_sw2": 0.2097264975309372,
+      "abs_error": 3.150410016194982e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+      "action": "swap",
+      "numpy_sw2": 0.20066590760922595,
+      "native_sw2": 0.2006659060716629,
+      "abs_error": 1.537563049103241e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+      "action": "native",
+      "numpy_sw2": 0.18814409059149598,
+      "native_sw2": 0.18814408779144287,
+      "abs_error": 2.8000531060445866e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+      "action": "swap",
+      "numpy_sw2": 0.17531672171747972,
+      "native_sw2": 0.175316721200943,
+      "abs_error": 5.165367300552504e-10
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.2224587905769679,
+      "native_sw2": 0.22245879471302032,
+      "abs_error": 4.1360524172251445e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.6269865960967372,
+      "native_sw2": 0.626986563205719,
+      "abs_error": 3.289101824233143e-08
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+      "action": "native",
+      "numpy_sw2": 0.2018707310750771,
+      "native_sw2": 0.20187073945999146,
+      "abs_error": 8.38491434618227e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+      "action": "swap",
+      "numpy_sw2": 0.21441897871448956,
+      "native_sw2": 0.21441897749900818,
+      "abs_error": 1.2154813822107258e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+      "action": "native",
+      "numpy_sw2": 0.20242007668395373,
+      "native_sw2": 0.20242007076740265,
+      "abs_error": 5.916551082396637e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+      "action": "swap",
+      "numpy_sw2": 0.40382169260473405,
+      "native_sw2": 0.4038217067718506,
+      "abs_error": 1.4167116535457325e-08
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+      "action": "native",
+      "numpy_sw2": 0.21326739898071398,
+      "native_sw2": 0.21326740086078644,
+      "abs_error": 1.880072458826376e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+      "action": "swap",
+      "numpy_sw2": 0.22835427767294791,
+      "native_sw2": 0.2283542901277542,
+      "abs_error": 1.2454806297412802e-08
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.006",
+      "action": "native",
+      "numpy_sw2": 0.20456848922790657,
+      "native_sw2": 0.20456849038600922,
+      "abs_error": 1.1581026415630191e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.006",
+      "action": "swap",
+      "numpy_sw2": 0.19365735028154307,
+      "native_sw2": 0.19365735352039337,
+      "abs_error": 3.2388502990698953e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.02",
+      "action": "native",
+      "numpy_sw2": 0.20260930359095924,
+      "native_sw2": 0.20260930061340332,
+      "abs_error": 2.9775559240441396e-09
+    },
+    {
+      "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.02",
+      "action": "swap",
+      "numpy_sw2": 0.18936711483973365,
+      "native_sw2": 0.1893671154975891,
+      "abs_error": 6.578554645475521e-10
+    }
+  ],
+  "product_adam_table": [
+    {
+      "line": "| MLP / sigmoid | 0.051505 | 2.344561 | 45.52x | 0.087924 / 0.720305 |",
+      "in_report": true
+    },
+    {
+      "line": "| MLP / affine | 0.066278 | 0.484622 | 7.31x | 0.097664 / 0.281349 |",
+      "in_report": true
+    },
+    {
+      "line": "| Linear / sigmoid | 0.051598 | 2.057786 | 39.88x | 0.106217 / 0.539710 |",
+      "in_report": true
+    },
+    {
+      "line": "| Linear / affine | 0.033553 | 0.572247 | 17.05x | 0.096983 / 0.318650 |",
+      "in_report": true
+    }
+  ],
+  "input_hashes": {
+    "145/results.json": "5b0c474be75b10333c60df27e7f9f44e6d858ef7f109c05fcd1f2f38d81a2202",
+    "145/finished.json": "02f71f2e913aa9116b6d752798af12b17ef466ab21a6ae1e6677b1974f8e3f74",
+    "145/manifest.json": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+    "145/rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003.npz": "0dc50ea86da0611974998713b3973ce9ffafb6450bb85034c377710a58b76882",
+    "145/rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0.npz": "aa10077d2da92fe7d90c68801b3a404227020cfa169b7f07e887dfbdfb4da155",
+    "145/rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0.npz": "8c7bb9d7097efbcc261578fef05035a69a814da1b2daa4946699c16593c8834a",
+    "145/rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003.npz": "2322320b5fdedf4e2241e6bd8d81fb470eac0d417e8af0be3c2d2fa420184434",
+    "145/rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006.npz": "9fd8271e528c5523d28285a64584128fd3e98529961d1c300394df1e5d1a10c4",
+    "145/rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02.npz": "538ac9ce6d91ccbe571c89825e93d65498b9abb9a250c3cf233c2f676dcd473d",
+    "145/rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003.npz": "76dee9562ab01505c49d33f30a858aa27f64cb02edcee03471a950b3fcefd5f9",
+    "145/rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006.npz": "773ed405d4987c63124c1ea2daa7b0e6012e81df64e85d4b1f98ca89aef4c149",
+    "145/rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02.npz": "29526033c8b88ca089d8b36feac0c4504f2a246b3b984df4fa286260e6689adc",
+    "145/rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003.npz": "64cda1f099917568a582308b94705a70aaa36863552b711f02df2690847e8fe5",
+    "145/rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006.npz": "797b5aea63a517ddc442e969567ee4604aa78870cf9854cb6cc0fc33f3af9f8c",
+    "145/rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02.npz": "2e9ef0d384f3b8a986e8150f700212e00e420683f3afafb11e11e8c6182141c0",
+    "lenovo/results.json": "0fef39dc3181511f82807638bceb40eb5cc75b47a8a05a3117d3465f937a7588",
+    "lenovo/finished.json": "6eeacce7358e2e553cf4d54a7c204cf0c3a145bbc58fcbd356f0018f77112aa6",
+    "lenovo/manifest.json": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+    "lenovo/gmm_ring8_2d__vector_pd_k2__adamw_0.0003.npz": "38dc67dc4a51f5b44ede11a43bd4ebc5c808f6e39c53f853b8cc01463f89d7ce",
+    "lenovo/gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0.npz": "156cd30f3056506d42f076a21e7a533a9a76162f0cf3b4dc332583cc691fd020",
+    "lenovo/gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0.npz": "e75c3f5fc30aa8ee20bb8f4c5f3ee5cbae930c3cea194e85302519d8cea0dfe5",
+    "lenovo/gmm_ring8_2d__pd_mlp_affine__adamw_0.0003.npz": "3a9992b086b7636717c0c89f8828fd381b4736bcdb1bafb89daf53cf9e4e8225",
+    "lenovo/gmm_ring8_2d__pd_mlp_affine__muon_0.006.npz": "511ff01ed54d2e15f471d549b0a90b90e541ff11d7b940bb21ad7766dc44ef5c",
+    "lenovo/gmm_ring8_2d__pd_mlp_affine__muon_0.02.npz": "e44f2df62ed7e36246a5048d99d0b88054b8d8233a3bba56e338196579e2937b",
+    "lenovo/gmm_ring8_2d__pd_factorized_linear__adamw_0.0003.npz": "bf9d0218d85bec0650cbb1c2be80465a3c332d10ba114ab5a00ce7364c7f3aa5",
+    "lenovo/gmm_ring8_2d__pd_factorized_linear__muon_0.006.npz": "5a04545185f63e3bfd1e69b608f343841c74f4aeba3b44a1dbc422330511a5a3",
+    "lenovo/gmm_ring8_2d__pd_factorized_linear__muon_0.02.npz": "821f765c5b852f0d0714dedd369444af408c0b27ee3377a9f235fee8c0ea0c9e",
+    "lenovo/gmm_ring8_2d__pd_factorized_affine__adamw_0.0003.npz": "7ee18ab7acb010121d1cb46561b7b74570f8cffb83c5c70263c0928a2a99e47e",
+    "lenovo/gmm_ring8_2d__pd_factorized_affine__muon_0.006.npz": "0e84baa602749612cf2a4cf5fabf4a6bfd3da3ee57a401dc73caa42e6dca89ed",
+    "lenovo/gmm_ring8_2d__pd_factorized_affine__muon_0.02.npz": "e9598f4e18f694b7f7468880f41f9f81220e4a2375947ae418a85eb9adda691a"
+  },
+  "bundle_hashes": {
+    "layer-statistics.csv": "539a337f4f894626ea75cdef03607add3dc018d01e5abdaa5e45cf8db7eabc45",
+    "figure-catalog.md": "10a72d643263ee3ae8cc5bd874c7e2a069836444501ccbfd59ec9daa38fc1d42",
+    "analysis-report.md": "366664efcce545130d8e0b43bb21b2d57d829344102c26ff2c796e671d74e48c",
+    "product-case-readouts.csv": "9c8fa27f31e3e2f365f6ea7c900a4a764e4a759d88de0cb24c4d3f25a71b5bf3",
+    "paired-changes.csv": "20122fc570bd74ce2bcfb08f1e5204e230f4d974787018be164b89440e2d5925",
+    "endpoints.csv": "2d8481322f17925db9cb04a8019837a2952910887178798368034a64bffd9649",
+    "source-bindings.json": "1158b3d23361501b3d805e6353f063a6326c02f1a12b1c4fd300d901ed29aa5c",
+    "stats-appendix.md": "75d35b825cd3ce271e4909fabefeedd9f5a9092dc621a10867c68146e25caed6",
+    "verification.json": "b9eede70f0382e6e9a31740c137e1c7a226c01db1e708ba232a2e0582dc80ef0"
+  },
+  "remote_evidence": {
+    "145": {
+      "exit_code": 0,
+      "stdout": "{\"folder\": \"/data2/zz5070/ODE_FFN/professor-autoresearch-cycle12-20261103/audit/frozen\", \"finished\": {\"passed\": true, \"pid\": 3045509, \"checkpoints\": 12, \"evaluations\": 24, \"results_sha256\": \"5b0c474be75b10333c60df27e7f9f44e6d858ef7f109c05fcd1f2f38d81a2202\"}, \"finished_results_digest_match\": true, \"rows\": [{\"cell\": \"rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"71bf39a826163898f90f96171674f90ebe9a849f8c70c9a80aa35083636c1b87\"}, {\"cell\": \"rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"b854482e0c9e5ebf931c23eb896e3ce7938cf24112ad91c9c484e381303bb6d3\"}, {\"cell\": \"rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"168f274305d8faa10eb24df5d6b0c9096457cc4eaa47b27a41ace208ef243a7d\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"83b1f635a25d08831f099328efc31b531c4c661949682dc54e80bdf4687a6669\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"cf085ba73062903caa9cee5c28d032d4ddce0af63c2ed3b07b664654f56096f1\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"ec1b45d12399f9e32a10aa99fede30cbb60de50b151523e1285fe0f2a7893c8b\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"d8c829a2e79fd73f78f4edbb0dc5e23c53187523145097e19420d65cf3e82ef8\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"654fddf064102ce66c3016910229540df36951a216d96c64768ed991d6e8b728\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"fdeb03ef56647f0158661956037e5860bac777e95802c07356fbaf0ab10daa2e\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"50133e84f004e22627ef705c39917240faa628d71b7be8af9e2dd2c93b17338d\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"5076534ecdbb8785a1ad391f8062aaebb68ccd658380b6dddddebf52a5d9342c\"}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"c4028a1e500a80998e8fffa4914c36ce9642033e8e0f05af7562ead778ee3043\"}], \"formal_process\": {\"exit_code\": 1, \"stdout\": \"\", \"stderr\": \"\"}, \"gpu\": {\"exit_code\": 0, \"stdout\": \"0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 2 MiB, 0 %\\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 2 MiB, 0 %\\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 2 MiB, 0 %\\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 2 MiB, 0 %\\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 2 MiB, 0 %\\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 2 MiB, 0 %\\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 2 MiB, 0 %\\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 2 MiB, 0 %\\n\", \"stderr\": \"\"}, \"compute_processes\": {\"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\"}}\n",
+      "stderr": "",
+      "facts": {
+        "folder": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle12-20261103/audit/frozen",
+        "finished": {
+          "passed": true,
+          "pid": 3045509,
+          "checkpoints": 12,
+          "evaluations": 24,
+          "results_sha256": "5b0c474be75b10333c60df27e7f9f44e6d858ef7f109c05fcd1f2f38d81a2202"
+        },
+        "finished_results_digest_match": true,
+        "rows": [
+          {
+            "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "71bf39a826163898f90f96171674f90ebe9a849f8c70c9a80aa35083636c1b87"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "b854482e0c9e5ebf931c23eb896e3ce7938cf24112ad91c9c484e381303bb6d3"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "168f274305d8faa10eb24df5d6b0c9096457cc4eaa47b27a41ace208ef243a7d"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "83b1f635a25d08831f099328efc31b531c4c661949682dc54e80bdf4687a6669"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "cf085ba73062903caa9cee5c28d032d4ddce0af63c2ed3b07b664654f56096f1"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "ec1b45d12399f9e32a10aa99fede30cbb60de50b151523e1285fe0f2a7893c8b"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "d8c829a2e79fd73f78f4edbb0dc5e23c53187523145097e19420d65cf3e82ef8"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "654fddf064102ce66c3016910229540df36951a216d96c64768ed991d6e8b728"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "fdeb03ef56647f0158661956037e5860bac777e95802c07356fbaf0ab10daa2e"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "50133e84f004e22627ef705c39917240faa628d71b7be8af9e2dd2c93b17338d"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "5076534ecdbb8785a1ad391f8062aaebb68ccd658380b6dddddebf52a5d9342c"
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "c4028a1e500a80998e8fffa4914c36ce9642033e8e0f05af7562ead778ee3043"
+          }
+        ],
+        "formal_process": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": ""
+        },
+        "gpu": {
+          "exit_code": 0,
+          "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 2 MiB, 0 %\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 2 MiB, 0 %\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 2 MiB, 0 %\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 2 MiB, 0 %\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 2 MiB, 0 %\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 2 MiB, 0 %\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 2 MiB, 0 %\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 2 MiB, 0 %\n",
+          "stderr": ""
+        },
+        "compute_processes": {
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      }
+    },
+    "lenovo": {
+      "exit_code": 0,
+      "stdout": "{\"folder\": \"D:\\\\Research\\\\ODE-FFN\\\\professor-autoresearch-cycle12-20261103\\\\audit\\\\frozen\", \"finished\": {\"passed\": true, \"pid\": 18676, \"checkpoints\": 12, \"evaluations\": 24, \"results_sha256\": \"0fef39dc3181511f82807638bceb40eb5cc75b47a8a05a3117d3465f937a7588\"}, \"finished_results_digest_match\": true, \"rows\": [{\"cell\": \"gmm_ring8_2d__vector_pd_k2__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"fb878f9c45950fa754eeacda76550b79e8adf39e7244ea26dc3d056d89cf0057\"}, {\"cell\": \"gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"95e59a6784a240c4b7fa1f7b6c2edc941caa1b3515f250f4e602fc831aa48a05\"}, {\"cell\": \"gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"b22b3950924788f9f749fe133115f8f81358ab449b463a741c5e643cad2967b7\"}, {\"cell\": \"gmm_ring8_2d__pd_mlp_affine__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"0db21a98f9fa761d865b9db5f8c008b23590ec6210b8bbdfb5c99885b370fa73\"}, {\"cell\": \"gmm_ring8_2d__pd_mlp_affine__muon_0.006\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"b9e2468659127e3bdf0b2a6143531cf27af0ee125e866b392768e9d2bf3691f5\"}, {\"cell\": \"gmm_ring8_2d__pd_mlp_affine__muon_0.02\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"58aa398bb3e9bbe27b7c9b9cbd530b3b76a99efdda4707360d88569701289a06\"}, {\"cell\": \"gmm_ring8_2d__pd_factorized_linear__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"084b83d59f9049550ec476ed95f7c74760a93056b4050f63b0d60229f0d9ab5d\"}, {\"cell\": \"gmm_ring8_2d__pd_factorized_linear__muon_0.006\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"e161684a3d0fbcd86503ee1cc00a6221724099b050f4218c5f6432e990e121e5\"}, {\"cell\": \"gmm_ring8_2d__pd_factorized_linear__muon_0.02\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"dba01366c4192aa6805c1e441a52d0402acca147e4bad496acee1bddbacfa966\"}, {\"cell\": \"gmm_ring8_2d__pd_factorized_affine__adamw_0.0003\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"f251d75766e8634a0c7c20c4c0fa9002b2c5512422fff1529f8df61b845f732a\"}, {\"cell\": \"gmm_ring8_2d__pd_factorized_affine__muon_0.006\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"8fccf1218e42da18742417eadd35f706062bd31c37464cb7b14f395615564a54\"}, {\"cell\": \"gmm_ring8_2d__pd_factorized_affine__muon_0.02\", \"checkpoint_sha256_match\": true, \"config_sha256_match\": true, \"array_sha256_match\": true, \"native_generated_anchor_exact\": true, \"native_target_anchor_exact\": true, \"archive_sha256\": \"e6de1b337cea0084b778d6ffe21008df67de3cbbc27c864d6d37839825c6e4cd\"}], \"formal_process\": {\"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\"}, \"gpu\": {\"exit_code\": 0, \"stdout\": \"0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 415 MiB, 0 %\\n\", \"stderr\": \"\"}, \"compute_processes\": {\"exit_code\": 0, \"stdout\": \"GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 2728, C:\\\\Windows\\\\System32\\\\dwm.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9412, C:\\\\Windows\\\\System32\\\\ShellHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16644, C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\CrossDeviceResume.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16156, C:\\\\Windows\\\\explorer.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19688, C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\SearchHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19700, C:\\\\Windows\\\\SystemApps\\\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\\\StartMenuExperienceHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20992, C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\156.0.4314.58\\\\msedgewebview2.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 22476, C:\\\\Windows\\\\System32\\\\NahimicSvc64.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 17572, C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\TextInputHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24664, C:\\\\Users\\\\Jonat\\\\AppData\\\\Local\\\\Programs\\\\@opencodedesktop\\\\OpenCode.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24924, C:\\\\Program Files\\\\Razer\\\\RazerAppEngine\\\\app-4.0.827\\\\RazerAppEngine.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 28748, C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\156.0.4314.58\\\\msedgewebview2.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 23364, C:\\\\Windows\\\\System32\\\\ApplicationFrameHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20756, C:\\\\Windows\\\\SystemApps\\\\ShellExperienceHost_cw5n1h2txyewy\\\\ShellExperienceHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16968, C:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9492, C:\\\\Program Files\\\\WindowsApps\\\\A-Volute.Nahimic_1.10.15.0_x64__w2gh52qy24etm\\\\Nahimic3.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16976, C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.YourPhone_1.26092.119.0_x64__8wekyb3d8bbwe\\\\PhoneExperienceHost.exe, [N/A]\\n\", \"stderr\": \"\"}}\n",
+      "stderr": "",
+      "facts": {
+        "folder": "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle12-20261103\\audit\\frozen",
+        "finished": {
+          "passed": true,
+          "pid": 18676,
+          "checkpoints": 12,
+          "evaluations": 24,
+          "results_sha256": "0fef39dc3181511f82807638bceb40eb5cc75b47a8a05a3117d3465f937a7588"
+        },
+        "finished_results_digest_match": true,
+        "rows": [
+          {
+            "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "fb878f9c45950fa754eeacda76550b79e8adf39e7244ea26dc3d056d89cf0057"
+          },
+          {
+            "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "95e59a6784a240c4b7fa1f7b6c2edc941caa1b3515f250f4e602fc831aa48a05"
+          },
+          {
+            "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "b22b3950924788f9f749fe133115f8f81358ab449b463a741c5e643cad2967b7"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "0db21a98f9fa761d865b9db5f8c008b23590ec6210b8bbdfb5c99885b370fa73"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "b9e2468659127e3bdf0b2a6143531cf27af0ee125e866b392768e9d2bf3691f5"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "58aa398bb3e9bbe27b7c9b9cbd530b3b76a99efdda4707360d88569701289a06"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "084b83d59f9049550ec476ed95f7c74760a93056b4050f63b0d60229f0d9ab5d"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "e161684a3d0fbcd86503ee1cc00a6221724099b050f4218c5f6432e990e121e5"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "dba01366c4192aa6805c1e441a52d0402acca147e4bad496acee1bddbacfa966"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "f251d75766e8634a0c7c20c4c0fa9002b2c5512422fff1529f8df61b845f732a"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.006",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "8fccf1218e42da18742417eadd35f706062bd31c37464cb7b14f395615564a54"
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.02",
+            "checkpoint_sha256_match": true,
+            "config_sha256_match": true,
+            "array_sha256_match": true,
+            "native_generated_anchor_exact": true,
+            "native_target_anchor_exact": true,
+            "archive_sha256": "e6de1b337cea0084b778d6ffe21008df67de3cbbc27c864d6d37839825c6e4cd"
+          }
+        ],
+        "formal_process": {
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "gpu": {
+          "exit_code": 0,
+          "stdout": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 415 MiB, 0 %\n",
+          "stderr": ""
+        },
+        "compute_processes": {
+          "exit_code": 0,
+          "stdout": "GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 2728, C:\\Windows\\System32\\dwm.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9412, C:\\Windows\\System32\\ShellHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16644, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16156, C:\\Windows\\explorer.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19688, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19700, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20992, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\156.0.4314.58\\msedgewebview2.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 22476, C:\\Windows\\System32\\NahimicSvc64.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 17572, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24664, C:\\Users\\Jonat\\AppData\\Local\\Programs\\@opencodedesktop\\OpenCode.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24924, C:\\Program Files\\Razer\\RazerAppEngine\\app-4.0.827\\RazerAppEngine.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 28748, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\156.0.4314.58\\msedgewebview2.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 23364, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20756, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16968, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9492, C:\\Program Files\\WindowsApps\\A-Volute.Nahimic_1.10.15.0_x64__w2gh52qy24etm\\Nahimic3.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16976, C:\\Program Files\\WindowsApps\\Microsoft.YourPhone_1.26092.119.0_x64__8wekyb3d8bbwe\\PhoneExperienceHost.exe, [N/A]\n",
+          "stderr": ""
+        }
+      }
+    }
+  },
+  "runtime_facts": {
+    "145": {
+      "exit_code": 0,
+      "stdout": "{\"utc\": \"2026-11-03T02:16:41.913333+00:00\", \"host\": \"145\", \"repo\": \"/data2/zz5070/ODE_FFN/professor-autoresearch-cycle12-20261103/repo\", \"head\": {\"exit_code\": 0, \"stdout\": \"290359d596cfac5214e229367397f6fbe9b49f32\\n\", \"stderr\": \"\"}, \"status\": {\"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\"}, \"gpu\": {\"exit_code\": 0, \"stdout\": \"0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 2 MiB, 49140 MiB\\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 2 MiB, 49140 MiB\\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 2 MiB, 49140 MiB\\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 2 MiB, 49140 MiB\\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 2 MiB, 49140 MiB\\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 2 MiB, 49140 MiB\\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 2 MiB, 49140 MiB\\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 2 MiB, 49140 MiB\\n\", \"stderr\": \"\"}, \"processes\": {\"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\"}, \"disk\": {\"total\": 1919445725184, \"used\": 1890163286016, \"free\": 29282439168}, \"documented_output_exists\": true, \"hashes\": {\"studies/muon_pd_20261102/audit_completed.py\": \"735bbaeb78d3759f245d1ba42dd6db4500b38871941fe9d351f721639bd15365\", \"studies/muon_pd_20261102/autoresearch_20261103/analyze.py\": \"f6d7c838e1e55ac7f82ec15da88567f7a620c68d947e285f36ef1c18a4ebe279\", \"studies/muon_pd_20261102/autoresearch_20261103/check.py\": \"76865dfb1505fcd1830ebd74ffce8be6c94fed0ab87887ce69247a8ca3f630bc\", \"studies/muon_pd_20261102/autoresearch_20261103/collect.py\": \"1f667d7ca73816ef9350aa62622393bc6dff779a67bb21cc3089ff57e2ab5678\", \"studies/muon_pd_20261102/autoresearch_20261103/coordinate_step.py\": \"4bf5071f2ff18b0131a8ada0158fac9cdbe8953f115ee56f6d0cdccb89d086f4\", \"studies/muon_pd_20261102/autoresearch_20261103/curate_costs.py\": \"02d88abc386bebb6cc829f16d7d49547d447b43de51a98d095947fcdc9020fa0\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/anchors.py\": \"396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/check10.py\": \"839b428e25d56f7a3afd76796f7d9193eee8c4ded966965ab1a2eac31e4769d7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/diagonals.py\": \"f7013e01b8b684f34d01bcf12c7a3c2e9ed62371680d31e5a7b54fd831edffe4\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/grid.json\": \"27aea62cac0590aab581ef5f4a3f40dc9f9867bb10fe7dfaccb29bda16a7c4d5\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/render.py\": \"339a0e5b1e372a28bec03a279c6d8b9667641366df86e222aed3bd402196c6e3\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/trial10.py\": \"6d829ed321d3243a5c990ed362dcd3eb1d0fbfbc601a38b086f37a630f1e931e\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/anchors.py\": \"3b94043a30ee4760720bf8f04cd1806fd1a2b93b234e220b835052dd4e1db07a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/check11.py\": \"2c0fe16add0c63f2ebd9ed97ec139af52083915ba10cd5d74ea5b3bf53fbedf4\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial-parents.json\": \"91ce66a1b8f50cd5b49480566cdc06fb6451becc3d9fd7cc8bae88c205e098f5\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial.py\": \"8160f0009753a6cccc90838b15e49081154d713c64a964d3a341662af17d8f04\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/grid.json\": \"6a5291907b5c6cdc13e91b22b4b2771bde0caa55cc52c3427ae76b52a6812ba7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/trial11.py\": \"58f4d524bab9176a1a952698372bba7f589e82b7910388e6759da082169461d1\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle12/cases.json\": \"5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle12/swap.py\": \"f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/check2.py\": \"a6d1b3a99536669d308c8b90b4ff6cf8bd6708cb8be00be5004122a10ce5d19a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/grid.json\": \"6905d08619bd6002a281b334c440004fa6829d5b10ab6dca6c1b7442906715dd\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/trial2.py\": \"a000fa7dbdd04fab7b3ea3da741753b068b28241ce686f7aa5c985401c37c0b4\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/check3.py\": \"cea1871e587b0507551f9baed2d759ea3a60d2ab86f3af8ddf0452095dac1fd7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json\": \"31b8ebcfc0a3790bc769386e53984b62647267767750c52ec101669e8151ee81\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py\": \"61f46dfe8828901083e3b0ea08c72aa37886de31d71de52f3617858b4739aeb7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/check4.py\": \"3b90a44f706c89fdc31c2154f0391408dbc6dfac4f9fe7d90139d15d300225b3\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/grid.json\": \"aa324f12e2e407c8af6e88f822723d299058b1269e15ff48f541545936623111\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/trial4.py\": \"61886ccf85e311d08aef6e8109ee18975685c2bd60dd96a7b66358be60fe7e3e\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle5/check5.py\": \"e31609d837e13b825541382261fad64c15951832ceef79fda5fad7e355ae0b4b\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle5/grid.json\": \"0186621a6ed3cc08ab485cd15dcbd8f5c9dc4e0ec895af58ef58d319b8fcf823\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle5/trial5.py\": \"a3acb8dc8e96f17848063759e6c4fdd30537dfc9f7ab510ba757c6b130ae3469\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/analyze_budget.py\": \"5605b3b13ccc2a2d0eb79563a1f6cf3639b8f60c8333a9e10e626a3b39361cf3\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/check6.py\": \"15145311a68a38e1e7717a753a4de7ea940a9d5a7ffee370ff9e986d5a58476a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/grid.json\": \"e665df6490577cd5faf6b92778fffd89b0c37ffd5a79f75ff300fc509cf753af\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/prefix.py\": \"723fc35ca7f1b34c78fd33b17311a24ef15b8c610156c654e750daefb67f0297\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/render_readouts.py\": \"4c6f28fb549702f2fc1cdbbd98c5411d2452016021ee9c494b12dcf0789c8cf7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/sample_readouts.py\": \"a4e4f40b2bf3776cc890a9ade747ba26094da04061608d9cba3dfd67f3236735\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/trial6.py\": \"c2f102286106e35f7ab6c37fe6ed05dabbae72d7404e2f8da2ff4449488e92b6\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle7/analyze.py\": \"191aa7ab3f223b7300f4fc4f7fec8ae7424de9659b75c3c4f08e5ad533ac2e6e\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle7/frozen_shape.py\": \"2a83fce410332acff6b169b895e229a184582819b9c7e8180f07d123ef85a329\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/audit_states.py\": \"d7afc5c6f25b459800ab1db5d447e7a533661dc9f8d94829fe1e40b1c8e54b7c\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/check8.py\": \"68987bfc1303b01dc9245cf8a01219d64e810c3c7f6b88f7089002a75f2082e6\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/grid.json\": \"31cba9c88338e1302c7dfd9553ae8a10944739944ebaef52a4656e556ca54098\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/render.py\": \"3fd2ea9fd03057c520fdbc947038f903d8b26c43bbdd808fa7972c074dffbefe\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/trial8.py\": \"318cc9541c262bf0d99546bb6996424b03d1b35e295c1f1854b64fe05c72768c\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle9/cases.json\": \"4a075ba4774239051251643082ab1e25a99416e0c3caeb137b3ca6eb3038079a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle9/features.py\": \"86f7376bf61e0f57d3d21ed47405cb3dfdd3fe7fcb527b748c0e089dc186a6ac\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle9/replay.py\": \"a436e02f5a9ffbcbf9b3cb9e7400ee85b60c6589f197e3801c9e53ed1b4f0682\", \"studies/muon_pd_20261102/autoresearch_20261103/decompose_spectra.py\": \"231c1c187501e3b25aa891793d71ed8bef8aee99e19cfd41d79f7065c5dcea3e\", \"studies/muon_pd_20261102/autoresearch_20261103/feature_metric_witness.py\": \"6078f46c092b7c29a301d93e046dbf3613010291d9338bd273777a1ff776079f\", \"studies/muon_pd_20261102/autoresearch_20261103/gauge_case.py\": \"d2183f8b95761cd9b522208dc6269b6d46751d8b9ee0c5eea6518c2bddb81ce3\", \"studies/muon_pd_20261102/autoresearch_20261103/grid.json\": \"1b6278d7989ba2aad113e454dbc1e02b5456427eb22864667c77f6a94f1f71b7\", \"studies/muon_pd_20261102/autoresearch_20261103/muon_metric_case.py\": \"e8f6d6876f5b5ae97c25dc9289c7677dfb01dc67c186698f2e458f38f039467c\", \"studies/muon_pd_20261102/autoresearch_20261103/nonlinear_flow_case.py\": \"c6eb06d8cf9f20505df2d30283ed54988143a62f8471e3b3669746038942cbf9\", \"studies/muon_pd_20261102/autoresearch_20261103/precision_case.py\": \"9999fff4d6e3db173fda6a45d32a0f38b86770b562a079b1907498e87a2c7f8e\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle1.py\": \"81c0d39192b3195fedd5230df06cdf31838d8ada4a93f4c335b0c3026c67fef2\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle2.py\": \"d24b65894b45b932899c0b8f3fce0bd1cbf1246e97c4b61812c4771df35df8e5\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle3.py\": \"80b187a98097c1400bb7d34319183b96484b3be58515cda881c480a3edae2e19\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle4.py\": \"600495e56fedcd8761a6cb293bcefe869e916550ac733848b78b0d367ce9215f\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle5.py\": \"151d4213895c716f324fdc3b3ad070670c542fba33efa1ea4bd3aad6389924d8\", \"studies/muon_pd_20261102/autoresearch_20261103/render_samples.py\": \"c7074caeb8d6e2f80fe6fa6387cce667dd6a86135a7957fd6abf8ade79d872f0\", \"studies/muon_pd_20261102/autoresearch_20261103/render_spectrum.py\": \"efd116c14aac24da3a5070cb82ad883850552080c7dfb0e1167623fc818de2e1\", \"studies/muon_pd_20261102/autoresearch_20261103/render_symmetry.py\": \"a005b40e5d8ed517265e7e9b992a46e8b54a1982b31ba29b1af3973d5eb04860\", \"studies/muon_pd_20261102/autoresearch_20261103/sample_structure.py\": \"9a14e7abf2699d37d8f875686217006c09449402058144352621f4dfa90f8e2d\", \"studies/muon_pd_20261102/autoresearch_20261103/signed_diagonal_case.py\": \"6bd4dc8815ed869561c9b36f5a46578df8601a048664005b5af9aa77143abe60\", \"studies/muon_pd_20261102/autoresearch_20261103/solver_profile.py\": \"1e4e25f5b1c0403e66a153455b7ac25f49d4f489c6373716ed3b204ca86685ff\", \"studies/muon_pd_20261102/autoresearch_20261103/symmetry_case.py\": \"a8d314edad885be2a14912defa451fd181db91fad897c5d9092d149ee6c4ff7d\", \"studies/muon_pd_20261102/autoresearch_20261103/trial.py\": \"e44a54337ad9b21791defb6de71ca691fe4ea61245857a7dee8d5b24b25ea84e\", \"studies/muon_pd_20261102/data_identity.json\": \"2d276f374f91e4776c986d5788cfd7464ca1eea374c2eae8a6ab6597e54e9eb9\", \"studies/muon_pd_20261102/grid.json\": \"e8168a4a460f75ea8e15e6c7081e46c13d4a1e793c5aaf616ea02ce69a3c260b\", \"studies/muon_pd_20261102/preflight.py\": \"e50b078931f43a8a1e83ee3954f043702f9ff2319ded16b44d594e8b1d17deb1\", \"studies/muon_pd_20261102/reference/synthetic/augmented.py\": \"0d7cfa085e096518ddff9e035b15402fd022fe1ba06643b00b131ea07c3008ee\", \"studies/muon_pd_20261102/reference/synthetic/covariance.py\": \"8361e697c89fdca65d365bdffa7e087d380527bfd519b4199281b6ea1d829f20\", \"studies/muon_pd_20261102/reference/synthetic/data.py\": \"ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5\", \"studies/muon_pd_20261102/reference/synthetic/diagnostics.py\": \"58c9d56d57c0b4435143b74c40841514b998aad19fa7496c3ce0aa0a5efc1561\", \"studies/muon_pd_20261102/reference/synthetic/diagonal.py\": \"9cc0b28f1552b461d7e570fe5f8f32047ce90812be4decd3583aeaeb35e3c2de\", \"studies/muon_pd_20261102/reference/synthetic/forced_gate.py\": \"7f4a7defa6409d96bf7a94a5b50da6b8aca06b1bf55bfffd659e59589b59b428\", \"studies/muon_pd_20261102/reference/synthetic/models.py\": \"85c3dabd318ad30eecd8d89c5513d0c1d31b690fc20fd89cde6fd5f2962e44aa\", \"studies/muon_pd_20261102/reference/synthetic/state_clock.py\": \"131a28bcb21dd3fb82ea33828a31aa0f2ce418044b32356d54e3862833098371\", \"studies/muon_pd_20261102/reference/synthetic/train.py\": \"12045e59bfe9955729139af0a612df0ccfdacf994d44be78e9793618910a727d\", \"studies/muon_pd_20261102/run.py\": \"b6e9407d46ea16fe356215120ce774a10bc15a54a4e7df47ba7e979113be94f3\", \"studies/muon_pd_20261102/run_queue.py\": \"2791b37983f84d42f87a07a446eff6be9ccdcdbcea2462e917bf8df9e190b110\", \"studies/muon_pd_20261102/source_provenance.json\": \"f968d416b004192b48a2ec599f65453609ab1cac19c259aeb38499bd04708a01\", \"studies/muon_pd_20261102/vendor/muon.py\": \"2479665a90124f62e4df557816665851ca317e42fcfda2af1da02c1f44ab5f3d\", \"studies/muon_pd_20261102/wave2/grid.json\": \"bc34447b4090d27e521d8ae18735f704ab5ef7988b3fec83cda453075264bf65\", \"studies/muon_pd_20261102/wave2/preflight_wave2.py\": \"9d8e69d0f027d1975a2156fa56a6e0459a720debbb168f314f4927846c40a781\", \"studies/muon_pd_20261102/wave2/render_wave1.py\": \"7bd41493a0b06252c7c231cbb0efa3b67eaaef52aa1e14296b2fdbfe35d592d4\", \"studies/muon_pd_20261102/wave2/summarize_results.py\": \"dd8631586bad35327697b1d952f01a2cb88606035efe8dfe2b7f80dceeb06de3\", \"studies/muon_pd_20261102/wave2/train_wave2.py\": \"9326f7cabdc275faaa04e26b041d41c884e2966d1e776bad3bea0cde756750a5\", \"studies/muon_pd_20261102/wave2/variants.py\": \"6f3181d222b0ecfd1325433ca9c4495e40d1b7aaa6dc4ad1f28b8ac5c5b7b796\"}}\n",
+      "stderr": "",
+      "facts": {
+        "utc": "2026-11-03T02:16:41.913333+00:00",
+        "host": "145",
+        "repo": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle12-20261103/repo",
+        "head": {
+          "exit_code": 0,
+          "stdout": "290359d596cfac5214e229367397f6fbe9b49f32\n",
+          "stderr": ""
+        },
+        "status": {
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "gpu": {
+          "exit_code": 0,
+          "stdout": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 2 MiB, 49140 MiB\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 2 MiB, 49140 MiB\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 2 MiB, 49140 MiB\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 2 MiB, 49140 MiB\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 2 MiB, 49140 MiB\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 2 MiB, 49140 MiB\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 2 MiB, 49140 MiB\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 2 MiB, 49140 MiB\n",
+          "stderr": ""
+        },
+        "processes": {
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "disk": {
+          "total": 1919445725184,
+          "used": 1890163286016,
+          "free": 29282439168
+        },
+        "documented_output_exists": true,
+        "hashes": {
+          "studies/muon_pd_20261102/audit_completed.py": "735bbaeb78d3759f245d1ba42dd6db4500b38871941fe9d351f721639bd15365",
+          "studies/muon_pd_20261102/autoresearch_20261103/analyze.py": "f6d7c838e1e55ac7f82ec15da88567f7a620c68d947e285f36ef1c18a4ebe279",
+          "studies/muon_pd_20261102/autoresearch_20261103/check.py": "76865dfb1505fcd1830ebd74ffce8be6c94fed0ab87887ce69247a8ca3f630bc",
+          "studies/muon_pd_20261102/autoresearch_20261103/collect.py": "1f667d7ca73816ef9350aa62622393bc6dff779a67bb21cc3089ff57e2ab5678",
+          "studies/muon_pd_20261102/autoresearch_20261103/coordinate_step.py": "4bf5071f2ff18b0131a8ada0158fac9cdbe8953f115ee56f6d0cdccb89d086f4",
+          "studies/muon_pd_20261102/autoresearch_20261103/curate_costs.py": "02d88abc386bebb6cc829f16d7d49547d447b43de51a98d095947fcdc9020fa0",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/anchors.py": "396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/check10.py": "839b428e25d56f7a3afd76796f7d9193eee8c4ded966965ab1a2eac31e4769d7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/diagonals.py": "f7013e01b8b684f34d01bcf12c7a3c2e9ed62371680d31e5a7b54fd831edffe4",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/grid.json": "27aea62cac0590aab581ef5f4a3f40dc9f9867bb10fe7dfaccb29bda16a7c4d5",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/render.py": "339a0e5b1e372a28bec03a279c6d8b9667641366df86e222aed3bd402196c6e3",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/trial10.py": "6d829ed321d3243a5c990ed362dcd3eb1d0fbfbc601a38b086f37a630f1e931e",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/anchors.py": "3b94043a30ee4760720bf8f04cd1806fd1a2b93b234e220b835052dd4e1db07a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/check11.py": "2c0fe16add0c63f2ebd9ed97ec139af52083915ba10cd5d74ea5b3bf53fbedf4",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial-parents.json": "91ce66a1b8f50cd5b49480566cdc06fb6451becc3d9fd7cc8bae88c205e098f5",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial.py": "8160f0009753a6cccc90838b15e49081154d713c64a964d3a341662af17d8f04",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/grid.json": "6a5291907b5c6cdc13e91b22b4b2771bde0caa55cc52c3427ae76b52a6812ba7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/trial11.py": "58f4d524bab9176a1a952698372bba7f589e82b7910388e6759da082169461d1",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle12/cases.json": "5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle12/swap.py": "f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle2/check2.py": "a6d1b3a99536669d308c8b90b4ff6cf8bd6708cb8be00be5004122a10ce5d19a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle2/grid.json": "6905d08619bd6002a281b334c440004fa6829d5b10ab6dca6c1b7442906715dd",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle2/trial2.py": "a000fa7dbdd04fab7b3ea3da741753b068b28241ce686f7aa5c985401c37c0b4",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle3/check3.py": "cea1871e587b0507551f9baed2d759ea3a60d2ab86f3af8ddf0452095dac1fd7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json": "31b8ebcfc0a3790bc769386e53984b62647267767750c52ec101669e8151ee81",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py": "61f46dfe8828901083e3b0ea08c72aa37886de31d71de52f3617858b4739aeb7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle4/check4.py": "3b90a44f706c89fdc31c2154f0391408dbc6dfac4f9fe7d90139d15d300225b3",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle4/grid.json": "aa324f12e2e407c8af6e88f822723d299058b1269e15ff48f541545936623111",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle4/trial4.py": "61886ccf85e311d08aef6e8109ee18975685c2bd60dd96a7b66358be60fe7e3e",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle5/check5.py": "e31609d837e13b825541382261fad64c15951832ceef79fda5fad7e355ae0b4b",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle5/grid.json": "0186621a6ed3cc08ab485cd15dcbd8f5c9dc4e0ec895af58ef58d319b8fcf823",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle5/trial5.py": "a3acb8dc8e96f17848063759e6c4fdd30537dfc9f7ab510ba757c6b130ae3469",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/analyze_budget.py": "5605b3b13ccc2a2d0eb79563a1f6cf3639b8f60c8333a9e10e626a3b39361cf3",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/check6.py": "15145311a68a38e1e7717a753a4de7ea940a9d5a7ffee370ff9e986d5a58476a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/grid.json": "e665df6490577cd5faf6b92778fffd89b0c37ffd5a79f75ff300fc509cf753af",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/prefix.py": "723fc35ca7f1b34c78fd33b17311a24ef15b8c610156c654e750daefb67f0297",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/render_readouts.py": "4c6f28fb549702f2fc1cdbbd98c5411d2452016021ee9c494b12dcf0789c8cf7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/sample_readouts.py": "a4e4f40b2bf3776cc890a9ade747ba26094da04061608d9cba3dfd67f3236735",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/trial6.py": "c2f102286106e35f7ab6c37fe6ed05dabbae72d7404e2f8da2ff4449488e92b6",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle7/analyze.py": "191aa7ab3f223b7300f4fc4f7fec8ae7424de9659b75c3c4f08e5ad533ac2e6e",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle7/frozen_shape.py": "2a83fce410332acff6b169b895e229a184582819b9c7e8180f07d123ef85a329",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/audit_states.py": "d7afc5c6f25b459800ab1db5d447e7a533661dc9f8d94829fe1e40b1c8e54b7c",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/check8.py": "68987bfc1303b01dc9245cf8a01219d64e810c3c7f6b88f7089002a75f2082e6",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/grid.json": "31cba9c88338e1302c7dfd9553ae8a10944739944ebaef52a4656e556ca54098",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/render.py": "3fd2ea9fd03057c520fdbc947038f903d8b26c43bbdd808fa7972c074dffbefe",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/trial8.py": "318cc9541c262bf0d99546bb6996424b03d1b35e295c1f1854b64fe05c72768c",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle9/cases.json": "4a075ba4774239051251643082ab1e25a99416e0c3caeb137b3ca6eb3038079a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle9/features.py": "86f7376bf61e0f57d3d21ed47405cb3dfdd3fe7fcb527b748c0e089dc186a6ac",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle9/replay.py": "a436e02f5a9ffbcbf9b3cb9e7400ee85b60c6589f197e3801c9e53ed1b4f0682",
+          "studies/muon_pd_20261102/autoresearch_20261103/decompose_spectra.py": "231c1c187501e3b25aa891793d71ed8bef8aee99e19cfd41d79f7065c5dcea3e",
+          "studies/muon_pd_20261102/autoresearch_20261103/feature_metric_witness.py": "6078f46c092b7c29a301d93e046dbf3613010291d9338bd273777a1ff776079f",
+          "studies/muon_pd_20261102/autoresearch_20261103/gauge_case.py": "d2183f8b95761cd9b522208dc6269b6d46751d8b9ee0c5eea6518c2bddb81ce3",
+          "studies/muon_pd_20261102/autoresearch_20261103/grid.json": "1b6278d7989ba2aad113e454dbc1e02b5456427eb22864667c77f6a94f1f71b7",
+          "studies/muon_pd_20261102/autoresearch_20261103/muon_metric_case.py": "e8f6d6876f5b5ae97c25dc9289c7677dfb01dc67c186698f2e458f38f039467c",
+          "studies/muon_pd_20261102/autoresearch_20261103/nonlinear_flow_case.py": "c6eb06d8cf9f20505df2d30283ed54988143a62f8471e3b3669746038942cbf9",
+          "studies/muon_pd_20261102/autoresearch_20261103/precision_case.py": "9999fff4d6e3db173fda6a45d32a0f38b86770b562a079b1907498e87a2c7f8e",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle1.py": "81c0d39192b3195fedd5230df06cdf31838d8ada4a93f4c335b0c3026c67fef2",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle2.py": "d24b65894b45b932899c0b8f3fce0bd1cbf1246e97c4b61812c4771df35df8e5",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle3.py": "80b187a98097c1400bb7d34319183b96484b3be58515cda881c480a3edae2e19",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle4.py": "600495e56fedcd8761a6cb293bcefe869e916550ac733848b78b0d367ce9215f",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle5.py": "151d4213895c716f324fdc3b3ad070670c542fba33efa1ea4bd3aad6389924d8",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_samples.py": "c7074caeb8d6e2f80fe6fa6387cce667dd6a86135a7957fd6abf8ade79d872f0",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_spectrum.py": "efd116c14aac24da3a5070cb82ad883850552080c7dfb0e1167623fc818de2e1",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_symmetry.py": "a005b40e5d8ed517265e7e9b992a46e8b54a1982b31ba29b1af3973d5eb04860",
+          "studies/muon_pd_20261102/autoresearch_20261103/sample_structure.py": "9a14e7abf2699d37d8f875686217006c09449402058144352621f4dfa90f8e2d",
+          "studies/muon_pd_20261102/autoresearch_20261103/signed_diagonal_case.py": "6bd4dc8815ed869561c9b36f5a46578df8601a048664005b5af9aa77143abe60",
+          "studies/muon_pd_20261102/autoresearch_20261103/solver_profile.py": "1e4e25f5b1c0403e66a153455b7ac25f49d4f489c6373716ed3b204ca86685ff",
+          "studies/muon_pd_20261102/autoresearch_20261103/symmetry_case.py": "a8d314edad885be2a14912defa451fd181db91fad897c5d9092d149ee6c4ff7d",
+          "studies/muon_pd_20261102/autoresearch_20261103/trial.py": "e44a54337ad9b21791defb6de71ca691fe4ea61245857a7dee8d5b24b25ea84e",
+          "studies/muon_pd_20261102/data_identity.json": "2d276f374f91e4776c986d5788cfd7464ca1eea374c2eae8a6ab6597e54e9eb9",
+          "studies/muon_pd_20261102/grid.json": "e8168a4a460f75ea8e15e6c7081e46c13d4a1e793c5aaf616ea02ce69a3c260b",
+          "studies/muon_pd_20261102/preflight.py": "e50b078931f43a8a1e83ee3954f043702f9ff2319ded16b44d594e8b1d17deb1",
+          "studies/muon_pd_20261102/reference/synthetic/augmented.py": "0d7cfa085e096518ddff9e035b15402fd022fe1ba06643b00b131ea07c3008ee",
+          "studies/muon_pd_20261102/reference/synthetic/covariance.py": "8361e697c89fdca65d365bdffa7e087d380527bfd519b4199281b6ea1d829f20",
+          "studies/muon_pd_20261102/reference/synthetic/data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5",
+          "studies/muon_pd_20261102/reference/synthetic/diagnostics.py": "58c9d56d57c0b4435143b74c40841514b998aad19fa7496c3ce0aa0a5efc1561",
+          "studies/muon_pd_20261102/reference/synthetic/diagonal.py": "9cc0b28f1552b461d7e570fe5f8f32047ce90812be4decd3583aeaeb35e3c2de",
+          "studies/muon_pd_20261102/reference/synthetic/forced_gate.py": "7f4a7defa6409d96bf7a94a5b50da6b8aca06b1bf55bfffd659e59589b59b428",
+          "studies/muon_pd_20261102/reference/synthetic/models.py": "85c3dabd318ad30eecd8d89c5513d0c1d31b690fc20fd89cde6fd5f2962e44aa",
+          "studies/muon_pd_20261102/reference/synthetic/state_clock.py": "131a28bcb21dd3fb82ea33828a31aa0f2ce418044b32356d54e3862833098371",
+          "studies/muon_pd_20261102/reference/synthetic/train.py": "12045e59bfe9955729139af0a612df0ccfdacf994d44be78e9793618910a727d",
+          "studies/muon_pd_20261102/run.py": "b6e9407d46ea16fe356215120ce774a10bc15a54a4e7df47ba7e979113be94f3",
+          "studies/muon_pd_20261102/run_queue.py": "2791b37983f84d42f87a07a446eff6be9ccdcdbcea2462e917bf8df9e190b110",
+          "studies/muon_pd_20261102/source_provenance.json": "f968d416b004192b48a2ec599f65453609ab1cac19c259aeb38499bd04708a01",
+          "studies/muon_pd_20261102/vendor/muon.py": "2479665a90124f62e4df557816665851ca317e42fcfda2af1da02c1f44ab5f3d",
+          "studies/muon_pd_20261102/wave2/grid.json": "bc34447b4090d27e521d8ae18735f704ab5ef7988b3fec83cda453075264bf65",
+          "studies/muon_pd_20261102/wave2/preflight_wave2.py": "9d8e69d0f027d1975a2156fa56a6e0459a720debbb168f314f4927846c40a781",
+          "studies/muon_pd_20261102/wave2/render_wave1.py": "7bd41493a0b06252c7c231cbb0efa3b67eaaef52aa1e14296b2fdbfe35d592d4",
+          "studies/muon_pd_20261102/wave2/summarize_results.py": "dd8631586bad35327697b1d952f01a2cb88606035efe8dfe2b7f80dceeb06de3",
+          "studies/muon_pd_20261102/wave2/train_wave2.py": "9326f7cabdc275faaa04e26b041d41c884e2966d1e776bad3bea0cde756750a5",
+          "studies/muon_pd_20261102/wave2/variants.py": "6f3181d222b0ecfd1325433ca9c4495e40d1b7aaa6dc4ad1f28b8ac5c5b7b796"
+        }
+      }
+    },
+    "lenovo": {
+      "exit_code": 0,
+      "stdout": "{\"utc\": \"2026-11-03T02:16:41.616400+00:00\", \"host\": \"lenovo\", \"repo\": \"D:\\\\Research\\\\ODE-FFN\\\\professor-autoresearch-cycle12-20261103\\\\repo\", \"head\": {\"exit_code\": 0, \"stdout\": \"290359d596cfac5214e229367397f6fbe9b49f32\\n\", \"stderr\": \"\"}, \"status\": {\"exit_code\": 0, \"stdout\": \"\", \"stderr\": \"\"}, \"gpu\": {\"exit_code\": 0, \"stdout\": \"0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 415 MiB, 8188 MiB\\n\", \"stderr\": \"\"}, \"processes\": {\"exit_code\": 0, \"stdout\": \"GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 2728, C:\\\\Windows\\\\System32\\\\dwm.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9412, C:\\\\Windows\\\\System32\\\\ShellHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16644, C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\CrossDeviceResume.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16156, C:\\\\Windows\\\\explorer.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19688, C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\SearchHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19700, C:\\\\Windows\\\\SystemApps\\\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\\\StartMenuExperienceHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20992, C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\156.0.4314.58\\\\msedgewebview2.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 22476, C:\\\\Windows\\\\System32\\\\NahimicSvc64.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 17572, C:\\\\Windows\\\\SystemApps\\\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\\\TextInputHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24664, C:\\\\Users\\\\Jonat\\\\AppData\\\\Local\\\\Programs\\\\@opencodedesktop\\\\OpenCode.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24924, C:\\\\Program Files\\\\Razer\\\\RazerAppEngine\\\\app-4.0.827\\\\RazerAppEngine.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 28748, C:\\\\Program Files (x86)\\\\Microsoft\\\\EdgeWebView\\\\Application\\\\156.0.4314.58\\\\msedgewebview2.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 23364, C:\\\\Windows\\\\System32\\\\ApplicationFrameHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20756, C:\\\\Windows\\\\SystemApps\\\\ShellExperienceHost_cw5n1h2txyewy\\\\ShellExperienceHost.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16968, C:\\\\Windows\\\\ImmersiveControlPanel\\\\SystemSettings.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9492, C:\\\\Program Files\\\\WindowsApps\\\\A-Volute.Nahimic_1.10.15.0_x64__w2gh52qy24etm\\\\Nahimic3.exe, [N/A]\\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16976, C:\\\\Program Files\\\\WindowsApps\\\\Microsoft.YourPhone_1.26092.119.0_x64__8wekyb3d8bbwe\\\\PhoneExperienceHost.exe, [N/A]\\n\", \"stderr\": \"\"}, \"disk\": {\"total\": 807072165888, \"used\": 227292860416, \"free\": 579779305472}, \"documented_output_exists\": true, \"hashes\": {\"studies/muon_pd_20261102/audit_completed.py\": \"735bbaeb78d3759f245d1ba42dd6db4500b38871941fe9d351f721639bd15365\", \"studies/muon_pd_20261102/autoresearch_20261103/analyze.py\": \"f6d7c838e1e55ac7f82ec15da88567f7a620c68d947e285f36ef1c18a4ebe279\", \"studies/muon_pd_20261102/autoresearch_20261103/check.py\": \"76865dfb1505fcd1830ebd74ffce8be6c94fed0ab87887ce69247a8ca3f630bc\", \"studies/muon_pd_20261102/autoresearch_20261103/collect.py\": \"1f667d7ca73816ef9350aa62622393bc6dff779a67bb21cc3089ff57e2ab5678\", \"studies/muon_pd_20261102/autoresearch_20261103/coordinate_step.py\": \"4bf5071f2ff18b0131a8ada0158fac9cdbe8953f115ee56f6d0cdccb89d086f4\", \"studies/muon_pd_20261102/autoresearch_20261103/curate_costs.py\": \"02d88abc386bebb6cc829f16d7d49547d447b43de51a98d095947fcdc9020fa0\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/anchors.py\": \"396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/check10.py\": \"839b428e25d56f7a3afd76796f7d9193eee8c4ded966965ab1a2eac31e4769d7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/diagonals.py\": \"f7013e01b8b684f34d01bcf12c7a3c2e9ed62371680d31e5a7b54fd831edffe4\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/grid.json\": \"27aea62cac0590aab581ef5f4a3f40dc9f9867bb10fe7dfaccb29bda16a7c4d5\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/render.py\": \"339a0e5b1e372a28bec03a279c6d8b9667641366df86e222aed3bd402196c6e3\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle10/trial10.py\": \"6d829ed321d3243a5c990ed362dcd3eb1d0fbfbc601a38b086f37a630f1e931e\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/anchors.py\": \"3b94043a30ee4760720bf8f04cd1806fd1a2b93b234e220b835052dd4e1db07a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/check11.py\": \"2c0fe16add0c63f2ebd9ed97ec139af52083915ba10cd5d74ea5b3bf53fbedf4\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial-parents.json\": \"91ce66a1b8f50cd5b49480566cdc06fb6451becc3d9fd7cc8bae88c205e098f5\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial.py\": \"8160f0009753a6cccc90838b15e49081154d713c64a964d3a341662af17d8f04\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/grid.json\": \"6a5291907b5c6cdc13e91b22b4b2771bde0caa55cc52c3427ae76b52a6812ba7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle11/trial11.py\": \"58f4d524bab9176a1a952698372bba7f589e82b7910388e6759da082169461d1\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle12/cases.json\": \"5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle12/swap.py\": \"f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/check2.py\": \"a6d1b3a99536669d308c8b90b4ff6cf8bd6708cb8be00be5004122a10ce5d19a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/grid.json\": \"6905d08619bd6002a281b334c440004fa6829d5b10ab6dca6c1b7442906715dd\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/trial2.py\": \"a000fa7dbdd04fab7b3ea3da741753b068b28241ce686f7aa5c985401c37c0b4\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/check3.py\": \"cea1871e587b0507551f9baed2d759ea3a60d2ab86f3af8ddf0452095dac1fd7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json\": \"31b8ebcfc0a3790bc769386e53984b62647267767750c52ec101669e8151ee81\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py\": \"61f46dfe8828901083e3b0ea08c72aa37886de31d71de52f3617858b4739aeb7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/check4.py\": \"3b90a44f706c89fdc31c2154f0391408dbc6dfac4f9fe7d90139d15d300225b3\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/grid.json\": \"aa324f12e2e407c8af6e88f822723d299058b1269e15ff48f541545936623111\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/trial4.py\": \"61886ccf85e311d08aef6e8109ee18975685c2bd60dd96a7b66358be60fe7e3e\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle5/check5.py\": \"e31609d837e13b825541382261fad64c15951832ceef79fda5fad7e355ae0b4b\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle5/grid.json\": \"0186621a6ed3cc08ab485cd15dcbd8f5c9dc4e0ec895af58ef58d319b8fcf823\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle5/trial5.py\": \"a3acb8dc8e96f17848063759e6c4fdd30537dfc9f7ab510ba757c6b130ae3469\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/analyze_budget.py\": \"5605b3b13ccc2a2d0eb79563a1f6cf3639b8f60c8333a9e10e626a3b39361cf3\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/check6.py\": \"15145311a68a38e1e7717a753a4de7ea940a9d5a7ffee370ff9e986d5a58476a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/grid.json\": \"e665df6490577cd5faf6b92778fffd89b0c37ffd5a79f75ff300fc509cf753af\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/prefix.py\": \"723fc35ca7f1b34c78fd33b17311a24ef15b8c610156c654e750daefb67f0297\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/render_readouts.py\": \"4c6f28fb549702f2fc1cdbbd98c5411d2452016021ee9c494b12dcf0789c8cf7\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/sample_readouts.py\": \"a4e4f40b2bf3776cc890a9ade747ba26094da04061608d9cba3dfd67f3236735\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle6/trial6.py\": \"c2f102286106e35f7ab6c37fe6ed05dabbae72d7404e2f8da2ff4449488e92b6\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle7/analyze.py\": \"191aa7ab3f223b7300f4fc4f7fec8ae7424de9659b75c3c4f08e5ad533ac2e6e\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle7/frozen_shape.py\": \"2a83fce410332acff6b169b895e229a184582819b9c7e8180f07d123ef85a329\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/audit_states.py\": \"d7afc5c6f25b459800ab1db5d447e7a533661dc9f8d94829fe1e40b1c8e54b7c\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/check8.py\": \"68987bfc1303b01dc9245cf8a01219d64e810c3c7f6b88f7089002a75f2082e6\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/grid.json\": \"31cba9c88338e1302c7dfd9553ae8a10944739944ebaef52a4656e556ca54098\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/render.py\": \"3fd2ea9fd03057c520fdbc947038f903d8b26c43bbdd808fa7972c074dffbefe\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle8/trial8.py\": \"318cc9541c262bf0d99546bb6996424b03d1b35e295c1f1854b64fe05c72768c\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle9/cases.json\": \"4a075ba4774239051251643082ab1e25a99416e0c3caeb137b3ca6eb3038079a\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle9/features.py\": \"86f7376bf61e0f57d3d21ed47405cb3dfdd3fe7fcb527b748c0e089dc186a6ac\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle9/replay.py\": \"a436e02f5a9ffbcbf9b3cb9e7400ee85b60c6589f197e3801c9e53ed1b4f0682\", \"studies/muon_pd_20261102/autoresearch_20261103/decompose_spectra.py\": \"231c1c187501e3b25aa891793d71ed8bef8aee99e19cfd41d79f7065c5dcea3e\", \"studies/muon_pd_20261102/autoresearch_20261103/feature_metric_witness.py\": \"6078f46c092b7c29a301d93e046dbf3613010291d9338bd273777a1ff776079f\", \"studies/muon_pd_20261102/autoresearch_20261103/gauge_case.py\": \"d2183f8b95761cd9b522208dc6269b6d46751d8b9ee0c5eea6518c2bddb81ce3\", \"studies/muon_pd_20261102/autoresearch_20261103/grid.json\": \"1b6278d7989ba2aad113e454dbc1e02b5456427eb22864667c77f6a94f1f71b7\", \"studies/muon_pd_20261102/autoresearch_20261103/muon_metric_case.py\": \"e8f6d6876f5b5ae97c25dc9289c7677dfb01dc67c186698f2e458f38f039467c\", \"studies/muon_pd_20261102/autoresearch_20261103/nonlinear_flow_case.py\": \"c6eb06d8cf9f20505df2d30283ed54988143a62f8471e3b3669746038942cbf9\", \"studies/muon_pd_20261102/autoresearch_20261103/precision_case.py\": \"9999fff4d6e3db173fda6a45d32a0f38b86770b562a079b1907498e87a2c7f8e\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle1.py\": \"81c0d39192b3195fedd5230df06cdf31838d8ada4a93f4c335b0c3026c67fef2\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle2.py\": \"d24b65894b45b932899c0b8f3fce0bd1cbf1246e97c4b61812c4771df35df8e5\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle3.py\": \"80b187a98097c1400bb7d34319183b96484b3be58515cda881c480a3edae2e19\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle4.py\": \"600495e56fedcd8761a6cb293bcefe869e916550ac733848b78b0d367ce9215f\", \"studies/muon_pd_20261102/autoresearch_20261103/render_cycle5.py\": \"151d4213895c716f324fdc3b3ad070670c542fba33efa1ea4bd3aad6389924d8\", \"studies/muon_pd_20261102/autoresearch_20261103/render_samples.py\": \"c7074caeb8d6e2f80fe6fa6387cce667dd6a86135a7957fd6abf8ade79d872f0\", \"studies/muon_pd_20261102/autoresearch_20261103/render_spectrum.py\": \"efd116c14aac24da3a5070cb82ad883850552080c7dfb0e1167623fc818de2e1\", \"studies/muon_pd_20261102/autoresearch_20261103/render_symmetry.py\": \"a005b40e5d8ed517265e7e9b992a46e8b54a1982b31ba29b1af3973d5eb04860\", \"studies/muon_pd_20261102/autoresearch_20261103/sample_structure.py\": \"9a14e7abf2699d37d8f875686217006c09449402058144352621f4dfa90f8e2d\", \"studies/muon_pd_20261102/autoresearch_20261103/signed_diagonal_case.py\": \"6bd4dc8815ed869561c9b36f5a46578df8601a048664005b5af9aa77143abe60\", \"studies/muon_pd_20261102/autoresearch_20261103/solver_profile.py\": \"1e4e25f5b1c0403e66a153455b7ac25f49d4f489c6373716ed3b204ca86685ff\", \"studies/muon_pd_20261102/autoresearch_20261103/symmetry_case.py\": \"a8d314edad885be2a14912defa451fd181db91fad897c5d9092d149ee6c4ff7d\", \"studies/muon_pd_20261102/autoresearch_20261103/trial.py\": \"e44a54337ad9b21791defb6de71ca691fe4ea61245857a7dee8d5b24b25ea84e\", \"studies/muon_pd_20261102/data_identity.json\": \"2d276f374f91e4776c986d5788cfd7464ca1eea374c2eae8a6ab6597e54e9eb9\", \"studies/muon_pd_20261102/grid.json\": \"e8168a4a460f75ea8e15e6c7081e46c13d4a1e793c5aaf616ea02ce69a3c260b\", \"studies/muon_pd_20261102/preflight.py\": \"e50b078931f43a8a1e83ee3954f043702f9ff2319ded16b44d594e8b1d17deb1\", \"studies/muon_pd_20261102/reference/synthetic/augmented.py\": \"0d7cfa085e096518ddff9e035b15402fd022fe1ba06643b00b131ea07c3008ee\", \"studies/muon_pd_20261102/reference/synthetic/covariance.py\": \"8361e697c89fdca65d365bdffa7e087d380527bfd519b4199281b6ea1d829f20\", \"studies/muon_pd_20261102/reference/synthetic/data.py\": \"ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5\", \"studies/muon_pd_20261102/reference/synthetic/diagnostics.py\": \"58c9d56d57c0b4435143b74c40841514b998aad19fa7496c3ce0aa0a5efc1561\", \"studies/muon_pd_20261102/reference/synthetic/diagonal.py\": \"9cc0b28f1552b461d7e570fe5f8f32047ce90812be4decd3583aeaeb35e3c2de\", \"studies/muon_pd_20261102/reference/synthetic/forced_gate.py\": \"7f4a7defa6409d96bf7a94a5b50da6b8aca06b1bf55bfffd659e59589b59b428\", \"studies/muon_pd_20261102/reference/synthetic/models.py\": \"85c3dabd318ad30eecd8d89c5513d0c1d31b690fc20fd89cde6fd5f2962e44aa\", \"studies/muon_pd_20261102/reference/synthetic/state_clock.py\": \"131a28bcb21dd3fb82ea33828a31aa0f2ce418044b32356d54e3862833098371\", \"studies/muon_pd_20261102/reference/synthetic/train.py\": \"12045e59bfe9955729139af0a612df0ccfdacf994d44be78e9793618910a727d\", \"studies/muon_pd_20261102/run.py\": \"b6e9407d46ea16fe356215120ce774a10bc15a54a4e7df47ba7e979113be94f3\", \"studies/muon_pd_20261102/run_queue.py\": \"2791b37983f84d42f87a07a446eff6be9ccdcdbcea2462e917bf8df9e190b110\", \"studies/muon_pd_20261102/source_provenance.json\": \"f968d416b004192b48a2ec599f65453609ab1cac19c259aeb38499bd04708a01\", \"studies/muon_pd_20261102/vendor/muon.py\": \"2479665a90124f62e4df557816665851ca317e42fcfda2af1da02c1f44ab5f3d\", \"studies/muon_pd_20261102/wave2/grid.json\": \"bc34447b4090d27e521d8ae18735f704ab5ef7988b3fec83cda453075264bf65\", \"studies/muon_pd_20261102/wave2/preflight_wave2.py\": \"9d8e69d0f027d1975a2156fa56a6e0459a720debbb168f314f4927846c40a781\", \"studies/muon_pd_20261102/wave2/render_wave1.py\": \"7bd41493a0b06252c7c231cbb0efa3b67eaaef52aa1e14296b2fdbfe35d592d4\", \"studies/muon_pd_20261102/wave2/summarize_results.py\": \"dd8631586bad35327697b1d952f01a2cb88606035efe8dfe2b7f80dceeb06de3\", \"studies/muon_pd_20261102/wave2/train_wave2.py\": \"9326f7cabdc275faaa04e26b041d41c884e2966d1e776bad3bea0cde756750a5\", \"studies/muon_pd_20261102/wave2/variants.py\": \"6f3181d222b0ecfd1325433ca9c4495e40d1b7aaa6dc4ad1f28b8ac5c5b7b796\"}}\n",
+      "stderr": "",
+      "facts": {
+        "utc": "2026-11-03T02:16:41.616400+00:00",
+        "host": "lenovo",
+        "repo": "D:\\Research\\ODE-FFN\\professor-autoresearch-cycle12-20261103\\repo",
+        "head": {
+          "exit_code": 0,
+          "stdout": "290359d596cfac5214e229367397f6fbe9b49f32\n",
+          "stderr": ""
+        },
+        "status": {
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "gpu": {
+          "exit_code": 0,
+          "stdout": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 415 MiB, 8188 MiB\n",
+          "stderr": ""
+        },
+        "processes": {
+          "exit_code": 0,
+          "stdout": "GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 2728, C:\\Windows\\System32\\dwm.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9412, C:\\Windows\\System32\\ShellHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16644, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\CrossDeviceResume.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16156, C:\\Windows\\explorer.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19688, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\SearchHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 19700, C:\\Windows\\SystemApps\\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\\StartMenuExperienceHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20992, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\156.0.4314.58\\msedgewebview2.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 22476, C:\\Windows\\System32\\NahimicSvc64.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 17572, C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24664, C:\\Users\\Jonat\\AppData\\Local\\Programs\\@opencodedesktop\\OpenCode.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 24924, C:\\Program Files\\Razer\\RazerAppEngine\\app-4.0.827\\RazerAppEngine.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 28748, C:\\Program Files (x86)\\Microsoft\\EdgeWebView\\Application\\156.0.4314.58\\msedgewebview2.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 23364, C:\\Windows\\System32\\ApplicationFrameHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 20756, C:\\Windows\\SystemApps\\ShellExperienceHost_cw5n1h2txyewy\\ShellExperienceHost.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16968, C:\\Windows\\ImmersiveControlPanel\\SystemSettings.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 9492, C:\\Program Files\\WindowsApps\\A-Volute.Nahimic_1.10.15.0_x64__w2gh52qy24etm\\Nahimic3.exe, [N/A]\nGPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 16976, C:\\Program Files\\WindowsApps\\Microsoft.YourPhone_1.26092.119.0_x64__8wekyb3d8bbwe\\PhoneExperienceHost.exe, [N/A]\n",
+          "stderr": ""
+        },
+        "disk": {
+          "total": 807072165888,
+          "used": 227292860416,
+          "free": 579779305472
+        },
+        "documented_output_exists": true,
+        "hashes": {
+          "studies/muon_pd_20261102/audit_completed.py": "735bbaeb78d3759f245d1ba42dd6db4500b38871941fe9d351f721639bd15365",
+          "studies/muon_pd_20261102/autoresearch_20261103/analyze.py": "f6d7c838e1e55ac7f82ec15da88567f7a620c68d947e285f36ef1c18a4ebe279",
+          "studies/muon_pd_20261102/autoresearch_20261103/check.py": "76865dfb1505fcd1830ebd74ffce8be6c94fed0ab87887ce69247a8ca3f630bc",
+          "studies/muon_pd_20261102/autoresearch_20261103/collect.py": "1f667d7ca73816ef9350aa62622393bc6dff779a67bb21cc3089ff57e2ab5678",
+          "studies/muon_pd_20261102/autoresearch_20261103/coordinate_step.py": "4bf5071f2ff18b0131a8ada0158fac9cdbe8953f115ee56f6d0cdccb89d086f4",
+          "studies/muon_pd_20261102/autoresearch_20261103/curate_costs.py": "02d88abc386bebb6cc829f16d7d49547d447b43de51a98d095947fcdc9020fa0",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/anchors.py": "396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/check10.py": "839b428e25d56f7a3afd76796f7d9193eee8c4ded966965ab1a2eac31e4769d7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/diagonals.py": "f7013e01b8b684f34d01bcf12c7a3c2e9ed62371680d31e5a7b54fd831edffe4",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/grid.json": "27aea62cac0590aab581ef5f4a3f40dc9f9867bb10fe7dfaccb29bda16a7c4d5",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/render.py": "339a0e5b1e372a28bec03a279c6d8b9667641366df86e222aed3bd402196c6e3",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle10/trial10.py": "6d829ed321d3243a5c990ed362dcd3eb1d0fbfbc601a38b086f37a630f1e931e",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/anchors.py": "3b94043a30ee4760720bf8f04cd1806fd1a2b93b234e220b835052dd4e1db07a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/check11.py": "2c0fe16add0c63f2ebd9ed97ec139af52083915ba10cd5d74ea5b3bf53fbedf4",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial-parents.json": "91ce66a1b8f50cd5b49480566cdc06fb6451becc3d9fd7cc8bae88c205e098f5",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/factorial.py": "8160f0009753a6cccc90838b15e49081154d713c64a964d3a341662af17d8f04",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/grid.json": "6a5291907b5c6cdc13e91b22b4b2771bde0caa55cc52c3427ae76b52a6812ba7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle11/trial11.py": "58f4d524bab9176a1a952698372bba7f589e82b7910388e6759da082169461d1",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle12/cases.json": "5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle12/swap.py": "f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle2/check2.py": "a6d1b3a99536669d308c8b90b4ff6cf8bd6708cb8be00be5004122a10ce5d19a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle2/grid.json": "6905d08619bd6002a281b334c440004fa6829d5b10ab6dca6c1b7442906715dd",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle2/trial2.py": "a000fa7dbdd04fab7b3ea3da741753b068b28241ce686f7aa5c985401c37c0b4",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle3/check3.py": "cea1871e587b0507551f9baed2d759ea3a60d2ab86f3af8ddf0452095dac1fd7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle3/grid.json": "31b8ebcfc0a3790bc769386e53984b62647267767750c52ec101669e8151ee81",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle3/trial3.py": "61f46dfe8828901083e3b0ea08c72aa37886de31d71de52f3617858b4739aeb7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle4/check4.py": "3b90a44f706c89fdc31c2154f0391408dbc6dfac4f9fe7d90139d15d300225b3",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle4/grid.json": "aa324f12e2e407c8af6e88f822723d299058b1269e15ff48f541545936623111",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle4/trial4.py": "61886ccf85e311d08aef6e8109ee18975685c2bd60dd96a7b66358be60fe7e3e",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle5/check5.py": "e31609d837e13b825541382261fad64c15951832ceef79fda5fad7e355ae0b4b",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle5/grid.json": "0186621a6ed3cc08ab485cd15dcbd8f5c9dc4e0ec895af58ef58d319b8fcf823",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle5/trial5.py": "a3acb8dc8e96f17848063759e6c4fdd30537dfc9f7ab510ba757c6b130ae3469",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/analyze_budget.py": "5605b3b13ccc2a2d0eb79563a1f6cf3639b8f60c8333a9e10e626a3b39361cf3",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/check6.py": "15145311a68a38e1e7717a753a4de7ea940a9d5a7ffee370ff9e986d5a58476a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/grid.json": "e665df6490577cd5faf6b92778fffd89b0c37ffd5a79f75ff300fc509cf753af",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/prefix.py": "723fc35ca7f1b34c78fd33b17311a24ef15b8c610156c654e750daefb67f0297",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/render_readouts.py": "4c6f28fb549702f2fc1cdbbd98c5411d2452016021ee9c494b12dcf0789c8cf7",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/sample_readouts.py": "a4e4f40b2bf3776cc890a9ade747ba26094da04061608d9cba3dfd67f3236735",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle6/trial6.py": "c2f102286106e35f7ab6c37fe6ed05dabbae72d7404e2f8da2ff4449488e92b6",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle7/analyze.py": "191aa7ab3f223b7300f4fc4f7fec8ae7424de9659b75c3c4f08e5ad533ac2e6e",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle7/frozen_shape.py": "2a83fce410332acff6b169b895e229a184582819b9c7e8180f07d123ef85a329",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/audit_states.py": "d7afc5c6f25b459800ab1db5d447e7a533661dc9f8d94829fe1e40b1c8e54b7c",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/check8.py": "68987bfc1303b01dc9245cf8a01219d64e810c3c7f6b88f7089002a75f2082e6",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/grid.json": "31cba9c88338e1302c7dfd9553ae8a10944739944ebaef52a4656e556ca54098",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/render.py": "3fd2ea9fd03057c520fdbc947038f903d8b26c43bbdd808fa7972c074dffbefe",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle8/trial8.py": "318cc9541c262bf0d99546bb6996424b03d1b35e295c1f1854b64fe05c72768c",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle9/cases.json": "4a075ba4774239051251643082ab1e25a99416e0c3caeb137b3ca6eb3038079a",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle9/features.py": "86f7376bf61e0f57d3d21ed47405cb3dfdd3fe7fcb527b748c0e089dc186a6ac",
+          "studies/muon_pd_20261102/autoresearch_20261103/cycle9/replay.py": "a436e02f5a9ffbcbf9b3cb9e7400ee85b60c6589f197e3801c9e53ed1b4f0682",
+          "studies/muon_pd_20261102/autoresearch_20261103/decompose_spectra.py": "231c1c187501e3b25aa891793d71ed8bef8aee99e19cfd41d79f7065c5dcea3e",
+          "studies/muon_pd_20261102/autoresearch_20261103/feature_metric_witness.py": "6078f46c092b7c29a301d93e046dbf3613010291d9338bd273777a1ff776079f",
+          "studies/muon_pd_20261102/autoresearch_20261103/gauge_case.py": "d2183f8b95761cd9b522208dc6269b6d46751d8b9ee0c5eea6518c2bddb81ce3",
+          "studies/muon_pd_20261102/autoresearch_20261103/grid.json": "1b6278d7989ba2aad113e454dbc1e02b5456427eb22864667c77f6a94f1f71b7",
+          "studies/muon_pd_20261102/autoresearch_20261103/muon_metric_case.py": "e8f6d6876f5b5ae97c25dc9289c7677dfb01dc67c186698f2e458f38f039467c",
+          "studies/muon_pd_20261102/autoresearch_20261103/nonlinear_flow_case.py": "c6eb06d8cf9f20505df2d30283ed54988143a62f8471e3b3669746038942cbf9",
+          "studies/muon_pd_20261102/autoresearch_20261103/precision_case.py": "9999fff4d6e3db173fda6a45d32a0f38b86770b562a079b1907498e87a2c7f8e",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle1.py": "81c0d39192b3195fedd5230df06cdf31838d8ada4a93f4c335b0c3026c67fef2",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle2.py": "d24b65894b45b932899c0b8f3fce0bd1cbf1246e97c4b61812c4771df35df8e5",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle3.py": "80b187a98097c1400bb7d34319183b96484b3be58515cda881c480a3edae2e19",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle4.py": "600495e56fedcd8761a6cb293bcefe869e916550ac733848b78b0d367ce9215f",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_cycle5.py": "151d4213895c716f324fdc3b3ad070670c542fba33efa1ea4bd3aad6389924d8",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_samples.py": "c7074caeb8d6e2f80fe6fa6387cce667dd6a86135a7957fd6abf8ade79d872f0",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_spectrum.py": "efd116c14aac24da3a5070cb82ad883850552080c7dfb0e1167623fc818de2e1",
+          "studies/muon_pd_20261102/autoresearch_20261103/render_symmetry.py": "a005b40e5d8ed517265e7e9b992a46e8b54a1982b31ba29b1af3973d5eb04860",
+          "studies/muon_pd_20261102/autoresearch_20261103/sample_structure.py": "9a14e7abf2699d37d8f875686217006c09449402058144352621f4dfa90f8e2d",
+          "studies/muon_pd_20261102/autoresearch_20261103/signed_diagonal_case.py": "6bd4dc8815ed869561c9b36f5a46578df8601a048664005b5af9aa77143abe60",
+          "studies/muon_pd_20261102/autoresearch_20261103/solver_profile.py": "1e4e25f5b1c0403e66a153455b7ac25f49d4f489c6373716ed3b204ca86685ff",
+          "studies/muon_pd_20261102/autoresearch_20261103/symmetry_case.py": "a8d314edad885be2a14912defa451fd181db91fad897c5d9092d149ee6c4ff7d",
+          "studies/muon_pd_20261102/autoresearch_20261103/trial.py": "e44a54337ad9b21791defb6de71ca691fe4ea61245857a7dee8d5b24b25ea84e",
+          "studies/muon_pd_20261102/data_identity.json": "2d276f374f91e4776c986d5788cfd7464ca1eea374c2eae8a6ab6597e54e9eb9",
+          "studies/muon_pd_20261102/grid.json": "e8168a4a460f75ea8e15e6c7081e46c13d4a1e793c5aaf616ea02ce69a3c260b",
+          "studies/muon_pd_20261102/preflight.py": "e50b078931f43a8a1e83ee3954f043702f9ff2319ded16b44d594e8b1d17deb1",
+          "studies/muon_pd_20261102/reference/synthetic/augmented.py": "0d7cfa085e096518ddff9e035b15402fd022fe1ba06643b00b131ea07c3008ee",
+          "studies/muon_pd_20261102/reference/synthetic/covariance.py": "8361e697c89fdca65d365bdffa7e087d380527bfd519b4199281b6ea1d829f20",
+          "studies/muon_pd_20261102/reference/synthetic/data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5",
+          "studies/muon_pd_20261102/reference/synthetic/diagnostics.py": "58c9d56d57c0b4435143b74c40841514b998aad19fa7496c3ce0aa0a5efc1561",
+          "studies/muon_pd_20261102/reference/synthetic/diagonal.py": "9cc0b28f1552b461d7e570fe5f8f32047ce90812be4decd3583aeaeb35e3c2de",
+          "studies/muon_pd_20261102/reference/synthetic/forced_gate.py": "7f4a7defa6409d96bf7a94a5b50da6b8aca06b1bf55bfffd659e59589b59b428",
+          "studies/muon_pd_20261102/reference/synthetic/models.py": "85c3dabd318ad30eecd8d89c5513d0c1d31b690fc20fd89cde6fd5f2962e44aa",
+          "studies/muon_pd_20261102/reference/synthetic/state_clock.py": "131a28bcb21dd3fb82ea33828a31aa0f2ce418044b32356d54e3862833098371",
+          "studies/muon_pd_20261102/reference/synthetic/train.py": "12045e59bfe9955729139af0a612df0ccfdacf994d44be78e9793618910a727d",
+          "studies/muon_pd_20261102/run.py": "b6e9407d46ea16fe356215120ce774a10bc15a54a4e7df47ba7e979113be94f3",
+          "studies/muon_pd_20261102/run_queue.py": "2791b37983f84d42f87a07a446eff6be9ccdcdbcea2462e917bf8df9e190b110",
+          "studies/muon_pd_20261102/source_provenance.json": "f968d416b004192b48a2ec599f65453609ab1cac19c259aeb38499bd04708a01",
+          "studies/muon_pd_20261102/vendor/muon.py": "2479665a90124f62e4df557816665851ca317e42fcfda2af1da02c1f44ab5f3d",
+          "studies/muon_pd_20261102/wave2/grid.json": "bc34447b4090d27e521d8ae18735f704ab5ef7988b3fec83cda453075264bf65",
+          "studies/muon_pd_20261102/wave2/preflight_wave2.py": "9d8e69d0f027d1975a2156fa56a6e0459a720debbb168f314f4927846c40a781",
+          "studies/muon_pd_20261102/wave2/render_wave1.py": "7bd41493a0b06252c7c231cbb0efa3b67eaaef52aa1e14296b2fdbfe35d592d4",
+          "studies/muon_pd_20261102/wave2/summarize_results.py": "dd8631586bad35327697b1d952f01a2cb88606035efe8dfe2b7f80dceeb06de3",
+          "studies/muon_pd_20261102/wave2/train_wave2.py": "9326f7cabdc275faaa04e26b041d41c884e2966d1e776bad3bea0cde756750a5",
+          "studies/muon_pd_20261102/wave2/variants.py": "6f3181d222b0ecfd1325433ca9c4495e40d1b7aaa6dc4ad1f28b8ac5c5b7b796"
+        }
+      }
+    }
+  },
+  "limits": [
+    "Tensor/buffer invariance is verified against hash-bound completed-producer records, whose assertions enforce full state equality; tensor snapshots were not separately persisted. No model was re-executed in this pass."
+  ],
+  "cache_hash_evidence": {
+    "145": {
+      "exit_code": 0,
+      "stdout": "{\"bindings\": [{\"cell\": \"rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006\", \"manifest_sha256_match\": true}, {\"cell\": \"rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02\", \"manifest_sha256_match\": true}], \"cache_roots\": {\"/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1\": [{\"path\": \"/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/validation.npz\", \"bytes_match\": true, \"sha256_match\": true}]}}\n",
+      "stderr": "",
+      "facts": {
+        "bindings": [
+          {
+            "cell": "rotated_product_bimodal_16d__vector_pd_k2__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.006_wd0",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__vector_pd_k2__muon_0.02_wd0",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_mlp_affine__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.006",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_mlp_affine__muon_0.02",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_linear__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.02",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_affine__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.006",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_factorized_affine__muon_0.02",
+            "manifest_sha256_match": true
+          }
+        ],
+        "cache_roots": {
+          "/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1": [
+            {
+              "path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "/data2/zz5070/ODE_FFN/muon-pd-20261102/data/product16_v1/rotated_product_bimodal_16d/validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            }
+          ]
+        }
+      }
+    },
+    "lenovo": {
+      "exit_code": 0,
+      "stdout": "{\"bindings\": [{\"cell\": \"gmm_ring8_2d__vector_pd_k2__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_mlp_affine__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_mlp_affine__muon_0.006\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_mlp_affine__muon_0.02\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_factorized_linear__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_factorized_linear__muon_0.006\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_factorized_linear__muon_0.02\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_factorized_affine__adamw_0.0003\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_factorized_affine__muon_0.006\", \"manifest_sha256_match\": true}, {\"cell\": \"gmm_ring8_2d__pd_factorized_affine__muon_0.02\", \"manifest_sha256_match\": true}], \"cache_roots\": {\"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\": [{\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\checkerboard_2d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\checkerboard_2d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\checkerboard_2d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\checkerboard_2d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\checkerboard_2d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_16d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_16d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_16d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_16d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_16d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_2d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_2d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_2d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_2d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_aniso_2d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_iso_2d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_iso_2d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_iso_2d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_iso_2d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gaussian_iso_2d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_aniso4_2d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_aniso4_2d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_aniso4_2d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_aniso4_2d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_aniso4_2d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_ring8_2d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_ring8_2d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_ring8_2d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_ring8_2d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\gmm_ring8_2d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\two_moons_2d\\\\distribution.json\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\two_moons_2d\\\\probe.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\two_moons_2d\\\\test.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\two_moons_2d\\\\train.npz\", \"bytes_match\": true, \"sha256_match\": true}, {\"path\": \"D:\\\\Research\\\\ODE-FFN\\\\datasets\\\\synthetic\\\\v1\\\\two_moons_2d\\\\validation.npz\", \"bytes_match\": true, \"sha256_match\": true}]}}\n",
+      "stderr": "",
+      "facts": {
+        "bindings": [
+          {
+            "cell": "gmm_ring8_2d__vector_pd_k2__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.006_wd0",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__vector_pd_k2__muon_0.02_wd0",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_mlp_affine__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.006",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_mlp_affine__muon_0.02",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_linear__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.006",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_affine__adamw_0.0003",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.006",
+            "manifest_sha256_match": true
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_factorized_affine__muon_0.02",
+            "manifest_sha256_match": true
+          }
+        ],
+        "cache_roots": {
+          "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1": [
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\checkerboard_2d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\checkerboard_2d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\checkerboard_2d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\checkerboard_2d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\checkerboard_2d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_16d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_16d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_16d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_16d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_16d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_2d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_2d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_2d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_2d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_aniso_2d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_iso_2d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_iso_2d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_iso_2d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_iso_2d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gaussian_iso_2d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_aniso4_2d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_aniso4_2d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_aniso4_2d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_aniso4_2d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_aniso4_2d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_ring8_2d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_ring8_2d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_ring8_2d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_ring8_2d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\gmm_ring8_2d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\two_moons_2d\\distribution.json",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\two_moons_2d\\probe.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\two_moons_2d\\test.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\two_moons_2d\\train.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            },
+            {
+              "path": "D:\\Research\\ODE-FFN\\datasets\\synthetic\\v1\\two_moons_2d\\validation.npz",
+              "bytes_match": true,
+              "sha256_match": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

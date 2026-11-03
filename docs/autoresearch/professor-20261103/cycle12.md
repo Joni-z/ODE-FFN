@@ -67,12 +67,16 @@ new optimizer, rate/strength, loss, data, sampler, K1 or image rescue is selecte
 Do not append these evaluations as training trials to the external ledger.
 
 - [x] Implement minimal attribute-swap producer and hash-bound cohort; CPU checks.
-- [ ] Publish/deploy immutable source; fresh documented CUDA/native-checkpoint
+- [x] Publish/deploy immutable source; fresh documented CUDA/native-checkpoint
       witnesses and source/availability checks on145andLenovo.
-- [ ] Run both monitored frozen cohorts, verify24native anchors, round-trip
+- [x] Run both monitored frozen cohorts, verify24native anchors, round-trip
       identity and saved-array replay; publish all48outcomes and case figures.
-- [ ] Select the next question only from the completed comparison.
+- [x] Select the next question only from the completed comparison.
 
 CPU readiness passed on all four families, including nonzero readouts, actual
 native scalar transfer derivatives and exact tensor/probe round trips. All24
 records/five source CSVs are checked. These are implementation tests only.
+
+Closed: [complete analysis](cycle12-results/analysis-report.md). All24native
+arrays and restored probes are exact; all48sampling metrics independently
+recompute. Reject this frozen output repair; no trained method is accepted.

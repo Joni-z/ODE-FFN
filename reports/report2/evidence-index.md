@@ -50,3 +50,8 @@ continuation under the predeclared criterion. Submitted report PDFs are unchange
 finds a strong interaction in one weak Adam case; every new candidate still
 loses to nearly parameter-matched Swi128 on both metrics. No continuation
 qualifies. Submitted report PDFs remain unchanged.
+
+[Cycle12 frozen transfer-function swaps](../../docs/autoresearch/professor-20261103/cycle12-results/analysis-report.md)
+complete all24paired checkpoints, exact native/restoration anchors and48saved-array
+sampling checks. No immediate output repair or trained-method advantage. The
+analysis bundle states its fixed-cohort scope; submitted PDFs are unchanged.
