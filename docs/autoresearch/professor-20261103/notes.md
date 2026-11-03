@@ -120,3 +120,8 @@ layer-key mismatch was fixed before use. Final evidence still awaits all12
 formal endpoints. Two completed145native anchors already match archived
 numerical states and samples; the first partial Lenovo receipt had zero ready
 anchors and is explicitly not a closure result.
+
+Cycle10 final: twelve endpoints/eight native anchors pass, zero sample replay
+error. Radial continuation fails on both tasks; full results and all five
+figures in cycle10-results. Review existing controller-by-output coverage rather
+than sweeping normalization constants or adding another simultaneous mechanism.

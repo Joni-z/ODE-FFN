@@ -26,3 +26,9 @@ Post-SSH90s witness:145native raw/Swi64 reached9500/18500,93%GPU and1183MiB;
 Lenovo8000/8500,89%GPU and808MiB. Controllers2777039and21920 persist after
 SSH exits; no failures. These are resource/readiness observations, not quality
 results. Final interpretation awaits the full registered comparison.
+
+Closed: both queues6/6complete, no pending/running cells or failures. Native
+endpoint replay and four exact final20k anchor checks pass perhost; all saved
+generated arrays reproduce exactly. Final results and full source/receipt
+bindings are in [cycle10-results](cycle10-results/findings.md). GPU0returned
+to its idle baseline on both hosts. No new training queue is active.

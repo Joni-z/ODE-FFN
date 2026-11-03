@@ -111,20 +111,39 @@ increases P stable rank in all four settings but worsens field MSE by3.5–11.2%
 Scalar contraction also worsens all four. Both modes worsen test SW2. Reject
 this setting, without a new strength/rate sweep. Product16 scalar K2 also shows
 a useful diagnostic contradiction: lower P norm accompanies a larger first-term
-response. A frozen actual-feature moment study is the next question; the
-feature-metric derivation is theory, not a new optimizer or quality result.
+response. The subsequent actual-feature audit tests
+that mismatch; its feature-metric derivation is not a new optimizer or quality
+result.
 
-Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
-[cycle1](cycle1-results/findings.md), [cycle2](cycle2-results/findings.md),
-[cycle3](cycle3-results/findings.md), [solver check](solver-results/findings.md),
-[cycle4 results](cycle4-results/findings.md), [cycle5 results](cycle5-results/findings.md), [parity readout](symmetry-results/findings.md),
-[signed-diagonal branch](signed-diagonal.md),
-[sample cases](sample-structure-results/findings.md), [completed budget study](cycle6-results/findings.md), [shape intervention](cycle7-results/findings.md), [completed constraint study](cycle8-results/findings.md),
-[two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).
+Cycle9 completed the feature question rather than introducing whitening. For
+q=D(h)h, response energy is tr(P E[qq^T] P^T). At the first Product16 scalar
+solve, shape training reduces P's leading singular value19.46->16.13 while
+first-term/input RMS rises3.29->4.39. Feature amplitude and alignment account
+for the opposite movement. The decomposition is descriptive: it does not show
+that this larger response causes the worse field score. The audit also finds
+no uniform catastrophic cancellation between K2 terms.
 
-The subsequent cycle9 feature audit is complete. All84layers/60matched-layer
-identities replay. P norm and response can move oppositely as features adapt;
-P rank can rise while increment rank falls. K2 alignment varies by solve rather
-than showing uniform catastrophic cancellation. Preserve earlier no-whitening
-and no-projection decisions. A new training test needs its own functional change
-and amplitude/ordinary controls, not another response-magnitude explanation.
+Cycle10 completed one different question: preserve raw quadratic feature
+directions, but soften their growth with d(h)=h/sqrt(1+mean(h^2)). At common
+P,h, all conditional singular values scale together; spectral shape is unchanged.
+The complete input derivative nevertheless changes through a rank-one term.
+This is a more specific hypothesis than making every spectrum flatter. A fixed
+h/sqrt(2) contrast tests whether simple amplitude/coordinate scaling suffices.
+Raw and all three SwiGLU widths remain in the twelve-cell comparison. Radial
+reduces mean Ring8 first-term/input RMS from970to30, but improves field error
+only3.73% and barely changes sampling. Product16 field worsens9.22%. Neither
+task qualifies under the predeclared raw/static5% criterion, so this setting
+is closed rather than advanced to80k. Numerical moderation alone is not enough.
+
+Primary artifacts: [question-to-decision map](research-map.md),
+[logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
+[controller/range results](cycle1-results/findings.md),
+[direct-diagonal results](cycle2-results/findings.md),
+[order/control results](cycle3-results/findings.md),
+[deterministic features](cycle4-results/findings.md),
+[abs rejection](cycle5-results/findings.md),
+[80k comparison](cycle6-results/findings.md),
+[frozen spectral interventions](cycle7-results/findings.md),
+[training constraints](cycle8-results/findings.md),
+[actual feature responses](cycle9-results/findings.md),
+[radial registration](cycle10.md) and [derivation](radial-diagonal.md).

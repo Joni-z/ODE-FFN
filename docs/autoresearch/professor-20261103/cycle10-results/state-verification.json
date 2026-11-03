@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "exact_anchors": 8,
+  "receipts": [
+    {
+      "passed": true,
+      "partial": false,
+      "host": "145",
+      "anchors": [
+        {
+          "cell": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__radial_anchor",
+          "parent": "rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006",
+          "parent_sha256": "9230d521cca90aa11f58f67957a3edd92085ba5d36791d8cd35bd88193836415",
+          "new_checkpoint_sha256": "f11ad911d89f77b8ec9bfa1eafa47f79810ba7305fd7c84a9518230736025a8d",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.001__radial_anchor",
+          "parent": "rotated_product_bimodal_16d__swiglu64__adamw_0.001",
+          "parent_sha256": "1036eb9fa8d3dc35b09f92c6cd62ff0cd201982f862b111d55c647cef05a47f3",
+          "new_checkpoint_sha256": "4156430ae9c343a9f5c6b5e44b6584696017c448973dcc22b28269a0369c5720",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu128__adamw_0.0003__radial_anchor",
+          "parent": "rotated_product_bimodal_16d__swiglu128__adamw_0.0003",
+          "parent_sha256": "f354071f5d2085aeba6967bb1a21e33e801977599fca37cbe746d7053c079614",
+          "new_checkpoint_sha256": "178f1b8f0a46c56d1fd453be14c167ac6f287f48c0c559b2ed63aef1cc3d8b22",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003__radial_anchor",
+          "parent": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+          "parent_sha256": "8ee010918e79a2d7b8fe2b3ae93a99dfc866cc1f2ff99ac6fb63f496d078773e",
+          "new_checkpoint_sha256": "b3aefa746faae54d4ab127a8851765c1bba977f44af6f11e399fc7da6e37a94f",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        }
+      ],
+      "pending": [],
+      "analysis_source_sha256": "396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43"
+    },
+    {
+      "passed": true,
+      "partial": false,
+      "host": "lenovo",
+      "anchors": [
+        {
+          "cell": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__radial_anchor",
+          "parent": "gmm_ring8_2d__pd_direct_raw_k1__muon_0.02",
+          "parent_sha256": "d7c4d383f62ee9278300e3ee024e85d9e06614d60d99d41fc68258f101e00ead",
+          "new_checkpoint_sha256": "a87aa7c149128ecd47c9beeff0c11100cfc858d4905fbb77b090085a1df7fb4c",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu64__muon_0.02__radial_anchor",
+          "parent": "gmm_ring8_2d__swiglu64__muon_0.02",
+          "parent_sha256": "2c33cae81099b9c7e5815bf3d460a65cebc7a2505b674e43878de7eca0212461",
+          "new_checkpoint_sha256": "07121733432c91314dbde43fc3a7b7e8fbbfed9479c2dc3b0be4b859fe113ea3",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu128__muon_0.02__radial_anchor",
+          "parent": "gmm_ring8_2d__swiglu128__muon_0.02",
+          "parent_sha256": "94d9ff6ee8d36dbe84e151fbf2d27a3f961ad27964e79d75be6f931775d9efcd",
+          "new_checkpoint_sha256": "07c3895556e1999335922d50af34f0280c51b2e1d7f9fb6946ea0a35a7e439f8",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu192__muon_0.02__radial_anchor",
+          "parent": "gmm_ring8_2d__swiglu192__muon_0.02",
+          "parent_sha256": "2c6e79bfc4b6b3d210879bbacb0e4da8e8c65e253f40f8fcf924e9eed3e5ac99",
+          "new_checkpoint_sha256": "5ece260a475ffb31b494c09e522020843b8ed669589365e604ae0fa1b4e22dd8",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        }
+      ],
+      "pending": [],
+      "analysis_source_sha256": "396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43"
+    }
+  ]
+}

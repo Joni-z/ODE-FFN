@@ -25,9 +25,9 @@ concentrated but field fitting and sampling worsen. The completed [native featur
 explains the mismatch between P spectra and actual layer responses. Its
 [derivation](docs/autoresearch/professor-20261103/feature-metric.md) does not
 select whitening or a new optimizer.
-The registered [radial-diagonal study](docs/autoresearch/professor-20261103/cycle10.md)
-now isolates input-dependent growth from fixed scaling, retaining all three
-ordinary widths. No result is available yet.
+The completed [radial-diagonal study](docs/autoresearch/professor-20261103/cycle10-results/findings.md)
+reduces hidden responses, with only a small Ring8 fitting gain and worse
+Product16 fitting. Neither passes its registered continuation criterion.
 These vector experiments do not establish JiT image quality.
 
 ## Code

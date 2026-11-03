@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-11-03T00:49:11.910074+00:00",
+  "scope": "Read-only documentation/evidence consistency; no numerical readiness or model acceptance rerun",
+  "bound_receipts_verified": [
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/145/native-replay.json",
+      "sha256": "a0b4eab36497aaa7d4f4d25ca639bc4e111dcda369d7060bec18b3093ac31ebf",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/145/anchors.json",
+      "sha256": "b206764bd8802bc112c8c10f2bd2e8e60ae4dc1151e6bf46f92734e18e1517dc",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/145/samples.json",
+      "sha256": "53fcb95047f8d68f942af062402a7da1d6efe574acadea535337b6fe34145905",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/145/diagonals.json",
+      "sha256": "b2bcc1991658f3d1cb38171ba4316d5c7e8be6e33d43a056c3b84d16b26c425b",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/145/runtime.json",
+      "sha256": "56f79271b0940ad46b04fd3170dee48380f8bc99f7402390eecb8ce90728710f",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/lenovo/native-replay.json",
+      "sha256": "9ef119d8661a6755334b0d7985327b5835f6cb8cfe4740ca3dea1addae1cb071",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/lenovo/anchors.json",
+      "sha256": "bb0e8c8a317b5a5e3de228114562568b2a5663efe88d5eaa6879a3169e4f7820",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/lenovo/samples.json",
+      "sha256": "c867d1ae5631b36ebf30b8d8764d9cc62c578437089a7401e15785a1e974e4b7",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/lenovo/diagonals.json",
+      "sha256": "bf8392d2ec25cd4a3795e9902e09dbb79240c93d37a342acd56d7d8264242108",
+      "matches": true
+    },
+    {
+      "path": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov03-cycle10-evidence/lenovo/runtime.json",
+      "sha256": "d728524cfaccbeaa84b0d5a11463bca6303eebaf64bb4202a55584424bc58eb3",
+      "matches": true
+    }
+  ],
+  "endpoints": 12,
+  "endpoint_step": 20000,
+  "exact_native_anchors": 8,
+  "final_generated_replay_errors_all_zero": true,
+  "verification_recomputed_from_saved_receipts": {
+    "endpoints": 12,
+    "max_field_replay_error": 4.795853367212111e-10,
+    "max_sw2_error": 8.04947444810189e-09,
+    "max_generated_error": 0.0,
+    "max_anchor_field_error": 0.0,
+    "max_anchor_generated_error": 0.0,
+    "endpoint_steps": [
+      20000
+    ]
+  },
+  "registered_radial_criterion": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "raw_field_gain": 0.037257501719986874,
+      "static_field_gain": 0.0470644642260154,
+      "registered_threshold": 0.05,
+      "eligible": false
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "raw_field_gain": -0.09217080182398285,
+      "static_field_gain": -0.08315741697461743,
+      "registered_threshold": 0.05,
+      "eligible": false
+    }
+  ],
+  "queues": {
+    "145": {
+      "completed": 6,
+      "running": 0,
+      "pending": 0,
+      "failed": false,
+      "all_exit_codes": 0
+    },
+    "lenovo": {
+      "completed": 6,
+      "running": 0,
+      "pending": 0,
+      "failed": false,
+      "all_exit_codes": 0
+    }
+  },
+  "runtime_identity": {
+    "both_head": "7e394e296665a96d734316c26626506257da66da",
+    "both_clean": true,
+    "lenovo_documented_git_command_ran_verbatim": true,
+    "git_command_exit": 0,
+    "prior_doc_gap_resolved": true
+  },
+  "gpu0_used_mib_live": {
+    "145": 2,
+    "lenovo": 415
+  },
+  "cycle10_training_processes_live": {
+    "145": 0,
+    "lenovo": 0
+  },
+  "prior_summary_preserved": {
+    "path": "/tmp/professor-cycle10-doc-witness-20261103/summary.json",
+    "sha256": "31a14094287a1917c89811c0adbc2004bf2787f91d3f9ca918e3687e38550c28"
+  },
+  "input_file_sha256": {
+    "/Users/mr.z/ODE-FFN-upstream/docs/autoresearch/professor-20261103/cycle10-results/findings.md": "866f40859b1d27115788f3ce5fa411f7e4be04d1252ce60b55229bac66ba3d8e",
+    "/Users/mr.z/ODE-FFN-upstream/docs/autoresearch/professor-20261103/cycle10-results/verification.json": "b33cc6d02f73ca0916723bfa80664eedcb7a76444c72866c90dd46a5d18a508d",
+    "/Users/mr.z/ODE-FFN-upstream/docs/autoresearch/professor-20261103/cycle10-results/state-verification.json": "c4a970f0f7be8472323803aa90a7e8762ddbc92ce1deefc579fc034d5d9a698a",
+    "/Users/mr.z/ODE-FFN-upstream/docs/autoresearch/professor-20261103/cycle10-results/bindings.json": "850497ed91409cd4948fcfe1dd4c77d0dc73cd089241851a46941c442ec01d9c",
+    "/Users/mr.z/ODE-FFN-upstream/docs/autoresearch/professor-20261103/cycle10-results/endpoints.csv": "62409a5307cfe1b1e2609cdd10ac60741807d7a2d8abb315e7614792f12890f4",
+    "/Users/mr.z/ODE-FFN-upstream/docs/autoresearch/professor-20261103/cycle10-results/matched-comparisons.csv": "d1924db2ab1e99bdb90d8ec915f7f8c6b4df68e8ef758101b49bdb79d324f8a2"
+  },
+  "repository_files_modified": [],
+  "numeric_or_training_reruns": 0,
+  "pre_close_documentation_items": [
+    "Linked registration cycle10.md still has two unchecked final checklist items (complete/replay all12 with eight anchors; continue or reject), although final receipts and findings confirm completion and rejection."
+  ],
+  "discrepancies": [],
+  "pre_close_documentation_item_owner_update": "Parent confirmed final registration checklist and current-status documents are being updated from verified completed results. This is not a numerical discrepancy.",
+  "registration_checklist_current_snapshot": {
+    "sha256": "813f4c4d8d5b6bd10f9cef5431c761eb1731bc14efadca6039d0978400233f9c",
+    "lines": [
+      "- [x] Implement a D-only adapter/grid and pass CPU derivative/source witnesses.",
+      "- [x] Publish/deploy, pass fresh documented native CUDA and actual-entry checks.",
+      "- [ ] Run baseline-first monitored queues, complete/replay all12, verify eight",
+      "- [ ] Continue or reject from the complete registered comparison; no automatic"
+    ]
+  }
+}

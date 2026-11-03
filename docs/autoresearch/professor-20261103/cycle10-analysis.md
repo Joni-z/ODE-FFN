@@ -30,3 +30,8 @@ training, the validation oracle or the test sampler.
 
 No training continuation is selected from partial results. No image transfer,
 rate/strength rescue, P constraint or second mechanism is bundled into this test.
+
+Readiness metadata note: the common zero_anchor_quadratic_coefficient flag
+means the expected coefficient was verified for each function, not that both
+match raw. The explicit Hessian entry is2 for radial/raw, versus sqrt(2) for
+the static-scaled control. Interpret the reported numerical values.

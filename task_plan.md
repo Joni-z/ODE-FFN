@@ -1,15 +1,15 @@
-# Current checkpoint: radial-diagonal test running
+# Current checkpoint: radial-diagonal comparison closed
 
-Cycle10 runs twelve registered20k comparisons on145GPU0/LenovoGPU0 from
-frozen7e394e2: radial D, fixed scaling, raw K1 and SwiGLU64/128/192. Fresh native
-CUDA/resume checks and post-SSH progress pass. Complete all endpoints, replay,
-and verify eight exact native anchors before interpretation. No accepted new
-ODEFFN method. [Protocol](docs/autoresearch/professor-20261103/cycle10.md) ·
-[Execution](docs/autoresearch/professor-20261103/cycle10-execution.md).
+Cycle10 completed/replayed all twelve20k cases with eight exact archived native
+anchors. Radial improves Ring8 field error3.73% but does not fix its sampling;
+Product16 field worsens9.22%. Neither passes the registered raw/static5%
+continuation rule. No accepted new ODEFFN method or active training queue.
+[Results](docs/autoresearch/professor-20261103/cycle10-results/findings.md) ·
+[Research map](docs/autoresearch/professor-20261103/research-map.md).
 
-Cycles8/9 are closed: spectral relaxation worsens fitting/sampling, and the
-frozen feature audit explains why P norms alone miss actual responses. Earlier
-whitening and P-shape sweeps stay closed. Older entries below are historical.
+Review prior controller/output/order coverage before a distinct next comparison.
+P-shape, whitening and this radial-strength/rate rescue remain closed. Older
+entries below are historical. Submitted report PDFs remain unchanged.
 
 # Current runtime: cycle6 budget-only confirmation
 

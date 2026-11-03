@@ -2,12 +2,12 @@
 
 ## Current step
 
-Cycle10 is live from7e394e2 after fresh native CUDA/resume checks on both hosts.
-All twelve registered20k cells run on145GPU0/LenovoGPU0, two workers each.
-Post-SSH90s progress is verified:145 raw9500/Swi6418500 at93%GPU; Lenovo
-raw8000/Swi648500 at89%. Finish, exact-replay all endpoints and verify eight
-native20k anchors before interpretation. No accepted method yet. Cycles8/9
-are closed; whitening and P-shape sweeps stay closed.
+Cycle10 is closed: all twelve20k endpoints replay, every generated array is
+exact, and eight native20k reference states/samples match archived parents.
+Radial gives a3.73% Ring8 field gain but no meaningful sampling change; Product16
+field worsens9.22%. Neither task passes the registered raw/static5% criterion.
+No80k rescue, accepted new model or active training queue. Review existing
+controller/output/order coverage before choosing a distinct next comparison.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -184,3 +184,11 @@ controller21920 (launcher21284). First native child PIDs1452777041/2777042,
 Lenovo21844/23156. Monitor reports increasing steps after SSH exits, no failure.
 Fresh witness also found a missing Lenovo Git executable path in identity-check
 guidance; documented explicit path added, numeric invocations unchanged.
+
+Cycle10 closed after all12native endpoint replays, eight exact native final
+anchors and registered sample/scalar-D readouts. Five figures viewed; external
+trial ledger has122unique rows. Reject radial continuation under its original
+threshold. Native environment unchanged; no source/runtime or submitted-PDF edits.
+Default local python3 lacks torch (NumPy/Matplotlib available); CPU kernel
+witnesses must use an existing research environment, not install into system
+Python. Rendering/curation uses only the verified available packages.

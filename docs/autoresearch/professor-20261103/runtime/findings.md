@@ -1,9 +1,9 @@
 # Measured run cost
 
-The table covers110 completed training trajectories from cycles1–6 and8:102 at20k
+The table covers122 completed training trajectories from cycles1–6,8and10:114 at20k
 updates and eight at80k. Native wall times are attached only after recorded
 field/sampling scores match independent replay. Their summed process wall time
-is24,412.1s; workers overlap, so this is not GPU hours or elapsed queue time.
+is26,528.4s; workers overlap, so this is not GPU hours or elapsed queue time.
 Cycle7 is frozen analysis and is excluded from training counts.
 
 Examples from the same native task/host,20k updates with two workers per GPU:
@@ -28,8 +28,7 @@ is active time, not a measurement of peak compute efficiency or MFU.
 
 [All run times and config hashes](trajectories.csv). No training was rerun to
 collect these records. Cycle5 is included; cycle6 completed its separately registered80k budget.
-Cycle9 is a frozen diagnostic and is also excluded. Cycle10 is live and will
-be added only after its endpoints pass native replay.
+Cycle9 is a frozen diagnostic and is also excluded. Cycle10 completed and is included after native replay.
 
 ## Budget and constraint extensions
 
@@ -38,3 +37,7 @@ CSV. Cycle8 adds twelve20k native/shape/contraction cases; its SVD cost is part
 of the native timer. Frozen cycle7 cases are not training trajectories. Mixed
 budgets cannot establish equal-time efficiency, and two-worker dispatch is not
 an isolated latency measurement.
+
+Cycle10 adds twelve20k raw/radial/static/ordinary cases. Scalar reduction and
+square-root work is included in their native wall timer. No equal-time or
+isolated-hardware speed claim follows from these concurrent observations.

@@ -40,3 +40,8 @@ Neither is a count of independent training runs.
 [Cycle8 constrained-training comparison](../../docs/autoresearch/professor-20261103/cycle8-results/findings.md) completed12replayed runs with four exact native anchors. Flatter P spectra do not improve fitting or sampling in this setting. The [research map](../../docs/autoresearch/professor-20261103/research-map.md) now connects both professor proposals through controls, mathematical distinctions and decisions. Submitted PDFs remain unchanged.
 
 [Cycle9 native-feature accounting](../../docs/autoresearch/professor-20261103/cycle9-results/findings.md) reconciles P spectra, actual first-term responses and finite K2 alignment on all14fixed checkpoints. It is descriptive evidence, with no whitening/new-optimizer claim. PDFs unchanged.
+
+[Cycle10 completed radial-diagonal comparison](../../docs/autoresearch/professor-20261103/cycle10-results/findings.md)
+separates radial growth from fixed scaling, with all three ordinary widths.
+Response amplitudes decrease substantially but neither task qualifies for
+continuation under the predeclared criterion. Submitted report PDFs are unchanged.

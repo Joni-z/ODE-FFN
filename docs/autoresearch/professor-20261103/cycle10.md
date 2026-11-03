@@ -47,7 +47,10 @@ nor the function class is claimed globally identical.
 
 - [x] Implement a D-only adapter/grid and pass CPU derivative/source witnesses.
 - [x] Publish/deploy, pass fresh documented native CUDA and actual-entry checks.
-- [ ] Run baseline-first monitored queues, complete/replay all12, verify eight
+- [x] Run baseline-first monitored queues, complete/replay all12, verify eight
       exact native20k anchors, and report all amplitude/ordinary controls.
-- [ ] Continue or reject from the complete registered comparison; no automatic
+- [x] Continue or reject from the complete registered comparison; no automatic
       extra trick, temperature, rate, K2 or image rescue.
+
+Closed: [all results](cycle10-results/findings.md). Neither radial arm passes
+the registered continuation criterion. No80k or image rescue is selected.

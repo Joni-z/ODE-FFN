@@ -96,7 +96,7 @@ a new optimizer, or a causal account of the quality gap.
 
 ## 5. Does radial growth matter independently of feature direction?
 
-The next registered [twelve-arm comparison](cycle10.md) changes only the direct
+The completed [twelve-arm comparison](cycle10-results/findings.md) changed only the direct
 diagonal: d(h)=h/sqrt(1+mean(h^2)), versus raw h and fixed h/sqrt(2). At common
 P,h, this rescales all conditional singular values uniformly, preserving
 spectral shape and quadratic feature direction. Its input derivative also has
@@ -107,15 +107,18 @@ The fixed scaling is necessary: a gain over raw alone would not identify the
 input-dependent radial mechanism. The registered decision requires at least5%
 validation improvement over both raw and static, followed by a separate matched
 long-budget confirmation. All three SwiGLU widths remain in the comparison.
-No outcome is available yet; this is a functional hypothesis, not a consequence
-of the negative P-constraint result or a proposed global stability theorem.
+Radial improves Ring8 field fitting by3.73% over raw and4.71% over static,
+below both registered thresholds, while leaving its worse sampling unresolved.
+Product16 field worsens9.22% over raw. Reject this setting without a strength
+or rate sweep. Its much smaller hidden responses do not establish useful
+dynamics or support a global stability claim.
 
 ## Current judgment
 
 The useful progress is a sharper separation of mechanisms: optimizer geometry,
 weight amplitude, spectral shape, diagonal features and polynomial order are
 different hypotheses. Several attractive explanations have failed controlled
-tests. There is no accepted new ODEFFN method from this study yet. The next
-test isolates radial growth while retaining amplitude and ordinary controls.
+tests. There is no accepted new ODEFFN method from this study yet. The radial test now also rules out numerical amplitude reduction as a
+sufficient explanation for an improvement in this setting.
 The earlier P-shape/whitening settings remain closed; no image transfer follows
 from a weak-parent synthetic gain.

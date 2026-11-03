@@ -1,0 +1,13 @@
+cell,dataset,family,optimizer,lr,status,field_mse,test_sw2,parent,field_relative_improvement,test_sw2_relative_change,better_field_than_strongest_ordinary
+rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006__radial_anchor,rotated_product_bimodal_16d,pd_direct_raw_k1,muon,0.006,anchor,0.02371065640174706,0.11113902790825855,,,,False
+rotated_product_bimodal_16d__pd_radial_k1__muon_0.006,rotated_product_bimodal_16d,pd_radial_k1,muon,0.006,discard,0.025896086614069037,0.11999949393641499,rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006,-0.09217080182398285,0.07972416346371536,False
+rotated_product_bimodal_16d__pd_scaled_raw_k1__muon_0.006,rotated_product_bimodal_16d,pd_scaled_raw_k1,muon,0.006,discard,0.023907962229903542,0.10945946125448489,rotated_product_bimodal_16d__pd_direct_raw_k1__muon_0.006,-0.008321398818041281,-0.015112302900112562,False
+rotated_product_bimodal_16d__swiglu128__adamw_0.0003__radial_anchor,rotated_product_bimodal_16d,swiglu128,adamw,0.0003,anchor,0.016854864484297842,0.08184766622517348,,,,False
+rotated_product_bimodal_16d__swiglu192__adamw_0.0003__radial_anchor,rotated_product_bimodal_16d,swiglu192,adamw,0.0003,anchor,0.015667603197317668,0.07920620489476965,,,,False
+rotated_product_bimodal_16d__swiglu64__adamw_0.001__radial_anchor,rotated_product_bimodal_16d,swiglu64,adamw,0.001,anchor,0.01878107404604677,0.08106103450403247,,,,False
+gmm_ring8_2d__pd_direct_raw_k1__muon_0.02__radial_anchor,gmm_ring8_2d,pd_direct_raw_k1,muon,0.02,anchor,0.01091287314723743,0.17792394842571735,,,,True
+gmm_ring8_2d__pd_radial_k1__muon_0.02,gmm_ring8_2d,pd_radial_k1,muon,0.02,discard,0.010506286757184234,0.17778418520955785,gmm_ring8_2d__pd_direct_raw_k1__muon_0.02,0.037257501719986874,-0.0007855222267498796,True
+gmm_ring8_2d__pd_scaled_raw_k1__muon_0.02,gmm_ring8_2d,pd_scaled_raw_k1,muon,0.02,discard,0.011025180993644983,0.16852117047495468,gmm_ring8_2d__pd_direct_raw_k1__muon_0.02,-0.010291317867649141,-0.0528471745032586,True
+gmm_ring8_2d__swiglu128__muon_0.02__radial_anchor,gmm_ring8_2d,swiglu128,muon,0.02,anchor,0.011484199200521872,0.16451997369812557,,,,False
+gmm_ring8_2d__swiglu192__muon_0.02__radial_anchor,gmm_ring8_2d,swiglu192,muon,0.02,anchor,0.011230509358947984,0.16580476322596938,,,,False
+gmm_ring8_2d__swiglu64__muon_0.02__radial_anchor,gmm_ring8_2d,swiglu64,muon,0.02,anchor,0.01127925148563055,0.15038355281489693,,,,False
