@@ -1,8 +1,8 @@
 {
-  "baseline_commit": "23e2469da6b25c09053281ca54becedfebd739ce",
-  "previous_pdf_sha256": "e54eadb907133037e967895a0787efb0659d25ac72d9044363b10a613d36d9cc",
-  "date": "3 November 2026",
-  "authorization": "User requests a balanced full-project Report2 with neutral headings, retaining Muon/PD as part of the broader exploration.",
+  "baseline_commit": "3285bdc5e6741990853b8da00e921409d625ed20",
+  "previous_pdf_sha256": "023a6339088d3231ee653a5aa82e2debf94a00f2a7e6d18c629593c5ee6759ea",
+  "date": "4 November 2026",
+  "authorization": "User requests Report2 completion and direct factual writing without repetitive defensive caveats; incorporate completed Ring8 validation.",
   "protected_paths": [
     "docs",
     "studies",
@@ -13,6 +13,9 @@
     "engine_jit.py",
     "reports/report1"
   ],
-  "new_evidence": "data/professor-evidence.json",
+  "new_evidence": [
+    "data/professor-evidence.json",
+    "data/validation-evidence.json"
+  ],
   "no_new_training_or_sampling": true
 }

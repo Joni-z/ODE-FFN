@@ -1,11 +1,13 @@
 # Report2 evidence index — ODEFFN mainline
 
-The current revision follows the full ODEFFN exploration: local clocks/P/order,
-complete readouts, learned directions, nonlinear flows and diagonal features.
+The4November revision follows local clocks/P/order, complete readouts, learned
+directions, nonlinear flows and diagonal features, then the latest Ring8
+checkpoint and sampling validation.
 Muon and P D(h) are integrated into that narrative with neutral headings.
 Start with the [report](report2.pdf), then the [complete attempt ledger](attempts.md).
 Dated entries below preserve their original reporting status; the current PDF
-now includes the completed professor-guided work.
+includes the completed Ring8 validation. Statements below about unchanged
+PDFs describe the reporting state on their original date.
 All post-finalization research belongs to Report2. Early material is included
 as labeled context; Report1 remains unchanged.
 
@@ -68,3 +70,7 @@ three SwiGLU widths. AdamW Ring8 improves over SwiGLU, but only2.25%field
 separation remains from free ISRU; Product16 favors the ordinary model. No
 registered continuation or ODE-specific gain. All18endpoints and ten
 references replay exactly. Submitted report PDFs/source remain unchanged.
+
+## Ring8 sampling validation,4November
+
+[Complete analysis and figures](../../docs/autoresearch/professor-20261103/cycle14-results-ring8/analysis-report.md) are incorporated in the current PDF. ISRU-D fits the analytic field better than four ordinary controls at all three checkpoints. Its primary sampling mean nearly ties selected Swi64. The separate32,768sample precision check retains a modest lead. The report distinguishes same-AdamW controls, selected-Muon controls and original Product16 scores; Product16 expanded sampling remains pending.

@@ -1,3 +1,15 @@
+# Current deliverable: Report2 revision, 4 November 2026
+
+The user requests direct factual writing and a completed report. Update the
+three-page English report with the completed Ring8 checkpoint/bank validation,
+retain the full ODEFFN exploration, and state observations and next hypotheses
+without repetitive defensive prose. Source/number/layout checks pass; final
+page inspection, GitHub publication and MBP delivery complete the revision.
+Canonical reporting plan: reports/report2/task_plan.md. Primary experiments,
+Report1, and the pending Product16 audit are unchanged by this writing task.
+
+Earlier entries below retain their historical reporting scope.
+
 # Current research focus: validate the existing ISRU-D lead
 
 Ring8 frozen validation completed and independently replayed240evaluations.

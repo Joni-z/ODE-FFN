@@ -1,6 +1,6 @@
 # Report2 — ODEFFN mainline
 
-**Zhizhe Zhang · 3 November 2026 · Draft for review**
+**Zhizhe Zhang · 4 November 2026**
 
 [Three-page PDF](report2.pdf) · [LaTeX](report2.tex) ·
 [Evidence map](EVIDENCE.md) · [Verification](verification.json) ·
@@ -16,25 +16,27 @@ individual ideas:
 - **Input-dependent features:** controller/range/order controls, direct and
   radial diagonals, the ISRU-D lead and strong ordinary references.
 
-Each main experiment states its purpose, observation and comparison limit.
-The two figures show optimizer/P trajectories and the earlier readout/frame
-results. Tables retain the cubic-flow comparison and representative latest
-ISRU/SwiGLU endpoints; full optimizer grids remain in the evidence index.
-Muon and P D(h) are integrated naturally, without attribution-style headings.
+Each main experiment states its purpose, observation and interpretation.
+Three figures show optimizer/P trajectories, readout/frame results and the
+new Ring8 checkpoint comparison. The current table reports field fitting,
+common-bank sampling and a separate pooled-sample precision check, including
+same-AdamW and selected-Muon SwiGLU controls. Product16 retains its original
+comparison; the expanded sampling check is pending.
 
 The entire PDF is **three pages including figures and tables**, English,
 sole author Zhizhe Zhang, no bibliography. It opens with project/progress and
 ends with two hypotheses for the next two weeks. The previous focused version
-remains in Git at23e2469. No new training or sampling was performed for this
-revision; Report1 and all primary experiment artifacts remain unchanged.
+remains in Git at23e2469; the preceding full-project report is at3285bdc.
+This revision uses completed results and rewrites the prose to state findings
+directly. Report1 and primary experiment artifacts remain unchanged.
 
 ## Evidence and historical coverage
 
 [Optimizer/diagonal evidence](data/professor-evidence.json) binds each new figure/table
-value to an exact row and file hash. [EVIDENCE.md](EVIDENCE.md) states the
-claim boundaries; [evidence-index.md](evidence-index.md) links the completed
-professor-guided studies. Curves, samples and all optimizer outcomes remain
-in the primary study directories.
+value to an exact row and file hash. [Ring8 bindings](data/validation-evidence.json)
+cover the new table, checkpoint figure and matrix-work counts.
+[EVIDENCE.md](EVIDENCE.md) maps report statements to their sources;
+[evidence-index.md](evidence-index.md) links the completed studies.
 
 The historical [attempt ledger](attempts.md), also in
 [JSON](attempt-ledger.json)/[CSV](attempt-ledger.csv), contains127linked
@@ -54,6 +56,7 @@ From the repository root:
 
 ```sh
 python3 -B reports/report2/make_professor_figures.py
+python3 -B reports/report2/make_validation_figure.py
 bash reports/report2/build.sh
 python3 -B reports/report2/verify_report.py
 ```

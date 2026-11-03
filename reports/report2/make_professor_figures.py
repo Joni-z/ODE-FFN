@@ -1,4 +1,4 @@
-"""Source-bound additions for the two professor suggestions; no model execution."""
+"""Source-bound optimizer and diagonal figures from completed studies."""
 from pathlib import Path
 import csv,hashlib,json
 import matplotlib
@@ -49,20 +49,16 @@ source=BASE+'/cycle13-results/endpoints.csv';endpoints=read(source)
 table=[]
 for fam,opt in [('pd_constant_k1','adamw'),('pd_constant_k1','muon'),('pd_isru_k1','adamw'),('pd_isru_k1','muon'),('free_isru','adamw'),('free_isru','muon'),('swiglu64',None),('swiglu128',None),('swiglu192',None)]:
     item=dict(family=fam,optimizer=opt)
-    displayed=(fam in ['pd_isru_k1','free_isru'] and opt=='adamw') or fam in ['swiglu64','swiglu192']
-    digits=5 if displayed else None
     for ds,key in [('gmm_ring8_2d','ring'),('rotated_product_bimodal_16d','product')]:
         selector=dict(dataset=ds,family=fam)
         if opt:selector['optimizer']=opt
         r=unique(endpoints,selector)
-        item[key]=dict(field=bind(source,r,selector,'replayed_field_mse',digits),sw2=bind(source,r,selector,'numpy_test_sw2',digits),optimizer=r['optimizer'],lr=r['projection_lr'])
+        # Current Ring8 table comes from the common-bank audit. Only these
+        # original Product16 values remain printed in the short report.
+        field_digits=5 if ds=='rotated_product_bimodal_16d' and fam in ['pd_isru_k1','free_isru'] and opt=='adamw' else None
+        sw2_digits=5 if ds=='rotated_product_bimodal_16d' and ((fam=='pd_isru_k1' and opt=='adamw') or fam=='swiglu192') else None
+        item[key]=dict(field=bind(source,r,selector,'replayed_field_mse',field_digits),sw2=bind(source,r,selector,'numpy_test_sw2',sw2_digits),optimizer=r['optimizer'],lr=r['projection_lr'])
     table.append(item)
-# Retain the exact continuation margin instead of interpreting rounding.
-source=BASE+'/cycle13-results/matched-comparisons.csv';matched=read(source)
-for ds,digits in [('gmm_ring8_2d',2),('rotated_product_bimodal_16d',None)]:
-    selector=dict(dataset=ds,optimizer='adamw');r=unique(matched,selector)
-    if digits is not None:
-        value=bind(source,r,selector,'free_field_gain');records[-1].update(printed_digits=2,printed_scale=100.)
 source=BASE+'/cycle13-results/curves.csv';curves=read(source)
 fig,axes=plt.subplots(1,2,figsize=(6.85,2.05),layout='constrained')
 colors={'pd_constant_k1':'#0072B2','pd_isru_k1':'#D55E00','free_isru':'#009E73','swiglu192':'#333333'}

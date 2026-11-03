@@ -1,3 +1,23 @@
+# Current task — direct evidence-led revision, 4 November 2026
+
+The user asks whether Report2 is finished and explicitly requests factual
+writing without repeated defensive caveats. Incorporate the completed Ring8
+validation, keep the broader ODEFFN exploration, and write observations,
+interpretation and next hypotheses directly. Preserve useful controls and
+negative outcomes as results. Keep English, Zhizhe Zhang, three pages total,
+no bibliography, and deliver the reviewed PDF/source to GitHub and MBP.
+
+- [x] Check current report, source tables, prior verification and latest Ring8 evidence.
+- [x] Revise the narrative and replace the old single-bank Ring8 table with current common-bank results.
+- [x] Add a compact source-bound checkpoint figure and verify every new number.
+- [x] Compile, check three pages/fonts/text and inspect every rendered page.
+- [ ] Update evidence notes, publish and synchronize the reviewed PDF/TeX to MBP.
+
+No new experiment, training, sampling or Report1 edit is part of this revision.
+Earlier plans below retain their historical state.
+
+---
+
 # Current task — restore the full project narrative, 3 November 2026
 
 The user says the report must include our broader exploration and should not
