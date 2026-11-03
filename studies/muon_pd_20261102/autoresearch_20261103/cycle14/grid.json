@@ -256,12 +256,7 @@
   },
   "execution_devices": {
     "lenovo": "cuda",
-    "145": "cpu"
+    "145": "cuda"
   },
-  "cpu_native_anchor_tolerance": {
-    "rtol": 1e-05,
-    "atol": 1e-06,
-    "sw2_absolute": 2e-06,
-    "field_mse_absolute": 2e-06
-  }
+  "native_anchor_policy": "bitwise_original_host_cuda"
 }

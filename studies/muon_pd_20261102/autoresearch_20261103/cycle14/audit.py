@@ -160,7 +160,7 @@ def run_case(case, grid, data_root, device, out, witness=False):
     base.dump(out / 'binding.json', dict(case=case, source_config=cfg,
               source_sha256=base.digest(__file__), grid_sha256=base.digest(HERE / 'grid.json'),
               bank_identity=bank_identity, kind=grid['kind'], model_seed=0))
-    rows, fields = [], []
+    rows, fields, dispatches = [], [], []
     for step in grid['checkpoint_steps']:
         model, identity = restored(case, folder, manifest, law.dim, step, device)
         before = tensor_snapshot(model)
@@ -174,24 +174,26 @@ def run_case(case, grid, data_root, device, out, witness=False):
             with np.load(folder / 'final_test_examples.npz', allow_pickle=False) as saved:
                 archived = saved['generated'].copy()
                 exact = np.array_equal(native, archived)
-                if device.type == 'cuda':
-                    assert exact, 'original-host CUDA native generated array changed'
-                else:
-                    assert np.allclose(native, archived, rtol=1e-5, atol=1e-6), 'CPU/CUDA anchor exceeds registered roundoff tolerance'
-                assert np.array_equal(fixed['sample_target'].cpu().numpy(), saved['target'])
-            assert abs(mse - case['native_field_mse']) < 2e-6
+                target_exact = np.array_equal(fixed['sample_target'].cpu().numpy(), saved['target'])
+            coordinate_pass = exact if device.type == 'cuda' else np.allclose(native, archived, rtol=1e-5, atol=1e-6)
             native_sw2 = base.train.sliced_w2(generated.double(), fixed['sample_target'].double(), fixed['directions'].double())
-            assert abs(native_sw2 - case['native_test_sw2']) < 2e-6
             np.savez_compressed(out / 'native_anchor.npz', generated=native, archived_generated=archived,
                 target=fixed['sample_target'].cpu().numpy(), directions=arrays['directions'])
-            base.dump(out / 'native_anchor.json', dict(passed=True, generated_exact=exact, target_exact=True,
+            passed = bool(coordinate_pass and target_exact and mse is not None and
+                          abs(mse-case['native_field_mse']) < 2e-6 and
+                          abs(native_sw2-case['native_test_sw2']) < 2e-6)
+            base.dump(out / 'native_anchor.json', dict(passed=passed, generated_exact=exact, target_exact=target_exact,
                 generated_max_abs_error=float(np.max(np.abs(native-archived))),
                 anchor_policy='bitwise' if device.type == 'cuda' else 'rtol1e-5_atol1e-6',
                 oracle_mse=mse, native_sw2=native_sw2, **identity))
+            assert passed, 'native anchor failed: retained arrays and native_anchor.json record the errors'
         if witness:
             # Nonzero real-checkpoint fresh-bank dispatch, not the formal cohort.
             small = torch.from_numpy(arrays['source_0'][:64]).to(device)
-            assert bool(torch.isfinite(base.train.generated_samples(model, small, 128)).all())
+            finite = bool(torch.isfinite(base.train.generated_samples(model, small, 128)).all())
+            dispatches.append(dict(checkpoint_step=step, samples=64, heun_steps=128, finite=finite))
+            base.dump(out/'dispatches.json', dispatches)
+            assert finite
         else:
             for bank in range(grid['banks']):
                 source = torch.from_numpy(arrays[f'source_{bank}']).to(device)
@@ -231,6 +233,7 @@ def run_case(case, grid, data_root, device, out, witness=False):
     result = dict(passed=True, witness=witness, cell=case['id'], device=str(device),
                   kind=grid['kind'], model_seed=0, evaluations=len(rows), fields=fields,
                   tensors_unchanged=True, native_anchor_passed=True,
+                  witness_dispatches=dispatches,
                   bank_identity=bank_identity, wall_seconds=time.monotonic()-started)
     base.dump(out / 'result.json', result)
     (out / 'ADAPTER_COMPLETE').write_text('Completed frozen evaluation; no training.\n')

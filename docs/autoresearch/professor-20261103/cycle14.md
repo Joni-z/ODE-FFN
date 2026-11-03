@@ -70,12 +70,13 @@ work remain visible; concurrent sampler timing is not isolated throughput.
 ## Execution
 
 Original-host pairing stays Ring8/Lenovo and Product16/145. Warm environments;
-use the free Lenovo GPU and two one-thread CPU workers on145, where all GPUs
-became occupied before launch. Two native queue workers and persistent30s
-monitoring per host. Lenovo native anchors require bitwise equality;145 CPU
-anchors require rtol1e-5/atol1e-6 coordinate agreement and2e-6 absolute scalar
-SW2/field agreement against original CUDA archives. Save actual errors. This
-execution-only change precedes new outcomes and does not change the cohort.
+use freshly free145GPU0 and LenovoGPU0 with two native queue workers and
+persistent30second monitoring. Both require bitwise CUDA native anchors.
+An earlier145CPU readiness attempt failed the registered coordinate roundoff
+check before any formal evaluation; no tolerance was relaxed. Preserve attempt1
+and use separate professor-validation14-v2-20261104 worktrees/outputs with a
+new fresh documented CUDA witness on both hosts. Cohort and science unchanged.
+
 The unchanged queue's ADAPTER_COMPLETE marker denotes a completed frozen audit
 here, not training; no row enters the training-trial TSV. CPU bank/native-kernel
 checks and fresh documented original-host source/path/native-anchor witnesses precede

@@ -1,0 +1,332 @@
+{
+  "overall_passed": false,
+  "status": "stopped_after_145_cpu_anchor_failure",
+  "recorded_utc": "2026-11-03T16:55:18.748885+00:00",
+  "expected_head": "e9841cc22782fd75e24478104249388200a2d610",
+  "preflight": {
+    "145-identity": {
+      "command": [
+        "ssh",
+        "145",
+        "git -C /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo rev-parse HEAD && git -C /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo rev-parse --abbrev-ref HEAD && git -C /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo status --porcelain=v1 --untracked-files=all"
+      ],
+      "started_utc": "2026-11-03T16:52:24.888211+00:00",
+      "exit": 0,
+      "output": "e9841cc22782fd75e24478104249388200a2d610\nHEAD\n",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/145-identity.log"
+    },
+    "lenovo-identity": {
+      "command": [
+        "ssh",
+        "lenovo",
+        "D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-validation14-20261104/repo rev-parse HEAD && D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-validation14-20261104/repo rev-parse --abbrev-ref HEAD && D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-validation14-20261104/repo status --porcelain=v1 --untracked-files=all"
+      ],
+      "started_utc": "2026-11-03T16:52:24.888525+00:00",
+      "exit": 0,
+      "output": "e9841cc22782fd75e24478104249388200a2d610\nHEAD\n",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/lenovo-identity.log"
+    },
+    "145-gpu": {
+      "command": [
+        "ssh",
+        "145",
+        "nvidia-smi --query-gpu=index,uuid,memory.used,memory.total,utilization.gpu --format=csv,noheader"
+      ],
+      "started_utc": "2026-11-03T16:52:24.889546+00:00",
+      "exit": 0,
+      "output": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 434 MiB, 49140 MiB, 0 %\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 434 MiB, 49140 MiB, 0 %\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 434 MiB, 49140 MiB, 0 %\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 434 MiB, 49140 MiB, 0 %\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 40368 MiB, 49140 MiB, 100 %\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 40368 MiB, 49140 MiB, 100 %\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 40368 MiB, 49140 MiB, 100 %\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 40368 MiB, 49140 MiB, 100 %\n",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/145-gpu.log"
+    },
+    "lenovo-gpu": {
+      "command": [
+        "ssh",
+        "lenovo",
+        "nvidia-smi --query-gpu=index,uuid,memory.used,memory.total,utilization.gpu --format=csv,noheader"
+      ],
+      "started_utc": "2026-11-03T16:52:24.890576+00:00",
+      "exit": 0,
+      "output": "0, GPU-351633f8-f627-0b1a-ea5f-d6a6c96bd480, 415 MiB, 8188 MiB, 0 %\n",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/lenovo-gpu.log"
+    }
+  },
+  "invocations": {
+    "145": {
+      "command_verbatim": "ssh 145 'CUDA_VISIBLE_DEVICES=-1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle14/audit.py --device cpu --host 145 --witness --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/professor-validation14-20261104/preflight/documented'",
+      "started_utc": "2026-11-03T16:53:06.111304+00:00",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/145-witness.log",
+      "invocation_count": 1,
+      "exit": 1,
+      "completed_utc": "2026-11-03T16:53:17.203338+00:00"
+    },
+    "lenovo": {
+      "command_verbatim": "ssh lenovo 'set CUDA_VISIBLE_DEVICES=0&& set OMP_NUM_THREADS=1&& set OPENBLAS_NUM_THREADS=1&& set MKL_NUM_THREADS=1&& D:/Research/ODE-FFN/envs/synthetic/Scripts/python.exe D:/Research/ODE-FFN/professor-validation14-20261104/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle14/audit.py --device cuda --host lenovo --witness --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/professor-validation14-20261104/preflight/documented'",
+      "started_utc": "2026-11-03T16:53:06.113046+00:00",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/lenovo-witness.log",
+      "invocation_count": 1,
+      "exit": 0,
+      "completed_utc": "2026-11-03T16:53:15.181090+00:00"
+    }
+  },
+  "post_source_identity": {
+    "145": {
+      "command": [
+        "ssh",
+        "145",
+        "git -C /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo rev-parse HEAD && git -C /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo rev-parse --abbrev-ref HEAD && git -C /data2/zz5070/ODE_FFN/professor-validation14-20261104/repo status --porcelain=v1 --untracked-files=all"
+      ],
+      "exit": 0,
+      "output": "e9841cc22782fd75e24478104249388200a2d610\nHEAD\n",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/145-identity-after.log",
+      "checked_utc": "2026-11-03T16:55:18.731963+00:00"
+    },
+    "lenovo": {
+      "command": [
+        "ssh",
+        "lenovo",
+        "D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-validation14-20261104/repo rev-parse HEAD && D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-validation14-20261104/repo rev-parse --abbrev-ref HEAD && D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-validation14-20261104/repo status --porcelain=v1 --untracked-files=all"
+      ],
+      "exit": 0,
+      "output": "e9841cc22782fd75e24478104249388200a2d610\nHEAD\n",
+      "log": "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/lenovo-identity-after.log",
+      "checked_utc": "2026-11-03T16:55:17.298725+00:00"
+    }
+  },
+  "post_source_detached_clean_exact_head_both": true,
+  "expected_per_host": {
+    "kernel_restore_fixtures": 8,
+    "physical_checkpoint_bindings": 15,
+    "native_4096_sample_final_anchors": 5,
+    "fresh_64_sample_Heun128_finite_dispatches": 15
+  },
+  "observed": {
+    "lenovo": {
+      "exit": 0,
+      "passed": true,
+      "device": "cuda",
+      "kernel_restore_fixtures": 8,
+      "kernel": {
+        "passed": true,
+        "device": "cuda",
+        "torch": "2.8.0+cu126",
+        "rows": [
+          {
+            "dim": 2,
+            "family": "pd_isru_k1",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 2,
+            "family": "free_isru",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 2,
+            "family": "swiglu64",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 2,
+            "family": "swiglu192",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 16,
+            "family": "pd_isru_k1",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 16,
+            "family": "free_isru",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 16,
+            "family": "swiglu64",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          },
+          {
+            "dim": 16,
+            "family": "swiglu192",
+            "restore_output_exact": true,
+            "tensors_unchanged": true
+          }
+        ],
+        "bank_determinism": true,
+        "numpy_sw2_agrees": true,
+        "native_constant_heun_exact": true
+      },
+      "physical_checkpoint_bindings": 15,
+      "native_final_anchors": 5,
+      "field_files": 15,
+      "completed_cells": 5,
+      "all_result_tensors_unchanged": true,
+      "native_anchor_flags": [
+        {
+          "cell": "gmm_ring8_2d__free_isru__adamw_0.0003__validation14",
+          "passed": true,
+          "generated_exact": true,
+          "target_exact": true,
+          "generated_max_abs_error": 0.0,
+          "anchor_policy": "bitwise",
+          "oracle_mse": 0.009998131646174562,
+          "native_sw2": 0.1733858066635569,
+          "checkpoint_sha256": "9ec778697b5d07b82a7345a0c1555f832d5b74830d88f1172a6fb0b6d5aa3906",
+          "config_sha256": "fcd80d014fcf885505b991944a841c4f2db956a784547d0696c44bf1eadcb96f",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+          "generated_npy_bytes_equal": true,
+          "field_scalar_abs_error": 0.0,
+          "sw2_scalar_abs_error": 0.0
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__validation14",
+          "passed": true,
+          "generated_exact": true,
+          "target_exact": true,
+          "generated_max_abs_error": 0.0,
+          "anchor_policy": "bitwise",
+          "oracle_mse": 0.009773368993968313,
+          "native_sw2": 0.14590744598470187,
+          "checkpoint_sha256": "3376c2feb76284d97fe4d9399180ab34abbb269f517b9173efdd60798b3577d2",
+          "config_sha256": "3bc8802a3aadd3f1e01089a69cce2cfee150de10fbc2f646ff77228bc700046b",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+          "generated_npy_bytes_equal": true,
+          "field_scalar_abs_error": 1.734723475976807e-18,
+          "sw2_scalar_abs_error": 2.7755575615628914e-17
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu192__muon_0.02__isruD_anchor__validation14",
+          "passed": true,
+          "generated_exact": true,
+          "target_exact": true,
+          "generated_max_abs_error": 0.0,
+          "anchor_policy": "bitwise",
+          "oracle_mse": 0.011230509358947986,
+          "native_sw2": 0.1658047632259694,
+          "checkpoint_sha256": "e9a458d486346d337f3845c03dd13660f86db32d023953f123752e88ac6051df",
+          "config_sha256": "ba4773733024712a0fe4c8c935f1f9982f8fc31d4914e9354fec2865b2c71c9e",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+          "generated_npy_bytes_equal": true,
+          "field_scalar_abs_error": 1.734723475976807e-18,
+          "sw2_scalar_abs_error": 2.7755575615628914e-17
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu64__adamw_0.0003__validation14",
+          "passed": true,
+          "generated_exact": true,
+          "target_exact": true,
+          "generated_max_abs_error": 0.0,
+          "anchor_policy": "bitwise",
+          "oracle_mse": 0.01371714646612824,
+          "native_sw2": 0.18803617671159847,
+          "checkpoint_sha256": "8122a990d034858a27315f24b110000b8b20207990dfda6c603463c78a17c4a7",
+          "config_sha256": "1ac8f21ff9c2b1adb5f5ed21c778d69ccaf9385f7c72c2ebc9e1230e78f63fbe",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+          "generated_npy_bytes_equal": true,
+          "field_scalar_abs_error": 1.734723475976807e-18,
+          "sw2_scalar_abs_error": 2.7755575615628914e-17
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__validation14",
+          "passed": true,
+          "generated_exact": true,
+          "target_exact": true,
+          "generated_max_abs_error": 0.0,
+          "anchor_policy": "bitwise",
+          "oracle_mse": 0.01127925148563055,
+          "native_sw2": 0.15038355281489688,
+          "checkpoint_sha256": "f0d385eea3c2060cf04846e5a0765694ca0b174f95f7e8f98d78938d3f9f8853",
+          "config_sha256": "29d6d20d5df827140af991cff16137f6fd2acf962f2a09c07b7308237e731b47",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+          "generated_npy_bytes_equal": true,
+          "field_scalar_abs_error": 0.0,
+          "sw2_scalar_abs_error": 5.551115123125783e-17
+        }
+      ],
+      "explicit_dispatch_count": null,
+      "dispatch_count_limit": "Witness JSON has no dispatch-specific count or finite flag; 15 checkpoint fields are saved and all five witness cell results passed. Formal evaluations counter is zero."
+    },
+    "145": {
+      "exit": 1,
+      "passed": false,
+      "device": "cpu",
+      "failure": "CPU/CUDA anchor exceeds registered roundoff tolerance",
+      "failure_location": "audit.py:180",
+      "registered_rtol": 1e-05,
+      "registered_atol": 1e-06,
+      "native_anchor_passes_saved": 0,
+      "physical_checkpoint_field_files": 3,
+      "binding_cells_saved": 1,
+      "progress": [
+        {
+          "path": "145-artifacts/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/progress.json",
+          "data": {
+            "checkpoints": 2,
+            "evaluations": 0,
+            "fields": [
+              {
+                "step": 10000,
+                "oracle_mse": 0.03051030326616411,
+                "checkpoint_sha256": "f279d2ac9806ce347658ce287be8f41721a7122dc177083c35dd2303ce076910",
+                "config_sha256": "50a4c0095634e95da8f1e157549bf954040b9e0a7705ae4d0662fd8631951bf1",
+                "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+              },
+              {
+                "step": 15000,
+                "oracle_mse": 0.019641696179699047,
+                "checkpoint_sha256": "dd54eca908f96a12c032bef248f480c9778d049a5c6e143cb57547d16048e101",
+                "config_sha256": "50a4c0095634e95da8f1e157549bf954040b9e0a7705ae4d0662fd8631951bf1",
+                "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+              }
+            ]
+          }
+        }
+      ],
+      "kernel_summary_saved": false,
+      "actual_failed_array_errors_saved": false,
+      "exactness_flags_saved": false,
+      "note": "No witness.json, native_anchor.json, or native_anchor.npz was written on failure; no numerical error magnitude or kernel result is asserted from the absence of these outputs."
+    }
+  },
+  "doc_vs_reality": [
+    "145 CPU witness exits 1 at registered array tolerance; documented exit0 readiness is not met.",
+    "145 failed anchor emits an assertion before persisting actual array errors and exactness flags, despite documentation requiring those values retained.",
+    "Witness output does not enumerate 15 fresh64/Heun128 dispatches or per-dispatch finite flags; Lenovo reports passed=true and 15 physical checkpoints.",
+    "Capacity snapshot 2026-11-03T16:52:24Z: 145 GPUs0-3 were 434MiB/0percent; GPUs4-7 40368MiB/100percent, while document says all eight occupied. Registered CPU invocation unchanged."
+  ],
+  "boundaries": {
+    "witness_invocations_per_host": 1,
+    "repair_or_retry": false,
+    "formal_queue_launched": false,
+    "source_or_runtime_modified_by_agent": false,
+    "writes": "Local requested witness directory and the two remote output directories created by documented commands only."
+  },
+  "artifact_copy": {
+    "145-artifacts": {
+      "command": [
+        "scp",
+        "-r",
+        "145:/data2/zz5070/ODE_FFN/professor-validation14-20261104/preflight/documented",
+        "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/145-artifacts"
+      ],
+      "exit": 0,
+      "output": ""
+    },
+    "lenovo-artifacts": {
+      "command": [
+        "scp",
+        "-r",
+        "lenovo:D:/Research/ODE-FFN/professor-validation14-20261104/preflight/documented",
+        "/Users/mr.z/ode-workspace-prep/muon-pd-20261102/nov04-validation14/documented-witness/lenovo-artifacts"
+      ],
+      "exit": 0,
+      "output": ""
+    }
+  }
+}
