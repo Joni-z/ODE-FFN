@@ -2,11 +2,11 @@
 
 ## Current step
 
-Cycle8 is complete: all12replays pass and four exact20k native states/samples
-match archives. All eight constrained candidates worsen field and sampling.
-Publish the complete figures/negative decision, then register frozen feature
-moments M and increment statistics PMP^T. No new training method or hyperparameter
-sweep is selected. Earlier paragraphs preserve the decisions and v1 failure.
+Cycles8and9 are closed:12native trajectories, four exact native20k anchors,
+and14frozen-model feature records. No accepted method or active training queue.
+Review a specific D(h) functional change and its amplitude/ordinary controls
+before selecting the next training test. Whitening and P-shape sweeps stay
+closed; earlier paragraphs preserve decisions and the v1 readiness failure.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -151,3 +151,10 @@ constraint outcomes through actual q=D(h)h moments, normalized first-term energy
 and finite K2 term alignment, with symmetric descriptive accounting only.
 CPU algebra/native-output/hook witness passed; next publish/deploy and fresh
 documented CUDA checks, collect all14, independently replay saved arrays.
+
+Cycle9 closed14models/84layers/60matched-layer identities, with saved-array
+replay error1.6e-15 and native-output reconstruction1.35e-7. Product16 scalar
+responses increase despite lower P norms through feature/alignment changes;
+flatter P need not flatten increment spectra. No uniform catastrophicK2
+cancellation or whitening rationale. Next select only a specific functional
+change with amplitude/coordinate controls, after reviewing prior coverage.

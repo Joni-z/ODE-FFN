@@ -88,8 +88,13 @@ useful FFN, a global stability bound or an optimizer-convergence bottleneck.
 No whitening/inverse or additional training is selected merely because a
 moment is anisotropic or a cancellation is large.
 
-- [ ] Implement/source-bind all14cases and pass local algebra/native witnesses.
-- [ ] Publish/deploy and obtain fresh documented CUDA witnesses.
-- [ ] Collect all84layer records and ten matched pairs without parameter updates.
-- [ ] Independently replay saved sufficient arrays; publish the constrained
+- [x] Implement/source-bind all14cases and pass local algebra/native witnesses.
+- [x] Publish/deploy and obtain fresh documented CUDA witnesses.
+- [x] Collect all84layer records and ten matched pairs without parameter updates.
+- [x] Independently replay saved sufficient arrays; publish the constrained
       interpretation and choose the next question from actual evidence.
+
+Closed at8bb1490: all14native checkpoints and84layers captured; all60matched
+layer-pair identities independently replay. Native outputs and archived
+amplitudes reproduce at the documented precision. See cycle9-results/findings.md.
+No new optimizer, whitening or trained model is selected.

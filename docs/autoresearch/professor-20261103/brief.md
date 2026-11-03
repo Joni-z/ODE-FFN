@@ -121,3 +121,10 @@ Primary artifacts: [logic and derivations](logic-chain.md), [spectral evidence](
 [signed-diagonal branch](signed-diagonal.md),
 [sample cases](sample-structure-results/findings.md), [completed budget study](cycle6-results/findings.md), [shape intervention](cycle7-results/findings.md), [completed constraint study](cycle8-results/findings.md),
 [two ODE interpretations](nonlinear-flow.md), [literature branches](literature-directions.md).
+
+The subsequent cycle9 feature audit is complete. All84layers/60matched-layer
+identities replay. P norm and response can move oppositely as features adapt;
+P rank can rise while increment rank falls. K2 alignment varies by solve rather
+than showing uniform catastrophic cancellation. Preserve earlier no-whitening
+and no-projection decisions. A new training test needs its own functional change
+and amplitude/ordinary controls, not another response-magnitude explanation.

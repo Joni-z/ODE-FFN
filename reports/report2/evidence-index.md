@@ -38,3 +38,5 @@ Neither is a count of independent training runs.
 [Cycle7 frozen spectral-shape controls](../../docs/autoresearch/professor-20261103/cycle7-results/findings.md):54cases and six exact anchors distinguish Frobenius-preserving flattening from operator-norm-matched contraction. No general post-hoc repair; constrained training remains a separate question. PDFs unchanged.
 
 [Cycle8 constrained-training comparison](../../docs/autoresearch/professor-20261103/cycle8-results/findings.md) completed12replayed runs with four exact native anchors. Flatter P spectra do not improve fitting or sampling in this setting. The [research map](../../docs/autoresearch/professor-20261103/research-map.md) now connects both professor proposals through controls, mathematical distinctions and decisions. Submitted PDFs remain unchanged.
+
+[Cycle9 native-feature accounting](../../docs/autoresearch/professor-20261103/cycle9-results/findings.md) reconciles P spectra, actual first-term responses and finite K2 alignment on all14fixed checkpoints. It is descriptive evidence, with no whitening/new-optimizer claim. PDFs unchanged.

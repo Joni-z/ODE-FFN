@@ -1,16 +1,16 @@
-# Current checkpoint: spectral-relaxation study closed
+# Current checkpoint: professor-guided spectral and feature audit closed
 
-Cycle8 completed all12 native20k trajectories at frozen f6bfefc on145/Lenovo.
-All generated arrays replay exactly; four native anchors match archived model,
-optimizer, buffers and RNG states exactly. Shape relaxation worsens all four
-parents despite increasing P stable rank. No new model is accepted and neither
-GPU has an active training queue. [Full evidence](docs/autoresearch/professor-20261103/cycle8-results/findings.md).
+Cycle8's12native20k trajectories and cycle9's14frozen checkpoints are complete.
+Native anchors, generated arrays and saved feature-energy identities reproduce.
+Shape constraints flatten P yet worsen fitting/sampling; actual feature changes
+explain why a smaller P need not shrink a layer response. No new ODE model is
+accepted and no training queue is active. [Results](docs/autoresearch/professor-20261103/cycle8-results/findings.md) ·
+[Feature audit](docs/autoresearch/professor-20261103/cycle9-results/findings.md).
 
-Next: register a frozen actual-feature moment diagnostic for M=E[qq^T] and
-PMP^T, guided by the measured mismatch between P norms and increment responses.
-No new optimizer or strength/rate sweep is selected. Older snapshots below are
-historical; the [research map](docs/autoresearch/professor-20261103/research-map.md)
-tracks the complete question/test/decision chain.
+Next review one input-diagonal functional change with explicit amplitude and
+ordinary controls, before selecting another training test. Earlier whitening,
+projection and spectral settings remain closed. Older snapshots below are
+historical. [Research map](docs/autoresearch/professor-20261103/research-map.md).
 
 # Current runtime: cycle6 budget-only confirmation
 

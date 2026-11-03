@@ -1,0 +1,95 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "hooked_prediction_exact": true,
+  "layers": [
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.0.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 5.2547571618752526e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.0.ffn.ode2",
+      "trace_error": 1.409128903433191e-16,
+      "series_error": 1.3211861777397267e-16,
+      "native_reconstruction_error": 5.189352874303974e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.1.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 5.0176599574173513e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.1.ffn.ode2",
+      "trace_error": 2.1513576848038056e-16,
+      "series_error": 2.0635776585714113e-16,
+      "native_reconstruction_error": 5.360913983273129e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.2.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 2.120278734087232e-16,
+      "native_reconstruction_error": 5.352964009237121e-08
+    },
+    {
+      "family": "scalar_k2",
+      "layer": "blocks.2.ffn.ode2",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 5.2793729850991535e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.0.ffn.ode1",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 8.074248145827487e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.0.ffn.ode2",
+      "trace_error": 1.573719088314339e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 9.951596538449283e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.1.ffn.ode1",
+      "trace_error": 1.8932343197143478e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 8.426783684075339e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.1.ffn.ode2",
+      "trace_error": 1.9374660201182355e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 9.657576877454376e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.2.ffn.ode1",
+      "trace_error": 2.1605779195869655e-16,
+      "series_error": 0.0,
+      "native_reconstruction_error": 8.312656339240379e-08
+    },
+    {
+      "family": "pd_direct_raw_k1",
+      "layer": "blocks.2.ffn.ode2",
+      "trace_error": 0.0,
+      "series_error": 0.0,
+      "native_reconstruction_error": 9.704634838250908e-08
+    }
+  ],
+  "symmetric_decomposition_relative_error": 1.1488658766085235e-14,
+  "analysis_source_sha256": "86f7376bf61e0f57d3d21ed47405cb3dfdd3fe7fcb527b748c0e089dc186a6ac",
+  "cases_sha256": "4a075ba4774239051251643082ab1e25a99416e0c3caeb137b3ca6eb3038079a"
+}

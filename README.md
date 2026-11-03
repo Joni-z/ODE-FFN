@@ -21,8 +21,10 @@ over ordinary SwiGLU. The [frozen spectral-shape test](docs/autoresearch/profess
 rejects post-hoc flattening as a general repair. The subsequent
 [training constraint comparison](docs/autoresearch/professor-20261103/cycle8-results/findings.md)
 also rejects the registered weak-relaxation setting: P spectra become less
-concentrated but field fitting and sampling worsen. The next diagnostic concerns
-[actual feature moments](docs/autoresearch/professor-20261103/feature-metric.md).
+concentrated but field fitting and sampling worsen. The completed [native feature audit](docs/autoresearch/professor-20261103/cycle9-results/findings.md)
+explains the mismatch between P spectra and actual layer responses. Its
+[derivation](docs/autoresearch/professor-20261103/feature-metric.md) does not
+select whitening or a new optimizer.
 These vector experiments do not establish JiT image quality.
 
 ## Code

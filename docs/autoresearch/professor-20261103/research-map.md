@@ -88,9 +88,11 @@ For q=D(h)h, define M=E[qq^T]. Then E||Pq||^2=tr(PMP^T), which depends on both
 P and feature statistics. Unlike raw P, PMP^T is invariant under admissible
 constant-diagonal reparameterizations. On Product16 scalar K2, the constrained
 model's P norm decreases while its first-term/input RMS increases. This measured
-mismatch motivates inspecting M and PMP^T on native hidden probes before
-selecting another constraint. The [derivation](feature-metric.md) is complete;
-its algebra witness is not trained-feature evidence or a new optimizer.
+mismatch motivated the [completed frozen audit](cycle9-results/findings.md).
+It reconstructs the response through actual feature amplitude/alignment and
+finite-series terms. A flatter P can coexist with a less spread increment
+spectrum. The [derivation](feature-metric.md) and audit do not select whitening,
+a new optimizer, or a causal account of the quality gap.
 
 ## Current judgment
 

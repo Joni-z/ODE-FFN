@@ -11,6 +11,7 @@ root=Path(a.evidence);out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
 all_rows=[];all_pairs=[];bindings=[];all_arrays={};errors=[];receipts=[]
 for host in ['145','lenovo']:
     directory=root/host;receipt=json.loads((directory/'results.json').read_text());assert receipt['passed'] and len(receipt['rows'])==42 and len(receipt['bindings'])==7 and len(receipt['pairs'])==30
+    assert len({b['probe_sha256'] for b in receipt['bindings']})==1
     receipts.append(receipt)
     for binding in receipt['bindings']:
         file=directory/binding['array_file'];assert hashlib.sha256(file.read_bytes()).hexdigest()==binding['array_sha256']
@@ -30,6 +31,10 @@ for host in ['145','lenovo']:
                 assert max(checks)<1e-9;errors+=checks
                 for array_input,key in [(P,'p_singular_values'),(q/np.sqrt(len(q)),'feature_singular_values'),(first/np.sqrt(len(q)),'increment_singular_values')]:
                     s=np.linalg.svd(array_input,compute_uv=False);assert np.allclose(s,row[key],rtol=1e-9,atol=1e-11*max(s[0],1e-30))
+                qenergy=float(np.mean(np.sum(q*q,axis=1)))
+                row['feature_amplitude_over_input']=float(np.sqrt(qenergy/H))
+                row['response_gain_on_feature']=float(np.sqrt(energy/qenergy))
+                assert abs(row['feature_amplitude_over_input']*row['response_gain_on_feature']/row['first_term_rms_over_input']-1)<1e-9
                 all_arrays[(row['cell'],row['layer'])]=array;all_rows.append(row)
         bindings.append(binding)
     all_pairs+=receipt['pairs']
@@ -52,7 +57,7 @@ models=[]
 for binding in bindings:
     rr=[r for r in all_rows if r['cell']==binding['id']]
     model={k:binding[k] for k in ['id','dataset','family','relaxation','step']}
-    for key in ['p_sigma_max','p_stable_rank','first_term_rms_over_input','feature_stable_rank','increment_stable_rank','feature_mean_energy_fraction','increment_mean_energy_fraction','term_cancellation_factor']:
+    for key in ['p_sigma_max','p_stable_rank','first_term_rms_over_input','feature_stable_rank','increment_stable_rank','feature_mean_energy_fraction','increment_mean_energy_fraction','term_cancellation_factor','feature_amplitude_over_input','response_gain_on_feature']:
         model['mean_'+key]=float(np.mean([r[key] for r in rr]))
     models.append(model)
 save('models.csv',models)
@@ -87,6 +92,6 @@ for axs,ds in zip(axes,['gmm_ring8_2d','rotated_product_bimodal_16d']):
 fig.suptitle('Symmetric algebraic accounting; neither component is a causal attribution')
 fig.tight_layout()
 for ext in ['png','pdf']:fig.savefig(out/f'response-accounting.{ext}',dpi=160,bbox_inches='tight')
-verification=dict(passed=True,models=len(bindings),layers=len(all_rows),matched_layer_pairs=len(all_pairs),independent_relative_error_max=max(errors),native_layer_reconstruction_relative_rms_max=max(r['native_layer_reconstruction_relative_rms_error'] for r in all_rows),archived_first_term_relative_error_max=max(r['archived_term1_relative_error'] for r in all_rows),analysis_source_sha256=receipts[0]['analysis_source_sha256'],cases_sha256=receipts[0]['cases_sha256'],scope='Saved-array moment/energy/spectrum replay, not a new model or independent re-generation of native hidden states.')
+verification=dict(passed=True,models=len(bindings),layers=len(all_rows),matched_layer_pairs=len(all_pairs),independent_relative_error_max=max(errors),native_layer_reconstruction_relative_rms_max=max(r['native_layer_reconstruction_relative_rms_error'] for r in all_rows),archived_first_term_relative_error_max=max(r['archived_term1_relative_error'] for r in all_rows),analysis_source_sha256=receipts[0]['analysis_source_sha256'],replay_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),cases_sha256=receipts[0]['cases_sha256'],scope='Saved-array moment/energy/spectrum replay, not a new model or independent re-generation of native hidden states.')
 (out/'verification.json').write_text(json.dumps(verification,indent=2)+'\n');(out/'bindings.json').write_text(json.dumps(bindings,indent=2)+'\n');(out/'spectra.json').write_text(json.dumps(all_rows,indent=2)+'\n')
 print(json.dumps(verification));print(json.dumps(models))
