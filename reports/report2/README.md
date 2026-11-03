@@ -6,30 +6,31 @@
 [Evidence map](EVIDENCE.md) · [Verification](verification.json) ·
 [Current research index](evidence-index.md)
 
-The professor's two suggestions organize the report:
+The report follows the project's research questions rather than the origin of
+individual ideas:
 
-- **Muon and the spectrum.** Show how update stable rank and learned P evolve,
-  compare field fitting with ordinary controls, and explain what the direct
-  spectral-constraint tests establish.
-- **Alternative P D(h) designs.** Separate learned controllers, simple input
-  diagonals, order and growth controls. Present the complete latest ISRU-D,
-  ordinary free-ISRU and SwiGLU comparison, retaining both optimizer settings.
+- **Local dynamics:** the original clock, P, polynomial order, static/free maps,
+  state-feedback variants and Muon/spectral controls.
+- **Whole-field computation:** complete-gradient readout, learned orthogonal
+  directions, thin/thick transfer, nonlinear cubic flow and error-location probes.
+- **Input-dependent features:** controller/range/order controls, direct and
+  radial diagonals, the ISRU-D lead and strong ordinary references.
 
-The main distinction is a useful feature response versus an ODE-specific gain.
-The report retains the earlier gradient-readout and conditional-frame positive
-cases, with their ordinary controls and transfer limits. New20k results are
-kept separate from earlier5k and thin/thick protocols. No image-quality claim
-follows from these vector-network studies.
+Each main experiment states its purpose, observation and comparison limit.
+The two figures show optimizer/P trajectories and the earlier readout/frame
+results. Tables retain the cubic-flow comparison and representative latest
+ISRU/SwiGLU endpoints; full optimizer grids remain in the evidence index.
+Muon and P D(h) are integrated naturally, without attribution-style headings.
 
-The entire PDF is **three pages including both figures and tables**, English,
+The entire PDF is **three pages including figures and tables**, English,
 sole author Zhizhe Zhang, no bibliography. It opens with project/progress and
-ends with two hypotheses for the next two weeks. The reporting revision starts
-from945a380; the prior November2PDF remains in Git. No new training or sampling
-was performed for this edit.
+ends with two hypotheses for the next two weeks. The previous focused version
+remains in Git at23e2469. No new training or sampling was performed for this
+revision; Report1 and all primary experiment artifacts remain unchanged.
 
 ## Evidence and historical coverage
 
-[Professor evidence](data/professor-evidence.json) binds each new figure/table
+[Optimizer/diagonal evidence](data/professor-evidence.json) binds each new figure/table
 value to an exact row and file hash. [EVIDENCE.md](EVIDENCE.md) states the
 claim boundaries; [evidence-index.md](evidence-index.md) links the completed
 professor-guided studies. Curves, samples and all optimizer outcomes remain

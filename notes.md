@@ -1,3 +1,11 @@
+# Report2 narrative rebalanced
+
+User clarified that the report must cover the full exploration and avoid
+professor-suggestion labels. Restored substantive readout/frame/cubic-flow
+experiments and error-location checks; retained Muon/diagonal results naturally.
+The three-page report includes prior and latest ordinary controls, with old5k
+and new20k protocols separated. Delivery includes GitHub and MBP.
+
 # Report2 professor directions incorporated,3November
 
 The formal three-page PDF now incorporates Muon's update/weight spectrum

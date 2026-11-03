@@ -1,8 +1,8 @@
 # Report2 evidence index — ODEFFN mainline
 
-The November 3 revision incorporates both professor suggestions in the formal
-report: Muon/spectrum and alternative P D(h) designs. It supersedes the
-November2PDF while preserving the earlier ODEFFN evidence.
+The current revision follows the full ODEFFN exploration: local clocks/P/order,
+complete readouts, learned directions, nonlinear flows and diagonal features.
+Muon and P D(h) are integrated into that narrative with neutral headings.
 Start with the [report](report2.pdf), then the [complete attempt ledger](attempts.md).
 Dated entries below preserve their original reporting status; the current PDF
 now includes the completed professor-guided work.

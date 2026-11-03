@@ -1,3 +1,12 @@
+# Narrative correction,3November
+
+User clarified that Report2 covers the full project exploration. The previous
+revision overemphasized the two latest directions. Restore the substantive
+readout, conditional-frame, nonlinear-flow and diagnostic work; integrate
+Muon/diagonal tests as normal research sections. Remove professor-attribution
+headings and wording from the formal report. Keep strong ordinary controls,
+three-page limit and mandatory MBP delivery.
+
 # Professor directions update, 3 November 2026
 
 User requires both professor suggestions in the formal report: Muon's effect
@@ -131,3 +140,7 @@ Visual QA found the initial Muon figure fixed its upper y limit after the first 
 Final visual review: all three current pages inspected after the Muon-axis and table-spacing corrections. Both Muon curves are fully visible; numeric columns are distinct. Body remains11pt; main text ends with the two-week hypotheses on page3. No clipping, overlaps or bibliography. All printed values and protected source identities passed automated verification before renewing the current visual receipt.
 
 MBP delivery,3November: clean main checkout fast-forwarded from800d09f to9854647 via GitHub. Report2 PDF SHA-256 e54eadb907133037e967895a0787efb0659d25ac72d9044363b10a613d36d9cc matches the reviewed Mac-mini copy. User requires future completed report revisions to be pulled onto MBP as part of delivery. No remote model/environment changes.
+
+Balanced layout: first two builds were4pages because the local-dynamics page overflowed. Tightened repeated setup/conclusions while keeping11pt body; third build is3pages. Final small wording edit defines D explicitly and defines off-mode distance, followed by recompilation. The first verification expected literal PD(h) from the earlier heading; the definition now appears directly in the neutral mathematical setup. All new and restored numeric checks pass. No experiment or source values changed.
+
+Final balanced-report review passed: all three current pages inspected, neutral headings verified, substantive readout/frame/cubic/diagnostic coverage restored, Muon and diagonal evidence retained naturally. All main numbers bind to primary tables; Report1, docs/studies and image trainer paths remain identical to23e2469. No new model execution. Publish and sync MBP as required.

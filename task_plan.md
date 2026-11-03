@@ -1,3 +1,13 @@
+# Current deliverable: balanced full-project Report2
+
+The revised3page report follows local clocks/P/order, whole-field readouts,
+learned directions, nonlinear flow and diagonal features. Muon and P D(h) are
+integrated with neutral headings. Numeric/source/font checks and all three
+page reviews pass. Delivery uses canonical GitHub main and the verified MBP checkout. Report1 and experiments
+remain unchanged. [PDF](reports/report2/report2.pdf).
+
+Earlier entries below preserve their historical scope and status.
+
 # Current deliverable: Report2 includes both professor suggestions
 
 The3November revision gives Muon/spectrum and alternative P D(h) designs

@@ -49,7 +49,9 @@ def main():
     text = run('pdftotext', '-layout', str(pdf), '-')
     assert len([p for p in text.split('\f') if p.strip()]) == 3
     assert '3 November 2026' in text and 'Draft' in text
-    assert 'Muon and the spectrum' in text and 'alternative designs for' in text
+    assert all(heading in text for heading in ['Local dynamics: clocks, order and optimization','Changing the complete field and its directions','Input-dependent features and current evidence'])
+    assert 'professor' not in text.lower() and 'suggestion' not in text.lower()
+    assert all(topic in tex for topic in ['Clocks and order.','Full-gradient readout.','Input-dependent directions.','Nonlinear internal flow.','local-teacher','Muon','PD(h)'])
     assert 'PD(h)' in text.replace(' ', '')
     assert 'Hypotheses for the next two weeks' in text.split('\f')[2]
     assert not any(marker in text for marker in ('??', '[?]', '[VERIFY]', '[CLAIM NEEDS EVIDENCE]'))
@@ -81,10 +83,16 @@ def main():
         ('frame','thin','swiglu192','oracle_mse',6),
         ('frame','thick','frame_k2','tangent_sw2',4),
         ('frame','thick','swiglu192','tangent_sw2',4),
+        ('cubic','rotated_product_bimodal_16d','cubic_split','oracle_mse',6),
+        ('cubic','rotated_product_bimodal_16d','free_isru','oracle_mse',6),
+        ('cubic','rotated_product_bimodal_16d','swiglu160','oracle_mse',6),
     ]:
         matching=[r for r in values if (r['study'],r['dataset'],r['arm'],r['metric'])==(study,dataset,arm,metric)]
         assert len(matching)==1
         present(matching[0]['value'],digits)
+    case=json.loads((REPO/'docs/research-2026-10-21-gates/results/ring8-case-study.json').read_text())
+    for row in case:
+        if row['model'] in ['ode_fixed','ode_original','swiglu']:present(100*row['off_mode_fraction'],1)
     professor=json.loads((ROOT/'data/professor-evidence.json').read_text())
     for file,digest in professor['source_hashes'].items():assert sha(REPO/file)==digest,file
     for record in professor['records']:
@@ -163,7 +171,8 @@ def main():
         pages=pages,total_pages_including_figures=pages,author='Zhizhe Zhang',language='English',
         bibliography=False,all_fonts_embedded=True,undefined_references=False,overfull_boxes=False,
         source_bound_values=len(values)+len(professor['records']),printed_numeric_values_checked=checked_numbers,
-        professor_suggestions_in_main_text=['Muon and spectrum','various P D(h) designs'],
+        research_coverage=['clock/P/order controls','Muon/spectrum','full-gradient readout','conditional frames','nonlinear cubic flow','diagonal features','ordinary controls and diagnostics'],
+        attribution_style_headings_absent=True,
         current_report_date='3 November 2026',report_revision_baseline=revision['baseline_commit'],
         documentation_areas_covered=len(areas),ledger_records=len(records),
         ledger_is_independent_run_count=False,ledger_source_hashes_verified=True,

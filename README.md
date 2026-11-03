@@ -123,8 +123,9 @@ A brief MPS update runs when available. This does not establish image quality.
 
 The [revised Report2](reports/report2/README.md) follows the original ODEFFN
 line, with a [complete attempt ledger](reports/report2/attempts.md). It covers
-Muon update/P spectra, alternative P D(h) designs, the latest ISRU-D/free-ISRU
-comparison, and earlier readout/frame results with their ordinary controls.
+local clock/P/order studies, full-gradient readouts, conditional directions,
+nonlinear flow, Muon/spectral geometry and the latest diagonal-feature studies
+with their ordinary controls.
 The PDF is three pages including figures/tables, updated3November2026. The synthetic gains remain task-specific;
 a general advantage of the original Taylor coupling is unproven.
 

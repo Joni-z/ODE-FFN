@@ -49,11 +49,13 @@ source=BASE+'/cycle13-results/endpoints.csv';endpoints=read(source)
 table=[]
 for fam,opt in [('pd_constant_k1','adamw'),('pd_constant_k1','muon'),('pd_isru_k1','adamw'),('pd_isru_k1','muon'),('free_isru','adamw'),('free_isru','muon'),('swiglu64',None),('swiglu128',None),('swiglu192',None)]:
     item=dict(family=fam,optimizer=opt)
+    displayed=(fam in ['pd_isru_k1','free_isru'] and opt=='adamw') or fam in ['swiglu64','swiglu192']
+    digits=5 if displayed else None
     for ds,key in [('gmm_ring8_2d','ring'),('rotated_product_bimodal_16d','product')]:
         selector=dict(dataset=ds,family=fam)
         if opt:selector['optimizer']=opt
         r=unique(endpoints,selector)
-        item[key]=dict(field=bind(source,r,selector,'replayed_field_mse',5),sw2=bind(source,r,selector,'numpy_test_sw2',5),optimizer=r['optimizer'],lr=r['projection_lr'])
+        item[key]=dict(field=bind(source,r,selector,'replayed_field_mse',digits),sw2=bind(source,r,selector,'numpy_test_sw2',digits),optimizer=r['optimizer'],lr=r['projection_lr'])
     table.append(item)
 # Retain the exact continuation margin instead of interpreting rounding.
 source=BASE+'/cycle13-results/matched-comparisons.csv';matched=read(source)

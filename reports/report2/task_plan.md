@@ -1,3 +1,22 @@
+# Current task — restore the full project narrative, 3 November 2026
+
+The user says the report must include our broader exploration and should not
+label sections as professor suggestions. Organize by research questions: local
+clock/P/order behavior; complete readout and learned directions; nonlinear
+flow/free response; diagonal features and remaining gaps. Integrate Muon/PD
+naturally. Keep three pages, English, Zhizhe Zhang, no bibliography.
+
+- [x] Rebalance the narrative using existing source-bound evidence; remove attribution-style headings.
+- [x] Restore substantive readout, frame, cubic-flow and error-location findings, with purposes and controls.
+- [x] Retain Muon/PD and the latest ordinary comparisons without letting them dominate.
+- [x] Compile, verify numeric/source bindings and inspect all three pages.
+- [x] Publish to GitHub, fast-forward MBP and verify PDF/TeX hashes.
+
+Status: balanced three-page report complete; numeric/source/font checks and final visual review pass. Delivery uses the accompanying GitHub commit and verified MBP fast-forward. No experiments or Report1 edits.
+The previous two-direction report remains in Git at23e2469.
+
+---
+
 # Current task — add the professor's two directions, 3 November 2026
 
 The user explicitly requests Muon/spectrum and various P D(h) designs in the
