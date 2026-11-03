@@ -223,3 +223,15 @@ archived rows match their4source CSVs. Six log-interactions/continuation flags
 retain every setting; no eligible method. Both figures viewed and132unique
 trial IDs verified. No new training rescue. Added a scoped primary-source
 review separating literal Muon from spectral-flow/associative-memory claims.
+
+Cycle12 selected after cycle11closure: all24frozen factorial checkpoints,
+native versus opposite sigmoid/affine outer transform,48evaluations. No training
+or new model. Register all cases/finite failures, native replay and round-trip
+state/probe identity before deployment. Investigates an immediate-output repair
+of the observed interaction without attributing the entire training cause.
+
+Cycle12 CPU readiness passed. Minimal producer changes only six outer-transform
+attributes, preserves all model/buffer tensors and uses native field/sampling
+utilities.24cohort records match five archived CSVs; formal native arrays must
+be exact. Source/cache path audit and four real-checkpoint CUDA/Heun64 witness
+perhost precede all48formal evaluations. Next freeze/publish and fresh doc pass.

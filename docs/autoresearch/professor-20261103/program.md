@@ -64,3 +64,8 @@ comparison from cycles1/2: one missing factorized-linear/affine-output cell at
 the three existing optimizer/rate settings pertask, plus native references.
 K2 and the native trainer/official optimizers remain unchanged. This is not
 continuation of rejected radial or historical K1/DP range settings.
+
+Registered cycle12 is a read-only24checkpoint/48evaluation outer-transform
+swap study after cycle11. No optimizer, tensor, data, loss, sampler or training
+update changes. Keep every failed/nonfinite intervention and the native anchors;
+these records are not training keeps and do not enter the training TSV.

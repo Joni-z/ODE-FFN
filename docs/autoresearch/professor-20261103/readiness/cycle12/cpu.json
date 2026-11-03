@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "torch": "2.10.0",
+  "scalar_formulas_derivatives": true,
+  "rows": [
+    {
+      "family": "vector_pd_k2",
+      "nonzero_readout": true,
+      "nontrivial_swap": true,
+      "round_trip_prediction_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "family": "pd_factorized_linear",
+      "nonzero_readout": true,
+      "nontrivial_swap": true,
+      "round_trip_prediction_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "family": "pd_mlp_affine",
+      "nonzero_readout": true,
+      "nontrivial_swap": true,
+      "round_trip_prediction_exact": true,
+      "tensors_buffers_unchanged": true
+    },
+    {
+      "family": "pd_factorized_affine",
+      "nonzero_readout": true,
+      "nontrivial_swap": true,
+      "round_trip_prediction_exact": true,
+      "tensors_buffers_unchanged": true
+    }
+  ],
+  "cohort_records_verified": 24,
+  "source_csvs_verified": 5,
+  "producer_sha256": "f182b452a0c9f2cd8f3c631f82c8943e7763a156e756e549c57ceb495bb28f7f",
+  "cohort_sha256": "5ba7d6c3ca1b759710de61bf19ca30fb8b928e7e68d5175851a3dbf2df44a678"
+}
