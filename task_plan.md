@@ -3,8 +3,9 @@
 The user requests direct factual writing and a completed report. Update the
 three-page English report with the completed Ring8 checkpoint/bank validation,
 retain the full ODEFFN exploration, and state observations and next hypotheses
-without repetitive defensive prose. Source/number/layout checks pass; final
-page inspection, GitHub publication and MBP delivery complete the revision.
+without repetitive defensive prose. Source/number/font/layout checks and all three page reviews pass. The reviewed
+PDF/source are published to GitHub and delivered to the clean MBP checkout,
+with file hashes checked.
 Canonical reporting plan: reports/report2/task_plan.md. Primary experiments,
 Report1, and the pending Product16 audit are unchanged by this writing task.
 

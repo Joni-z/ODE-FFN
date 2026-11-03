@@ -11,10 +11,13 @@ no bibliography, and deliver the reviewed PDF/source to GitHub and MBP.
 - [x] Revise the narrative and replace the old single-bank Ring8 table with current common-bank results.
 - [x] Add a compact source-bound checkpoint figure and verify every new number.
 - [x] Compile, check three pages/fonts/text and inspect every rendered page.
-- [ ] Update evidence notes, publish and synchronize the reviewed PDF/TeX to MBP.
+- [x] Update evidence notes, publish and synchronize the reviewed PDF/TeX to MBP.
 
 No new experiment, training, sampling or Report1 edit is part of this revision.
-Earlier plans below retain their historical state.
+Status: completed three-page revision. All source/value/font/layout checks and
+three-page visual inspection pass. The accompanying publication delivers the
+reviewed PDF/source through GitHub to the clean MBP checkout, with SHA256
+comparison. Earlier plans below retain their historical state.
 
 ---
 

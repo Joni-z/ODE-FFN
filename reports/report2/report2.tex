@@ -86,7 +86,7 @@ Gaussian task, field fitting improves while sampling worsens.
 \caption{Lower is better. A: full-gradient readout helps both ODE and ordinary
 backbones. B: conditional frames improve thin-target field fitting. C: their
 sampling advantage fails on the thick target. Each panel has its own metric
-and scale; scores are not pooled.}
+and axis scale.}
 \end{figure}
 \vspace{-0.6em}
 
@@ -171,7 +171,7 @@ eight common banks, Heun128. Better fitting does not preserve sampling order.}
 \end{figure}
 \vspace{-0.7em}
 
-On Product16 at 20k, MSE is 0.01606 for ISRU-D and 0.01536 for free ISRU;
+On Product16 (20k, Heun32), MSE is 0.01606 for ISRU-D and 0.01536 for free ISRU;
 SW2 is 0.08574 for ISRU-D and 0.07921 for SwiGLU192. Its expanded sampling
 check is pending. Muon worsens both ISRU fits at the tested rate.
 
