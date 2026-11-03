@@ -96,3 +96,27 @@ Post-hoc flattening is not a repair. Next bounded question: can the native model
 adapt when weak spectrum relaxation is imposed throughout training? Register
 one relaxation time with untouched and paired scalar-contraction controls;
 no new gate, loss, schedule or rate sweep.
+
+
+## Cycle10 interpretation fixed before final outcomes
+
+At a common hidden state, radial normalization scales A=P diag(h) uniformly;
+it does not flatten its singular-value shape. Its full Jacobian changes by a
+rank-one feedback term. Static scaling has the same function class as raw K1
+under P reparameterization, but paired stored tensors do not imply paired
+initial hidden functions or identical optimizer geometry. These distinctions
+prevent crediting a scalar-coordinate gain to new dynamics.
+
+Native validation/test separation was checked directly in the pinned
+reference/synthetic/train.py: fixed_eval_data always constructs field inputs
+from validation.npz; sampling_split changes only terminal sampling targets,
+source draws and directions. The final CUDA audit therefore recomputes the
+same validation field and separate test sampling score used in the protocol.
+No evaluator changes were made.
+
+The scalar-log reader passed on all six native16-step145 smoke outputs
+(36ODE-layer records; ordinary models have no ODE records). Earlier collector
+layer-key mismatch was fixed before use. Final evidence still awaits all12
+formal endpoints. Two completed145native anchors already match archived
+numerical states and samples; the first partial Lenovo receipt had zero ready
+anchors and is explicitly not a closure result.

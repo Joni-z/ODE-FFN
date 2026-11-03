@@ -27,7 +27,9 @@ exclude optimizer and diagnostic work. The recorded90–94% nvidia-smi utilizati
 is active time, not a measurement of peak compute efficiency or MFU.
 
 [All run times and config hashes](trajectories.csv). No training was rerun to
-collect these records. Cycle5 is included; cycle6 uses a separately registered80k budget and remains live.
+collect these records. Cycle5 is included; cycle6 completed its separately registered80k budget.
+Cycle9 is a frozen diagnostic and is also excluded. Cycle10 is live and will
+be added only after its endpoints pass native replay.
 
 ## Budget and constraint extensions
 
