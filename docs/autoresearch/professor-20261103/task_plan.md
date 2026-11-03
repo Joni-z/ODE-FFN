@@ -2,11 +2,12 @@
 
 ## Current step
 
-Cycle11 is published/deployed at e493b05; CPU and fresh native CUDA checks
-pass on both hosts, including five actual-entry continuations and two parent8
-anchors each. Baseline-first queues are launched; verify persistence after SSH
-exits, then finish all ten before factorial interpretation. No accepted method.
-Cycle10 is closed and its radial setting does not qualify for continuation.
+Cycle11 is closed: ten native20k trajectories, exact generated arrays, four
+exact archived native anchors and the complete24-corner table. One weak Adam
+Product16 comparison improves35%/49% over ODE parents, but all six new cases
+lose to nearly parameter-matched Swi128 on field and sampling. No continuation
+qualifies, accepted method or active queue. Inspect existing frozen functions
+before selecting another design; cycle10 radial remains closed.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -216,3 +217,9 @@ workers finish normally and candidate dispatch advances without failures.
 Lenovocontroller15300 (launcher23272), native children13652/15572;145
 controller2896557, original children2896560/2896561. Current candidate PIDs
 are recorded in the native30s monitors. Complete comparison remains pending.
+
+Cycle11 closed: all10final native replays and four exact references pass. All18
+archived rows match their4source CSVs. Six log-interactions/continuation flags
+retain every setting; no eligible method. Both figures viewed and132unique
+trial IDs verified. No new training rescue. Added a scoped primary-source
+review separating literal Muon from spectral-flow/associative-memory claims.

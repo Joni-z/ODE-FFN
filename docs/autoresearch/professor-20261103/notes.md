@@ -132,3 +132,10 @@ pass at frozene493b05. Baseline-first five-cell queues perhost are running.
 Independent source-field membership verifies18archived corners/4CSVs and
 10parent data versions; no raw native-receipt count is invented. Full factorial
 analysis is prepared, syntax checked and awaits ten complete/replayed endpoints.
+
+Cycle11 final: complete24corners, all10new endpoints/four native anchors pass.
+New linear/affine Product16/AdamW improves ODE parent errors35%/49%, but all6
+new cases lose to nearly parameter-matched Swi128 on field and sampling. The
+interaction is not explained by similar P/PD/response/range summaries. No
+new cold-training method selected. Focused primary-source reading is recorded
+in literature-optimizer-conditions.md with exact read scopes and limitations.

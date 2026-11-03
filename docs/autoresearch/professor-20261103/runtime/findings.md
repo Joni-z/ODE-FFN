@@ -1,9 +1,9 @@
 # Measured run cost
 
-The table covers122 completed training trajectories from cycles1–6,8and10:114 at20k
+The table covers132 completed training trajectories from cycles1–6,8,10and11:124 at20k
 updates and eight at80k. Native wall times are attached only after recorded
 field/sampling scores match independent replay. Their summed process wall time
-is26,528.4s; workers overlap, so this is not GPU hours or elapsed queue time.
+is28,732.1s; workers overlap, so this is not GPU hours or elapsed queue time.
 Cycle7 is frozen analysis and is excluded from training counts.
 
 Examples from the same native task/host,20k updates with two workers per GPU:
@@ -41,3 +41,6 @@ an isolated latency measurement.
 Cycle10 adds twelve20k raw/radial/static/ordinary cases. Scalar reduction and
 square-root work is included in their native wall timer. No equal-time or
 isolated-hardware speed claim follows from these concurrent observations.
+
+Cycle11 adds ten20k native/missing-corner trajectories after complete replay.
+Its18reused archived corners are not counted again as new training.

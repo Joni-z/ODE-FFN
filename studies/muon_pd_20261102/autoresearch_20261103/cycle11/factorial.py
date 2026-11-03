@@ -34,6 +34,16 @@ for ds in tasks:
         comparisons.append(dict(dataset=ds,optimizer=opt,lr=lr,linearization_sigmoid_log_ratio=math.log(field(ls)/field(ms)),linearization_affine_log_ratio=math.log(field(la)/field(ma)),log_mse_interaction=math.log(field(la)/field(ma))-math.log(field(ls)/field(ms)),new_vs_linear_sigmoid_gain=1-field(la)/field(ls),new_vs_mlp_affine_gain=1-field(la)/field(ma),new_vs_linear_sigmoid_sw2_change=sw2(la)/sw2(ls)-1,new_vs_mlp_affine_sw2_change=sw2(la)/sw2(ma)-1,strongest_ordinary_field=best,continuation_eligible=field(la)<=.95*field(ls) and field(la)<=.95*field(ma) and field(la)<best))
         for r,label in zip([ms,ls,ma,la],labels):table.append(dict(dataset=ds,optimizer=opt,lr=lr,corner=label,cell=r['id'],validation_mse=field(r),test_sw2=sw2(r),strongest_ordinary_field=best,field_over_ordinary=field(r)/best,checkpoint_sha256=r['checkpoint_sha256'],source_csv=r['source_csv']))
 save('factorial-endpoints.csv',table);save('factorial-interactions.csv',comparisons)
+operator_rows=[];parent_curve_sources={}
+for n,family in [(1,'pd_mlp_affine'),(2,'pd_factorized_linear')]:
+    path=root/f'docs/autoresearch/professor-20261103/cycle{n}-results/curves.csv';parent_curve_sources[str(path.relative_to(root))]=sha(path)
+    for row in csv.DictReader(path.open()):
+        if row['family']==family and row['step']=='20000':operator_rows.append(dict(row,source_csv=str(path.relative_to(root))))
+for row in csv.DictReader((out/'curves.csv').open()):
+    if row['family']=='pd_factorized_affine' and row['step']=='20000':operator_rows.append(dict(row,source_csv=str(out/'curves.csv')))
+assert len(operator_rows)==18
+save('operator-endpoints.csv',operator_rows)
+
 fig,axes=plt.subplots(1,2,figsize=(12,4.5))
 for ax,ds in zip(axes,tasks):
     z=np.array([[next(r['field_over_ordinary'] for r in table if r['dataset']==ds and r['corner']==label and r['optimizer']==opt and r['lr']==lr) for opt,lr in settings] for label in labels]);im=ax.imshow(z,aspect='auto',vmin=min(1,float(z.min())),vmax=float(z.max()),cmap='YlOrRd')
@@ -51,5 +61,5 @@ for ax,ds in zip(axes,tasks):
 fig.tight_layout()
 for ext in ['png','pdf']:fig.savefig(out/f'learning.{ext}',dpi=160,bbox_inches='tight')
 plt.close(fig)
-(out/'factorial-bindings.json').write_text(json.dumps(dict(parent_cohort_sha256=sha(Path(__file__).with_name('factorial-parents.json')),ordinary_csv_sha256=sha(Path(a.ordinary)),new_endpoint_csv_sha256=sha(out/'endpoints.csv'),analysis_source_sha256=sha(Path(__file__)),state_receipts=states),indent=2)+'\n')
+(out/'factorial-bindings.json').write_text(json.dumps(dict(parent_cohort_sha256=sha(Path(__file__).with_name('factorial-parents.json')),ordinary_csv_sha256=sha(Path(a.ordinary)),new_endpoint_csv_sha256=sha(out/'endpoints.csv'),analysis_source_sha256=sha(Path(__file__)),parent_curve_sources=parent_curve_sources,state_receipts=states),indent=2)+'\n')
 print(json.dumps(dict(corners=len(table),settings=len(comparisons),comparisons=comparisons)))

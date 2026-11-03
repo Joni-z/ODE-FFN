@@ -115,7 +115,7 @@ dynamics or support a global stability claim.
 
 ## 6. Does controller nonlinearity interact with its output transform?
 
-[Cycle11](cycle11.md) fills the missing rank32-linear-controller/affine-output
+[Cycle11](cycle11-results/findings.md) completed the missing rank32-linear-controller/affine-output
 corner of cycles1/2. The other three corners are already replayed. A full-rank
 linear controller is excluded from this table because it changes the rank cap.
 One output attribute changes; native K2, all tensors, rates and training remain.
@@ -125,7 +125,11 @@ only from cubic order onward. The [derivation and analysis contract](cycle11-ana
 state the noncommuting polynomial identity, native rounding limit and descriptive
 factorial interaction. This is a local control, not global function equivalence.
 All three fixed optimizer/rate settings, both tasks and strong ordinary references
-remain visible. The new ten trajectories are running; no outcome is available.
+remain visible. Product16/AdamW shows a strong interaction: the new corner
+beats both ODE parents35%/49%, yet every new candidate loses to the nearly
+parameter-matched Swi128 on both metrics. No setting passes continuation.
+Inspect current trained functions before attributing the interaction to sigmoid
+saturation or proposing another architecture.
 
 ## Current judgment
 

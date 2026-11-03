@@ -21,5 +21,10 @@ archived corners; retain negative outcomes and the ordinary frontier.
 
 Post-SSH persistence verified beyond300s: both hosts progressed from native
 references into candidates, with no failures.145controller2896557 and Lenovo
-controller15300 (launcher23272) remain active. Native logs/30s monitor retain
+controller15300 (launcher23272) were active at that historical observation. Native logs/30s monitor retain
 worker PIDs, steps and resource samples; these are not quality results.
+
+Closed: both queues5/5complete, no pending/running/failed cells. All ten final
+20k native replays pass, generated arrays are exact, and all four native
+reference states/samples match archived parents. GPUs are released. The complete
+24-corner comparison is in [cycle11-results](cycle11-results/findings.md).

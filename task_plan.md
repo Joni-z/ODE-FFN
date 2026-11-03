@@ -1,17 +1,15 @@
-# Current checkpoint: controller/output factorial running
+# Current checkpoint: controller/output factorial closed
 
-Cycle11 runs ten registered20k cases on145GPU0/LenovoGPU0 from frozene493b05,
-after fresh native CUDA/resume checks. It completes the missing rank32 linear
-controller/affine-output corner, with native references first. Finish/replay all
-ten and verify four exact archived anchors before interpreting the24-corner
-table. No accepted new ODEFFN method.
-[Protocol](docs/autoresearch/professor-20261103/cycle11.md) ·
-[Execution](docs/autoresearch/professor-20261103/cycle11-execution.md).
+Cycle11 completed/replayed all ten20k cases and four exact native references.
+The complete24-corner comparison finds one weak-parent interaction, while all
+six new candidates lose to almost parameter-matched Swi128 on field/sampling.
+No candidate qualifies for continuation; no accepted new ODEFFN method or
+active training queue. [Results](docs/autoresearch/professor-20261103/cycle11-results/findings.md) ·
+[Research map](docs/autoresearch/professor-20261103/research-map.md).
 
-Cycle10 is closed: radial reduces hidden responses but fails its registered
-continuation threshold. [Results](docs/autoresearch/professor-20261103/cycle10-results/findings.md).
-No radial/range/order rescue or image transfer is selected. Older entries below
-are historical. Submitted report PDFs remain unchanged.
+Inspect existing frozen functions before another design. Radial, P-shape and
+historical range/order rescue settings remain closed. Older entries below are
+historical. Submitted report PDFs remain unchanged.
 
 # Current runtime: cycle6 budget-only confirmation
 

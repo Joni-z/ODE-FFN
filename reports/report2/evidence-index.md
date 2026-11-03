@@ -46,7 +46,7 @@ separates radial growth from fixed scaling, with all three ordinary widths.
 Response amplitudes decrease substantially but neither task qualifies for
 continuation under the predeclared criterion. Submitted report PDFs are unchanged.
 
-[Cycle11 controller/output factorial](../../docs/autoresearch/professor-20261103/cycle11.md)
-is running after fresh native CUDA/continuation checks. It fills a missing
-rank-matched corner, not a normalization rescue. No outcome yet; submitted
-report PDFs remain unchanged.
+[Cycle11 completed controller/output factorial](../../docs/autoresearch/professor-20261103/cycle11-results/findings.md)
+finds a strong interaction in one weak Adam case; every new candidate still
+loses to nearly parameter-matched Swi128 on both metrics. No continuation
+qualifies. Submitted report PDFs remain unchanged.

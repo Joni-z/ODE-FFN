@@ -1,0 +1,62 @@
+{
+  "parent_cohort_sha256": "91ce66a1b8f50cd5b49480566cdc06fb6451becc3d9fd7cc8bae88c205e098f5",
+  "ordinary_csv_sha256": "62409a5307cfe1b1e2609cdd10ac60741807d7a2d8abb315e7614792f12890f4",
+  "new_endpoint_csv_sha256": "6633373588a6b38f8e7695ec85f411dfc9ff930f1bb20efb8a1b11498d21884c",
+  "analysis_source_sha256": "8160f0009753a6cccc90838b15e49081154d713c64a964d3a341662af17d8f04",
+  "parent_curve_sources": {
+    "docs/autoresearch/professor-20261103/cycle1-results/curves.csv": "62f43e259ab417e5c233a5b9c96612bba0a5f529b7b531d43939ccbfe3d0480c",
+    "docs/autoresearch/professor-20261103/cycle2-results/curves.csv": "f890cb276753cc771da9368615e2a78addc959b0b0b2b339397166a19650f9ae"
+  },
+  "state_receipts": [
+    {
+      "passed": true,
+      "partial": false,
+      "host": "145",
+      "anchors": [
+        {
+          "cell": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006__factorial_anchor",
+          "parent": "rotated_product_bimodal_16d__pd_factorized_linear__muon_0.006",
+          "parent_sha256": "78b8feff4beef5198ebea08e8354495c7fc4ce6ff86e564d159af699f43538da",
+          "new_checkpoint_sha256": "7ffc510813314d909e2745a7e37ef3cc0cbd8e0ee26df356f23cafd305c10252",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__swiglu64__adamw_0.001__factorial_anchor",
+          "parent": "rotated_product_bimodal_16d__swiglu64__adamw_0.001",
+          "parent_sha256": "1036eb9fa8d3dc35b09f92c6cd62ff0cd201982f862b111d55c647cef05a47f3",
+          "new_checkpoint_sha256": "d67fc3345f849b3e384e6ff8d3648531a07272962d98d0d82ff8d9ddc138c329",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        }
+      ],
+      "pending": [],
+      "analysis_source_sha256": "3b94043a30ee4760720bf8f04cd1806fd1a2b93b234e220b835052dd4e1db07a"
+    },
+    {
+      "passed": true,
+      "partial": false,
+      "host": "lenovo",
+      "anchors": [
+        {
+          "cell": "gmm_ring8_2d__pd_factorized_linear__muon_0.02__factorial_anchor",
+          "parent": "gmm_ring8_2d__pd_factorized_linear__muon_0.02",
+          "parent_sha256": "a53f145f025318d2f6166f9cd0260982ebe0f6a3b11c3be9c83eef067f62f830",
+          "new_checkpoint_sha256": "b68238f77614f3eea7d52136eafdd83d46b3de2a00d03bfd466dc0c81a30809d",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        },
+        {
+          "cell": "gmm_ring8_2d__swiglu64__muon_0.02__factorial_anchor",
+          "parent": "gmm_ring8_2d__swiglu64__muon_0.02",
+          "parent_sha256": "2c33cae81099b9c7e5815bf3d460a65cebc7a2505b674e43878de7eca0212461",
+          "new_checkpoint_sha256": "102caa2170e5b8f63b2a410732f7968b574669ccd8f13835c4cba41ba286a78f",
+          "exact_numerical_state": true,
+          "exact_samples": true
+        }
+      ],
+      "pending": [],
+      "analysis_source_sha256": "3b94043a30ee4760720bf8f04cd1806fd1a2b93b234e220b835052dd4e1db07a"
+    }
+  ]
+}

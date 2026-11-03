@@ -78,11 +78,15 @@ No image transfer, K1/range/strength rescue or added mechanism follows failure.
 - [x] Implement minimal adapter/grid and verify CPU algebra/zero-anchor jets.
 - [x] Publish/deploy immutable source and pass fresh documented native CUDA
       five-cell continuation and two parent8 reference checks perhost.
-- [ ] Run monitored baseline-first queues, complete/replay ten endpoints and
+- [x] Run monitored baseline-first queues, complete/replay ten endpoints and
       four exact final reference states; publish the complete factorial table.
-- [ ] Apply the original decision rules before selecting another family.
+- [x] Apply the original decision rules before selecting another family.
 
 CPU witness passed in the existing Mac CPU environment. All six native-fold
 zero-anchor full-Jacobian discrepancies are below2.7e-11 and scalar-pullback
 Hessian discrepancies below7.4e-11; same stored tensors/RNG as cycle2. These
 checks verify implementation and local matching, not expected training gains.
+
+Closed: [complete factorial results](cycle11-results/findings.md). The one
+weak-parent keep does not pass the ordinary-reference rule. No candidate
+qualifies for longer confirmation; inspect frozen functions before new design.

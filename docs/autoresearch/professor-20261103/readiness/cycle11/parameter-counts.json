@@ -1,0 +1,75 @@
+{
+  "rows": [
+    {
+      "dim": 2,
+      "family": "vector_pd_k2",
+      "parameters": 81858
+    },
+    {
+      "dim": 2,
+      "family": "pd_factorized_linear",
+      "parameters": 81858
+    },
+    {
+      "dim": 2,
+      "family": "pd_mlp_affine",
+      "parameters": 81858
+    },
+    {
+      "dim": 2,
+      "family": "pd_factorized_affine",
+      "parameters": 81858
+    },
+    {
+      "dim": 2,
+      "family": "swiglu64",
+      "parameters": 56766
+    },
+    {
+      "dim": 2,
+      "family": "swiglu128",
+      "parameters": 81792
+    },
+    {
+      "dim": 2,
+      "family": "swiglu192",
+      "parameters": 106818
+    },
+    {
+      "dim": 16,
+      "family": "vector_pd_k2",
+      "parameters": 83664
+    },
+    {
+      "dim": 16,
+      "family": "pd_factorized_linear",
+      "parameters": 83664
+    },
+    {
+      "dim": 16,
+      "family": "pd_mlp_affine",
+      "parameters": 83664
+    },
+    {
+      "dim": 16,
+      "family": "pd_factorized_affine",
+      "parameters": 83664
+    },
+    {
+      "dim": 16,
+      "family": "swiglu64",
+      "parameters": 58572
+    },
+    {
+      "dim": 16,
+      "family": "swiglu128",
+      "parameters": 83598
+    },
+    {
+      "dim": 16,
+      "family": "swiglu192",
+      "parameters": 108624
+    }
+  ],
+  "scope": "Native constructor parameter counts only; no dense-MAC or runtime claim."
+}

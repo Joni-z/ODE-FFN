@@ -135,6 +135,15 @@ only3.73% and barely changes sampling. Product16 field worsens9.22%. Neither
 task qualifies under the predeclared raw/static5% criterion, so this setting
 is closed rather than advanced to80k. Numerical moderation alone is not enough.
 
+Cycle11 then closes the missing rank32-controller/affine-output corner. All four
+corners are now present at each of six fixed optimizer/task settings. On
+Product16/AdamW, sigmoid-controller linearization barely changes field fitting,
+while affine-controller linearization improves it49%. This is a real fixed-budget
+interaction, not a general advantage: all six new candidates lose to Swi128
+on field and sampling, at almost identical parameter count. The next diagnostic
+must distinguish an immediate output-transform effect from the function learned
+through training. No new method or longer-run rescue is accepted.
+
 Primary artifacts: [question-to-decision map](research-map.md),
 [logic and derivations](logic-chain.md), [spectral evidence](spectrum/findings.md),
 [controller/range results](cycle1-results/findings.md),
@@ -146,4 +155,5 @@ Primary artifacts: [question-to-decision map](research-map.md),
 [frozen spectral interventions](cycle7-results/findings.md),
 [training constraints](cycle8-results/findings.md),
 [actual feature responses](cycle9-results/findings.md),
-[radial registration](cycle10.md) and [derivation](radial-diagonal.md).
+[radial results](cycle10-results/findings.md), [radial derivation](radial-diagonal.md)
+and [complete controller/output comparison](cycle11-results/findings.md).
