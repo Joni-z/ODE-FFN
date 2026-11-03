@@ -65,3 +65,11 @@ is renewed and `verify_report.py --require-visual-review` can pass.
 `make_mainline_figures.py` preserves the earlier quantitative evidence and
 November2figure. `collect_evidence.py`/`make_figures.py` reproduce the superseded
 November1image-centered snapshot. They are not needed to build the current PDF.
+
+## Report delivery to MBP
+
+After completing a report revision, publish it to GitHub and fast-forward the
+MBP checkout at `/Users/zzz/Documents/NYU/Researches/ODE FFN/ODE-FFN`.
+Check for local changes before pulling; preserve them. Verify the delivered
+PDF SHA-256 against the reviewed source copy. A GitHub push alone is not the
+completed report delivery.
