@@ -1,3 +1,13 @@
+# Current research focus: validate the existing ISRU-D lead
+
+User4November requests focused progress after critiquing Report2 and reaffirms
+seed0only. Prioritize sampling/late-checkpoint/solver sensitivity and same-
+optimizer ordinary controls, with explicit decision rules. No new architecture,
+image transfer or unsupported training-replication claim. Current protocol and
+progress: docs/autoresearch/professor-20261103/task_plan.md.
+
+Earlier reporting/research states below are historical.
+
 # Current deliverable: balanced full-project Report2
 
 The revised3page report follows local clocks/P/order, whole-field readouts,

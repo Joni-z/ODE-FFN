@@ -2,12 +2,12 @@
 
 ## Current step
 
-Cycle13 is closed: all18endpoints replay exactly, all ten native references
-match archived numerical states/samples, and the full analysis is in
-cycle13-results/analysis-report.md. AdamW ISRU-D has a Ring8 lead over SwiGLU,
-but only2.25%field gain over free ISRU; Product16 favors the ordinary control.
-No registered continuation, accepted method or active queue. Preserve the
-bounded-feature evidence; do not rescue its coefficient/order/rate settings.
+Current focus,4November: validate the ISRU-D sampling lead before another
+architecture. User reconfirmed seed0only. First complete a fixed-checkpoint
+audit across common fresh sampling banks, late checkpoints and solver steps,
+including same-optimizer Swi64 and the stronger selected ordinary controls.
+This diagnoses evaluation/selection sensitivity, not training variability.
+No new layer or change to the native loss/sampler/training budget is selected.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 

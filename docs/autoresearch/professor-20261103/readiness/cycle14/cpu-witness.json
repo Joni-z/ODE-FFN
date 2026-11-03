@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "torch": "2.10.0",
+  "rows": [
+    {
+      "dim": 2,
+      "family": "pd_isru_k1",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 2,
+      "family": "free_isru",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 2,
+      "family": "swiglu64",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 2,
+      "family": "swiglu192",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 16,
+      "family": "pd_isru_k1",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 16,
+      "family": "free_isru",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 16,
+      "family": "swiglu64",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    },
+    {
+      "dim": 16,
+      "family": "swiglu192",
+      "restore_output_exact": true,
+      "tensors_unchanged": true
+    }
+  ],
+  "bank_determinism": true,
+  "numpy_sw2_agrees": true,
+  "native_constant_heun_exact": true,
+  "producer_sha256": "5e306fd043a241b400eceaf9d78d81f05d9e0e300a0fca124d6533d35f9c8ab7",
+  "grid_sha256": "2ddec537ff5a7c55c2193784b044147cad96cb73fbeafd800dfae8d186d57795"
+}

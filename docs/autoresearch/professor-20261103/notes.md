@@ -162,3 +162,8 @@ under registeredMuon.02 thanAdamW.0003, despite broader updates and larger P/W.
 No causal spectral explanation or general optimizer claim. None passes the
 registered continuation rule; no80k/rescue/new image runs selected. All five
 figures inspected; long Product titles were split without metric changes.
+
+## User critique and direction,4November
+Prioritize the ISRU-D Ring8 sampling lead and explicit direction-changing decisions, not architecture count. User explicitly retains model seed0, so multi-seed training is not authorized. Fresh evaluation banks, checkpoint/time/solver diagnostics do not constitute training replications. Old5%validation margin was a provisional compute-allocation rule, not statistical evidence; the current user request authorizes a separately registered sampling-focused validation despite that field margin failing. Ordinary free ISRU closeness does not prove the ODE component useless because initialization/parameterization differ. Report2 remains untouched during this validation.
+
+Cycle14 capacity correction: before numeric execution all145GPUs became occupied. Product16 stays on145, now two one-thread CPU workers; Lenovo remains CUDA. Register coordinate rtol1e-5/atol1e-6 and scalar2e-6 archive guards before outcomes. Preserve CPU exactness/error flags and avoid sharing/preemption.
