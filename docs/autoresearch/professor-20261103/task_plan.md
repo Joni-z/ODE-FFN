@@ -2,12 +2,13 @@
 
 ## Current step
 
-Current focus,4November: validate the ISRU-D sampling lead before another
-architecture. User reconfirmed seed0only. First complete a fixed-checkpoint
-audit across common fresh sampling banks, late checkpoints and solver steps,
-including same-optimizer Swi64 and the stronger selected ordinary controls.
-This diagnoses evaluation/selection sensitivity, not training variability.
-No new layer or change to the native loss/sampler/training budget is selected.
+Current focus,4November: Ring8 cycle14 finished240native frozen evaluations;
+all saved arrays independently replay. Field fitting favors ISRU-D across all
+three checkpoints; primary sampling nearly ties selected Swi64. The post-outcome
+32,768sample pool retains a modest lead, strongest against Free ISRU and the
+same-AdamW control. Product16 remains pending for a free145GPU and fresh CUDA
+witness. Seed0only; no new architecture/training/image transfer selected.
+See cycle14-results-ring8/analysis-report.md and cycle14-execution.md.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 

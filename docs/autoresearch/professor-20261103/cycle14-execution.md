@@ -1,0 +1,46 @@
+# Cycle14 execution record
+
+The frozen source is `7d4cac9b188632dd69fa10c395f31f0655a4c2b0`, published to
+GitHub main and checked out cleanly on both hosts. The existing native queue,
+models, loss, sampler and optimizer source are unchanged. No new training runs.
+
+## Scope and paths
+
+- Lenovo: Ring8, five existing model/settings, 15 checkpoints, 240 fresh-bank
+  evaluations. Source/output root: `D:/Research/ODE-FFN/professor-validation14-v2-20261104`.
+- 145: Product16, the same comparison roles and 240 evaluations. Root:
+  `/data2/zz5070/ODE_FFN/professor-validation14-v2-20261104`. GPU0 is occupied by
+  another user at the last preflight; do not share or preempt it. Pending.
+- CPU native-anchor attempt1 failed its registered roundoff guard before any
+  formal evaluation. Original files and the published failure receipt remain.
+  The CUDA v2 protocol retains bitwise coordinate equality and all cohort/bank
+  settings. The wrapper now saves failed anchor arrays before raising and
+  explicitly records all fresh-kernel dispatch flags.
+
+The separate native queue output is `output/`, with monitor status/history under
+`output/monitor/`. Two one-thread workers per eligible GPU. A queue completion
+marker means a frozen diagnostic completed; it is not a new trained fit. The
+training-trial ledger and both reports remain unchanged. Native timings are
+concurrent execution observations, not isolated inference benchmarks.
+
+## Progress
+
+Fresh v2 documented readiness and actual launch records are appended below.
+A partial Ring8 result must retain Product16 as pending; do not claim all 480
+registered evaluations completed.
+
+Lenovo v2 documented witness passed once: CUDA, eight kernel fixtures, fifteen
+physical checkpoint bindings, five bitwise native anchors and fifteen explicit
+finite fresh dispatches. The source stayed clean at7d4cac9. Formal native queue
+launched with two workers; the detach wrapper reported PID21928 and the actual
+monitor records controller PID29756, children24248/14584. First independent
+post-SSH snapshot showed779MiB and91%GPU utilization. This verifies execution,
+not model quality.145 remains pending for a free GPU.
+
+Lenovo queue finished all5cells with exit0 and no unstarted cases. All240
+formal evaluations and15field arrays independently replayed. Original25source
+files rehashed unchanged after execution; clean source7d4cac9. Runtime sealed
+with366files,19,946,866byte archive SHA256
+64157c4179c887ba260a9e35d70a022192cafd3bee8790b63dbba03bf28ff0cb.
+Primary results, post-outcome pooling, viewed figures and decision are in
+[analysis](cycle14-results-ring8/analysis-report.md). Product16 is still pending.

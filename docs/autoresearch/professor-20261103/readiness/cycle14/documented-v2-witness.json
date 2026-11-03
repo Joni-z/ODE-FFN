@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-11-03T17:02:46.597092+00:00",
+  "source_head": "7d4cac9b188632dd69fa10c395f31f0655a4c2b0",
+  "scope": "fresh agent-follows-doc witness only",
+  "lenovo": {
+    "status": "passed",
+    "documented_invocations": 1,
+    "command": "ssh lenovo 'set CUDA_VISIBLE_DEVICES=0&& set OMP_NUM_THREADS=1&& set OPENBLAS_NUM_THREADS=1&& set MKL_NUM_THREADS=1&& D:/Research/ODE-FFN/envs/synthetic/Scripts/python.exe D:/Research/ODE-FFN/professor-validation14-v2-20261104/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle14/audit.py --device cuda --host lenovo --witness --data-root D:/Research/ODE-FFN/datasets/synthetic --output D:/Research/ODE-FFN/professor-validation14-v2-20261104/preflight/documented'",
+    "exit_code": 0,
+    "started_utc": "2026-11-03T17:00:39.571209+00:00",
+    "finished_utc": "2026-11-03T17:00:47.236918+00:00",
+    "device": "cuda",
+    "gpu0_before_invocation_mib": 415,
+    "counts": {
+      "kernel_fixtures": 8,
+      "physical_checkpoint_bindings": 15,
+      "native_4096_bitwise_anchors": 5,
+      "finite_64sample_Heun128_dispatches": 15,
+      "cells_tensors_unchanged": 5
+    },
+    "checks": {
+      "exit_zero": true,
+      "passed_cuda": true,
+      "eight_kernel_fixtures": true,
+      "all_kernel_restore_exact": true,
+      "all_kernel_tensors_unchanged": true,
+      "physical_checkpoint_count_15": true,
+      "five_native_anchors": true,
+      "all_native_anchors_bitwise": true,
+      "all_native_anchors_4096": true,
+      "fifteen_finite_64sample_Heun128_dispatches": true,
+      "all_five_cells_unchanged": true,
+      "all_five_cells_passed_cuda": true,
+      "witness_only_no_formal_evaluations": true,
+      "source_clean_detached_before_and_after": true
+    },
+    "errors": [],
+    "remote_output": "D:/Research/ODE-FFN/professor-validation14-v2-20261104/preflight/documented"
+  },
+  "145": {
+    "status": "pending_capacity",
+    "documented_invocations": 0,
+    "command_not_run": "ssh 145 'CUDA_VISIBLE_DEVICES=GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python /data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/repo/studies/muon_pd_20261102/autoresearch_20261103/cycle14/audit.py --device cuda --host 145 --witness --data-root /data2/zz5070/ODE_FFN/muon-pd-20261102/data --output /data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/preflight/documented'",
+    "exit_code": null,
+    "specified_gpu": 0,
+    "specified_uuid": "GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4",
+    "gpu0_memory_used_mib": 32316,
+    "gpu0_memory_total_mib": 49140,
+    "capacity_checked_utc": "2026-11-03T17:00:04.953019+00:00",
+    "all_gpu_capacity": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 32316 MiB, 49140 MiB\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 32316 MiB, 49140 MiB\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 32316 MiB, 49140 MiB\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 32316 MiB, 49140 MiB\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 40368 MiB, 49140 MiB\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 40368 MiB, 49140 MiB\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 40368 MiB, 49140 MiB\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 40368 MiB, 49140 MiB\n",
+    "reason": "Specified GPU0 occupied; free threshold is <500 MiB. No alternate device used."
+  },
+  "source_checks": {
+    "both_before": "clean detached expected HEAD",
+    "lenovo_after": "clean detached expected HEAD"
+  },
+  "source_or_doc_repairs": 0,
+  "retries": 0,
+  "formal_jobs_launched": 0,
+  "errors": [],
+  "limits": [
+    "145 CUDA readiness remains pending.",
+    "Readiness evidence only; no new quality result."
+  ],
+  "unchanged": [
+    "All source files",
+    "All validation and compute-ledger documents",
+    "Original attempt1 artifacts"
+  ]
+}

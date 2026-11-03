@@ -83,6 +83,24 @@ checks and fresh documented original-host source/path/native-anchor witnesses pr
 formal execution. Preserve every failure, nonfinite outcome and old file.
 
 - [x] Implement the minimal native-evaluator wrapper and CPU checks.
-- [ ] Publish/deploy immutable source and pass fresh documented CUDA witnesses.
-- [ ] Run, independently replay all saved arrays and compare the complete cohort.
-- [ ] Publish results and the resulting next decision; keep Report2 unchanged.
+- [x] Publish/deploy immutable source on both hosts; Lenovo fresh v2 CUDA pass.
+- [ ] Complete145 fresh CUDA witness when its GPU is free.
+- [x] Run/replay all240 Ring8 evaluations, all fields/anchors and pooled diagnostic.
+- [ ] Run/replay Product16 and compare the complete cohort.
+- [x] Write verified Ring8 results/decision and publish with Product16 marked pending.
+- [ ] Close the complete cohort after Product16; keep Report2 unchanged.
+
+## Precision diagnostic selected after the Ring8 bank audit
+
+The original primary readout remains the eight paired-bank mean. Ring8 showed
+bank reversals and near equality against selected Swi64. Before computing a
+follow-up, select one analysis using only the already saved primary20k/Heun128
+arrays: concatenate all eight banks (32,768 paired protocol samples) and apply
+the same sliced-W2 formula/directions. Also show all eight leave-one-bank-out
+pools (28,672 samples), retaining common membership across models. Report the
+pooled target-target floor without subtraction. This is a post-outcome
+precision diagnostic, not a replacement primary endpoint or a checkpoint/solver
+search. No new model forward pass or training is needed. Its purpose is to
+see whether the remaining ranking changes when finite-sample discrepancy is
+reduced. The omission cases are dependent sensitivity checks, not replication,
+confidence intervals or significance tests. Retain every model and every pool.

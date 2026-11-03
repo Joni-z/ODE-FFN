@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "scope": "Executed dense matrix MACs per single vector-field forward; nonlinear/scalar work excluded.",
+  "rows": [
+    {
+      "dim": 2,
+      "family": "pd_isru_k1",
+      "parameters": 56706,
+      "linear_hook_macs": 31040,
+      "direct_parameter_macs": 24576,
+      "dense_macs": 55616
+    },
+    {
+      "dim": 2,
+      "family": "free_isru",
+      "parameters": 56706,
+      "linear_hook_macs": 31040,
+      "direct_parameter_macs": 24576,
+      "dense_macs": 55616
+    },
+    {
+      "dim": 2,
+      "family": "swiglu64",
+      "parameters": 56766,
+      "linear_hook_macs": 55232,
+      "direct_parameter_macs": 0,
+      "dense_macs": 55232
+    },
+    {
+      "dim": 2,
+      "family": "swiglu192",
+      "parameters": 106818,
+      "linear_hook_macs": 104768,
+      "direct_parameter_macs": 0,
+      "dense_macs": 104768
+    },
+    {
+      "dim": 16,
+      "family": "pd_isru_k1",
+      "parameters": 58512,
+      "linear_hook_macs": 32832,
+      "direct_parameter_macs": 24576,
+      "dense_macs": 57408
+    },
+    {
+      "dim": 16,
+      "family": "free_isru",
+      "parameters": 58512,
+      "linear_hook_macs": 32832,
+      "direct_parameter_macs": 24576,
+      "dense_macs": 57408
+    },
+    {
+      "dim": 16,
+      "family": "swiglu64",
+      "parameters": 58572,
+      "linear_hook_macs": 57024,
+      "direct_parameter_macs": 0,
+      "dense_macs": 57024
+    },
+    {
+      "dim": 16,
+      "family": "swiglu192",
+      "parameters": 108624,
+      "linear_hook_macs": 106560,
+      "direct_parameter_macs": 0,
+      "dense_macs": 106560
+    }
+  ],
+  "source_sha256": "aa0244aca904d3007e66e747b99bd968e3753af58a87f916c694cb29a9880c3a",
+  "model_source_sha256": "f4551b1a15a78276177757b865da538f43fc2e915a58d0e3428003e88f906c34"
+}

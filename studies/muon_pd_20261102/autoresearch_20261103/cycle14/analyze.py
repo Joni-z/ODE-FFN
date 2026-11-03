@@ -104,7 +104,7 @@ def main():
             if step == 20000:
                 assert abs(mse-case['native_field_mse']) < 2e-6
             fields.append(dict(cell=case['id'], dataset=case['dataset'], label=label(case),
-                               checkpoint_step=step, oracle_mse=mse, **field))
+                               checkpoint_step=step, numpy_oracle_mse=mse, **field))
         records = [json.loads(line) for line in (folder/'rows.jsonl').read_text().splitlines()]
         assert len(records) == len({(r['checkpoint_step'], r['bank'], r['heun_steps']) for r in records}) == 48
         for row in records:

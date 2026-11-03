@@ -1,9 +1,10 @@
 # Current research focus: validate the existing ISRU-D lead
 
-User4November requests focused progress after critiquing Report2 and reaffirms
-seed0only. Prioritize sampling/late-checkpoint/solver sensitivity and same-
-optimizer ordinary controls, with explicit decision rules. No new architecture,
-image transfer or unsupported training-replication claim. Current protocol and
+Ring8 frozen validation completed and independently replayed240evaluations.
+ISRU-D improves field fitting across all three checkpoints, but its primary
+sampling mean nearly ties selected Swi64. Pooled saved samples retain a modest
+Free-ISRU lead; Product16 remains pending for a free145GPU. Seed0only, no new
+training or image transfer. [Analysis](docs/autoresearch/professor-20261103/cycle14-results-ring8/analysis-report.md). Current protocol and
 progress: docs/autoresearch/professor-20261103/task_plan.md.
 
 Earlier reporting/research states below are historical.

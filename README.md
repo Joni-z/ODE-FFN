@@ -15,7 +15,14 @@ input-dependent diagonal generators in a separate synthetic backbone. The
 [research map](docs/autoresearch/professor-20261103/research-map.md) connects
 questions, derivations, controlled tests and decisions.
 
-The latest [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
+The latest [frozen-checkpoint validation](docs/autoresearch/professor-20261103/cycle14-results-ring8/analysis-report.md)
+finds lower ISRU-D field error at all three Ring8 checkpoints, but primary
+sampling nearly ties the selected SwiGLU64 control. Its eight-bank mean SW2 is
+0.17110 versus Free ISRU 0.17930 and selected SwiGLU64 0.17145. A separately
+reported pooled-sample diagnostic retains a modest lead; Product16 validation
+is pending for a free GPU on145. No new training or image transfer is selected.
+
+The preceding [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
 finds an AdamW Ring8 lead over SwiGLU, but only2.25%field separation from
 ordinary free ISRU; Product16 favors the ordinary model. All eighteen20k runs
 and ten native references replay exactly. No ODE-specific advantage is established.

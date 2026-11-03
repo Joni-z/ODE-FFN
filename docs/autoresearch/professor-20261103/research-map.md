@@ -5,6 +5,23 @@ flow matching. An ODE interpretation alone is insufficient. These experiments
 use small, time-conditioned synthetic velocity networks; they do not establish
 an advantage for JiT image prediction.
 
+## Current decision after the Report2 critique
+
+The [Ring8 validation](cycle14-results-ring8/analysis-report.md) separates a
+retained fitting result from a less consistent sampling result. ISRU-D has
+lower field error than all four ordinary controls at10k,15k and20k, at nearly
+the same matrix work as Swi64. The primary eight-bank sampling mean nearly
+ties selected Swi64; the original15.8%Free-ISRU gap becomes4.57%on fresh banks.
+Post-outcome pooling of the saved samples retains an8.34%Free-ISRU gap, but the
+selected-Swi64 gap is2.80%with one leave-bank-out reversal. These estimators
+are reported separately. No ODE-specific mechanism follows from their ranking.
+
+Product16 is pending for an unoccupied145GPU. Finish that control before a new
+layer. The next proposed explanation concerns complete-field errors along
+common transport states and their propagation, using the existing analytic
+oracle and ordinary models. It must explain a measured difference; a sampled
+Jacobian is not a global stability certificate. Report2 remains unchanged.
+
 ## 1. Does Muon make the learned dynamics better behaved?
 
 Muon changes the geometry of matrix **updates**. In the recorded Product16
