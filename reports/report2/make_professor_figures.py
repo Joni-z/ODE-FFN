@@ -53,10 +53,10 @@ for fam,opt in [('pd_constant_k1','adamw'),('pd_constant_k1','muon'),('pd_isru_k
         selector=dict(dataset=ds,family=fam)
         if opt:selector['optimizer']=opt
         r=unique(endpoints,selector)
-        # Current Ring8 table comes from the common-bank audit. Only these
-        # original Product16 values remain printed in the short report.
-        field_digits=5 if ds=='rotated_product_bimodal_16d' and fam in ['pd_isru_k1','free_isru'] and opt=='adamw' else None
-        sw2_digits=5 if ds=='rotated_product_bimodal_16d' and ((fam=='pd_isru_k1' and opt=='adamw') or fam=='swiglu192') else None
+        # Current printed quality values use the complete common-bank audit;
+        # retain the historical single-bank bindings for evidence continuity.
+        field_digits=None
+        sw2_digits=None
         item[key]=dict(field=bind(source,r,selector,'replayed_field_mse',field_digits),sw2=bind(source,r,selector,'numpy_test_sw2',sw2_digits),optimizer=r['optimizer'],lr=r['projection_lr'])
     table.append(item)
 source=BASE+'/cycle13-results/curves.csv';curves=read(source)

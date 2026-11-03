@@ -50,7 +50,7 @@ def main():
     assert len([p for p in text.split('\f') if p.strip()]) == 3
     revision=json.loads((ROOT/'data/report-revision.json').read_text())
     assert revision['date'] in text
-    assert all(heading in text for heading in ['Local dynamics: clocks, order and optimization','Changing the complete field and its directions','Input-dependent features and current evidence'])
+    assert all(heading in text for heading in ['Local dynamics: clocks, order and optimization','From field structure to bounded features','Checkpoint diagnosis: shape and mode allocation'])
     assert 'professor' not in text.lower() and 'suggestion' not in text.lower()
     assert all(topic in tex for topic in ['Clocks and order.','Full-gradient readout.','Input-dependent directions.','Nonlinear internal flow.','local-teacher','Muon','PD(h)'])
     assert 'PD(h)' in text.replace(' ', '')
@@ -117,7 +117,23 @@ def main():
         for metric in ['parameters','dense_macs']:assert f"{row[metric]:,}" in text
     frozen=json.loads((REPO/'docs/autoresearch/professor-20261103/cycle14-results-ring8/verification.json').read_text())
     assert frozen['passed'] and frozen['formal_evaluations']==240 and frozen['all_12_field_contrasts_favor_isru']
-    assert frozen['product16_pending']
+    complete=json.loads((REPO/'docs/autoresearch/professor-20261103/cycle14-results-complete/verification.json').read_text())
+    assert complete['passed'] and complete['formal_evaluations']==480
+    assert complete['complete_cohort'] and complete['exact_native_anchors']==10
+    transport=json.loads((ROOT/'data/transport-evidence.json').read_text())
+    for file,digest in transport['source_hashes'].items():assert sha(REPO/file)==digest,file
+    for record in transport['records']:
+        original=selected(REPO/record['source'],record['selector'])
+        assert float(original[record['metric']])==record['value']
+        if record['printed_digits'] is not None:present(record['value'],record['printed_digits'])
+    crossing=rows(REPO/'docs/autoresearch/professor-20261103/cycle15-results/sectors/endpoint-sector-error.csv')
+    percentages=[100*(1-float(r['crossings_after75'])/float(r['gross_crossings'])) for r in crossing]
+    assert transport['derived']['crossings_by_t075_percent_min']==min(percentages)
+    assert transport['derived']['crossings_by_t075_percent_max']==max(percentages)
+    present(min(percentages),1);present(max(percentages),1)
+    diagnostic=json.loads((REPO/'docs/autoresearch/professor-20261103/cycle15-results/verification.json').read_text())
+    assert diagnostic['passed'] and diagnostic['cases']==6 and diagnostic['native4096_anchors']==6
+    assert diagnostic['identity_max_error']==0 and diagnostic['common_arrays_exact']
     new_results=json.loads((REPO/'docs/autoresearch/professor-20261103/cycle13-results/verification.json').read_text())
     assert new_results['endpoints']==18 and new_results['exact_native_anchors']==10
     assert new_results['max_generated_error']==0 and new_results['continuation_eligible']==0
@@ -169,7 +185,8 @@ def main():
     assert run('git','-C',str(REPO),'rev-parse','HEAD:reports/report1').strip() == old['git_tree']
     assert sha(REPO/'reports/report1/report1.pdf') == old['pdf_sha256']
     assert run('git','-C',str(REPO),'diff',old['last_requested_revision_commit'],'--','reports/report1') == ''
-    assert run('git','-C',str(REPO),'diff',revision['baseline_commit'],'--',*revision['protected_paths']) == ''
+    excludes=[':(exclude)'+p for p in revision.get('allowed_documentation_updates',[])]
+    assert run('git','-C',str(REPO),'diff',revision['baseline_commit'],'--',*revision['protected_paths'],*excludes) == ''
     visual_path = ROOT/'visual-review.json'
     visual = json.loads(visual_path.read_text()) if visual_path.exists() else {}
     visual_ok = visual.get('pdf_sha256') == sha(pdf) and visual.get('pages_reviewed') == [1,2,3]
@@ -179,8 +196,8 @@ def main():
         observed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),
         pages=pages,total_pages_including_figures=pages,author='Zhizhe Zhang',language='English',
         bibliography=False,all_fonts_embedded=True,undefined_references=False,overfull_boxes=False,
-        source_bound_values=len(values)+len(professor['records'])+len(validation['records']),printed_numeric_values_checked=checked_numbers,
-        research_coverage=['clock/P/order controls','Muon/spectrum','full-gradient readout','conditional frames','nonlinear cubic flow','diagonal features','Ring8 common-bank validation','ordinary controls and diagnostics'],
+        source_bound_values=len(values)+len(professor['records'])+len(validation['records'])+len(transport['records']),printed_numeric_values_checked=checked_numbers,
+        research_coverage=['clock/P/order controls','Muon/spectrum','full-gradient readout','conditional frames','nonlinear cubic flow','diagonal features','Ring8 common-bank validation','complete Product16 controls','mode allocation and centered residuals','common transport and oracle switches','boundary-flux derivation','ordinary controls and diagnostics'],
         attribution_style_headings_absent=True,
         current_report_date=revision['date'],report_revision_baseline=revision['baseline_commit'],
         documentation_areas_covered=len(areas),ledger_records=len(records),
@@ -188,7 +205,8 @@ def main():
         old_evidence_snapshot_unchanged=True,primary_experiment_docs_unchanged=True,
         Report1_unchanged=True,Report1_pdf_sha256=old['pdf_sha256'],
         no_new_training_or_sampling=True,all_historical_experiments_rerun=False,
-        input_hashes={str(p.relative_to(ROOT)):sha(p) for p in assets+[ROOT/'data/professor-evidence.json',ROOT/'data/validation-evidence.json',ROOT/'data/report-revision.json']},pdf_sha256=sha(pdf),
+        report_status='Editable draft; only the user can finalize it.',
+        input_hashes={str(p.relative_to(ROOT)):sha(p) for p in assets+[ROOT/'data/professor-evidence.json',ROOT/'data/validation-evidence.json',ROOT/'data/transport-evidence.json',ROOT/'data/report-revision.json']},pdf_sha256=sha(pdf),
         visual_review_receipt_valid=visual_ok)
     (ROOT/'verification.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))

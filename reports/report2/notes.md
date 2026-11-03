@@ -1,3 +1,23 @@
+# Mode-allocation revision, 4 November
+
+Report2 has not been submitted and remains editable until the user explicitly
+finalizes it. The new version includes the complete Product16 validation and
+six-checkpoint Ring8 diagnosis. Earlier readout/frame follow-ups are compressed;
+cubic flow -> free ISRU -> bounded diagonal features is the second-page thread.
+
+The third-page figure separates pooled native SW2, centered residuals and
+mode-sector L1. The oracle-switch example locates map differences on the
+preselected bank; its reversed sampling trend stays explicit. Continuity and
+first-order response motivate boundary-flux calibration and functional-update
+controls for the next two weeks. Printed additions bind to source rows and
+hashes. No new experiment or Report1 change.
+
+The first layout overflow was corrected by shortening the introduction and
+clock summary. Font remains 11pt and margins .8in. Three pages now fit,
+including both figures, the table and final hypotheses.
+
+Earlier entries below are historical.
+
 # Narrative correction,3November
 
 User clarified that Report2 covers the full project exploration. The previous

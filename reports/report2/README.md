@@ -2,6 +2,9 @@
 
 **Zhizhe Zhang · 4 November 2026**
 
+**Editable draft.** The user has not submitted Report2 and will explicitly
+decide when it is final. A completed revision remains open to further changes.
+
 [Three-page PDF](report2.pdf) · [LaTeX](report2.tex) ·
 [Evidence map](EVIDENCE.md) · [Verification](verification.json) ·
 [Current research index](evidence-index.md)
@@ -15,26 +18,33 @@ individual ideas:
   directions, thin/thick transfer, nonlinear cubic flow and error-location probes.
 - **Input-dependent features:** controller/range/order controls, direct and
   radial diagonals, the ISRU-D lead and strong ordinary references.
+- **Checkpoint diagnosis:** centered-residual distributions, mode-sector
+  probabilities, common transport paths and boundary-flux response.
 
 Each main experiment states its purpose, observation and interpretation.
-Three figures show optimizer/P trajectories, readout/frame results and the
-new Ring8 checkpoint comparison. The current table reports field fitting,
+Two figures show optimizer/P trajectories and the new Ring8 shape/mass
+checkpoint comparison. The current table reports field fitting,
 common-bank sampling and a separate pooled-sample precision check, including
-same-AdamW and selected-Muon SwiGLU controls. Product16 retains its original
-comparison; the expanded sampling check is pending.
+same-AdamW and selected-Muon SwiGLU controls. Product16 now uses the completed
+eight-bank Heun128 comparison. Readout/frame results are compressed into prose
+to make room for the cubic-to-ISRU construction and transport diagnosis.
 
 The entire PDF is **three pages including figures and tables**, English,
 sole author Zhizhe Zhang, no bibliography. It opens with project/progress and
 ends with two hypotheses for the next two weeks. The previous focused version
 remains in Git at23e2469; the preceding full-project report is at3285bdc.
-This revision uses completed results and rewrites the prose to state findings
-directly. Report1 and primary experiment artifacts remain unchanged.
+The shape/mass result motivates a first-order sector-flux derivation and two
+testable hypotheses. This revision uses completed evidence; it runs no new
+experiments. Report1 and primary artifacts remain unchanged. The previous
+Nov4 PDF/source remain in Git at `5075b3b`.
 
 ## Evidence and historical coverage
 
 [Optimizer/diagonal evidence](data/professor-evidence.json) binds each new figure/table
 value to an exact row and file hash. [Ring8 bindings](data/validation-evidence.json)
-cover the new table, checkpoint figure and matrix-work counts.
+cover the Ring8 table, archived checkpoint curves and matrix-work counts.
+[Transport bindings](data/transport-evidence.json) cover the current checkpoint
+figure, complete Product16 results and oracle-switch example.
 [EVIDENCE.md](EVIDENCE.md) maps report statements to their sources;
 [evidence-index.md](evidence-index.md) links the completed studies.
 
@@ -57,6 +67,7 @@ From the repository root:
 ```sh
 python3 -B reports/report2/make_professor_figures.py
 python3 -B reports/report2/make_validation_figure.py
+python3 -B reports/report2/make_transport_figure.py
 bash reports/report2/build.sh
 python3 -B reports/report2/verify_report.py
 ```

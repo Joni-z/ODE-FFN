@@ -1,8 +1,8 @@
 {
-  "baseline_commit": "3285bdc5e6741990853b8da00e921409d625ed20",
-  "previous_pdf_sha256": "023a6339088d3231ee653a5aa82e2debf94a00f2a7e6d18c629593c5ee6759ea",
+  "baseline_commit": "5075b3b312d00986648a19ad828bbc9bbfd51de0",
+  "previous_pdf_sha256": "570a6a490184c6a31069f72873ad31052db5035377db0fde762a7ddabf9561ac",
   "date": "4 November 2026",
-  "authorization": "User requests Report2 completion and direct factual writing without repetitive defensive caveats; incorporate completed Ring8 validation.",
+  "authorization": "User explicitly requests continued Report2 revision, has not submitted it, and reserves finalization. Incorporate completed mode-allocation and Product16 evidence.",
   "protected_paths": [
     "docs",
     "studies",
@@ -15,7 +15,12 @@
   ],
   "new_evidence": [
     "data/professor-evidence.json",
-    "data/validation-evidence.json"
+    "data/validation-evidence.json",
+    "data/transport-evidence.json"
   ],
-  "no_new_training_or_sampling": true
+  "no_new_training_or_sampling": true,
+  "report_status": "Editable draft; user finalization pending.",
+  "allowed_documentation_updates": [
+    "docs/autoresearch/professor-20261103/task_plan.md"
+  ]
 }

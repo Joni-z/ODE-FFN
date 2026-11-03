@@ -1,5 +1,10 @@
 # Report2 evidence index — ODEFFN mainline
 
+The latest 4 November draft incorporates completed Product16 controls and
+Ring8 mode-allocation diagnosis. It remains open to revision until the user
+explicitly finalizes it. [Current PDF](report2.pdf) and
+[claim/evidence map](EVIDENCE.md).
+
 The4November revision follows local clocks/P/order, complete readouts, learned
 directions, nonlinear flows and diagonal features, then the latest Ring8
 checkpoint and sampling validation.
@@ -88,5 +93,6 @@ published separately from the completed report.
 The [mathematical note](../../docs/autoresearch/professor-20261103/mode-mass-derivation.md)
 derives sector mass from boundary flux and connects its first-order response
 to P q(h). Calibration under weak oracle/model interpolation is the next
-proposed test. This entry adds research evidence; it does not revise the Nov4
-Report2 PDF/TeX. Report1 remains final.
+proposed test. This entry originally added research evidence separately from
+the PDF. The subsequent user-authorized report revision now incorporates
+these results and the first-order derivation. Report1 remains final.

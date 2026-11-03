@@ -1,4 +1,34 @@
-# Current task — direct evidence-led revision, 4 November 2026
+# Current task — incorporate mode-allocation diagnosis, 4 November 2026
+
+Report2 has not been submitted. The user explicitly retains finalization:
+it stays an editable draft until they say it is final. Incorporate the completed
+Product16 controls and Ring8 checkpoint/transport diagnosis. Keep the full
+ODEFFN research chain, English, Zhizhe Zhang, no references, and at most three
+pages including the selected graphics. Write findings directly.
+
+- [x] Select source-bound results and reorganize the three-page narrative.
+- [x] Compress readout/frame follow-ups; explain cubic flow -> ISRU -> ISRU-D.
+- [x] Add the shape/mass checkpoint figure and a concise boundary-flux derivation.
+- [x] Update evidence bindings; compile and verify values, three pages and layout.
+- [ ] Inspect every rendered page; publish and fast-forward MBP with matching hashes.
+
+Status: draft revision and all three-page visual checks pass; GitHub publication
+and verified MBP delivery are the remaining step. No experiment, training,
+sampling or Report1 edit.
+Baseline for report-only preservation checks: `5075b3b312d00986648a19ad828bbc9bbfd51de0`.
+Previous revision entries below are historical, not finalization decisions.
+
+Layout log: the first compilation produced four pages because the last Muon
+paragraph spilled off page1 before the explicit page break. Compress the
+opening and clock-summary prose; keep the 11pt font and .8in margins.
+The coverage check also caught omitted explicit PD(h) notation; restore the
+conditional operator alongside the K1 map before the last compilation.
+One documentation patch failed on a line-wrap mismatch and made no changes;
+the expected text was reread and the targeted patch reapplied.
+
+---
+
+# Previous task — direct evidence-led revision, 4 November 2026
 
 The user asks whether Report2 is finished and explicitly requests factual
 writing without repeated defensive caveats. Incorporate the completed Ring8

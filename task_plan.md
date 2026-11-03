@@ -1,4 +1,18 @@
-# Current research: transport-error diagnosis, 4 November 2026
+# Current deliverable: revise the Report2 draft, 4 November 2026
+
+The user clarified that Report2 has not been submitted and remains editable
+until their explicit finalization. Incorporate the completed Product16 and
+Ring8 mode-allocation evidence in the three-page English report. Compress the
+earlier readout/frame details, connect cubic flow to ISRU-D, show the checkpoint
+shape/mass diagnosis and end with an executable boundary-flux hypothesis.
+Canonical plan: [reports/report2/task_plan.md](reports/report2/task_plan.md).
+Compilation, source-value checks and review of all three pages pass. Publish
+the verified draft to GitHub and synchronize MBP.
+Report1 and all experiments stay unchanged.
+
+Earlier entries below preserve their state at the time.
+
+# Previous research: transport-error diagnosis, 4 November 2026
 
 The frozen-checkpoint diagnosis is complete. Across Ring8 ISRU-D, Free ISRU
 and selected Swi64, 15k-to-20k field MSE and centered-residual SW2 improve,

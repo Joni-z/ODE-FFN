@@ -19,19 +19,19 @@
 \vspace{-2.8em}
 
 \section{Project and progress}
-This project studies FFNs designed around the continuous dynamics of flow
-matching, with the goal of improving the blocks inside JiT. Starting from two
-Taylor maps around SiLU, we explored local clocks, the generator P, polynomial
-order, nonlinear response and learned directions. The clearest recent finding
-is that a bounded ISRU response improves vector-field fitting. Sampling gains
-are smaller and depend on the ordinary model used for comparison.
+This project investigates whether ODE-inspired transformations provide a useful
+inductive bias for FFNs in flow-matching models, with JiT as the eventual
+application. We explored clocks, P, Taylor order, directions and nonlinear
+responses. Ordinary controls explain several gains. The latest finding is
+that field fitting and centered residual distributions improve while mode
+probabilities drift.
 
-Synthetic tests isolate the FFN in a width-64, three-block, time-conditioned
-MLP. Independent noise--data pairs train velocity from $z_t=tX+(1-t)e$ on
-analytic mixtures. Oracle MSE measures fitting; sliced Wasserstein distance
-(SW2) measures generation. Earlier studies use 5k updates; recent studies use
-20k, batch 512, and Heun sampling. Budgets and solver settings accompany each
-comparison.
+Tests isolate the FFN in a width-64, three-block, time-conditioned MLP, learning
+velocity from $z_t=tX+(1-t)e$ with independent noise--data pairs. Ring8 has
+eight equal-weight 2D Gaussian modes; Product16 is a rotated product of 16
+bimodal factors. Oracle MSE measures fitting; sliced Wasserstein distance
+(SW2) measures generation. Earlier tests use 5k updates; recent tests use 20k,
+batch 512 and Heun sampling.
 
 \section{Local dynamics: clocks, order and optimization}
 The original scalar map at $K=2$ is
@@ -42,11 +42,11 @@ s(h)=0.2+0.8\,\sigma(g(h)/10).
 \textbf{Clocks and order.} The input clock differs from FM time and contributes
 to the full Jacobian. On Ring8, input gates reduce samples beyond 0.6 from every mode center:
 19.9\% to 8.3\%, versus SwiGLU's 3.4\% (parameter counts differ).
-Freeing fixed-clock effective matrices improves fitting. Exact frozen solves,
-state feedback, clock reuse, biases and augmented states did not improve the
-quality--cost tradeoff across tasks. Scalar K1 improves all eight matched
-K1/K2 field comparisons. At 80k on Ring8, raw K1 retains a fitting gain against matched
-SwiGLU64, while SwiGLU wins on sampling and with larger widths.
+Freeing fixed-clock matrices improves fitting. Exact solves, state feedback
+and clock/augmentation variants do not improve the cross-task quality--cost
+tradeoff. Scalar K1 improves all eight matched K1/K2 field comparisons. At
+80k on Ring8, raw K1 beats matched SwiGLU64 on fitting; SwiGLU wins on sampling
+and with larger widths.
 
 \textbf{Optimization.} Muon approximately orthogonalizes FFN momentum updates;
 other parameters retain AdamW. We measured both updates and learned P.
@@ -65,7 +65,7 @@ At 20k, AdamW/Muon update stable ranks are 3.08/32.74 and mean P norms
 training-time flattening harm fitting; flattening also worsens SW2.
 
 \newpage
-\section{Changing the complete field and its directions}
+\section{From field structure to bounded features}
 \textbf{Full-gradient readout.} We tested whether structure in the complete
 predicted field matters more than a constraint on hidden P. For a vector
 backbone G, predict
@@ -73,72 +73,41 @@ backbone G, predict
 v(x,t)=\nabla_x[\tfrac12x^\top G(x,t)]
 =\tfrac12[G(x,t)+J_G(x,t)^\top x].
 \end{equation}
-This matches the gradient-field structure of the analytic mixture velocities.
-At 5k, original-ODE Product16 MSE falls from 0.325527 to 0.037320; ordinary
-gradient SwiGLU reaches 0.033826 at nearly equal dense inference work. Both
-backbones benefit from the readout. Derivative-path and local-adjoint controls
-show that localizing the operation loses much of the improvement. On the
-Gaussian task, field fitting improves while sampling worsens.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figures/ode-mainline.pdf}
-\caption{Lower is better. A: full-gradient readout helps both ODE and ordinary
-backbones. B: conditional frames improve thin-target field fitting. C: their
-sampling advantage fails on the thick target. Each panel has its own metric
-and axis scale.}
-\end{figure}
-\vspace{-0.6em}
+This matches the gradient structure of the analytic mixture velocities.
+At 5k, original-ODE Product16 MSE falls from 0.325527 to 0.037320; gradient
+SwiGLU reaches 0.033826 at nearly equal dense inference work. Local-adjoint
+controls lose much of the gain: the useful operation acts on the complete
+field and benefits both backbones.
 
 \textbf{Input-dependent directions.} To change the directions in which P acts
-without changing its pointwise spectra, we tested
+while preserving its pointwise spectrum, we tested
 $Q(h)T_K(s(h)P)Q(h)^\top h$ with an orthogonal learned frame. On a 2D mode
 plane embedded in 128D, frame K2 reaches MSE 0.000685 and K1 reaches
-0.000713, versus SwiGLU192's 0.003095. K1 already has better tangent SW2
-than K2. Adding variance outside the plane reverses the sampling result:
-frame K2 gives 0.3173 versus SwiGLU192's 0.2471. Follow-ups varying the
-quadratic coefficient, action and gradient route retain this task dependence.
-Direction adaptation is most useful when the target has a thin mode plane.
+0.000713, versus SwiGLU192's 0.003095. Adding variance outside the plane
+reverses the sampling result: K2 gives 0.3173 versus SwiGLU192's 0.2471.
+Direction adaptation helps the thin geometry; extra Taylor order does not
+consistently help sampling.
 
 \textbf{Nonlinear internal flow.} We tested whether linear dynamics were too
 restrictive by splitting $dy/dr=Py-y^{\odot3}$ into linear steps and the exact
-response $\phi_s(u)=u/\sqrt{1+2su^2}$. Product16 field fitting improves, but
-freeing the two matrices around that response works better:
-\begin{table}[H]
-\centering\small
-\begin{tabular}{@{}lrrrr@{}}
-\toprule
-5k Product16 & Original K2 & Tied cubic & Free ISRU & SwiGLU160\\
-\midrule
-Field MSE & 0.325527 & 0.092938 & 0.037159 & 0.078178\\
-\bottomrule
-\end{tabular}
-\caption{Same earlier protocol. Free ISRU is an ordinary independent-matrix
-control, with a different parameterization and preserved special initializer.}
-\end{table}
-\vspace{-0.5em}
-Its advantage reverses on dependent-sign and half-mixture laws. Noisy-label,
-affine-head, frozen-feature and local-teacher studies leave part of the fitting
-gap unresolved. The strong Product16 response result motivated the bounded
-input-feature experiments below.
+cubic response $q_r(u)=u/\sqrt{1+2ru^2}$. At 5k on Product16, MSE is 0.092938
+for tied cubic, 0.037159 for free ISRU and 0.078178 for SwiGLU160. Free ISRU
+uses independent matrices around q and a special initializer. Its advantage
+reverses on dependent-sign and half-mixture laws. Noisy-label, affine-head,
+frozen-feature and local-teacher probes leave part of the fitting gap unresolved.
 
-\newpage
-\section{Input-dependent features and current evidence}
-The diagonal construction uses $D(h)=\mathrm{diag}(d(h))$ and $A(h)=PD(h)$.
-At K1,
+\textbf{Input-dependent features.} This response motivates bounding the feature
+acted on by P. For $A(h)=PD(h)$ with $D(h)=\mathrm{diag}(d(h))$, the K1 map and Jacobian are
 \begin{equation}
 F_1(h)=h+P[d(h)\odot h],\qquad
 J_{F_1}=I+P[\mathrm{diag}(d)+\mathrm{diag}(h)J_d].
 \end{equation}
-Controller tests cross rank-32 linear/MLP gates with sigmoid/affine outputs.
-Direct features (constant, $h$, sigmoid, $h+1$, $|h|$) isolate function and
-sign; radial controls isolate amplitude. Raw $h$ helps Ring8 fitting, while
-absolute and radial variants do not improve the overall tradeoff.
-
-To bound features, ISRU-D sets $d_i=(1+1.2h_i^2)^{-1/2}$, so
-$q_i=h_i/\sqrt{1+1.2h_i^2}$ and $q_i'=(1+1.2h_i^2)^{-3/2}$, retaining two K1
-maps around SiLU. Free ISRU instead uses two independent matrices and a
-different initializer.
+We tested rank-matched linear/MLP controllers, sigmoid/affine outputs, direct
+diagonals and radial controls. Raw $h$ helps Ring8 fitting; absolute and radial
+variants do not improve the overall tradeoff. ISRU-D uses
+$d_i=(1+1.2h_i^2)^{-1/2}$, giving $Pq_{0.6}(h)$ in each K1 increment. Its two
+maps surround SiLU; free ISRU uses $Aq_{0.6}(Bh)$. Their residual placement,
+nonlinear maps and initialization differ.
 \begin{table}[H]
 \centering\small
 \begin{tabular}{@{}lcrrr@{}}
@@ -158,32 +127,68 @@ samples. ISRU-D/free: 56,706 parameters, 55,616 dense MACs; Swi64: 56,766 and
 55,232. MACs exclude pointwise work.}
 \end{table}
 \vspace{-0.5em}
-ISRU-D fits better than all four controls at each checkpoint; sampling is close
-to selected Swi64. From 15k to 20k, its MSE improves from 0.01026 to 0.00977
-while SW2 rises from 0.16054 to 0.17110. Every ordinary control also samples
-worse at 20k.
+ISRU-D fits better than these four controls at 10k, 15k and 20k; sampling is
+close to selected Swi64. On Product16 at 20k/Heun128, eight-bank mean SW2 is
+0.08900 for ISRU-D, 0.08596 for free ISRU and 0.08350 for selected SwiGLU192.
+The bounded response gives a task-dependent fitting benefit.
+
+\newpage
+\section{Checkpoint diagnosis: shape and mode allocation}
+\textbf{Purpose and observation.} To explain the fitting--sampling mismatch,
+we compared the same 15k/20k Ring8 checkpoints for ISRU-D, free ISRU and
+selected Swi64. ISRU-D MSE improves from 0.01026 to 0.00977 while eight-bank
+mean SW2 rises from 0.16054 to 0.17110. Pooling the 32,768 saved samples gives
+SW2 0.11727 to 0.13261. Assigning each sample to its nearest mode center shows
+two opposing changes: centered-residual SW2 improves from 0.01768 to 0.01502,
+but sector-frequency L1 error against equal weights grows from 0.03827 to
+0.05450. All three models show better residual SW2 and worse sector balance.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figures/validation-checkpoints.pdf}
-\caption{Ring8 checkpoint comparison. Left: oracle MSE. Right: mean SW2 of
-eight common banks, Heun128. Better fitting does not preserve sampling order.}
+\includegraphics[width=\textwidth]{figures/transport-checkpoints.pdf}
+\caption{Ring8, Heun128, all eight banks pooled. Left: native SW2. Middle:
+SW2 after subtracting assigned mode centers. Right: sector-frequency L1 error
+against $1/8$. Each panel has its own scale; the distances are not additive.}
 \end{figure}
-\vspace{-0.7em}
+\vspace{-0.6em}
 
-On Product16 (20k, Heun32), MSE is 0.01606 for ISRU-D and 0.01536 for free ISRU;
-SW2 is 0.08574 for ISRU-D and 0.07921 for SwiGLU192. Its expanded sampling
-check is pending. Muon worsens both ISRU fits at the tested rate.
+\textbf{Where trajectories change.} A common 4,096-source oracle path locates
+the discrepancy. Across the six checkpoints, 97.5--99.7\% of observed sector
+crossings occur by $t=.75$. For ISRU-D at 20k, replacing the first 75\% of the
+path with oracle dynamics reduces same-source endpoint MSE from 0.04934 to
+0.00075. Keeping the learned prefix and replacing only the last quarter gives
+0.05009. Most particle-to-mode differences are established early or midway.
+Median directional propagation gains remain close across checkpoints.
+The preselected trajectory bank improves its SW2 at 20k, opposite to the
+eight-bank mean; pooled and all leave-one-bank-out results accompany this
+bank-specific intervention.
+
+\textbf{A quantity to predict.} Ring8 reflection symmetry makes the analytic
+velocity $u$ tangent to every angular sector boundary. For learned density
+$\rho_t$ transported by $v$, sector mass $M_k$ obeys continuity:
+\begin{equation}
+\dot M_k(t)=-\!\int_{\partial S_k}\rho_t\,v\!\cdot n_k\,dS,
+\qquad
+B_k=-\!\int_0^1\!\int_{\partial S_k}p_t(v-u)\!\cdot n_k\,dS\,dt.
+\end{equation}
+Here $p_t$ is the oracle density. For a small field perturbation
+$u+\epsilon(v-u)$, smooth density response gives
+$M_k^\epsilon(1)=1/8+\epsilon B_k+o(\epsilon)$. Net boundary flux, rather than
+gross crossings, changes mode balance. This signed boundary functional differs
+from bulk quadratic field error. For a K1 matrix change,
+$D_Pv[\Delta P]=J_{\rm down}\Delta P\,q(h)$: features and downstream derivatives
+connect P updates to the measured drift.
 
 \section{Hypotheses for the next two weeks}
 \begin{enumerate}
-\item \textbf{Feature response explains optimizer effects.} On the same
-minibatch, compare norm-matched updates, changes in $Pq$, full-field loss and
-P spectra. Use their predictive value to choose the quantity to regulate.
-\item \textbf{Error location explains the fitting--sampling mismatch.} At
-common transport states, compare ISRU-D, free ISRU and selected Swi64 against
-the analytic field by time, direction and full-field Jacobian. Localized late
-errors would motivate a targeted dynamics change; a shared response pattern
-would favor feature-function development.
+\item \textbf{Boundary flux predicts mode imbalance.} Compute $B_k$ for the six
+frozen fields and calibrate it under weak oracle/model interpolation. Agreement
+with measured sector drift selects a boundary-sensitive dynamics control;
+failure selects nonlinear density response for further diagnosis.
+\item \textbf{Functional updates explain optimizer behavior.} Compare
+norm-matched P updates through $J_{\rm down}\Delta Pq$, field loss and predicted
+mass change. Match initialization and residual placement against free ISRU.
+Retain an ODE constraint only if it improves the measured tradeoff against
+that control; otherwise develop the shared feature response.
 \end{enumerate}
 \end{document}
