@@ -1,3 +1,15 @@
+# Current deliverable: Report2 includes both professor suggestions
+
+The3November revision gives Muon/spectrum and alternative P D(h) designs
+dedicated sections. It includes source-bound trajectory figures, the complete
+latest ordinary-control table and two-week hypotheses. Exactly3pages including
+figures/tables, English, Zhizhe Zhang, no bibliography. Final verification and
+visual review passed. Report1 and primary experiments
+are unchanged. [PDF](reports/report2/report2.pdf).
+
+Earlier entries below record their state at the time; their unchanged-PDF
+statements precede the user's explicit authorization for this revision.
+
 # Current checkpoint: bounded-odd input-D study closed
 
 Cycle13 completed/replayed18formal cells and ten exact archived references.

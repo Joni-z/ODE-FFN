@@ -1,3 +1,11 @@
+# Report2 professor directions incorporated,3November
+
+The formal three-page PDF now incorporates Muon's update/weight spectrum
+observations and various P D(h) designs, including the current ISRU-D versus
+free-ISRU/SwiGLU results. Earlier useful cases stay as scoped context. No new
+training/sampling or Report1 change; figure values bind to primary CSVs.
+[Report and evidence](reports/report2/README.md).
+
 # Latest confirmed professor-follow-up evidence
 
 [Cycle13 analysis](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)

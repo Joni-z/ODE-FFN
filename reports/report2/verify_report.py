@@ -10,7 +10,6 @@ import datetime
 import hashlib
 import json
 import re
-import statistics
 import subprocess
 from pathlib import Path
 
@@ -49,7 +48,9 @@ def main():
     assert re.search(r'^Author:\s+Zhizhe Zhang\s*$', info, re.M)
     text = run('pdftotext', '-layout', str(pdf), '-')
     assert len([p for p in text.split('\f') if p.strip()]) == 3
-    assert '2 November 2026' in text and 'Draft' in text
+    assert '3 November 2026' in text and 'Draft' in text
+    assert 'Muon and the spectrum' in text and 'alternative designs for' in text
+    assert 'PD(h)' in text.replace(' ', '')
     assert 'Hypotheses for the next two weeks' in text.split('\f')[2]
     assert not any(marker in text for marker in ('??', '[?]', '[VERIFY]', '[CLAIM NEEDS EVIDENCE]'))
     assert not re.search(r'\\(?:cite|bibliography|bibliographystyle)|thebibliography', tex)
@@ -70,50 +71,38 @@ def main():
         assert printed in text, printed
         checked_numbers.append(printed)
 
-    for study, dataset, arm, metric, digits in [
+    # Retained quantitative positive cases, now compressed for the new focus.
+    for study,dataset,arm,metric,digits in [
         ('readout','rotated_product_bimodal_16d','ode_k2_direct','oracle_mse',6),
         ('readout','rotated_product_bimodal_16d','ode_k2_gradient','oracle_mse',6),
         ('readout','rotated_product_bimodal_16d','swiglu192_gradient','oracle_mse',6),
-        ('readout','rotated_product_bimodal_16d','swiglu192_direct','oracle_mse',6),
-        ('readout','gmm_ring8_2d','ode_k2_gradient','oracle_mse',6),
-        ('readout','gmm_ring8_2d','swiglu192_gradient','oracle_mse',6),
-        ('frame','thin','ode_k2','oracle_mse',6),
         ('frame','thin','frame_k2','oracle_mse',6),
         ('frame','thin','frame_k1','oracle_mse',6),
         ('frame','thin','swiglu192','oracle_mse',6),
-        ('frame','thin','frame_k1','tangent_sw2',4),
-        ('frame','thin','frame_k2','tangent_sw2',4),
         ('frame','thick','frame_k2','tangent_sw2',4),
         ('frame','thick','swiglu192','tangent_sw2',4),
-        ('frame','thick','swiglu257','tangent_sw2',4),
-        ('cubic','rotated_product_bimodal_16d','cubic_split','oracle_mse',6),
-        ('cubic','rotated_product_bimodal_16d','free_isru','oracle_mse',6),
-        ('cubic','rotated_product_bimodal_16d','swiglu160','oracle_mse',6),
-        ('cubic','rotated_product_bimodal_16d','free_isru','sw2',5),
-        ('cubic','rotated_product_bimodal_16d','swiglu64','sw2',5),
     ]:
-        matching = [r for r in values if (r['study'],r['dataset'],r['arm'],r['metric'])
-                    == (study,dataset,arm,metric)]
-        assert len(matching) == 1
-        present(matching[0]['value'], digits)
-    for r in rows(ROOT/'data/synthetic.csv'):
-        if r['law'] in ('Dependent signs', 'Half mixture') and r['arm'] in ('free_isru','swiglu160'):
-            present(r['oracle_mse'], 6)
-    case_path = REPO/'docs/research-2026-10-21-gates/results/ring8-case-study.json'
-    for r in json.loads(case_path.read_text()):
-        if r['model'] in ('target','ode_original','ode_fixed','swiglu'):
-            present(100*r['off_mode_fraction'], 1)
-    gate_path = REPO/'docs/research-2026-10-21-gates/results/endpoint-diagnostics.json'
-    for r in json.loads(gate_path.read_text())['results']:
-        if r['dataset']=='gmm_ring8_2d' and r['step']==5000 and r['model'] in ('ode_original','ode_fixed'):
-            present(statistics.mean(x['sigma_max_P'] for x in r['layers']), 3)
-            present(statistics.mean(x['full_layer_jacobian_norm']['mean'] for x in r['layers']), 3)
-    frozen = REPO/'docs/research-2026-10-20-followup/frozen-order-results.csv'
-    for order in ('2','exact'):
-        present(selected(frozen,dict(dataset='gmm_ring8_2d',label='gate_k2_input',eval_order=order))['sw2'],4)
-    static = REPO/'docs/research-architecture-search/evidence/static_20261024/comparison.csv'
-    for label in ('fixed_k2','collapsed'):
-        present(selected(static,dict(dataset='gmm_ring8_2d',label=label))['field_mse'],4)
+        matching=[r for r in values if (r['study'],r['dataset'],r['arm'],r['metric'])==(study,dataset,arm,metric)]
+        assert len(matching)==1
+        present(matching[0]['value'],digits)
+    professor=json.loads((ROOT/'data/professor-evidence.json').read_text())
+    for file,digest in professor['source_hashes'].items():assert sha(REPO/file)==digest,file
+    for record in professor['records']:
+        original=selected(REPO/record['source'],record['selector'])
+        assert float(original[record['metric']])==record['value']
+        if record['printed_digits'] is not None:
+            value=record['value']*record.get('printed_scale',1.)
+            printed=f"{value:.{record['printed_digits']}f}"
+            assert printed in text or (printed.startswith('0.') and printed[1:] in text),printed
+            checked_numbers.append(printed)
+    native=json.loads((REPO/'docs/autoresearch/professor-20261103/readiness/cycle13/cpu.json').read_text())
+    assert native['passed']
+    for family in ['pd_isru_k1','pd_constant_k1','free_isru','swiglu64']:
+        row=next(r for r in native['rows'] if r['dim']==16 and r['family']==family)
+        assert f"{row['parameters']:,}" in text
+    new_results=json.loads((REPO/'docs/autoresearch/professor-20261103/cycle13-results/verification.json').read_text())
+    assert new_results['endpoints']==18 and new_results['exact_native_anchors']==10
+    assert new_results['max_generated_error']==0 and new_results['continuation_eligible']==0
 
     inventory = json.loads((ROOT/'attempt-inventory.json').read_text())
     ledger = json.loads((ROOT/'attempt-ledger.json').read_text())
@@ -162,7 +151,8 @@ def main():
     assert run('git','-C',str(REPO),'rev-parse','HEAD:reports/report1').strip() == old['git_tree']
     assert sha(REPO/'reports/report1/report1.pdf') == old['pdf_sha256']
     assert run('git','-C',str(REPO),'diff',old['last_requested_revision_commit'],'--','reports/report1') == ''
-    assert run('git','-C',str(REPO),'diff',inventory['snapshot_commit'],'--','docs') == ''
+    revision=json.loads((ROOT/'data/report-revision.json').read_text())
+    assert run('git','-C',str(REPO),'diff',revision['baseline_commit'],'--',*revision['protected_paths']) == ''
     visual_path = ROOT/'visual-review.json'
     visual = json.loads(visual_path.read_text()) if visual_path.exists() else {}
     visual_ok = visual.get('pdf_sha256') == sha(pdf) and visual.get('pages_reviewed') == [1,2,3]
@@ -172,13 +162,15 @@ def main():
         observed_at=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).isoformat(),
         pages=pages,total_pages_including_figures=pages,author='Zhizhe Zhang',language='English',
         bibliography=False,all_fonts_embedded=True,undefined_references=False,overfull_boxes=False,
-        source_bound_values=len(values),printed_numeric_values_checked=checked_numbers,
+        source_bound_values=len(values)+len(professor['records']),printed_numeric_values_checked=checked_numbers,
+        professor_suggestions_in_main_text=['Muon and spectrum','various P D(h) designs'],
+        current_report_date='3 November 2026',report_revision_baseline=revision['baseline_commit'],
         documentation_areas_covered=len(areas),ledger_records=len(records),
         ledger_is_independent_run_count=False,ledger_source_hashes_verified=True,
         old_evidence_snapshot_unchanged=True,primary_experiment_docs_unchanged=True,
         Report1_unchanged=True,Report1_pdf_sha256=old['pdf_sha256'],
         no_new_training_or_sampling=True,all_historical_experiments_rerun=False,
-        input_hashes={str(p.relative_to(ROOT)):sha(p) for p in assets},pdf_sha256=sha(pdf),
+        input_hashes={str(p.relative_to(ROOT)):sha(p) for p in assets+[ROOT/'data/professor-evidence.json',ROOT/'data/report-revision.json']},pdf_sha256=sha(pdf),
         visual_review_receipt_valid=visual_ok)
     (ROOT/'verification.json').write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))

@@ -123,8 +123,9 @@ A brief MPS update runs when available. This does not establish image quality.
 
 The [revised Report2](reports/report2/README.md) follows the original ODEFFN
 line, with a [complete attempt ledger](reports/report2/attempts.md). It covers
-P constraints, clocks, polynomial order, full-gradient readouts, conditional
-frames and their ordinary controls. The synthetic gains remain task-specific;
+Muon update/P spectra, alternative P D(h) designs, the latest ISRU-D/free-ISRU
+comparison, and earlier readout/frame results with their ordinary controls.
+The PDF is three pages including figures/tables, updated3November2026. The synthetic gains remain task-specific;
 a general advantage of the original Taylor coupling is unproven.
 
 The [synthetic evidence audit](docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)

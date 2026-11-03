@@ -1,3 +1,21 @@
+# Current task — add the professor's two directions, 3 November 2026
+
+The user explicitly requests Muon/spectrum and various P D(h) designs in the
+formal report. Update the existing Report2 PDF/source, preserving Report1 and
+primary experimental artifacts. No new training or sampling is needed.
+
+- [x] Bind new report values/figures to the completed Muon/PD studies and cycle13.
+- [x] Give each professor suggestion its own purpose, mathematics, controls and observations.
+- [x] Compress earlier attempts while retaining the important positive cases and limits.
+- [x] Compile the English report with Zhizhe Zhang as sole author; at most three pages, no bibliography, next-two-week hypotheses last.
+- [x] Verify source-bound numbers, fonts, text/page count and every rendered page; publish to GitHub.
+
+Status: complete three-page revision; source/value/font/protected-file verification and visual review pass. Canonical delivery is through the accompanying GitHub commit. Prior November2PDF is preserved
+in Git at945a380. The new authorization supersedes earlier report-only no-edit
+notes below. Report1, trainers, raw runs and checkpoints remain untouched.
+
+---
+
 # Current task — professor briefing, 2 November 2026
 
 Prepare a logical explanation of the original ODEFFN attempts and likely professor questions. Use the preserved results and distinguish training comparisons, frozen interventions and theoretical identities. Do not change the formal report or start experiments.

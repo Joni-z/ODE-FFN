@@ -1,3 +1,5 @@
+> Historical briefing, 2 November 2026. The formal Report2 was updated on3November with both professor suggestions; use report2.pdf and EVIDENCE.md for current coverage.
+
 # ODEFFN: professor meeting brief
 
 Zhizhe Zhang · 2 November 2026

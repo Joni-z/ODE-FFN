@@ -13,189 +13,173 @@
 \title{\vspace{-1.6em}\textbf{ODE-FFN: Progress Report 2}\\[3pt]
 \large Independent Study --- Deep Learning}
 \author{Zhizhe Zhang\\NYU Shanghai}
-\date{2 November 2026\quad(Draft)}
+\date{3 November 2026\quad(Draft)}
 \begin{document}
 \maketitle
 \vspace{-2.8em}
 
-\section{Project and scope}
-This project asks whether an ODE-based FFN improves feature processing inside
-JiT, which predicts clean images from noisy images and time. The starting
-design composes two Taylor-flow maps around SiLU. Since Report 1, we tested
-its clocks, matrix parameterization, nonlinear response, readout and learned
-directions. Several changes help specific synthetic tasks, but no general
-Taylor-coupling advantage has emerged. The accompanying \texttt{attempts.md}
-indexes the complete recorded history, including failed settings and image work.
+\section{Project and main progress}
+This project asks whether ODE-inspired FFNs improve JiT's feature processing.
+The original design composes two Taylor maps around SiLU. We followed the
+professor's suggestions to study \textbf{Muon and matrix spectra} and
+\textbf{alternative input diagonals $PD(h)$}. Muon improves some original-layer
+fits while P grows. A bounded diagonal is competitive on Ring8, but ordinary
+ISRU explains much of its fitting benefit. No general ODE-specific gain is established.
 
-Most synthetic studies use a \textbf{vector residual MLP, not JiT}: width 64,
-three blocks, time FiLM and LayerNorm, without attention or image patches.
-The main comparisons below use 5,000 updates, batch 512 and AdamW at
-$3\!\times\!10^{-4}$. Training regresses velocity $X-e$ from
-$z_t=tX+(1-t)e$ and uniform $t$, using independent noise--data pairs.
-Gaussian, Ring8 and rotated Product16 mixtures permit analytic conditional
-velocity evaluation. Field MSE measures fitting; sliced Wasserstein distance
-(SW2) measures generated distributions. Later thin/thick experiments instead
-use a clean-data prediction head. Comparisons are made within each protocol.
+The new studies use a width-64, three-block, time-conditioned residual MLP,
+\textbf{without JiT attention or image patches}. Noise--data pairs train velocity
+from $z_t=tX+(1-t)e$. Ring8 and Product16 mixtures provide analytic velocities.
+New comparisons use 20k updates, batch 512 and Heun32. Validation oracle MSE
+measures fitting; separate test SW2 measures generation. Older results retain
+their stated budgets.
 
-\section{What do P, the clock and Taylor order contribute?}
-For one original layer at $K=2$, with $s(h)=0.2+0.8\,\sigma(g(h)/10)$,
+For the original scalar layer at $K=2$,
 \begin{equation}
-T(h)=h+sPh+\tfrac12s^2P^2h,\qquad
-J_T=I+sP+\tfrac12s^2P^2+(Ph+sP^2h)\nabla s^\top.
-\label{eq:original}
+T(h)=h+s(h)Ph+\tfrac12s(h)^2P^2h,\qquad
+s(h)=0.2+0.8\,\sigma(g(h)/10).
 \end{equation}
-The internal duration $s$ is not the external flow-matching time $t$.
-The last term explains why controlling P alone does not control the full
-layer. In the earlier spectral-cap study, complete layer Jacobian norms decreased in
-all six comparisons, but SW2 improved in only three. Frozen replacement of
-K2 by an exponential also hurt Ring8 SW2, from 0.1848 to 0.3813. A more accurate
-linear solve need not preserve the function learned by a truncated model;
-this intervention does not compare models trained with different solvers.
+The internal clock $s$ differs from FM time $t$. Its input derivative contributes
+to the full layer Jacobian. The factorial matrix series converges for every
+finite P; a spectral radius below one is not required.
 
-\textbf{Gate case study.} Removing the input clock tests whether adaptation
-matters. Among 2,048 Ring8 samples, the fraction more than 0.6 from every
-mode center is 19.9\% with fixed duration, 8.3\% with the original input gate,
-and 3.4\% with SwiGLU (target: 1.0\%). The gate helps this separation, but adds
-parameters. Its P spectral norm is smaller than the fixed model's, 1.837 versus 2.139,
-while its full local Jacobian norm is larger, 3.176 versus 2.703. These are
-averages over the saved layer probes, not bounds on the whole network.
-
-\textbf{Other local controls.} Freeing the effective matrices of a fixed-clock
-FFN lowers Ring8 field error from 0.0765 to 0.0289. Vector clocks improve
-Ring8 fitting but do not transfer reliably. Wider or reused clocks, biases,
-identity placement, augmented states, midpoint reevaluation and exact diagonal
-flows change individual outcomes without establishing a better quality--cost
-tradeoff than ordinary controls. These tests separate useful input adaptation
-from an assumed benefit of polynomial tying.
-
-\newpage
-\section{Two changes that helped the original ODE model}
-\textbf{Complete gradient readout.} We tested whether constraining the output
-field, rather than P alone, helps. Keeping the original ODEFFNs inside a
-vector network $G$, we predict
-\begin{equation}
-v(x,t)=\nabla_x\!\left[\tfrac12 x^\top G(x,t)\right]
-       =\tfrac12\left[G(x,t)+J_G(x,t)^\top x\right].
-\label{eq:readout}
-\end{equation}
-This makes the complete field conservative, as is the analytic velocity of
-these independent Gaussian-noise mixtures. On Product16, ODE field MSE drops
-from 0.325527 to 0.037320. However, the same readout also helps SwiGLU192,
-which reaches 0.033826 at nearly equal dense inference work
-(182k versus 183k MACs). On Ring8, ODE reaches 0.014462 versus 0.016419 for
-that control; on Gaussian data, its SW2 worsens despite better field fitting.
-The result supports a useful computation, but not an ODE-specific benefit
-across tasks. The improvement over the direct parent also costs extra work.
-
-Follow-up tests separated the transpose term from a radial derivative,
-removed gate derivatives, truncated reverse paths across blocks, and tried
-local adjoint FFNs. The full transposed derivative was useful; deleting paths
-also hurt ordinary models. Localizing the construction did not recover the
-whole-network gain. Recurrence and shared-depth controls likewise failed to
-establish a better ODE quality--cost tradeoff.
+\section{Professor suggestion 1: Muon and the spectrum}
+\textbf{Purpose.} Test whether Muon's matrix-update geometry improves fitting
+and controls P. Muon approximately orthogonalizes FFN momentum updates;
+other parameters retain AdamW. It does not directly constrain P.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figures/ode-mainline.pdf}
-\caption{Lower is better. A: full-gradient readout helps Product16 field fitting
-for both ODE and ordinary backbones. B: conditional frames help on the thin
-128D target. C: their generation advantage does not transfer to the thick
-target. Panels use their own metrics and scales; they are not pooled scores.}
-\label{fig:mainline}
+\includegraphics[width=\textwidth]{figures/professor-muon.pdf}
+\caption{Product16 scalar K2, six-matrix means. Matrix rates: AdamW .001 and
+Muon .02. Update stable rank is $\|\Delta P\|_F^2/\|\Delta P\|_2^2$.
+A broader update spectrum coexists with larger P.}
 \end{figure}
-\vspace{-0.5em}
+\vspace{-0.7em}
+\textbf{Observation.} Update stable rank rises from 3.08 to 32.74, while
+mean P spectral norm rises from 3.37 to 19.17. Field MSE improves from 0.03343
+to 0.02385; SwiGLU192 reaches 0.01567. Norm-matched momentum does not reproduce
+all Muon gains, while tested matrix decay harms fitting.
 
-\textbf{Input-dependent directions.} We next replaced each original map by
-$Q(h)T_K(s(h)P)Q(h)^\top h$, using an orthogonal frame initialized to the
-identity. At a fixed input, conjugation preserves P's eigenvalues and singular
-values; derivatives of $Q(h)$ nevertheless change the nonlinear response.
-The purpose was to test directional adaptation without changing those spectra.
-
-On eight modes in a 2D plane embedded in 128D, frame K2 reduces ambient field
-MSE from 0.002729 to 0.000685, versus 0.003095 for SwiGLU192. But frame K1
-already reaches 0.000713, with better tangent SW2: 0.1950 versus 0.2041.
-SwiGLU192 nearly matches frame parameters (123.1k versus 122.9k);
-SwiGLU257 matches K2's dense work and also loses on this thin target.
-Adding variance outside the plane reverses the sampling result: frame K2's
-tangent SW2 is 0.3173 versus 0.2471 and 0.2593 for the two SwiGLU controls.
-
-This is evidence for a task-dependent benefit of learned directions.
-It does not establish that K2 is needed. Follow-ups examined path errors,
-the quadratic action, an independently learned second coefficient and gradient
-routes. They did not establish a K2-specific advantage across both laws.
-The fixed output head also limits the thick model's normal-direction response;
-that shared bottleneck prevents attributing all thick-task error to its FFN.
+\textbf{Constraint control.} Flattening P at preserved Frobenius energy, paired
+with operator-norm-matched contraction, worsened both metrics during training.
+Frozen flattening also failed as a general repair.
 
 \newpage
-\section{What the other attempts rule out, and what remains}
-\textbf{Nonlinear flow and its free-matrix control.} To test whether the linear
-internal dynamics were too restrictive, we split $dy/dr=Py-y^{\odot3}$ into
-linear steps and the exact cubic response
-$\phi_s(u)=u/\sqrt{1+2su^2}$. A tied split improved Product16 fitting over the
-original ODE, but its free control, $W_2\phi_{0.6}(W_1h)$, did better.
-The free matrices train independently; they retain neither the original
-adaptive clock nor the generator tying.
+\section{Professor suggestion 2: alternative designs for \texorpdfstring{$PD(h)$}{PD(h)}}
+\textbf{Purpose.} Replace the scalar clock by channel weights $d(h)$ and
+separate controller design, nonlinear features and order. With
+$A(h)=P\,\mathrm{diag}(d(h))$,
+
+\begin{align}
+T_2(h)&=h+A(h)h+\tfrac12A(h)^2h,\\[-2pt]
+F_1(h)&=h+P[d(h)\odot h],\quad
+J_{F_1}=I+P\big[\mathrm{diag}(d)+\mathrm{diag}(h)J_d\big].
+\end{align}
+The Jacobian contains feedback through $d(h)$, omitted by conditional spectra.
+For a free affine controller, $P'=PC^{-1}$ and $D'=CD$ preserve PD while
+changing P's spectrum, for invertible constant diagonal C. Bounded gates need
+not permit this reparameterization.
 
 \begin{table}[H]
 \centering\small
-\begin{tabular}{@{}lrrrr@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.28\textwidth}X@{}}
 \toprule
-Product16 model & Original K2 & Tied cubic & Free ISRU & SwiGLU160\\
+Design question & Controlled test and observation\\
 \midrule
-Field MSE &0.325527&0.092938&0.037159&0.078178\\
+Learned channel weights & MLP and rank-32 linear controllers, crossed with sigmoid/affine output. Some weak-parent gains; none beats the near-parameter SwiGLU control. Frozen output swaps do not repair the gap.\\
+Simple input diagonals & Constant, raw $h$, sigmoid, shifted $h+1$ and $|h|$. Raw K1 gives a small Ring8 field lead with worse sampling; absolute input worsens its matched fits.\\
+Polynomial order & Scalar K1 improves field fitting in every matched K1/K2 setting. Raw K1 at 80k still loses sampling or wider ordinary controls.\\
+Growth control & Radial $d=h/\sqrt{1+\mathrm{mean}(h^2)}$ versus raw and fixed scaling. Hidden responses shrink substantially without a qualifying quality gain.\\
+Bounded odd feature & $d_i=(1+1.2h_i^2)^{-1/2}$, compared with constant D, ordinary free ISRU and three SwiGLU widths; results below.\\
 \bottomrule
-\end{tabular}
-\caption{Same 5k protocol. Free ISRU improves fitting, but it does not validate
-the tied ODE. The stronger SwiGLU192 direct control reaches 0.070423.}
+\end{tabularx}
+\caption{Each row isolates a question; the evidence index retains every setting.}
 \end{table}
 \vspace{-0.5em}
-Free ISRU loses to SwiGLU160 on dependent-sign mixtures, 0.085073 versus
-0.039790, and on the half mixture, 0.163557 versus 0.113254. Even on Product16,
-its SW2 of 0.09290 is close to the smaller SwiGLU64 control's 0.09276.
-The positive lead is specific to field fitting under a finite budget and a
-particular initialization. It should remain a control in the ODE investigation.
 
-\textbf{Locating the remaining error.} We tested noisy versus analytic training
-labels, affine output refits, hidden features, teacher regression and local
-FFN response. Removing label noise did not close the ordinary-model gap.
-In separate frozen probes, raw-affine error accounted for about 3.9\% of the
-direct Product16 gap; output-head refitting closed about 1\%. Single-FFN teacher fits also showed
-an optimization gap, even without the generative objective. These observations
-focus attention on the learned nonlinear map and its parameterization. They
-are finite-budget diagnoses, not proofs of insufficient expressivity.
-Exact augmented-flow realizations of ordinary SwiGLU further show that an
-ODE interpretation alone does not distinguish our method.
+\textbf{Bounded odd feature.} The earlier ordinary ISRU lead motivates
+$q_i=h_i/\sqrt{1+1.2h_i^2}$ inside the diagonal construction. Each K1 solve
+is $h+Pq(h)$, keeping both solves and middle SiLU. Since
+$q_i'=(1+1.2h_i^2)^{-3/2}$, $\|J_{F_1}\|_2\leq1+\|P\|_2$;
+constant D has the same bound. Ordinary free ISRU, $W_2q(W_1h)$, retains
+its historical initializer and independently trained maps.
 
-\textbf{Which dynamics should the architecture represent?} JiT's population
-regression target is $D(z,t)=\mathbb{E}[X\mid Z_t=z]$, not an endpoint that
-must remain fixed along a sampled trajectory. For independent scalar standard
-Gaussian data and noise, write $V=t^2+(1-t)^2$. Then $D=tz/V$, and along the
-true marginal flow its total derivative is $(1-t)z/V^2$, equal to 2 at
-$t=1/2,z=1$. Thus even a perfect denoiser changes along the trajectory.
-The outer ODE does not by itself justify imposing autonomous dynamics or
-endpoint invariance on hidden features.
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}llr@{\hspace{12pt}}r@{\hspace{18pt}}r@{\hspace{12pt}}r@{}}
+\toprule
+& &\multicolumn{2}{c}{Ring8}&\multicolumn{2}{c}{Product16}\\
+FFN & Optimizer & MSE & SW2 & MSE & SW2\\
+\midrule
+Constant D & A & 0.01441 & 0.19880 & 0.07541 & 0.10158\\
+Constant D & M & 0.01234 & 0.17134 & 0.01896 & \textbf{0.07552}\\
+ISRU-D & A & \textbf{0.00977} & \textbf{0.14591} & 0.01606 & 0.08574\\
+ISRU-D & M & 0.01293 & 0.16713 & 0.02814 & 0.11673\\
+Free ISRU & A & 0.01000 & 0.17339 & \textbf{0.01536} & 0.08432\\
+Free ISRU & M & 0.02273 & 0.14728 & 0.02742 & 0.09024\\
+SwiGLU64 & selected & 0.01128 & 0.15038 & 0.01878 & 0.08106\\
+SwiGLU128 & selected & 0.01148 & 0.16452 & 0.01685 & 0.08185\\
+SwiGLU192 & selected & 0.01123 & 0.16580 & 0.01567 & 0.07921\\
+\bottomrule
+\end{tabular}
+\caption{Complete new 20k comparison; lower is better. A: AdamW .0003;
+M: Muon .02. Selected SwiGLU uses Muon .02 on Ring8 and AdamW .0003 on
+Product16, except Swi64 at .001. Auxiliary parameters always use AdamW .0003.
+ISRU-D/free/constant have 58,512 Product16 parameters versus Swi64's 58,572.}
+\end{table}
+\vspace{-0.5em}
+Constant D shares every initial tensor with ISRU-D. Free ISRU changes the FFN
+parameterization and initial function. Baseline states and generated arrays
+reproduce exactly.
 
-\textbf{Image boundary.} The small CIFAR models and the larger free-ISRU study
-have not established an adequately trained ordinary baseline. FIDs above 200
-cannot decide whether ODEFFN works. The project requires a baseline below 50
-before interpreting an image architecture comparison; that is a prerequisite,
-not proof of convergence. Moving to author-derived JiT code addresses
-implementation provenance, not this missing quality evidence.
+\newpage
+\section{What these results change}
+\textbf{A positive result with an ordinary control.} AdamW ISRU-D improves
+Ring8 field fitting and SW2 over all three SwiGLU widths. Its field lead over
+free ISRU is only 2.25\%, below the registered 5\% continuation margin, although
+its sampling distance is lower. On Product16, free ISRU and SwiGLU192 fit
+better. The large gain over constant-D AdamW mainly corrects a weak parent;
+it does not establish an ODE-specific benefit. The constant-D Muon row gives the lowest Product16 SW2 despite worse field fitting.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/professor-diagonal.pdf}
+\caption{Diagonal training curves at Table 2 settings; dotted: SwiGLU192.
+Muon helps constant D but worsens both ISRU fits here. Comparisons use the
+fixed 20k endpoint; convergence is not established.}
+\end{figure}
+\vspace{-0.7em}
+
+\textbf{Earlier positive cases remain relevant.} At the earlier 5k budget,
+a complete-gradient field readout lowers original-ODE Product16 MSE from
+0.325527 to 0.037320, while an ordinary gradient SwiGLU reaches 0.033826.
+Input-dependent orthogonal frames give thin-target MSE 0.000685 at K2 and
+0.000713 at K1, versus SwiGLU192's 0.003095. Their pointwise spectra are
+unchanged by conjugation, so useful adaptation can occur outside raw spectral
+shape. However, on the thick target, frame K2 tangent SW2 is 0.3173 versus
+SwiGLU192's 0.2471. These gains concern learned computation and directions, with distinct
+protocols that cannot be ranked against the new 20k results.
+
+\textbf{Limits.} For $q=D(h)h$, increment energy is
+$\mathbb E\|Pq\|^2=\mathrm{tr}(PMP^\top)$, $M=\mathbb E[qq^\top]$.
+Feature statistics matter alongside P. ISRU is an ordinary response, and the retained SiLU means the
+complete ISRU-D FFN is not odd. The evidence does not establish a need for K2
+or transfer to JiT. Image comparisons still require an ordinary baseline below
+the project's FID-50 gate. The full attempt ledger and current evidence index
+retain earlier positive cases, failed settings and source identities.
 
 \section{Hypotheses for the next two weeks}
 \begin{enumerate}
-\item \textbf{Directional adaptation, rather than the quadratic term, explains
-the thin-target gain.} First inspect saved learning curves and interventions
-for frame K1/K2, the global frame and both SwiGLU controls. A targeted extension
-would test whether the gain survives adequate baseline training on both laws.
-Keep field and tangent-generation criteria separate; improvement only on thin
-data would support a limited geometry-specific claim.
-\item \textbf{Polynomial tying offers no benefit beyond its initialization and
-optimization coordinates in the tested setting.} Compare a tied map with its
-free effective-matrix realization at the same initial function, response and
-budget, explicitly accounting for Adam's coordinate dependence. Use the
-existing static-map and optimizer-transport checks to specify this comparison.
-A persistent benefit must exceed both a parameter control and a compute
-control before another ODE design is proposed.
+\item \textbf{Muon helps through the feature response, rather than raw P
+regularity.} At saved states, compare native and norm-matched updates on the
+same minibatch. Measure changes in $Pq$ and full-field loss alongside spectra.
+Test which quantities predict one-step improvement before selecting another
+constraint; separately trained trajectories cannot establish causation.
+\item \textbf{The Ring8 sampling lead reflects where field errors occur during
+transport.} Compare saved ISRU-D, free-ISRU and ordinary-control checkpoints
+against the analytic field at common times and generated-path states. Fix
+checkpoints and solver resolution to distinguish error location from average
+MSE before proposing another architecture.
+
 \end{enumerate}
 \end{document}

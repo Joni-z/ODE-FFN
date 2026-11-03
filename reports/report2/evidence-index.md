@@ -1,7 +1,11 @@
 # Report2 evidence index — ODEFFN mainline
 
-The November 2 rewrite supersedes the previous ISRU-centered narrative.
+The November 3 revision incorporates both professor suggestions in the formal
+report: Muon/spectrum and alternative P D(h) designs. It supersedes the
+November2PDF while preserving the earlier ODEFFN evidence.
 Start with the [report](report2.pdf), then the [complete attempt ledger](attempts.md).
+Dated entries below preserve their original reporting status; the current PDF
+now includes the completed professor-guided work.
 All post-finalization research belongs to Report2. Early material is included
 as labeled context; Report1 remains unchanged.
 
@@ -14,7 +18,7 @@ as labeled context; Report1 remains unchanged.
 | Is the gap linear, noisy-label driven, or confined to the head? | [Affine decomposition](../../docs/research-affine-error-2026-10-26/analysis-report.md), [population labels](../../docs/research-architecture-search/analysis-population-noise/analysis-report.md), [head refit](../../docs/research-frozen-features-2026-10-26/analysis-report.md), [local teacher](../../docs/research-local-ffn-teacher-2026-10-26/analysis-report.md) | These limited repairs do not close the main nonlinear-task gap. This is not an approximation lower bound. |
 | Does a nonlinear internal flow help? | [Cubic split](../../docs/research-cubic-split-2026-10-26/analysis-report.md), [dependent signs](../../docs/research-joint-dependence-2026-10-26/analysis-report.md), [half mixture](../../docs/autoresearch/cycle02-full-support/analysis.md) | Tied cubic improves Product16, but the better free-ISRU control gives up the tying and has clear task boundaries. |
 | Which dynamics are supervised? | [Exact ordinary-flow realization](../../docs/autoresearch/cycle03-gated-shear/analysis.md), [denoiser dynamics](../../docs/autoresearch/cycle22-denoiser-dynamics/analysis-report.md) | An ODE realization is not sufficient evidence of a useful bias. The conditional mean is not a conserved endpoint map. |
-| Do Muon and diagonal generators improve original ODE? | [Replayed36-cell study and full curves](../../docs/research-muon-pd-2026-11-02/wave2/analysis/analysis-report.md), [registered second wave](../../docs/research-muon-pd-2026-11-02/wave2/protocol.md) | Muon improves Product16 original-ODE fitting, but ordinary SwiGLU remains better. Update magnitude and spectral shape are confounded; PD does not beat DP field error. The [30-cell follow-up is complete and replayed](../../docs/research-muon-pd-2026-11-02/wave2/results/findings.md): tested decay harms fitting and diagonal placements do not beat strong controls. Current report PDF is unchanged. |
+| Do Muon and diagonal generators improve original ODE? | [Replayed36-cell study and full curves](../../docs/research-muon-pd-2026-11-02/wave2/analysis/analysis-report.md), [registered second wave](../../docs/research-muon-pd-2026-11-02/wave2/protocol.md) | Muon improves Product16 original-ODE fitting, but ordinary SwiGLU remains better. Update magnitude and spectral shape are confounded; PD does not beat DP field error. The [30-cell follow-up is complete and replayed](../../docs/research-muon-pd-2026-11-02/wave2/results/findings.md): tested decay harms fitting and diagonal placements do not beat strong controls. Those results are incorporated in the November3report revision. |
 | What do image runs establish? | [Baseline validity correction](../../docs/autoresearch/baseline-validity-review.md), [author-code checks](../../docs/upstream-baseline/validation.md), [synthetic identity audit](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md) | No adequate image baseline and no justified FFN quality verdict. Synthetic MLP evidence does not establish JiT transfer. |
 
 For every smaller branch, use the ledger's stable IDs and primary source links.

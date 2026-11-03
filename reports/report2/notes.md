@@ -1,3 +1,11 @@
+# Professor directions update, 3 November 2026
+
+User requires both professor suggestions in the formal report: Muon's effect
+on the spectrum and alternative diagonal parameterizations of P D(h). Use
+completed primary tables, including the ordinary free-ISRU control, rather
+than only adding a future-work sentence. Compress older detail to preserve
+the three-page limit; no bibliography. No new model runs or external claims.
+
 # Report2 continuity notes
 
 ## Professor briefing — 2 November 2026
@@ -114,3 +122,10 @@ Report2 should explain what was learned and what remains unresolved. Use
 selected experiments and cases to support the argument. Large inventories, execution counts and reproducibility receipts belong in supporting records.
 Do not present proposed ISRU follow-ups as completed work. No new training
 or Report1 rebuild was launched while creating this reporting boundary.
+
+## Revision checks
+Initial layout exceeded three pages (6then4); shortened prose rather than shrinking body text. Third compilation is exactly3pages at11pt. The first extended verification treated the after-build revision metadata as a LaTeX input and failed its mtime check. Metadata now remains hash-bound but is excluded from compile-input timestamps; actual tex/graphics retain the stale-input check. No source/result value changed.
+
+Visual QA found the initial Muon figure fixed its upper y limit after the first series, clipping the second. Removed that per-series limit and applied only a zero lower bound after both series. Numeric source bindings were already correct. Table numeric columns now have explicit spacing and leading zeros. Regenerate/recompile/review before publication.
+
+Final visual review: all three current pages inspected after the Muon-axis and table-spacing corrections. Both Muon curves are fully visible; numeric columns are distinct. Body remains11pt; main text ends with the two-week hypotheses on page3. No clipping, overlaps or bibliography. All printed values and protected source identities passed automated verification before renewing the current visual receipt.

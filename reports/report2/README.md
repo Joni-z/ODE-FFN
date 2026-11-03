@@ -1,78 +1,67 @@
 # Report2 — ODEFFN mainline
 
-**Zhizhe Zhang · 2 November 2026 · Draft for review**
+**Zhizhe Zhang · 3 November 2026 · Draft for review**
 
 [Three-page PDF](report2.pdf) · [LaTeX](report2.tex) ·
-[Complete attempt ledger](attempts.md) · [Evidence map](EVIDENCE.md) ·
-[Verification](verification.json) · [Professor meeting brief (Chinese)](meeting-brief.md)
+[Evidence map](EVIDENCE.md) · [Verification](verification.json) ·
+[Current research index](evidence-index.md)
 
-The report follows the professor's original ODELayer: two input-clocked
-Taylor maps around SiLU. It asks what the clock, generator P and polynomial
-coupling actually contribute. Free ISRU is retained as a useful control and
-a conditional field-fitting result, rather than credited as proof that the
-original ODE structure works.
+The professor's two suggestions organize the report:
 
-The main evidence is:
+- **Muon and the spectrum.** Show how update stable rank and learned P evolve,
+  compare field fitting with ordinary controls, and explain what the direct
+  spectral-constraint tests establish.
+- **Alternative P D(h) designs.** Separate learned controllers, simple input
+  diagonals, order and growth controls. Present the complete latest ISRU-D,
+  ordinary free-ISRU and SwiGLU comparison, retaining both optimizer settings.
 
-- P-only constraints and more accurate internal integration do not reliably
-  improve generated distributions. Gate derivatives matter to the full layer.
-- A complete gradient readout substantially improves the original ODE's
-  Product16 field fitting, but ordinary backbones also benefit.
-- Input-dependent orthogonal frames improve thin-manifold fitting. K1 nearly
-  matches K2, and the sampling advantage fails on the thick distribution.
-- Local response, teacher, label-noise and head-refit studies narrow several
-  explanations for the remaining gap without proving an expressivity limit.
-- Existing image runs do not meet the project's baseline-quality requirement.
-  Neither poor FID rankings nor implementation checks establish effectiveness.
+The main distinction is a useful feature response versus an ODE-specific gain.
+The report retains the earlier gradient-readout and conditional-frame positive
+cases, with their ordinary controls and transfer limits. New20k results are
+kept separate from earlier5k and thin/thick protocols. No image-quality claim
+follows from these vector-network studies.
 
-The entire PDF is **three pages including its table and figure**, with no
-bibliography. It starts with the project and progress, and ends with two
-prospective hypotheses. These are proposals for author discussion, not new
-training launches or an automatic reopening of failed protocols.
+The entire PDF is **three pages including both figures and tables**, English,
+sole author Zhizhe Zhang, no bibliography. It opens with project/progress and
+ends with two hypotheses for the next two weeks. The reporting revision starts
+from945a380; the prior November2PDF remains in Git. No new training or sampling
+was performed for this edit.
 
-## Complete history and evidence boundary
+## Evidence and historical coverage
 
-[attempts.md](attempts.md) organizes all 116 documentation areas inventoried
-at `5c48a97`, additional architecture subquestions, and the early ImageNet
-configuration inventory into 127 linked records. These are evidence families,
-not 127 independent experiments. Some reuse the same controls; others are
-proofs, diagnostics, proposals or implementation checks. The six archived
-ImageNet configurations are not counted as completed runs without recovered
-result bindings. Earlier Report1 evidence is labeled as context.
+[Professor evidence](data/professor-evidence.json) binds each new figure/table
+value to an exact row and file hash. [EVIDENCE.md](EVIDENCE.md) states the
+claim boundaries; [evidence-index.md](evidence-index.md) links the completed
+professor-guided studies. Curves, samples and all optimizer outcomes remain
+in the primary study directories.
 
-The catalogue is also available as [JSON](attempt-ledger.json) and
-[CSV](attempt-ledger.csv). [attempt-inventory.json](attempt-inventory.json)
-records its coverage; the [evidence index](evidence-index.md) gives a shorter
-reading route. Primary records remain intact. Selected report/chart values
-are checked directly against their source tables; this reporting pass does
-not rerun every archived model. The earlier
-[synthetic replay audit](../../docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)
-is separately identified.
+The historical [attempt ledger](attempts.md), also in
+[JSON](attempt-ledger.json)/[CSV](attempt-ledger.csv), contains127linked
+records from the November2inventory. These are evidence families, not
+independent training runs or a new inventory of the later professor cycles.
+The current index supplies that subsequent coverage. The Chinese
+[meeting brief](meeting-brief.md) is the historical November2briefing.
 
-Report1 remains final at `994e660921d2885592704f5c471bd43a12b1c6ef`.
-[scope.json](scope.json) retains its tree/PDF identities. No Report1 file,
-experiment source, raw dataset, checkpoint or trainer was changed for this
-rewrite. Historical image data and figures remain here for traceability, but
-are not the current report's main narrative or live-process status.
+Report1 remains final at994e660921d2885592704f5c471bd43a12b1c6ef. Its files,
+primary experiment documents, trainers, data and checkpoints are unchanged.
+The reporting scripts verify the final Report1 identity and the protected
+source paths recorded in [revision metadata](data/report-revision.json).
 
 ## Rebuild
 
 From the repository root:
 
 ```sh
-python3 -B reports/report2/render_attempts.py
-python3 -B reports/report2/make_mainline_figures.py
+python3 -B reports/report2/make_professor_figures.py
 bash reports/report2/build.sh
 python3 -B reports/report2/verify_report.py
 ```
 
-The figure builder needs NumPy and Matplotlib and reads only tracked CSVs.
-Compilation uses latexmk, Tectonic or pdflatex. Verification uses `pdfinfo`,
-`pdftotext` and `pdffonts`, and checks source-row bindings and Report1 identity.
-A visual-review receipt is valid only for its recorded PDF hash; a fresh PDF
-must be rendered and inspected again before that receipt is renewed.
+The figure builder uses tracked CSVs, NumPy and Matplotlib. Compilation uses
+latexmk, Tectonic or pdflatex; verification uses pdfinfo, pdftotext and pdffonts.
+A fresh PDF must be rendered and inspected before its visual-review receipt
+is renewed and `verify_report.py --require-visual-review` can pass.
 
-`collect_evidence.py` and `make_figures.py` belong to the **superseded November 1
-image-centered draft**. They are preserved for reproducing that snapshot;
-they are not required to rebuild the current report. There is no need to
-access private checkpoints or remote machines for the current build.
+`make_mainline_figures.py` preserves the earlier quantitative evidence and
+November2figure. `collect_evidence.py`/`make_figures.py` reproduce the superseded
+November1image-centered snapshot. They are not needed to build the current PDF.
