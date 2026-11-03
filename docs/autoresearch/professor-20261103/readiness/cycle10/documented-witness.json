@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "commit": "7e394e296665a96d734316c26626506257da66da",
+  "source_clean_both": true,
+  "source_grid_sha256_both": {
+    "anchors.py": "396a5f531768b807bccb1b1e558b06569f9b719c4f0b3f44a6f4e1f4a5c69e43",
+    "check10.py": "839b428e25d56f7a3afd76796f7d9193eee8c4ded966965ab1a2eac31e4769d7",
+    "trial10.py": "6d829ed321d3243a5c990ed362dcd3eb1d0fbfbc601a38b086f37a630f1e931e",
+    "grid.json": "27aea62cac0590aab581ef5f4a3f40dc9f9867bb10fe7dfaccb29bda16a7c4d5"
+  },
+  "preflight_gpu_used_mib": {
+    "145": 2,
+    "lenovo": 415
+  },
+  "invocations_per_host": 1,
+  "formal_training_launched": false,
+  "source_modified": false,
+  "doc_divergences": [
+    "The ledger and validation page omit the qualified Git executable required for source-identity checks through Lenovo noninteractive SSH. Unqualified git failed; the parent supplied D:/Research/ODE-FFN/tools/git/cmd/git.exe, which confirmed clean status and frozen HEAD without PATH changes. Both documented Python invocations executed verbatim successfully."
+  ],
+  "results": {
+    "145": {
+      "exit_code": 0,
+      "passed": true,
+      "device": "cuda",
+      "new_function_rows": 2,
+      "exact_resume_rows": 6,
+      "parent8_anchors": 4,
+      "torch": "2.8.0+cu128",
+      "dataset": "rotated_product_bimodal_16d"
+    },
+    "lenovo": {
+      "exit_code": 0,
+      "passed": true,
+      "device": "cuda",
+      "new_function_rows": 2,
+      "exact_resume_rows": 6,
+      "parent8_anchors": 4,
+      "torch": "2.8.0+cu126",
+      "dataset": "gmm_ring8_2d"
+    }
+  }
+}

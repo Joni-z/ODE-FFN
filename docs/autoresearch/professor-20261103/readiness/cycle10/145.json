@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "torch": "2.8.0+cu128",
+  "all_parent_data_versions_match": true,
+  "rows": [
+    {
+      "family": "pd_radial_k1",
+      "parameters": 58512,
+      "common_tensors_buffers_rng_exact": true,
+      "complete_layer_derivative_exact": true,
+      "zero_anchor_quadratic_coefficient": true,
+      "quadratic_hessian_entry": 2.0,
+      "unit_rms_static_match": true
+    },
+    {
+      "family": "pd_scaled_raw_k1",
+      "parameters": 58512,
+      "common_tensors_buffers_rng_exact": true,
+      "complete_layer_derivative_exact": true,
+      "zero_anchor_quadratic_coefficient": true,
+      "quadratic_hessian_entry": 1.4142135623730951,
+      "unit_rms_static_match": true
+    }
+  ],
+  "dataset": "rotated_product_bimodal_16d",
+  "native": [
+    {
+      "family": "pd_direct_raw_k1",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "family": "swiglu64",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "family": "pd_radial_k1",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "family": "pd_scaled_raw_k1",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": false
+    },
+    {
+      "family": "swiglu128",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    },
+    {
+      "family": "swiglu192",
+      "native_resume16_exact_continuous16": true,
+      "parent8_exact": true
+    }
+  ]
+}

@@ -1,16 +1,15 @@
-# Current checkpoint: professor-guided spectral and feature audit closed
+# Current checkpoint: radial-diagonal test running
 
-Cycle8's12native20k trajectories and cycle9's14frozen checkpoints are complete.
-Native anchors, generated arrays and saved feature-energy identities reproduce.
-Shape constraints flatten P yet worsen fitting/sampling; actual feature changes
-explain why a smaller P need not shrink a layer response. No new ODE model is
-accepted and no training queue is active. [Results](docs/autoresearch/professor-20261103/cycle8-results/findings.md) ·
-[Feature audit](docs/autoresearch/professor-20261103/cycle9-results/findings.md).
+Cycle10 runs twelve registered20k comparisons on145GPU0/LenovoGPU0 from
+frozen7e394e2: radial D, fixed scaling, raw K1 and SwiGLU64/128/192. Fresh native
+CUDA/resume checks and post-SSH progress pass. Complete all endpoints, replay,
+and verify eight exact native anchors before interpretation. No accepted new
+ODEFFN method. [Protocol](docs/autoresearch/professor-20261103/cycle10.md) ·
+[Execution](docs/autoresearch/professor-20261103/cycle10-execution.md).
 
-Next review one input-diagonal functional change with explicit amplitude and
-ordinary controls, before selecting another training test. Earlier whitening,
-projection and spectral settings remain closed. Older snapshots below are
-historical. [Research map](docs/autoresearch/professor-20261103/research-map.md).
+Cycles8/9 are closed: spectral relaxation worsens fitting/sampling, and the
+frozen feature audit explains why P norms alone miss actual responses. Earlier
+whitening and P-shape sweeps stay closed. Older entries below are historical.
 
 # Current professor-guided study
 

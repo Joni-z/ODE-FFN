@@ -22,6 +22,19 @@ restart the failed odd absolute-diagonal idea. At zero,
 q_radial=h^2+O(||h||^4), so the quadratic Taylor coefficient agrees with raw.
 At large radius its growth is at most linear instead of quadratic.
 
+At the same P and h, A_radial=P diag(h)/r=A_raw/r. Every singular value is
+scaled by the same positive number. Nonzero operators keep the same stable
+rank and condition number; this is not singular-value flattening. Nevertheless,
+the complete input derivative changes through a rank-one feedback term:
+
+```
+J_q_radial = 2 diag(h)/r - (h^2) h^T/(w r^3).
+```
+
+This separates response magnitude and input feedback from spectral shape at a
+common hidden state. Trained models need not visit the same states or learn
+the same P, so the identity cannot predict their final spectral ordering.
+
 The static control uses d(h)=h/sqrt(2), agreeing with radial d on the unit-RMS
 surface. It distinguishes an input-dependent radial change from a simple
 amplitude reduction at that anchor. It does not match entire initial functions
@@ -29,6 +42,15 @@ or later feature distributions. A constant feature rescaling also changes the
 effective P coordinates under a fixed optimizer/rate; it is not a pure causal
 amplitude control. All common tensors/RNG draws stay paired and defects are
 recorded, rather than adding another initialization adjustment.
+
+For K1, the static and raw families have exactly the same realizable functions:
+F_static(P,h)=F_raw(P/sqrt(2),h), separately in each solve. They start from the
+same stored P here, so they do not start from the same hidden functions. The
+static contrast measures this fixed initialization/optimization-coordinate
+change; it does not add representational capacity. The earlier
+[coordinate-step derivation](logic-chain.md) explains why an unchanged Muon
+rate need not give the same function-space step after such scaling. No extra
+rate or initialization rescue is included in this screen.
 
 ## Complete K1 feature derivative, not just raw-P eigenvalues
 

@@ -94,12 +94,28 @@ finite-series terms. A flatter P can coexist with a less spread increment
 spectrum. The [derivation](feature-metric.md) and audit do not select whitening,
 a new optimizer, or a causal account of the quality gap.
 
+## 5. Does radial growth matter independently of feature direction?
+
+The next registered [twelve-arm comparison](cycle10.md) changes only the direct
+diagonal: d(h)=h/sqrt(1+mean(h^2)), versus raw h and fixed h/sqrt(2). At common
+P,h, this rescales all conditional singular values uniformly, preserving
+spectral shape and quadratic feature direction. Its input derivative also has
+a rank-one feedback correction. The [derivation](radial-diagonal.md) states
+both the bounded-growth property and the limits of that bound.
+
+The fixed scaling is necessary: a gain over raw alone would not identify the
+input-dependent radial mechanism. The registered decision requires at least5%
+validation improvement over both raw and static, followed by a separate matched
+long-budget confirmation. All three SwiGLU widths remain in the comparison.
+No outcome is available yet; this is a functional hypothesis, not a consequence
+of the negative P-constraint result or a proposed global stability theorem.
+
 ## Current judgment
 
 The useful progress is a sharper separation of mechanisms: optimizer geometry,
 weight amplitude, spectral shape, diagonal features and polynomial order are
 different hypotheses. Several attractive explanations have failed controlled
 tests. There is no accepted new ODEFFN method from this study yet. The next
-decision depends on actual feature/operator evidence, without
-selecting another favorable synthetic endpoint or starting image training
-prematurely.
+test isolates radial growth while retaining amplitude and ordinary controls.
+The earlier P-shape/whitening settings remain closed; no image transfer follows
+from a weak-parent synthetic gain.

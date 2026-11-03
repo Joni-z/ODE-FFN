@@ -1,6 +1,6 @@
 # Cycle10 execution commands
 
-The runtime commit is recorded after publication. Use separate cycle10
+Runtime is7e394e296665a96d734316c26626506257da66da. Use separate cycle10
 worktrees. Launch only after both fresh native witnesses pass and GPU0 is
 free. No package change.
 
@@ -21,3 +21,8 @@ Do not retry a failed cell silently.
 Before interpretation, replay all twelve final20k checkpoints with the native
 evaluator and cycle10/trial10.py, and compare all eight native reference
 states/saved arrays with their archived parents using cycle10/anchors.py.
+
+Post-SSH90s witness:145native raw/Swi64 reached9500/18500,93%GPU and1183MiB;
+Lenovo8000/8500,89%GPU and808MiB. Controllers2777039and21920 persist after
+SSH exits; no failures. These are resource/readiness observations, not quality
+results. Final interpretation awaits the full registered comparison.

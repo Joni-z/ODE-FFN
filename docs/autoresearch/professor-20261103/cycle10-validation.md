@@ -22,3 +22,19 @@ ssh lenovo 'set CUDA_VISIBLE_DEVICES=0&& set OMP_NUM_THREADS=1&& set OPENBLAS_NU
 Pass: exit0, passed=true, device=cuda, two new-function rows and six native rows,
 all exact resume comparisons and four parent8 anchors. Record source/grid hashes.
 These checks are implementation readiness, not a positive experimental result.
+
+Both documented invocations passed once on the original GPUs at clean frozen
+7e394e296665a96d734316c26626506257da66da. Each verifies two new functions,
+six exact actual-entry continuations and four parent8 anchors.
+[Fresh witness](readiness/cycle10/documented-witness.json).
+
+The witness identified one identity-check documentation gap: Lenovo has no bare
+git on noninteractive SSH PATH. For a read-only source check use the installed
+qualified executable, without changing global PATH:
+
+```bash
+ssh lenovo "D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-autoresearch-cycle10-20261103/repo rev-parse HEAD && D:/Research/ODE-FFN/tools/git/cmd/git.exe -C D:/Research/ODE-FFN/professor-autoresearch-cycle10-20261103/repo status --short"
+```
+
+The numerical invocations above and frozen source were not changed. Native
+readiness does not constitute evidence that the radial mechanism is useful.

@@ -2,11 +2,12 @@
 
 ## Current step
 
-Cycles8and9 are closed. Cycle10 is registered and CPU-checked: radial D(h)
-versus fixed scaling, raw K1 and SwiGLU64/128/192 on both tasks, twelve20k
-trajectories. Publish and deploy immutable worktrees, then require the fresh
-documented native CUDA/continuation witness before formal launch. No accepted
-method yet. Whitening and P-shape sweeps stay closed.
+Cycle10 is live from7e394e2 after fresh native CUDA/resume checks on both hosts.
+All twelve registered20k cells run on145GPU0/LenovoGPU0, two workers each.
+Post-SSH90s progress is verified:145 raw9500/Swi6418500 at93%GPU; Lenovo
+raw8000/Swi648500 at89%. Finish, exact-replay all endpoints and verify eight
+native20k anchors before interpretation. No accepted method yet. Cycles8/9
+are closed; whitening and P-shape sweeps stay closed.
 
 Authorized 3 November 2026: continue Muon/spectrum and input-diagonal designs on145/Lenovo.
 
@@ -171,3 +172,15 @@ closed; the new proposal claims neither global model repair nor FM-specificity.
 Cycle10 pre-publication checks: all new Python files compile, diff whitespace
 check passes. Live resources rechecked: GPU0 free on both hosts;145/data2 now
 has28GiB free. No packages rebuilt and no unrelated jobs touched.
+
+Cycle10 analysis preparation: renderer and scalar-D collector compile. Inspecting
+the pinned diagnostics found native records use layer, not name; corrected the
+collector before execution. A read-only search mistakenly named a nonexistent
+frozen directory; source is actually under reference/synthetic, confirmed from
+run.py. Neither issue changes the frozen numerical runtime.
+
+Cycle10 runtime launch verified:145controller2777039; Lenovo persistent
+controller21920 (launcher21284). First native child PIDs1452777041/2777042,
+Lenovo21844/23156. Monitor reports increasing steps after SSH exits, no failure.
+Fresh witness also found a missing Lenovo Git executable path in identity-check
+guidance; documented explicit path added, numeric invocations unchanged.
