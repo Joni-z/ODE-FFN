@@ -1,3 +1,15 @@
+# Report2 finalized; professor meeting preparation, 9 November
+
+The user explicitly finalized the existing Report2. Its PDF/TeX, included
+figures and bound numerical evidence remain fixed. The report date stays
+4 November. Finalization and file hashes are in reports/report2/finalization.json.
+Prepare the upcoming professor conversation in
+[a separate meeting brief](docs/meetings/2026-11-09-report2/briefing.md): original
+ODE assumptions, Muon/PD evidence, current mode-allocation finding, likely
+questions and the next bounded test. No new experiment is selected.
+
+Earlier draft-status entries below are superseded by this explicit decision.
+
 # Report2 remains an editable draft, 4 November
 
 The user has not submitted Report2 and will explicitly decide when it is final.

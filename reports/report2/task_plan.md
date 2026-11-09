@@ -1,4 +1,13 @@
-# Current task — incorporate mode-allocation diagnosis, 4 November 2026
+# Finalized by the user, 9 November 2026
+
+The existing three-page Report2 is final. Preserve its PDF/TeX, included
+figures and bound numerical evidence. The report date remains 4 November.
+[Finalization hashes](finalization.json) identify the finalized files.
+Meeting preparation lives separately in
+[docs/meetings/2026-11-09-report2](../../docs/meetings/2026-11-09-report2/task_plan.md).
+The drafting plans below are historical.
+
+# Previous task — incorporate mode-allocation diagnosis, 4 November 2026
 
 Report2 has not been submitted. The user explicitly retains finalization:
 it stays an editable draft until they say it is final. Incorporate the completed

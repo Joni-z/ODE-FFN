@@ -1,8 +1,8 @@
 # Report2 evidence index — ODEFFN mainline
 
 The latest 4 November draft incorporates completed Product16 controls and
-Ring8 mode-allocation diagnosis. It remains open to revision until the user
-explicitly finalizes it. [Current PDF](report2.pdf) and
+Ring8 mode-allocation diagnosis. The user finalized this version on 9 November;
+see [finalization.json](finalization.json). [Final PDF](report2.pdf) and
 [claim/evidence map](EVIDENCE.md).
 
 The4November revision follows local clocks/P/order, complete readouts, learned

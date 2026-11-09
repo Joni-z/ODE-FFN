@@ -2,8 +2,10 @@
 
 **Zhizhe Zhang · 4 November 2026**
 
-**Editable draft.** The user has not submitted Report2 and will explicitly
-decide when it is final. A completed revision remains open to further changes.
+**Finalized by the user on 9 November 2026.** The report remains dated
+4 November; its existing PDF, TeX, figures and numerical evidence are preserved.
+[Finalization record](finalization.json) ·
+[Professor meeting preparation](../../docs/meetings/2026-11-09-report2/briefing.md).
 
 [Three-page PDF](report2.pdf) · [LaTeX](report2.tex) ·
 [Evidence map](EVIDENCE.md) · [Verification](verification.json) ·
@@ -60,7 +62,11 @@ primary experiment documents, trainers, data and checkpoints are unchanged.
 The reporting scripts verify the final Report1 identity and the protected
 source paths recorded in [revision metadata](data/report-revision.json).
 
-## Rebuild
+## Historical build recipe
+
+The finalized report is preserved. For build reproduction, use a separate
+checkout and output directory. The following commands describe the prior
+drafting workflow.
 
 From the repository root:
 
@@ -88,5 +94,7 @@ MBP checkout at `/Users/zzz/Documents/NYU/Researches/ODE FFN/ODE-FFN`.
 Check for local changes before pulling; preserve them. Verify the delivered
 PDF SHA-256 against the reviewed source copy. A GitHub push alone is not the
 completed report delivery.
-The latest [delivery receipt](delivery.json) records the reviewed PDF/TeX hashes
-and the clean MBP fast-forward. Delivery does not finalize the draft.
+The [delivery receipt](delivery.json) records the reviewed PDF/TeX hashes and
+the clean MBP fast-forward on 4 November. That receipt and verification records
+retain their status at the time. The user's subsequent finalization is recorded
+in finalization.json and does not change those report files.

@@ -2,8 +2,9 @@
 
 [PDF](report2.pdf) · [source](report2.tex). The report combines the broader ODEFFN
 exploration with completed common-bank controls and frozen transport diagnosis
-at `5075b3b`. It remains an editable draft until the user finalizes it. Reporting
-files are revised; primary data, experiments and Report1 keep their identities.
+at `5075b3b`. The user finalized the existing report on 9 November;
+[finalization.json](finalization.json) preserves its file identities. Primary
+data, experiments and Report1 retain their recorded identities.
 
 | Report location | Primary evidence | Allowed interpretation and limit |
 |---|---|---|

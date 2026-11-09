@@ -1,4 +1,17 @@
-# Current deliverable: revise the Report2 draft, 4 November 2026
+# Current deliverable: prepare the professor meeting, 9 November 2026
+
+The user explicitly finalized Report2 on 9 November. Preserve its existing
+PDF, TeX, figures and numerical evidence. Record finalization and prepare a
+separate oral briefing from the finalized report: a short opening, five-minute
+route, key results, likely questions and the next decision to discuss. No new
+experiment is selected. Publish the documentation and synchronize the clean
+MBP checkout through GitHub.
+Canonical plan: [meeting preparation](docs/meetings/2026-11-09-report2/task_plan.md).
+
+Earlier entries below are historical; their draft status is superseded by
+the user's explicit finalization.
+
+# Previous deliverable: revise the Report2 draft, 4 November 2026
 
 The user clarified that Report2 has not been submitted and remains editable
 until their explicit finalization. Incorporate the completed Product16 and
