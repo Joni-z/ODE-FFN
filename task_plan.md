@@ -4,8 +4,9 @@ The user explicitly finalized Report2 on 9 November. Preserve its existing
 PDF, TeX, figures and numerical evidence. Record finalization and prepare a
 separate oral briefing from the finalized report: a short opening, five-minute
 route, key results, likely questions and the next decision to discuss. No new
-experiment is selected. Publish the documentation and synchronize the clean
-MBP checkout through GitHub.
+experiment is selected. The briefing and finalization record are published at
+`56a57b5` and delivered through GitHub to the clean MBP checkout, with matching
+report, briefing and finalization hashes.
 Canonical plan: [meeting preparation](docs/meetings/2026-11-09-report2/task_plan.md).
 
 Earlier entries below are historical; their draft status is superseded by

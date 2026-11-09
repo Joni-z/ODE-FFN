@@ -22,3 +22,6 @@ does not launch an experiment or change the final report.
 Prepared: Chinese and English openings, a five-minute route through the three
 report pages, three evidence cards and seven anticipated questions. Verification
 checks30quoted values,140local links and11unchanged protected report files.
+Publication `56a57b5` was fast-forwarded to the clean MBP main checkout.
+The finalized report, briefing and finalization-record hashes all match;
+the delivery.json receipt records this check.
