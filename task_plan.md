@@ -1,4 +1,19 @@
-# Current deliverable: prepare the professor meeting, 9 November 2026
+# Current task: assess the novelty evidence, 11 November 2026
+
+The user asks what substantive novelty has been established. Review current
+experiments and targeted primary literature, then distinguish measured gains,
+mechanistic observations and untested design hypotheses. This is a bounded
+status assessment, not a claim of exhaustive prior-art verification.
+
+- [x] Read the current research map, complete controls and mode-mass derivation.
+- [x] Check directly related primary papers, including current 2026 work.
+- [x] Record the assessment and the next decisive test in docs/research-assessments/2026-11-11-novelty.md.
+- [ ] Publish the checked research note.
+
+Keep finalized Report2 and experimental artifacts fixed. No new experiment
+is selected by this assessment. Earlier planning entries below are historical.
+
+# Previous deliverable: prepare the professor meeting, 9 November 2026
 
 The user explicitly finalized Report2 on 9 November. Preserve its existing
 PDF, TeX, figures and numerical evidence. Record finalization and prepare a

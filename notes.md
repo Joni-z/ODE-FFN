@@ -1,3 +1,15 @@
+# Novelty assessment, 11 November
+
+Current evidence supports a Ring8 fitting gain and a measured shape/mass
+tradeoff, but not an established ODE-specific architectural contribution.
+The boundary-mass/functional-update connection is the leading candidate;
+its first-order prediction has not been calibrated or turned into a validated
+constraint. Targeted primary literature confirms that ISRU and the broad
+matching-loss/sample-quality mismatch are existing territory; no exact FFN
+duplicate or exhaustive novelty verdict is claimed. See the
+[assessment and proposed decisive tests](docs/research-assessments/2026-11-11-novelty.md).
+No new experiment or finalized-report change.
+
 # Report2 finalized; professor meeting preparation, 9 November
 
 The user explicitly finalized the existing Report2. Its PDF/TeX, included
