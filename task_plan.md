@@ -8,7 +8,7 @@ status assessment, not a claim of exhaustive prior-art verification.
 - [x] Read the current research map, complete controls and mode-mass derivation.
 - [x] Check directly related primary papers, including current 2026 work.
 - [x] Record the assessment and the next decisive test in docs/research-assessments/2026-11-11-novelty.md.
-- [ ] Publish the checked research note.
+- [x] Publish the checked research note (assessment content commit `761a2a7`).
 
 Keep finalized Report2 and experimental artifacts fixed. No new experiment
 is selected by this assessment. Earlier planning entries below are historical.
