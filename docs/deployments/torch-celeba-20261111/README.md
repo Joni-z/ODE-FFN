@@ -47,6 +47,13 @@ NumPy/Torch conversion, PIL/torchvision conversion and the training CLI pass.
 The pinned upstream compatibility fixture passes the state/RNG, gradients,
 optimizer/EMA, sampler and checkpoint checks on CPU.
 
+The CUDA runtime check is queued as Slurm job `22652701` with a three-minute
+time limit. It tests matrix and convolution forward/backward operations and
+exits; no formal training is submitted. Slurm requires an explicit project
+account. This probe uses `torch_pr_637_tandon_advanced` and the scheduler-accepted
+H100/A100/H200 Tandon and H200/L40S public partitions. The login node itself has
+no allocated GPU.
+
 `nvitop` is available after activation. Login nodes do not expose allocated
 GPUs; inspect it inside a Slurm GPU allocation. The CUDA 12.4 profile follows
 the author's H200 stack; do not silently schedule it on Blackwell B200 before
@@ -64,19 +71,38 @@ implementation, then checks all six official file MD5s, archive CRC, the
 decodes. It preserves original images and metadata. Training resolution,
 cropping and final evaluation reference are separate protocol decisions.
 
-Expected split counts are 162,770 train, 19,867 validation and 19,962 test.
+Verified split counts are 162,770 train, 19,867 validation and 19,962 test.
 The original Google Drive archive exceeded its download quota. All six files
 were instead downloaded from the public [Yuehao/celeba mirror](https://huggingface.co/datasets/Yuehao/celeba/tree/35ebb31405e9da028409199a494f2e77eb10f253),
 pinned to revision `35ebb31405e9da028409199a494f2e77eb10f253`. Every file matches
 the official torchvision MD5. Source URLs and SHA-256s are recorded in
 `datasets/celeba/source.json` on torch.
 
-Extraction and the final dataset audit are in progress. The raw archive,
-images, environments and execution logs stay outside Git.
+All **202,599** original RGB images are extracted at **178 x 218** pixels.
+The six official MD5s, archive CRC, complete filename sets, metadata/split
+counts and 32 fixed JPEG decodes pass. Extraction reused standard Python ZIP
+reading with bounded I/O concurrency because sequential scratch writes were
+slow; the torchvision dataset implementation and image contents are unchanged.
+The raw archive is retained. Images, environments and execution logs stay
+outside Git.
+
+The [verification snapshot](verification.json) records file hashes, versions,
+source provenance and check results. Complete local receipts are
+`datasets/celeba/preparation.json`, `datasets/celeba/source.json` and the files
+under the operations directory above. To repeat the dataset audit:
+
+```bash
+python scripts/prepare_celeba.py --root /scratch/zz5070/ODE_FFN/datasets --verify-only
+```
+
+The CUDA result will be written to
+`operations/torch-celeba-20261111/cuda-smoke.json` when the queued probe runs.
+Its pending status in this snapshot is separate from the completed software
+and dataset checks.
 
 ## Current model scope
 
 The selected candidate remains ISRU-D K8. The active image trainer currently
-supports native SwiGLU and ordinary Free ISRU; K8 and a CelebA training adapter
-have not been implemented by this infrastructure task. A successful data
-loader/import check is not an image-quality or baseline result.
+supports native SwiGLU and ordinary Free ISRU. Next, add K8 in `ffn.py` and a
+CelebA adapter to the author-derived entry point, then specify the training
+resolution, crop and baseline evaluation before launching training.

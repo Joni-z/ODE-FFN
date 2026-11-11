@@ -9,9 +9,16 @@ datasets/celeba, all below the same project root. The clone and Python3.10.22 /
 PyTorch2.5.1+cu124 environment are installed. Package, CLI, data-conversion and
 upstream compatibility checks pass. All six source files match the official
 MD5s; the Google Drive quota required a revision-pinned public mirror.
-Extraction and final verification are in progress. A three-minute CUDA-only
-environment probe is queued; no formal training is launched. Logs and
-receipts stay in operations/torch-celeba-20261111.
+All 202,599 aligned RGB images at 178x218 are extracted and verified: archive
+CRC, complete filename sets, official 162770/19867/19962 splits and 32 fixed
+JPEG decodes pass. The scratch activation script and nvitop 1.6.2 work.
+A three-minute CUDA environment probe (22652701) is queued for GPU resources;
+no formal training is launched. Logs and complete receipts stay in
+operations/torch-celeba-20261111; curated verification is published with the
+setup record. Two task-created extraction temporary files were removed only
+after checking the retained images against archive CRCs. Both checkouts are
+clean; the old checkout remains at 2d2259a and all 11 Report2 protected hashes
+match finalization.json.
 Canonical status: [setup record](docs/deployments/torch-celeba-20261111/README.md).
 
 # Mathematical cost of changing P spectra, 11 November

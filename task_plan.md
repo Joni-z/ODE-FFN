@@ -11,8 +11,15 @@ training is launched by this setup task.
 - [x] Verify SSH to torch and the scratch project root.
 - [x] Inventory existing source/data/environments and available user storage.
 - [x] Prepare the canonical checkout and scratch environment.
-- [ ] Download and verify CelebA archive, extracted images and split metadata.
-- [ ] Run environment/data checks, record exact paths and publish setup notes.
+- [x] Download and verify CelebA archive, extracted images and split metadata.
+- [x] Run software/data checks, record exact paths and publish setup notes.
+- [ ] Collect the queued three-minute CUDA runtime probe (`22652701`); it is waiting for GPU resources.
+
+Data and software preparation are complete. All 202,599 images, six official
+MD5s, archive CRC, filenames, split counts and 32 JPEG decodes pass. Imports,
+dependency resolution, CLI, conversions, activation and the pinned CPU
+upstream-compatibility fixture pass. The remaining CUDA probe is separate
+from formal training. No formal training has been launched.
 
 Canonical setup record: docs/deployments/torch-celeba-20261111/README.md.
 

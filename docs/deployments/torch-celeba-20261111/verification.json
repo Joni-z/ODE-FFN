@@ -1,0 +1,190 @@
+{
+  "prepared_on": "2026-11-11T09:17:30.341249+00:00",
+  "paths": {
+    "source": "/scratch/zz5070/ODE_FFN/ODE-FFN",
+    "environment": "/scratch/zz5070/ODE_FFN/envs/jit-celeba",
+    "dataset": "/scratch/zz5070/ODE_FFN/datasets/celeba",
+    "images": "/scratch/zz5070/ODE_FFN/datasets/celeba/img_align_celeba",
+    "operations": "/scratch/zz5070/ODE_FFN/operations/torch-celeba-20261111"
+  },
+  "environment": {
+    "status": "PASS",
+    "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+    "executable": "/scratch/zz5070/ODE_FFN/envs/jit-celeba/bin/python",
+    "platform": "Linux-6.12.0-211.32.1.el10_2.x86_64-x86_64-with-glibc2.39",
+    "versions": {
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1+cu124",
+      "numpy": "1.22.4",
+      "scipy": "1.9.1",
+      "timm": "0.9.12",
+      "tensorboard": "2.10.0",
+      "einops": "0.8.1",
+      "Pillow": "11.3.0",
+      "opencv-python": "4.11.0.86",
+      "torch-fidelity": "0.4.0b0",
+      "gdown": "5.2.0",
+      "nvitop": "1.6.2",
+      "pip": "25.2",
+      "setuptools": "75.8.0"
+    },
+    "cuda_build": "12.4",
+    "cudnn_version": 90100,
+    "cuda_available_on_login": false,
+    "numpy_torch_bridge": "passed",
+    "PIL_torchvision_bridge": "passed",
+    "main_help": "passed",
+    "pip_check": "No broken requirements found.",
+    "source_commit": "cdba9c64c1404486c819c1860bfd39a76c406c13",
+    "requirements_sha256": "8ee85849e537c5eda1a2352b941a9e165d4f73f65e8fce3b1d44a7e37bd689ce",
+    "freeze_sha256": "0394b685b09757a12fe7aaa337b257bf2f03e554d544a3297702ec1e13059e1e"
+  },
+  "dataset": {
+    "status": "complete",
+    "dataset": "CelebA aligned and cropped",
+    "images": 202599,
+    "splits": {
+      "train": 162770,
+      "valid": 19867,
+      "test": 19962
+    },
+    "files": {
+      "img_align_celeba.zip": {
+        "md5": "00d2c5bc6d35e252742224ab0c1e8fcb",
+        "sha256": "46fb89443c578308acf364d7d379fe1b9efb793042c0af734b6112e4fd3a8c74",
+        "bytes": 1443490838,
+        "expected_md5": "00d2c5bc6d35e252742224ab0c1e8fcb",
+        "google_drive_id": "0B7EVK8r0v71pZjFTYXZWM3FlRnM"
+      },
+      "list_attr_celeba.txt": {
+        "md5": "75e246fa4810816ffd6ee81facbd244c",
+        "sha256": "f0e5da289d5ccf75ffe8811132694922b60f2af59256ed362afa03fefba324d0",
+        "bytes": 26721026,
+        "expected_md5": "75e246fa4810816ffd6ee81facbd244c",
+        "google_drive_id": "0B7EVK8r0v71pblRyaVFSWGxPY0U"
+      },
+      "identity_CelebA.txt": {
+        "md5": "32bd1bd63d3c78cd57e08160ec5ed1e2",
+        "sha256": "c6143857c3e2630ac2da9f782e9c1232e5e59be993a9d44e8a7916c78a6158c0",
+        "bytes": 3424458,
+        "expected_md5": "32bd1bd63d3c78cd57e08160ec5ed1e2",
+        "google_drive_id": "1_ee_0u7vcNLOfNLegJRHmolfH5ICW-XS"
+      },
+      "list_bbox_celeba.txt": {
+        "md5": "00566efa6fedff7a56946cd1c10f1c16",
+        "sha256": "7487a82e57c4bb956c5445ae2df4a91ffa717e903c5fa22874ede0820c8ec41b",
+        "bytes": 6082035,
+        "expected_md5": "00566efa6fedff7a56946cd1c10f1c16",
+        "google_drive_id": "0B7EVK8r0v71pbThiMVRxWXZ4dU0"
+      },
+      "list_landmarks_align_celeba.txt": {
+        "md5": "cc24ecafdb5b50baae59b03474781f8c",
+        "sha256": "6c02a87569907f6db2ba99019085697596730e8129f67a3d61659f198c48d43b",
+        "bytes": 12156055,
+        "expected_md5": "cc24ecafdb5b50baae59b03474781f8c",
+        "google_drive_id": "0B7EVK8r0v71pd0FJY3Blby1HUTQ"
+      },
+      "list_eval_partition.txt": {
+        "md5": "d32c9cbf5e040fd4025c592c306e6668",
+        "sha256": "fc955bcb3ef8fbdf7d5640d9a8693a8431b5f2ee291a5c1449a1549e7e073fe7",
+        "bytes": 2836386,
+        "expected_md5": "d32c9cbf5e040fd4025c592c306e6668",
+        "google_drive_id": "0B7EVK8r0v71pY0NSMzRuSXJEVkk"
+      }
+    },
+    "archive_crc": "passed",
+    "filename_sets": "passed",
+    "preprocessing": "none; original aligned JPEGs retained"
+  },
+  "jpeg_decode_checks": 32,
+  "source": {
+    "status": "complete",
+    "source": "Yuehao/celeba public mirror",
+    "revision": "35ebb31405e9da028409199a494f2e77eb10f253",
+    "reason": "official Google Drive file download quota exceeded",
+    "official_checksums": "torchvision 0.20.1 CelebA.file_list",
+    "files": {
+      "img_align_celeba.zip": {
+        "md5": "00d2c5bc6d35e252742224ab0c1e8fcb",
+        "sha256": "46fb89443c578308acf364d7d379fe1b9efb793042c0af734b6112e4fd3a8c74",
+        "bytes": 1443490838,
+        "url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/img_align_celeba.zip?download=true",
+        "expected_md5": "00d2c5bc6d35e252742224ab0c1e8fcb"
+      },
+      "list_attr_celeba.txt": {
+        "md5": "75e246fa4810816ffd6ee81facbd244c",
+        "sha256": "f0e5da289d5ccf75ffe8811132694922b60f2af59256ed362afa03fefba324d0",
+        "bytes": 26721026,
+        "url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/list_attr_celeba.txt?download=true",
+        "expected_md5": "75e246fa4810816ffd6ee81facbd244c"
+      },
+      "identity_CelebA.txt": {
+        "md5": "32bd1bd63d3c78cd57e08160ec5ed1e2",
+        "sha256": "c6143857c3e2630ac2da9f782e9c1232e5e59be993a9d44e8a7916c78a6158c0",
+        "bytes": 3424458,
+        "url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/identity_CelebA.txt?download=true",
+        "expected_md5": "32bd1bd63d3c78cd57e08160ec5ed1e2"
+      },
+      "list_bbox_celeba.txt": {
+        "md5": "00566efa6fedff7a56946cd1c10f1c16",
+        "sha256": "7487a82e57c4bb956c5445ae2df4a91ffa717e903c5fa22874ede0820c8ec41b",
+        "bytes": 6082035,
+        "url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/list_bbox_celeba.txt?download=true",
+        "expected_md5": "00566efa6fedff7a56946cd1c10f1c16"
+      },
+      "list_landmarks_align_celeba.txt": {
+        "md5": "cc24ecafdb5b50baae59b03474781f8c",
+        "sha256": "6c02a87569907f6db2ba99019085697596730e8129f67a3d61659f198c48d43b",
+        "bytes": 12156055,
+        "url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/list_landmarks_align_celeba.txt?download=true",
+        "expected_md5": "cc24ecafdb5b50baae59b03474781f8c"
+      },
+      "list_eval_partition.txt": {
+        "md5": "d32c9cbf5e040fd4025c592c306e6668",
+        "sha256": "fc955bcb3ef8fbdf7d5640d9a8693a8431b5f2ee291a5c1449a1549e7e073fe7",
+        "bytes": 2836386,
+        "url": "https://huggingface.co/datasets/Yuehao/celeba/resolve/35ebb31405e9da028409199a494f2e77eb10f253/list_eval_partition.txt?download=true",
+        "expected_md5": "d32c9cbf5e040fd4025c592c306e6668"
+      }
+    }
+  },
+  "extraction": {
+    "phase": "complete",
+    "elapsed_seconds": 899.22,
+    "completed": 202599,
+    "counts": {
+      "verified_existing": 30643,
+      "extracted": 171956
+    },
+    "receipt": "/scratch/zz5070/ODE_FFN/datasets/celeba/preparation.json"
+  },
+  "upstream_compatibility": {
+    "status": "PASS",
+    "upstream": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+    "CPU_reference": "placement-only adaptations for the CUDA-only author code",
+    "native_state_and_RNG_bitwise": true,
+    "active_output_input_and_parameter_gradients_bitwise": true,
+    "official_epoch_Adam_and_two_EMAs_bitwise": true,
+    "official_Euler_and_Heun_bitwise": true,
+    "candidate_non_FFN_and_RNG_unchanged": true,
+    "candidate_gradcheck": true,
+    "official_checkpoint_roundtrip": true,
+    "MPS_forward_backward_optimizer": false,
+    "quality_or_FID_claim": false
+  },
+  "cuda_runtime": {
+    "status": "PENDING",
+    "job_id": "22652701",
+    "queue": "PENDING|Priority|2026-11-11T07:06:22",
+    "time_limit": "00:03:00",
+    "purpose": "CUDA environment check only; no formal training"
+  },
+  "formal_training_started": false,
+  "receipt_sha256": {
+    "operations/torch-celeba-20261111/environment.json": "d1dc9675ffd90046676d88e7c59d41e0ffd116714a5eb7b76c7b18f32e24ccd7",
+    "datasets/celeba/preparation.json": "4731d8259c97a372c18693b3f82ecb5510365032a66925e4557afbba3ef5a827",
+    "datasets/celeba/source.json": "2d8a7b511951e9b80b6d0f09512a597f83658fc974980ef02c5331c91a1a9458",
+    "operations/torch-celeba-20261111/upstream-compatibility.json": "e56ecfea1805c0c358ad9515f50317e1c2c2739f46415b4684f7ff8a361d7390",
+    "operations/torch-celeba-20261111/pip-freeze.txt": "0394b685b09757a12fe7aaa337b257bf2f03e554d544a3297702ec1e13059e1e"
+  }
+}
