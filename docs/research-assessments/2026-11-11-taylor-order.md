@@ -2,6 +2,11 @@
 
 11 November 2026. Evidence clarification; no experiment launched.
 
+Later decision on the same date: the user explicitly selected **ISRU-D K8**
+as the current candidate. See the [active specification](2026-11-11-image-candidate.md).
+The clarification and historical evidence below remain valid; its final
+open-selection status describes the state before that decision.
+
 ## Corrected interpretation
 
 K1 remains a genuine first-order Taylor approximation. For the original layer,

@@ -1,3 +1,23 @@
+# User-selected candidate and Report2 recap, 11 November
+
+The user explicitly fixes the current candidate to **ISRU-D K8**. For each
+internal layer compute D at its entrance, hold it fixed across eight Taylor
+terms and reuse the same P; the two layers retain independent P1/P2 around
+SiLU. This is a frozen-diagonal conditional matrix exponential approximation,
+not eight state-feedback Euler steps. The exact operator is in the updated
+[image specification](docs/research-assessments/2026-11-11-image-candidate.md).
+K8 keeps 2d^2 matrix weights but uses 16d^2 forward dense MACs per token;
+the old K1 quarter-compute statement no longer applies. No implementation or
+new training is claimed. Preserve seed 0 and the finalized reports.
+
+Report2 content is dated 4 November and was finalized on 9 November. Muon,
+PD variants, ISRU-D K1 and the mode-allocation diagnosis are already in it.
+Subsequent commits contain finalization/meeting preparation, a bounded
+literature and novelty assessment, the image-hook identity check, Taylor-order
+clarification and this K8 selection. No later training result is recorded.
+See the [report recap and post-report timeline](docs/research-assessments/2026-11-11-report2-followup.md).
+Earlier K1-only and open-order choices below are superseded.
+
 # Taylor-order and naming clarification, 11 November
 
 Original scalar K4/K8 were trained on three 2D laws for 5k updates. Ring8

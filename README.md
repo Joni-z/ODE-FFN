@@ -8,9 +8,14 @@ retained. [UPSTREAM.md](UPSTREAM.md) describes every local change.
 Default `--ffn swiglu` keeps the author's SwiGLU unchanged. The existing
 `--ffn isru` selects ordinary Free ISRU in [ffn.py](ffn.py). The current
 [image-transfer recommendation](docs/research-assessments/2026-11-11-image-candidate.md)
-is the distinct ISRU-D K1 architecture, which is not yet wired into the image CLI.
-Its Taylor order remains open: the [order-evidence clarification](docs/research-assessments/2026-11-11-taylor-order.md)
-separates the earlier scalar K4/K8 results from the new diagonal construction.
+is **ISRU-D K8**, explicitly selected by the user on 11 November. It holds
+each layer's entrance diagonal fixed across eight Taylor terms and is not yet
+wired into the image CLI. The [order-evidence clarification](docs/research-assessments/2026-11-11-taylor-order.md)
+separates the earlier scalar K4/K8 results from this new diagonal construction.
+At fixed model width, K8 retains two square matrices but uses sixteen matrix
+products per token; the former K1 compute-saving estimate does not apply.
+The [Report2 recap and subsequent work](docs/research-assessments/2026-11-11-report2-followup.md)
+distinguish completed experiments from this new candidate selection.
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 
@@ -30,8 +35,8 @@ finds a shared Ring8 tradeoff from 15k to 20k: field fitting and centered-residu
 SW2 improve, while mode-sector frequencies drift farther from equal weights.
 The [derivation](docs/autoresearch/professor-20261103/mode-mass-derivation.md)
 connects sector-mass change to boundary-normal field error and P q(h) updates.
-That response remains uncalibrated. The current recommendation is to test the
-existing ISRU-D on images while retaining this separate mechanism question.
+That response remains uncalibrated. The current selection is to test ISRU-D K8
+on images while retaining this separate mechanism question.
 
 The preceding [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
 finds an AdamW Ring8 lead over SwiGLU, but only2.25%field separation from

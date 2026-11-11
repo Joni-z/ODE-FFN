@@ -1,4 +1,23 @@
-# Current task: clarify Taylor-order evidence and ISRU-D naming, 11 November 2026
+# Current task: record selected ISRU-D K8 and recap Report2, 11 November 2026
+
+The user explicitly selects eighth-order ISRU-D as the current candidate and
+asks what finalized Report2 contains and what was done afterward. Record the
+selected frozen-diagonal Taylor operator, update the active image proposal
+and its compute accounting, and distinguish completed report evidence from
+later documentation, mathematical clarification and candidate selection.
+This turn does not dispatch training or revise finalized Report2.
+
+- [x] Read current conventions, decisions and the post-report commit log.
+- [x] Bind the report recap to finalized source and check the post-report file changes.
+- [x] Record K8 and correct the image proposal's cost/control descriptions.
+- [x] Verify protected files, links, report values and arithmetic; prepare the checked records for publication.
+
+Canonical architecture: docs/research-assessments/2026-11-11-image-candidate.md.
+Recap: docs/research-assessments/2026-11-11-report2-followup.md.
+Earlier K1 recommendations and open-order notes are historical and superseded
+by the user's explicit K8 selection.
+
+# Previous task: clarify Taylor-order evidence and ISRU-D naming, 11 November 2026
 
 The user questions whether K1 still approximates the original closed-form
 flow and recalls the earlier K4/K8 experiments. Recover their actual protocol
