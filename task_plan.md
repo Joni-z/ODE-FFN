@@ -10,7 +10,7 @@ training is launched by this setup task.
 
 - [x] Verify SSH to torch and the scratch project root.
 - [x] Inventory existing source/data/environments and available user storage.
-- [ ] Prepare the canonical checkout and scratch environment.
+- [x] Prepare the canonical checkout and scratch environment.
 - [ ] Download and verify CelebA archive, extracted images and split metadata.
 - [ ] Run environment/data checks, record exact paths and publish setup notes.
 

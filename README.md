@@ -81,8 +81,9 @@ docs/            # historical evidence; not imported by active code
 
 For the original CUDA stack use [environment.yaml](environment.yaml).
 The explicit pip profile [requirements-cuda.txt](requirements-cuda.txt) uses
-Python 3.10 and the same PyTorch 2.5.1 / CUDA 12.4 versions. Current development
-is moving to torch under scratch; see the [CelebA setup record](docs/deployments/torch-celeba-20261111/README.md).
+Python 3.10 and the same PyTorch 2.5.1 / CUDA 12.4 versions. New development
+uses torch under scratch; see the [CelebA setup record](docs/deployments/torch-celeba-20261111/README.md)
+for paths, environment activation and verification.
 For Mac mini CPU/MPS:
 
 ```sh

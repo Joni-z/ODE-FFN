@@ -5,9 +5,13 @@ the environment in scratch. This supersedes the prior machine restriction
 for new work. SSH succeeds; myquota reports 5 TB allocated, about 1.45 TB used.
 The clean historical jit-codebase at 2d2259a is preserved. New active checkout:
 /scratch/zz5070/ODE_FFN/ODE-FFN; environment: envs/jit-celeba; dataset:
-datasets/celeba, all below the same project root. Bootstrap and clone are
-running with logs in operations/torch-celeba-20261111. Use the author's CUDA
-versions and torchvision's original CelebA IDs/checksums; no training launch.
+datasets/celeba, all below the same project root. The clone and Python3.10.22 /
+PyTorch2.5.1+cu124 environment are installed. Package, CLI, data-conversion and
+upstream compatibility checks pass. All six source files match the official
+MD5s; the Google Drive quota required a revision-pinned public mirror.
+Extraction and final verification are in progress. A three-minute CUDA-only
+environment probe is queued; no formal training is launched. Logs and
+receipts stay in operations/torch-celeba-20261111.
 Canonical status: [setup record](docs/deployments/torch-celeba-20261111/README.md).
 
 # Mathematical cost of changing P spectra, 11 November
