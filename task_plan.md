@@ -1,4 +1,21 @@
-# Current task: record selected ISRU-D K8 and recap Report2, 11 November 2026
+# Current task: explain the cost of shrinking/flattening P, 11 November 2026
+
+Explain mathematically how scalar contraction and spectrum flattening change
+the learned feature function and its data-weighted error. Bind exact identities
+to the recorded frozen and constrained-training results without claiming that
+one proposed mechanism has been causally isolated. Keep the user-selected
+ISRU-D K8 candidate fixed; no training is launched by this explanation.
+
+- [x] Read the original decay, frozen-shape, training-shape and feature-metric evidence.
+- [x] Derive and verify the scaling, task-error and functional-perturbation examples.
+- [x] Record the checked explanation and prepare it for publication with current progress notes.
+
+Editing note: an initial appendix patch had a context mismatch and made no
+change; the corrected patch applied. Numerical/source and report checks pass.
+
+Canonical derivation: docs/research-assessments/2026-11-11-spectral-constraints.md.
+
+# Previous task: record selected ISRU-D K8 and recap Report2, 11 November 2026
 
 The user explicitly selects eighth-order ISRU-D as the current candidate and
 asks what finalized Report2 contains and what was done afterward. Record the

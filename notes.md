@@ -1,3 +1,14 @@
+# Mathematical cost of changing P spectra, 11 November
+
+The [spectral-constraint explanation](docs/research-assessments/2026-11-11-spectral-constraints.md)
+uses task error as its object. Exact facts: P -> cP scales Taylor term k by
+c^k, and for a fixed feature law the increment energy is tr(P M P^T).
+Frobenius-preserving flattening can change both the task response and its
+data-weighted energy. A diag(3,1) target gives an explicit accuracy-cost
+counterexample. Frozen edits and constrained training require different
+interpretations. Existing experiments show changed spectra and worse quality,
+but do not isolate a single cause. No training or candidate change.
+
 # User-selected candidate and Report2 recap, 11 November
 
 The user explicitly fixes the current candidate to **ISRU-D K8**. For each
