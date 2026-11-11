@@ -1,4 +1,19 @@
-# Current task: select a concrete image-transfer candidate, 11 November 2026
+# Current task: clarify Taylor-order evidence and ISRU-D naming, 11 November 2026
+
+The user questions whether K1 still approximates the original closed-form
+flow and recalls the earlier K4/K8 experiments. Recover their actual protocol
+and outcomes, separate original-scalar order evidence from ISRU-D, and state
+the frozen-diagonal exponential interpretation precisely. No training is
+dispatched and no new order grid is selected by this explanation.
+
+- [x] Locate the original K4/K8 protocol, reports and evidence files.
+- [x] Verify the recorded order comparisons and the ISRU name against its primary source.
+- [x] Record the corrected interpretation, verify source/algebra/report bindings and prepare publication.
+
+Canonical note: docs/research-assessments/2026-11-11-taylor-order.md.
+Keep finalized reports and all experiment artifacts fixed.
+
+# Previous task: select a concrete image-transfer candidate, 11 November 2026
 
 The user wants an architecture to take to a larger image dataset, without
 waiting for complete mechanism attribution. Recommend the existing ISRU-D K1

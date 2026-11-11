@@ -9,6 +9,8 @@ Default `--ffn swiglu` keeps the author's SwiGLU unchanged. The existing
 `--ffn isru` selects ordinary Free ISRU in [ffn.py](ffn.py). The current
 [image-transfer recommendation](docs/research-assessments/2026-11-11-image-candidate.md)
 is the distinct ISRU-D K1 architecture, which is not yet wired into the image CLI.
+Its Taylor order remains open: the [order-evidence clarification](docs/research-assessments/2026-11-11-taylor-order.md)
+separates the earlier scalar K4/K8 results from the new diagonal construction.
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 

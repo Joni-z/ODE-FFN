@@ -1,3 +1,18 @@
+# Taylor-order and naming clarification, 11 November
+
+Original scalar K4/K8 were trained on three 2D laws for 5k updates. Ring8
+SW2 improves K1 .200826 -> K2 .184820 -> K4 .175176 -> K8 .174829; Gaussian
+favors K1 and Moons K2. The small K4-to-K8 change at 63.7% more forward dense
+MACs does not reject all high-order models. Later scalar K1/K2 evidence is
+also not a test of the new ISRU diagonal at K4/K8.
+ISRU-D K1 directly truncates exp(P D(h0))h0 when D is fixed at the entrance
+throughout internal time; saying it has only the scalar activation's ODE
+origin was incomplete. State-feedback P ISRU(y) is a different ODE from
+second order onward. ISRU = Inverse Square Root Unit; D is the project label
+for the diagonal parameterization. See the [checked clarification](docs/research-assessments/2026-11-11-taylor-order.md).
+Keep the image candidate's order open rather than treating K1 as a settled
+exclusive choice. No new experiment or finalized report change.
+
 # Image-transfer candidate selection, 11 November
 
 Recommend the existing ISRU-D K1 two-map FFN for the user's requested image

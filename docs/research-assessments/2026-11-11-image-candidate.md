@@ -2,6 +2,12 @@
 
 Status: architecture recommendation, 11 November 2026. No training dispatched.
 
+Subsequent [Taylor-order clarification](2026-11-11-taylor-order.md): K1 is a
+performance candidate, not the settled final order. The user asks to preserve
+the original closed-form-approximation question. ISRU-D has a frozen-diagonal
+exponential interpretation, and its higher orders have not been ruled out by
+the old scalar-clock K4/K8 study. The transfer order comparison remains open.
+
 The user wants a concrete architecture to test on a larger image dataset.
 Recommend transferring the existing ISRU-D K1 FFN now, alongside ordinary
 controls. Complete causal attribution on synthetic data is not a prerequisite
@@ -56,9 +62,11 @@ MSE. Ring8 gives MSE 0.009773 versus selected Swi64's 0.011279; sampling nearly
 ties, and Product16 favors ordinary controls. These results motivate a trial,
 not a guarantee. See the [complete comparison](../autoresearch/professor-20261103/cycle14-results-complete/analysis-report.md).
 
-Use K1, fixed coefficient 1.2 and the existing SiLU placement. Keep Muon,
-higher Taylor orders, adaptive frames and additional spectral penalties out
-of the first transfer comparison. Use the same upstream AdamW recipe across
+The initial recommendation uses K1, fixed coefficient 1.2 and the existing
+SiLU placement. K1 alone does not test the value of accurate exponential
+approximation; the order comparison needs a separate explicit decision as
+described above. Keep Muon, adaptive frames and additional spectral penalties
+out of that structural comparison. Use the same upstream AdamW recipe across
 the image arms.
 
 ## Capacity and minimum comparisons
