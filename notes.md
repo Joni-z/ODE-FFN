@@ -1,3 +1,22 @@
+# Authorized CelebA K8 priority submission, 11 November
+
+The user authorizes queueing the selected K8 candidate with all eligible GPU
+types, priority account, short allocations and moderate CPUs. Register the
+CelebA64 full JiT-B/4 comparison in docs/celeba-k8-20261111/protocol.md. Each
+arm gets one GPU, four CPUs,24GB RAM and two hours, seed0; a native SwiGLU
+control uses the same AdamW/data/EMA settings. No explicit partition: the
+official Torch job_submit assigns permitted partitions from account and OR
+constraints. A priority dry-run accepts a100|h100|h200|l40s|rtx6000|b200.
+
+Implement ISRU-D K8, the torchvision CelebA adapter, standard-library FID
+reference adapter, full atomic checkpoints/RNG and bounded epoch stops.
+CPU matrix-polynomial/input-P derivative/gradcheck and upstream compatibility
+pass in the preserved CUDA12.4 environment. A separate CUDA12.8/PyTorch2.7.1
+venv is installing for Blackwell support; new-environment and full-GPU
+validation remain pending. The initial H200 environment probe22652701 passed.
+Formal jobs will use a frozen source worktree and afterok GPU-readiness gate.
+No formal training has been submitted yet in this preparation step.
+
 # torch development and CelebA preparation, 11 November
 
 The user moves new development to torch and authorizes preparing CelebA and

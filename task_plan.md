@@ -1,4 +1,25 @@
-# Current task: prepare CelebA and development environment on torch, 11 November 2026
+# Current task: queue ISRU-D K8 on torch priority, 11 November 2026
+
+The user authorizes submission: all eligible GPU types, the priority account,
+short wall time and moderate CPU allocation. Implement the selected K8 FFN in
+the author-derived image code and add the official CelebA dataset adapter.
+Queue the candidate with a native SwiGLU control, seed 0 and the same recipe.
+Use one GPU, four CPUs, 24 GB RAM and a two-hour allocation per arm. Preserve
+epoch checkpoints and GPU monitoring. Do not modify finalized reports.
+
+- [x] Read the selected operator, active code, live quota/accounts and official scheduler rules.
+- [x] Register the CelebA protocol and an all-GPU-compatible environment spec.
+- [x] Implement K8, the minimal CelebA adapter, bounded runtime and monitoring.
+- [ ] Verify polynomial/gradient identity, upstream compatibility and documented invocation.
+- [ ] Push code, synchronize torch, submit priority jobs and record their actual state.
+
+Scheduler discovery: use an untyped `--gres=gpu:1`, all six GPU feature names
+joined by `|`, and **omit --partition**. The cluster assigns permitted
+partitions automatically. `sbatch --test-only` accepts this shape with
+torch_pr_637_tandon_priority; it is not a launch or an availability guarantee.
+The previous CUDA12.4 environment probe completed successfully on H200.
+
+# Previous task: prepare CelebA and development environment on torch, 11 November 2026
 
 The user explicitly moves development to torch and authorizes downloading
 CelebA plus configuring the environment under scratch. This supersedes the
@@ -13,7 +34,7 @@ training is launched by this setup task.
 - [x] Prepare the canonical checkout and scratch environment.
 - [x] Download and verify CelebA archive, extracted images and split metadata.
 - [x] Run software/data checks, record exact paths and publish setup notes.
-- [ ] Collect the queued three-minute CUDA runtime probe (`22652701`); it is waiting for GPU resources.
+- [x] Collect CUDA runtime probe `22652701`: completed0:0 on H200; matrix/convolution backward passed.
 
 Data and software preparation are complete. All 202,599 images, six official
 MD5s, archive CRC, filenames, split counts and 32 JPEG decodes pass. Imports,

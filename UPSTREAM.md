@@ -10,7 +10,7 @@ MIT license, copyright2025 Tianhong Li, copied in [LICENSE](LICENSE).
 
 Model/attention/block equations, normalization, embedding, timestep law,
 velocity loss around clean prediction, initialization, optimizer, LR schedule,
-two EMAs, checkpoint format, Euler/Heun sampler, pixel conversion and FID
+two EMAs, base checkpoint fields, Euler/Heun sampler, pixel conversion and FID
 implementation come from upstream. `Denoiser.forward`, all sampling methods
 and `update_ema` are copied verbatim. Native SwiGLUFFN is copied verbatim.
 No old controller, custom metric, spectral constraint, clock variant, solver
@@ -21,12 +21,21 @@ search or extra loss enters active training.
 | File | Change |
 |---|---|
 | `denoiser.py` | FFN hook after native initialization. Default SwiGLU is a no-op. |
-| `ffn.py` | Existing free-ISRU response and Taylor initialization; swap only block.mlp and preserve training RNG. P has the professor Linear initializer distribution, without claiming old random-draw positions. |
-| `model_jit.py` | Allocate bias on the input device; add B/2 as a patch-size-only CIFAR port of the author's B body. |
+| `ffn.py` | Existing Free ISRU and selected frozen-diagonal ISRU-D, with order8 default; swap only block.mlp and preserve training RNG. P uses the original Linear initializer distribution. |
+| `model_jit.py` | Allocate bias on the input device; add B/2 for CIFAR and B/4 for CelebA64 as patch-size-only adapters of the author's complete B body. |
 | `util/model_util.py` | Nonpersistent buffers move original RoPE values with .to(device), retaining official checkpoint keys. |
 | `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard, CLI help, a picklable crop for Windows workers and epoch-wise sampler shuffle in single-process mode, optional sample retention, and evaluation after completed epoch multiples (avoiding first-epoch warmup evaluation). |
 | `engine_jit.py` | Gate CUDA AMP/synchronization, place labels on model device, guard barriers; pass standard CIFAR train reference to upstream FID. Non-CUDA FID uses CPU Inception. Optional sample retention adds epoch-specific folders. CIFAR metric batches are capped by generation batch size for limited VRAM. |
-| `util/misc.py` | Add a barrier helper that is a no-op without a process group. |
+| `util/misc.py` | Add a barrier helper, atomic checkpoint writes, optional single-GPU RNG state and progress JSON. |
+| `util/datasets.py` | Official torchvision CelebA training split with a constant discarded label; image-only wrapper for the standard FID library. |
+
+The CelebA extension adds CLI/order and loader flags, a single-GPU runtime
+budget checked between completed epochs, epoch loss/throughput records and
+RNG restoration. `engine_jit.py` returns its existing metric averages and
+passes deterministic CelebA64 training images to the unchanged FID library.
+The loss, EMA and sampling equations remain verbatim. Short Slurm allocations
+retain full checkpoints and save all learned P tensors. Evaluation is separate
+from the initial bounded training allocations.
 
 `util/crop.py`, `util/lr_sched.py`, `prepare_ref.py`, `environment.yaml` and
 `LICENSE` are unchanged. Mac requirements form a separate execution profile,
@@ -42,7 +51,7 @@ uses a U-Net, not a Transformer FFN benchmark. Its reported result is not
 transferred to our model.
 
 CPU/MPS and CIFAR ports differ from the original CUDA paper environment.
-B/2 retains the author's B dimensions; no tiny invented model is labeled
-reproduced. Its runtime/capacity budget needs measurement before a long Mac
-run. Upstream resume is epoch-based; exact mid-batch/RNG replay is not claimed.
+B/2 and B/4 retain the author's B dimensions. The CelebA adapter is a declared
+local dataset/resolution port. Resume is epoch-based; the new single-GPU
+checkpoint also records RNG state. No exact mid-batch continuation is claimed.
 Baseline FID below50 under fixed standard evaluation is still required.

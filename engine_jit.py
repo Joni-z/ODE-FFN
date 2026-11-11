@@ -11,6 +11,10 @@ import util.misc as misc
 import util.lr_sched as lr_sched
 import torch_fidelity
 import copy
+from functools import partial
+from torchvision import transforms
+from util.crop import center_crop_arr
+from util.datasets import celeba_train, ImageOnlyDataset
 
 
 def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, epoch, log_writer=None, args=None):
@@ -56,6 +60,10 @@ def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, ep
         metric_logger.update(loss=loss_value)
         lr = optimizer.param_groups[0]["lr"]
         metric_logger.update(lr=lr)
+        if getattr(args, 'max_train_seconds', 0) and data_iter_step % args.log_freq == 0:
+            misc.write_progress(args, status='running', epoch=epoch + 1,
+                                batch=data_iter_step + 1, batches_per_epoch=len(data_loader),
+                                loss=loss_value, lr=lr)
 
         loss_value_reduce = misc.all_reduce_mean(loss_value)
 
@@ -65,6 +73,8 @@ def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, ep
             if data_iter_step % args.log_freq == 0:
                 log_writer.add_scalar('train_loss', loss_value_reduce, epoch_1000x)
                 log_writer.add_scalar('lr', lr, epoch_1000x)
+
+    return {key: meter.global_avg for key, meter in metric_logger.meters.items()}
 
 
 def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
@@ -138,8 +148,16 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
 
     # compute FID and IS
     if log_writer is not None:
-        if args.dataset == 'cifar10':
+        reference = None
+        if args.dataset == 'celeba':
             fid_statistics_file = None
+            reference = ImageOnlyDataset(celeba_train(args.data_path, transforms.Compose([
+                transforms.Lambda(partial(center_crop_arr, image_size=args.img_size)),
+                transforms.PILToTensor(),
+            ])))
+        elif args.dataset == 'cifar10':
+            fid_statistics_file = None
+            reference = 'cifar10-train'
         elif args.img_size == 256:
             fid_statistics_file = 'fid_stats/jit_in256_stats.npz'
         elif args.img_size == 512:
@@ -148,11 +166,11 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
             raise NotImplementedError
         metrics_dict = torch_fidelity.calculate_metrics(
             input1=save_folder,
-            input2='cifar10-train' if args.dataset == 'cifar10' else None,
+            input2=reference,
             datasets_root=args.data_path,
             fid_statistics_file=fid_statistics_file,
             cuda=device.type == 'cuda',
-            batch_size=min(batch_size, 64) if args.dataset == 'cifar10' else 64,
+            batch_size=min(batch_size, 64),
             isc=True,
             fid=True,
             kid=False,

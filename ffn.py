@@ -25,15 +25,46 @@ class FreeISRU(nn.Module):
         return F.linear(u * torch.rsqrt(1 + 1.2 * u.square()), self.matrix2)
 
 
-def replace_ffn(model, name):
+class ISRU_DLayer(nn.Module):
+    """Taylor action of exp(P diag(d(h0))); d stays fixed within the series."""
+
+    def __init__(self, dim: int, orders: int = 8) -> None:
+        super().__init__()
+        if orders < 1:
+            raise ValueError('Taylor order must be positive')
+        self.orders = orders
+        self.proj = nn.Linear(dim, dim, bias=False)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        diagonal = torch.rsqrt(1 + 1.2 * x.square())
+        term = x
+        out = x
+        for k in range(1, self.orders + 1):
+            term = self.proj(term * diagonal) / k
+            out = out + term
+        return out
+
+
+class ISRU_D(nn.Module):
+    def __init__(self, dim: int, orders: int = 8) -> None:
+        super().__init__()
+        self.ode1 = ISRU_DLayer(dim, orders)
+        self.ode2 = ISRU_DLayer(dim, orders)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.ode2(F.silu(self.ode1(x)))
+
+
+def replace_ffn(model, name, orders=8):
     """Leave SwiGLU exactly native; replace only block.mlp for the candidate."""
     if name == 'swiglu':
         return
-    if name != 'isru':
+    if name not in ('isru', 'isru_d'):
         raise ValueError(f'Unknown FFN: {name}')
     # Candidate initialization must not shift the training RNG stream.
     with torch.random.fork_rng(devices=[]):
         for block in model.blocks:
             if block.mlp.ffn_dropout.p != 0:
                 raise ValueError('The existing ISRU experiment requires proj_dropout=0')
-            block.mlp = FreeISRU(block.mlp.w3.out_features)
+            dim = block.mlp.w3.out_features
+            block.mlp = FreeISRU(dim) if name == 'isru' else ISRU_D(dim, orders)

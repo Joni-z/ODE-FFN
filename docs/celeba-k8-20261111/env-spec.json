@@ -1,0 +1,22 @@
+{
+  "base": "Python 3.10, PyTorch 2.7.1, CUDA 12.8",
+  "pip_phases": [
+    ["pip==25.2", "setuptools==75.8.0", "wheel==0.45.1"],
+    ["-r requirements-cuda128.txt"]
+  ],
+  "env": {
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "TORCHINDUCTOR_COMPILE_THREADS": "2"
+  },
+  "smoke": {
+    "import_names": ["torch", "torchvision", "numpy", "scipy", "timm", "torch_fidelity", "nvitop"],
+    "gpu_tests": [
+      {
+        "cmd": "python scripts/check_celeba.py --device cuda --output /scratch/zz5070/ODE_FFN/operations/celeba-k8-20261111/cuda-readiness.json",
+        "expect": "CELEBA_K8_CUDA_PASS"
+      }
+    ]
+  }
+}

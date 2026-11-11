@@ -43,5 +43,13 @@
     "Denoiser._heun_step": true,
     "Denoiser.update_ema": true,
     "SwiGLUFFN": true
-  }
+  },
+  "added_training_files": [
+    "ffn.py",
+    "util/datasets.py"
+  ],
+  "local_dataset_adapters": [
+    "CIFAR10 32px, JiT-B/2",
+    "CelebA 64px, JiT-B/4"
+  ]
 }

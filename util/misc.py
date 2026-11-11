@@ -5,6 +5,8 @@ import time
 from collections import defaultdict, deque
 from pathlib import Path
 import copy
+import json
+import numpy as np
 
 import torch
 import torch.distributed as dist
@@ -207,6 +209,16 @@ def save_on_master(*args, **kwargs):
         torch.save(*args, **kwargs)
 
 
+def write_progress(args, **record):
+    if not is_main_process() or not args.output_dir:
+        return
+    path = Path(args.output_dir) / 'progress.json'
+    temporary = path.with_suffix('.json.tmp')
+    record.update(updated_at=time.time(), job_id=os.environ.get('SLURM_JOB_ID'))
+    temporary.write_text(json.dumps(record, indent=2) + '\n')
+    temporary.replace(path)
+
+
 def init_distributed_mode(args):
     if args.dist_on_itp:
         args.rank = int(os.environ['OMPI_COMM_WORLD_RANK'])
@@ -280,7 +292,13 @@ def save_model(args, model_without_ddp, optimizer, epoch, epoch_name=None):
     to_save['model_ema1'] = ema_state_dict1
     to_save['model_ema2'] = ema_state_dict2
 
-    save_on_master(to_save, checkpoint_path)
+    if get_world_size() == 1:
+        to_save['rng_state'] = dict(torch=torch.get_rng_state(), numpy=np.random.get_state(),
+                                    cuda=torch.cuda.get_rng_state_all() if torch.cuda.is_available() else [])
+    temporary = checkpoint_path.with_suffix('.pth.tmp')
+    save_on_master(to_save, temporary)
+    if is_main_process():
+        temporary.replace(checkpoint_path)
 
 
 def all_reduce_mean(x):

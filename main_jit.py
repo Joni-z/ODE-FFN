@@ -16,7 +16,9 @@ from util.crop import center_crop_arr
 import util.misc as misc
 
 import copy
+import json
 from engine_jit import train_one_epoch, evaluate
+from util.datasets import celeba_train
 
 from denoiser import Denoiser
 
@@ -27,13 +29,16 @@ def get_args_parser():
     # architecture
     parser.add_argument('--model', default='JiT-B/16', type=str, metavar='MODEL',
                         help='Name of the model to train')
-    parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru'))
+    parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru', 'isru_d'))
+    parser.add_argument('--ode_order', default=8, type=int)
     parser.add_argument('--img_size', default=256, type=int, help='Image size')
     parser.add_argument('--attn_dropout', type=float, default=0.0, help='Attention dropout rate')
     parser.add_argument('--proj_dropout', type=float, default=0.0, help='Projection dropout rate')
 
     # training
     parser.add_argument('--epochs', default=200, type=int)
+    parser.add_argument('--max_train_seconds', default=0, type=float,
+                        help='Optional single-GPU runtime budget; stop between epochs')
     parser.add_argument('--warmup_epochs', type=int, default=5, metavar='N',
                         help='Epochs to warm up LR')
     parser.add_argument('--batch_size', default=128, type=int,
@@ -90,7 +95,7 @@ def get_args_parser():
                         help='Generation batch size')
 
     # dataset
-    parser.add_argument('--dataset', default='imagenet', choices=('imagenet', 'cifar10'))
+    parser.add_argument('--dataset', default='imagenet', choices=('imagenet', 'cifar10', 'celeba'))
     parser.add_argument('--download', action='store_true', help='Download CIFAR-10 with torchvision')
     parser.add_argument('--data_path', default='./data/imagenet', type=str,
                         help='Path to the dataset')
@@ -119,7 +124,10 @@ def get_args_parser():
 
 
 def main(args):
+    allocation_started = time.monotonic()
     misc.init_distributed_mode(args)
+    if args.max_train_seconds and args.distributed:
+        raise ValueError('The bounded-runtime adapter is for single-GPU jobs')
     print('Job directory:', os.path.dirname(os.path.realpath(__file__)))
     print("Arguments:\n{}".format(args).replace(', ', ',\n'))
 
@@ -153,7 +161,11 @@ def main(args):
         transforms.PILToTensor()
     ])
 
-    if args.dataset == 'cifar10':
+    if args.dataset == 'celeba':
+        if args.img_size != 64 or args.class_num != 1 or args.label_drop_prob != 1 or args.cfg != 0:
+            raise ValueError('CelebA uses img_size=64, class_num=1, label_drop_prob=1, cfg=0')
+        dataset_train = celeba_train(args.data_path, transform_train)
+    elif args.dataset == 'cifar10':
         if args.img_size != 32 or args.class_num != 10:
             raise ValueError('CIFAR-10 requires --img_size 32 --class_num 10')
         dataset_train = datasets.CIFAR10(args.data_path, train=True, transform=transform_train,
@@ -212,6 +224,8 @@ def main(args):
         checkpoint = torch.load(checkpoint_path, map_location='cpu', weights_only=False)
         if getattr(checkpoint.get('args'), 'ffn', 'swiglu') != args.ffn:
             raise ValueError('Resume with the FFN used to create this checkpoint')
+        if args.ffn == 'isru_d' and getattr(checkpoint['args'], 'ode_order', None) != args.ode_order:
+            raise ValueError('Resume with the original ISRU-D Taylor order')
         model_without_ddp.load_state_dict(checkpoint['model'])
 
         ema_state_dict1 = checkpoint['model_ema1']
@@ -224,6 +238,13 @@ def main(args):
             optimizer.load_state_dict(checkpoint['optimizer'])
             args.start_epoch = checkpoint['epoch'] + 1
             print("Loaded optimizer & scaler state!")
+        if 'rng_state' in checkpoint:
+            if args.distributed:
+                raise ValueError('This RNG checkpoint records a single-GPU run')
+            torch.set_rng_state(checkpoint['rng_state']['torch'])
+            np.random.set_state(checkpoint['rng_state']['numpy'])
+            if device.type == 'cuda' and checkpoint['rng_state']['cuda']:
+                torch.cuda.set_rng_state_all(checkpoint['rng_state']['cuda'])
         del checkpoint
     else:
         model_without_ddp.ema_params1 = copy.deepcopy(list(model_without_ddp.parameters()))
@@ -242,10 +263,18 @@ def main(args):
     # Training loop
     print(f"Start training for {args.epochs} epochs")
     start_time = time.time()
+    last_epoch_seconds = 0.0
+    completed_epochs = args.start_epoch
     for epoch in range(args.start_epoch, args.epochs):
+        if args.max_train_seconds:
+            remaining = args.max_train_seconds - (time.monotonic() - allocation_started)
+            if remaining <= max(120.0, last_epoch_seconds + 120.0):
+                print('Runtime budget reached; retaining the last completed epoch checkpoint', flush=True)
+                break
+        epoch_started = time.monotonic()
         data_loader_train.sampler.set_epoch(epoch)
 
-        train_one_epoch(model, model_without_ddp, data_loader_train, optimizer, device, epoch, log_writer=log_writer, args=args)
+        stats = train_one_epoch(model, model_without_ddp, data_loader_train, optimizer, device, epoch, log_writer=log_writer, args=args)
 
         # Save checkpoint periodically
         if epoch % args.save_last_freq == 0 or epoch + 1 == args.epochs:
@@ -276,10 +305,22 @@ def main(args):
 
         if misc.is_main_process() and log_writer is not None:
             log_writer.flush()
+        completed_epochs = epoch + 1
+        last_epoch_seconds = time.monotonic() - epoch_started
+        if misc.is_main_process():
+            record = dict(epoch=completed_epochs, target_epochs=args.epochs,
+                          epoch_seconds=last_epoch_seconds, ffn=args.ffn,
+                          images_per_second=len(data_loader_train) * args.batch_size / last_epoch_seconds,
+                          **stats)
+            with open(os.path.join(args.output_dir, 'epochs.jsonl'), 'a') as stream:
+                stream.write(json.dumps(record) + '\n')
+            misc.write_progress(args, status='running', completed_epochs=completed_epochs, **record)
 
     total_time = time.time() - start_time
     total_time_str = str(datetime.timedelta(seconds=int(total_time)))
     print('Training time:', total_time_str)
+    misc.write_progress(args, status='complete' if completed_epochs == args.epochs else 'paused',
+                        completed_epochs=completed_epochs, target_epochs=args.epochs)
 
 
 if __name__ == '__main__':

@@ -9,7 +9,8 @@ launched by this setup.
 | Purpose | Path on torch |
 |---|---|
 | Active development checkout | `/scratch/zz5070/ODE_FFN/ODE-FFN` |
-| New CUDA environment | `/scratch/zz5070/ODE_FFN/envs/jit-celeba` |
+| Initial CUDA12.4 environment, preserved | `/scratch/zz5070/ODE_FFN/envs/jit-celeba` |
+| CUDA12.8 environment for all GPU types | `/scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128` |
 | Original aligned CelebA | `/scratch/zz5070/ODE_FFN/datasets/celeba` |
 | Images | `/scratch/zz5070/ODE_FFN/datasets/celeba/img_align_celeba` |
 | Setup logs and local receipts | `/scratch/zz5070/ODE_FFN/operations/torch-celeba-20261111` |
@@ -32,7 +33,9 @@ author's CUDA stack. Verified versions are Python 3.10.22, PyTorch 2.5.1+cu124,
 torchvision 0.20.1+cu124, NumPy 1.22.4, SciPy 1.9.1 and timm 0.9.12. The
 author's torch-fidelity fork is retained; nvitop 1.6.2 is installed.
 
-Activate from the checkout with:
+The subsequent [K8 training deployment](../../celeba-k8-20261111/validation.md)
+adds a CUDA12.8 environment for Blackwell as well as older cards. The current
+activation script selects that environment. Activate from the checkout with:
 
 ```bash
 cd /scratch/zz5070/ODE_FFN/ODE-FFN
@@ -47,17 +50,14 @@ NumPy/Torch conversion, PIL/torchvision conversion and the training CLI pass.
 The pinned upstream compatibility fixture passes the state/RNG, gradients,
 optimizer/EMA, sampler and checkpoint checks on CPU.
 
-The CUDA runtime check is queued as Slurm job `22652701` with a three-minute
-time limit. It tests matrix and convolution forward/backward operations and
-exits; no formal training is submitted. Slurm requires an explicit project
-account. This probe uses `torch_pr_637_tandon_advanced` and the scheduler-accepted
-H100/A100/H200 Tandon and H200/L40S public partitions. The login node itself has
-no allocated GPU.
+The initial CUDA runtime check `22652701` completed0:0 on H200, passing matrix
+and convolution forward/backward. The newer CUDA12.8/K8 checks are recorded
+separately with the training deployment. The login node has no allocated GPU.
 
 `nvitop` is available after activation. Login nodes do not expose allocated
 GPUs; inspect it inside a Slurm GPU allocation. The CUDA 12.4 profile follows
-the author's H200 stack; do not silently schedule it on Blackwell B200 before
-establishing a compatible software profile.
+the author's H200 stack. The separate CUDA12.8 profile provides Blackwell
+support; its kernel validation is part of the new deployment.
 
 ## Dataset
 
@@ -97,12 +97,12 @@ python scripts/prepare_celeba.py --root /scratch/zz5070/ODE_FFN/datasets --verif
 
 The CUDA result will be written to
 `operations/torch-celeba-20261111/cuda-smoke.json` when the queued probe runs.
-Its pending status in this snapshot is separate from the completed software
-and dataset checks.
+Its pending status in the original snapshot predates the completed H200
+probe; the snapshot preserves the original preparation-time evidence.
 
 ## Current model scope
 
-The selected candidate remains ISRU-D K8. The active image trainer currently
-supports native SwiGLU and ordinary Free ISRU. Next, add K8 in `ffn.py` and a
-CelebA adapter to the author-derived entry point, then specify the training
-resolution, crop and baseline evaluation before launching training.
+The selected candidate remains ISRU-D K8. The active image trainer now
+supports native SwiGLU, ordinary Free ISRU and ISRU-D K8, plus the official
+CelebA adapter. See the [training protocol](../../celeba-k8-20261111/protocol.md)
+for the registered comparison and bounded priority allocations.
