@@ -113,6 +113,7 @@ def entrypoint_resume(data_root: str) -> str:
             same(a['rng_state']['torch'], b['rng_state']['torch'])
             assert a['epoch'] == b['epoch'] == 1
             assert json.loads((resumed / 'progress.json').read_text())['status'] == 'complete'
+            assert len(list((resumed / 'operators').glob('epoch-*.pth'))) == 3
     finally:
         entry.celeba_train = original_loader
         del model_jit.JiT_models[name]
@@ -165,7 +166,8 @@ def main() -> None:
                 model.ema_params1 = copy.deepcopy(list(model.parameters()))
                 model.ema_params2 = copy.deepcopy(list(model.parameters()))
                 optimizer = torch.optim.AdamW(misc.add_weight_decay(model, 0), lr=1e-4, betas=(.9, .95))
-                images = torch.stack([dataset[i][0] for i in range(args.batch_size)]).cuda().float() / 127.5 - 1
+                images = torch.stack([dataset[i][0] for i in range(args.batch_size)]).cuda().float().div_(255)
+                images = images * 2.0 - 1.0
                 labels = torch.zeros(args.batch_size, device='cuda', dtype=torch.long)
                 torch.cuda.reset_peak_memory_stats()
                 torch.cuda.synchronize()

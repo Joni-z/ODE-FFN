@@ -36,8 +36,14 @@ account torch_pr_637_tandon_priority; let the scheduler assign partitions.
 CUDA 12.8 / PyTorch 2.7.1 supports Blackwell as well as the older card types.
 Preserve the earlier CUDA12.4 environment separately.
 
-Save the complete model, optimizer, both EMAs and RNG at each completed epoch,
-including every learned P. Record epoch loss/time, progress and 30-second GPU
+Save the complete model, optimizer, both EMAs and RNG at each completed epoch.
+Retain separate P-only snapshots at initialization and every completed epoch
+in `operators/`; overwriting checkpoint-last must not erase P trajectories.
+At job start, extract the verified archive into a job-owned node-local `/tmp`
+directory and copy the five metadata files, retaining the canonical data on
+scratch. This keeps small-file I/O off the network training path. Remove only
+that temporary cache at job exit.
+Record epoch loss/time, progress and 30-second GPU
 telemetry. Stop on nonfinite loss; investigate a failure before relaunching.
 
 ## Evaluation

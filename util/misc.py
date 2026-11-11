@@ -219,6 +219,23 @@ def write_progress(args, **record):
     temporary.replace(path)
 
 
+def save_operators(args, model, completed_epochs):
+    if not is_main_process() or getattr(args, 'ffn', 'swiglu') != 'isru_d':
+        return
+    folder = Path(args.output_dir) / 'operators'
+    folder.mkdir(parents=True, exist_ok=True)
+    path = folder / f'epoch-{completed_epochs:04d}.pth'
+    if path.exists():
+        return
+    matrices = {name: value.detach().cpu() for name, value in model.named_parameters()
+                if '.mlp.ode' in name and name.endswith('.proj.weight')}
+    assert len(matrices) == 2 * len(model.net.blocks)
+    temporary = path.with_suffix('.pth.tmp')
+    torch.save(dict(completed_epochs=completed_epochs, ode_order=args.ode_order,
+                    operators=matrices), temporary)
+    temporary.replace(path)
+
+
 def init_distributed_mode(args):
     if args.dist_on_itp:
         args.rank = int(os.environ['OMPI_COMM_WORLD_RANK'])

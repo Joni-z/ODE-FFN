@@ -26,7 +26,7 @@ search or extra loss enters active training.
 | `util/model_util.py` | Nonpersistent buffers move original RoPE values with .to(device), retaining official checkpoint keys. |
 | `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard, CLI help, a picklable crop for Windows workers and epoch-wise sampler shuffle in single-process mode, optional sample retention, and evaluation after completed epoch multiples (avoiding first-epoch warmup evaluation). |
 | `engine_jit.py` | Gate CUDA AMP/synchronization, place labels on model device, guard barriers; pass standard CIFAR train reference to upstream FID. Non-CUDA FID uses CPU Inception. Optional sample retention adds epoch-specific folders. CIFAR metric batches are capped by generation batch size for limited VRAM. |
-| `util/misc.py` | Add a barrier helper, atomic checkpoint writes, optional single-GPU RNG state and progress JSON. |
+| `util/misc.py` | Add a barrier helper, atomic checkpoint writes, optional single-GPU RNG state, P-history snapshots and progress JSON. |
 | `util/datasets.py` | Official torchvision CelebA training split with a constant discarded label; image-only wrapper for the standard FID library. |
 
 The CelebA extension adds CLI/order and loader flags, a single-GPU runtime

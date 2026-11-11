@@ -262,6 +262,7 @@ def main(args):
 
     # Training loop
     print(f"Start training for {args.epochs} epochs")
+    misc.save_operators(args, model_without_ddp, args.start_epoch)
     start_time = time.time()
     last_epoch_seconds = 0.0
     completed_epochs = args.start_epoch
@@ -293,6 +294,8 @@ def main(args):
                 optimizer=optimizer,
                 epoch=epoch
             )
+
+        misc.save_operators(args, model_without_ddp, epoch + 1)
 
         # Perform online evaluation at specified intervals
         if args.online_eval and ((epoch + 1) % args.eval_freq == 0 or epoch + 1 == args.epochs):

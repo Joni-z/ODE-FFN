@@ -37,7 +37,7 @@ and SwiGLU jobs are submitted with `afterok:<readiness job id>` and
 `--kill-on-invalid-dep=yes`. A queued readiness job has not passed its CUDA
 check. Successful submission is not evidence that training has started.
 
-Each training output contains `progress.json`, `epochs.jsonl`, a full atomic
+Each training output contains P-only snapshots in `operators/`, `progress.json`, `epochs.jsonl`, a full atomic
 `checkpoint-last.pth`, TensorBoard events and `gpu-<jobid>.csv`. `paused`
 means the bounded allocation ended at an epoch boundary; `complete` means
 all200epochs finished. A wall-time kill without a clean progress update is

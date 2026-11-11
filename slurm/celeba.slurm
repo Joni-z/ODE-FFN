@@ -15,6 +15,8 @@ cd "${ODE_FFN_CODE:-/scratch/zz5070/ODE_FFN/ODE-FFN}"
 source scripts/activate_torch.sh
 export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
 export TORCHINDUCTOR_COMPILE_THREADS=2 PYTHONUNBUFFERED=1
+# This is one Python process, not a torchrun/srun DDP launch.
+unset RANK WORLD_SIZE LOCAL_RANK SLURM_PROCID
 
 FFN=${1:-isru_d}
 case "$FFN" in isru_d|swiglu) ;; *) exit 2 ;; esac
@@ -34,7 +36,20 @@ git diff --cached --quiet
 python -m pip freeze --all > "$OUT/packages-${SLURM_JOB_ID}.txt"+nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total,power.draw \
     --format=csv -i "${SLURM_JOB_GPUS:-0}" -l 30 > "$OUT/gpu-${SLURM_JOB_ID}.csv" &
 MONITOR_PID=$!
-trap 'kill "$MONITOR_PID" 2>/dev/null || true' EXIT
+LOCAL_DATA=$(mktemp -d "/tmp/ode-celeba-${SLURM_JOB_ID}.XXXXXX")
+cleanup() {
+    kill "$MONITOR_PID" 2>/dev/null || true
+    if [[ "$LOCAL_DATA" == /tmp/ode-celeba-${SLURM_JOB_ID}.* ]]; then
+        rm -rf -- "$LOCAL_DATA"
+    fi
+}
+trap cleanup EXIT
+
+# Read one archive from scratch; keep per-image reads on the compute node.
+DATA_SOURCE=/scratch/zz5070/ODE_FFN/datasets/celeba
+mkdir -p "$LOCAL_DATA/celeba"
+cp "$DATA_SOURCE"/{list_attr_celeba.txt,identity_CelebA.txt,list_bbox_celeba.txt,list_landmarks_align_celeba.txt,list_eval_partition.txt} "$LOCAL_DATA/celeba/"
+python -m zipfile -e "$DATA_SOURCE/img_align_celeba.zip" "$LOCAL_DATA/celeba"
 
 RESUME=()
 if [[ -f "$OUT/checkpoint-last.pth" ]]; then
@@ -42,7 +57,7 @@ if [[ -f "$OUT/checkpoint-last.pth" ]]; then
 fi
 
 python -u main_jit.py \
-    --dataset celeba --data_path /scratch/zz5070/ODE_FFN/datasets \
+    --dataset celeba --data_path "$LOCAL_DATA" \
     --model JiT-B/4 --img_size 64 --class_num 1 \
     --ffn "$FFN" --ode_order 8 --seed 0 \
     --label_drop_prob 1 --cfg 0 --noise_scale 1 --P_mean -0.8 --P_std 0.8 \
