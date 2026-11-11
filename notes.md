@@ -11,11 +11,24 @@ constraints. A priority dry-run accepts a100|h100|h200|l40s|rtx6000|b200.
 Implement ISRU-D K8, the torchvision CelebA adapter, standard-library FID
 reference adapter, full atomic checkpoints/RNG and bounded epoch stops.
 CPU matrix-polynomial/input-P derivative/gradcheck and upstream compatibility
-pass in the preserved CUDA12.4 environment. A separate CUDA12.8/PyTorch2.7.1
-venv is installing for Blackwell support; new-environment and full-GPU
-validation remain pending. The initial H200 environment probe22652701 passed.
-Formal jobs will use a frozen source worktree and afterok GPU-readiness gate.
-No formal training has been submitted yet in this preparation step.
+pass in the preserved CUDA12.4 environment and again in the new isolated
+CUDA12.8/PyTorch2.7.1 venv. The actual main entrypoint also reproduces two
+epochs exactly across one epoch plus checkpoint resume, including optimizer,
+both EMAs, Torch RNG and P-history preservation. The independent documented
+command check passes. The initial H200 environment probe22652701 passed.
+
+Submitted readiness22659499, K8 training22659500 and native SwiGLU22659501.
+All use the priority account and full GPU constraint list; no manual
+partition. Actual scheduler routing permits A100/H100 Tandon and L40S/H200
+public resources. The two training jobs wait for readiness afterok, with
+kill-on-invalid-dep; all are pending at this snapshot. Source882c46c is frozen
+in /scratch/zz5070/ODE_FFN/runtimes/celeba-k8-20261111-882c46c.
+The queue monitor1923425 and per-job30-second GPU telemetry preserve progress.
+See docs/celeba-k8-20261111/ for launch, verification, protocol and output paths.
+
+Operational note: a CPU preflight receipt was initially written into a
+misspelled operations subfolder; it was moved to the canonical folder and the
+task-created empty directory removed. Scientific data were unchanged.
 
 # torch development and CelebA preparation, 11 November
 

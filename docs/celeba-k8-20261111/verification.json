@@ -1,0 +1,125 @@
+{
+  "source_commit": "882c46c94ddeb14bab7704e416f754138121e2fe",
+  "software": {
+    "status": "software_validated_cuda_pending",
+    "executable": "/scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128/bin/python",
+    "python": "3.10.22 | packaged by conda-forge | (main, Oct  6 2026, 23:02:24) [GCC 14.4.0]",
+    "versions": {
+      "torch": "2.7.1+cu128",
+      "torchvision": "0.22.1+cu128",
+      "numpy": "1.22.4",
+      "scipy": "1.9.1",
+      "timm": "0.9.12",
+      "torch-fidelity": "0.4.0b0",
+      "nvitop": "1.6.2"
+    },
+    "cuda_build": "12.8",
+    "compiled_arch_flags": "sm_75 sm_80 sm_86 sm_90 sm_100 sm_120 compute_120",
+    "spec_hash": "d8a61f4e",
+    "freeze_sha256": "af37b11845338e2f2158a568945a881306c36db51b15d00cb49d260a3255c681"
+  },
+  "cpu_check": {
+    "algebra": {
+      "K8_matrix_exponential_max_error": 8.829048603331557e-14,
+      "K1_and_K8_dense_polynomial": "PASS",
+      "input_and_P_derivatives": "PASS",
+      "gradcheck": "PASS"
+    },
+    "device": "cpu",
+    "formal_training": false,
+    "official_train_adapter": {
+      "status": "PASS",
+      "images": 162770,
+      "shape": [
+        3,
+        64,
+        64
+      ]
+    },
+    "entrypoint_epoch_resume": "PASS: actual entrypoint, checkpoint, optimizer, two EMAs and Torch RNG match bitwise",
+    "status": "PASS"
+  },
+  "upstream_compatibility": {
+    "status": "PASS",
+    "upstream": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+    "CPU_reference": "placement-only adaptations for the CUDA-only author code",
+    "native_state_and_RNG_bitwise": true,
+    "active_output_input_and_parameter_gradients_bitwise": true,
+    "official_epoch_Adam_and_two_EMAs_bitwise": true,
+    "official_Euler_and_Heun_bitwise": true,
+    "candidate_non_FFN_and_RNG_unchanged": true,
+    "candidate_gradcheck": true,
+    "official_checkpoint_roundtrip": true,
+    "MPS_forward_backward_optimizer": false,
+    "quality_or_FID_claim": false
+  },
+  "documented_invocation": {
+    "status": "PASS",
+    "exit_codes": {
+      "cpu_check": 0,
+      "smoke_scheduler_test_only": 0,
+      "training_scheduler_test_only": 0,
+      "ssh_validation_sequence": 0
+    },
+    "divergences": [],
+    "active_source_commit": "882c46c94ddeb14bab7704e416f754138121e2fe"
+  },
+  "gpu_readiness": {
+    "job_id": "22659499",
+    "status": "PENDING"
+  },
+  "scheduler": [
+    {
+      "JobId": "22659499",
+      "JobName": "celeba-k8-readiness",
+      "Account": "torch_pr_637_tandon_priority",
+      "QOS": "gpu48",
+      "JobState": "PENDING",
+      "Reason": "Priority",
+      "Dependency": "(null)",
+      "TimeLimit": "00:15:00",
+      "NumCPUs": "4",
+      "MinMemoryNode": "24G",
+      "Features": "a100|h100|h200|l40s|rtx6000|b200",
+      "Partition": "a100_tandon,h100_tandon,l40s_public,h200_public",
+      "Command": "/scratch/zz5070/ODE_FFN/runtimes/celeba-k8-20261111-882c46c/slurm/celeba_smoke.slurm",
+      "WorkDir": "/home/zz5070",
+      "StdOut": "/scratch/zz5070/ODE_FFN/operations/celeba-k8-20261111/cuda-22659499.out"
+    },
+    {
+      "JobId": "22659500",
+      "JobName": "celeba-isrud-k8-s0",
+      "Account": "torch_pr_637_tandon_priority",
+      "QOS": "gpu48",
+      "JobState": "PENDING",
+      "Reason": "Dependency",
+      "Dependency": "afterok:22659499(unfulfilled)",
+      "TimeLimit": "02:00:00",
+      "NumCPUs": "4",
+      "MinMemoryNode": "24G",
+      "Features": "a100|h100|h200|l40s|rtx6000|b200",
+      "Partition": "a100_tandon,h100_tandon,l40s_public,h200_public",
+      "Command": "/scratch/zz5070/ODE_FFN/runtimes/celeba-k8-20261111-882c46c/slurm/celeba.slurm",
+      "WorkDir": "/home/zz5070",
+      "StdOut": "/scratch/zz5070/ODE_FFN/runs/celeba/slurm/celeba-isrud-k8-s0-22659500.out"
+    },
+    {
+      "JobId": "22659501",
+      "JobName": "celeba-swiglu-s0",
+      "Account": "torch_pr_637_tandon_priority",
+      "QOS": "gpu48",
+      "JobState": "PENDING",
+      "Reason": "Dependency",
+      "Dependency": "afterok:22659499(unfulfilled)",
+      "TimeLimit": "02:00:00",
+      "NumCPUs": "4",
+      "MinMemoryNode": "24G",
+      "Features": "a100|h100|h200|l40s|rtx6000|b200",
+      "Partition": "a100_tandon,h100_tandon,l40s_public,h200_public",
+      "Command": "/scratch/zz5070/ODE_FFN/runtimes/celeba-k8-20261111-882c46c/slurm/celeba.slurm",
+      "WorkDir": "/home/zz5070",
+      "StdOut": "/scratch/zz5070/ODE_FFN/runs/celeba/slurm/celeba-swiglu-s0-22659501.out"
+    }
+  ],
+  "monitor_pid": 1923425
+}

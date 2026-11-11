@@ -1,7 +1,10 @@
 # Selected image-transfer candidate: ISRU-D K8
 
-Status: explicitly selected by the user, 11 November 2026. Implementation and
-training are pending; no new run is dispatched by this selection.
+Status: explicitly selected by the user, 11 November 2026. The subsequent
+[CelebA deployment](../celeba-k8-20261111/README.md) implements this operator
+and queues the K8/native-SwiGLU comparison on torch. The original ImageNet
+proposal below predates the later choice of a smaller dataset; use the
+CelebA protocol for the active resolution, budget, machine and run state.
 
 The user selects **eighth-order ISRU-D** as the current main candidate. This
 supersedes the earlier K1 recommendation and the subsequent open-order status.
@@ -62,9 +65,9 @@ The inherited parameterization comes from the
 which replaces the input diagonal in two K1 maps around SiLU. Its inherited
 [forward](../../studies/muon_pd_20261102/reference/synthetic/models.py)
 applies the diagonal before P. The selected K8 extends that polynomial order;
-it has not yet been implemented in the active image hook. Check K1 reduction
-against the archive, K8 against an independent polynomial, and its measured
-error against matrix exponentiation on small fixtures before training.
+it is now implemented in the active image hook. K1/K8 reductions, an independent
+dense polynomial, derivatives and matrix exponentiation pass the documented
+small-fixture checks before queued GPU validation.
 Preserve historical RNG records;
 matching the initializer distribution does not reproduce old RNG positions.
 
@@ -153,10 +156,9 @@ selection with a concrete implementation target, not an executed experiment.
 
 ## Current code identity
 
-The active [ffn.py](../../ffn.py) implements **FreeISRU**, and `--ffn isru`
-selects that ordinary independent-matrix function. It is not ISRU-D. Add a
-distinct `isru_d` option when implementing this recommendation; do not rename
-the old option or imply its old checkpoints test the selected architecture.
+The active [ffn.py](../../ffn.py) implements **FreeISRU**, selected by
+`--ffn isru`, and the new **ISRU-D K8**, selected by `--ffn isru_d --ode_order 8`.
+The old option and checkpoints retain their original identity.
 The migration should stay confined to the replaceable FFN and its CLI hook,
 with no historical synthetic trainer imported into image training.
 
@@ -166,8 +168,8 @@ finalized Report2.
 
 ## Verification of this recommendation
 
-The archived diagonal-before-projection operator and active image-hook identity
-were checked in the preceding source review; no code changed afterward. The
-K8 matrix-count arithmetic and local evidence links pass, and all eleven
-protected Report2 hashes still match. This is a documentation decision; no
-active FFN implementation, checkpoint or training result has been changed.
+The original recommendation was a documentation decision. The subsequent
+implementation passes independent dense-polynomial/gradient/exponential,
+real-entry resume and upstream compatibility checks in the new CUDA12.8
+environment. Full GPU readiness is queued before dependent training. All
+eleven protected Report2 hashes still match; no image result is recorded yet.

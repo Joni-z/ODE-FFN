@@ -10,8 +10,24 @@ epoch checkpoints and GPU monitoring. Do not modify finalized reports.
 - [x] Read the selected operator, active code, live quota/accounts and official scheduler rules.
 - [x] Register the CelebA protocol and an all-GPU-compatible environment spec.
 - [x] Implement K8, the minimal CelebA adapter, bounded runtime and monitoring.
-- [ ] Verify polynomial/gradient identity, upstream compatibility and documented invocation.
-- [ ] Push code, synchronize torch, submit priority jobs and record their actual state.
+- [x] Verify polynomial/gradient identity, upstream compatibility and documented invocation.
+- [x] Push code, synchronize torch, submit priority jobs and record their actual state.
+
+Submitted: CUDA readiness22659499, candidate22659500, native SwiGLU22659501.
+Both training jobs depend on successful readiness and have kill-on-invalid-
+dependency enabled. All three are currently pending; readiness is waiting
+on Priority. Code is frozen at882c46c in a detached scratch runtime. The
+new CUDA12.8 environment, CPU mathematical/real-entry resume/upstream checks
+and independent documented invocation pass. GPU kernel execution remains
+pending; the dependency enforces it before training.
+
+The lightweight queue monitor1923425 updates operations/celeba-k8-20261111/
+monitor.json every60seconds. Each job logs GPU telemetry every30seconds;
+P-only snapshots preserve every completed epoch separately from checkpoint-
+last. Finalized reports remain unchanged.
+
+Follow-up: collect the queued GPU readiness result and first training
+loss/throughput/memory records; do not describe pending jobs as running.
 
 Scheduler discovery: use an untyped `--gres=gpu:1`, all six GPU feature names
 joined by `|`, and **omit --partition**. The cluster assigns permitted

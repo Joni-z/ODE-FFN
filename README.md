@@ -11,7 +11,7 @@ Default `--ffn swiglu` keeps the author's SwiGLU unchanged. The existing
 is **ISRU-D K8**, explicitly selected by the user on 11 November. It holds
 each layer's entrance diagonal fixed across eight Taylor terms. Select it with
 `--ffn isru_d --ode_order 8`. The [CelebA transfer protocol](docs/celeba-k8-20261111/protocol.md)
-uses the author's full JiT-B body, a patch-size-4 adapter, unconditional64x64
+uses the author's full JiT-B body, a patch-size-4 adapter, unconditional 64x64
 training and a native SwiGLU control. The [order-evidence clarification](docs/research-assessments/2026-11-11-taylor-order.md)
 separates the earlier scalar K4/K8 results from this new diagonal construction.
 At fixed model width, K8 retains two square matrices but uses sixteen matrix
@@ -84,7 +84,7 @@ docs/            # historical evidence; not imported by active code
 For the original CUDA stack use [environment.yaml](environment.yaml).
 The reference pip profile [requirements-cuda.txt](requirements-cuda.txt) uses
 Python 3.10 and the same PyTorch 2.5.1 / CUDA 12.4 versions. The new
-[CUDA12.8 profile](requirements-cuda128.txt) uses PyTorch2.7.1 to include
+[CUDA12.8 profile](requirements-cuda128.txt) uses PyTorch 2.7.1 to include
 Blackwell GPU support. New development
 uses torch under scratch; see the [CelebA setup record](docs/deployments/torch-celeba-20261111/README.md)
 for paths, environment activation and verification.
@@ -108,7 +108,7 @@ For a single Mac process pass `--device mps --num_workers 0 --no_pin_mem`.
 CUDA distributed execution retains the upstream path.
 For the authorized CelebA run, use the [documented checks](docs/celeba-k8-20261111/validation.md)
 and [priority Slurm script](slurm/celeba.slurm). The two-hour jobs save
-resumable checkpoints; the registered target is200epochs.
+resumable checkpoints; the registered target is 200 epochs.
 The native Windows RTX 4060 deployment is documented in
 [the Lenovo run notes](docs/lenovo-baseline/README.md).
 ImageNet online FID additionally needs the authors' reference files in
