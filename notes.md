@@ -1,3 +1,15 @@
+# torch development and CelebA preparation, 11 November
+
+The user moves new development to torch and authorizes preparing CelebA and
+the environment in scratch. This supersedes the prior machine restriction
+for new work. SSH succeeds; myquota reports 5 TB allocated, about 1.45 TB used.
+The clean historical jit-codebase at 2d2259a is preserved. New active checkout:
+/scratch/zz5070/ODE_FFN/ODE-FFN; environment: envs/jit-celeba; dataset:
+datasets/celeba, all below the same project root. Bootstrap and clone are
+running with logs in operations/torch-celeba-20261111. Use the author's CUDA
+versions and torchvision's original CelebA IDs/checksums; no training launch.
+Canonical status: [setup record](docs/deployments/torch-celeba-20261111/README.md).
+
 # Mathematical cost of changing P spectra, 11 November
 
 The [spectral-constraint explanation](docs/research-assessments/2026-11-11-spectral-constraints.md)

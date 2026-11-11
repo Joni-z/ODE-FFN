@@ -1,4 +1,22 @@
-# Current task: explain the cost of shrinking/flattening P, 11 November 2026
+# Current task: prepare CelebA and development environment on torch, 11 November 2026
+
+The user explicitly moves development to torch and authorizes downloading
+CelebA plus configuring the environment under scratch. This supersedes the
+earlier machine restriction for new work. Inspect existing checkouts, data,
+environments and quota first; preserve prior runs and dirty worktrees. Prepare
+a canonical GitHub-synced checkout, a scratch-local pinned environment and
+verified original aligned CelebA with official split metadata. No formal
+training is launched by this setup task.
+
+- [x] Verify SSH to torch and the scratch project root.
+- [x] Inventory existing source/data/environments and available user storage.
+- [ ] Prepare the canonical checkout and scratch environment.
+- [ ] Download and verify CelebA archive, extracted images and split metadata.
+- [ ] Run environment/data checks, record exact paths and publish setup notes.
+
+Canonical setup record: docs/deployments/torch-celeba-20261111/README.md.
+
+# Previous task: explain the cost of shrinking/flattening P, 11 November 2026
 
 Explain mathematically how scalar contraction and spectrum flattening change
 the learned feature function and its data-weighted error. Bind exact identities
