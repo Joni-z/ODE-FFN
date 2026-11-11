@@ -5,8 +5,10 @@ JiT with a replaceable FFN. Training code is copied from
 `cbc743a2ada5e9762697da2c83f8c4f8379e8c17`. The authors' MIT license is
 retained. [UPSTREAM.md](UPSTREAM.md) describes every local change.
 
-Default `--ffn swiglu` keeps the author's SwiGLU unchanged. Our candidate
-is `--ffn isru`; its implementation and hook are in [ffn.py](ffn.py).
+Default `--ffn swiglu` keeps the author's SwiGLU unchanged. The existing
+`--ffn isru` selects ordinary Free ISRU in [ffn.py](ffn.py). The current
+[image-transfer recommendation](docs/research-assessments/2026-11-11-image-candidate.md)
+is the distinct ISRU-D K1 architecture, which is not yet wired into the image CLI.
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 
@@ -26,7 +28,8 @@ finds a shared Ring8 tradeoff from 15k to 20k: field fitting and centered-residu
 SW2 improve, while mode-sector frequencies drift farther from equal weights.
 The [derivation](docs/autoresearch/professor-20261103/mode-mass-derivation.md)
 connects sector-mass change to boundary-normal field error and P q(h) updates.
-Calibrating that response is the next question before choosing another layer.
+That response remains uncalibrated. The current recommendation is to test the
+existing ISRU-D on images while retaining this separate mechanism question.
 
 The preceding [bounded-odd input-diagonal study](docs/autoresearch/professor-20261103/cycle13-results/analysis-report.md)
 finds an AdamW Ring8 lead over SwiGLU, but only2.25%field separation from
@@ -134,12 +137,13 @@ A brief MPS update runs when available. This does not establish image quality.
 
 ## Previous work
 
-The [revised Report2](reports/report2/README.md) follows the original ODEFFN
+The [finalized Report2](reports/report2/README.md) follows the original ODEFFN
 line, with a [complete attempt ledger](reports/report2/attempts.md). It covers
 local clock/P/order studies, full-gradient readouts, conditional directions,
 nonlinear flow, Muon/spectral geometry and the latest diagonal-feature studies
 with their ordinary controls.
-The PDF is three pages including figures/tables, updated3November2026. The synthetic gains remain task-specific;
+The PDF is three pages including figures/tables, dated 4 November 2026 and
+finalized by the user on 9 November. The synthetic gains remain task-specific;
 a general advantage of the original Taylor coupling is unproven.
 
 The [synthetic evidence audit](docs/synthetic-audit-2026-11-01/EXPERIMENT_AUDIT.md)
@@ -150,6 +154,6 @@ Further training is awaiting a concrete experimental decision.
 Complete earlier code is preserved on
 [research-archive-20261101](https://github.com/Joni-z/ODE-FFN/tree/research-archive-20261101).
 The original local checkout and frozen experiment artifacts are retained.
-Report1 is final and unchanged; [Report2](reports/report2/README.md) remains an
-interim draft. Old CIFAR scores above 200 cannot substantiate architecture
+Report1 and [Report2](reports/report2/README.md) are final and unchanged.
+Old CIFAR scores above 200 cannot substantiate architecture
 claims. Use the archive to reproduce those historical studies.

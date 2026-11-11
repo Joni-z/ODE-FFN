@@ -1,4 +1,19 @@
-# Current task: assess the novelty evidence, 11 November 2026
+# Current task: select a concrete image-transfer candidate, 11 November 2026
+
+The user wants an architecture to take to a larger image dataset, without
+waiting for complete mechanism attribution. Recommend the existing ISRU-D K1
+operator, distinguish it from the image CLI's Free ISRU, and specify a minimal
+transfer comparison. This turn selects and documents the candidate; it does
+not dispatch training or choose an unmeasured GPU budget.
+
+- [x] Check the synthetic operator, image FFN hook and current conventions.
+- [x] Write the exact candidate, hypothesis, capacity comparison and transfer prerequisites.
+- [x] Check source bindings, protected report hashes and prepare the recommendation for publication.
+
+Canonical decision: docs/research-assessments/2026-11-11-image-candidate.md.
+Preserve finalized reports and historical results. Earlier entries are historical.
+
+# Previous task: assess the novelty evidence, 11 November 2026
 
 The user asks what substantive novelty has been established. Review current
 experiments and targeted primary literature, then distinguish measured gains,

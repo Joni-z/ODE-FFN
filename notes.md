@@ -1,3 +1,15 @@
+# Image-transfer candidate selection, 11 November
+
+Recommend the existing ISRU-D K1 two-map FFN for the user's requested image
+transfer. Its synthetic implementation is cycle13/trial13.py; the active
+image flag --ffn isru currently selects FreeISRU in ffn.py, not ISRU-D.
+Keep these identities explicit. At image model width d, two bias-free square
+matrices use 2d^2 weights, versus approximately 8d^2 in native ratio-4 SwiGLU;
+the synthetic near-budget comparison does not carry over automatically.
+Record the exact operator and minimal controls in
+[the image-candidate note](docs/research-assessments/2026-11-11-image-candidate.md).
+No runtime, training or finalized report is changed by this recommendation.
+
 # Novelty assessment, 11 November
 
 Current evidence supports a Ring8 fitting gain and a measured shape/mass
