@@ -1,0 +1,43 @@
+{
+  "status": "GPU_monitor_failure_under_diagnosis_training_not_started",
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "environment_spec_hash": "d8a61f4e",
+  "cpu_documented_invocation": "PASS",
+  "upstream_compatibility": "PASS",
+  "isolated_launcher_cases": 11,
+  "frozen_source_bindings": "PASS",
+  "two_afterok_gated_training_jobs": "PASS",
+  "resume_enabled": true,
+  "monitor": {
+    "pid": 2072444,
+    "interval_seconds": 60,
+    "remote_output": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/monitor.json",
+    "process_observed": true
+  },
+  "GPU_readiness_passed": false,
+  "formal_training_started": false,
+  "protected_report2_files_checked": 11,
+  "changed_files": [
+    "main_jit.py",
+    "scripts/check_celeba.py",
+    "slurm/celeba.slurm",
+    "slurm/celeba_smoke.slurm",
+    "UPSTREAM.json",
+    "UPSTREAM.md",
+    "UPSTREAM.patch",
+    "README.md",
+    "notes.md",
+    "task_plan.md",
+    "docs/celeba128-20261112/"
+  ],
+  "unchanged": [
+    "ffn.py",
+    "denoiser.py",
+    "model_jit.py",
+    "engine_jit.py",
+    "author objective/EMA/sampler equations",
+    "reports/report1/",
+    "reports/report2/",
+    "old64px source/checkpoints/raw runs"
+  ]
+}

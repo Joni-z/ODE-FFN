@@ -1,0 +1,120 @@
+{
+  "status": "GPU_monitor_failure_under_diagnosis_training_not_started",
+  "date": "2026-11-12",
+  "purpose": "Author-derived small-data transfer before a fresh FFN comparison",
+  "execution_ready": true,
+  "upstream": {
+    "repository": "https://github.com/LTH14/JiT",
+    "revision": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17"
+  },
+  "dataset": {
+    "name": "original_aligned_celeba",
+    "root": "/scratch/zz5070/ODE_FFN/datasets",
+    "split": "train",
+    "image_count": 162770,
+    "image_size": 128,
+    "crop": "author_center_crop_arr",
+    "random_horizontal_flip": true
+  },
+  "model": {
+    "name": "JiT-B/16",
+    "depth": 12,
+    "hidden_size": 768,
+    "heads": 12,
+    "patch_size": 16,
+    "bottleneck_dim": 128,
+    "image_tokens": 64,
+    "context_tokens": 32,
+    "context_start_block": 4,
+    "class_num": 1,
+    "label_drop_prob": 1,
+    "cfg": 0,
+    "arms": [
+      {
+        "ffn": "swiglu"
+      },
+      {
+        "ffn": "isru_d",
+        "ode_order": 8
+      }
+    ]
+  },
+  "training": {
+    "seed": 0,
+    "world_size": 1,
+    "gradient_accumulation": 1,
+    "base_learning_rate": 5e-05,
+    "learning_rate_rule": "base_learning_rate * global_batch_size / 256",
+    "optimizer": "AdamW",
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0,
+    "warmup_epochs": 5,
+    "lr_schedule": "constant",
+    "ema_decay_per_update": [
+      0.9999,
+      0.9996
+    ],
+    "P_mean": -0.8,
+    "P_std": 0.8,
+    "noise_scale_basis": "image_size / 256; extrapolated below the published resolutions",
+    "t_eps": 0.05,
+    "attn_dropout": 0,
+    "proj_dropout": 0,
+    "resume_old_64px_checkpoints": false,
+    "physical_batch_size": 256,
+    "global_batch_size": 256,
+    "actual_learning_rate": 5e-05,
+    "noise_scale": 0.5,
+    "target_epochs": 200,
+    "outputs": {
+      "swiglu": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-swiglu-s0",
+      "isru_d": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-isru_d-s0"
+    }
+  },
+  "evaluation": {
+    "sampler": "author Heun, 50 intervals with final Euler",
+    "formal_generated_image_count": 50000,
+    "reference": "deterministic 128px crops of official CelebA training split",
+    "ordinary_baseline_fid_gate": 50,
+    "ema_selection_must_be_recorded": true
+  },
+  "resources": {
+    "account": "torch_pr_637_tandon_priority",
+    "gres": "gpu:1",
+    "constraint": "a100|h100|h200|l40s|rtx6000|b200",
+    "explicit_partition": null,
+    "cpus": 4,
+    "host_memory_gib": 24,
+    "allocation_wall_time": "02:00:00",
+    "memory_and_throughput_profiled": false
+  },
+  "published_author_celeba_recipe": false,
+  "changes_from_old_recipe": [
+    "resolution",
+    "patch_size",
+    "batch_size",
+    "learning_rate",
+    "noise_scale"
+  ],
+  "interpretation": "A new transfer setting, not a causal ablation identifying which old recipe difference mattered",
+  "authorization": "User: continue running",
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+  "execution_gate": "afterok readiness22810354 plus a passing matching source/batch receipt inside the launcher",
+  "continuation": {
+    "enabled": true,
+    "max_requeues": 20,
+    "max_train_seconds_per_allocation": 6600,
+    "allow_fresh_start_once": true,
+    "checkpoint_each_completed_epoch": true,
+    "retain_operator_history": true
+  },
+  "job_ids": {
+    "full_model_gpu_readiness": "22810354",
+    "swiglu": "22810863",
+    "isru_d": "22810864"
+  }
+}

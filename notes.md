@@ -18,6 +18,19 @@ the11SHA256-verified author files rather than editing hunk counts by hand;
 the active loss, EMA, sampler, attention and FFN definitions remain unchanged.
 Torch login does not have rg; use awk for scheduler-output filtering.
 
+Readiness22810354 failed before model execution: nvidia-smi could not see
+a device ongh011, so the collector guard stopped after4seconds. Dependencies
+22810863/22810864 cancelled without training. Diagnostic22812110 requests
+one GPU, two CPUs,8GiB and3minutes to compare default/indexed NVML and CUDA
+visibility. Preserve attempt1; do not confuse this launcher failure with a
+batch-size or architecture failure.
+
+Diagnostic22812110 completed0:0 ongh009 in17seconds. CUDA and default NVML
+see the allocated GPU0, while SLURM_JOB_GPUS is global1 and selecting1 fails.
+Select GPU- plus the actual raw CUDA UUID in both active Slurm wrappers; keep
+model/training source65864ad immutable and submit the corrected wrappers from
+the active checkout. The isolated UUID-formatting/selection regression passes.
+
 Protocol and documented commands: docs/celeba128-20261112/.
 This authorization supersedes the previous hold; it does not resume old64px
 jobs or change finalized Report1/2.

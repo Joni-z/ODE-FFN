@@ -1,0 +1,80 @@
+{
+  "created_at_utc": "2026-11-12T06:59:14.660449+00:00",
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+  "environment_spec_hash": "d8a61f4e",
+  "account": "torch_pr_637_tandon_priority",
+  "gpu_constraint": "a100|h100|h200|l40s|rtx6000|b200",
+  "gpus_per_job": 1,
+  "cpus_per_job": 4,
+  "host_memory": "24G",
+  "training_walltime": "02:00:00",
+  "target_epochs": 200,
+  "batch_size": 256,
+  "actual_learning_rate": 5e-05,
+  "noise_scale": 0.5,
+  "seed": 0,
+  "jobs": [
+    {
+      "job_id": "22810354",
+      "kind": "full_model_gpu_readiness",
+      "walltime": "00:15:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba128-readiness",
+        "--output=/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-%j.out",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112,ODE_FFN_BATCH_SIZE=256",
+        "slurm/celeba_smoke.slurm",
+        "128"
+      ]
+    },
+    {
+      "job_id": "22810863",
+      "kind": "training",
+      "ffn": "swiglu",
+      "dependency": "afterok:22810354",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-swiglu-s0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba128-swiglu-s0",
+        "--dependency=afterok:22810354",
+        "--kill-on-invalid-dep=yes",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112,ODE_FFN_BATCH_SIZE=256,ODE_FFN_AUTO_RESUME=1,ODE_FFN_FRESH_START=1,ODE_FFN_MAX_REQUEUES=20",
+        "slurm/celeba.slurm",
+        "swiglu",
+        "celeba128"
+      ]
+    },
+    {
+      "job_id": "22810864",
+      "kind": "training",
+      "ffn": "isru_d",
+      "dependency": "afterok:22810354",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-isru_d-s0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba128-isru_d-s0",
+        "--dependency=afterok:22810354",
+        "--kill-on-invalid-dep=yes",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112,ODE_FFN_BATCH_SIZE=256,ODE_FFN_AUTO_RESUME=1,ODE_FFN_FRESH_START=1,ODE_FFN_MAX_REQUEUES=20",
+        "slurm/celeba.slurm",
+        "isru_d",
+        "celeba128"
+      ]
+    }
+  ],
+  "submission_status": "readiness_failed_before_training",
+  "updated_at_utc": "2026-11-12T07:02:16.726145+00:00",
+  "failure": {
+    "job_id": "22810354",
+    "elapsed_seconds": 4,
+    "node": "gh011",
+    "stage": "NVML collector before Python CUDA check",
+    "message": "No devices were found",
+    "dependent_training_jobs": "cancelled without allocation",
+    "model_or_batch_failure": false
+  }
+}

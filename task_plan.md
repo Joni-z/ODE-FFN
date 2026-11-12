@@ -7,8 +7,8 @@ AdamW and EMA equations. Preserve the old64px runs and finalized reports.
 
 - [x] Check live jobs, unchanged environment hash and available GPU resource types.
 - [x] Implement128px data/evaluation support, a shared launcher recipe and bounded continuation.
-- [ ] Verify CPU data/resume/upstream behavior and the documented invocation.
-- [ ] Freeze/sync code and submit a short full-model GPU profile/readiness job.
+- [x] Verify CPU data/resume/upstream behavior and the documented invocation.
+- [x] Freeze/sync code and submit a short full-model GPU profile/readiness job.
 - [ ] Fix one shared batch/LR from the profile, submit both training arms and monitor them.
 - [ ] Publish protocol, checks, actual job states and monitoring paths on GitHub.
 
@@ -22,6 +22,19 @@ d8a61f4e. The stored upstream patch had a malformed trailing hunk; it is
 regenerated from eleven SHA256-verified author files. Torch has no rg, so
 scheduler filtering uses awk. CPU128px/resume/upstream checks pass. Freeze source and collect a separate
 full-model GPU readiness receipt before claiming the proposed batch is ready.
+Source65864ad is frozen at runtimes/celeba128-20261112. Actual readiness
+job22810354 is submitted (15minutes, batch256); it was pending at the first
+query. A fresh documented CPU invocation passed with no divergences.
+
+Readiness22810354 then failed after4seconds ongh011 before Python dispatch:
+nvidia-smi printed "No devices were found" and the collector-start guard
+stopped the job. Dependent jobs22810863/22810864 were cancelled without
+training. Preserve those receipts and diagnose allocation visibility in a
+short job before changing the monitor or resubmitting. No model rescue or
+batch change is justified by this launcher/NVML failure. Diagnostic22812110
+passed ongh009: CUDA_VISIBLE_DEVICES=0, SLURM_JOB_GPUS=1, default NVML index0
+visible, global-index query fails, CUDA forward/backward passes. Correct the
+wrapper to select the allocated GPU UUID; preserve model source65864ad.
 
 # Previous task: audit the image recipe before resuming, 12 November 2026
 

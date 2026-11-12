@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "witness_type": "fresh-agent-follows-doc-cpu",
+  "timestamp_utc": "2026-11-12T07:01:26.813350+00:00",
+  "host": "torch",
+  "command_verbatim": "cd /scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112\nsource scripts/activate_torch.sh\npython scripts/check_celeba.py --device cpu --image-size 128 --output /scratch/zz5070/ODE_FFN/operations/celeba128-20261112/documented-cpu.json",
+  "exit_status": 0,
+  "sentinel": "CELEBA_K8_CPU_PASS",
+  "sentinel_observed_in_stdout": true,
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "receipt_path": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/documented-cpu.json",
+  "receipt_checks": {
+    "status_pass": true,
+    "device_cpu": true,
+    "image_size_128": true,
+    "formal_training_false": true,
+    "source_commit_matches_stdout": true,
+    "official_train_adapter_pass": true,
+    "official_train_images": true,
+    "official_train_shape": true,
+    "dense_polynomial_pass": true,
+    "derivatives_pass": true,
+    "gradcheck_pass": true,
+    "entrypoint_epoch_resume_pass": true
+  },
+  "doc_vs_reality_divergences": [],
+  "observations": [
+    "No undocumented setup or fixes were required.",
+    "CPU warning: pin_memory is ignored without an accelerator.",
+    "FutureWarning: torch.cuda.amp.autocast is deprecated.",
+    "The CPU receipt does not separately enumerate changed-noise-recipe rejection; its epoch-resume field reports the combined fixture PASS."
+  ],
+  "gpu_jobs_submitted": false,
+  "formal_training_started_or_restarted": false,
+  "code_or_docs_modified": false
+}

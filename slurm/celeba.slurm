@@ -86,8 +86,11 @@ fi
 git diff --quiet
 git diff --cached --quiet
 python -m pip freeze --all > "$OUT/packages-${ATTEMPT}.txt"
-nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total,power.draw \
-    --format=csv -i "${SLURM_JOB_GPUS:-0}" -l 30 > "$OUT/gpu-${ATTEMPT}.csv" \
+# Slurm global GPU ordinals need not match this job's visible device ordinals.
+GPU_UUID=$(python -c 'import torch; print("GPU-" + str(torch.cuda.get_device_properties(0).uuid))')
+echo "Monitoring CUDA device $GPU_UUID; Slurm global IDs ${SLURM_JOB_GPUS:-unset}"
+nvidia-smi --query-gpu=timestamp,index,uuid,name,utilization.gpu,memory.used,memory.total,power.draw \
+    --format=csv -i "$GPU_UUID" -l 30 > "$OUT/gpu-${ATTEMPT}.csv" \
     2> "$OUT/gpu-${ATTEMPT}.err" &
 MONITOR_PID=$!
 sleep 1

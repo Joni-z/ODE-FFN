@@ -26,8 +26,10 @@ elif [[ "$IMAGE_SIZE" == 64 ]]; then
 else
     exit 2
 fi
-nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total,power.draw \
-    --format=csv -i "${SLURM_JOB_GPUS:-0}" -l 5 > "${OUTPUT%.json}-${SLURM_JOB_ID}-gpu.csv" \
+GPU_UUID=$(python -c 'import torch; print("GPU-" + str(torch.cuda.get_device_properties(0).uuid))')
+echo "Monitoring CUDA device $GPU_UUID; Slurm global IDs ${SLURM_JOB_GPUS:-unset}"
+nvidia-smi --query-gpu=timestamp,index,uuid,name,utilization.gpu,memory.used,memory.total,power.draw \
+    --format=csv -i "$GPU_UUID" -l 5 > "${OUTPUT%.json}-${SLURM_JOB_ID}-gpu.csv" \
     2> "${OUTPUT%.json}-${SLURM_JOB_ID}-gpu.err" &
 MONITOR_PID=$!
 trap 'kill "$MONITOR_PID" 2>/dev/null || true' EXIT

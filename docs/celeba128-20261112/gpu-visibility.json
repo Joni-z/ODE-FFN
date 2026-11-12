@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "job_id": "22812110",
+  "node": "gh009",
+  "elapsed_seconds": 17,
+  "exit_code": "0:0",
+  "CUDA_VISIBLE_DEVICES": "0",
+  "SLURM_JOB_GPUS": "1",
+  "default_NVML_visible_index": 0,
+  "indexed_NVML_global_id_1": "No devices were found",
+  "cuda": {
+    "available": true,
+    "device_count": 1,
+    "device": "_CudaDeviceProperties(name='NVIDIA H100 80GB HBM3', major=9, minor=0, total_memory=81071MB, multi_processor_count=132, uuid=116bc9ea-9116-3e44-7edf-7b3695bb6a18, L2_cache_size=50MB)",
+    "uuid": "116bc9ea-9116-3e44-7edf-7b3695bb6a18",
+    "finite": true
+  },
+  "raw_log": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/diagnose-22812110.out",
+  "fix": "Select GPU- plus the raw UUID returned by torch.cuda.get_device_properties(0), rather than global Slurm ordinal",
+  "slurm_source": "https://slurm.schedmd.com/sbatch.html#OPT_SLURM_JOB_GPUS",
+  "pytorch_source": "https://github.com/pytorch/pytorch/blob/v2.7.1/torch/csrc/cuda/Module.cpp",
+  "raw_log_sha256": "14ed74d0b7e588b1eb65bd238ce39df417a7a57afc05008fe97388a2477b4e40"
+}
