@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "validation_kind": "fresh-agent-follows-doc; final single-allocation invocation",
+  "input_paths": {
+    "compute_contract": "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+    "validation_document": "/Users/mr.z/ODE-FFN-upstream/docs/celeba128-20261112/validation.md",
+    "provider_ledger": "/Users/mr.z/ODE-FFN-upstream/.aris/compute/torch.md"
+  },
+  "command": "sbatch --test-only --time=06:00:00 --no-requeue --export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112,ODE_FFN_BATCH_SIZE=256,ODE_FFN_EPOCHS=100,ODE_FFN_MAX_TRAIN_SECONDS=0,ODE_FFN_FRESH_START=1 /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm swiglu celeba128",
+  "execution": {
+    "host": "torch",
+    "transport": "ssh torch",
+    "command_executed_verbatim": true,
+    "command_matches_remote_document": true,
+    "exit_code": 0,
+    "output": "sbatch: Job 22822266 to start at 2026-11-16T05:11:30 a using 6 processors on nodes ga015 in partition a100_tandon\n",
+    "dry_run_only": true,
+    "actual_jobs_submitted": 0,
+    "model_tests_repeated": 0
+  },
+  "source_revisions": {
+    "active_checkout": {
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN",
+      "commit": "e40da5fa6c14f26badeba66540320b7cd5ac9ff6",
+      "expected_short_commit": "e40da5f",
+      "clean": true,
+      "status_porcelain": ""
+    },
+    "frozen_runtime": {
+      "path": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+      "commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+      "expected_short_commit": "65864ad",
+      "clean": true,
+      "status_porcelain": ""
+    }
+  },
+  "verified_fields": {
+    "cpus_per_task_6": true,
+    "workers_4": true,
+    "time_6h": true,
+    "no_requeue_directive": true,
+    "requeue_command_found": false,
+    "native128_default_epochs_100": true,
+    "native128_default_max_train_seconds_0": true,
+    "native128_model_JiT_B16": true,
+    "native128_image_size_128": true,
+    "native128_default_batch256": true,
+    "readiness_source_guard": true,
+    "readiness_both_batches_guard": true
+  },
+  "documented_explicit_overrides": {
+    "time": "06:00:00",
+    "no_requeue": true,
+    "epochs": 100,
+    "max_train_seconds": 0,
+    "fresh_start": 1,
+    "batch": 256
+  },
+  "readiness_reuse": {
+    "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json",
+    "status": "PASS",
+    "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+    "source_matches_frozen_runtime": true,
+    "image_size": 128,
+    "batches": {
+      "swiglu": 256,
+      "isru_d": 256
+    },
+    "existing_job_log": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-22813320.out",
+    "sentinel": "CELEBA_K8_CUDA_PASS",
+    "sentinel_present": true,
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "reused_without_retesting": true
+  },
+  "environment": {
+    "canonical_spec_hash8": "d8a61f4e",
+    "ledger_spec_hash8": "d8a61f4e",
+    "match": true,
+    "packages_reinstalled": false
+  },
+  "evidence_files": {
+    "wrapper": {
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+      "sha256": "a0fbe586cfbdb72424c8e5184f770e790670fd1cc7d05a2675ea594d1be728bb"
+    },
+    "validation": {
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN/docs/celeba128-20261112/validation.md",
+      "sha256": "06ec67ba44c0a699ee0086d437fbd0497f48d217fe3b1d127fe9ef0faf7204e7",
+      "final_dry_run_command": "sbatch --test-only --time=06:00:00 --no-requeue --export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112,ODE_FFN_BATCH_SIZE=256,ODE_FFN_EPOCHS=100,ODE_FFN_MAX_TRAIN_SECONDS=0,ODE_FFN_FRESH_START=1 /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm swiglu celeba128"
+    },
+    "readiness": {
+      "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json",
+      "sha256": "ab85662b8df7835e9760029a65cf09f8e1f0f44054b0a27edc924974e897b674"
+    },
+    "readiness_log": {
+      "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-22813320.out",
+      "sha256": "38ac59c25e18483dafc92e065e04aaf87a245f4ebdb2b361d3797b7d5ef32c42",
+      "sentinel_present": true,
+      "tail": [
+        "      ],",
+        "      \"warmed_images_per_second\": 2503.474561052004,",
+        "      \"learning_rate\": 5e-05,",
+        "      \"noise_scale\": 0.5,",
+        "      \"peak_bytes\": 22551313920",
+        "    }",
+        "  },",
+        "  \"status\": \"PASS\"",
+        "}",
+        "CELEBA_K8_CUDA_PASS"
+      ]
+    },
+    "env_spec": {
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN/docs/celeba-k8-20261111/env-spec.json",
+      "sha256": "622b3aac50bc2f022174aeaa67d1f053c522a1dde89836ea2890495b3428491c",
+      "canonical_hash8": "d8a61f4e"
+    },
+    "static_checks": {
+      "cpus_per_task_6": true,
+      "workers_4": true,
+      "time_6h": true,
+      "no_requeue_directive": true,
+      "requeue_command_found": false,
+      "native128_default_epochs_100": true,
+      "native128_default_max_train_seconds_0": true,
+      "native128_model_JiT_B16": true,
+      "native128_image_size_128": true,
+      "native128_default_batch256": true,
+      "readiness_source_guard": true,
+      "readiness_both_batches_guard": true
+    }
+  },
+  "invocation_doc_divergences": [],
+  "doc_divergences": [
+    {
+      "location": "/Users/mr.z/ODE-FFN-upstream/.aris/compute/torch.md",
+      "severity": "nonblocking_historical_ledger_resource_description",
+      "documented": "The original jit-celeba-cu128 tier line states four CPUs and two-hour training allocations.",
+      "observed": "The revised validation invocation requests six hours explicitly, and active wrapper e40da5f requests six CPUs and six hours with no requeue.",
+      "impact": "No divergence in the final documented invocation; the original environment ledger tier does not describe this revised resource request."
+    }
+  ],
+  "boundaries": {
+    "only_changed_path": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/single-budget-doc-pass.json",
+    "code_and_docs_modified": false,
+    "frozen_runtime_modified": false
+  },
+  "checked_at_utc": "2026-11-12T08:15:44.461138+00:00"
+}

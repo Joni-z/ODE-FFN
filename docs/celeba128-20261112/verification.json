@@ -1,15 +1,14 @@
 {
-  "status": "PASS_CPU_upstream_GPU_readiness_and_submission",
+  "status": "PASS_GPU_ready_single_allocation_submitted",
   "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
   "environment_spec_hash": "d8a61f4e",
   "cpu_documented_invocation": "PASS",
   "upstream_compatibility": "PASS",
   "isolated_launcher_cases": 11,
   "frozen_source_bindings": "PASS",
-  "two_afterok_gated_training_jobs": "PASS",
   "resume_enabled": true,
   "monitor": {
-    "pid": 2156682,
+    "pid": 2590713,
     "interval_seconds": 60,
     "remote_output": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/monitor.json",
     "process_observed": true
@@ -40,16 +39,23 @@
     "reports/report2/",
     "old64px source/checkpoints/raw runs"
   ],
-  "launcher_commit": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665",
+  "launcher_commit": "e40da5fa6c14f26badeba66540320b7cd5ac9ff6",
   "gpu_visibility_diagnostic": "22812110 PASS, CUDA/NVML UUID binding",
   "gpu_uuid_regression": "PASS",
   "first_attempt": "22810354 failed before Python;22810863/22810864 cancelled, records retained",
   "corrected_wrapper_doc_check": "PASS",
   "corrected_wrapper_doc_receipt": "wrapper-doc-pass.json",
   "launcher_sha256": {
-    "slurm/celeba.slurm": "e09ffea51aa7df4fa052de799092a8dfa474a5041694330c33a1af866aab1920",
+    "slurm/celeba.slurm": "a0fbe586cfbdb72424c8e5184f770e790670fd1cc7d05a2675ea594d1be728bb",
     "slurm/celeba_smoke.slurm": "5832be9f50176493e0973a36c302e1ba36bfca2a88a7ce3d659e49c07cb6de62"
   },
   "real_UUID_telemetry": "PASS: CSV contains allocated H100 UUID, utilization, memory and power",
-  "GPU_readiness_job": "22813320 COMPLETED0:0 ongh009 in3m02s"
+  "GPU_readiness_job": "22813320 COMPLETED0:0 ongh009 in3m02s",
+  "target_epochs": 100,
+  "training_walltime": "06:00:00",
+  "automatic_requeue": false,
+  "planned_runtime_stop": false,
+  "cpus": 6,
+  "num_workers": 4,
+  "readiness_gate": "Previously passing22813320 receipt, source and batch rechecked before submission and inside wrapper"
 }

@@ -1,3 +1,12 @@
+# 100 epochs in one allocation, 12 November
+
+Native22822267 and K8 22822268 replace the never-started200epoch pair.
+Both request6hours,6CPUs/four workers, no automatic requeue and no planned
+runtime stop. Actual Slurm fields TimeLimit06:00:00/Requeue0/NumCPUs6 pass.
+Monitor2590713 polls60seconds. Retain source65864ad and GPU readiness22813320;
+there is no new model/environment or repeated GPU readiness expense.
+Full status and estimate: docs/celeba128-20261112/status.md.
+
 # Revised single-allocation budget, 12 November
 
 The user clarifies: estimate the complete run and avoid an arbitrary24-hour

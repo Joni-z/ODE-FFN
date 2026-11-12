@@ -30,11 +30,11 @@ The [invocation](docs/celeba128-20261112/validation.md) requires a matching
 full-model GPU readiness receipt. The old64px checkpoints remain preserved
 at28/44epochs. Both finalized reports stay unchanged.
 The [current CelebA128 status](docs/celeba128-20261112/status.md) records
-readiness22813320 and dependency-gated SwiGLU22813322/K8 22813323, along
-with the corrected GPU-UUID monitor and preserved first-attempt diagnosis.
-The user subsequently revised the [training budget](docs/celeba128-20261112/budget-20261112.md)
-to100epochs in one six-hour allocation, with six CPUs/four data workers and
-no automatic requeue. The former pending200-epoch jobs are replaced.
+SwiGLU22822267 and ISRU-D K8 22822268. The revised
+[budget](docs/celeba128-20261112/budget-20261112.md) is100epochs in one
+six-hour priority allocation, with six CPUs/four data workers and no
+automatic requeue. Estimated training is4–5hours per arm. Full-model GPU
+readiness22813320 is reused; model source remains frozen at65864ad.
 
 The professor-guided autoresearch loop tests Muon/spectral geometry and
 input-dependent diagonal generators in a separate synthetic backbone. The

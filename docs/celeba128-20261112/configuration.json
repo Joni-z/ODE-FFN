@@ -1,5 +1,5 @@
 {
-  "status": "budget_revised_pending_replacement_submission",
+  "status": "submitted_single_allocation",
   "date": "2026-11-12",
   "purpose": "Author-derived small-data transfer before a fresh FFN comparison",
   "execution_ready": true,
@@ -113,6 +113,10 @@
     "retain_operator_history": true,
     "manual_fault_recovery": true
   },
-  "job_ids": {},
-  "launcher_commit": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665"
+  "job_ids": {
+    "full_model_gpu_readiness": "22813320",
+    "swiglu": "22822267",
+    "isru_d": "22822268"
+  },
+  "launcher_commit": "e40da5fa6c14f26badeba66540320b7cd5ac9ff6"
 }

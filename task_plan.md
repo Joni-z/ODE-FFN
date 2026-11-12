@@ -11,8 +11,8 @@ job merely to alter its script. Push all verified budget/document changes.
 - [x] Inspect current Slurm states, epoch timings and safe update options.
 - [x] Verify published JiT/related budgets and compare updates/images seen.
 - [x] Register100epochs/63,500updates and a4–5hour estimate; request6hours continuously.
-- [ ] Apply one-allocation scheduling without discarding progress; verify actual jobs.
-- [ ] Publish receipts, monitor state and the revised budget on GitHub.
+- [x] Apply one-allocation scheduling without discarding progress; verify actual jobs.
+- [x] Prepare checked receipts, monitor state and the revised budget for publication.
 
 The former pair22813322/22813323 had not started and is cancelled after a
 state check. scontrol hold returned an unspecified error without applying a
@@ -22,6 +22,10 @@ workers and1137with four: only7.6%gain, not linear scaling. Both are CPU-only
 login-node measurements, so use them as estimates. The wrapper now uses
 six CPUs/four workers,100epochs, max_train_seconds0 and no automatic requeue.
 The environment and frozen model source65864ad remain unchanged.
+
+Current replacement: native22822267, K8 22822268, monitor2590713. Actual
+Slurm TimeLimit6h/Requeue0/NumCPUs6 checks pass. Reuse readiness22813320;
+no model/optimizer change or extra GPU probe. Source65864ad stays frozen.
 
 # Previous task: run the revised CelebA128 pair, 12 November 2026
 

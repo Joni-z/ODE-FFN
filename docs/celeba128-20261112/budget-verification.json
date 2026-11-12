@@ -1,6 +1,6 @@
 {
   "date": "2026-11-12",
-  "status": "pre_submission_PASS",
+  "status": "actual_Slurm_parameters_PASS",
   "target_epochs": 100,
   "allocation_wall_time": "06:00:00",
   "automatic_requeue": false,
@@ -18,5 +18,17 @@
     "AsymFlow160/600",
     "CelebA U-Net300"
   ],
-  "scope": "Estimate and launcher changes; no measured whole GPU epoch yet"
+  "scope": "Estimate and launcher changes; no measured whole GPU epoch yet",
+  "jobs": {
+    "swiglu": "22822267",
+    "isru_d": "22822268"
+  },
+  "verified_by_scontrol": {
+    "TimeLimit": "06:00:00",
+    "Requeue": 0,
+    "NumCPUs": 6
+  },
+  "monitor_pid": 2590713,
+  "documented_scheduler_invocation": "PASS: single-budget-doc-pass.json",
+  "ledger_note": "Original4CPU/two-hour tier is historical; current6CPU/four-worker/six-hour tier appended"
 }
