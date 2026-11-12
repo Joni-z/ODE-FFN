@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-12",
+  "scope": "Source/configuration arithmetic, local references, launcher guard behavior, frozen report protection; no new GPU training or128px performance test",
+  "inputs": [
+    "docs/celeba-k8-20261111/protocol.md",
+    "docs/celeba-k8-20261111/status-20261112.json",
+    "main_jit.py",
+    "model_jit.py",
+    "reports/report2/finalization.json",
+    "primary sources in coverage.json"
+  ],
+  "output_directory": "/Users/mr.z/ODE-FFN-upstream/docs/research-assessments/2026-11-12-training-recipe",
+  "changed_files": [
+    "README.md",
+    "notes.md",
+    "task_plan.md",
+    "slurm/celeba.slurm",
+    "docs/research-assessments/2026-11-12-training-recipe/assessment.md",
+    "docs/research-assessments/2026-11-12-training-recipe/continuation-validation.json",
+    "docs/research-assessments/2026-11-12-training-recipe/coverage.json",
+    "docs/research-assessments/2026-11-12-training-recipe/proposed-celeba128.json",
+    "docs/research-assessments/2026-11-12-training-recipe/verification.json"
+  ],
+  "unchanged": [
+    "active Python training/model/FFN source",
+    "UPSTREAM.patch",
+    "reports/report1/",
+    "reports/report2/",
+    "remote frozen runtime882c46c",
+    "existing checkpoints and raw runs"
+  ],
+  "checks": {
+    "config_arithmetic": "PASS",
+    "native_B16_definition": "PASS",
+    "coverage_3_of_3": "PASS",
+    "local_links": "PASS",
+    "launcher_tail_7_cases": "PASS",
+    "bash_syntax": "PASS",
+    "report2_sha256_protection": 11,
+    "active_training_and_reports_no_diff": "PASS"
+  },
+  "launch_state": {
+    "new_gpu_job_ids": [],
+    "existing_runs": "paused28/44 of200; recipe decision open",
+    "cpu_only_self_requeue_probe": "22793764 COMPLETED0:0"
+  },
+  "sha256": {
+    "README.md": "c01721af000a36fbfbdcd6a17d86b9424fc122356a5a1ea054cf9fd5cd4e351a",
+    "notes.md": "7da9f500e2c206b14679fd0c31e189039d4cd64f224725cf77ebb346c85e70ef",
+    "slurm/celeba.slurm": "36ec37f30216f6c3b7deadce64888b9a1687355a0a9e75d913168545c67dbf6f",
+    "docs/research-assessments/2026-11-12-training-recipe/assessment.md": "65b03575a5d4fb6b2a86b56410bf2c8464393ca0606a6d10bdfc839cdc4b7c68",
+    "docs/research-assessments/2026-11-12-training-recipe/continuation-validation.json": "27462dd2138df26e241ee864f36e9d5d631014162ecc3f6f689c9418a8f2b20e",
+    "docs/research-assessments/2026-11-12-training-recipe/coverage.json": "ea490510df2c83c88d51c00d019405ae8ca996baf5cb06d93a28baace5d7df7f",
+    "docs/research-assessments/2026-11-12-training-recipe/proposed-celeba128.json": "9d9d2c5fa8dafa08e66109fabf9ada75beb2e8a591721a788229c77552e29989"
+  }
+}

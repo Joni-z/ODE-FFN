@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-12",
+  "scope": "Focused official-source baseline and recipe review, not a systematic survey",
+  "frozen_unit_ids": ["arxiv:2511.13720", "arxiv:2605.12964", "title:PixelDiT2"],
+  "covered_unit_ids": ["arxiv:2511.13720", "arxiv:2605.12964", "title:PixelDiT2"],
+  "uncovered_unit_ids": [],
+  "failed_unit_ids": [],
+  "entries": [
+    {
+      "dedup_key": "arxiv:2511.13720",
+      "reviewer": "parent",
+      "status": "complete",
+      "paper": "https://arxiv.org/html/2511.13720v2",
+      "repository": "LTH14/JiT",
+      "revision": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+      "evidence": ["README.md", "main_jit.py", "model_jit.py", "util/lr_sched.py", "paper Appendix A Table 9"]
+    },
+    {
+      "dedup_key": "arxiv:2605.12964",
+      "reviewer": "review_asymflow_baseline",
+      "status": "complete",
+      "paper": "https://arxiv.org/html/2605.12964v3",
+      "repository": "Lakonik/LakonLab",
+      "revision": "10b8e86eb4aec656436d719dfc298ac04c83e9ae",
+      "evidence": ["docs/AsymFlow.md", "lakonlab/models/architectures/asymflow/asymjit.py", "lakonlab/models/architectures/asymflow/common.py", "lakonlab/models/diffusions/gaussian_flow.py", "configs/asymflow/asymflow_h_16_r8_imagenet_8gpus.py", "tools/asymflow_subspace_pca_dit.py", "lakonlab/apis/train.py"],
+      "errors_resolved": ["Initial search included a fork; traced and cited the author parent repository"],
+      "limitations": ["Weights were not downloaded or run", "No author CelebA64 preset found in inspected tree"]
+    },
+    {
+      "dedup_key": "title:PixelDiT2",
+      "reviewer": "review_pixeldit2_baseline",
+      "status": "complete",
+      "paper": "https://arxiv.org/html/2609.24919v2",
+      "repository": "NVlabs/PixelDiT",
+      "revision": "f7d7c35f71893d81c6e71d2576ea80601a1e8529",
+      "evidence": ["c2i/README.md", "c2i/configs/pixeldit2_h16_in256.yaml", "c2i/configs/pixeldit2_h16_in512.yaml", "pixdit_core/pixeldit2_c2i.py", "pixdit_core/modules.py", "pixdit_core/grounding.py", "c2i/src/grounded_diffusion.py", "c2i/main.py"],
+      "errors_resolved": ["Initial guessed model path returned404; resolved correct files through the recursive tree"],
+      "limitations": ["No local training or weight download", "No author CelebA64 preset found in inspected tree", "Paper gradient clipping differs from released configuration; use pinned executable settings"]
+    }
+  ],
+  "source_access": {
+    "official_code": "GitHub connector and primary repository pages",
+    "papers": "arXiv primary HTML",
+    "local_library": "Unavailable: neither papers/ nor literature/ exists and no project paper-library path is configured",
+    "arxiv_api_helper": "Unavailable: no installed manifest, repo tools/arxiv_fetch.py or home skill helper resolved; used primary arXiv pages",
+    "zotero_obsidian": "No configured tools available",
+    "additional_context_not_used_for_decision": ["MFlow, arxiv:2610.23854; no full reproducibility review included"]
+  },
+  "delegation_scope": "Two read-only per-paper reviews under research-lit fan-out; parent reviewed JiT and synthesized the decision"
+}

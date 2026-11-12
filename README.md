@@ -21,6 +21,13 @@ distinguish completed experiments from this new candidate selection.
 The loss, time distribution, EMA equations, Euler/Heun sampler and metric
 implementation come from upstream, not the old training framework.
 
+The [12 November recipe audit](docs/research-assessments/2026-11-12-training-recipe/assessment.md)
+compares this CelebA64 port with the official batch/LR, noise scaling and
+patch bottleneck. It proposes CelebA128 with native JiT-B/16 for the next
+transfer, and reviews AsymFlow and PixelDiT2. The proposal is not launched;
+existing K8/SwiGLU checkpoints remain paused at 28/44 epochs while the recipe
+decision is open.
+
 The professor-guided autoresearch loop tests Muon/spectral geometry and
 input-dependent diagonal generators in a separate synthetic backbone. The
 [research map](docs/autoresearch/professor-20261103/research-map.md) connects

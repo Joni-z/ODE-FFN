@@ -1,0 +1,84 @@
+{
+  "status": "proposed_not_launched",
+  "date": "2026-11-12",
+  "purpose": "Author-derived small-data transfer before a fresh FFN comparison",
+  "execution_ready": false,
+  "required_before_launch": [
+    "Generalize the CelebA64-only entrypoint guard and make a separate registered launcher",
+    "Measure full-model K8 and native SwiGLU memory and throughput at the proposed batch",
+    "Fix actual batch, learning rate, evaluation and allocation budget in a new protocol"
+  ],
+  "upstream": {
+    "repository": "https://github.com/LTH14/JiT",
+    "revision": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17"
+  },
+  "dataset": {
+    "name": "original_aligned_celeba",
+    "root": "/scratch/zz5070/ODE_FFN/datasets",
+    "split": "train",
+    "image_count": 162770,
+    "image_size": 128,
+    "crop": "author_center_crop_arr",
+    "random_horizontal_flip": true
+  },
+  "model": {
+    "name": "JiT-B/16",
+    "depth": 12,
+    "hidden_size": 768,
+    "heads": 12,
+    "patch_size": 16,
+    "bottleneck_dim": 128,
+    "image_tokens": 64,
+    "context_tokens": 32,
+    "context_start_block": 4,
+    "class_num": 1,
+    "label_drop_prob": 1,
+    "cfg": 0,
+    "arms": [{"ffn": "swiglu"}, {"ffn": "isru_d", "ode_order": 8}]
+  },
+  "training": {
+    "seed": 0,
+    "physical_batch_size_proposed": 256,
+    "world_size": 1,
+    "gradient_accumulation": 1,
+    "global_batch_size_proposed": 256,
+    "base_learning_rate": 0.00005,
+    "actual_learning_rate_at_proposed_batch": 0.00005,
+    "learning_rate_rule": "base_learning_rate * global_batch_size / 256",
+    "optimizer": "AdamW",
+    "betas": [0.9, 0.95],
+    "weight_decay": 0,
+    "warmup_epochs": 5,
+    "lr_schedule": "constant",
+    "target_epochs_proposed": 200,
+    "ema_decay_per_update": [0.9999, 0.9996],
+    "P_mean": -0.8,
+    "P_std": 0.8,
+    "noise_scale_proposed": 0.5,
+    "noise_scale_basis": "image_size / 256; extrapolated below the published resolutions",
+    "t_eps": 0.05,
+    "attn_dropout": 0,
+    "proj_dropout": 0,
+    "resume_old_64px_checkpoints": false
+  },
+  "evaluation": {
+    "sampler": "author Heun, 50 intervals with final Euler",
+    "formal_generated_image_count": 50000,
+    "reference": "deterministic 128px crops of official CelebA training split",
+    "ordinary_baseline_fid_gate": 50,
+    "ema_selection_must_be_recorded": true
+  },
+  "resources": {
+    "account": "torch_pr_637_tandon_priority",
+    "gres": "gpu:1",
+    "constraint": "a100|h100|h200|l40s|rtx6000|b200",
+    "explicit_partition": null,
+    "cpus": 4,
+    "host_memory_gib": 24,
+    "allocation_wall_time": "02:00:00",
+    "memory_and_throughput_profiled": false
+  },
+  "published_author_celeba_recipe": false,
+  "changes_from_old_recipe": ["resolution", "patch_size", "batch_size", "learning_rate", "noise_scale"],
+  "interpretation": "A new transfer setting, not a causal ablation identifying which old recipe difference mattered"
+}

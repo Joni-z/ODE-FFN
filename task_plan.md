@@ -1,4 +1,45 @@
-# Current task: inspect the first CelebA allocation, 12 November 2026
+# Current task: audit the image recipe before resuming, 12 November 2026
+
+The user steers continuation toward checking training parameters against the
+official JiT repository, or selecting a newer baseline. Hold GPU continuation
+submissions while comparing primary source recipes, resolution/task support,
+FFN compatibility and compute. Preserve all existing checkpoints and reports.
+
+- [x] Compare our exact recipe with pinned and current official JiT code/README.
+- [x] Check a focused set of recent pixel-space transformer baselines and their official code.
+- [x] Recommend a concrete baseline/recipe and record which changes require a new run rather than resume.
+- [x] Verify the source-backed audit and preserve the prepared continuation launcher for publication.
+
+Canonical audit: docs/research-assessments/2026-11-12-training-recipe/assessment.md.
+Recommend retaining JiT with a fresh128/B16 transfer, batch256 subject to a
+profile, author-scaled LR5e-5 and extrapolated noise.5. AsymFlow is the next
+parameterization control; defer PixelDiT2's extra encoder/loss machinery.
+The proposal is not yet an executable128px pipeline or a launched run.
+Verification passes: LR/noise/token arithmetic, native B16 definition,
+three-of-three literature coverage, local links, seven launcher-tail cases,
+Bash syntax and all11protected Report2 hashes. Publication and remote
+fast-forward verification are the final delivery actions.
+
+The prepared requeue launcher is not submitted. Its isolated seven-case logic
+test passes. A CPU-only scheduler probe22793764 requeued itself once and
+completed0:0; no GPU continuation has been submitted. Preserve old28/44epoch
+checkpoints and inspect their fixed-sampler outputs before discarding a recipe.
+
+# Previous active task: resume CelebA to the registered target, 12 November 2026
+
+The user asks why training paused and whether it can continue. Resume the
+existing K8 and native checkpoints, preserving frozen training source882c46c,
+environment, seed0, optimizer and the200-epoch target. Keep each allocation
+at two hours on priority with all GPU constraints. Add automatic requeue only
+after a successful checkpointed budget pause with positive epoch progress.
+Stop at target, error, no progress or20requeues; never restart from scratch.
+
+- [x] Recheck the checkpoint/run state and scheduler requeue semantics.
+- [x] Implement and test bounded self-requeue with distinct per-allocation telemetry.
+- [x] Verify source/checkpoint requirements and actual CPU-only scheduler self-requeue support.
+- [ ] GPU continuation held by the newer recipe-audit instruction; do not submit this old task automatically.
+
+# Previous task: inspect the first CelebA allocation, 12 November 2026
 
 The user requests current progress. Read scheduler accounting, final progress,
 epoch logs, checkpoints and GPU telemetry. Do not extend the two-hour budget

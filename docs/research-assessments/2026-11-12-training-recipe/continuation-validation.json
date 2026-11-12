@@ -1,0 +1,72 @@
+{
+  "scope": "Actual launcher tail with isolated scheduler stub; no GPU",
+  "cases": [
+    {
+      "case": "paused_progress",
+      "status": "PASS",
+      "requeued": true,
+      "exit_code": 0
+    },
+    {
+      "case": "target_complete",
+      "status": "PASS",
+      "requeued": false,
+      "exit_code": 0
+    },
+    {
+      "case": "no_progress",
+      "status": "PASS",
+      "requeued": false,
+      "exit_code": 2
+    },
+    {
+      "case": "requeue_limit",
+      "status": "PASS",
+      "requeued": false,
+      "exit_code": 2
+    },
+    {
+      "case": "unexpected_state",
+      "status": "PASS",
+      "requeued": false,
+      "exit_code": 2
+    },
+    {
+      "case": "wrong_complete_count",
+      "status": "PASS",
+      "requeued": false,
+      "exit_code": 2
+    },
+    {
+      "case": "manual_one_allocation",
+      "status": "PASS",
+      "requeued": false,
+      "exit_code": 0
+    }
+  ],
+  "date": "2026-11-12",
+  "launcher": "slurm/celeba.slurm",
+  "tested_scope": "Seven isolated tail cases and one real CPU-only Slurm self-requeue probe; no GPU continuation",
+  "automatic_mode_default": false,
+  "max_requeues_default": 20,
+  "gpu_training_submitted": false,
+  "new_128px_recipe_tested": false,
+  "cpu_scheduler_probe": {
+    "job_id": "22793764",
+    "account": "torch_pr_637_tandon_priority",
+    "requested_gpus": 0,
+    "cpus": 1,
+    "memory_mib": 512,
+    "time_limit": "00:01:00",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "observed_log": [
+      "REQUEUE_PROBE job=22793764 restart=0",
+      "REQUEUE_PROBE job=22793764 restart=1",
+      "SLURM_SELF_REQUEUE_PASS"
+    ],
+    "remote_log": "/scratch/zz5070/ODE_FFN/operations/celeba-resume-20261112/requeue-probe-22793764.out"
+  },
+  "resume_source": "Use ODE_FFN_CODE pointing to frozen runtime882c46c; preserve the recorded source commit",
+  "held_reason": "Review the training recipe before any further GPU allocation"
+}

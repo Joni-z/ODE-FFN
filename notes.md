@@ -1,3 +1,39 @@
+# Recipe audit before continuation, 12 November
+
+The user requests training-parameter review against official JiT or a newer
+baseline. Hold GPU continuation while making this decision. The pinned JiT
+commit is still the latest author revision. Official global batch1024 and
+blr5e-5 imply actual LR2e-4; at our batch64 the same rule gives1.25e-5, eight
+times below the explicit1e-4 used. This is a recipe difference, not an
+empirical diagnosis of the current checkpoints.
+
+The paper's noise rule is image_size/256: at64 it extrapolates to.25 rather
+than our1. The source's patch16 RGB768-to128 bottleneck also changes to
+48-to128 with the local patch4 adapter, removing that additional input-rank
+restriction. Neither observation proves a cause of image quality: no samples
+or FID have yet been evaluated on the current image checkpoints.
+
+Recommend a proposed fresh CelebA128/native B16 comparison, batch256 subject
+to memory/throughput profiling, author blr5e-5 (actual5e-5), extrapolated
+noise.5 and the same AdamW/time/EMA/loss in K8 and SwiGLU. This is not a
+published CelebA recipe, not implemented as a new launcher, and not launched.
+Retain old checkpoints for fixed-sampler inspection; changed resolution,
+patching and bridge require a fresh run, not continuation under old names.
+
+Newer official-source review selects AsymFlow as the next parameterization
+control. PixelDiT2 adds DINOv3 grounding and DINOv2 REPA, so defer it rather
+than changing several mechanisms together. Three frozen paper units were
+covered; no local PDF library or arXiv API helper was available. The source-
+backed assessment and coverage receipt are in
+docs/research-assessments/2026-11-12-training-recipe/.
+
+The prepared old-recipe Slurm continuation defaults to automatic mode off,
+requires positive epoch progress to requeue, keeps per-allocation telemetry
+and stops at the200-epoch target or a20-requeue cap. Seven isolated tail
+cases pass. Real CPU-only priority probe22793764 requeued once and completed
+0:0. No GPU continuation or evaluation was submitted. Reports1/2 and the
+frozen training runtime remain untouched.
+
 # First CelebA allocation checked, 12 November
 
 Live scheduler accounting confirms all three jobs completed0:0. CUDA readiness
