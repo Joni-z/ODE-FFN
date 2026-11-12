@@ -9,8 +9,9 @@ AdamW and EMA equations. Preserve the old64px runs and finalized reports.
 - [x] Implement128px data/evaluation support, a shared launcher recipe and bounded continuation.
 - [x] Verify CPU data/resume/upstream behavior and the documented invocation.
 - [x] Freeze/sync code and submit a short full-model GPU profile/readiness job.
-- [ ] Fix one shared batch/LR from the profile, submit both training arms and monitor them.
-- [ ] Publish protocol, checks, actual job states and monitoring paths on GitHub.
+- [x] Register shared batch256/LR5e-5 and submit both arms behind readiness; start monitoring.
+- [x] Verify protocol, checks, actual job states and monitoring paths for publication.
+- [ ] Collect pending GPU readiness and actual epoch throughput/memory; do not infer them from CPU tests.
 
 Use priority account, all six OR GPU constraints, one GPU, four CPUs,24GiB
 host memory and two-hour training allocations. GPU readiness must precede
@@ -35,6 +36,12 @@ batch change is justified by this launcher/NVML failure. Diagnostic22812110
 passed ongh009: CUDA_VISIBLE_DEVICES=0, SLURM_JOB_GPUS=1, default NVML index0
 visible, global-index query fails, CUDA forward/backward passes. Correct the
 wrapper to select the allocated GPU UUID; preserve model source65864ad.
+Corrected wrappers b0a4967 are submitted from the active checkout and stored
+by Slurm. New readiness22813320 gates native22813322 and K8 22813323. Both
+are200epoch targets with two-hour positive-progress self-requeues. Monitor
+2156682 polls60seconds. Corrected documented scheduler dry-runs pass
+independently with no divergence. Current publication record:
+docs/celeba128-20261112/status.md. Full GPU readiness is being collected.
 
 # Previous task: audit the image recipe before resuming, 12 November 2026
 

@@ -1,5 +1,5 @@
 {
-  "status": "GPU_monitor_failure_under_diagnosis_training_not_started",
+  "status": "submitted_dependency_gated",
   "date": "2026-11-12",
   "purpose": "Author-derived small-data transfer before a fresh FFN comparison",
   "execution_ready": true,
@@ -103,7 +103,7 @@
   "authorization": "User: continue running",
   "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
   "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
-  "execution_gate": "afterok readiness22810354 plus a passing matching source/batch receipt inside the launcher",
+  "execution_gate": "afterok22813320 plus a passing matching source/batch receipt inside the launcher",
   "continuation": {
     "enabled": true,
     "max_requeues": 20,
@@ -113,8 +113,9 @@
     "retain_operator_history": true
   },
   "job_ids": {
-    "full_model_gpu_readiness": "22810354",
-    "swiglu": "22810863",
-    "isru_d": "22810864"
-  }
+    "full_model_gpu_readiness": "22813320",
+    "swiglu": "22813322",
+    "isru_d": "22813323"
+  },
+  "launcher_commit": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665"
 }

@@ -1,0 +1,192 @@
+{
+  "created_at_utc": "2026-11-12T07:15:30.399Z",
+  "doc_vs_reality_divergences": [],
+  "documented_commands": [
+    {
+      "actual_job_submitted": false,
+      "command": "sbatch --test-only /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba_smoke.slurm 128",
+      "completed_at_utc": "2026-11-12T07:14:32.318Z",
+      "dry_run": true,
+      "exit_status": 0,
+      "invocation": "ssh torch 'sbatch --test-only /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba_smoke.slurm 128'",
+      "output_combined": "sbatch: Job 22813391 to start at 2026-11-16T09:09:41 a using 4 processors on nodes ga004 in partition a100_tandon\n",
+      "started_at_utc": "2026-11-12T07:14:31.534Z"
+    },
+    {
+      "actual_job_submitted": false,
+      "command": "sbatch --test-only /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm swiglu celeba128",
+      "completed_at_utc": "2026-11-12T07:14:33.164Z",
+      "dry_run": true,
+      "exit_status": 0,
+      "invocation": "ssh torch 'sbatch --test-only /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm swiglu celeba128'",
+      "output_combined": "sbatch: Job 22813392 to start at 2026-11-16T09:09:41 a using 4 processors on nodes ga004 in partition a100_tandon\n",
+      "started_at_utc": "2026-11-12T07:14:32.318Z"
+    }
+  ],
+  "documents_read": [
+    "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+    "/Users/mr.z/ODE-FFN-upstream/.aris/compute/torch.md",
+    "/Users/mr.z/ODE-FFN-upstream/docs/celeba128-20261112/validation.md"
+  ],
+  "host": "torch",
+  "limits": [
+    "Scheduler acceptance and wrapper source inspection only; no resource allocation, CPU/model tests, or GPU kernel execution was performed.",
+    "Job numbers printed by sbatch --test-only are dry-run output and are not evidence of submitted or running jobs.",
+    "Existing launch, readiness, and training job states were not checked in this scoped pass."
+  ],
+  "output_path": "/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/wrapper-doc-pass.json",
+  "scope": "Fresh agent follows documented scheduler resource-request dry-runs and statically verifies the corrected active wrappers and frozen model source.",
+  "source_observations": {
+    "active_checkout": {
+      "clean": true,
+      "expected_revision_prefix": "b0a4967",
+      "final_revision_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/ODE-FFN",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665\n"
+      },
+      "final_status_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/ODE-FFN",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=all"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": ""
+      },
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN",
+      "revision": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665",
+      "revision_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/ODE-FFN",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665\n"
+      },
+      "status_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/ODE-FFN",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=all"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": ""
+      }
+    },
+    "frozen_model_source": {
+      "clean": true,
+      "expected_revision_prefix": "65864ad",
+      "final_revision_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": "65864adb8280675be76b6fc6b871b494b746d7d9\n"
+      },
+      "final_status_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=all"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": ""
+      },
+      "path": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+      "revision": "65864adb8280675be76b6fc6b871b494b746d7d9",
+      "revision_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+          "rev-parse",
+          "HEAD"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": "65864adb8280675be76b6fc6b871b494b746d7d9\n"
+      },
+      "status_check": {
+        "command": [
+          "git",
+          "-C",
+          "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+          "status",
+          "--porcelain=v1",
+          "--untracked-files=all"
+        ],
+        "exit_status": 0,
+        "stderr": "",
+        "stdout": ""
+      }
+    }
+  },
+  "status": "PASS",
+  "wrapper_observations": [
+    {
+      "evidence": [
+        {
+          "content": "GPU_UUID=$(python -c 'import torch; print(\"GPU-\" + str(torch.cuda.get_device_properties(0).uuid))')",
+          "line": 29
+        },
+        {
+          "content": "    --format=csv -i \"$GPU_UUID\" -l 5 > \"${OUTPUT%.json}-${SLURM_JOB_ID}-gpu.csv\" \\",
+          "line": 32
+        }
+      ],
+      "exit_status": 0,
+      "passes_uuid_to_nvidia_smi": true,
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba_smoke.slurm",
+      "read_method": "Python pathlib.Path.read_text()",
+      "sha256": "5832be9f50176493e0973a36c302e1ba36bfca2a88a7ce3d659e49c07cb6de62",
+      "uses_gpu_prefix_plus_raw_cuda_uuid": true
+    },
+    {
+      "evidence": [
+        {
+          "content": "GPU_UUID=$(python -c 'import torch; print(\"GPU-\" + str(torch.cuda.get_device_properties(0).uuid))')",
+          "line": 90
+        },
+        {
+          "content": "    --format=csv -i \"$GPU_UUID\" -l 30 > \"$OUT/gpu-${ATTEMPT}.csv\" \\",
+          "line": 93
+        }
+      ],
+      "exit_status": 0,
+      "passes_uuid_to_nvidia_smi": true,
+      "path": "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+      "read_method": "Python pathlib.Path.read_text()",
+      "sha256": "e09ffea51aa7df4fa052de799092a8dfa474a5041694330c33a1af866aab1920",
+      "uses_gpu_prefix_plus_raw_cuda_uuid": true
+    }
+  ]
+}

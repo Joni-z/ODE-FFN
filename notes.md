@@ -11,7 +11,7 @@ GPU readiness and supports an explicitly fresh initial allocation followed
 by checkpoint-only self-requeues. The real entrypoint rejects changed model,
 resolution, batch, noise, seed or optimizer/EMA settings on resume. Eleven
 isolated fresh-start/stopping cases pass. CPU128px data/resume and upstream
-checks are being collected before freezing source for a15-minute GPU profile.
+checks passed before freezing source for a15-minute GPU profile.
 
 The stored UPSTREAM.patch had a malformed trailing hunk. Regenerate it from
 the11SHA256-verified author files rather than editing hunk counts by hand;
@@ -30,6 +30,16 @@ see the allocated GPU0, while SLURM_JOB_GPUS is global1 and selecting1 fails.
 Select GPU- plus the actual raw CUDA UUID in both active Slurm wrappers; keep
 model/training source65864ad immutable and submit the corrected wrappers from
 the active checkout. The isolated UUID-formatting/selection regression passes.
+
+Corrected wrappers b0a4967 submit readiness22813320, native SwiGLU22813322
+and ISRU-D K8 22813323. Both training jobs require readiness afterok and a
+matching source/batch receipt. Batch256, author-scaled LR5e-5, noise.5 and
+target200epochs remain fixed. Monitor2156682 polls60seconds with preserved
+attempt2 log. A fresh independent witness ran both documented scheduler
+dry-runs verbatim with no divergences. Readiness is running ongh009 and the
+corrected monitor resolves the allocated UUID while Slurm still reports
+global ID1; full-model profile and training metrics are being collected.
+Current receipts/status: docs/celeba128-20261112/.
 
 Protocol and documented commands: docs/celeba128-20261112/.
 This authorization supersedes the previous hold; it does not resume old64px

@@ -68,13 +68,9 @@
   ],
   "submission_status": "readiness_failed_before_training",
   "updated_at_utc": "2026-11-12T07:02:16.726145+00:00",
-  "failure": {
-    "job_id": "22810354",
-    "elapsed_seconds": 4,
-    "node": "gh011",
-    "stage": "NVML collector before Python CUDA check",
-    "message": "No devices were found",
-    "dependent_training_jobs": "cancelled without allocation",
-    "model_or_batch_failure": false
+  "terminal_states": {
+    "22810354": "FAILED",
+    "22810863": "CANCELLED",
+    "22810864": "CANCELLED"
   }
 }

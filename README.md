@@ -29,6 +29,9 @@ JiT-B/16, a shared profiled batch and author-scaled LR, with noise std .5.
 The [invocation](docs/celeba128-20261112/validation.md) requires a matching
 full-model GPU readiness receipt. The old64px checkpoints remain preserved
 at28/44epochs. Both finalized reports stay unchanged.
+The [current CelebA128 status](docs/celeba128-20261112/status.md) records
+readiness22813320 and dependency-gated SwiGLU22813322/K8 22813323, along
+with the corrected GPU-UUID monitor and preserved first-attempt diagnosis.
 
 The professor-guided autoresearch loop tests Muon/spectral geometry and
 input-dependent diagonal generators in a separate synthetic backbone. The
