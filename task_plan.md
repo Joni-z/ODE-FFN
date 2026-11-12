@@ -1,4 +1,31 @@
-# Current task: queue ISRU-D K8 on torch priority, 11 November 2026
+# Current task: inspect the first CelebA allocation, 12 November 2026
+
+The user requests current progress. Read scheduler accounting, final progress,
+epoch logs, checkpoints and GPU telemetry. Do not extend the two-hour budget
+or submit another training/evaluation job in this status check. Preserve the
+frozen runtime and finalized reports; correct the active telemetry launcher.
+
+- [x] Restore SSH access and query all three original jobs.
+- [x] Verify clean budget pauses, comparable epoch losses and saved P history.
+- [x] Inspect checkpoint contents and collect a source-bound progress snapshot.
+- [x] Fix and verify the GPU monitor command separation.
+- [x] Publish the observed status and launcher fix to GitHub and sync torch.
+
+Checkpoint structure/RNG/two-EMA checks pass. K8's final24P matrices are finite
+and exactly match its29th operator snapshot. At28epochs, loss is0.08327465
+versus native0.08208294; mean last5 epoch times are227.66s and144.32s.
+The monitor regression reproduces the old failure and verifies separate
+commands in the correction, without allocating a GPU or fabricating telemetry.
+Current status: docs/celeba-k8-20261111/status-20261112.md.
+
+All three jobs completed0:0. K8 paused after28epochs; native SwiGLU after44.
+Both stopped at the registered wall budget with full checkpoints, not at the
+200-epoch target. No FID or generated samples exist. GPU CSVs are empty:
+the pip-freeze and nvidia-smi commands were concatenated in the launcher,
+causing pip to reject --query-gpu. Preserve these raw files; the lost GPU
+utilization history cannot be reconstructed from epoch timings.
+
+# Previous task: queue ISRU-D K8 on torch priority, 11 November 2026
 
 The user authorizes submission: all eligible GPU types, the priority account,
 short wall time and moderate CPU allocation. Implement the selected K8 FFN in

@@ -1,0 +1,162 @@
+{
+  "client_date": "2026-11-12",
+  "source_commit": "882c46c94ddeb14bab7704e416f754138121e2fe",
+  "gpu_readiness": {
+    "algebra": {
+      "K8_matrix_exponential_max_error": 8.829048603331557e-14,
+      "K1_and_K8_dense_polynomial": "PASS",
+      "input_and_P_derivatives": "PASS",
+      "gradcheck": "PASS"
+    },
+    "device": "cuda",
+    "formal_training": false,
+    "official_train_adapter": {
+      "status": "PASS",
+      "images": 162770,
+      "shape": [
+        3,
+        64,
+        64
+      ]
+    },
+    "cuda": {
+      "torch": "2.7.1+cu128",
+      "cuda": "12.8",
+      "device": "NVIDIA H100 80GB HBM3",
+      "arch_list": [
+        "sm_75",
+        "sm_80",
+        "sm_86",
+        "sm_90",
+        "sm_100",
+        "sm_120",
+        "compute_120"
+      ],
+      "kernel_dispatch": "PASS"
+    },
+    "full_JiT_B4": {
+      "swiglu": {
+        "parameters": 129907248,
+        "batch": 64,
+        "updates": 3,
+        "loss": 0.8858102560043335,
+        "seconds": 68.78551545799564,
+        "peak_bytes": 14636034048
+      },
+      "isru_d": {
+        "parameters": 87381552,
+        "batch": 64,
+        "updates": 3,
+        "loss": 0.8855327367782593,
+        "seconds": 83.13859368400153,
+        "peak_bytes": 21499379712
+      }
+    },
+    "status": "PASS"
+  },
+  "runs": {
+    "isru_d": {
+      "job_id": "22659500",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-isru_d-s0",
+      "progress": {
+        "status": "paused",
+        "completed_epochs": 28,
+        "target_epochs": 200,
+        "updated_at": 1794401882.4044933,
+        "job_id": "22659500"
+      },
+      "last_epoch": {
+        "epoch": 28,
+        "target_epochs": 200,
+        "epoch_seconds": 227.30967775699537,
+        "ffn": "isru_d",
+        "images_per_second": 715.9923924312166,
+        "lr": 9.999999999999541e-05,
+        "loss": 0.08327465403328436
+      },
+      "epoch28": {
+        "epoch": 28,
+        "target_epochs": 200,
+        "epoch_seconds": 227.30967775699537,
+        "ffn": "isru_d",
+        "images_per_second": 715.9923924312166,
+        "lr": 9.999999999999541e-05,
+        "loss": 0.08327465403328436
+      },
+      "mean_last5_seconds": 227.65940367899893,
+      "mean_last5_images_per_second": 714.898414321778,
+      "checkpoint": {
+        "path": "/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-isru_d-s0/checkpoint-last.pth",
+        "bytes": 1746409793,
+        "completed_epochs": 28,
+        "structure": "PASS",
+        "optimizer_and_two_EMAs_and_RNG": true
+      },
+      "operators": {
+        "snapshots": 29,
+        "last_snapshot_matches_checkpoint": true,
+        "matrices_per_snapshot": 24
+      },
+      "training_peak_MiB": 20892,
+      "gpu_csv_bytes": 0,
+      "telemetry_error": true,
+      "final_FID_exists": false,
+      "generated_examples_exist": false
+    },
+    "swiglu": {
+      "job_id": "22659501",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-swiglu-s0",
+      "progress": {
+        "status": "paused",
+        "completed_epochs": 44,
+        "target_epochs": 200,
+        "updated_at": 1794401787.0802507,
+        "job_id": "22659501"
+      },
+      "last_epoch": {
+        "epoch": 44,
+        "target_epochs": 200,
+        "epoch_seconds": 144.16177876700385,
+        "ffn": "swiglu",
+        "images_per_second": 1128.9538835605094,
+        "lr": 9.999999999999541e-05,
+        "loss": 0.08125285874587834
+      },
+      "epoch28": {
+        "epoch": 28,
+        "target_epochs": 200,
+        "epoch_seconds": 145.46414446999552,
+        "ffn": "swiglu",
+        "images_per_second": 1118.8461637264186,
+        "lr": 9.999999999999541e-05,
+        "loss": 0.0820829425823065
+      },
+      "mean_last5_seconds": 144.32285725900437,
+      "mean_last5_images_per_second": 1127.7170283695855,
+      "checkpoint": {
+        "path": "/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-swiglu-s0/checkpoint-last.pth",
+        "bytes": 2596967170,
+        "completed_epochs": 44,
+        "structure": "PASS",
+        "optimizer_and_two_EMAs_and_RNG": true
+      },
+      "operators": {
+        "snapshots": 0
+      },
+      "training_peak_MiB": 14403,
+      "gpu_csv_bytes": 0,
+      "telemetry_error": true,
+      "final_FID_exists": false,
+      "generated_examples_exist": false
+    }
+  },
+  "gpu_utilization_history": "missing: launcher command concatenation",
+  "new_jobs_submitted": false,
+  "scheduler_accounting": "22659499|COMPLETED|0:0|00:03:24|gh007\n22659499.batch|COMPLETED|0:0|00:03:24|gh007\n22659499.extern|COMPLETED|0:0|00:03:24|gh007\n22659500|COMPLETED|0:0|01:48:30|gh006\n22659500.batch|COMPLETED|0:0|01:48:30|gh006\n22659500.extern|COMPLETED|0:0|01:48:32|gh006\n22659501|COMPLETED|0:0|01:46:50|gh007\n22659501.batch|COMPLETED|0:0|01:46:50|gh007\n22659501.extern|COMPLETED|0:0|01:46:51|gh007",
+  "comparison": {
+    "matched_epoch": 28,
+    "candidate_loss_relative_gap": 0.014518381206703346,
+    "candidate_epoch_time_ratio": 1.5774313785268075,
+    "parameter_reduction": 0.32735429819897344
+  }
+}

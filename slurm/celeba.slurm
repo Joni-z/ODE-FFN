@@ -33,9 +33,17 @@ else
 fi
 git diff --quiet
 git diff --cached --quiet
-python -m pip freeze --all > "$OUT/packages-${SLURM_JOB_ID}.txt"+nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total,power.draw \
-    --format=csv -i "${SLURM_JOB_GPUS:-0}" -l 30 > "$OUT/gpu-${SLURM_JOB_ID}.csv" &
+python -m pip freeze --all > "$OUT/packages-${SLURM_JOB_ID}.txt"
+nvidia-smi --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total,power.draw \
+    --format=csv -i "${SLURM_JOB_GPUS:-0}" -l 30 > "$OUT/gpu-${SLURM_JOB_ID}.csv" \
+    2> "$OUT/gpu-${SLURM_JOB_ID}.err" &
 MONITOR_PID=$!
+sleep 1
+if ! kill -0 "$MONITOR_PID" 2>/dev/null; then
+    cat "$OUT/gpu-${SLURM_JOB_ID}.err" >&2
+    echo "GPU monitoring failed to start; stop before training" >&2
+    exit 1
+fi
 LOCAL_DATA=$(mktemp -d "/tmp/ode-celeba-${SLURM_JOB_ID}.XXXXXX")
 cleanup() {
     kill "$MONITOR_PID" 2>/dev/null || true

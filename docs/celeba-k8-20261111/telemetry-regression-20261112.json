@@ -1,0 +1,15 @@
+{
+  "scope": "Isolated shell integration with stub executables; no GPU and no research metrics",
+  "old_frozen_launcher": {
+    "passed": false,
+    "exit_code": 0,
+    "python_arguments": "-m pip freeze --all --query-gpu=timestamp,index,name,utilization.gpu,memory.used,memory.total,power.draw --format=csv -i 0 -l 30",
+    "nvidia_called": false
+  },
+  "corrected_launcher": {
+    "passed": true,
+    "exit_code": 0,
+    "python_arguments": "-m pip freeze --all",
+    "nvidia_called": true
+  }
+}

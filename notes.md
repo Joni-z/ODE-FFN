@@ -1,3 +1,23 @@
+# First CelebA allocation checked, 12 November
+
+Live scheduler accounting confirms all three jobs completed0:0. CUDA readiness
+passed on H100. K8 ran1h48m30s and paused at28/200epochs; SwiGLU ran1h46m50s
+and paused at44/200. Full checkpoint structure, optimizer/two EMA/RNG presence
+and source bindings pass. K8 retains29P snapshots with24matrices each; its
+last snapshot exactly matches checkpoint-last and is finite.
+
+At matched epoch28, K8 loss0.08327465 versus native0.08208294; the gap is1.45%.
+Mean last5 epoch times227.66s versus144.32s give1.58x observed wall time.
+No samples or FID exist. Both jobs currently remain paused; this status check
+does not authorize or submit another allocation.
+
+GPU CSVs are empty because the launcher joined pip-freeze and nvidia-smi into
+one command. Preserve the original data; historical utilization is unavailable.
+The active launcher separates the commands, logs collector stderr and checks
+process startup. An isolated executable-stub integration fails on the old
+command and passes on the fix. The frozen runtime and finalized reports stay
+unchanged. Canonical evidence: docs/celeba-k8-20261111/status-20261112.md.
+
 # Authorized CelebA K8 priority submission, 11 November
 
 The user authorizes queueing the selected K8 candidate with all eligible GPU

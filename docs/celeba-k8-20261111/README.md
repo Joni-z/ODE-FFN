@@ -1,14 +1,17 @@
-# CelebA ISRU-D K8: submitted runs
+# CelebA ISRU-D K8: first allocation finished
 
-The selected ISRU-D K8 and native SwiGLU control are queued on torch under
+The selected ISRU-D K8 and native SwiGLU control ran on torch under
 `torch_pr_637_tandon_priority`, seed 0, unconditional 64x64 CelebA, full JiT-B/4.
 The [protocol](protocol.md) fixes data, optimizer, budget and evaluation.
+Both jobs paused cleanly at their first allocation's budget. No training is
+currently running. See the [12 November status](status-20261112.md) for losses,
+throughput, checkpoints and the telemetry correction. No FID has been run.
 
-| Job | Purpose | Submission-time state |
+| Job | Purpose | Verified state, 12 November |
 |---|---|---|
-| 22659499 | Full-model CUDA readiness, both FFNs, batch 64 | Pending: Priority |
-| 22659500 | ISRU-D K8 training | Pending: afterok 22659499 |
-| 22659501 | Native SwiGLU training | Pending: afterok 22659499 |
+| 22659499 | Full-model CUDA readiness, both FFNs, batch 64 | Passed, H100 |
+| 22659500 | ISRU-D K8 training | Completed 0:0; paused at 28/200 epochs |
+| 22659501 | Native SwiGLU training | Completed 0:0; paused at 44/200 epochs |
 
 Each training job requests one GPU, four CPUs, 24 GB host RAM and two hours.
 The untyped GPU request accepts `a100|h100|h200|l40s|rtx6000|b200` and omits
@@ -16,10 +19,10 @@ an explicit partition. The scheduler currently routes this priority account
 to A100/H100 Tandon and L40S/H200 public resources. Listing a GPU feature does
 not grant access to another account's stakeholder allocation.
 
-The readiness job has a fifteen-minute limit; failed readiness cancels the
-dependent training jobs. Successful submission is separate from a running
-GPU kernel. See the [launch manifest](launch.json), [verification snapshot](verification.json)
-and [documented checks](validation.md).
+The readiness job passed in 3 min 24 s. The training allocations lasted 1 h 48 min 30 s
+and 1 h 46 min 50 s, respectively. The original [launch manifest](launch.json) and
+[submission-time verification](verification.json) retain their historical
+states; the [new status snapshot](status-20261112.json) records completed jobs.
 
 ## Source and outputs
 
@@ -33,9 +36,10 @@ The active development checkout can advance without changing these jobs.
 - Setup, live queue status and CUDA receipt:
   `/scratch/zz5070/ODE_FFN/operations/celeba-k8-20261111/`.
 
-The queue monitor updates `monitor.json` every 60 seconds and exits after all
-three jobs become terminal. It never restarts or submits work. GPU telemetry
-is recorded every 30 seconds while each training job is active. Epoch records,
+The queue monitor reached the terminal states and exited. It never restarted
+or submitted work. The first allocation's GPU CSVs are empty because of a
+launcher command-concatenation bug; the corrected launcher starts its collector
+separately and checks its process. Epoch records,
 TensorBoard events, full atomic checkpoints and P-only history remain on
 scratch. A clean two-hour allocation may end with progress `paused` before
 the registered 200-epoch target; no automatic continuation chain is submitted.
