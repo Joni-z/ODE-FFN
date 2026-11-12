@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-12",
+  "stage": "first100epochs_then_FID_review",
+  "target_epochs": 100,
+  "batches_per_epoch": 635,
+  "optimizer_updates": 63500,
+  "images_seen": 16256000,
+  "wall_time_requested": "06:00:00",
+  "planned_runtime_stop_seconds": 0,
+  "automatic_requeue": false,
+  "expected_training_hours": [
+    4,
+    5
+  ],
+  "scope": "Estimates, not observed end-to-end GPU epochs; login-node data probe and three-update H100 readiness",
+  "CPU_data_epoch_seconds": 142.97083594618016,
+  "CPU_data_100epoch_hours": 3.9714121096161157,
+  "GPU_compute_hours": {
+    "swiglu": 1.1454445383757654,
+    "isru_d": 1.8037153745465022
+  },
+  "overlap_model": "max(data time,GPU time), then add checkpoint/startup and scheduling margin",
+  "hardware_safety": "Slower allowed cards and unmeasured end-to-end overhead covered by six-hour request; first actual epoch refines the estimate",
+  "published_budgets": [
+    {
+      "method": "JiT",
+      "dataset": "ImageNet",
+      "epochs": [
+        200,
+        600
+      ],
+      "source": "https://arxiv.org/html/2511.13720v2"
+    },
+    {
+      "method": "AsymFlow rank controls",
+      "dataset": "ImageNet",
+      "epochs": 160,
+      "source": "https://arxiv.org/html/2605.12964v3"
+    },
+    {
+      "method": "Training Flow Matching: Weighting and Parameterization",
+      "dataset": "CelebA64 / CelebA128 appendix tables",
+      "epochs": 300,
+      "source": "https://arxiv.org/html/2603.06454v1"
+    }
+  ],
+  "first_stage_interpretation": "100 is a chosen shorter budget, not an author-validated convergence claim; FID decides whether extension is needed"
+}

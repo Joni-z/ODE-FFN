@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "target_epochs": 100,
+  "max_train_seconds": 0,
+  "slurm_time": "06:00:00",
+  "automatic_requeue": false,
+  "source_and_readiness_guards_retained": true,
+  "guard_cases": [
+    {
+      "case": "explicit_fresh",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "case": "missing_checkpoint",
+      "status": "PASS",
+      "exit_code": 2
+    },
+    {
+      "case": "lost_after_restart",
+      "status": "PASS",
+      "exit_code": 2
+    },
+    {
+      "case": "lost_existing",
+      "status": "PASS",
+      "exit_code": 2
+    }
+  ],
+  "cpus": 6,
+  "num_workers": 4
+}

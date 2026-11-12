@@ -1,5 +1,5 @@
 {
-  "status": "GPU_ready_training_submitted",
+  "status": "budget_revised_pending_replacement_submission",
   "date": "2026-11-12",
   "purpose": "Author-derived small-data transfer before a fresh FFN comparison",
   "execution_ready": true,
@@ -68,11 +68,12 @@
     "global_batch_size": 256,
     "actual_learning_rate": 5e-05,
     "noise_scale": 0.5,
-    "target_epochs": 200,
+    "target_epochs": 100,
     "outputs": {
       "swiglu": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-swiglu-s0",
       "isru_d": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-isru_d-s0"
-    }
+    },
+    "num_workers": 4
   },
   "evaluation": {
     "sampler": "author Heun, 50 intervals with final Euler",
@@ -86,9 +87,9 @@
     "gres": "gpu:1",
     "constraint": "a100|h100|h200|l40s|rtx6000|b200",
     "explicit_partition": null,
-    "cpus": 4,
+    "cpus": 6,
     "host_memory_gib": 24,
-    "allocation_wall_time": "02:00:00",
+    "allocation_wall_time": "06:00:00",
     "memory_and_throughput_profiled": true
   },
   "published_author_celeba_recipe": false,
@@ -103,19 +104,15 @@
   "authorization": "User: continue running",
   "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
   "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
-  "execution_gate": "afterok22813320 plus a passing matching source/batch receipt inside the launcher",
+  "execution_gate": "Passing GPU readiness22813320 and matching source/batch receipt; already satisfied",
   "continuation": {
-    "enabled": true,
-    "max_requeues": 20,
-    "max_train_seconds_per_allocation": 6600,
+    "enabled": false,
+    "max_train_seconds_per_allocation": 0,
     "allow_fresh_start_once": true,
     "checkpoint_each_completed_epoch": true,
-    "retain_operator_history": true
+    "retain_operator_history": true,
+    "manual_fault_recovery": true
   },
-  "job_ids": {
-    "full_model_gpu_readiness": "22813320",
-    "swiglu": "22813322",
-    "isru_d": "22813323"
-  },
+  "job_ids": {},
   "launcher_commit": "b0a4967fa8541a82116d04ca21fcccc8eaf7a665"
 }

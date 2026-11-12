@@ -32,6 +32,9 @@ at28/44epochs. Both finalized reports stay unchanged.
 The [current CelebA128 status](docs/celeba128-20261112/status.md) records
 readiness22813320 and dependency-gated SwiGLU22813322/K8 22813323, along
 with the corrected GPU-UUID monitor and preserved first-attempt diagnosis.
+The user subsequently revised the [training budget](docs/celeba128-20261112/budget-20261112.md)
+to100epochs in one six-hour allocation, with six CPUs/four data workers and
+no automatic requeue. The former pending200-epoch jobs are replaced.
 
 The professor-guided autoresearch loop tests Muon/spectral geometry and
 input-dependent diagonal generators in a separate synthetic backbone. The

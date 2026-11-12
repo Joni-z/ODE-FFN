@@ -1,3 +1,27 @@
+# Revised single-allocation budget, 12 November
+
+The user clarifies: estimate the complete run and avoid an arbitrary24-hour
+request, not forced two-hour segments. Published JiT budgets are200/600,
+AsymFlow controls160, and related CelebA weighting/parameterization controls
+300epochs. Select100epochs as a smaller first stage,63,500updates at batch256,
+then evaluate FID before deciding on extension. This is a local budget decision.
+
+The old pair22813322/22813323 remained pending and had no output/checkpoint
+directories. After an ineffective scontrol hold request, verify state and
+cancel only those two jobs. Preserve their receipts and all old runs.
+
+H100 warm GPU timings imply1.15/1.80hours of compute for100epochs. Local
+data-only probes give1057img/s for two workers and1137for four; shared-scratch
+loading is148img/s. These are login-node samples, not full training epochs.
+Data loading is the likely bound: estimate4–5hours including overhead and
+request6hours once per arm, six CPUs and four workers. Do not claim four
+workers doubles speed. Disable planned runtime pauses/requeue, retaining
+epoch checkpoints/P history for fault recovery. TMPDIR uses the job's /tmp
+cache; NFS multiprocessing cleanup warnings seen in the scratch-only probe
+do not justify any model/optimizer change.
+
+Canonical budget: docs/celeba128-20261112/budget-20261112.md.
+
 # CelebA128 GPU readiness passed, 12 November
 
 Readiness22813320 completed0:0 on H100 gh009 in3m02s. Both full native

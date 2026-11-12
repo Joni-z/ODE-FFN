@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-12",
+  "status": "pre_submission_PASS",
+  "target_epochs": 100,
+  "allocation_wall_time": "06:00:00",
+  "automatic_requeue": false,
+  "planned_runtime_pause": false,
+  "data_workers": 4,
+  "cpus": 6,
+  "model_code_changed": false,
+  "GPU_readiness_reused": "22813320 source65864ad PASS",
+  "guard_tests": "single-allocation-checks.json",
+  "budget_arithmetic": "635batches x100epochs =63,500updates",
+  "protected_report2_files_checked": 11,
+  "launcher_sha256": "a0fbe586cfbdb72424c8e5184f770e790670fd1cc7d05a2675ea594d1be728bb",
+  "published_source_checks": [
+    "JiT200/600",
+    "AsymFlow160/600",
+    "CelebA U-Net300"
+  ],
+  "scope": "Estimate and launcher changes; no measured whole GPU epoch yet"
+}

@@ -36,22 +36,27 @@ isolating which difference in the earlier 64px setting mattered.
 
 ## Budget and stopping
 
-Target 200 epochs per arm. One GPU, four CPUs, 24 GiB host RAM, two-hour priority
-allocations, all six GPU types joined by OR; omit an explicit partition.
-The 15-minute readiness job runs before formal training. Readiness success,
-matching source revision and matching batch are required by the launcher.
+Revised by the user on 12 November: target **100 epochs per arm** in one
+**six-hour allocation**, one GPU, six CPUs, four data workers and 24 GiB host
+RAM on priority. Keep all six GPU types joined by OR and omit a partition.
+The budget is about 63,500 optimizer updates. The published JiT 200/600-epoch
+ImageNet schedules are context, not a validated CelebA stopping point.
+See the [measured estimate and source comparison](budget-20261112.md).
+The existing full-model readiness 22813320 passed; do not repeat it for a
+duration/worker-count change. Its source and batch guard remains in place.
 
 Use a clean detached source runtime; later development cannot modify it.
 Both arms start from scratch in new 128px output directories. The old 64px
 checkpoints/runtimes stay untouched. A fresh start requires an explicit flag
-and is permitted only at restart count 0 with no prior source marker. Later
-requeues require a checkpoint; missing state must never restart training.
+and is permitted only at restart count 0 with no prior source marker. Missing
+checkpoint state from an existing run must never restart training.
 
-The existing runtime adapter checks its budget at epoch boundaries and saves
-the full model, optimizer, both EMAs and RNG. Retain P-only snapshots for
-every completed epoch. Requeue the same job only after a clean budget pause
-with positive epoch progress. Stop at 200 epochs, failure, no progress or a cap
-of 20 requeues. Failed or killed jobs are inspected before resubmission.
+Disable the planned runtime stop (`max_train_seconds=0`) and automatic
+requeue. Save model, optimizer, both EMAs and RNG at every completed epoch,
+and retain each P snapshot. Stop at 100 epochs or an execution failure. The
+Slurm six-hour cap is an exceptional backstop; if it is reached, inspect
+the last checkpoint and measured speed before a manual recovery. There is
+no predetermined chain of short jobs.
 
 ## Evaluation and monitoring
 

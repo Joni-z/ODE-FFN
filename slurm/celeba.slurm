@@ -5,10 +5,10 @@
 #SBATCH --constraint=a100|h100|h200|l40s|rtx6000|b200
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=6
 #SBATCH --mem=24G
-#SBATCH --time=02:00:00
-#SBATCH --requeue
+#SBATCH --time=06:00:00
+#SBATCH --no-requeue
 #SBATCH --open-mode=append
 #SBATCH --output=/scratch/zz5070/ODE_FFN/runs/celeba/slurm/%x-%j.out
 
@@ -26,11 +26,13 @@ RECIPE=${2:-celeba64}
 case "$RECIPE" in
     celeba64)
         MODEL=JiT-B/4; IMAGE_SIZE=64; BATCH_SIZE=64; NOISE_SCALE=1
+        TARGET_EPOCHS=${ODE_FFN_EPOCHS:-200}; MAX_TRAIN_SECONDS=${ODE_FFN_MAX_TRAIN_SECONDS:-6600}
         LR_ARGS=(--lr 0.0001)
         OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-${FFN}-s0
         ;;
     celeba128)
         MODEL=JiT-B/16; IMAGE_SIZE=128; BATCH_SIZE=${ODE_FFN_BATCH_SIZE:-256}; NOISE_SCALE=0.5
+        TARGET_EPOCHS=${ODE_FFN_EPOCHS:-100}; MAX_TRAIN_SECONDS=${ODE_FFN_MAX_TRAIN_SECONDS:-0}
         LR_ARGS=(--blr 0.00005)
         OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-${FFN}-s0
         python - "$BATCH_SIZE" "$(git rev-parse HEAD)" <<'PY'
@@ -48,17 +50,11 @@ PY
     *) echo "Unknown CelebA recipe" >&2; exit 2 ;;
 esac
 mkdir -p "$OUT"
-AUTO_RESUME=${ODE_FFN_AUTO_RESUME:-0}
 FRESH_START=${ODE_FFN_FRESH_START:-0}
 RESTART_COUNT=${SLURM_RESTART_COUNT:-0}
-MAX_REQUEUES=${ODE_FFN_MAX_REQUEUES:-20}
 ATTEMPT=${SLURM_JOB_ID}-r${RESTART_COUNT}
-if (( RESTART_COUNT > MAX_REQUEUES )); then
-    echo "Requeue limit reached; checkpoint retained" >&2
-    exit 2
-fi
 START_EPOCHS=0
-if [[ "$AUTO_RESUME" == 1 && ! -f "$OUT/checkpoint-last.pth" ]]; then
+if [[ ! -f "$OUT/checkpoint-last.pth" ]]; then
     if [[ "$FRESH_START" != 1 || "$RESTART_COUNT" != 0 || -f "$OUT/source-commit.txt" ]]; then
         echo "Continuation requires a checkpoint; fresh start must be explicit and is allowed only once" >&2
         exit 2
@@ -100,6 +96,7 @@ if ! kill -0 "$MONITOR_PID" 2>/dev/null; then
     exit 1
 fi
 LOCAL_DATA=$(mktemp -d "/tmp/ode-celeba-${SLURM_JOB_ID}.XXXXXX")
+export TMPDIR="$LOCAL_DATA"
 cleanup() {
     kill "$MONITOR_PID" 2>/dev/null || true
     if [[ "$LOCAL_DATA" == /tmp/ode-celeba-${SLURM_JOB_ID}.* ]]; then
@@ -124,37 +121,8 @@ python -u main_jit.py \
     --model "$MODEL" --img_size "$IMAGE_SIZE" --class_num 1 \
     --ffn "$FFN" --ode_order 8 --seed 0 \
     --label_drop_prob 1 --cfg 0 --noise_scale "$NOISE_SCALE" --P_mean -0.8 --P_std 0.8 \
-    --batch_size "$BATCH_SIZE" --num_workers 2 --epochs 200 --warmup_epochs 5 \
+    --batch_size "$BATCH_SIZE" --num_workers 4 --epochs "$TARGET_EPOCHS" --warmup_epochs 5 \
     "${LR_ARGS[@]}" --lr_schedule constant --weight_decay 0 \
     --ema_decay1 0.9999 --ema_decay2 0.9996 \
-    --max_train_seconds 6600 --save_last_freq 1 --log_freq 100 \
+    --max_train_seconds "$MAX_TRAIN_SECONDS" --save_last_freq 1 --log_freq 100 \
     --output_dir "$OUT" "${RESUME[@]}"
-
-# Continue only after a clean budget pause; a failed Python command stops above.
-if [[ "$AUTO_RESUME" == 1 ]]; then
-    read -r STATE COMPLETED TARGET < <(python - "$OUT/progress.json" <<'PY'
-import json
-import sys
-with open(sys.argv[1]) as stream:
-    progress = json.load(stream)
-print(progress['status'], progress['completed_epochs'], progress['target_epochs'])
-PY
-)
-    if [[ "$STATE" == paused ]] && (( COMPLETED < TARGET )); then
-        if (( COMPLETED <= START_EPOCHS )); then
-            echo "No completed-epoch progress; stop instead of requeueing" >&2
-            exit 2
-        fi
-        if (( RESTART_COUNT >= MAX_REQUEUES )); then
-            echo "Requeue limit reached; checkpoint retained at epoch $COMPLETED" >&2
-            exit 2
-        fi
-        echo "Saved epoch $COMPLETED/$TARGET; requeueing job $SLURM_JOB_ID"
-        cleanup
-        trap - EXIT
-        scontrol requeue "$SLURM_JOB_ID"
-    elif [[ "$STATE" != complete ]] || (( COMPLETED != TARGET )); then
-        echo "Unexpected progress state; stop before requeueing" >&2
-        exit 2
-    fi
-fi

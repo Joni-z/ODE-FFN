@@ -1,4 +1,29 @@
-# Current task: run the revised CelebA128 pair, 12 November 2026
+# Current task: revise the epoch and wall-time budget, 12 November 2026
+
+The user clarifies that short requests mean avoiding an arbitrary24-hour
+allocation, not splitting training into two-hour self-requeues. Recheck live
+jobs and epoch timings, compare author-published training budgets, then set a
+smaller justified first-stage horizon with one continuous allocation per arm.
+Preserve any completed training/checkpoints, the selected K8 and seed0, the
+validated mathematical recipe and finalized reports. Do not restart a live
+job merely to alter its script. Push all verified budget/document changes.
+
+- [x] Inspect current Slurm states, epoch timings and safe update options.
+- [x] Verify published JiT/related budgets and compare updates/images seen.
+- [x] Register100epochs/63,500updates and a4–5hour estimate; request6hours continuously.
+- [ ] Apply one-allocation scheduling without discarding progress; verify actual jobs.
+- [ ] Publish receipts, monitor state and the revised budget on GitHub.
+
+The former pair22813322/22813323 had not started and is cancelled after a
+state check. scontrol hold returned an unspecified error without applying a
+hold. No training state is discarded. Shared scratch data-only probe148img/s
+does not match local training. Explicit /tmp probes give1057img/s with two
+workers and1137with four: only7.6%gain, not linear scaling. Both are CPU-only
+login-node measurements, so use them as estimates. The wrapper now uses
+six CPUs/four workers,100epochs, max_train_seconds0 and no automatic requeue.
+The environment and frozen model source65864ad remain unchanged.
+
+# Previous task: run the revised CelebA128 pair, 12 November 2026
 
 The user says to continue running after the recipe review. Implement the
 recommended local CelebA128/native JiT-B/16 transfer, retaining the selected
