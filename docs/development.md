@@ -1,51 +1,49 @@
-# Development checkout and runtime data
+# Development and server layout
 
-Canonical repository: https://github.com/Joni-z/ODE-FFN
+Canonical repository: [Joni-z/ODE-FFN](https://github.com/Joni-z/ODE-FFN),
+branch `main`. The root Python files follow the pinned JiT author's layout.
+The [repository map](README.md) separates active image work from historical
+synthetic studies. For the current run, use [STATUS.md](../STATUS.md).
 
-- `main`: active development tree, including the original JiT code and the synthetic experiments.
-- `archive`: original GitHub main at `3e8b067a2324354d2a7219e9785244c28c04e1ee`, preserved before the 2026-10-20 migration.
-- torch worktree: `/scratch/zz5070/ODE_FFN/jit-codebase`.
-- MBP checkout: `/Users/zzz/Documents/NYU/Researches/ODE FFN/ODE-FFN`. Existing sibling `Paper_reading` is left intact.
+## Code and data on torch
 
-New experiment execution uses **Mac mini and Lenovo**. The torch/MBP paths above are historical checkouts, not required compute or publication services. Current Mac worktree: `/Users/mr.z/ODE-FFN-autoresearch`. Lenovo worktree: `D:\Research\ODE-FFN\repo`. Keep host-specific environments, datasets and immutable runtimes outside Git.
+| Path under `/scratch/zz5070/ODE_FFN/` | Purpose |
+|---|---|
+| `ODE-FFN/` | Mutable Git development checkout |
+| `runtimes/celeba128-20261112/` | Frozen source 65864ad used by the current jobs |
+| `envs/jit-celeba-cu128/` | Existing Python 3.10/PyTorch 2.7.1+cu128 environment |
+| `datasets/celeba/` | Original aligned CelebA images and official split metadata |
+| `runs/celeba/20261112-b16-swiglu-s0/` | Baseline checkpoints, epochs and GPU records |
+| `runs/celeba/20261112-b16-isru_d-s0/` | Candidate checkpoints, P trajectories and GPU records |
+| `operations/celeba128-20261112/` | Submission receipts and live monitor.json |
 
-## Fresh checkout
+The local editing checkout is `/Users/mr.z/ODE-FFN-upstream`. Code sync uses
+GitHub; keep each checkout clean before a fast-forward update. A queued
+Slurm job stores its wrapper at submission and executes the frozen model
+runtime passed through ODE_FFN_CODE. Editing the mutable checkout does not
+change those queued jobs.
 
-The repository contains source, configs, tests, reviewed reports, numeric summaries, figures and historical design documents. Raw datasets, checkpoints, environments, Slurm logs and local monitoring state are intentionally excluded. The legacy `Designs` and `configs_old` links point to tracked in-repository documentation/config directories. Raw log aliases on torch are machine-local.
+The older `jit-codebase/` path and Mac/Lenovo runs are retained as history.
+They are not the current torch development checkout. The original development
+page is preserved [verbatim](history/2026-11-12-repository-organization/development-before.md).
 
-For synthetic work use an isolated Python environment. The verified torch runtime uses PyTorch2.10.0 with CUDA12.8; install the appropriate PyTorch build for your own machine separately, then install `requirements-synthetic.txt`. No CUDA package is required for CPU-only data generation. The main `requirements.txt` is for the legacy image code.
+## Where to make a change
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-synthetic.txt
-# Install a PyTorch build suitable for this machine before training/model tests.
-python -m synthetic.prepare --config configs/synthetic/data_v1.json --output data/synthetic/v1
-python -m unittest discover -s tests -p 'test_synthetic_*.py' -v
-python -m unittest discover -s tests -p 'test_stage_*.py' -v
-```
+| Change | File |
+|---|---|
+| Candidate feature transformation | [ffn.py](../ffn.py) |
+| JiT backbone or native SwiGLU definition | [model_jit.py](../model_jit.py) |
+| Training budget, batch, workers and GPU request | [slurm/celeba.slurm](../slurm/celeba.slurm) |
+| Entry-point data/checkpoint adapter | [main_jit.py](../main_jit.py) |
+| Objective, EMA and sampler | [denoiser.py](../denoiser.py) |
 
-Dataset generation refuses to overwrite an existing directory. For exact archived run reproduction, use the actual torch data and frozen runtime; locally reconstructed arrays may agree while compressed-file/manifest hashes differ. Historic job scripts contain torch paths and belong to their recorded protocol: do not submit them unchanged as a new experiment. See `docs/research-2026-10-20/protocol.md` and `monitoring.md`.
+The last file contains copied author mathematics; FFN work normally uses the
+hook rather than changing that objective. [UPSTREAM.md](../UPSTREAM.md)
+records the source boundary. Use the existing
+[invocation and validation guide](celeba128-20261112/validation.md) for checks.
 
-## Source control hygiene
-
-Before committing, inspect `git status`, `git diff --cached --stat` and the staged filenames. `.gitignore` excludes data, weights, environments, secrets and raw logs; it does not remove files already tracked by Git. Reviewed report JSON/CSV/PNG/PDF are deliberately retained as scientific evidence. Large diagnostic output should remain in the external runtime directories unless explicitly selected for a report.
-
-Do not rewrite `archive`. Develop new work on feature branches from `main`; synchronize Mac mini and Lenovo through GitHub. Check each checkout for local changes and use fast-forward pulls. Keep immutable training snapshots separate from mutable worktrees.
-
-## Direct publication from Mac mini
-
-Authenticate locally once using the official GitHub CLI browser flow; credentials belong in the CLI/OS credential store, not the repository:
-
-```bash
-gh auth login --hostname github.com --git-protocol https --web
-gh auth setup-git --hostname github.com
-```
-
-After committing verified work as Zhizhe Zhang, publish from its worktree:
-
-```bash
-python scripts/publish_autoresearch.py
-```
-
-The publisher checks the canonical remote, a clean worktree, English commit identities and fast-forward ancestry, then performs a normal Git push and verifies remote main. It does not route publication through another machine or rewrite remote history. A login/network failure leaves local commits intact and must not be reported as successful publication.
+Datasets, environments, checkpoints and raw logs remain on scratch and are
+excluded from Git. Publish code, bounded configuration records, reviewed
+metrics and figures as Zhizhe Zhang. Preserve the completed reports and
+frozen run source. Keep current plan/notes short; archive completed journals
+under [history](history/README.md).
