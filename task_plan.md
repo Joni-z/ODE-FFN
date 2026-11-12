@@ -11,7 +11,8 @@ AdamW and EMA equations. Preserve the old64px runs and finalized reports.
 - [x] Freeze/sync code and submit a short full-model GPU profile/readiness job.
 - [x] Register shared batch256/LR5e-5 and submit both arms behind readiness; start monitoring.
 - [x] Verify protocol, checks, actual job states and monitoring paths for publication.
-- [ ] Collect pending GPU readiness and actual epoch throughput/memory; do not infer them from CPU tests.
+- [x] Collect full GPU readiness at batch256: both arms pass on H100, peak13.04/21.00GiB.
+- [ ] Collect actual training epoch throughput, checkpoint/P history and later fixed-sampler FID.
 
 Use priority account, all six OR GPU constraints, one GPU, four CPUs,24GiB
 host memory and two-hour training allocations. GPU readiness must precede
@@ -934,3 +935,8 @@ Post-hoc flattening is not a repair. Next bounded question: can the native model
 adapt when weak spectrum relaxation is imposed throughout training? Register
 one relaxation time with untouched and paired scalar-contraction controls;
 no new gate, loss, schedule or rate sweep.
+
+12 November update: readiness22813320 COMPLETED0:0 in3m02s ongh009.
+Both full native B16 models pass at batch256; dependencies release.
+The pair retains batch256/LR5e-5 with no fallback needed. Actual training
+allocation/epoch metrics are separate from the three-update GPU profile.

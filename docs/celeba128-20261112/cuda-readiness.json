@@ -1,0 +1,72 @@
+{
+  "algebra": {
+    "K8_matrix_exponential_max_error": 8.829048603331557e-14,
+    "K1_and_K8_dense_polynomial": "PASS",
+    "input_and_P_derivatives": "PASS",
+    "gradcheck": "PASS"
+  },
+  "device": "cuda",
+  "formal_training": false,
+  "image_size": 128,
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "official_train_adapter": {
+    "status": "PASS",
+    "images": 162770,
+    "shape": [
+      3,
+      128,
+      128
+    ]
+  },
+  "cuda": {
+    "torch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "device": "NVIDIA H100 80GB HBM3",
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120",
+      "compute_120"
+    ],
+    "total_memory_bytes": 85009367040,
+    "kernel_dispatch": "PASS"
+  },
+  "full_JiT_B16": {
+    "swiglu": {
+      "parameters": 130405632,
+      "batch": 256,
+      "updates": 3,
+      "loss": 1.064788818359375,
+      "seconds": 61.940195232993574,
+      "step_seconds": [
+        61.80997719299921,
+        0.06514289100596216,
+        0.06473428499884903
+      ],
+      "warmed_images_per_second": 3942.1861157578096,
+      "learning_rate": 5e-05,
+      "noise_scale": 0.5,
+      "peak_bytes": 14001868288
+    },
+    "isru_d": {
+      "parameters": 87879936,
+      "batch": 256,
+      "updates": 3,
+      "loss": 1.064681053161621,
+      "seconds": 68.61866822499724,
+      "step_seconds": [
+        68.41358566199779,
+        0.10244600700389128,
+        0.10206975199980661
+      ],
+      "warmed_images_per_second": 2503.474561052004,
+      "learning_rate": 5e-05,
+      "noise_scale": 0.5,
+      "peak_bytes": 22551313920
+    }
+  },
+  "status": "PASS"
+}

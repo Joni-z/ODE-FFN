@@ -1,3 +1,13 @@
+# CelebA128 GPU readiness passed, 12 November
+
+Readiness22813320 completed0:0 on H100 gh009 in3m02s. Both full native
+B16 arms complete three finite BF16 optimizer/EMA updates at batch256,
+LR5e-5 and noise.5. Peak allocated memory is13.04GiB native and21.00GiB K8.
+The first updates include61.81/68.41seconds of compilation; the next two
+mean.06494/.10226seconds on a reused GPU batch. These are readiness timings,
+not actual epoch throughput. Dependencies release for native22813322 and
+K8 22813323; monitor2156682 remains active. No FID is available.
+
 # Authorized revised CelebA128 training, 12 November
 
 The user says to continue after the recipe review. Implement native JiT-B/16
@@ -38,7 +48,7 @@ target200epochs remain fixed. Monitor2156682 polls60seconds with preserved
 attempt2 log. A fresh independent witness ran both documented scheduler
 dry-runs verbatim with no divergences. Readiness is running ongh009 and the
 corrected monitor resolves the allocated UUID while Slurm still reports
-global ID1; full-model profile and training metrics are being collected.
+global ID1; full-model profile now passed. Actual epoch metrics are pending.
 Current receipts/status: docs/celeba128-20261112/.
 
 Protocol and documented commands: docs/celeba128-20261112/.
