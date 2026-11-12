@@ -1,4 +1,29 @@
-# Current task: audit the image recipe before resuming, 12 November 2026
+# Current task: run the revised CelebA128 pair, 12 November 2026
+
+The user says to continue running after the recipe review. Implement the
+recommended local CelebA128/native JiT-B/16 transfer, retaining the selected
+ISRU-D K8 and native SwiGLU with seed0. Keep the author objective, sampler,
+AdamW and EMA equations. Preserve the old64px runs and finalized reports.
+
+- [x] Check live jobs, unchanged environment hash and available GPU resource types.
+- [x] Implement128px data/evaluation support, a shared launcher recipe and bounded continuation.
+- [ ] Verify CPU data/resume/upstream behavior and the documented invocation.
+- [ ] Freeze/sync code and submit a short full-model GPU profile/readiness job.
+- [ ] Fix one shared batch/LR from the profile, submit both training arms and monitor them.
+- [ ] Publish protocol, checks, actual job states and monitoring paths on GitHub.
+
+Use priority account, all six OR GPU constraints, one GPU, four CPUs,24GiB
+host memory and two-hour training allocations. GPU readiness must precede
+formal updates. The proposed batch256 is subject to memory/throughput
+measurement; a smaller common batch changes LR by the author's linear rule.
+No new optimizer, loss or architecture is introduced beyond the selected K8.
+Eleven isolated launcher cases pass. The existing environment hash remains
+d8a61f4e. The stored upstream patch had a malformed trailing hunk; it is
+regenerated from eleven SHA256-verified author files. Torch has no rg, so
+scheduler filtering uses awk. CPU128px/resume/upstream checks pass. Freeze source and collect a separate
+full-model GPU readiness receipt before claiming the proposed batch is ready.
+
+# Previous task: audit the image recipe before resuming, 12 November 2026
 
 The user steers continuation toward checking training parameters against the
 official JiT repository, or selecting a newer baseline. Hold GPU continuation

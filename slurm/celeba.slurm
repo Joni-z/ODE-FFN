@@ -22,9 +22,34 @@ unset RANK WORLD_SIZE LOCAL_RANK SLURM_PROCID
 
 FFN=${1:-isru_d}
 case "$FFN" in isru_d|swiglu) ;; *) exit 2 ;; esac
-OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-${FFN}-s0
+RECIPE=${2:-celeba64}
+case "$RECIPE" in
+    celeba64)
+        MODEL=JiT-B/4; IMAGE_SIZE=64; BATCH_SIZE=64; NOISE_SCALE=1
+        LR_ARGS=(--lr 0.0001)
+        OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-${FFN}-s0
+        ;;
+    celeba128)
+        MODEL=JiT-B/16; IMAGE_SIZE=128; BATCH_SIZE=${ODE_FFN_BATCH_SIZE:-256}; NOISE_SCALE=0.5
+        LR_ARGS=(--blr 0.00005)
+        OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-${FFN}-s0
+        python - "$BATCH_SIZE" "$(git rev-parse HEAD)" <<'PY'
+import json
+import sys
+from pathlib import Path
+path = Path('/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json')
+record = json.loads(path.read_text())
+assert record['status'] == 'PASS' and record['image_size'] == 128
+assert record['source_commit'] == sys.argv[2], 'Readiness must match the frozen training source'
+for arm in ('swiglu', 'isru_d'):
+    assert record['full_JiT_B16'][arm]['batch'] == int(sys.argv[1])
+PY
+        ;;
+    *) echo "Unknown CelebA recipe" >&2; exit 2 ;;
+esac
 mkdir -p "$OUT"
 AUTO_RESUME=${ODE_FFN_AUTO_RESUME:-0}
+FRESH_START=${ODE_FFN_FRESH_START:-0}
 RESTART_COUNT=${SLURM_RESTART_COUNT:-0}
 MAX_REQUEUES=${ODE_FFN_MAX_REQUEUES:-20}
 ATTEMPT=${SLURM_JOB_ID}-r${RESTART_COUNT}
@@ -33,11 +58,13 @@ if (( RESTART_COUNT > MAX_REQUEUES )); then
     exit 2
 fi
 START_EPOCHS=0
-if [[ "$AUTO_RESUME" == 1 ]]; then
-    [[ -f "$OUT/checkpoint-last.pth" ]] || {
-        echo "Continuation requires the existing checkpoint" >&2
+if [[ "$AUTO_RESUME" == 1 && ! -f "$OUT/checkpoint-last.pth" ]]; then
+    if [[ "$FRESH_START" != 1 || "$RESTART_COUNT" != 0 || -f "$OUT/source-commit.txt" ]]; then
+        echo "Continuation requires a checkpoint; fresh start must be explicit and is allowed only once" >&2
         exit 2
-    }
+    fi
+fi
+if [[ -f "$OUT/checkpoint-last.pth" ]]; then
     START_EPOCHS=$(python - "$OUT/checkpoint-last.pth" <<'PY'
 import sys
 import torch
@@ -91,11 +118,11 @@ fi
 
 python -u main_jit.py \
     --dataset celeba --data_path "$LOCAL_DATA" \
-    --model JiT-B/4 --img_size 64 --class_num 1 \
+    --model "$MODEL" --img_size "$IMAGE_SIZE" --class_num 1 \
     --ffn "$FFN" --ode_order 8 --seed 0 \
-    --label_drop_prob 1 --cfg 0 --noise_scale 1 --P_mean -0.8 --P_std 0.8 \
-    --batch_size 64 --num_workers 2 --epochs 200 --warmup_epochs 5 \
-    --lr 0.0001 --lr_schedule constant --weight_decay 0 \
+    --label_drop_prob 1 --cfg 0 --noise_scale "$NOISE_SCALE" --P_mean -0.8 --P_std 0.8 \
+    --batch_size "$BATCH_SIZE" --num_workers 2 --epochs 200 --warmup_epochs 5 \
+    "${LR_ARGS[@]}" --lr_schedule constant --weight_decay 0 \
     --ema_decay1 0.9999 --ema_decay2 0.9996 \
     --max_train_seconds 6600 --save_last_freq 1 --log_freq 100 \
     --output_dir "$OUT" "${RESUME[@]}"

@@ -1,3 +1,27 @@
+# Authorized revised CelebA128 training, 12 November
+
+The user says to continue after the recipe review. Implement native JiT-B/16
+at128px with a shared profiled batch (proposed256), author blr5e-5, noise.5,
+unchanged AdamW/time/EMA/loss and seed0 in native SwiGLU and ISRU-D K8.
+Use new output directories rather than loading the old64px checkpoints.
+Retain the environment hash d8a61f4e and priority/all-GPU constraints.
+
+The shared launcher now accepts the128px recipe, requires matching full-model
+GPU readiness and supports an explicitly fresh initial allocation followed
+by checkpoint-only self-requeues. The real entrypoint rejects changed model,
+resolution, batch, noise, seed or optimizer/EMA settings on resume. Eleven
+isolated fresh-start/stopping cases pass. CPU128px data/resume and upstream
+checks are being collected before freezing source for a15-minute GPU profile.
+
+The stored UPSTREAM.patch had a malformed trailing hunk. Regenerate it from
+the11SHA256-verified author files rather than editing hunk counts by hand;
+the active loss, EMA, sampler, attention and FFN definitions remain unchanged.
+Torch login does not have rg; use awk for scheduler-output filtering.
+
+Protocol and documented commands: docs/celeba128-20261112/.
+This authorization supersedes the previous hold; it does not resume old64px
+jobs or change finalized Report1/2.
+
 # Recipe audit before continuation, 12 November
 
 The user requests training-parameter review against official JiT or a newer

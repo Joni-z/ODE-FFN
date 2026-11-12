@@ -29,13 +29,16 @@ search or extra loss enters active training.
 | `util/misc.py` | Add a barrier helper, atomic checkpoint writes, optional single-GPU RNG state, P-history snapshots and progress JSON. |
 | `util/datasets.py` | Official torchvision CelebA training split with a constant discarded label; image-only wrapper for the standard FID library. |
 
-The CelebA extension adds CLI/order and loader flags, a single-GPU runtime
+The CelebA extension supports64px/B4 and128px/native B16, adds CLI/order and loader flags, a single-GPU runtime
 budget checked between completed epochs, epoch loss/throughput records and
 RNG restoration. `engine_jit.py` returns its existing metric averages and
-passes deterministic CelebA64 training images to the unchanged FID library.
+passes deterministic crops at the selected CelebA resolution to the unchanged FID library.
 The loss, EMA and sampling equations remain verbatim. Short Slurm allocations
 retain full checkpoints and save all learned P tensors. Evaluation is separate
 from the initial bounded training allocations.
+Resume additionally rejects changes to the model, resolution, batch, bridge,
+seed and optimizer/EMA recipe rather than silently loading old optimizer state
+into a new experiment. This does not change the author's training equations.
 
 `util/crop.py`, `util/lr_sched.py`, `prepare_ref.py`, `environment.yaml` and
 `LICENSE` are unchanged. Mac requirements form a separate execution profile,

@@ -1,0 +1,23 @@
+{
+  "algebra": {
+    "K8_matrix_exponential_max_error": 8.829048603331557e-14,
+    "K1_and_K8_dense_polynomial": "PASS",
+    "input_and_P_derivatives": "PASS",
+    "gradcheck": "PASS"
+  },
+  "device": "cpu",
+  "formal_training": false,
+  "image_size": 128,
+  "source_commit": "0b4b136f6c8ad375d437a31818b7509311a94e6c",
+  "official_train_adapter": {
+    "status": "PASS",
+    "images": 162770,
+    "shape": [
+      3,
+      128,
+      128
+    ]
+  },
+  "entrypoint_epoch_resume": "PASS: actual entrypoint, checkpoint, optimizer, two EMAs and Torch RNG match bitwise",
+  "status": "PASS"
+}

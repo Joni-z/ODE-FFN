@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-12",
+  "stage": "CPU preflight before frozen-source GPU readiness",
+  "formal_training": false,
+  "environment_spec_hash": "d8a61f4e",
+  "input_paths": [
+    "docs/research-assessments/2026-11-12-training-recipe/proposed-celeba128.json",
+    "/scratch/zz5070/ODE_FFN/datasets/celeba",
+    "/tmp/ode-jit-upstream-20261112"
+  ],
+  "checks": {
+    "source_equations_unchanged": true,
+    "upstream_patch_applies": true,
+    "python_syntax": true,
+    "bash_syntax": true
+  },
+  "launcher_cases": [
+    {
+      "case": "explicit_new",
+      "status": "PASS",
+      "exit_code": 0
+    },
+    {
+      "case": "missing_checkpoint",
+      "status": "PASS",
+      "exit_code": 2
+    },
+    {
+      "case": "lost_checkpoint_after_restart",
+      "status": "PASS",
+      "exit_code": 2
+    },
+    {
+      "case": "lost_checkpoint_existing_run",
+      "status": "PASS",
+      "exit_code": 2
+    },
+    {
+      "case": "paused_progress",
+      "status": "PASS",
+      "exit_code": 0,
+      "requeued": true
+    },
+    {
+      "case": "target_complete",
+      "status": "PASS",
+      "exit_code": 0,
+      "requeued": false
+    },
+    {
+      "case": "no_progress",
+      "status": "PASS",
+      "exit_code": 2,
+      "requeued": false
+    },
+    {
+      "case": "requeue_limit",
+      "status": "PASS",
+      "exit_code": 2,
+      "requeued": false
+    },
+    {
+      "case": "unexpected_state",
+      "status": "PASS",
+      "exit_code": 2,
+      "requeued": false
+    },
+    {
+      "case": "wrong_complete_count",
+      "status": "PASS",
+      "exit_code": 2,
+      "requeued": false
+    },
+    {
+      "case": "one_allocation",
+      "status": "PASS",
+      "exit_code": 0,
+      "requeued": false
+    }
+  ],
+  "CPU_receipt_note": "preflight-cpu.json was run on an isolated dirty checkout of0b4b136 with the listed code hashes; the later clean frozen runtime receives a separate documented check and GPU receipt",
+  "code_sha256": {
+    "main_jit.py": "3afa58f694b1dd5fe03465c73caf38533c0b92bdae57d680515c5732b5b59839",
+    "scripts/check_celeba.py": "310995ee8c0d64ee312a3e5affc79d898ab559109c16bf10524883d6be95d124",
+    "slurm/celeba.slurm": "c2baec5ec79eb926a2061ceaa4ad1214abf4603f57abbc54c06518e9dcc60c30",
+    "slurm/celeba_smoke.slurm": "9fbb8cd660b05ef69e082548a8bab791dc206bc5344401429fc337e729cdfb00",
+    "UPSTREAM.patch": "6147bb4c8586b53d430786c860378b4e0b872285a23753f0ef40b67819d77446"
+  },
+  "unchanged": [
+    "reports/report1/",
+    "reports/report2/",
+    "old64px checkpoints and frozen source",
+    "ffn.py",
+    "denoiser.py",
+    "engine_jit.py",
+    "model_jit.py"
+  ],
+  "GPU_readiness": "not yet submitted",
+  "training": "not yet submitted"
+}

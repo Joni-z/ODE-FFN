@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "upstream": "cbc743a2ada5e9762697da2c83f8c4f8379e8c17",
+  "CPU_reference": "placement-only adaptations for the CUDA-only author code",
+  "native_state_and_RNG_bitwise": true,
+  "active_output_input_and_parameter_gradients_bitwise": true,
+  "official_epoch_Adam_and_two_EMAs_bitwise": true,
+  "official_Euler_and_Heun_bitwise": true,
+  "candidate_non_FFN_and_RNG_unchanged": true,
+  "candidate_gradcheck": true,
+  "official_checkpoint_roundtrip": true,
+  "MPS_forward_backward_optimizer": false,
+  "quality_or_FID_claim": false
+}

@@ -162,8 +162,8 @@ def main(args):
     ])
 
     if args.dataset == 'celeba':
-        if args.img_size != 64 or args.class_num != 1 or args.label_drop_prob != 1 or args.cfg != 0:
-            raise ValueError('CelebA uses img_size=64, class_num=1, label_drop_prob=1, cfg=0')
+        if args.img_size not in (64, 128) or args.class_num != 1 or args.label_drop_prob != 1 or args.cfg != 0:
+            raise ValueError('CelebA uses img_size in (64,128), class_num=1, label_drop_prob=1, cfg=0')
         dataset_train = celeba_train(args.data_path, transform_train)
     elif args.dataset == 'cifar10':
         if args.img_size != 32 or args.class_num != 10:
@@ -226,6 +226,12 @@ def main(args):
             raise ValueError('Resume with the FFN used to create this checkpoint')
         if args.ffn == 'isru_d' and getattr(checkpoint['args'], 'ode_order', None) != args.ode_order:
             raise ValueError('Resume with the original ISRU-D Taylor order')
+        for key in ('dataset', 'model', 'img_size', 'batch_size', 'seed', 'class_num',
+                    'label_drop_prob', 'noise_scale', 'P_mean', 'P_std', 't_eps',
+                    'warmup_epochs', 'lr', 'lr_schedule', 'weight_decay',
+                    'ema_decay1', 'ema_decay2', 'attn_dropout', 'proj_dropout'):
+            if getattr(checkpoint['args'], key, None) != getattr(args, key):
+                raise ValueError(f'Resume requires the original {key}; use a new run for a changed recipe')
         model_without_ddp.load_state_dict(checkpoint['model'])
 
         ema_state_dict1 = checkpoint['model_ema1']

@@ -5,6 +5,7 @@ import gc
 import json
 import math
 import os
+import subprocess
 import sys
 import time
 import tempfile
@@ -58,7 +59,7 @@ def algebra() -> dict:
     return errors
 
 
-def entrypoint_resume(data_root: str) -> str:
+def entrypoint_resume(data_root: str, image_size: int = 64) -> str:
     """Compare the actual entrypoint's two epochs with one epoch + resume."""
     import main_jit as entry
     import model_jit
@@ -79,7 +80,7 @@ def entrypoint_resume(data_root: str) -> str:
             def run(folder: Path, epochs: int, resume: bool = False) -> None:
                 options = [
                     '--model', name, '--dataset', 'celeba', '--data_path', data_root,
-                    '--img_size', '64', '--class_num', '1', '--label_drop_prob', '1', '--cfg', '0',
+                    '--img_size', str(image_size), '--class_num', '1', '--label_drop_prob', '1', '--cfg', '0',
                     '--ffn', 'isru_d', '--ode_order', '8', '--seed', '0', '--batch_size', '2',
                     '--num_workers', '0', '--device', 'cpu', '--epochs', str(epochs),
                     '--warmup_epochs', '0', '--lr', '0.0001', '--save_last_freq', '1',
@@ -114,6 +115,16 @@ def entrypoint_resume(data_root: str) -> str:
             assert a['epoch'] == b['epoch'] == 1
             assert json.loads((resumed / 'progress.json').read_text())['status'] == 'complete'
             assert len(list((resumed / 'operators').glob('epoch-*.pth'))) == 3
+            # A changed bridge must be a new run, even when tensor shapes match.
+            saved = torch.load(resumed / 'checkpoint-last.pth', weights_only=False, map_location='cpu')
+            saved['args'].noise_scale = 0.123
+            torch.save(saved, resumed / 'checkpoint-last.pth')
+            try:
+                run(resumed, 3, resume=True)
+            except ValueError as error:
+                assert 'original noise_scale' in str(error)
+            else:
+                raise AssertionError('Changed recipe was accepted as continuation')
     finally:
         entry.celeba_train = original_loader
         del model_jit.JiT_models[name]
@@ -126,27 +137,31 @@ def main() -> None:
     parser.add_argument('--data-root', default='/scratch/zz5070/ODE_FFN/datasets')
     parser.add_argument('--full-model', action='store_true')
     parser.add_argument('--batch-size', default=64, type=int)
+    parser.add_argument('--image-size', choices=(64, 128), default=64, type=int)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     torch.set_num_threads(2)
-    result = dict(algebra=algebra(), device=args.device, formal_training=False)
+    result = dict(algebra=algebra(), device=args.device, formal_training=False,
+                  image_size=args.image_size,
+                  source_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip())
     dataset = celeba_train(args.data_root, transforms.Compose([
-        transforms.Lambda(partial(center_crop_arr, image_size=64)), transforms.PILToTensor(),
+        transforms.Lambda(partial(center_crop_arr, image_size=args.image_size)), transforms.PILToTensor(),
     ]))
     assert len(dataset) == 162770
     for index in (0, 1234, len(dataset) - 1):
         image, label = dataset[index]
-        assert image.shape == (3, 64, 64) and image.dtype == torch.uint8 and label == 0
-    result['official_train_adapter'] = dict(status='PASS', images=len(dataset), shape=[3, 64, 64])
+        assert image.shape == (3, args.image_size, args.image_size) and image.dtype == torch.uint8 and label == 0
+    result['official_train_adapter'] = dict(status='PASS', images=len(dataset), shape=[3, args.image_size, args.image_size])
     if args.device == 'cpu':
-        result['entrypoint_epoch_resume'] = entrypoint_resume(args.data_root)
+        result['entrypoint_epoch_resume'] = entrypoint_resume(args.data_root, args.image_size)
     if args.device == 'cuda':
         assert torch.cuda.is_available()
         result['cuda'] = dict(torch=torch.__version__, cuda=torch.version.cuda,
-                              device=torch.cuda.get_device_name(), arch_list=torch.cuda.get_arch_list())
+                              device=torch.cuda.get_device_name(), arch_list=torch.cuda.get_arch_list(),
+                              total_memory_bytes=torch.cuda.get_device_properties(0).total_memory)
         torch.manual_seed(0)
         layer = ISRU_D(768).cuda()
-        x = torch.randn(8, 256, 768, device='cuda', requires_grad=True)
+        x = torch.randn(8, 256 if args.image_size == 64 else 64, 768, device='cuda', requires_grad=True)
         with torch.autocast('cuda', dtype=torch.bfloat16):
             loss = layer(x).square().mean()
         loss.backward()
@@ -158,21 +173,27 @@ def main() -> None:
             records = {}
             for ffn in ('swiglu', 'isru_d'):
                 opts = get_args_parser().parse_args([
-                    '--model', 'JiT-B/4', '--img_size', '64', '--class_num', '1',
+                    '--model', 'JiT-B/4' if args.image_size == 64 else 'JiT-B/16',
+                    '--img_size', str(args.image_size), '--class_num', '1',
                     '--label_drop_prob', '1', '--cfg', '0', '--ffn', ffn, '--ode_order', '8',
+                    '--noise_scale', '1' if args.image_size == 64 else '0.5',
                 ])
                 torch.manual_seed(0)
                 model = Denoiser(opts).cuda()
                 model.ema_params1 = copy.deepcopy(list(model.parameters()))
                 model.ema_params2 = copy.deepcopy(list(model.parameters()))
-                optimizer = torch.optim.AdamW(misc.add_weight_decay(model, 0), lr=1e-4, betas=(.9, .95))
+                lr = 1e-4 if args.image_size == 64 else 5e-5 * args.batch_size / 256
+                optimizer = torch.optim.AdamW(misc.add_weight_decay(model, 0), lr=lr, betas=(.9, .95))
                 images = torch.stack([dataset[i][0] for i in range(args.batch_size)]).cuda().float().div_(255)
                 images = images * 2.0 - 1.0
                 labels = torch.zeros(args.batch_size, device='cuda', dtype=torch.long)
                 torch.cuda.reset_peak_memory_stats()
                 torch.cuda.synchronize()
                 started = time.monotonic()
+                step_seconds = []
                 for _ in range(3):
+                    torch.cuda.synchronize()
+                    step_started = time.monotonic()
                     optimizer.zero_grad(set_to_none=True)
                     with torch.autocast('cuda', dtype=torch.bfloat16):
                         loss = model(images, labels)
@@ -181,17 +202,23 @@ def main() -> None:
                     assert all(torch.isfinite(p.grad).all() for p in model.parameters() if p.grad is not None)
                     optimizer.step()
                     model.update_ema()
+                    torch.cuda.synchronize()
+                    step_seconds.append(time.monotonic() - step_started)
                 torch.cuda.synchronize()
                 if ffn == 'isru_d':
                     assert model.net.blocks[0].mlp.ode1.proj.weight.grad.abs().sum() > 0
                 records[ffn] = dict(parameters=sum(p.numel() for p in model.parameters()),
                                     batch=args.batch_size, updates=3, loss=loss.item(),
                                     seconds=time.monotonic() - started,
+                                    step_seconds=step_seconds,
+                                    warmed_images_per_second=args.batch_size / (sum(step_seconds[1:]) / 2),
+                                    learning_rate=lr,
+                                    noise_scale=opts.noise_scale,
                                     peak_bytes=torch.cuda.max_memory_allocated())
                 del optimizer, model, images, labels, loss
                 gc.collect()
                 torch.cuda.empty_cache()
-            result['full_JiT_B4'] = records
+            result['full_JiT_B4' if args.image_size == 64 else 'full_JiT_B16'] = records
         result['cuda']['kernel_dispatch'] = 'PASS'
     result['status'] = 'PASS'
     args.output.parent.mkdir(parents=True, exist_ok=True)

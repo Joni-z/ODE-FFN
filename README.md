@@ -23,10 +23,12 @@ implementation come from upstream, not the old training framework.
 
 The [12 November recipe audit](docs/research-assessments/2026-11-12-training-recipe/assessment.md)
 compares this CelebA64 port with the official batch/LR, noise scaling and
-patch bottleneck. It proposes CelebA128 with native JiT-B/16 for the next
-transfer, and reviews AsymFlow and PixelDiT2. The proposal is not launched;
-existing K8/SwiGLU checkpoints remain paused at 28/44 epochs while the recipe
-decision is open.
+patch bottleneck, and reviews AsymFlow and PixelDiT2. The user then authorized
+the [revised CelebA128 comparison](docs/celeba128-20261112/protocol.md): native
+JiT-B/16, a shared profiled batch and author-scaled LR, with noise std .5.
+The [invocation](docs/celeba128-20261112/validation.md) requires a matching
+full-model GPU readiness receipt. The old64px checkpoints remain preserved
+at28/44epochs. Both finalized reports stay unchanged.
 
 The professor-guided autoresearch loop tests Muon/spectral geometry and
 input-dependent diagonal generators in a separate synthetic backbone. The
