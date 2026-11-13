@@ -1,0 +1,195 @@
+{
+  "checked_at_utc": "2026-11-13T12:52:38.510774+00:00",
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "formal_training_complete": true,
+  "sampling_complete": false,
+  "FID_available": false,
+  "arms": {
+    "swiglu": {
+      "job_id": "22822267",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 100,
+        "target_epochs": 100,
+        "updated_at": 1794497739.504482,
+        "job_id": "22822267"
+      },
+      "checkpoint": {
+        "path": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-swiglu-s0/checkpoint-last.pth",
+        "bytes": 2608114498,
+        "sha256": "317153d1954e2723214c310dd25e93897a5030358488a01d06ff0967ba03fab1",
+        "completed_epochs": 100,
+        "optimizer_steps": [
+          63500
+        ],
+        "finite": {
+          "model": true,
+          "model_ema1": true,
+          "model_ema2": true
+        },
+        "args": {
+          "model": "JiT-B/16",
+          "dataset": "celeba",
+          "img_size": 128,
+          "class_num": 1,
+          "label_drop_prob": 1.0,
+          "cfg": 0.0,
+          "batch_size": 256,
+          "num_workers": 4,
+          "epochs": 100,
+          "seed": 0,
+          "noise_scale": 0.5,
+          "P_mean": -0.8,
+          "P_std": 0.8,
+          "t_eps": 0.05,
+          "lr": 5e-05,
+          "warmup_epochs": 5,
+          "lr_schedule": "constant",
+          "weight_decay": 0.0,
+          "ema_decay1": 0.9999,
+          "ema_decay2": 0.9996,
+          "ode_order": 8
+        }
+      },
+      "final_epoch_training_loss": 0.029933754847509656,
+      "loss_milestones": {
+        "1": 0.5725334728092659,
+        "5": 0.060425987405570473,
+        "10": 0.04463661062553173,
+        "25": 0.035873817740462895,
+        "50": 0.032216246065309664,
+        "75": 0.030802744905662347,
+        "100": 0.029933754847509656
+      },
+      "last5_loss_mean": 0.02998834598545484,
+      "last5_epoch_seconds_mean": 113.72786319900187,
+      "last5_images_per_second_mean": 1429.384785568443,
+      "total_recorded_epoch_seconds": 11466.576328939875,
+      "GPU": {
+        "rows": 385,
+        "stable_rows": 375,
+        "startup_excluded_seconds": 300,
+        "GPU_names": [
+          "NVIDIA L40S"
+        ],
+        "GPU_UUIDs": [
+          "GPU-0f8631f0-2156-24c4-88ff-0d07863a6b3a"
+        ],
+        "utilization_mean": 95.73066666666666,
+        "utilization_median": 99.0,
+        "max_used_memory_GiB": 14.8095703125
+      },
+      "P_history": {
+        "snapshot_count": 0
+      },
+      "image_or_eval_directories": [],
+      "Slurm": {
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "elapsed_seconds": 11550,
+        "node": "gl066",
+        "allocated_resources": "billing=6,cpu=6,gres/gpu=1,mem=24G,node=1",
+        "start_host_time": "2026-11-12T07:23:15",
+        "end_host_time": "2026-11-12T10:35:45"
+      }
+    },
+    "isru_d": {
+      "job_id": "22822268",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 100,
+        "target_epochs": 100,
+        "updated_at": 1794506339.8708658,
+        "job_id": "22822268"
+      },
+      "checkpoint": {
+        "path": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-isru_d-s0/checkpoint-last.pth",
+        "bytes": 1757557185,
+        "sha256": "289a4d7b43daca8c6aef076927e482ab0df49b5aaa3162498362a987012a5284",
+        "completed_epochs": 100,
+        "optimizer_steps": [
+          63500
+        ],
+        "finite": {
+          "model": true,
+          "model_ema1": true,
+          "model_ema2": true
+        },
+        "args": {
+          "model": "JiT-B/16",
+          "dataset": "celeba",
+          "img_size": 128,
+          "class_num": 1,
+          "label_drop_prob": 1.0,
+          "cfg": 0.0,
+          "batch_size": 256,
+          "num_workers": 4,
+          "epochs": 100,
+          "seed": 0,
+          "noise_scale": 0.5,
+          "P_mean": -0.8,
+          "P_std": 0.8,
+          "t_eps": 0.05,
+          "lr": 5e-05,
+          "warmup_epochs": 5,
+          "lr_schedule": "constant",
+          "weight_decay": 0.0,
+          "ema_decay1": 0.9999,
+          "ema_decay2": 0.9996,
+          "ode_order": 8
+        }
+      },
+      "final_epoch_training_loss": 0.03155256294476704,
+      "loss_milestones": {
+        "1": 0.5741636629649035,
+        "5": 0.06633763313293457,
+        "10": 0.0489321173293384,
+        "25": 0.03871477793638162,
+        "50": 0.03428377426984742,
+        "75": 0.03256968260984721,
+        "100": 0.03155256294476704
+      },
+      "last5_loss_mean": 0.031614566933451674,
+      "last5_epoch_seconds_mean": 199.05928372659838,
+      "last5_images_per_second_mean": 816.6437013051205,
+      "total_recorded_epoch_seconds": 20064.975976384012,
+      "GPU": {
+        "rows": 671,
+        "stable_rows": 661,
+        "startup_excluded_seconds": 300,
+        "GPU_names": [
+          "NVIDIA L40S"
+        ],
+        "GPU_UUIDs": [
+          "GPU-a83d0725-36dc-f3d6-bacd-82f658ba214d"
+        ],
+        "utilization_mean": 98.04841149773071,
+        "utilization_median": 99.0,
+        "max_used_memory_GiB": 22.1708984375
+      },
+      "P_history": {
+        "snapshot_count": 101,
+        "matrices_per_snapshot": 24,
+        "final_matches_checkpoint": true,
+        "scope": "raw learned P, not the input-dependent generator or field Jacobian"
+      },
+      "image_or_eval_directories": [],
+      "Slurm": {
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "elapsed_seconds": 20153,
+        "node": "gl066",
+        "allocated_resources": "billing=6,cpu=6,gres/gpu=1,mem=24G,node=1",
+        "start_host_time": "2026-11-12T07:23:15",
+        "end_host_time": "2026-11-12T12:59:08"
+      }
+    }
+  },
+  "comparison": {
+    "final_training_loss_relative_change": 0.05407968714596678,
+    "last5_epoch_time_ratio": 1.7503123520247887,
+    "primary_quality_metric": "FID50k, not yet measured",
+    "comparison_unit": "two seed0 training trajectories; epochs/telemetry are within-run observations",
+    "Slurm_elapsed_ratio": 1.7448484848484849
+  }
+}

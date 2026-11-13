@@ -1,0 +1,51 @@
+{
+  "scope": "Raw learned P matrices; no claim about PD(h) or the full vector-field Jacobian",
+  "matrices": 24,
+  "epochs": [
+    0,
+    25,
+    50,
+    75,
+    100
+  ],
+  "spectral_radius_epochs": [
+    0,
+    100
+  ],
+  "snapshot_count": 101,
+  "aggregation": "Across24operators, descriptive spatial summary, not training repetitions",
+  "by_epoch": {
+    "0": {
+      "frobenius_norm": 15.99613584202464,
+      "spectral_norm": 1.1486367468426508,
+      "stable_rank": 193.94899679878307,
+      "relative_change_from_initial": 0.0,
+      "spectral_radius_mean": 0.5941351417306532
+    },
+    "25": {
+      "frobenius_norm": 16.558567746820017,
+      "spectral_norm": 1.4830929920237539,
+      "stable_rank": 131.85083326946057,
+      "relative_change_from_initial": 0.2950609542182952
+    },
+    "50": {
+      "frobenius_norm": 17.225673234382192,
+      "spectral_norm": 1.7920254293997528,
+      "stable_rank": 97.16391964045042,
+      "relative_change_from_initial": 0.45736662373852915
+    },
+    "75": {
+      "frobenius_norm": 17.898785970024942,
+      "spectral_norm": 2.0002774307592195,
+      "stable_rank": 83.67534176397217,
+      "relative_change_from_initial": 0.5817213625607354
+    },
+    "100": {
+      "frobenius_norm": 18.550102949421735,
+      "spectral_norm": 2.1631365364905903,
+      "stable_rank": 76.65384756950907,
+      "relative_change_from_initial": 0.6828654963808487,
+      "spectral_radius_mean": 1.129707852653319
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "Parse actual wrapper invocation against both saved checkpoint recipes; no GPU",
+  "arms": {
+    "swiglu": {
+      "resume_guard": "PASS",
+      "num_images": 50000,
+      "generation_batch": 256,
+      "epoch": 100,
+      "seed": 0
+    },
+    "isru_d": {
+      "resume_guard": "PASS",
+      "num_images": 50000,
+      "generation_batch": 256,
+      "epoch": 100,
+      "seed": 0
+    }
+  }
+}

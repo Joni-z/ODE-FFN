@@ -23,8 +23,11 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 - The [transport diagnosis](docs/autoresearch/professor-20261103/cycle15-results/analysis-report.md)
   links better fitting with changed mode allocation. This is a mechanism
   question alongside the current image transfer.
-- The image candidate passed full-model GPU readiness. Formal image FID
-  and actual epoch throughput remain the next measurements.
+- Both image models completed100epochs on L40S. K8 has5.41%higher training
+  loss and1.75xsteady epoch time; GPU use is96–98%. All101P snapshots are
+  verified, with more concentrated raw spectra. [Measured results](docs/celeba128-20261112/results.md).
+- Fixed-checkpoint Heun50/EMA.9999/FID50k evaluation is the next measurement;
+  no additional training is selected.
 - Reports 1 and 2 are final. Later evidence belongs outside their folders.
 
 ## Current decisions

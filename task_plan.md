@@ -1,24 +1,22 @@
-# Current task: make the repository understandable, 12 November 2026
+# Current task: inspect the completed CelebA128 pair, 13 November 2026
 
-The user asks to organize the repository or explain its structure. Keep the
-pinned author source layout and all queued/frozen experiment paths stable.
-Give GitHub readers clear entry points for code, current state and history.
+The user asks for results. Verify training completion and checkpoint/source
+identity; compare matched epoch losses, runtime, GPU telemetry and learned P.
+Then run the registered checkpoint-only image/FID evaluation if absent.
+Keep finalized reports, frozen source and existing training artifacts intact.
 
-- [x] Inventory tracked source/evidence and preserve the original README/journals.
-- [x] Replace the long homepage and journals with concise current documents.
-- [x] Add a code/evidence map and correct stale development guidance.
-- [x] Verify 98 local links, exact preserved originals, unchanged execution files and final reports.
-- [x] Prepare verified navigation for publication and active torch fast-forward.
+- [x] Query Slurm and final logs: both100epoch jobs completed0:0 on L40S gl066.
+- [x] Collect exact loss/time/GPU records and validate complete checkpoint/P history.
+- [ ] Check existing sampling/FID outputs; register and submit missing evaluation.
+- [ ] Inspect generated examples and collect evaluation metrics when available.
+- [ ] Update STATUS.md, concise research notes and bounded evidence on GitHub.
 
-## Research work continuing in the background
+## Fixed comparison
 
-- Active comparison: CelebA128, native JiT-B/16, SwiGLU versus ISRU-D K8.
-- Budget: 100 epochs, one six-hour allocation per arm, batch 256, seed 0.
-- Jobs: native 22822267, K8 22822268; monitor 2590713.
-- Reuse passed GPU readiness 22813320 and frozen source 65864ad.
-- Next scientific action: collect actual epoch throughput, checkpoint/P history
-  and fixed-sampler FID. Do not launch another architecture or alter budget as
-  part of this documentation task.
+Native22822267 versus K8 22822268; seed0, CelebA128, JiT-B/16, batch256,
+LR5e-5, noise.5,100epochs. Training source65864ad remains frozen.
+Primary generation uses the original50-interval Heun sampler, first EMA.9999,
+50,000images and deterministic training-split crop reference. No new model,
+optimizer, training seed or additional training is selected by this check.
 
-Completed plans and the original 1098-line research journal are preserved in
-[the organization archive](docs/history/2026-11-12-repository-organization/README.md).
+Prior journals are preserved in [history](docs/history/README.md).
