@@ -1,0 +1,45 @@
+{
+  "created_at": 1794575529.171699,
+  "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "wrapper_commit": "fb72e7c84396030f1da41b943620b23222daf0fc",
+  "wrapper_sha256": "2a2103b327cdfe6037db2c38139bab5d38f17fd4f10bca20cc0fcd780ab7553a",
+  "protocol": "EMA .9999; seed0; author Heun50 including final Euler; CFG0;50000images; official train reference",
+  "formal_training": false,
+  "jobs": [
+    {
+      "job_id": "22993694",
+      "ffn": "swiglu",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/evaluations/20261113-b16-swiglu-s0-ckpt100-ema9999",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name",
+        "celeba128-fid50k-swiglu-s0",
+        "--export",
+        "ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba_eval.slurm",
+        "swiglu"
+      ],
+      "submitted_at": 1794575529.5803084,
+      "submission_stderr": ""
+    },
+    {
+      "job_id": "22993695",
+      "ffn": "isru_d",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/evaluations/20261113-b16-isru_d-s0-ckpt100-ema9999",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name",
+        "celeba128-fid50k-k8-s0",
+        "--export",
+        "ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba_eval.slurm",
+        "isru_d"
+      ],
+      "submitted_at": 1794575529.667794,
+      "submission_stderr": ""
+    }
+  ],
+  "monitor_pid": 3150165
+}

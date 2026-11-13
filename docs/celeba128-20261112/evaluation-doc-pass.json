@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "time_utc": "2026-11-13T13:11:44Z",
+  "witness": "fresh agent; run-experiment agent-follows-doc",
+  "scope": "Slurm admission dry-run only; no GPU/model execution or actual submission",
+  "command": "ssh torch 'cd /scratch/zz5070/ODE_FFN/ODE-FFN\nsbatch --test-only --export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112 slurm/celeba_eval.slurm swiglu'",
+  "exit_code": 0,
+  "output": "sbatch: Job 22993670 to start at 2026-11-15T09:39:02 a using 6 processors on nodes ga008 in partition a100_tandon",
+  "divergences": []
+}

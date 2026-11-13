@@ -9,7 +9,7 @@ continue to resolve.
 | Topic | Entry |
 |---|---|
 | Current run and actual job snapshot | [Project status](../STATUS.md) |
-| Completed100epoch results | [Training and P figures](celeba128-20261112/results.md) |
+| Completed 100-epoch results | [Training and P figures](celeba128-20261112/results.md) |
 | Fixed-checkpoint FID50k settings | [Evaluation](celeba128-20261112/evaluation.md) |
 | CelebA128 comparison and fixed method | [Protocol](celeba128-20261112/protocol.md) |
 | Epoch/time budget and measurements | [Budget](celeba128-20261112/budget-20261112.md) |
