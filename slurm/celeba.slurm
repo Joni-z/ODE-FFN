@@ -7,12 +7,14 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=6
 #SBATCH --mem=24G
-#SBATCH --time=06:00:00
+#SBATCH --time=14:00:00
 #SBATCH --no-requeue
 #SBATCH --open-mode=append
 #SBATCH --output=/scratch/zz5070/ODE_FFN/runs/celeba/slurm/%x-%j.out
 
 set -euo pipefail
+# The K8 default includes five FID50k evaluations. Native SwiGLU may use
+# sbatch --time=08:00:00. Re-estimate before registering a new training run.
 cd "${ODE_FFN_CODE:-/scratch/zz5070/ODE_FFN/ODE-FFN}"
 source scripts/activate_torch.sh
 export OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2
@@ -125,4 +127,5 @@ python -u main_jit.py \
     "${LR_ARGS[@]}" --lr_schedule constant --weight_decay 0 \
     --ema_decay1 0.9999 --ema_decay2 0.9996 \
     --max_train_seconds "$MAX_TRAIN_SECONDS" --save_last_freq 1 --log_freq 100 \
+    --online_eval --eval_freq 20 --num_images 50000 --gen_bsz 256 --sampling_method heun \
     --output_dir "$OUT" "${RESUME[@]}"

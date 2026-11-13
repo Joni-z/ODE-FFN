@@ -24,7 +24,7 @@ search or extra loss enters active training.
 | `ffn.py` | Existing Free ISRU and selected frozen-diagonal ISRU-D, with order8 default; swap only block.mlp and preserve training RNG. P uses the original Linear initializer distribution. |
 | `model_jit.py` | Allocate bias on the input device; add B/2 for CIFAR and B/4 for CelebA64 as patch-size-only adapters of the author's complete B body. |
 | `util/model_util.py` | Nonpersistent buffers move original RoPE values with .to(device), retaining official checkpoint keys. |
-| `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard, CLI help, a picklable crop for Windows workers and epoch-wise sampler shuffle in single-process mode, optional sample retention, and evaluation after completed epoch multiples (avoiding first-epoch warmup evaluation). |
+| `main_jit.py` | FFN/CIFAR flags, torchvision CIFAR10 loader, single-process execution, non-CUDA eager mode, device-correct EMA/cache calls, explicit trusted-checkpoint loading for modern PyTorch, FFN resume guard, CLI help, a picklable crop for Windows workers and epoch-wise sampler shuffle in single-process mode, optional sample retention, and evaluation after completed epoch multiples. The current default interval is 20 epochs; retain full numbered evaluation checkpoints, accept checkpoint-file resume and preserve training RNG around seeded evaluation. |
 | `engine_jit.py` | Gate CUDA AMP/synchronization, place labels on model device, guard barriers; pass standard CIFAR train reference to upstream FID. Non-CUDA FID uses CPU Inception. Optional sample retention adds epoch-specific folders. CIFAR metric batches are capped by generation batch size for limited VRAM. |
 | `util/misc.py` | Add a barrier helper, atomic checkpoint writes, optional single-GPU RNG state, P-history snapshots and progress JSON. |
 | `util/datasets.py` | Official torchvision CelebA training split with a constant discarded label; image-only wrapper for the standard FID library. |
@@ -57,4 +57,6 @@ CPU/MPS and CIFAR ports differ from the original CUDA paper environment.
 B/2 and B/4 retain the author's B dimensions. The CelebA adapter is a declared
 local dataset/resolution port. Resume is epoch-based; the new single-GPU
 checkpoint also records RNG state. No exact mid-batch continuation is claimed.
-Baseline FID below50 under fixed standard evaluation is still required.
+Native SwiGLU on CelebA128 now reaches FID50k 35.91785 at 100 epochs under the
+fixed standard evaluation ([receipt](docs/celeba128-20261112/FID100-swiglu.json)).
+This validates the CelebA128 ordinary baseline; K8 FID is still running.

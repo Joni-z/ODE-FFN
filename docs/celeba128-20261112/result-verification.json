@@ -12,7 +12,7 @@
   "P_snapshots": 101,
   "P_milestones": 120,
   "raw_generation_available": true,
-  "FID_available": false,
+  "FID_available": true,
   "evaluation_entrypoint": "frozen author main_jit.py --evaluate_gen",
   "evaluation_wrapper_sha256": "2a2103b327cdfe6037db2c38139bab5d38f17fd4f10bca20cc0fcd780ab7553a",
   "original_training_code_unchanged": true,
@@ -22,9 +22,17 @@
     "swiglu": "22993694",
     "isru_d": "22993695"
   },
-  "evaluation_status": "RUNNING on A100 ga013/ga022; checkpoint hashes passed; both first64 generated images visually reviewed; FID pending",
+  "evaluation_status": "SwiGLU COMPLETED0:0 with FID50k35.91785; K8 RUNNING",
   "evaluation_monitor_pid": 3150165,
   "fresh_evaluation_doc_pass": "evaluation-doc-pass.json",
   "P_figure_visual_review": "PASS; mean spectral norm and stable-rank trends match source milestones",
-  "preview_receipt": "preview-receipt.json"
+  "preview_receipt": "preview-receipt.json",
+  "FID_available_by_arm": {
+    "swiglu": true,
+    "isru_d": false
+  },
+  "FID50k_swiglu": 35.91785430908203,
+  "baseline_CelebA128_FID_below50": true,
+  "standard_metric_audit": "FID-current-upstream-audit.json",
+  "periodic_evaluation_regression": "periodic-eval-check.json"
 }

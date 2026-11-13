@@ -13,7 +13,7 @@ GPUs on gl066. The frozen source and saved recipe match.
 | GPU utilization mean after first 5 min |95.73% |98.05% |
 | Peak NVML used memory (GiB) |14.81 |22.17 |
 | Full-model parameters |130,405,632 |87,879,936 |
-| FID50k | Not yet measured | Not yet measured |
+| FID50k | **35.91785** | Evaluation running |
 
 At matched exposure, K8's final training loss is 5.41% higher and its steady
 epoch time is 1.75 times native. Fewer parameters have not produced cheaper
@@ -74,4 +74,16 @@ These examples do not show a clear K8 advantage. Full first64 grids are
 available for [SwiGLU](preview-swiglu.png) and [K8](preview-isru_d.png).
 The [sample receipt](preview-receipt.json) binds original image hashes and
 checkpoint identities. Selection uses the first filenames without filtering.
-Final FID remains pending; these images are not a quantitative ranking.
+K8 FID remains pending; these images are not a quantitative ranking.
+
+## Standard FID result
+
+Native SwiGLU checkpoint 100 reaches **FID50k 35.91785**, with 50,000 generated
+images and the fixed CelebA128 training reference. Evaluation 22993694 completed
+0:0 in 34m47s on A100 ga013. The original console value 35.9179 agrees with the
+TensorBoard scalar. [Original result](FID100-swiglu.json). This meets the
+registered baseline below 50 criterion. K8 evaluation 22993695 is still running.
+
+[Every 20-epoch evaluation](periodic-fid.md) now uses the same standard backend,
+with complete numbered checkpoints and training RNG isolation. Its change
+applies to subsequent training; it does not recreate missing historical weights.

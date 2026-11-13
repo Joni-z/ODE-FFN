@@ -1,22 +1,34 @@
-# Current task: inspect the completed CelebA128 pair, 13 November 2026
+# Current task: standard FID evaluation every20epochs
 
-The user asks for results. Verify training completion and checkpoint/source
-identity; compare matched epoch losses, runtime, GPU telemetry and learned P.
-Then run the registered checkpoint-only image/FID evaluation if absent.
-Keep finalized reports, frozen source and existing training artifacts intact.
+User request13November2026: use a standard FID implementation; measure the
+existing models now and evaluate every20completed epochs during training.
 
-- [x] Query Slurm and final logs: both100epoch jobs completed0:0 on L40S gl066.
-- [x] Collect exact loss/time/GPU records and validate complete checkpoint/P history.
-- [x] Confirm no existing sampling/FID; register and submit evaluations22993694/22993695.
-- [ ] Evaluations are running on A100 ga013/ga022; monitor PID3150165 polls60s. First64 samples per arm reviewed/published; final FID still pending.
-- [x] Publish training figures, checkpoint identities, P analysis and evaluation launch receipts.
+- [x] Inspect existing evaluations22993694/22993695; both running, preserve them.
+- [x] Inspect saved weights: only checkpoint-last.pth at100epochs in each run;
+  P-only snapshots cannot reconstruct checkpoints20/40/60/80.
+- [x] Verify18FID/Inception/resize definitions match official torch-fidelity.
+- [x] Enable native online evaluation every20epochs and retain full milestone
+  checkpoints, without changing the training objective, FFN, optimizer or sampler.
+- [x] Actual tiny100-epoch entrypoint regression PASS for scheduling, full checkpoints and RNG;
+  check syntax and frozen/source/report preservation.
+- [x] Native checkpoint100FID50k35.91785 verified, job22993694 completed0:0.
+- [ ] Publish code/evidence and fast-forward active Torch; keep monitoring
+  K8 job22993695, whose FID is still pending.
 
-## Fixed comparison
+No duplicate evaluations or replay training. Existing jobs use frozen65864ad;
+code changes apply to subsequent training, not the already-completed100epochs.
+Fixed evaluation: firstEMA.9999, seed0, authorHeun50,CFG0,50000images and official
+CelebA training split through deterministic128px crops. Training seed0only.
 
-Native22822267 versus K8 22822268; seed0, CelebA128, JiT-B/16, batch256,
-LR5e-5, noise.5,100epochs. Training source65864ad remains frozen.
-Primary generation uses the original50-interval Heun sampler, first EMA.9999,
-50,000images and deterministic training-split crop reference. No new model,
-optimizer, training seed or additional training is selected by this check.
+Prior complete training/P evidence: docs/celeba128-20261112/results.md.
 
-Prior journals are preserved in [history](docs/history/README.md).
+## Implementation notes
+
+Future K8/native allocations include five FID50k evaluations (provisional14h/8h);
+current fixed-checkpoint3h allocations are unchanged. No new training submitted.
+
+## Resolved preparation errors
+
+A source transfer initially added a trailing blank line; exact pinned author
+SHA256 was restored before regenerating UPSTREAM.patch. A failed patch context
+made no changes; the corrected narrow patch applied. No running job was altered.

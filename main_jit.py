@@ -2,6 +2,7 @@ import argparse
 import datetime
 import numpy as np
 import os
+import random
 import time
 from pathlib import Path
 from functools import partial
@@ -85,7 +86,7 @@ def get_args_parser():
                         help='CFG interval max')
     parser.add_argument('--num_images', default=50000, type=int,
                         help='Number of images to generate')
-    parser.add_argument('--eval_freq', type=int, default=40,
+    parser.add_argument('--eval_freq', type=int, default=20,
                         help='Frequency (in epochs) for evaluation')
     parser.add_argument('--online_eval', action='store_true')
     parser.add_argument('--evaluate_gen', action='store_true')
@@ -105,7 +106,7 @@ def get_args_parser():
     parser.add_argument('--output_dir', default='./output_dir',
                         help='Directory to save outputs (empty for no saving)')
     parser.add_argument('--resume', default='',
-                        help='Folder that contains checkpoint to resume from')
+                        help='Checkpoint file, or folder containing checkpoint-last.pth')
     parser.add_argument('--save_last_freq', type=int, default=5,
                         help='Frequency (in epochs) to save checkpoints')
     parser.add_argument('--log_freq', default=100, type=int)
@@ -124,6 +125,8 @@ def get_args_parser():
 
 
 def main(args):
+    if args.eval_freq < 1:
+        raise ValueError('eval_freq must be positive')
     allocation_started = time.monotonic()
     misc.init_distributed_mode(args)
     if args.max_train_seconds and args.distributed:
@@ -219,7 +222,8 @@ def main(args):
     print(optimizer)
 
     # Resume from checkpoint if provided
-    checkpoint_path = os.path.join(args.resume, "checkpoint-last.pth") if args.resume else None
+    checkpoint_path = (args.resume if os.path.isfile(args.resume) else
+                       os.path.join(args.resume, "checkpoint-last.pth")) if args.resume else None
     if checkpoint_path and os.path.exists(checkpoint_path):
         checkpoint = torch.load(checkpoint_path, map_location='cpu', weights_only=False)
         if getattr(checkpoint.get('args'), 'ffn', 'swiglu') != args.ffn:
@@ -263,7 +267,7 @@ def main(args):
         with torch.random.fork_rng():
             torch.manual_seed(seed)
             with torch.no_grad():
-                evaluate(model_without_ddp, args, 0, batch_size=args.gen_bsz, log_writer=log_writer)
+                evaluate(model_without_ddp, args, args.start_epoch, batch_size=args.gen_bsz, log_writer=log_writer)
         return
 
     # Training loop
@@ -293,22 +297,34 @@ def main(args):
                 epoch_name="last"
             )
 
-        if epoch % 100 == 0 and epoch > 0:
+        evaluate_now = args.online_eval and ((epoch + 1) % args.eval_freq == 0 or epoch + 1 == args.epochs)
+        if evaluate_now:
             misc.save_model(
                 args=args,
                 model_without_ddp=model_without_ddp,
                 optimizer=optimizer,
-                epoch=epoch
+                epoch=epoch,
+                epoch_name=f'{epoch + 1:04d}'
             )
 
         misc.save_operators(args, model_without_ddp, epoch + 1)
 
         # Perform online evaluation at specified intervals
-        if args.online_eval and ((epoch + 1) % args.eval_freq == 0 or epoch + 1 == args.epochs):
+        if evaluate_now:
             if device.type == 'cuda':
                 torch.cuda.empty_cache()
-            with torch.no_grad():
-                evaluate(model_without_ddp, args, epoch, batch_size=args.gen_bsz, log_writer=log_writer)
+            print(f'Evaluating checkpoint at {epoch + 1} completed epochs')
+            # Use the same sampling seed at every checkpoint and leave training
+            # RNG streams unchanged, including data-loader augmentation seeds.
+            numpy_state, python_state = np.random.get_state(), random.getstate()
+            try:
+                with torch.random.fork_rng():
+                    torch.manual_seed(seed)
+                    with torch.no_grad():
+                        evaluate(model_without_ddp, args, epoch + 1, batch_size=args.gen_bsz, log_writer=log_writer)
+            finally:
+                np.random.set_state(numpy_state)
+                random.setstate(python_state)
             if device.type == 'cuda':
                 torch.cuda.empty_cache()
 

@@ -156,18 +156,20 @@ index 8a346ba..bcf011c 100644
 -    torch.distributed.barrier()
 +    misc.barrier()
 diff --git a/main_jit.py b/main_jit.py
-index cb630d4..dae6d2f 100644
 --- a/main_jit.py
 +++ b/main_jit.py
-@@ -4,6 +4,7 @@ import numpy as np
+@@ -2,8 +2,10 @@
+ import datetime
+ import numpy as np
  import os
++import random
  import time
  from pathlib import Path
 +from functools import partial
  
  import torch
  import torch.backends.cudnn as cudnn
-@@ -15,7 +16,9 @@ from util.crop import center_crop_arr
+@@ -15,7 +17,9 @@
  import util.misc as misc
  
  import copy
@@ -177,7 +179,7 @@ index cb630d4..dae6d2f 100644
  
  from denoiser import Denoiser
  
-@@ -26,12 +29,16 @@ def get_args_parser():
+@@ -26,12 +30,16 @@
      # architecture
      parser.add_argument('--model', default='JiT-B/16', type=str, metavar='MODEL',
                          help='Name of the model to train')
@@ -194,7 +196,12 @@ index cb630d4..dae6d2f 100644
      parser.add_argument('--warmup_epochs', type=int, default=5, metavar='N',
                          help='Epochs to warm up LR')
      parser.add_argument('--batch_size', default=128, type=int,
-@@ -82,10 +89,14 @@ def get_args_parser():
+@@ -78,14 +86,18 @@
+                         help='CFG interval max')
+     parser.add_argument('--num_images', default=50000, type=int,
+                         help='Number of images to generate')
+-    parser.add_argument('--eval_freq', type=int, default=40,
++    parser.add_argument('--eval_freq', type=int, default=20,
                          help='Frequency (in epochs) for evaluation')
      parser.add_argument('--online_eval', action='store_true')
      parser.add_argument('--evaluate_gen', action='store_true')
@@ -209,10 +216,21 @@ index cb630d4..dae6d2f 100644
      parser.add_argument('--data_path', default='./data/imagenet', type=str,
                          help='Path to the dataset')
      parser.add_argument('--class_num', default=1000, type=int)
-@@ -113,11 +124,18 @@ def get_args_parser():
+@@ -94,7 +106,7 @@
+     parser.add_argument('--output_dir', default='./output_dir',
+                         help='Directory to save outputs (empty for no saving)')
+     parser.add_argument('--resume', default='',
+-                        help='Folder that contains checkpoint to resume from')
++                        help='Checkpoint file, or folder containing checkpoint-last.pth')
+     parser.add_argument('--save_last_freq', type=int, default=5,
+                         help='Frequency (in epochs) to save checkpoints')
+     parser.add_argument('--log_freq', default=100, type=int)
+@@ -113,11 +125,20 @@
  
  
  def main(args):
++    if args.eval_freq < 1:
++        raise ValueError('eval_freq must be positive')
 +    allocation_started = time.monotonic()
      misc.init_distributed_mode(args)
 +    if args.max_train_seconds and args.distributed:
@@ -228,7 +246,7 @@ index cb630d4..dae6d2f 100644
  
      # Set seeds for reproducibility
      seed = args.seed + misc.get_rank()
-@@ -138,12 +156,22 @@ def main(args):
+@@ -138,12 +159,22 @@
  
      # Data augmentation transforms
      transform_train = transforms.Compose([
@@ -253,7 +271,7 @@ index cb630d4..dae6d2f 100644
      print(dataset_train)
  
      sampler_train = torch.utils.data.DistributedSampler(
-@@ -179,8 +207,11 @@ def main(args):
+@@ -179,8 +210,11 @@
      print("Actual lr: {:.2e}".format(args.lr))
      print("Effective batch size: %d" % eff_batch_size)
  
@@ -267,9 +285,13 @@ index cb630d4..dae6d2f 100644
  
      # Set up optimizer with weight decay adjustment for bias and norm layers
      param_groups = misc.add_weight_decay(model_without_ddp, args.weight_decay)
-@@ -190,19 +221,36 @@ def main(args):
+@@ -188,21 +222,39 @@
+     print(optimizer)
+ 
      # Resume from checkpoint if provided
-     checkpoint_path = os.path.join(args.resume, "checkpoint-last.pth") if args.resume else None
+-    checkpoint_path = os.path.join(args.resume, "checkpoint-last.pth") if args.resume else None
++    checkpoint_path = (args.resume if os.path.isfile(args.resume) else
++                       os.path.join(args.resume, "checkpoint-last.pth")) if args.resume else None
      if checkpoint_path and os.path.exists(checkpoint_path):
 -        checkpoint = torch.load(checkpoint_path, map_location='cpu')
 +        checkpoint = torch.load(checkpoint_path, map_location='cpu', weights_only=False)
@@ -307,7 +329,13 @@ index cb630d4..dae6d2f 100644
          del checkpoint
      else:
          model_without_ddp.ema_params1 = copy.deepcopy(list(model_without_ddp.parameters()))
-@@ -220,12 +268,20 @@ def main(args):
+@@ -215,17 +267,25 @@
+         with torch.random.fork_rng():
+             torch.manual_seed(seed)
+             with torch.no_grad():
+-                evaluate(model_without_ddp, args, 0, batch_size=args.gen_bsz, log_writer=log_writer)
++                evaluate(model_without_ddp, args, args.start_epoch, batch_size=args.gen_bsz, log_writer=log_writer)
+         return
  
      # Training loop
      print(f"Start training for {args.epochs} epochs")
@@ -318,6 +346,8 @@ index cb630d4..dae6d2f 100644
      for epoch in range(args.start_epoch, args.epochs):
 -        if args.distributed:
 -            data_loader_train.sampler.set_epoch(epoch)
+-
+-        train_one_epoch(model, model_without_ddp, data_loader_train, optimizer, device, epoch, log_writer=log_writer, args=args)
 +        if args.max_train_seconds:
 +            remaining = args.max_train_seconds - (time.monotonic() - allocation_started)
 +            if remaining <= max(120.0, last_epoch_seconds + 120.0):
@@ -325,14 +355,25 @@ index cb630d4..dae6d2f 100644
 +                break
 +        epoch_started = time.monotonic()
 +        data_loader_train.sampler.set_epoch(epoch)
- 
--        train_one_epoch(model, model_without_ddp, data_loader_train, optimizer, device, epoch, log_writer=log_writer, args=args)
++
 +        stats = train_one_epoch(model, model_without_ddp, data_loader_train, optimizer, device, epoch, log_writer=log_writer, args=args)
  
          # Save checkpoint periodically
          if epoch % args.save_last_freq == 0 or epoch + 1 == args.epochs:
-@@ -245,22 +301,38 @@ def main(args):
-                 epoch=epoch
+@@ -237,30 +297,58 @@
+                 epoch_name="last"
+             )
+ 
+-        if epoch % 100 == 0 and epoch > 0:
++        evaluate_now = args.online_eval and ((epoch + 1) % args.eval_freq == 0 or epoch + 1 == args.epochs)
++        if evaluate_now:
+             misc.save_model(
+                 args=args,
+                 model_without_ddp=model_without_ddp,
+                 optimizer=optimizer,
+-                epoch=epoch
++                epoch=epoch,
++                epoch_name=f'{epoch + 1:04d}'
              )
  
 +        misc.save_operators(args, model_without_ddp, epoch + 1)
@@ -340,12 +381,24 @@ index cb630d4..dae6d2f 100644
          # Perform online evaluation at specified intervals
 -        if args.online_eval and (epoch % args.eval_freq == 0 or epoch + 1 == args.epochs):
 -            torch.cuda.empty_cache()
-+        if args.online_eval and ((epoch + 1) % args.eval_freq == 0 or epoch + 1 == args.epochs):
+-            with torch.no_grad():
+-                evaluate(model_without_ddp, args, epoch, batch_size=args.gen_bsz, log_writer=log_writer)
+-            torch.cuda.empty_cache()
++        if evaluate_now:
 +            if device.type == 'cuda':
 +                torch.cuda.empty_cache()
-             with torch.no_grad():
-                 evaluate(model_without_ddp, args, epoch, batch_size=args.gen_bsz, log_writer=log_writer)
--            torch.cuda.empty_cache()
++            print(f'Evaluating checkpoint at {epoch + 1} completed epochs')
++            # Use the same sampling seed at every checkpoint and leave training
++            # RNG streams unchanged, including data-loader augmentation seeds.
++            numpy_state, python_state = np.random.get_state(), random.getstate()
++            try:
++                with torch.random.fork_rng():
++                    torch.manual_seed(seed)
++                    with torch.no_grad():
++                        evaluate(model_without_ddp, args, epoch + 1, batch_size=args.gen_bsz, log_writer=log_writer)
++            finally:
++                np.random.set_state(numpy_state)
++                random.setstate(python_state)
 +            if device.type == 'cuda':
 +                torch.cuda.empty_cache()
  

@@ -26,8 +26,12 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 - Both image models completed 100 epochs on L40S. K8 has 5.41% higher training
   loss and 1.75x steady epoch time; GPU use is 96–98%. All 101 P snapshots are
   verified, with more concentrated raw spectra. [Measured results](docs/celeba128-20261112/results.md).
-- Fixed-checkpoint Heun50/EMA .9999/FID50k evaluations 22993694/22993695 are
-  running on two A100s, with a 60-second monitor. No additional training is selected.
+- Native SwiGLU reached FID50k 35.91785 at 100 epochs; its evaluation completed
+ 0:0 in 34m47s. K8 evaluation 22993695 continues on A100, with the 60-second
+ monitor. [FID receipt](docs/celeba128-20261112/FID100-swiglu.json).
+- Subsequent image training evaluates FID50k every20completed epochs, keeps
+  complete numbered checkpoints and preserves training RNG around evaluation.
+  [Metric/cadence and time budget](docs/celeba128-20261112/periodic-fid.md).
 - Reports 1 and 2 are final. Later evidence belongs outside their folders.
 
 ## Current decisions
@@ -36,5 +40,5 @@ Use seed 0, the selected K8 operator and a matched native control. Keep the
 objective and optimizer fixed while testing the FFN. The latest duration and
 resource decision is in the [budget note](docs/celeba128-20261112/budget-20261112.md).
 Readiness measurements, CPU data probes and complete training results are
-different records. Evaluate the ordinary image baseline with FID50k below 50
-before using the comparison to make an architecture claim.
+different records. The ordinary CelebA128 baseline now meets FID50k below 50. Wait for the K8
+result before ranking generation quality.
