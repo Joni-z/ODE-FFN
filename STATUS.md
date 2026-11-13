@@ -1,6 +1,6 @@
 # Current project status
 
-Checked 13 November 2026, 21:14 Shanghai time.
+Checked 13 November 2026, 21:17 Shanghai time.
 
 ## Training completed; checkpoint evaluation running
 
@@ -40,8 +40,8 @@ checkpoint-only commands to source 65864ad and wrapper fb72e7c. A separate
 monitor polls every 60 seconds (PID3150165). The environment is warm-reused;
 Inception weights are already staged. No training continuation or new model
 search is scheduled. Both allocated evaluations passed checkpoint SHA256 checks
-and started local data preparation. There are no generated samples or FID
-results yet.
+and began generation. [Initial examples](docs/celeba128-20261112/results.md#initial-generated-examples)
+show recognizable faces from both models. Final FID is not yet available.
 
 ## Paths
 

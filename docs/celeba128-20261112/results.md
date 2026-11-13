@@ -59,3 +59,19 @@ Exact records: [training results/checkpoint identities](training-results.json),
 [all epoch records](epochs-results.csv), [P summaries](P-summary.json),
 [per-operator milestones](P-milestones.csv) and
 [evaluation command check](eval-command-preflight.json).
+
+## Initial generated examples
+
+Both checkpoint-only evaluations started on A100 GPUs (SwiGLU22993694 on
+ga013, K8 22993695 on ga022). Each loaded its verified100-epoch checkpoint
+and first EMA. The first eight generated images, in filename order, are
+shown below; this is an initial qualitative view while FID50k is running.
+
+![First eight samples from each model](preview-comparison.png)
+
+Both produce recognizable faces, with some blurred or distorted details.
+These examples do not show a clear K8 advantage. Full first64 grids are
+available for [SwiGLU](preview-swiglu.png) and [K8](preview-isru_d.png).
+The [sample receipt](preview-receipt.json) binds original image hashes and
+checkpoint identities. Selection uses the first filenames without filtering.
+Final FID remains pending; these images are not a quantitative ranking.

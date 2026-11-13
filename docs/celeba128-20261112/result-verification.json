@@ -11,7 +11,7 @@
   "epoch_rows": 200,
   "P_snapshots": 101,
   "P_milestones": 120,
-  "raw_generation_available": false,
+  "raw_generation_available": true,
   "FID_available": false,
   "evaluation_entrypoint": "frozen author main_jit.py --evaluate_gen",
   "evaluation_wrapper_sha256": "2a2103b327cdfe6037db2c38139bab5d38f17fd4f10bca20cc0fcd780ab7553a",
@@ -22,8 +22,9 @@
     "swiglu": "22993694",
     "isru_d": "22993695"
   },
-  "evaluation_status": "RUNNING on A100 ga013/ga022; checkpoint hashes passed; data preparation started; no generated samples or FID yet",
+  "evaluation_status": "RUNNING on A100 ga013/ga022; checkpoint hashes passed; both first64 generated images visually reviewed; FID pending",
   "evaluation_monitor_pid": 3150165,
   "fresh_evaluation_doc_pass": "evaluation-doc-pass.json",
-  "P_figure_visual_review": "PASS; mean spectral norm and stable-rank trends match source milestones"
+  "P_figure_visual_review": "PASS; mean spectral norm and stable-rank trends match source milestones",
+  "preview_receipt": "preview-receipt.json"
 }
