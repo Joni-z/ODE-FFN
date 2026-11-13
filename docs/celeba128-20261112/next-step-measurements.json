@@ -1,0 +1,102 @@
+{
+  "scope": "Recomputed from existing records; no model execution or training",
+  "source_commit": "4a09c71fb23e2bf4bf8f1accaf6c08bad9cbbb85",
+  "input_sha256": {
+    "epochs-results.csv": "8ee892ce68a58f30a3d6782347858f480bc0923c44b4dc42bb86f95837beac38",
+    "P-milestones.csv": "0f48c8289c5f7258c17a8538a0a20070b70ed3302ebb064bed56834d66a2ba2b",
+    "FID100-swiglu.json": "2d6a2484775529bb7da39c91e8b70e912f14d167403dd4e4f7fbf6217c721dee",
+    "FID100-isru_d.json": "fd4da009d228e198ab6033fe3b486761e9f495ddbf899ce31f6338fc13b6b0e4",
+    "training-results.json": "27fccce3196c3e02c280a84e1665bcd5e3b0bc7d0670eecc2b556304dea96aa9"
+  },
+  "training_windows": {
+    "swiglu": {
+      "76-80": {
+        "loss": 0.03065350661127586,
+        "epoch_seconds": 113.93359856359893
+      },
+      "81-90": {
+        "loss": 0.030379082927788337,
+        "epoch_seconds": 113.9495779424993
+      },
+      "91-100": {
+        "loss": 0.030057753321575367,
+        "epoch_seconds": 113.45804041729426
+      },
+      "96-100": {
+        "loss": 0.02998834598545484,
+        "epoch_seconds": 113.72786319900187
+      },
+      "loss_relative_change_last_two_ten_epoch_windows": -0.010577330690882847
+    },
+    "isru_d": {
+      "76-80": {
+        "loss": 0.03239697723114115,
+        "epoch_seconds": 199.21729312120004
+      },
+      "81-90": {
+        "loss": 0.03207312485452477,
+        "epoch_seconds": 198.7244324549014
+      },
+      "91-100": {
+        "loss": 0.03169509942284015,
+        "epoch_seconds": 198.96905616939475
+      },
+      "96-100": {
+        "loss": 0.031614566933451674,
+        "epoch_seconds": 199.05928372659838
+      },
+      "loss_relative_change_last_two_ten_epoch_windows": -0.011786361116955302
+    }
+  },
+  "operator_cost": {
+    "native_swiglu": {
+      "FFN_matrix_weights": 4718592,
+      "FFN_biases": 4864,
+      "FFN_forward_dense_MAC_per_token": 4718592,
+      "full_model_parameters_including_fixed_pos_embed": 130405632
+    },
+    "narrow_swiglu": {
+      "FFN_matrix_weights": 1179648,
+      "FFN_biases": 1792,
+      "FFN_forward_dense_MAC_per_token": 1179648,
+      "full_model_parameters_including_fixed_pos_embed": 87901440
+    },
+    "isru_d_k1": {
+      "FFN_matrix_weights": 1179648,
+      "FFN_biases": 0,
+      "FFN_forward_dense_MAC_per_token": 1179648,
+      "full_model_parameters_including_fixed_pos_embed": 87879936
+    },
+    "isru_d_k2": {
+      "FFN_matrix_weights": 1179648,
+      "FFN_biases": 0,
+      "FFN_forward_dense_MAC_per_token": 2359296,
+      "full_model_parameters_including_fixed_pos_embed": 87879936
+    },
+    "isru_d_k4": {
+      "FFN_matrix_weights": 1179648,
+      "FFN_biases": 0,
+      "FFN_forward_dense_MAC_per_token": 4718592,
+      "full_model_parameters_including_fixed_pos_embed": 87879936
+    },
+    "isru_d_k8": {
+      "FFN_matrix_weights": 1179648,
+      "FFN_biases": 0,
+      "FFN_forward_dense_MAC_per_token": 9437184,
+      "full_model_parameters_including_fixed_pos_embed": 87879936
+    }
+  },
+  "P_bound": {
+    "weights": "raw training model, not EMA used for FID",
+    "max_spectral_norm": 2.7482800586123517,
+    "uniform_K8_exp_action_tail_bound_relative_to_input_norm": 0.03360389786650627,
+    "formula": "||exp(A)h-T8(A)h|| <= ||h|| sum_{j=9..infinity} ||P||^j/j!, because ||D(h)||<=1",
+    "interpretation": "Upper bound in exact arithmetic, not measured approximation error or a bound relative to output norm; does not cover full field or finite precision."
+  },
+  "FID": {
+    "native": 35.91785430908203,
+    "K8": 43.90766906738281,
+    "difference": 7.989814758300781,
+    "relative_difference": 0.22244688364584486
+  }
+}

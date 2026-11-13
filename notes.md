@@ -43,3 +43,11 @@ Readiness measurements, CPU data probes and complete training results are
 different records. The ordinary CelebA128 baseline meets FID50k below 50; the completed K8
 comparison is worse in both fitting and generation. Increasing the same K8
 training budget is not selected by this status check.
+
+The [next-step audit](docs/celeba128-20261112/next-step-audit.md) proposes a
+short frozen-checkpoint term/response diagnostic followed by K1 and native
+SwiGLU with intermediate width 512, keeping completed K8/native100 endpoints.
+This would test the actual synthetic K1 transfer and a near-equal-parameter
+ordinary control with the same K1 FFN dense MACs. It is a recommendation;
+no new training or change of the selected K8 candidate is authorized here.
+Do not reuse completed run directories or bypass the existing source guards.

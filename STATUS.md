@@ -1,6 +1,6 @@
 # Current project status
 
-Checked 13 November 2026, 23:39 Shanghai time.
+Checked 13 November 2026, 23:52 Shanghai time.
 
 ## Completed CelebA128 comparison
 
@@ -42,6 +42,13 @@ while stable rank drops 193.95 to 76.65. These describe learned P, without
 identifying the cause of the FID gap.
 
 ## Code and next-run settings
+
+The [next-step audit](docs/celeba128-20261112/next-step-audit.md) recommends
+frozen K8 term/response diagnostics, then a proposed K1 versus narrow SwiGLU
+comparison. These controls would test the synthetic K1 transfer and separate
+order from parameter budget. K8 remains the selected reference. No new
+training is submitted. The current wrapper's completed output names and old
+readiness binding must be replaced with a fresh registered run before launch.
 
 The active code has [FID every 20 completed epochs](docs/celeba128-20261112/periodic-fid.md)
 and complete numbered checkpoints 20/40/60/80/100. Regression checks verify
