@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "sample_counts": {
+    "swiglu": 50000,
+    "isru_d": 50000
+  },
+  "matched_evaluation_keys": [
+    "checkpoint_epochs",
+    "source_commit",
+    "ema_decay",
+    "image_count",
+    "generation_batch",
+    "seed",
+    "sampler",
+    "cfg",
+    "reference"
+  ],
+  "checkpoint_mtimes_unchanged": true,
+  "frozen_source_clean": true,
+  "FID50k": {
+    "swiglu": 35.91785430908203,
+    "isru_d": 43.90766906738281
+  },
+  "K8_minus_native": 7.989814758300781,
+  "K8_relative_change": 0.22244688364584494,
+  "console_and_TensorBoard_agree": true,
+  "scope": "100epoch seed0 fixed comparison; no earlier FID checkpoints reconstructed"
+}

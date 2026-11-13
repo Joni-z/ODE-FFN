@@ -59,4 +59,5 @@ local dataset/resolution port. Resume is epoch-based; the new single-GPU
 checkpoint also records RNG state. No exact mid-batch continuation is claimed.
 Native SwiGLU on CelebA128 now reaches FID50k 35.91785 at 100 epochs under the
 fixed standard evaluation ([receipt](docs/celeba128-20261112/FID100-swiglu.json)).
-This validates the CelebA128 ordinary baseline; K8 FID is still running.
+The matched K8 FID50k is 43.90767 ([receipt](docs/celeba128-20261112/FID100-isru_d.json)),
+so the completed 100-epoch comparison favors native SwiGLU.

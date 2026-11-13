@@ -44,13 +44,14 @@ control-flow check and does not supply a model-quality measurement.
 
 The two completed 100-epoch training outputs contain only their last full
 checkpoint. Their earlier P-only snapshots cannot reconstruct the20/40/60/80
-models. Existing checkpoint100 evaluations 22993694/22993695 continue unchanged
-on their frozen runtime, using the same standard metric and 50k samples.
+models. Checkpoint100 evaluations 22993694/22993695 both completed on the frozen
+runtime, with the same standard metric and 50k samples. Native/K8 FID50k
+is 35.91785/43.90767; see the [comparison](results.md#standard-fid-results).
 
 The former 6-hour limit covered training alone. Five full FID50k evaluations
 must be included in subsequent training budgets. A provisional K8 default
 of 14 hours and native 8 hours includes measured L40S training 3.2/5.6 hours,
-current A100generation about 30/50 minutes per evaluation, feature extraction,
+completed A100 evaluation 34m47s/54m59s per checkpoint including feature extraction,
 and a hardware/runtime allowance. These are scheduling estimates across
 hardware, not a measured complete periodic run. Re-estimate with completed
 FID timings before registering a new run. No new training allocation is

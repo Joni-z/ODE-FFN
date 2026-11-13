@@ -22,17 +22,24 @@
     "swiglu": "22993694",
     "isru_d": "22993695"
   },
-  "evaluation_status": "SwiGLU COMPLETED0:0 with FID50k35.91785; K8 RUNNING",
+  "evaluation_status": "Both completed0:0; native35.91785, K8 43.90767",
   "evaluation_monitor_pid": 3150165,
   "fresh_evaluation_doc_pass": "evaluation-doc-pass.json",
   "P_figure_visual_review": "PASS; mean spectral norm and stable-rank trends match source milestones",
   "preview_receipt": "preview-receipt.json",
   "FID_available_by_arm": {
     "swiglu": true,
-    "isru_d": false
+    "isru_d": true
   },
   "FID50k_swiglu": 35.91785430908203,
   "baseline_CelebA128_FID_below50": true,
   "standard_metric_audit": "FID-current-upstream-audit.json",
-  "periodic_evaluation_regression": "periodic-eval-check.json"
+  "periodic_evaluation_regression": "periodic-eval-check.json",
+  "FID50k_isru_d": 43.90766906738281,
+  "FID50k_K8_minus_native": 7.989814758300781,
+  "comparison_verification": "FID100-comparison-verification.json",
+  "sample_counts": {
+    "swiglu": 50000,
+    "isru_d": 50000
+  }
 }

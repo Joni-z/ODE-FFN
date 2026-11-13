@@ -13,7 +13,9 @@ existing models now and evaluate every20completed epochs during training.
   check syntax and frozen/source/report preservation.
 - [x] Native checkpoint100FID50k35.91785 verified, job22993694 completed0:0.
 - [x] Publish code/evidence as0dbc9ad and fast-forward the active Torch checkout.
-- [ ] K8 job22993695 remains under60-second monitoring; FID is pending.
+- [x] K8 job22993695 completed0:0; checkpoint100FID50k43.90767 retrieved.
+- [x] Verify50,000PNG images per arm, matching evaluation keys and frozen checkpoint identities.
+- [x] Publish both completed metrics and checks; active Torch sync follows this final result commit.
 
 No duplicate evaluations or replay training. Existing jobs use frozen65864ad;
 code changes apply to subsequent training, not the already-completed100epochs.

@@ -13,13 +13,15 @@ GPUs on gl066. The frozen source and saved recipe match.
 | GPU utilization mean after first 5 min |95.73% |98.05% |
 | Peak NVML used memory (GiB) |14.81 |22.17 |
 | Full-model parameters |130,405,632 |87,879,936 |
-| FID50k | **35.91785** | Evaluation running |
+| FID50k | **35.91785** |43.90767 |
+| Fixed-checkpoint evaluation time, A100 |34m47s |54m59s |
 
 At matched exposure, K8's final training loss is 5.41% higher and its steady
 epoch time is 1.75 times native. Fewer parameters have not produced cheaper
 training: the eighth-order action reuses weights but repeats matrix products.
-These are training-cost/fitting observations; generation is a separate
-comparison of the saved checkpoints.
+The completed generation comparison also favors native SwiGLU: K8 FID is
+7.98981 points higher (+22.24%) at the same 100-epoch exposure. The smaller
+parameter count does not provide a quality or training-time advantage here.
 
 ![Training loss and epoch time](training-curves.png)
 
@@ -62,28 +64,41 @@ Exact records: [training results/checkpoint identities](training-results.json),
 
 ## Initial generated examples
 
-Both checkpoint-only evaluations started on A100 GPUs (SwiGLU22993694 on
-ga013, K8 22993695 on ga022). Each loaded its verified100-epoch checkpoint
+Both checkpoint-only evaluations started on A100 GPUs (SwiGLU 22993694 on
+ga013, K8 22993695 on ga022). Each loaded its verified 100-epoch checkpoint
 and first EMA. The first eight generated images, in filename order, are
-shown below; this is an initial qualitative view while FID50k is running.
+shown below; both final FID50k measurements are now complete.
 
 ![First eight samples from each model](preview-comparison.png)
 
 Both produce recognizable faces, with some blurred or distorted details.
-These examples do not show a clear K8 advantage. Full first64 grids are
+These examples do not show a clear K8 advantage. Full first 64 grids are
 available for [SwiGLU](preview-swiglu.png) and [K8](preview-isru_d.png).
 The [sample receipt](preview-receipt.json) binds original image hashes and
 checkpoint identities. Selection uses the first filenames without filtering.
-K8 FID remains pending; these images are not a quantitative ranking.
+The first 64 samples are retained as examples; the full 50,000-image FID results
+below determine the quantitative comparison.
 
-## Standard FID result
+## Standard FID results
 
-Native SwiGLU checkpoint 100 reaches **FID50k 35.91785**, with 50,000 generated
-images and the fixed CelebA128 training reference. Evaluation 22993694 completed
-0:0 in 34m47s on A100 ga013. The original console value 35.9179 agrees with the
-TensorBoard scalar. [Original result](FID100-swiglu.json). This meets the
-registered baseline below 50 criterion. K8 evaluation 22993695 is still running.
+| Model | FID50k | Inception Score | A100 evaluation time | Job |
+|---|---:|---:|---|---|
+| Native SwiGLU | **35.91785** |2.71334 |34m47s |22993694 |
+| ISRU-D K8 |43.90767 |2.50937 |54m59s |22993695 |
 
-[Every 20-epoch evaluation](periodic-fid.md) now uses the same standard backend,
-with complete numbered checkpoints and training RNG isolation. Its change
-applies to subsequent training; it does not recreate missing historical weights.
+Both jobs completed 0:0 and each saved exactly 50,000 PNG images. They share
+EMA .9999, seed 0, Heun50, CFG0 and the official 162,770-image CelebA128 training
+reference. The original console metrics agree with the TensorBoard values;
+checkpoint mtimes remain unchanged. Original results: [SwiGLU](FID100-swiglu.json),
+[K8](FID100-isru_d.json). [Comparison checks](FID100-comparison-verification.json).
+
+The baseline passes the registered FID below 50 gate. At 100 epochs, K8 is worse
+by 7.98981 FID points (+22.24%), has 5.41% higher final training loss, and takes
+1.75 times as long per steady training epoch. Its 32.61% parameter reduction
+has not translated into better quality or cheaper training. This result does
+not identify which part of the candidate is responsible; raw P spectra alone
+cannot establish the mechanism of the gap.
+
+[Every 20-epoch evaluation](periodic-fid.md) is implemented for subsequent
+training, with full numbered checkpoints and training RNG isolation. It does
+not recreate the missing 20/40/60/80 weights for this completed comparison.
