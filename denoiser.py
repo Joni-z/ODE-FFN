@@ -17,7 +17,8 @@ class Denoiser(nn.Module):
             attn_drop=args.attn_dropout,
             proj_drop=args.proj_dropout,
         )
-        replace_ffn(self.net, getattr(args, 'ffn', 'swiglu'), getattr(args, 'ode_order', 8))
+        replace_ffn(self.net, getattr(args, 'ffn', 'swiglu'), getattr(args, 'ode_order', 8),
+                    getattr(args, 'ode_hidden_dim', 0))
         self.img_size = args.img_size
         self.num_classes = args.class_num
 

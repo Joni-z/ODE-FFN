@@ -41,6 +41,14 @@ def main() -> None:
             progress = Path(output) / 'progress.json' if output else None
             if progress and progress.exists():
                 states.setdefault(job_id, {})['progress'] = json.loads(progress.read_text())
+            if output and Path(output).exists():
+                from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+                events = EventAccumulator(output, size_guidance={'scalars': 0}).Reload()
+                fid = {tag: [{'epoch': e.step, 'value': e.value} for e in events.Scalars(tag)]
+                       for tag in events.Tags()['scalars'] if tag.startswith('fid')}
+                states.setdefault(job_id, {})['FID'] = fid
+                states[job_id]['numbered_checkpoints'] = sorted(
+                    p.name for p in Path(output).glob('checkpoint-[0-9]*.pth'))
         snapshot = dict(updated_at=time.time(), source_commit=launch['source_commit'], jobs=states)
         destination = args.launch.parent / 'monitor.json'
         temporary = destination.with_suffix('.json.tmp')

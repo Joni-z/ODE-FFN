@@ -32,6 +32,8 @@ def get_args_parser():
                         help='Name of the model to train')
     parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru', 'isru_d'))
     parser.add_argument('--ode_order', default=8, type=int)
+    parser.add_argument('--ode_hidden_dim', default=0, type=int,
+                        help='Internal ISRU-D width; 0 retains the original unexpanded FFN')
     parser.add_argument('--img_size', default=256, type=int, help='Image size')
     parser.add_argument('--attn_dropout', type=float, default=0.0, help='Attention dropout rate')
     parser.add_argument('--proj_dropout', type=float, default=0.0, help='Projection dropout rate')
@@ -230,6 +232,8 @@ def main(args):
             raise ValueError('Resume with the FFN used to create this checkpoint')
         if args.ffn == 'isru_d' and getattr(checkpoint['args'], 'ode_order', None) != args.ode_order:
             raise ValueError('Resume with the original ISRU-D Taylor order')
+        if getattr(checkpoint['args'], 'ode_hidden_dim', 0) != args.ode_hidden_dim:
+            raise ValueError('Resume with the original ODE internal width')
         for key in ('dataset', 'model', 'img_size', 'batch_size', 'seed', 'class_num',
                     'label_drop_prob', 'noise_scale', 'P_mean', 'P_std', 't_eps',
                     'warmup_epochs', 'lr', 'lr_schedule', 'weight_decay',
@@ -311,6 +315,8 @@ def main(args):
 
         # Perform online evaluation at specified intervals
         if evaluate_now:
+            misc.write_progress(args, status='evaluating', completed_epochs=epoch + 1,
+                                target_epochs=args.epochs, evaluation_images=args.num_images)
             if device.type == 'cuda':
                 torch.cuda.empty_cache()
             print(f'Evaluating checkpoint at {epoch + 1} completed epochs')

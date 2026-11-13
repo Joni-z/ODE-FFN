@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=celeba-isrud-k8-s0
+#SBATCH --job-name=celeba-wide-k8-s0
 #SBATCH --account=torch_pr_637_tandon_priority
 #SBATCH --gres=gpu:1
 #SBATCH --constraint=a100|h100|h200|l40s|rtx6000|b200
@@ -24,7 +24,9 @@ unset RANK WORLD_SIZE LOCAL_RANK SLURM_PROCID
 
 FFN=${1:-isru_d}
 case "$FFN" in isru_d|swiglu) ;; *) exit 2 ;; esac
-RECIPE=${2:-celeba64}
+RECIPE=${2:-celeba128-wide}
+ORDER=${3:-8}
+WIDTH=0
 case "$RECIPE" in
     celeba64)
         MODEL=JiT-B/4; IMAGE_SIZE=64; BATCH_SIZE=64; NOISE_SCALE=1
@@ -32,21 +34,34 @@ case "$RECIPE" in
         LR_ARGS=(--lr 0.0001)
         OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-${FFN}-s0
         ;;
-    celeba128)
+    celeba128|celeba128-wide)
         MODEL=JiT-B/16; IMAGE_SIZE=128; BATCH_SIZE=${ODE_FFN_BATCH_SIZE:-256}; NOISE_SCALE=0.5
         TARGET_EPOCHS=${ODE_FFN_EPOCHS:-100}; MAX_TRAIN_SECONDS=${ODE_FFN_MAX_TRAIN_SECONDS:-0}
         LR_ARGS=(--blr 0.00005)
-        OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-${FFN}-s0
-        python - "$BATCH_SIZE" "$(git rev-parse HEAD)" <<'PY'
+        if [[ "$RECIPE" == celeba128-wide ]]; then
+            [[ "$FFN" == isru_d && ( "$ORDER" == 1 || "$ORDER" == 8 ) ]] || exit 2
+            WIDTH=1200
+            OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k${ORDER}-s0
+            READINESS=/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cuda-readiness.json
+        else
+            [[ "$ORDER" == 8 ]] || exit 2
+            OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-${FFN}-s0
+            READINESS=/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json
+        fi
+        python - "$BATCH_SIZE" "$(git rev-parse HEAD)" "$READINESS" "$WIDTH" "$ORDER" <<'PY'
 import json
 import sys
 from pathlib import Path
-path = Path('/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json')
+path = Path(sys.argv[3])
 record = json.loads(path.read_text())
 assert record['status'] == 'PASS' and record['image_size'] == 128
 assert record['source_commit'] == sys.argv[2], 'Readiness must match the frozen training source'
-for arm in ('swiglu', 'isru_d'):
-    assert record['full_JiT_B16'][arm]['batch'] == int(sys.argv[1])
+if int(sys.argv[4]):
+    assert record['hidden_dim'] == int(sys.argv[4])
+    assert record['arms']['k'+sys.argv[5]]['batch'] == int(sys.argv[1])
+else:
+    for arm in ('swiglu', 'isru_d'):
+        assert record['full_JiT_B16'][arm]['batch'] == int(sys.argv[1])
 PY
         ;;
     *) echo "Unknown CelebA recipe" >&2; exit 2 ;;
@@ -121,7 +136,7 @@ fi
 python -u main_jit.py \
     --dataset celeba --data_path "$LOCAL_DATA" \
     --model "$MODEL" --img_size "$IMAGE_SIZE" --class_num 1 \
-    --ffn "$FFN" --ode_order 8 --seed 0 \
+    --ffn "$FFN" --ode_order "$ORDER" --ode_hidden_dim "$WIDTH" --seed 0 \
     --label_drop_prob 1 --cfg 0 --noise_scale "$NOISE_SCALE" --P_mean -0.8 --P_std 0.8 \
     --batch_size "$BATCH_SIZE" --num_workers 4 --epochs "$TARGET_EPOCHS" --warmup_epochs 5 \
     "${LR_ARGS[@]}" --lr_schedule constant --weight_decay 0 \

@@ -1,21 +1,19 @@
-# Current task: audit the next ODE-FFN decision
+# Task: launch parameter-matched ISRU-D on Torch
 
-Request: audit what to do after the completed CelebA128 comparison. No new
-training is authorized by this audit. Keep finalized reports and frozen runs.
+User authorized 14 November 2026: qualify the fixed native baseline, widen K8
+to approximately its parameter count, and train K8 plus K1 on Torch; seed 0,
+100 epochs, standard FID50k every 20 epochs, checkpoints and monitoring.
+K1 uses the same widened architecture as K8, changing only polynomial order.
 
-- [x] Obtain fresh integrity review of source, checkpoint, metric and data bindings.
-- [x] Trace the image candidate back to synthetic settings; check order, gate,
-  optimizer, normalization, width, initialization and parameter/compute fairness.
-- [x] Quantify convergence and per-term cost from existing records; derive the
-  minimum diagnostics and experimental controls needed to identify the failure.
-- [x] Obtain an independent evidence-to-decision review; write a ranked,
-  bounded plan with outcomes that determine continuation or rejection.
-- [x] Publish audit/evidence/decision to GitHub and sync active Torch.
+- [x] Qualify native SwiGLU baseline from completed source-bound FID35.91785.
+- [ ] Register exact width, operator, initialization, fixed recipe and outputs.
+- [ ] Implement minimal FFN/CLI and fresh launch support; verify semantics,
+      equal parameters/common initialization, unchanged original controls.
+- [ ] Push code; freeze new runtime on Torch; validate CPU and full-model CUDA
+      training/sampling with finite gradients, memory and throughput.
+- [ ] Set measured time limits including five FIDs; submit both seed0 arms.
+- [ ] Attach persistent job/GPU/FID monitor; verify jobs or pending reasons.
+- [ ] Publish source/config/readiness/job receipts and current status to GitHub.
 
-Existing results: docs/celeba128-20261112/results.md.
-Output: docs/celeba128-20261112/next-step-audit.md plus reviewer receipts.
-
-Decision: recommend frozen K8 diagnostics, then proposed K1/narrow-SwiGLU
-controls. No experiment submitted. Eight documentation/evidence files changed;
-model/training/metric source and finalized reports preserved. Verification:
-81 local links, 15 audited input hashes and 11 Report2 hashes passed.
+Outputs: docs/celeba128-wide-20261114/. Old runs, baseline and reports preserved.
+No narrow SwiGLU is selected. No new optimizer or spectral constraint.

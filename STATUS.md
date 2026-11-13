@@ -1,5 +1,13 @@
 # Current project status
 
+## Authorized next comparison, 14 November
+
+The native SwiGLU baseline qualifies and remains fixed at FID50k35.91785.
+Widened ISRU-D K8 and K1 use internal width1200 and 130,402,560 total parameters,
+versus native130,405,632. Both are authorized for seed0, 100 epochs and FID50k
+at20/40/60/80/100. Implementation checks and full-model CUDA profiling are
+being prepared before submission. [Protocol](docs/celeba128-wide-20261114/README.md).
+
 Checked 13 November 2026, 23:52 Shanghai time.
 
 ## Completed CelebA128 comparison

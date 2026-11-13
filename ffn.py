@@ -46,17 +46,28 @@ class ISRU_DLayer(nn.Module):
 
 
 class ISRU_D(nn.Module):
-    def __init__(self, dim: int, orders: int = 8) -> None:
+    def __init__(self, dim: int, orders: int = 8, hidden_dim: int = 0) -> None:
         super().__init__()
-        self.ode1 = ISRU_DLayer(dim, orders)
-        self.ode2 = ISRU_DLayer(dim, orders)
+        if hidden_dim < 0:
+            raise ValueError('Internal width must be nonnegative')
+        width = hidden_dim or dim
+        self.input_proj = nn.Linear(dim, width, bias=False) if width != dim else nn.Identity()
+        self.ode1 = ISRU_DLayer(width, orders)
+        self.ode2 = ISRU_DLayer(width, orders)
+        self.output_proj = nn.Linear(width, dim, bias=False) if width != dim else nn.Identity()
+        if width != dim:
+            nn.init.xavier_uniform_(self.input_proj.weight)
+            nn.init.xavier_uniform_(self.output_proj.weight)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return self.ode2(F.silu(self.ode1(x)))
+        x = self.input_proj(x)
+        return self.output_proj(self.ode2(F.silu(self.ode1(x))))
 
 
-def replace_ffn(model, name, orders=8):
+def replace_ffn(model, name, orders=8, hidden_dim=0):
     """Leave SwiGLU exactly native; replace only block.mlp for the candidate."""
+    if hidden_dim and name != 'isru_d':
+        raise ValueError('Internal ODE width applies only to isru_d')
     if name == 'swiglu':
         return
     if name not in ('isru', 'isru_d'):
@@ -67,4 +78,4 @@ def replace_ffn(model, name, orders=8):
             if block.mlp.ffn_dropout.p != 0:
                 raise ValueError('The existing ISRU experiment requires proj_dropout=0')
             dim = block.mlp.w3.out_features
-            block.mlp = FreeISRU(dim) if name == 'isru' else ISRU_D(dim, orders)
+            block.mlp = FreeISRU(dim) if name == 'isru' else ISRU_D(dim, orders, hidden_dim)

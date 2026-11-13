@@ -6,6 +6,11 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current method
 
+- Authorized 14 November: retain the qualified native baseline and run widened
+  ISRU-D K8/K1, both internal width 1200, seed 0, 100 epochs and periodic
+  FID50k. [New protocol](docs/celeba128-wide-20261114/README.md). This supersedes
+  the audit's narrow-SwiGLU recommendation below; K1 uses the same expanded
+  architecture as K8, changing only order. Runtime readiness is being checked.
 - The selected image candidate is frozen-diagonal ISRU-D K8, implemented in
   [ffn.py](ffn.py). Compute d0 once at a layer entrance, then accumulate
   the input plus eight Taylor terms; use two independent layers around SiLU.

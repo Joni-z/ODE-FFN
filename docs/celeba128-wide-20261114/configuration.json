@@ -1,0 +1,45 @@
+{
+  "common": {
+    "model": "JiT-B/16",
+    "dataset": "celeba",
+    "img_size": 128,
+    "class_num": 1,
+    "label_drop_prob": 1.0,
+    "cfg": 0.0,
+    "batch_size": 256,
+    "num_workers": 4,
+    "epochs": 100,
+    "seed": 0,
+    "noise_scale": 0.5,
+    "P_mean": -0.8,
+    "P_std": 0.8,
+    "t_eps": 0.05,
+    "lr": 5e-05,
+    "warmup_epochs": 5,
+    "lr_schedule": "constant",
+    "weight_decay": 0.0,
+    "ema_decay1": 0.9999,
+    "ema_decay2": 0.9996,
+    "ode_order": 8,
+    "ffn": "isru_d",
+    "ode_hidden_dim": 1200,
+    "online_eval": true,
+    "eval_freq": 20,
+    "num_images": 50000,
+    "gen_bsz": 256,
+    "sampling_method": "heun",
+    "num_sampling_steps": 50,
+    "max_train_seconds": 0
+  },
+  "arms": [
+    {
+      "ode_order": 1
+    },
+    {
+      "ode_order": 8
+    }
+  ],
+  "baseline_fixed_FID50k": 35.91785430908203,
+  "parameter_count": 130402560,
+  "formal_training_status": "not_submitted"
+}
