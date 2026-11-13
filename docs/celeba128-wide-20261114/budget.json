@@ -1,0 +1,84 @@
+{
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "profile_job": "23013985",
+  "profile_gpu": "NVIDIA H100 80GB HBM3",
+  "measured_profile": {
+    "k1": {
+      "batch": 256,
+      "parameters": 130402560,
+      "loss": 0.8509066700935364,
+      "step_seconds": [
+        49.71610193399829,
+        0.05886522799846716,
+        0.05847674299729988,
+        0.05814191102399491,
+        0.05798564598080702
+      ],
+      "warm_step_seconds": 0.058201433334033936,
+      "generation_batch_seconds": [
+        24.740085570985684,
+        3.603068822005298
+      ],
+      "warm_generation_batch_seconds": 3.603068822005298,
+      "peak_training_bytes": 14035440128,
+      "peak_including_generation_bytes": 14035440128,
+      "finite_weights_gradients_and_samples": true,
+      "projections_and_P_receive_gradients": true
+    },
+    "k8": {
+      "batch": 256,
+      "parameters": 130402560,
+      "loss": 0.8508875966072083,
+      "step_seconds": [
+        50.64973046400701,
+        0.1445836239727214,
+        0.1459249329927843,
+        0.1463709909876343,
+        0.14643528198939748
+      ],
+      "warm_step_seconds": 0.14624373532327203,
+      "generation_batch_seconds": [
+        31.577335944981314,
+        9.263612008013297
+      ],
+      "warm_generation_batch_seconds": 9.263612008013297,
+      "peak_training_bytes": 32107116032,
+      "peak_including_generation_bytes": 32107116032,
+      "finite_weights_gradients_and_samples": true,
+      "projections_and_P_receive_gradients": true
+    }
+  },
+  "feature_plus_IO_allowance_per_FID_seconds": 578.1015295982361,
+  "feature_allowance_basis": "twice mean residual of completed native/K8 A100 evaluation elapsed minus first-to-last PNG span",
+  "slow_GPU_factor": 3.1,
+  "slow_factor_basis": "round up observed old K8 L40S steady step / old H100 readiness step",
+  "data_floor_epoch_seconds": 113.72786319900187,
+  "margin": 1.15,
+  "startup_allowance_seconds": 900,
+  "arms": {
+    "k1": {
+      "profile_GPU": {
+        "training_seconds": 11372.786319900188,
+        "five_FID_seconds": 6421.515093556372,
+        "including_margin_hours": 6
+      },
+      "slower_GPU_allowance": {
+        "training_seconds": 11456.95215180458,
+        "five_FID_seconds": 13836.630729243278,
+        "including_margin_hours": 9
+      }
+    },
+    "k8": {
+      "profile_GPU": {
+        "training_seconds": 11372.786319900188,
+        "five_FID_seconds": 11968.847415844211,
+        "including_margin_hours": 8
+      },
+      "slower_GPU_allowance": {
+        "training_seconds": 28788.0792983861,
+        "five_FID_seconds": 31033.360928335576,
+        "including_margin_hours": 20
+      }
+    }
+  }
+}

@@ -100,3 +100,25 @@ throughput plus existing feature-extraction/data-loading timings to set the
 continuous training limits, including all five FIDs. Formal launch uses
 `slurm/celeba.slurm isru_d celeba128-wide 1` or `8`, an explicit fresh-start
 flag and the same frozen runtime. The matching readiness receipt is required.
+
+## Submitted execution
+
+CUDA readiness23013985 passed on H100 gh003 at batch256: K1/K8 warmed train
+steps .05820/.14624seconds, Heun50 generation3.603/9.264seconds per256images,
+training peaks13.07/29.90GiB. Weights, gradients, samples and both new
+projections are finite and receive gradients. This is a5update readiness
+profile, not formal convergence evidence.
+
+Frozen source17b61a56af1174120e06cd01e25266625c277ce4. Formal jobs:
+K8 **23015406**, K1 **23015408**. Both use the registered100epoch protocol.
+The persistent monitor PID is460860; GPU telemetry is attached by each job.
+[Launch commands](launch.json), [readiness](cuda-readiness.json),
+[budget arithmetic](budget.json), [snapshot](monitor.json).
+
+The H100 profile projects whole runs near8h for K8 and6h for K1, including
+five50k FIDs, a measured data-throughput floor, feature extraction/IO, startup
+and margin. Different GPU types remain eligible, so initial limits20h/9h
+cover the slower-card projection. K8 obtained H100 gh011; its limit was then
+kept at20h because the cluster rejected a requested reduction to10h. No fixed
+runtime pause or automatic requeue is planned. These
+are estimates and upper limits; monitor actual epochs and completed FIDs.

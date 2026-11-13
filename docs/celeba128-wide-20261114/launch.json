@@ -1,0 +1,77 @@
+{
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+  "wrapper_sha256": "5eda2e2835d8a07fa6287e66614930f3e3d814caa7a82c6c466e4f7e3ebeda30",
+  "readiness_job": "23013985",
+  "baseline_fixed": true,
+  "seed": 0,
+  "epochs": 100,
+  "FID_epochs": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "jobs": [
+    {
+      "job_id": "23015406",
+      "order": 8,
+      "hidden_dim": 1200,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0",
+      "time_limit_hours": 20,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba-wide-k8-s0",
+        "--time=20:00:00",
+        "--no-requeue",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114,ODE_FFN_FRESH_START=1,ODE_FFN_BATCH_SIZE=256,ODE_FFN_EPOCHS=100,ODE_FFN_MAX_TRAIN_SECONDS=0",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+        "isru_d",
+        "celeba128-wide",
+        "8"
+      ],
+      "dry_run": "sbatch: Job 23015405 to start at 2026-11-16T03:42:49 a using 6 processors on nodes ga023 in partition a100_tandon\n",
+      "submission_stderr": "",
+      "allocated_GPU": "NVIDIA H100 80GB HBM3",
+      "allocated_node": "gh011",
+      "time_limit_revision_attempt": {
+        "requested_hours": 10,
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Unspecified error for job 23015406\n"
+      }
+    },
+    {
+      "job_id": "23015408",
+      "order": 1,
+      "hidden_dim": 1200,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0",
+      "time_limit_hours": 9,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba-wide-k1-s0",
+        "--time=09:00:00",
+        "--no-requeue",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114,ODE_FFN_FRESH_START=1,ODE_FFN_BATCH_SIZE=256,ODE_FFN_EPOCHS=100,ODE_FFN_MAX_TRAIN_SECONDS=0",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+        "isru_d",
+        "celeba128-wide",
+        "1"
+      ],
+      "dry_run": "sbatch: Job 23015407 to start at 2026-11-16T03:42:49 a using 6 processors on nodes ga023 in partition a100_tandon\n",
+      "submission_stderr": ""
+    }
+  ],
+  "submitted_at": 1794587929.590394,
+  "monitor": {
+    "pid": 460860,
+    "interval_seconds": 60,
+    "GPU_telemetry_seconds": 30,
+    "log": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/training-monitor.log",
+    "snapshot": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/monitor.json",
+    "never_restarts_or_submits": true
+  }
+}

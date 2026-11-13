@@ -9,11 +9,11 @@ K1 uses the same widened architecture as K8, changing only polynomial order.
 - [x] Register exact width, operator, initialization, fixed recipe and outputs.
 - [x] Implement minimal FFN/CLI and fresh launch support; verify semantics,
       equal parameters/common initialization, unchanged original controls.
-- [ ] Push code; freeze new runtime on Torch; validate CPU and full-model CUDA
+- [x] Push code; freeze new runtime on Torch; validate CPU and full-model CUDA
       training/sampling with finite gradients, memory and throughput.
-- [ ] Set measured time limits including five FIDs; submit both seed0 arms.
-- [ ] Attach persistent job/GPU/FID monitor; verify jobs or pending reasons.
-- [ ] Publish source/config/readiness/job receipts and current status to GitHub.
+- [x] Set measured time limits including five FIDs; submit both seed0 arms.
+- [x] Attach persistent job/GPU/FID monitor; verify jobs or pending reasons.
+- [x] Publish source/config/readiness/job receipts and current status to GitHub.
 
 Outputs: docs/celeba128-wide-20261114/. Old runs, baseline and reports preserved.
 No narrow SwiGLU is selected. No new optimizer or spectral constraint.
@@ -25,3 +25,12 @@ Local host has no Torch; numerical tests use the existing Torch venv.
 Validation: source17b61a5 frozen onTorch; original upstream compatibility
 PASS. Fresh documented CPU check and periodic evaluation fixture24/24 PASS.
 CUDA readiness23013985 running onH100 gh003; time limits await measurement.
+
+CUDA23013985 PASS H100 gh003. Formal K8/K1 jobs23015406/23015408 submitted.
+K8 allocated H100 gh011; requested cap reduction20h->10h was rejected by the cluster;20h remains.
+K1 initialcap9h.
+Monitoring460860,60seconds, tracks FID/checkpoints; per-jobGPU telemetry30s.
+
+Launch confirmed: K8 completed epoch1, entered epoch2,~.149s/update, GPU98–99%.
+K1 remains queued with QOSGrpGRES. Both monitored; no duplicate submissions.
+Reports1/2 and baseline source/checkpoint unchanged.

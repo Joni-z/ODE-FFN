@@ -20,7 +20,6 @@
     "weight_decay": 0.0,
     "ema_decay1": 0.9999,
     "ema_decay2": 0.9996,
-    "ode_order": 8,
     "ffn": "isru_d",
     "ode_hidden_dim": 1200,
     "online_eval": true,
@@ -41,5 +40,10 @@
   ],
   "baseline_fixed_FID50k": 35.91785430908203,
   "parameter_count": 130402560,
-  "formal_training_status": "not_submitted"
+  "formal_training_status": "submitted",
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "job_ids": {
+    "8": "23015406",
+    "1": "23015408"
+  }
 }

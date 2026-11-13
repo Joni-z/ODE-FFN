@@ -34,21 +34,23 @@ For the candidate, `block.mlp` is replaced by the implementation in `ffn.py`.
 
 ## Current comparison
 
-Native **SwiGLU** versus **ISRU-D K8**, unconditional CelebA, model seed 0.
-ISRU-D keeps each entrance diagonal fixed throughout eight Taylor terms,
-with two independent operators around SiLU. The existing `--ffn isru`
-option is ordinary Free ISRU; it is a separate control.
+The qualified native **SwiGLU** baseline stays fixed at FID50k **35.91785**.
+The current [CelebA128 study](docs/celeba128-wide-20261114/README.md) trains
+**widened ISRU-D K8 and K1**, seed0,100epochs, with FID50k every20epochs.
+Both use internal width1200 and130,402,560parameters, versus native130,405,632.
+Use `--ffn isru_d --ode_hidden_dim 1200 --ode_order 8` (or1).
+ISRU-D holds each entrance diagonal fixed during the Taylor series and uses
+two independent operators around SiLU. `--ffn isru` is ordinary Free ISRU.
 
-The [current protocol](docs/celeba128-20261112/protocol.md) fixes the data and
-method. [STATUS.md](STATUS.md) holds the current budget and job snapshot;
-[the budget note](docs/celeba128-20261112/budget-20261112.md) explains the estimate.
+[STATUS.md](STATUS.md) holds the current budget and job snapshot;
+[the budget record](docs/celeba128-wide-20261114/budget.json) explains the estimate.
 Runtime flags in `slurm/celeba.slurm` and the recorded submission command
 specify execution. JSON files under the study's docs record it; the trainer
 does not load those JSON files as configuration.
 
 ## Setup and provenance
 
-Use the [Torch invocation guide](docs/celeba128-20261112/validation.md) with
+Use the [current validation/launch guide](docs/celeba128-wide-20261114/README.md) with
 the existing [CUDA12.8 profile](requirements-cuda128.txt). The
 [development guide](docs/development.md) distinguishes the mutable checkout,
 frozen source, environment, dataset and run outputs.

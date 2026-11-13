@@ -1,0 +1,59 @@
+{
+  "arms": {
+    "k1": {
+      "batch": 256,
+      "parameters": 130402560,
+      "loss": 0.8509066700935364,
+      "step_seconds": [
+        49.71610193399829,
+        0.05886522799846716,
+        0.05847674299729988,
+        0.05814191102399491,
+        0.05798564598080702
+      ],
+      "warm_step_seconds": 0.058201433334033936,
+      "generation_batch_seconds": [
+        24.740085570985684,
+        3.603068822005298
+      ],
+      "warm_generation_batch_seconds": 3.603068822005298,
+      "peak_training_bytes": 14035440128,
+      "peak_including_generation_bytes": 14035440128,
+      "finite_weights_gradients_and_samples": true,
+      "projections_and_P_receive_gradients": true
+    },
+    "k8": {
+      "batch": 256,
+      "parameters": 130402560,
+      "loss": 0.8508875966072083,
+      "step_seconds": [
+        50.64973046400701,
+        0.1445836239727214,
+        0.1459249329927843,
+        0.1463709909876343,
+        0.14643528198939748
+      ],
+      "warm_step_seconds": 0.14624373532327203,
+      "generation_batch_seconds": [
+        31.577335944981314,
+        9.263612008013297
+      ],
+      "warm_generation_batch_seconds": 9.263612008013297,
+      "peak_training_bytes": 32107116032,
+      "peak_including_generation_bytes": 32107116032,
+      "finite_weights_gradients_and_samples": true,
+      "projections_and_P_receive_gradients": true
+    }
+  },
+  "cuda": {
+    "name": "NVIDIA H100 80GB HBM3",
+    "total_memory_bytes": 85009367040,
+    "torch": "2.7.1+cu128",
+    "cuda": "12.8"
+  },
+  "status": "PASS",
+  "image_size": 128,
+  "hidden_dim": 1200,
+  "formal_training": false,
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4"
+}

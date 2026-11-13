@@ -1,22 +1,36 @@
 # Current project status
 
-## Authorized next comparison, 14 November
+## Widened ISRU-D K8/K1 on Torch
 
-The native SwiGLU baseline qualifies and remains fixed at FID50k35.91785.
-Widened ISRU-D K8 and K1 use internal width1200 and 130,402,560 total parameters,
-versus native130,405,632. Both are authorized for seed0, 100 epochs and FID50k
-at20/40/60/80/100. CPU/algebra/initialization and original upstream checks PASS. CUDA readiness
-23013985 is running on H100 gh003; formal training submission follows the
-measured speed/memory check. [Protocol](docs/celeba128-wide-20261114/README.md).
+The native SwiGLU baseline qualifies and stays fixed at FID50k35.91785.
+Widened K8 and K1 both use internal1200 and130,402,560total parameters, versus
+native130,405,632. Seed0,100epochs, batch256; standard FID50k at20/40/60/80/100.
+Full numbered checkpoints and all P snapshots are retained.
 
-Checked 13 November 2026, 23:52 Shanghai time.
+- K8 job **23015406**: running on H10080GB gh011, completed1epoch and entered epoch2.
+  Warm steps~.149s, GPU98–99%; full checkpoint and P snapshots saved.
+- K1 job **23015408**: pending, QOSGrpGRES GPU quota at last check.
+- CUDA readiness23013985 completed0:0 on H100 gh003; both full models passed.
+- Source frozen at17b61a5 in `/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114`.
+- Persistent monitor460860 polls job/progress/FID/checkpoints every60seconds;
+  GPU utilization/memory/power recorded every30seconds within each allocation.
+- H100 complete-run estimates, including five FIDs and margin: K8~8h, K1~6h.
+  Broad-GPU request limits20h/9h include the measured slower-card allowance.
+  A requested K8 reduction to10h after H100 allocation was rejected by the
+  cluster;20h cap remains. Completion releases the allocation immediately.
+
+[Protocol, validation and receipts](docs/celeba128-wide-20261114/README.md).
+This is the current authorized study; the older audit's narrow-SwiGLU proposal
+is superseded. The original native baseline, old K8 and reports remain fixed.
+
+Checked 14 November 2026, 00:41 Shanghai time.
 
 ## Completed CelebA128 comparison
 
 Both seed 0 native JiT-B/16 models finished 100 epochs and their FID50k
 measurements. **Native SwiGLU wins this comparison: 35.91785 versus 43.90767.**
 K8 FID is 7.98981 points higher (+22.24%), despite using 32.61% fewer parameters.
-Its steady training epoch is 1.75 times as long. The current K8 design has no
+Its steady training epoch is 1.75 times as long. The earlier unexpanded K8 design has no
 quality or training-time advantage at this 100-epoch budget.
 
 | Measurement | Native SwiGLU | ISRU-D K8 |
@@ -50,14 +64,7 @@ All 101 K8 P snapshots are complete. Raw P mean spectral norm grows 1.1486 to 2.
 while stable rank drops 193.95 to 76.65. These describe learned P, without
 identifying the cause of the FID gap.
 
-## Code and next-run settings
-
-The [next-step audit](docs/celeba128-20261112/next-step-audit.md) recommends
-frozen K8 term/response diagnostics, then a proposed K1 versus narrow SwiGLU
-comparison. These controls would test the synthetic K1 transfer and separate
-order from parameter budget. K8 remains the selected reference. No new
-training is submitted. The current wrapper's completed output names and old
-readiness binding must be replaced with a fresh registered run before launch.
+## Evaluation support
 
 The active code has [FID every 20 completed epochs](docs/celeba128-20261112/periodic-fid.md)
 and complete numbered checkpoints 20/40/60/80/100. Regression checks verify
@@ -66,7 +73,7 @@ full checkpoints do not exist for the completed pair. New training budgets
 include all five FID50k evaluations; provisional K8/native limits are 14h/8h.
 
 - Development: `/scratch/zz5070/ODE_FFN/ODE-FFN`.
-- Frozen model source: `/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112`, commit 65864ad.
+- Completed pair frozen source: `/scratch/zz5070/ODE_FFN/runtimes/celeba128-20261112`, commit 65864ad.
 - Environment: `/scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128`.
 - Training outputs: `/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-{ffn}-s0`.
 - Evaluation outputs: `/scratch/zz5070/ODE_FFN/runs/celeba/evaluations/20261113-b16-{ffn}-s0-ckpt100-ema9999`.
