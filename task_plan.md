@@ -12,8 +12,8 @@ existing models now and evaluate every20completed epochs during training.
 - [x] Actual tiny100-epoch entrypoint regression PASS for scheduling, full checkpoints and RNG;
   check syntax and frozen/source/report preservation.
 - [x] Native checkpoint100FID50k35.91785 verified, job22993694 completed0:0.
-- [ ] Publish code/evidence and fast-forward active Torch; keep monitoring
-  K8 job22993695, whose FID is still pending.
+- [x] Publish code/evidence as0dbc9ad and fast-forward the active Torch checkout.
+- [ ] K8 job22993695 remains under60-second monitoring; FID is pending.
 
 No duplicate evaluations or replay training. Existing jobs use frozen65864ad;
 code changes apply to subsequent training, not the already-completed100epochs.
