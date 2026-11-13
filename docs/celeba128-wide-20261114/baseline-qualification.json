@@ -1,0 +1,18 @@
+{
+  "decision": "PASS for fixed local CelebA128 reference",
+  "baseline_frozen": true,
+  "baseline_retrain_selected": false,
+  "baseline_width_change_selected": false,
+  "checks": {
+    "source_architecture_loss_sampler": "PASS; pinned author-derived JiT and independent compatibility audit",
+    "genuine_patch_bottleneck": "PASS; patch RGB768 -> bottleneck128",
+    "dataset_and_reference": "PASS; official CelebA train162770, deterministic128px FID crop",
+    "training_complete": "PASS; seed0,100epochs,63500updates,finite checkpoint/twoEMAs",
+    "FID50k": 35.91785430908203,
+    "registered_FID_gate_below50": true,
+    "checkpoint_metric_binding": "PASS; original logs, TensorBoard, SHA256 and50000PNGs agree"
+  },
+  "scope": "A qualified baseline for this locally specified CelebA128 task. No official identical CelebA recipe/score exists to claim exact published FID reproduction. No FID convergence claim is needed to freeze the registered100epoch comparison.",
+  "reference_record": "docs/celeba128-20261112/FID100-swiglu.json",
+  "reference_sha256": "2d6a2484775529bb7da39c91e8b70e912f14d167403dd4e4f7fbf6217c721dee"
+}

@@ -1,0 +1,35 @@
+{
+  "algebra": {
+    "dense_polynomial_and_all_derivatives": "PASS",
+    "gradcheck": "PASS",
+    "original_width_state_rng_and_output": "PASS"
+  },
+  "models": {
+    "native": {
+      "parameters": 130405632,
+      "trainable_parameters": 130356480,
+      "backbone_sha256": "f40f2d13f915dd4891e9a8e699f0cb7f8802bd8d0638f06b0925a7c6e26ec687",
+      "ffn_sha256": "43b6eb72461a060962ad94409b451bae9e81af1005868e83459af1a0c35c029c",
+      "post_constructor_rng_sha256": "80abe763c95cacbc48181bf1a3a268ec15b12eefee40af4927733c8dd87a5273"
+    },
+    "k1": {
+      "parameters": 130402560,
+      "trainable_parameters": 130353408,
+      "backbone_sha256": "f40f2d13f915dd4891e9a8e699f0cb7f8802bd8d0638f06b0925a7c6e26ec687",
+      "ffn_sha256": "6b157ee41d69030e3c76a8f9e8e4e2baa3e38d3e437139637cfb8ffbf69b96bb",
+      "post_constructor_rng_sha256": "80abe763c95cacbc48181bf1a3a268ec15b12eefee40af4927733c8dd87a5273"
+    },
+    "k8": {
+      "parameters": 130402560,
+      "trainable_parameters": 130353408,
+      "backbone_sha256": "f40f2d13f915dd4891e9a8e699f0cb7f8802bd8d0638f06b0925a7c6e26ec687",
+      "ffn_sha256": "6b157ee41d69030e3c76a8f9e8e4e2baa3e38d3e437139637cfb8ffbf69b96bb",
+      "post_constructor_rng_sha256": "80abe763c95cacbc48181bf1a3a268ec15b12eefee40af4927733c8dd87a5273"
+    }
+  },
+  "status": "PASS",
+  "image_size": 128,
+  "hidden_dim": 1200,
+  "formal_training": false,
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4"
+}

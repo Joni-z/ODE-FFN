@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "created_at_utc": "2026-11-13T16:30:54.715271+00:00",
+  "role": "fresh_agent_follows_doc",
+  "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "source_clean_before": true,
+  "required_files": {
+    "docs/celeba128-wide-20261114/README.md": true,
+    "scripts/activate_torch.sh": true,
+    "tests/check_wide_ffn.py": true,
+    "tests/check_periodic_eval.py": true,
+    "ffn.py": true
+  },
+  "readme_sha256": "76dfe228550d4a16b76532faba75efe57649f9ae4118daa219cf779566dab228",
+  "environment": {
+    "activation": "source scripts/activate_torch.sh",
+    "venv": "/scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128",
+    "spec_hash": "d8a61f4e",
+    "ledger": "/Users/mr.z/ODE-FFN-upstream/.aris/compute/torch.md",
+    "ledger_hash": "d8a61f4e",
+    "ledger_read": true,
+    "ledger_present_in_runtime": false,
+    "warm_reuse": true
+  },
+  "plan": [
+    {
+      "action": "Verify clean pinned runtime and documented files",
+      "status": "complete"
+    },
+    {
+      "action": "Execute documented CPU invocation verbatim and inspect operator/parameter/RNG checks",
+      "status": "complete"
+    },
+    {
+      "action": "Execute periodic evaluation CPU fixture and inspect fixed cadence/RNG invariance",
+      "status": "complete"
+    },
+    {
+      "action": "Verify unchanged source and finalize receipt",
+      "status": "complete"
+    }
+  ],
+  "checks": {
+    "documented_cpu_command_exit_zero": true,
+    "wide_ffn_sentinel_present": true,
+    "cpu_json_status_pass": true,
+    "operator_dense_polynomial_all_input_parameter_derivatives": true,
+    "operator_gradcheck": true,
+    "original_width_state_rng_output_preserved": true,
+    "exact_parameter_counts": true,
+    "k1_k8_identical_ffn_initialization": true,
+    "native_k1_k8_identical_backbone": true,
+    "native_k1_k8_identical_post_constructor_rng": true,
+    "registered_width1200_image128": true,
+    "cpu_json_source_commit_bound": true,
+    "cpu_check_is_not_formal_training": true,
+    "periodic_command_exit_zero": true,
+    "periodic_json_status_pass": true,
+    "fixed_periodic_epochs": true,
+    "full_numbered_milestone_checkpoints": true,
+    "periodic_identical_sampling_seed": true,
+    "model_optimizer_two_emas_training_rng_bitwise_unchanged": true,
+    "explicit_milestone_resume_and_epoch_label": true,
+    "no_actual_fid_computed": true,
+    "source_commit_unchanged": true,
+    "source_clean_after": true,
+    "environment_spec_hash_matches_ledger": true
+  },
+  "commands": [
+    {
+      "command": "python tests/check_wide_ffn.py --device cpu --output /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.json",
+      "cwd": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+      "preparation": "source scripts/activate_torch.sh",
+      "exit_code": 0,
+      "log": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.log",
+      "output": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.json",
+      "finished_at_utc": "2026-11-13T16:32:03.401563+00:00"
+    },
+    {
+      "command": "python tests/check_periodic_eval.py --output /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.json",
+      "cwd": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+      "preparation": "source scripts/activate_torch.sh",
+      "exit_code": 0,
+      "log": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.log",
+      "output": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.json",
+      "finished_at_utc": "2026-11-13T16:34:01.519876+00:00"
+    }
+  ],
+  "doc_vs_reality_divergences": [],
+  "inspection_notes": [
+    "Remote rg unavailable; used Python inspection. This was not a documented check invocation."
+  ],
+  "limits": [
+    "CPU control-flow/algebra checks only; no model-quality metric or CUDA readiness claim",
+    "No code edits, installs, GPU submission, or training authorized for this verifier"
+  ],
+  "finished_at_utc": "2026-11-13T16:34:51.479617+00:00",
+  "source_commit_after": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "source_clean_after": true,
+  "source_status_after": "",
+  "observed_parameters": {
+    "native": 130405632,
+    "k1": 130402560,
+    "k8": 130402560
+  },
+  "observed_parameter_gap_native_minus_wide": 3072,
+  "observed_periodic_epochs": [
+    20,
+    40,
+    60,
+    80,
+    100
+  ],
+  "nonfatal_warnings": [
+    "CPU fixture pin_memory warning because no accelerator is used",
+    "Existing torch.cuda.amp.autocast deprecation warning"
+  ],
+  "verification_details": {
+    "periodic_fixture_source_review": "Exact tensor comparisons use rtol=0,atol=0; numpy arrays use assert_array_equal; nested model,optimizer,two EMAs,rng_state are compared. Actual entrypoint uses tiny CPU dimensions, two examples and fake evaluation; no FID benchmark.",
+    "documented_cpu_invocation": "Executed exactly as README command, with stdout/stderr redirection to owned log only."
+  },
+  "artifacts": {
+    "cpu-check.json": {
+      "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.json",
+      "bytes": 1454,
+      "sha256": "d376a303001bcedb8292daa37fc4a058c9cdb681d8705b8b721900bfde6841f2"
+    },
+    "cpu-check.log": {
+      "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.log",
+      "bytes": 18,
+      "sha256": "0cf06731cd62cd6df91e53fbb4bf61e1e305d243a4b852769d0249dcc1c410b8"
+    },
+    "periodic-eval-check.json": {
+      "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.json",
+      "bytes": 393,
+      "sha256": "cd98fc4ef722c32ed8d8770a16ab643fba67dfe7bc69b196555db55ebdf41b46"
+    },
+    "periodic-eval-check.log": {
+      "path": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.log",
+      "bytes": 1020,
+      "sha256": "c2f41a913b0fea44d22a4680086fb048e325f3599566a15377f36e1f3718f39b"
+    }
+  },
+  "changed_files": [
+    "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/agent-doc-pass.json",
+    "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.json",
+    "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cpu-check.log",
+    "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.json",
+    "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/periodic-eval-check.log"
+  ],
+  "untouched": [
+    "All runtime tracked source/docs",
+    "Local repository code/docs",
+    "Datasets, environment packages, existing runs/checkpoints and finalized reports"
+  ]
+}

@@ -41,18 +41,14 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current decisions
 
-Use seed 0, the selected K8 operator and a matched native control. Keep the
-objective and optimizer fixed while testing the FFN. The latest duration and
-resource decision is in the [budget note](docs/celeba128-20261112/budget-20261112.md).
-Readiness measurements, CPU data probes and complete training results are
-different records. The ordinary CelebA128 baseline meets FID50k below 50; the completed K8
-comparison is worse in both fitting and generation. Increasing the same K8
-training budget is not selected by this status check.
+The user authorized the parameter-matched wide K8/K1 comparison on14November.
+Keep the qualified native SwiGLU baseline fixed. New jobs use internal1200,
+seed0,100epochs,63,500updates, and FID50k at20/40/60/80/100. Both ODE orders
+share initialization and a130,402,560-parameter architecture. No narrow
+SwiGLU, Muon switch or spectral constraint is selected. Source, CUDA readiness,
+measured time limits and monitoring belong to
+[the new study](docs/celeba128-wide-20261114/README.md).
 
-The [next-step audit](docs/celeba128-20261112/next-step-audit.md) proposes a
-short frozen-checkpoint term/response diagnostic followed by K1 and native
-SwiGLU with intermediate width 512, keeping completed K8/native100 endpoints.
-This would test the actual synthetic K1 transfer and a near-equal-parameter
-ordinary control with the same K1 FFN dense MACs. It is a recommendation;
-no new training or change of the selected K8 candidate is authorized here.
-Do not reuse completed run directories or bypass the existing source guards.
+The earlier [audit](docs/celeba128-20261112/next-step-audit.md) remains an
+evidence snapshot. Its proposed narrow-control sequence was superseded by
+the user's choice to widen the candidate and preserve the complete baseline.

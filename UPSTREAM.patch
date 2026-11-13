@@ -1,5 +1,43 @@
-diff --git a/denoiser.py b/denoiser.py
-index e6c3ff2..0243176 100644
+--- a/model_jit.py
++++ b/model_jit.py
+@@ -94,7 +94,7 @@
+ def scaled_dot_product_attention(query, key, value, dropout_p=0.0) -> torch.Tensor:
+     L, S = query.size(-2), key.size(-2)
+     scale_factor = 1 / math.sqrt(query.size(-1))
+-    attn_bias = torch.zeros(query.size(0), 1, L, S, dtype=query.dtype).cuda()
++    attn_bias = torch.zeros(query.size(0), 1, L, S, dtype=query.dtype, device=query.device)
+ 
+     with torch.cuda.amp.autocast(enabled=False):
+         attn_weight = query.float() @ key.float().transpose(-2, -1) * scale_factor
+@@ -363,6 +363,19 @@
+     return JiT(depth=12, hidden_size=768, num_heads=12,
+                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=16, **kwargs)
+ 
++
++def JiT_B_4(**kwargs):
++    # CelebA64 resolution adapter; the author's complete B body is retained.
++    return JiT(depth=12, hidden_size=768, num_heads=12,
++               bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=4, **kwargs)
++
++
++def JiT_B_2(**kwargs):
++    # CIFAR resolution adapter; same official B body, different patch size.
++    # This is not an upstream-published CIFAR recipe or result.
++    return JiT(depth=12, hidden_size=768, num_heads=12,
++               bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=2, **kwargs)
++
+ def JiT_B_32(**kwargs):
+     return JiT(depth=12, hidden_size=768, num_heads=12,
+                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=32, **kwargs)
+@@ -385,6 +398,8 @@
+ 
+ 
+ JiT_models = {
++    'JiT-B/4': JiT_B_4,
++    'JiT-B/2': JiT_B_2,
+     'JiT-B/16': JiT_B_16,
+     'JiT-B/32': JiT_B_32,
+     'JiT-L/16': JiT_L_16,
 --- a/denoiser.py
 +++ b/denoiser.py
 @@ -1,6 +1,7 @@
@@ -10,19 +48,18 @@ index e6c3ff2..0243176 100644
  
  
  class Denoiser(nn.Module):
-@@ -16,6 +17,7 @@ class Denoiser(nn.Module):
+@@ -16,6 +17,8 @@
              attn_drop=args.attn_dropout,
              proj_drop=args.proj_dropout,
          )
-+        replace_ffn(self.net, getattr(args, 'ffn', 'swiglu'), getattr(args, 'ode_order', 8))
++        replace_ffn(self.net, getattr(args, 'ffn', 'swiglu'), getattr(args, 'ode_order', 8),
++                    getattr(args, 'ode_hidden_dim', 0))
          self.img_size = args.img_size
          self.num_classes = args.class_num
  
-diff --git a/engine_jit.py b/engine_jit.py
-index 8a346ba..bcf011c 100644
 --- a/engine_jit.py
 +++ b/engine_jit.py
-@@ -11,6 +11,10 @@ import util.misc as misc
+@@ -11,6 +11,10 @@
  import util.lr_sched as lr_sched
  import torch_fidelity
  import copy
@@ -33,7 +70,7 @@ index 8a346ba..bcf011c 100644
  
  
  def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, epoch, log_writer=None, args=None):
-@@ -34,7 +38,7 @@ def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, ep
+@@ -34,7 +38,7 @@
          x = x * 2.0 - 1.0
          labels = labels.to(device, non_blocking=True)
  
@@ -42,7 +79,7 @@ index 8a346ba..bcf011c 100644
              loss = model(x, labels)
  
          loss_value = loss.item()
-@@ -46,13 +50,20 @@ def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, ep
+@@ -46,13 +50,20 @@
          loss.backward()
          optimizer.step()
  
@@ -64,7 +101,7 @@ index 8a346ba..bcf011c 100644
  
          loss_value_reduce = misc.all_reduce_mean(loss_value)
  
-@@ -63,10 +74,13 @@ def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, ep
+@@ -63,10 +74,13 @@
                  log_writer.add_scalar('train_loss', loss_value_reduce, epoch_1000x)
                  log_writer.add_scalar('lr', lr, epoch_1000x)
  
@@ -78,7 +115,7 @@ index 8a346ba..bcf011c 100644
      world_size = misc.get_world_size()
      local_rank = misc.get_rank()
      num_steps = args.num_images // (batch_size * world_size) + 1
-@@ -79,6 +93,8 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+@@ -79,6 +93,8 @@
              model_without_ddp.cfg_interval[0], model_without_ddp.cfg_interval[1], args.num_images, args.img_size
          )
      )
@@ -87,7 +124,7 @@ index 8a346ba..bcf011c 100644
      print("Save to:", save_folder)
      if misc.get_rank() == 0 and not os.path.exists(save_folder):
          os.makedirs(save_folder)
-@@ -104,12 +120,12 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+@@ -104,12 +120,12 @@
          start_idx = world_size * batch_size * i + local_rank * batch_size
          end_idx = start_idx + batch_size
          labels_gen = class_label_gen_world[start_idx:end_idx]
@@ -103,7 +140,7 @@ index 8a346ba..bcf011c 100644
  
          # denormalize images
          sampled_images = (sampled_images + 1) / 2
-@@ -124,7 +140,7 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+@@ -124,7 +140,7 @@
              gen_img = gen_img.astype(np.uint8)[:, :, ::-1]
              cv2.imwrite(os.path.join(save_folder, '{}.png'.format(str(img_id).zfill(5))), gen_img)
  
@@ -112,7 +149,7 @@ index 8a346ba..bcf011c 100644
  
      # back to no ema
      print("Switch back from ema")
-@@ -132,7 +148,17 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+@@ -132,7 +148,17 @@
  
      # compute FID and IS
      if log_writer is not None:
@@ -131,7 +168,7 @@ index 8a346ba..bcf011c 100644
              fid_statistics_file = 'fid_stats/jit_in256_stats.npz'
          elif args.img_size == 512:
              fid_statistics_file = 'fid_stats/jit_in512_stats.npz'
-@@ -140,9 +166,11 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+@@ -140,9 +166,11 @@
              raise NotImplementedError
          metrics_dict = torch_fidelity.calculate_metrics(
              input1=save_folder,
@@ -145,7 +182,7 @@ index 8a346ba..bcf011c 100644
              isc=True,
              fid=True,
              kid=False,
-@@ -155,6 +183,7 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+@@ -155,6 +183,7 @@
          log_writer.add_scalar('fid{}'.format(postfix), fid, epoch)
          log_writer.add_scalar('is{}'.format(postfix), inception_score, epoch)
          print("FID: {:.4f}, Inception Score: {:.4f}".format(fid, inception_score))
@@ -155,7 +192,6 @@ index 8a346ba..bcf011c 100644
  
 -    torch.distributed.barrier()
 +    misc.barrier()
-diff --git a/main_jit.py b/main_jit.py
 --- a/main_jit.py
 +++ b/main_jit.py
 @@ -2,8 +2,10 @@
@@ -179,12 +215,14 @@ diff --git a/main_jit.py b/main_jit.py
  
  from denoiser import Denoiser
  
-@@ -26,12 +30,16 @@
+@@ -26,12 +30,18 @@
      # architecture
      parser.add_argument('--model', default='JiT-B/16', type=str, metavar='MODEL',
                          help='Name of the model to train')
 +    parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru', 'isru_d'))
 +    parser.add_argument('--ode_order', default=8, type=int)
++    parser.add_argument('--ode_hidden_dim', default=0, type=int,
++                        help='Internal ISRU-D width; 0 retains the original unexpanded FFN')
      parser.add_argument('--img_size', default=256, type=int, help='Image size')
      parser.add_argument('--attn_dropout', type=float, default=0.0, help='Attention dropout rate')
      parser.add_argument('--proj_dropout', type=float, default=0.0, help='Projection dropout rate')
@@ -196,7 +234,7 @@ diff --git a/main_jit.py b/main_jit.py
      parser.add_argument('--warmup_epochs', type=int, default=5, metavar='N',
                          help='Epochs to warm up LR')
      parser.add_argument('--batch_size', default=128, type=int,
-@@ -78,14 +86,18 @@
+@@ -78,14 +88,18 @@
                          help='CFG interval max')
      parser.add_argument('--num_images', default=50000, type=int,
                          help='Number of images to generate')
@@ -216,7 +254,7 @@ diff --git a/main_jit.py b/main_jit.py
      parser.add_argument('--data_path', default='./data/imagenet', type=str,
                          help='Path to the dataset')
      parser.add_argument('--class_num', default=1000, type=int)
-@@ -94,7 +106,7 @@
+@@ -94,7 +108,7 @@
      parser.add_argument('--output_dir', default='./output_dir',
                          help='Directory to save outputs (empty for no saving)')
      parser.add_argument('--resume', default='',
@@ -225,7 +263,7 @@ diff --git a/main_jit.py b/main_jit.py
      parser.add_argument('--save_last_freq', type=int, default=5,
                          help='Frequency (in epochs) to save checkpoints')
      parser.add_argument('--log_freq', default=100, type=int)
-@@ -113,11 +125,20 @@
+@@ -113,11 +127,20 @@
  
  
  def main(args):
@@ -246,7 +284,7 @@ diff --git a/main_jit.py b/main_jit.py
  
      # Set seeds for reproducibility
      seed = args.seed + misc.get_rank()
-@@ -138,12 +159,22 @@
+@@ -138,12 +161,22 @@
  
      # Data augmentation transforms
      transform_train = transforms.Compose([
@@ -271,7 +309,7 @@ diff --git a/main_jit.py b/main_jit.py
      print(dataset_train)
  
      sampler_train = torch.utils.data.DistributedSampler(
-@@ -179,8 +210,11 @@
+@@ -179,8 +212,11 @@
      print("Actual lr: {:.2e}".format(args.lr))
      print("Effective batch size: %d" % eff_batch_size)
  
@@ -285,7 +323,7 @@ diff --git a/main_jit.py b/main_jit.py
  
      # Set up optimizer with weight decay adjustment for bias and norm layers
      param_groups = misc.add_weight_decay(model_without_ddp, args.weight_decay)
-@@ -188,21 +222,39 @@
+@@ -188,21 +224,41 @@
      print(optimizer)
  
      # Resume from checkpoint if provided
@@ -299,6 +337,8 @@ diff --git a/main_jit.py b/main_jit.py
 +            raise ValueError('Resume with the FFN used to create this checkpoint')
 +        if args.ffn == 'isru_d' and getattr(checkpoint['args'], 'ode_order', None) != args.ode_order:
 +            raise ValueError('Resume with the original ISRU-D Taylor order')
++        if getattr(checkpoint['args'], 'ode_hidden_dim', 0) != args.ode_hidden_dim:
++            raise ValueError('Resume with the original ODE internal width')
 +        for key in ('dataset', 'model', 'img_size', 'batch_size', 'seed', 'class_num',
 +                    'label_drop_prob', 'noise_scale', 'P_mean', 'P_std', 't_eps',
 +                    'warmup_epochs', 'lr', 'lr_schedule', 'weight_decay',
@@ -329,7 +369,7 @@ diff --git a/main_jit.py b/main_jit.py
          del checkpoint
      else:
          model_without_ddp.ema_params1 = copy.deepcopy(list(model_without_ddp.parameters()))
-@@ -215,17 +267,25 @@
+@@ -215,17 +271,25 @@
          with torch.random.fork_rng():
              torch.manual_seed(seed)
              with torch.no_grad():
@@ -360,7 +400,7 @@ diff --git a/main_jit.py b/main_jit.py
  
          # Save checkpoint periodically
          if epoch % args.save_last_freq == 0 or epoch + 1 == args.epochs:
-@@ -237,30 +297,58 @@
+@@ -237,30 +301,60 @@
                  epoch_name="last"
              )
  
@@ -385,6 +425,8 @@ diff --git a/main_jit.py b/main_jit.py
 -                evaluate(model_without_ddp, args, epoch, batch_size=args.gen_bsz, log_writer=log_writer)
 -            torch.cuda.empty_cache()
 +        if evaluate_now:
++            misc.write_progress(args, status='evaluating', completed_epochs=epoch + 1,
++                                target_epochs=args.epochs, evaluation_images=args.num_images)
 +            if device.type == 'cuda':
 +                torch.cuda.empty_cache()
 +            print(f'Evaluating checkpoint at {epoch + 1} completed epochs')
@@ -427,53 +469,9 @@ diff --git a/main_jit.py b/main_jit.py
 +    args = argparse.ArgumentParser('JiT', parents=[get_args_parser()]).parse_args()
      Path(args.output_dir).mkdir(parents=True, exist_ok=True)
      main(args)
-diff --git a/model_jit.py b/model_jit.py
-index d2f53ab..cab0d64 100644
---- a/model_jit.py
-+++ b/model_jit.py
-@@ -94,7 +94,7 @@ class LabelEmbedder(nn.Module):
- def scaled_dot_product_attention(query, key, value, dropout_p=0.0) -> torch.Tensor:
-     L, S = query.size(-2), key.size(-2)
-     scale_factor = 1 / math.sqrt(query.size(-1))
--    attn_bias = torch.zeros(query.size(0), 1, L, S, dtype=query.dtype).cuda()
-+    attn_bias = torch.zeros(query.size(0), 1, L, S, dtype=query.dtype, device=query.device)
- 
-     with torch.cuda.amp.autocast(enabled=False):
-         attn_weight = query.float() @ key.float().transpose(-2, -1) * scale_factor
-@@ -363,6 +363,19 @@ def JiT_B_16(**kwargs):
-     return JiT(depth=12, hidden_size=768, num_heads=12,
-                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=16, **kwargs)
- 
-+
-+def JiT_B_4(**kwargs):
-+    # CelebA64 resolution adapter; the author's complete B body is retained.
-+    return JiT(depth=12, hidden_size=768, num_heads=12,
-+               bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=4, **kwargs)
-+
-+
-+def JiT_B_2(**kwargs):
-+    # CIFAR resolution adapter; same official B body, different patch size.
-+    # This is not an upstream-published CIFAR recipe or result.
-+    return JiT(depth=12, hidden_size=768, num_heads=12,
-+               bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=2, **kwargs)
-+
- def JiT_B_32(**kwargs):
-     return JiT(depth=12, hidden_size=768, num_heads=12,
-                bottleneck_dim=128, in_context_len=32, in_context_start=4, patch_size=32, **kwargs)
-@@ -385,6 +398,8 @@ def JiT_H_32(**kwargs):
- 
- 
- JiT_models = {
-+    'JiT-B/4': JiT_B_4,
-+    'JiT-B/2': JiT_B_2,
-     'JiT-B/16': JiT_B_16,
-     'JiT-B/32': JiT_B_32,
-     'JiT-L/16': JiT_L_16,
-diff --git a/util/misc.py b/util/misc.py
-index b468619..6522873 100644
 --- a/util/misc.py
 +++ b/util/misc.py
-@@ -5,6 +5,8 @@ import time
+@@ -5,6 +5,8 @@
  from collections import defaultdict, deque
  from pathlib import Path
  import copy
@@ -482,7 +480,7 @@ index b468619..6522873 100644
  
  import torch
  import torch.distributed as dist
-@@ -181,6 +183,11 @@ def is_dist_avail_and_initialized():
+@@ -181,6 +183,11 @@
      return True
  
  
@@ -494,10 +492,12 @@ index b468619..6522873 100644
  def get_world_size():
      if not is_dist_avail_and_initialized():
          return 1
-@@ -202,6 +209,33 @@ def save_on_master(*args, **kwargs):
+@@ -200,6 +207,33 @@
+ def save_on_master(*args, **kwargs):
+     if is_main_process():
          torch.save(*args, **kwargs)
- 
- 
++
++
 +def write_progress(args, **record):
 +    if not is_main_process() or not args.output_dir:
 +        return
@@ -523,12 +523,10 @@ index b468619..6522873 100644
 +    torch.save(dict(completed_epochs=completed_epochs, ode_order=args.ode_order,
 +                    operators=matrices), temporary)
 +    temporary.replace(path)
-+
-+
+ 
+ 
  def init_distributed_mode(args):
-     if args.dist_on_itp:
-         args.rank = int(os.environ['OMPI_COMM_WORLD_RANK'])
-@@ -275,7 +309,13 @@ def save_model(args, model_without_ddp, optimizer, epoch, epoch_name=None):
+@@ -275,7 +309,13 @@
      to_save['model_ema1'] = ema_state_dict1
      to_save['model_ema2'] = ema_state_dict2
  
@@ -543,18 +541,14 @@ index b468619..6522873 100644
  
  
  def all_reduce_mean(x):
-@@ -286,4 +326,4 @@ def all_reduce_mean(x):
+@@ -286,4 +326,4 @@
          x_reduce /= world_size
          return x_reduce.item()
      else:
--        return x
-\ No newline at end of file
-+        return x
-diff --git a/util/model_util.py b/util/model_util.py
-index f772c13..b1227c7 100644
+-        return x+        return x
 --- a/util/model_util.py
 +++ b/util/model_util.py
-@@ -125,11 +125,11 @@ class VisionRotaryEmbeddingFast(nn.Module):
+@@ -125,11 +125,11 @@
              cos_pad = torch.ones(num_cls_token, D, dtype=cos_img.dtype, device=cos_img.device)
              sin_pad = torch.zeros(num_cls_token, D, dtype=sin_img.dtype, device=sin_img.device)
  
@@ -570,10 +564,8 @@ index f772c13..b1227c7 100644
  
      def forward(self, t): return  t * self.freqs_cos + rotate_half(t) * self.freqs_sin
  
-@@ -198,4 +198,4 @@ def get_1d_sincos_pos_embed_from_grid(embed_dim, pos):
+@@ -198,4 +198,4 @@
      emb_cos = np.cos(out) # (M, D/2)
  
      emb = np.concatenate([emb_sin, emb_cos], axis=1)  # (M, D)
--    return emb
-\ No newline at end of file
-+    return emb
+-    return emb+    return emb
