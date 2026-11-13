@@ -1,8 +1,8 @@
 # Current project status
 
-Checked 13 November 2026, 21:13 Shanghai time.
+Checked 13 November 2026, 21:14 Shanghai time.
 
-## Training completed; checkpoint evaluation queued
+## Training completed; checkpoint evaluation running
 
 Both CelebA128/native JiT-B/16 runs completed 100 epochs/63,500 updates, seed 0,
 with matching recipes and valid finite model/optimizer/two-EMA checkpoints.
@@ -32,14 +32,16 @@ evaluation was submitted separately with a three-hour limit per arm:
 
 | Arm | Evaluation job | State at this check |
 |---|---|---|
-| Native SwiGLU |22993694 |PENDING, Resources |
-| ISRU-D K8 |22993695 |PENDING |
+| Native SwiGLU |22993694 |RUNNING on A100 ga013 |
+| ISRU-D K8 |22993695 |RUNNING on A100 ga022 |
 
 The [submission receipt](docs/celeba128-20261112/evaluation-launch.json) binds
 checkpoint-only commands to source 65864ad and wrapper fb72e7c. A separate
 monitor polls every 60 seconds (PID3150165). The environment is warm-reused;
 Inception weights are already staged. No training continuation or new model
-search is scheduled. There are no generated samples or FID results yet.
+search is scheduled. Both allocated evaluations passed checkpoint SHA256 checks
+and started local data preparation. There are no generated samples or FID
+results yet.
 
 ## Paths
 

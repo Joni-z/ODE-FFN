@@ -26,8 +26,8 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 - Both image models completed 100 epochs on L40S. K8 has 5.41% higher training
   loss and 1.75x steady epoch time; GPU use is 96–98%. All 101 P snapshots are
   verified, with more concentrated raw spectra. [Measured results](docs/celeba128-20261112/results.md).
-- Fixed-checkpoint Heun50/EMA .9999/FID50k evaluations22993694/22993695 are
-  queued, with a 60-second monitor. No additional training is selected.
+- Fixed-checkpoint Heun50/EMA .9999/FID50k evaluations 22993694/22993695 are
+  running on two A100s, with a 60-second monitor. No additional training is selected.
 - Reports 1 and 2 are final. Later evidence belongs outside their folders.
 
 ## Current decisions

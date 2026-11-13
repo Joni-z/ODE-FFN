@@ -1,16 +1,54 @@
 {
-  "updated_at": 1794575531.5274355,
+  "updated_at": 1794575651.9509737,
   "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
   "jobs": {
-    "22993695": {
-      "state": "PENDING",
-      "reason": "None",
-      "nodes": ""
-    },
     "22993694": {
-      "state": "PENDING",
+      "state": "RUNNING",
       "reason": "None",
-      "nodes": ""
+      "nodes": "ga013",
+      "progress": {
+        "status": "running",
+        "phase": "sampling_then_FID50k",
+        "ffn": "swiglu",
+        "job_id": "22993694",
+        "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-swiglu-s0/checkpoint-last.pth",
+        "checkpoint_sha256": "317153d1954e2723214c310dd25e93897a5030358488a01d06ff0967ba03fab1",
+        "checkpoint_epochs": 100,
+        "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+        "checkpoint_mtime_ns": 1794497739469993190,
+        "ema_decay": 0.9999,
+        "image_count": 50000,
+        "generation_batch": 256,
+        "seed": 0,
+        "sampler": "author Heun50 with final Euler",
+        "cfg": 0,
+        "reference": "official CelebA train162770, author deterministic128px crop",
+        "formal_training": false
+      }
+    },
+    "22993695": {
+      "state": "RUNNING",
+      "reason": "None",
+      "nodes": "ga022",
+      "progress": {
+        "status": "running",
+        "phase": "sampling_then_FID50k",
+        "ffn": "isru_d",
+        "job_id": "22993695",
+        "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-isru_d-s0/checkpoint-last.pth",
+        "checkpoint_sha256": "289a4d7b43daca8c6aef076927e482ab0df49b5aaa3162498362a987012a5284",
+        "checkpoint_epochs": 100,
+        "source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+        "checkpoint_mtime_ns": 1794506339726175725,
+        "ema_decay": 0.9999,
+        "image_count": 50000,
+        "generation_batch": 256,
+        "seed": 0,
+        "sampler": "author Heun50 with final Euler",
+        "cfg": 0,
+        "reference": "official CelebA train162770, author deterministic128px crop",
+        "formal_training": false
+      }
     }
   }
 }
