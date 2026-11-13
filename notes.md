@@ -11,7 +11,7 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
   FID50k. [New protocol](docs/celeba128-wide-20261114/README.md). This supersedes
   the audit's narrow-SwiGLU recommendation below; K1 uses the same expanded
   architecture as K8, changing only order. Full CPU/CUDA readiness passed; K8 job23015406 is training on H100 gh011,
-  K1 job23015408 is queued. Monitor460860 records queue/progress/FID every60s.
+  K1 job23015408 is training on L40S gl068. Monitor460860 records queue/progress/FID every60s.
 - The selected image candidate is frozen-diagonal ISRU-D K8, implemented in
   [ffn.py](ffn.py). Compute d0 once at a layer entrance, then accumulate
   the input plus eight Taylor terms; use two independent layers around SiLU.

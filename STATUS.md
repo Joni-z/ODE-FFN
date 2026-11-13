@@ -9,7 +9,7 @@ Full numbered checkpoints and all P snapshots are retained.
 
 - K8 job **23015406**: running on H10080GB gh011, completed1epoch and entered epoch2.
   Warm steps~.149s, GPU98–99%; full checkpoint and P snapshots saved.
-- K1 job **23015408**: pending, QOSGrpGRES GPU quota at last check.
+- K1 job **23015408**: running on L40S gl068; initial updates~.172s, finite loss.
 - CUDA readiness23013985 completed0:0 on H100 gh003; both full models passed.
 - Source frozen at17b61a5 in `/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114`.
 - Persistent monitor460860 polls job/progress/FID/checkpoints every60seconds;
@@ -23,7 +23,7 @@ Full numbered checkpoints and all P snapshots are retained.
 This is the current authorized study; the older audit's narrow-SwiGLU proposal
 is superseded. The original native baseline, old K8 and reports remain fixed.
 
-Checked 14 November 2026, 00:41 Shanghai time.
+Checked 14 November 2026, 00:46 Shanghai time.
 
 ## Completed CelebA128 comparison
 

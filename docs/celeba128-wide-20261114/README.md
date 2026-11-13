@@ -122,3 +122,8 @@ cover the slower-card projection. K8 obtained H100 gh011; its limit was then
 kept at20h because the cluster rejected a requested reduction to10h. No fixed
 runtime pause or automatic requeue is planned. These
 are estimates and upper limits; monitor actual epochs and completed FIDs.
+
+Both formal jobs are now running: K8 on H100 gh011, K1 on L40S gl068.
+Use the paired H100 readiness numbers for same-hardware speed comparisons;
+wall times from these distinct training GPUs describe execution separately.
+First formal FIDs are due after20completed epochs.

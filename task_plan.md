@@ -32,5 +32,6 @@ K1 initialcap9h.
 Monitoring460860,60seconds, tracks FID/checkpoints; per-jobGPU telemetry30s.
 
 Launch confirmed: K8 completed epoch1, entered epoch2,~.149s/update, GPU98–99%.
-K1 remains queued with QOSGrpGRES. Both monitored; no duplicate submissions.
+K1 subsequently obtained L40S gl068 and entered actual training (~.172s/update).
+Both running and monitored; no duplicate submissions.
 Reports1/2 and baseline source/checkpoint unchanged.

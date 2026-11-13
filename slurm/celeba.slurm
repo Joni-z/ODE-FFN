@@ -66,6 +66,10 @@ PY
         ;;
     *) echo "Unknown CelebA recipe" >&2; exit 2 ;;
 esac
+WIDTH_ARGS=()
+if [[ "$WIDTH" != 0 ]]; then
+    WIDTH_ARGS=(--ode_hidden_dim "$WIDTH")
+fi
 mkdir -p "$OUT"
 FRESH_START=${ODE_FFN_FRESH_START:-0}
 RESTART_COUNT=${SLURM_RESTART_COUNT:-0}
@@ -136,7 +140,7 @@ fi
 python -u main_jit.py \
     --dataset celeba --data_path "$LOCAL_DATA" \
     --model "$MODEL" --img_size "$IMAGE_SIZE" --class_num 1 \
-    --ffn "$FFN" --ode_order "$ORDER" --ode_hidden_dim "$WIDTH" --seed 0 \
+    --ffn "$FFN" --ode_order "$ORDER" "${WIDTH_ARGS[@]}" --seed 0 \
     --label_drop_prob 1 --cfg 0 --noise_scale "$NOISE_SCALE" --P_mean -0.8 --P_std 0.8 \
     --batch_size "$BATCH_SIZE" --num_workers 4 --epochs "$TARGET_EPOCHS" --warmup_epochs 5 \
     "${LR_ARGS[@]}" --lr_schedule constant --weight_decay 0 \
