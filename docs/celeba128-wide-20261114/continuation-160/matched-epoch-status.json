@@ -1,0 +1,291 @@
+{
+  "checked_at_utc": "2026-11-14T14:30:46Z",
+  "accounting": "23085012|RUNNING|0:0|09:26:51|gl060\n23085012.batch|RUNNING|0:0|09:26:51|gl060\n23085012.extern|RUNNING|0:0|09:26:51|gl060\n23085013|COMPLETED|0:0|04:19:50|gl024\n23085013.batch|COMPLETED|0:0|04:19:50|gl024\n23085013.extern|COMPLETED|0:0|04:19:50|gl024\n23117422|RUNNING|0:0|01:10:42|gh012\n23117422.batch|RUNNING|0:0|01:10:42|gh012\n23117422.extern|RUNNING|0:0|01:10:42|gh012\n",
+  "queue": "23117422|RUNNING|1:10:42|gh012|None\n23085012|RUNNING|9:26:51|gl060|None\n",
+  "arms": {
+    "baseline": {
+      "job_id": "23117422",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160",
+      "progress": {
+        "status": "running",
+        "completed_epochs": 140,
+        "epoch": 140,
+        "target_epochs": 160,
+        "epoch_seconds": 1281.4911314530182,
+        "ffn": "swiglu",
+        "images_per_second": 126.85222395232763,
+        "lr": 5.0000000000000626e-05,
+        "loss": 0.02916149569191332,
+        "updated_at": 1794666620.3540523,
+        "job_id": "23117422"
+      },
+      "FID50k": [
+        {
+          "epoch": 100,
+          "value": 35.91785430908203,
+          "origin": "original FID100-swiglu.json"
+        },
+        {
+          "epoch": 120,
+          "value": 29.476015090942383
+        },
+        {
+          "epoch": 140,
+          "value": 25.98558807373047
+        }
+      ],
+      "new_console_TensorBoard_agree": true,
+      "checkpoint_epochs": [
+        100,
+        120,
+        140
+      ],
+      "resume_verified": true,
+      "last_log_lines": [
+        "[09:30:34.483744] Epoch: [140]  [220/635]  eta: 0:00:26  lr: 0.000050  loss: 0.0294 (0.0292)  time: 0.0623  data: 0.0001  max mem: 13885",
+        "[09:30:35.728718] Epoch: [140]  [240/635]  eta: 0:00:25  lr: 0.000050  loss: 0.0289 (0.0292)  time: 0.0622  data: 0.0001  max mem: 13885",
+        "[09:30:36.974716] Epoch: [140]  [260/635]  eta: 0:00:23  lr: 0.000050  loss: 0.0292 (0.0292)  time: 0.0623  data: 0.0001  max mem: 13885",
+        "[09:30:38.219646] Epoch: [140]  [280/635]  eta: 0:00:22  lr: 0.000050  loss: 0.0291 (0.0292)  time: 0.0622  data: 0.0001  max mem: 13885",
+        "[09:30:39.438320] Epoch: [140]  [300/635]  eta: 0:00:21  lr: 0.000050  loss: 0.0289 (0.0292)  time: 0.0609  data: 0.0001  max mem: 13885",
+        "[09:30:40.685352] Epoch: [140]  [320/635]  eta: 0:00:19  lr: 0.000050  loss: 0.0288 (0.0292)  time: 0.0623  data: 0.0001  max mem: 13885",
+        "[09:30:41.927729] Epoch: [140]  [340/635]  eta: 0:00:18  lr: 0.000050  loss: 0.0292 (0.0292)  time: 0.0621  data: 0.0001  max mem: 13885",
+        "[09:30:43.177473] Epoch: [140]  [360/635]  eta: 0:00:17  lr: 0.000050  loss: 0.0293 (0.0292)  time: 0.0625  data: 0.0001  max mem: 13885"
+      ],
+      "last_epochs": [
+        {
+          "epoch": 138,
+          "target_epochs": 160,
+          "epoch_seconds": 39.611563680984545,
+          "ffn": "swiglu",
+          "images_per_second": 4103.85213038274,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029140695331134194
+        },
+        {
+          "epoch": 139,
+          "target_epochs": 160,
+          "epoch_seconds": 40.02402294694912,
+          "ffn": "swiglu",
+          "images_per_second": 4061.560733549183,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.02920081898218065
+        },
+        {
+          "epoch": 140,
+          "target_epochs": 160,
+          "epoch_seconds": 1281.4911314530182,
+          "ffn": "swiglu",
+          "images_per_second": 126.85222395232763,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.02916149569191332
+        }
+      ],
+      "GPU_last_samples": [
+        "2026/11/14 09:29:33.636, 0, GPU-8ac0af0c-ec00-de7e-3e89-767acc7fd5ac, NVIDIA H100 80GB HBM3, 0 %, 7227 MiB, 81559 MiB, 117.89 W",
+        "2026/11/14 09:30:03.638, 0, GPU-8ac0af0c-ec00-de7e-3e89-767acc7fd5ac, NVIDIA H100 80GB HBM3, 0 %, 7227 MiB, 81559 MiB, 117.73 W",
+        "2026/11/14 09:30:33.639, 0, GPU-8ac0af0c-ec00-de7e-3e89-767acc7fd5ac, NVIDIA H100 80GB HBM3, 88 %, 15147 MiB, 81559 MiB, 595.58 W"
+      ]
+    },
+    "K8": {
+      "job_id": "23085012",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0",
+      "progress": {
+        "status": "evaluating",
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "evaluation_images": 50000,
+        "updated_at": 1794665455.0316248,
+        "job_id": "23085012"
+      },
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 342.3664245605469
+        },
+        {
+          "epoch": 40,
+          "value": 237.662109375
+        },
+        {
+          "epoch": 60,
+          "value": 76.5611572265625
+        },
+        {
+          "epoch": 80,
+          "value": 50.305320739746094
+        },
+        {
+          "epoch": 100,
+          "value": 38.1357421875
+        },
+        {
+          "epoch": 120,
+          "value": 32.85066604614258
+        },
+        {
+          "epoch": 140,
+          "value": 30.082204818725586
+        }
+      ],
+      "new_console_TensorBoard_agree": true,
+      "checkpoint_epochs": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160
+      ],
+      "resume_verified": true,
+      "last_log_lines": [
+        "[09:26:27.489262] Generation step 27/196",
+        "[09:27:02.087527] Generation step 28/196",
+        "[09:27:36.669278] Generation step 29/196",
+        "[09:28:11.245480] Generation step 30/196",
+        "[09:28:45.796871] Generation step 31/196",
+        "[09:29:20.527077] Generation step 32/196",
+        "[09:29:55.102677] Generation step 33/196",
+        "[09:30:29.737956] Generation step 34/196"
+      ],
+      "last_epochs": [
+        {
+          "epoch": 157,
+          "target_epochs": 160,
+          "epoch_seconds": 306.53047631302616,
+          "ffn": "isru_d",
+          "images_per_second": 530.3224721903189,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029501981027131006
+        },
+        {
+          "epoch": 158,
+          "target_epochs": 160,
+          "epoch_seconds": 308.09628203802276,
+          "ffn": "isru_d",
+          "images_per_second": 527.6272693869709,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029498599724858764
+        },
+        {
+          "epoch": 159,
+          "target_epochs": 160,
+          "epoch_seconds": 306.60765150596853,
+          "ffn": "isru_d",
+          "images_per_second": 530.1889864833838,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.02949966189605514
+        }
+      ],
+      "GPU_last_samples": [
+        "2026/11/14 09:29:40.928, 0, GPU-cfb65f88-57f7-f509-d57b-0b0c4a98e08f, NVIDIA L40S, 100 %, 5983 MiB, 46068 MiB, 333.11 W",
+        "2026/11/14 09:30:10.929, 0, GPU-cfb65f88-57f7-f509-d57b-0b0c4a98e08f, NVIDIA L40S, 100 %, 5983 MiB, 46068 MiB, 332.43 W",
+        "2026/11/14 09:30:40.931, 0, GPU-cfb65f88-57f7-f509-d57b-0b0c4a98e08f, NVIDIA L40S, 100 %, 5983 MiB, 46068 MiB, 329.58 W"
+      ]
+    },
+    "K1": {
+      "job_id": "23085013",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "updated_at": 1794649407.9752848,
+        "job_id": "23085013"
+      },
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 350.4965515136719
+        },
+        {
+          "epoch": 40,
+          "value": 245.96788024902344
+        },
+        {
+          "epoch": 60,
+          "value": 80.73377990722656
+        },
+        {
+          "epoch": 80,
+          "value": 50.10519790649414
+        },
+        {
+          "epoch": 100,
+          "value": 37.924861907958984
+        },
+        {
+          "epoch": 120,
+          "value": 32.50212860107422
+        },
+        {
+          "epoch": 140,
+          "value": 29.629058837890625
+        },
+        {
+          "epoch": 160,
+          "value": 27.788681030273438
+        }
+      ],
+      "new_console_TensorBoard_agree": true,
+      "checkpoint_epochs": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160
+      ],
+      "resume_verified": true,
+      "last_log_lines": [
+        "[04:36:54.508522] Generation step 191/196",
+        "[04:37:07.436614] Generation step 192/196",
+        "[04:37:20.373575] Generation step 193/196",
+        "[04:37:33.348128] Generation step 194/196",
+        "[04:37:46.072624] Generation step 195/196",
+        "[04:37:57.518615] Switch back from ema",
+        "[04:41:05.931591] FID: 27.7887, Inception Score: 2.8111",
+        "[04:43:27.974520] Training time: 4:18:12"
+      ],
+      "last_epochs": [
+        {
+          "epoch": 158,
+          "target_epochs": 160,
+          "epoch_seconds": 114.36754481203388,
+          "ffn": "isru_d",
+          "images_per_second": 1421.3822659843902,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029521344792772467
+        },
+        {
+          "epoch": 159,
+          "target_epochs": 160,
+          "epoch_seconds": 113.0478099900065,
+          "ffn": "isru_d",
+          "images_per_second": 1437.9756672364588,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029581907303549173
+        },
+        {
+          "epoch": 160,
+          "target_epochs": 160,
+          "epoch_seconds": 2969.591470791027,
+          "ffn": "isru_d",
+          "images_per_second": 54.74153653758238,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029488042466283785
+        }
+      ],
+      "GPU_last_samples": [
+        "2026/11/14 04:42:24.455, 0, GPU-31c68d29-3543-5a99-fd10-c71e104004ff, NVIDIA L40S, 0 %, 6935 MiB, 46068 MiB, 112.45 W",
+        "2026/11/14 04:42:54.457, 0, GPU-31c68d29-3543-5a99-fd10-c71e104004ff, NVIDIA L40S, 0 %, 6935 MiB, 46068 MiB, 108.73 W",
+        "2026/11/14 04:43:24.458, 0, GPU-31c68d29-3543-5a99-fd10-c71e104004ff, NVIDIA L40S, 0 %, 6935 MiB, 46068 MiB, 108.30 W"
+      ]
+    }
+  },
+  "ODE_monitor_process": "2415208    09:46:11 /scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128/bin/python /scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114/scripts/monitor_slurm.py --launch /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/launch.json --interval 60\n",
+  "baseline_monitor_process": "2838752    01:13:50 /scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128/bin/python /scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114/scripts/monitor_slurm.py --launch /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/baseline/launch.json --interval 60\n"
+}

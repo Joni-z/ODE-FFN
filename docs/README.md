@@ -12,6 +12,7 @@ continue to resolve.
 | Completed wide K8/K1 and fixed native baseline | [Results and FID curves](celeba128-wide-20261114/results.md) |
 | Continuation of the same K1/K8 checkpoints to 160 epochs | [Live continuation results](celeba128-wide-20261114/continuation-160/results.md) |
 | Native SwiGLU continuation through the same 160 epochs | [Baseline continuation](celeba128-wide-20261114/continuation-160/baseline/README.md) |
+| Baseline/K1/K8 at the same epochs | [Matched FID table and curves](celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Completed 100-epoch results | [Training and P figures](celeba128-20261112/results.md) |
 | What to test next: order and capacity | [Evidence audit and bounded decision](celeba128-20261112/next-step-audit.md) |
 | FID every 20 epochs and standard metric audit | [Periodic evaluation](celeba128-20261112/periodic-fid.md) |

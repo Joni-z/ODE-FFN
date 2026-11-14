@@ -1,39 +1,29 @@
 # Current project status
 
-## Native baseline continuation authorized
+## Matched baseline/K1/K8 continuation
 
-The user requests native SwiGLU through160 as well as K1/K8, with FID50k at
-120/140/160. Native math, full-checkpoint outputs and initialization/RNG
-compatibility checks passed. Baseline job **23117422** is submitted from the verified 100-epoch
-checkpoint in a separate continuation folder. It has been allocated GPU
-on H100 gh012, completed epoch106; optimizer step67310 confirmed. Optimizer restore is
-confirmed; GPU93–97%. Monitor2838752 is active. The architecture and original100epoch
-result are preserved.
-[Baseline continuation](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
+Native SwiGLU has the lowest FID at the available matching epochs.
 
-## Continuation to 160 epochs
+| Epoch | Native SwiGLU | Wide K1 | Wide K8 |
+|---|---:|---:|---:|
+|100 |35.91785 |37.92486 |38.13574 |
+|120 |29.47602 |32.50213 |32.85067 |
+|140 |**25.98559** |29.62906 |30.08220 |
+|160 |Pending |27.78868 |Pending |
 
-K1 completed **160 epochs**, FID50k **27.78868**, job 23085013 exited0:0
-on L40S gl024. K8 job 23085012 is running on L40S gl060, completed 142 epochs
-and training epoch 143 at the checked snapshot; latest FID 30.08220 at 140.
+- Baseline 23117422 on H100 gh012: passed 140, training toward 160.
+- K1 job 23085013: completed 160 and all scheduled FIDs, exit 0:0.
+- K8 job 23085012 on L40S gl060: training reached 160; final FID50k generation is
+  running, GPU 100%. Training completion is not metric completion.
+- Baseline monitor 2838752 and ODE monitor 2415208 are active.
 
-| Epoch | Wide K1 FID50k | Wide K8 FID50k |
-|---|---:|---:|
-|100 |37.92486 |38.13574 |
-|120 |32.50213 |32.85067 |
-|140 |29.62906 |30.08220 |
-|160 |27.78868 |Pending |
+All three resumed from their original 100-epoch states with seed 0 and the
+same training/evaluation recipe. At 140, native leads K1 by 3.64347 FID and
+K8 by 4.09662 FID. No new job was submitted by this status check.
 
-Both logs verify continuation from 100 with the original checkpoint and
-optimizer. K1's full 160-epoch checkpoint has 101,600 optimizer updates and finite
-model/twoEMA states; 161 P snapshots are retained. K8 GPU use 99–100%, ordinary
-epochs ~305 seconds, remaining time ~3.5h including its final FID50k.
-Monitor 2415208 remains active. No new jobs were submitted by this check.
+[Matched curves, metrics and job snapshot](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
 
-[Continuation curves and verified status](docs/celeba128-wide-20261114/continuation-160/results.md).
-Native 35.91785 is the fixed 100-epoch reference; the new scores use more training.
-
-Checked 14 November 2026, 21:27 Shanghai time.
+Checked 14 November 2026, 22:33 Shanghai time.
 
 ## Completed widened ISRU-D K8/K1
 

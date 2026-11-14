@@ -6,33 +6,17 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current method
 
-- Latest authorization: native SwiGLU also resumes100to160, matching K1/K8
-  exposure and evaluation checkpoints. Its native architecture/recipe stay
-  unchanged; a separate run preserves the original100epoch checkpoint.
-  Baseline continuation job23117422 is running on H100gh012; resumed101
-  with optimizer moments preserved. Monitor2838752 active.
-  [Baseline continuation](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
-- The user authorized continuing the existing K1/K8 trajectories from 100 to
-  160 epochs, with FID at 120/140/160. Resume checks passed for model,
-  optimizer, both EMAs and RNG. Continuation jobs23085012/23085013 are
-  resumed from 100: K1 completed 160 at FID 27.78868; K8 completed142,
-  with latest 140-epoch FID30.08220. Monitor 2415208 remains active. Keep
-  the qualified native baseline fixed.
-  [Continuation](docs/celeba128-wide-20261114/continuation-160/README.md).
-- Authorized 14 November: retain the qualified native baseline and run widened
-  ISRU-D K8/K1, both internal width 1200, seed 0, 100 epochs and periodic
-  FID50k. [New protocol](docs/celeba128-wide-20261114/README.md). This supersedes
-  the audit's narrow-SwiGLU recommendation below; K1 uses the same expanded
-  architecture as K8, changing only order. Full CPU/CUDA readiness passed; K8 job 23015406 and K1 job 23015408 completed 100 epochs and all five FIDs.
-  The monitor recorded terminal completion and exited normally.
-- The selected image candidate is frozen-diagonal ISRU-D K8, implemented in
-  [ffn.py](ffn.py). Compute d0 once at a layer entrance, then accumulate
-  the input plus eight Taylor terms; use two independent layers around SiLU.
-- The ordinary image control is the author's native SwiGLU. Free ISRU is a
-  separate available FFN, not the current image candidate.
-- Model/loss/sampler/EMA source is pinned to the author-derived runtime.
-  [The operator note](docs/research-assessments/2026-11-11-image-candidate.md)
-  and [source attribution](UPSTREAM.md) explain the implementation.
+- Three seed0 trajectories continue to160: native SwiGLU, expanded ISRU-D K1
+  and expanded ISRU-D K8. Standard FID50k is evaluated at120/140/160.
+  [Matched status](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
+- Native FFN is the author's unchanged SwiGLU. Both expanded ODE FFNs use
+  internal1200, two square operators around SiLU, and entrance/exit projections.
+  Freeze each entrance diagonal across its Taylor series. [FFN](ffn.py).
+- Both ODE orders have130,402,560parameters; native has130,405,632. Use seed0,
+  batch256, AdamW5e-5 and the existing data/time/noise/EMA/sampler recipe.
+- Runtime17b61a5 is frozen. The baseline continuation restores the original
+  source65864ad checkpoint in a separate output, with native math and full
+  checkpoint prediction compatibility verified. [Baseline provenance](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
 
 ## What the evidence currently says
 
@@ -59,14 +43,8 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current decisions
 
-The user authorized the parameter-matched wide K8/K1 comparison on14November.
-Keep the qualified native SwiGLU baseline fixed. The completed jobs used internal1200,
-seed 0,100 epochs,63,500 updates, and FID50k at 20/40/60/80/100. Both ODE orders
-share initialization and a130,402,560-parameter architecture. No narrow
-SwiGLU, Muon switch or spectral constraint is selected. Source, CUDA readiness,
-measured time limits and monitoring belong to
-[the new study](docs/celeba128-wide-20261114/README.md).
-
-The earlier [audit](docs/celeba128-20261112/next-step-audit.md) remains an
-evidence snapshot. Its proposed narrow-control sequence was superseded by
-the user's choice to widen the candidate and preserve the complete baseline.
+Finish the authorized160epoch evaluations before selecting another experiment.
+K1 finished; native and K8 remain active. Preserve the100epoch evidence and
+final reports. No new architecture, optimizer, spectral penalty or seed is
+selected by the current status check. Compare models only at matching epochs
+in the main results table; pending160metrics remain blank.
