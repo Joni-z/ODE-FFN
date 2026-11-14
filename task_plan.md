@@ -1,31 +1,22 @@
-# Task: continue widened K1/K8 from100 to160 epochs
+# Task: resume native SwiGLU baseline to160epochs
 
-Authorized14November2026: user requests continuing the two unfinished
-convergence trajectories. Bound this stage at160, with FID50k120/140/160.
-Preserve baseline100, original100epoch evidence and frozen source17b61a5.
+User authorized14November2026: baseline must also continue, matching K1/K8.
+Restore the original native checkpoint100, seed0, fixed recipe; evaluate
+FID50k120/140/160. Preserve original100epoch source/checkpoint/FID evidence.
 
-- [x] Verify last checkpoints exactly match the100epoch model/optimizer/EMA/RNG
-      anchors and can resume with epoch target160 and constant LR5e-5.
-- [x] Register continuation, estimate full allocation including three FIDs.
-- [x] Submit both continuations with same source/recipe and no fresh start.
-- [x] Attach new job/progress/FID monitor.
-- [x] Verify both logs restore original checkpoint/optimizer after100epochs.
-- [x] Verify K1 completed160,101600updates,finite model/twoEMAs and FID27.78868.
-- [ ] Collect K8 final160epoch FID when the remaining run completes.
-- [x] Publish updated status, registration and launch receipts to GitHub/Torch.
+- [x] Verify baseline checkpoint SHA/state and native-math/initialization
+      compatibility with the validated periodic-evaluation runtime17b61a5.
+- [x] Add a minimal baseline continuation recipe and register source/outputs,
+      budget, tests and checkpoint provenance.
+- [ ] Preserve original100checkpoint, stage continuation state, validate
+      documented Slurm command and submit one priority job.
+- [ ] Attach monitor and verify allocation/resume state; publish GitHub/Torch.
 
-No architecture, optimizer, EMA, sampler, dataset or baseline change.
+ODE K8 remains authorized through160; no architecture or optimizer change.
+Baseline runtime bookkeeping may change for periodic FID, with native math
+and initial/resumed state checked explicitly.
 
-Checkpoint model, optimizer, twoEMAs and RNG exactly match100epoch anchors.
-Warmup is finished; constant LR5e-5 continues. Budget helper syntax typo was
-corrected before creating the record or submitting jobs.
-
-First submit guard expected a status key but doc receipt uses pass:true;
-normalized the receipt check before any real submission. No jobs existed
-from that failed preflight; duplicate guards remain in place.
-
-Submitted K8/K1 jobs23085012/23085013, source17b61a5, target160, monitor2415208.
-Both resumed correctly. K1 completed; K8 running on L40Sgl060.
-
-Submission/resume verified. K8 snapshot142/160, FID140=30.08220, GPU99–100%;
-K1 complete160, FID27.78868. The live monitor continues independently.
+Compatibility PASS: source65864ad ->17b61a5 preserves native math, initial
+state/RNG and real-checkpoint full128px predictions bitwise. Optimizer step
+63500 retained; original checkpoint SHA matches. Periodic-eval RNG checks
+previously passed in this unchanged environment.

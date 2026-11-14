@@ -34,7 +34,7 @@ case "$RECIPE" in
         LR_ARGS=(--lr 0.0001)
         OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-${FFN}-s0
         ;;
-    celeba128|celeba128-wide)
+    celeba128|celeba128-wide|celeba128-baseline160)
         MODEL=JiT-B/16; IMAGE_SIZE=128; BATCH_SIZE=${ODE_FFN_BATCH_SIZE:-256}; NOISE_SCALE=0.5
         TARGET_EPOCHS=${ODE_FFN_EPOCHS:-100}; MAX_TRAIN_SECONDS=${ODE_FFN_MAX_TRAIN_SECONDS:-0}
         LR_ARGS=(--blr 0.00005)
@@ -43,12 +43,16 @@ case "$RECIPE" in
             WIDTH=1200
             OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k${ORDER}-s0
             READINESS=/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/cuda-readiness.json
+        elif [[ "$RECIPE" == celeba128-baseline160 ]]; then
+            [[ "$FFN" == swiglu && "$ORDER" == 8 && "$TARGET_EPOCHS" == 160 ]] || exit 2
+            OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160
+            READINESS=/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/baseline/compatibility.json
         else
             [[ "$ORDER" == 8 ]] || exit 2
             OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-${FFN}-s0
             READINESS=/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json
         fi
-        python - "$BATCH_SIZE" "$(git rev-parse HEAD)" "$READINESS" "$WIDTH" "$ORDER" <<'PY'
+        python - "$BATCH_SIZE" "$(git rev-parse HEAD)" "$READINESS" "$WIDTH" "$ORDER" "$RECIPE" <<'PY'
 import json
 import sys
 from pathlib import Path
@@ -56,7 +60,14 @@ path = Path(sys.argv[3])
 record = json.loads(path.read_text())
 assert record['status'] == 'PASS' and record['image_size'] == 128
 assert record['source_commit'] == sys.argv[2], 'Readiness must match the frozen training source'
-if int(sys.argv[4]):
+if sys.argv[6] == 'celeba128-baseline160':
+    assert record['kind'] == 'native_baseline_resume_compatibility'
+    assert record['batch'] == int(sys.argv[1])
+    assert record['native_math_identical'] and record['native_state_and_rng_identical']
+    assert record['full_checkpoint_prediction_bitwise_identical']
+    assert record['legacy_GPU_readiness_status'] == 'PASS'
+    assert record['periodic_evaluation_RNG_check'] == 'PASS'
+elif int(sys.argv[4]):
     assert record['hidden_dim'] == int(sys.argv[4])
     assert record['arms']['k'+sys.argv[5]]['batch'] == int(sys.argv[1])
 else:

@@ -1,5 +1,14 @@
 # Current project status
 
+## Native baseline continuation authorized
+
+The user requests native SwiGLU through160 as well as K1/K8, with FID50k at
+120/140/160. Native math, full-checkpoint outputs and initialization/RNG
+compatibility checks passed. The original100epoch checkpoint is being staged
+in a separate output directory for exact-state continuation. Submission is
+being prepared; the architecture and original100epoch result are preserved.
+[Baseline continuation](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
+
 ## Continuation to 160 epochs
 
 K1 completed **160 epochs**, FID50k **27.78868**, job 23085013 exited0:0

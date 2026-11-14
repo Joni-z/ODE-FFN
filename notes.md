@@ -6,6 +6,10 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current method
 
+- Latest authorization: native SwiGLU also resumes100to160, matching K1/K8
+  exposure and evaluation checkpoints. Its native architecture/recipe stay
+  unchanged; a separate run preserves the original100epoch checkpoint.
+  [Baseline continuation](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
 - The user authorized continuing the existing K1/K8 trajectories from 100 to
   160 epochs, with FID at 120/140/160. Resume checks passed for model,
   optimizer, both EMAs and RNG. Continuation jobs23085012/23085013 are
