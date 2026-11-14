@@ -4,9 +4,11 @@
 
 The user requests native SwiGLU through160 as well as K1/K8, with FID50k at
 120/140/160. Native math, full-checkpoint outputs and initialization/RNG
-compatibility checks passed. The original100epoch checkpoint is being staged
-in a separate output directory for exact-state continuation. Submission is
-being prepared; the architecture and original100epoch result are preserved.
+compatibility checks passed. Baseline job **23117422** is submitted from the verified 100-epoch
+checkpoint in a separate continuation folder. It has been allocated GPU
+on H100 gh012, completed epoch101 and entered102. Optimizer restore is
+confirmed; GPU93–97%. Monitor2838752 is active. The architecture and original100epoch
+result are preserved.
 [Baseline continuation](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
 
 ## Continuation to 160 epochs
@@ -31,7 +33,7 @@ Monitor 2415208 remains active. No new jobs were submitted by this check.
 [Continuation curves and verified status](docs/celeba128-wide-20261114/continuation-160/results.md).
 Native 35.91785 is the fixed 100-epoch reference; the new scores use more training.
 
-Checked 14 November 2026, 20:46 Shanghai time.
+Checked 14 November 2026, 21:19 Shanghai time.
 
 ## Completed widened ISRU-D K8/K1
 

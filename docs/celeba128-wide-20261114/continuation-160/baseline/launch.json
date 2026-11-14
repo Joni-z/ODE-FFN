@@ -1,0 +1,48 @@
+{
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "original_source_commit": "65864adb8280675be76b6fc6b871b494b746d7d9",
+  "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+  "start_epochs": 100,
+  "target_epochs": 160,
+  "seed": 0,
+  "new_FID_epochs": [
+    120,
+    140,
+    160
+  ],
+  "original100epoch_preserved": true,
+  "checkpoint_origin": "/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-swiglu-s0/checkpoint-last.pth",
+  "checkpoint100_sha256": "317153d1954e2723214c310dd25e93897a5030358488a01d06ff0967ba03fab1",
+  "wrapper_sha256": "f6e1a31996a5627fcd814dd6dc555cefc4a7573a1219078a38a9ea902e43b331",
+  "submitted_at": 1794662217.4916365,
+  "jobs": [
+    {
+      "job_id": "23117422",
+      "ffn": "swiglu",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160",
+      "time_limit_hours": 6,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba-swiglu-s0-to160",
+        "--time=06:00:00",
+        "--no-requeue",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114,ODE_FFN_EPOCHS=160,ODE_FFN_MAX_TRAIN_SECONDS=0,ODE_FFN_FRESH_START=0",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+        "swiglu",
+        "celeba128-baseline160",
+        "8"
+      ],
+      "slurm_log": "/scratch/zz5070/ODE_FFN/runs/celeba/slurm/celeba-swiglu-s0-to160-23117422.out",
+      "allocated_GPU": "NVIDIA H100 80GB HBM3",
+      "allocated_node": "gh012"
+    }
+  ],
+  "monitor": {
+    "pid": 2838752,
+    "interval_seconds": 60,
+    "GPU_telemetry_seconds": 30,
+    "snapshot": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/baseline/monitor.json",
+    "never_restarts_or_submits": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "Documented Slurm admission check only; no submission or model execution.",
+  "command": "sbatch --test-only --job-name=celeba-swiglu-s0-to160 --time=06:00:00 --no-requeue --export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114,ODE_FFN_EPOCHS=160,ODE_FFN_MAX_TRAIN_SECONDS=0,ODE_FFN_FRESH_START=0 /scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm swiglu celeba128-baseline160 8",
+  "working_directory": "/scratch/zz5070/ODE_FFN/ODE-FFN",
+  "exit": 0,
+  "stdout": "",
+  "stderr": "sbatch: Job 23117318 to start at 2026-11-16T05:39:53 a using 6 processors on nodes ga002 in partition a100_tandon\n",
+  "utc_timestamp": "2026-11-14T13:13:53.804223+00:00",
+  "active_head": "3d60f29ba09bc1a2ce7ce76caa01c6a7d07cfb53",
+  "active_clean": true,
+  "active_wrapper": {
+    "path": "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+    "sha256": "f6e1a31996a5627fcd814dd6dc555cefc4a7573a1219078a38a9ea902e43b331"
+  },
+  "frozen_runtime": {
+    "path": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+    "head": "17b61a56af1174120e06cd01e25266625c277ce4",
+    "clean": true
+  },
+  "readme": {
+    "local_path": "/Users/mr.z/ODE-FFN-upstream/docs/celeba128-wide-20261114/continuation-160/baseline/README.md",
+    "local_sha256": "d5b7b4f03f53fefd2db6d2024313173841b0b57d06e2cb9b0f8a98b36524dfa6",
+    "remote_path": "/scratch/zz5070/ODE_FFN/ODE-FFN/docs/celeba128-wide-20261114/continuation-160/baseline/README.md",
+    "remote_sha256": "d5b7b4f03f53fefd2db6d2024313173841b0b57d06e2cb9b0f8a98b36524dfa6",
+    "commands_identical": true
+  },
+  "doc_vs_reality_divergence": [],
+  "limits": [
+    "Admission-only check does not execute wrapper runtime guards or establish checkpoint/model compatibility; parent verifies those separately."
+  ]
+}

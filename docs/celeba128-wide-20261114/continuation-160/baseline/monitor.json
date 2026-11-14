@@ -1,0 +1,28 @@
+{
+  "updated_at": 1794662649.2081804,
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "jobs": {
+    "23117422": {
+      "state": "RUNNING",
+      "reason": "None",
+      "nodes": "gh012",
+      "progress": {
+        "status": "running",
+        "completed_epochs": 103,
+        "epoch": 103,
+        "target_epochs": 160,
+        "epoch_seconds": 41.45339579100255,
+        "ffn": "swiglu",
+        "images_per_second": 3921.5122645099104,
+        "lr": 5.0000000000000626e-05,
+        "loss": 0.02989996441412629,
+        "updated_at": 1794662630.2548192,
+        "job_id": "23117422"
+      },
+      "FID": {},
+      "numbered_checkpoints": [
+        "checkpoint-0100.pth"
+      ]
+    }
+  }
+}

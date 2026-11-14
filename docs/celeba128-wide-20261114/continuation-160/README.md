@@ -18,9 +18,9 @@ from 100; do not repeat warmup or initialize new weights.
 Retain the original100epoch full checkpoints and published results. New
 numbered checkpoints0120/0140/0160 and P snapshots append to the same run
 folders; checkpoint-last/progress and training logs advance normally. The
-previous100epoch SHA256 anchors and result receipt remain preserved. The
-qualified native SwiGLU100epoch model remains fixed at35.91785. An ODE
-score after160epochs must be labeled with its larger training exposure.
+previous100epoch SHA256 anchors and result receipt remain preserved. The qualified native SwiGLU100epoch reference remains preserved at35.91785.
+The user subsequently requested [native continuation too](baseline/README.md),
+so all three models will have matching120/140/160epoch evaluations.
 
 Stop this stage at160epochs or an execution failure. Observe the three new
 FID points before selecting a further extension. Keep seed0, firstEMA.9999,

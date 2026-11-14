@@ -1,0 +1,25 @@
+{
+  "checked_at_unix": 1794662523.770423,
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "target_epochs": 160,
+  "queue": "23117422|RUNNING|1:58|gh012|None\n",
+  "priority_and_all_GPU_constraints_verified": true,
+  "monitor_process": "2838752       05:06 /scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128/bin/python /scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114/scripts/monitor_slurm.py --launch /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/baseline/launch.json --interval 60\n",
+  "runtime_resume_after100_observed": true,
+  "native_optimizer_restore_observed": true,
+  "log_tail": [
+    "[08:21:54.105001] Epoch: [100]  [120/635]  eta: 0:02:08  lr: 0.000050  loss: 0.0303 (0.0301)  time: 0.0571  data: 0.0001  max mem: 13878",
+    "[08:21:55.251923] Epoch: [100]  [140/635]  eta: 0:01:49  lr: 0.000050  loss: 0.0297 (0.0301)  time: 0.0573  data: 0.0001  max mem: 13878",
+    "[08:21:56.392653] Epoch: [100]  [160/635]  eta: 0:01:35  lr: 0.000050  loss: 0.0295 (0.0300)  time: 0.0570  data: 0.0002  max mem: 13878",
+    "[08:21:57.537348] Epoch: [100]  [180/635]  eta: 0:01:24  lr: 0.000050  loss: 0.0298 (0.0300)  time: 0.0572  data: 0.0001  max mem: 13878",
+    "[08:21:58.679861] Epoch: [100]  [200/635]  eta: 0:01:15  lr: 0.000050  loss: 0.0294 (0.0300)  time: 0.0571  data: 0.0001  max mem: 13878",
+    "[08:21:59.829501] Epoch: [100]  [220/635]  eta: 0:01:07  lr: 0.000050  loss: 0.0295 (0.0299)  time: 0.0575  data: 0.0001  max mem: 13878",
+    "[08:22:00.987227] Epoch: [100]  [240/635]  eta: 0:01:00  lr: 0.000050  loss: 0.0299 (0.0299)  time: 0.0579  data: 0.0001  max mem: 13878",
+    "[08:22:02.133130] Epoch: [100]  [260/635]  eta: 0:00:54  lr: 0.000050  loss: 0.0300 (0.0299)  time: 0.0573  data: 0.0001  max mem: 13878"
+  ],
+  "GPU_last_samples": [
+    "2026/11/14 08:20:33.366, 0, GPU-8ac0af0c-ec00-de7e-3e89-767acc7fd5ac, NVIDIA H100 80GB HBM3, 0 %, 0 MiB, 81559 MiB, 72.07 W",
+    "2026/11/14 08:21:03.371, 0, GPU-8ac0af0c-ec00-de7e-3e89-767acc7fd5ac, NVIDIA H100 80GB HBM3, 0 %, 0 MiB, 81559 MiB, 71.60 W",
+    "2026/11/14 08:21:33.373, 0, GPU-8ac0af0c-ec00-de7e-3e89-767acc7fd5ac, NVIDIA H100 80GB HBM3, 0 %, 3605 MiB, 81559 MiB, 118.63 W"
+  ]
+}

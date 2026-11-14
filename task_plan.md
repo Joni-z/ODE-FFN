@@ -8,9 +8,11 @@ FID50k120/140/160. Preserve original100epoch source/checkpoint/FID evidence.
       compatibility with the validated periodic-evaluation runtime17b61a5.
 - [x] Add a minimal baseline continuation recipe and register source/outputs,
       budget, tests and checkpoint provenance.
-- [ ] Preserve original100checkpoint, stage continuation state, validate
+- [x] Preserve original100checkpoint, stage continuation state, validate
       documented Slurm command and submit one priority job.
-- [ ] Attach monitor and verify allocation/resume state; publish GitHub/Torch.
+- [x] Attach baseline monitor and publish launch records.
+- [x] Verify allocation and wrapper resumes after100epochs.
+- [x] Confirm native optimizer load and epoch101 updates after startup.
 
 ODE K8 remains authorized through160; no architecture or optimizer change.
 Baseline runtime bookkeeping may change for periodic FID, with native math
@@ -20,3 +22,13 @@ Compatibility PASS: source65864ad ->17b61a5 preserves native math, initial
 state/RNG and real-checkpoint full128px predictions bitwise. Optimizer step
 63500 retained; original checkpoint SHA matches. Periodic-eval RNG checks
 previously passed in this unchanged environment.
+
+Baseline23117422 submitted from verified staged100epoch state; monitor2838752
+active. Scheduler reasonQOSGrpGRES at last check. Duplicate slow file copy
+was stopped and replaced by a hard link to the separately copied anchor;
+atomic future checkpoint replacement preserves the anchor. Both staged SHA
+and original SHA match. The private incomplete copy was removed after
+validation; original scientific records were never modified.
+
+Runtime confirmed on H100gh012: epoch101 completed, warmed updates~.057s,
+GPU93–97%, loss~.0299. Baseline continuation active under job23117422.
