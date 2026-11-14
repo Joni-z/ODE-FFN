@@ -1,5 +1,14 @@
 # Current project status
 
+## Continuation to 160 epochs
+
+The user requests continuing K1/K8 because FID still improves by about 24%
+between epochs 80 and 100. The bounded next stage resumes both complete
+100-epoch checkpoints to 160, evaluating at 120/140/160. Resume validation
+passed; submission is being prepared. Source/recipe/optimizer/EMA remain
+fixed, and the native baseline stays at its published 100-epoch reference.
+[Continuation protocol](docs/celeba128-wide-20261114/continuation-160/README.md).
+
 ## Completed widened ISRU-D K8/K1
 
 Both seed 0 runs completed 100 epochs,63,500 updates and all five FID50k

@@ -1,0 +1,33 @@
+{
+  "target_epochs": 160,
+  "start_epochs": 100,
+  "additional_epochs": 60,
+  "additional_updates": 38100,
+  "FID_epochs": [
+    120,
+    140,
+    160
+  ],
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "arms": {
+    "8": {
+      "observed_GPU": "NVIDIA H100 80GB HBM3",
+      "mean_late_training_epoch_seconds": 98.46702541010454,
+      "last_FID_overhead_seconds": 2461.544255334901,
+      "same_GPU_added_training_seconds": 5908.021524606273,
+      "same_GPU_three_FID_seconds": 7384.632766004704,
+      "same_GPU_total_with20percent_margin_and15min_startup_hours": 4.680884763536992,
+      "request_hours": 14
+    },
+    "1": {
+      "observed_GPU": "NVIDIA L40S",
+      "mean_late_training_epoch_seconds": 116.42457893260288,
+      "last_FID_overhead_seconds": 2938.2117008263945,
+      "same_GPU_added_training_seconds": 6985.474735956173,
+      "same_GPU_three_FID_seconds": 8814.635102479184,
+      "same_GPU_total_with20percent_margin_and15min_startup_hours": 5.516703279478452,
+      "request_hours": 6
+    }
+  },
+  "K8_slow_GPU_projection_hours": 13.985742766964673
+}

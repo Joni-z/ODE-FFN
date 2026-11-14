@@ -1,0 +1,35 @@
+{
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "start_epoch": 100,
+  "target_epoch": 160,
+  "added_optimizer_updates": 38100,
+  "arms": {
+    "8": {
+      "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0/checkpoint-last.pth",
+      "anchor": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0/checkpoint-0100.pth",
+      "anchor_sha256": "f6bb387c22520f513e5e7107c1d1c327566061ce122bd9afb33d61176807fa8d",
+      "model_optimizer_two_EMAs_RNG_identical_to100_anchor": true,
+      "optimizer_steps": [
+        63500
+      ],
+      "old_target_epochs": 100,
+      "continued_LR": 5e-05,
+      "remaining_warmup_epochs": 0,
+      "common_recipe_unchanged": true
+    },
+    "1": {
+      "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0/checkpoint-last.pth",
+      "anchor": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0/checkpoint-0100.pth",
+      "anchor_sha256": "8de88808838290d2b7894c0fb67a487d112d7ba9c804b6e251996589934628d8",
+      "model_optimizer_two_EMAs_RNG_identical_to100_anchor": true,
+      "optimizer_steps": [
+        63500
+      ],
+      "old_target_epochs": 100,
+      "continued_LR": 5e-05,
+      "remaining_warmup_epochs": 0,
+      "common_recipe_unchanged": true
+    }
+  },
+  "checked_at_utc": "2026-11-14T04:39:27Z"
+}
