@@ -1,0 +1,224 @@
+{
+  "checked_at_utc": "2026-11-14T04:31:02Z",
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "formal_training_complete": true,
+  "FID_complete": true,
+  "arms": {
+    "8": {
+      "job_id": "23015406",
+      "GPU": "NVIDIA H100 80GB HBM3",
+      "node": "gh011",
+      "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0/checkpoint-0100.pth",
+      "checkpoint_sha256": "f6bb387c22520f513e5e7107c1d1c327566061ce122bd9afb33d61176807fa8d",
+      "completed_epochs": 100,
+      "optimizer_steps": [
+        63500
+      ],
+      "finite": {
+        "model": true,
+        "model_ema1": true,
+        "model_ema2": true
+      },
+      "args": {
+        "model": "JiT-B/16",
+        "ffn": "isru_d",
+        "ode_order": 8,
+        "ode_hidden_dim": 1200,
+        "img_size": 128,
+        "attn_dropout": 0.0,
+        "proj_dropout": 0.0,
+        "epochs": 100,
+        "max_train_seconds": 0.0,
+        "warmup_epochs": 5,
+        "batch_size": 256,
+        "lr": 5e-05,
+        "blr": 5e-05,
+        "min_lr": 0.0,
+        "lr_schedule": "constant",
+        "weight_decay": 0.0,
+        "ema_decay1": 0.9999,
+        "ema_decay2": 0.9996,
+        "P_mean": -0.8,
+        "P_std": 0.8,
+        "noise_scale": 0.5,
+        "t_eps": 0.05,
+        "label_drop_prob": 1.0,
+        "seed": 0,
+        "start_epoch": 0,
+        "num_workers": 4,
+        "pin_mem": true,
+        "sampling_method": "heun",
+        "num_sampling_steps": 50,
+        "cfg": 0.0,
+        "interval_min": 0.0,
+        "interval_max": 1.0,
+        "num_images": 50000,
+        "eval_freq": 20,
+        "online_eval": true,
+        "evaluate_gen": false,
+        "keep_samples": false,
+        "gen_bsz": 256,
+        "dataset": "celeba",
+        "download": false,
+        "data_path": "/tmp/ode-celeba-23015406.Zwr3J4",
+        "class_num": 1,
+        "output_dir": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0",
+        "resume": "",
+        "save_last_freq": 1,
+        "log_freq": 100,
+        "device": "cuda",
+        "world_size": 1,
+        "local_rank": -1,
+        "dist_on_itp": false,
+        "dist_url": "env://",
+        "distributed": false
+      },
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 342.3664245605469
+        },
+        {
+          "epoch": 40,
+          "value": 237.662109375
+        },
+        {
+          "epoch": 60,
+          "value": 76.5611572265625
+        },
+        {
+          "epoch": 80,
+          "value": 50.305320739746094
+        },
+        {
+          "epoch": 100,
+          "value": 38.1357421875
+        }
+      ],
+      "console_FID_agrees": true,
+      "numbered_full_checkpoints": [
+        "checkpoint-0020.pth",
+        "checkpoint-0040.pth",
+        "checkpoint-0060.pth",
+        "checkpoint-0080.pth",
+        "checkpoint-0100.pth"
+      ],
+      "P_snapshots": 101,
+      "final24P_equal_checkpoint": true,
+      "final_training_velocity_loss": 0.030630372857718954,
+      "last10_non_evaluation_mean_epoch_seconds": 98.46702541010454,
+      "GPU_util_allocation_mean": 83.91983695652173,
+      "GPU_util_p95": 99.0,
+      "peak_NVML_memory_MiB": 33309.0
+    },
+    "1": {
+      "job_id": "23015408",
+      "GPU": "NVIDIA L40S",
+      "node": "gl068",
+      "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0/checkpoint-0100.pth",
+      "checkpoint_sha256": "8de88808838290d2b7894c0fb67a487d112d7ba9c804b6e251996589934628d8",
+      "completed_epochs": 100,
+      "optimizer_steps": [
+        63500
+      ],
+      "finite": {
+        "model": true,
+        "model_ema1": true,
+        "model_ema2": true
+      },
+      "args": {
+        "model": "JiT-B/16",
+        "ffn": "isru_d",
+        "ode_order": 1,
+        "ode_hidden_dim": 1200,
+        "img_size": 128,
+        "attn_dropout": 0.0,
+        "proj_dropout": 0.0,
+        "epochs": 100,
+        "max_train_seconds": 0.0,
+        "warmup_epochs": 5,
+        "batch_size": 256,
+        "lr": 5e-05,
+        "blr": 5e-05,
+        "min_lr": 0.0,
+        "lr_schedule": "constant",
+        "weight_decay": 0.0,
+        "ema_decay1": 0.9999,
+        "ema_decay2": 0.9996,
+        "P_mean": -0.8,
+        "P_std": 0.8,
+        "noise_scale": 0.5,
+        "t_eps": 0.05,
+        "label_drop_prob": 1.0,
+        "seed": 0,
+        "start_epoch": 0,
+        "num_workers": 4,
+        "pin_mem": true,
+        "sampling_method": "heun",
+        "num_sampling_steps": 50,
+        "cfg": 0.0,
+        "interval_min": 0.0,
+        "interval_max": 1.0,
+        "num_images": 50000,
+        "eval_freq": 20,
+        "online_eval": true,
+        "evaluate_gen": false,
+        "keep_samples": false,
+        "gen_bsz": 256,
+        "dataset": "celeba",
+        "download": false,
+        "data_path": "/tmp/ode-celeba-23015408.d7HByH",
+        "class_num": 1,
+        "output_dir": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0",
+        "resume": "",
+        "save_last_freq": 1,
+        "log_freq": 100,
+        "device": "cuda",
+        "world_size": 1,
+        "local_rank": -1,
+        "dist_on_itp": false,
+        "dist_url": "env://",
+        "distributed": false
+      },
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 350.4965515136719
+        },
+        {
+          "epoch": 40,
+          "value": 245.96788024902344
+        },
+        {
+          "epoch": 60,
+          "value": 80.73377990722656
+        },
+        {
+          "epoch": 80,
+          "value": 50.10519790649414
+        },
+        {
+          "epoch": 100,
+          "value": 37.924861907958984
+        }
+      ],
+      "console_FID_agrees": true,
+      "numbered_full_checkpoints": [
+        "checkpoint-0020.pth",
+        "checkpoint-0040.pth",
+        "checkpoint-0060.pth",
+        "checkpoint-0080.pth",
+        "checkpoint-0100.pth"
+      ],
+      "P_snapshots": 101,
+      "final24P_equal_checkpoint": true,
+      "final_training_velocity_loss": 0.030708596999133666,
+      "last10_non_evaluation_mean_epoch_seconds": 116.42457893260288,
+      "GPU_util_allocation_mean": 84.25057471264368,
+      "GPU_util_p95": 100.0,
+      "peak_NVML_memory_MiB": 15023.0
+    }
+  },
+  "baseline_FID50k": 35.91785430908203,
+  "accounting": "23015406|COMPLETED|0:0|06:08:11|gh011\n23015406.batch|COMPLETED|0:0|06:08:11|gh011\n23015406.extern|COMPLETED|0:0|06:08:11|gh011\n23015408|COMPLETED|0:0|07:15:28|gl068\n23015408.batch|COMPLETED|0:0|07:15:28|gl068\n23015408.extern|COMPLETED|0:0|07:15:28|gl068\n"
+}

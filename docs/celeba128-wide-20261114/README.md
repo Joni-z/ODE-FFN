@@ -1,5 +1,10 @@
 # Parameter-matched ISRU-D: CelebA128
 
+**Completed 14 November 2026:** K1 FID37.92486, K8 FID38.13574; native 35.91785.
+Both100-epoch runs and all five FIDs finished0:0.
+[Results, curves and verification](results.md). Launch chronology below is
+preserved; the jobs and monitor have now ended.
+
 Authorized 14 November 2026. Keep the completed native SwiGLU baseline fixed.
 Train widened ISRU-D K8 and K1, seed 0, 100 epochs, FID50k at 20/40/60/80/100.
 
@@ -53,7 +58,7 @@ and author crop/random flip. Batch256, 635 drop-last updates/epoch, 63,500
 updates total. AdamW5e-5, betas(.9,.95), weight_decay0, warmup5 then constant;
 noise.5, logit time mean-.8/std.8, t_eps.05. Keep per-update EMA.9999/.9996.
 
-FID uses first EMA.9999, seed0, standard pinned torch-fidelity, 50k images,
+FID uses first EMA .9999, seed 0, standard pinned torch-fidelity, 50k images,
 native Heun50 including final Euler, CFG0 and the same deterministic training
 reference. Retain full numbered checkpoints0020/0040/0060/0080/0100, last full
 checkpoint each epoch and every P snapshot. Evaluation preserves training RNG.
@@ -104,13 +109,13 @@ flag and the same frozen runtime. The matching readiness receipt is required.
 ## Submitted execution
 
 CUDA readiness23013985 passed on H100 gh003 at batch256: K1/K8 warmed train
-steps .05820/.14624seconds, Heun50 generation3.603/9.264seconds per256images,
+steps .05820/.14624 seconds, Heun50 generation3.603/9.264 seconds per256images,
 training peaks13.07/29.90GiB. Weights, gradients, samples and both new
 projections are finite and receive gradients. This is a5update readiness
 profile, not formal convergence evidence.
 
 Frozen source17b61a56af1174120e06cd01e25266625c277ce4. Formal jobs:
-K8 **23015406**, K1 **23015408**. Both use the registered100epoch protocol.
+K8 **23015406**, K1 **23015408**. Both use the registered100-epoch protocol.
 The persistent monitor PID is460860; GPU telemetry is attached by each job.
 [Launch commands](launch.json), [readiness](cuda-readiness.json),
 [budget arithmetic](budget.json), [snapshot](monitor.json).
@@ -126,4 +131,4 @@ are estimates and upper limits; monitor actual epochs and completed FIDs.
 Both formal jobs are now running: K8 on H100 gh011, K1 on L40S gl068.
 Use the paired H100 readiness numbers for same-hardware speed comparisons;
 wall times from these distinct training GPUs describe execution separately.
-First formal FIDs are due after20completed epochs.
+First formal FIDs are due after 20 completed epochs.

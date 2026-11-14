@@ -9,7 +9,7 @@ continue to resolve.
 | Topic | Entry |
 |---|---|
 | Current run and actual job snapshot | [Project status](../STATUS.md) |
-| Authorized wide K8/K1, fixed native baseline | [Parameter-matched study](celeba128-wide-20261114/README.md) |
+| Completed wide K8/K1 and fixed native baseline | [Results and FID curves](celeba128-wide-20261114/results.md) |
 | Completed 100-epoch results | [Training and P figures](celeba128-20261112/results.md) |
 | What to test next: order and capacity | [Evidence audit and bounded decision](celeba128-20261112/next-step-audit.md) |
 | FID every 20 epochs and standard metric audit | [Periodic evaluation](celeba128-20261112/periodic-fid.md) |

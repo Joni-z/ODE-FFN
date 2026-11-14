@@ -35,9 +35,11 @@ For the candidate, `block.mlp` is replaced by the implementation in `ffn.py`.
 ## Current comparison
 
 The qualified native **SwiGLU** baseline stays fixed at FID50k **35.91785**.
-The current [CelebA128 study](docs/celeba128-wide-20261114/README.md) trains
-**widened ISRU-D K8 and K1**, seed0,100epochs, with FID50k every20epochs.
-Both use internal width1200 and130,402,560parameters, versus native130,405,632.
+The current [CelebA128 study](docs/celeba128-wide-20261114/README.md) completed
+**widened ISRU-D K8 and K1**, seed 0,100 epochs, with FID50k every20epochs.
+Both use internal width 1200 and 130,402,560parameters, versus native 130,405,632.
+Final FID50k is 37.92486 (K1) and 38.13574 (K8); see the
+[completed results](docs/celeba128-wide-20261114/results.md).
 Use `--ffn isru_d --ode_hidden_dim 1200 --ode_order 8` (or1).
 ISRU-D holds each entrance diagonal fixed during the Taylor series and uses
 two independent operators around SiLU. `--ffn isru` is ordinary Free ISRU.

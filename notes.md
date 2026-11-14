@@ -10,8 +10,8 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
   ISRU-D K8/K1, both internal width 1200, seed 0, 100 epochs and periodic
   FID50k. [New protocol](docs/celeba128-wide-20261114/README.md). This supersedes
   the audit's narrow-SwiGLU recommendation below; K1 uses the same expanded
-  architecture as K8, changing only order. Full CPU/CUDA readiness passed; K8 job23015406 is training on H100 gh011,
-  K1 job23015408 is training on L40S gl068. Monitor460860 records queue/progress/FID every60s.
+  architecture as K8, changing only order. Full CPU/CUDA readiness passed; K8 job 23015406 and K1 job 23015408 completed 100 epochs and all five FIDs.
+  The monitor recorded terminal completion and exited normally.
 - The selected image candidate is frozen-diagonal ISRU-D K8, implemented in
   [ffn.py](ffn.py). Compute d0 once at a layer entrance, then accumulate
   the input plus eight Taylor terms; use two independent layers around SiLU.
@@ -23,6 +23,10 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## What the evidence currently says
 
+- The parameter-matched image pair completed: wideK1 FID37.92486, wideK8
+  38.13574, fixed native 35.91785. Expansion improves on oldK8 but does not
+  beat native; high order adds no final FID benefit in this setting.
+  [Completed wide comparison](docs/celeba128-wide-20261114/results.md).
 - Completed synthetic studies retain a Ring8 field-fitting lead, while
   Product16 sampling favors ordinary references. Read the
   [complete common-bank comparison](docs/autoresearch/professor-20261103/cycle14-results-complete/analysis-report.md).
@@ -43,8 +47,8 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 ## Current decisions
 
 The user authorized the parameter-matched wide K8/K1 comparison on14November.
-Keep the qualified native SwiGLU baseline fixed. New jobs use internal1200,
-seed0,100epochs,63,500updates, and FID50k at20/40/60/80/100. Both ODE orders
+Keep the qualified native SwiGLU baseline fixed. The completed jobs used internal1200,
+seed 0,100 epochs,63,500 updates, and FID50k at 20/40/60/80/100. Both ODE orders
 share initialization and a130,402,560-parameter architecture. No narrow
 SwiGLU, Muon switch or spectral constraint is selected. Source, CUDA readiness,
 measured time limits and monitoring belong to

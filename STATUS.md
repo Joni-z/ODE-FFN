@@ -1,29 +1,31 @@
 # Current project status
 
-## Widened ISRU-D K8/K1 on Torch
+## Completed widened ISRU-D K8/K1
 
-The native SwiGLU baseline qualifies and stays fixed at FID50k35.91785.
-Widened K8 and K1 both use internal1200 and130,402,560total parameters, versus
-native130,405,632. Seed0,100epochs, batch256; standard FID50k at20/40/60/80/100.
-Full numbered checkpoints and all P snapshots are retained.
+Both seed 0 runs completed 100 epochs,63,500 updates and all five FID50k
+evaluations; both jobs exited 0:0. No ODE job remains allocated.
 
-- K8 job **23015406**: running on H10080GB gh011, completed1epoch and entered epoch2.
-  Warm steps~.149s, GPU98–99%; full checkpoint and P snapshots saved.
-- K1 job **23015408**: running on L40S gl068; initial updates~.172s, finite loss.
-- CUDA readiness23013985 completed0:0 on H100 gh003; both full models passed.
-- Source frozen at17b61a5 in `/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114`.
-- Persistent monitor460860 polls job/progress/FID/checkpoints every60seconds;
-  GPU utilization/memory/power recorded every30seconds within each allocation.
-- H100 complete-run estimates, including five FIDs and margin: K8~8h, K1~6h.
-  Broad-GPU request limits20h/9h include the measured slower-card allowance.
-  A requested K8 reduction to10h after H100 allocation was rejected by the
-  cluster;20h cap remains. Completion releases the allocation immediately.
+| Model | Total parameters | Final FID50k |
+|---|---:|---:|
+| Fixed native SwiGLU |130,405,632 |**35.91785** |
+| Widened K1 |130,402,560 |37.92486 |
+| Widened K8 |130,402,560 |38.13574 |
 
-[Protocol, validation and receipts](docs/celeba128-wide-20261114/README.md).
-This is the current authorized study; the older audit's narrow-SwiGLU proposal
-is superseded. The original native baseline, old K8 and reports remain fixed.
+Wide K8 improves over old small K8's43.90767 but still trails native by 2.21789.
+K1 is .21088 below K8; the high-order expansion adds no final FID benefit here.
+[FID curves and completed evidence](docs/celeba128-wide-20261114/results.md).
 
-Checked 14 November 2026, 00:46 Shanghai time.
+K8 job 23015406 used H100 gh011 for 6h08m11s; K1 job 23015408 used L40S gl068 for
+7h15m28s, each including five FIDs. These different-GPU wall times are not a
+speed ranking. Allocation-average GPU use was 83.92%/84.25% (K8/K1). All five
+numbered full checkpoints and 101 P snapshots exist per arm. Final weights and
+both EMAs are finite; all final P matrices match their trained checkpoints.
+
+The persistent monitor 460860 recorded both COMPLETED states and exited
+normally. Source remains frozen at 17b61a5; the qualified baseline and final
+reports remain preserved. No additional experiment is submitted.
+
+Checked 14 November 2026, 12:34 Shanghai time.
 
 ## Completed CelebA128 comparison
 
