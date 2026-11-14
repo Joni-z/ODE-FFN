@@ -48,3 +48,9 @@ K1 finished; native and K8 remain active. Preserve the100epoch evidence and
 final reports. No new architecture, optimizer, spectral penalty or seed is
 selected by the current status check. Compare models only at matching epochs
 in the main results table; pending160metrics remain blank.
+
+The [14 November architecture assessment](docs/research-assessments/2026-11-14-next-architecture/recommendation.md)
+recommends checkpoint diagnostics before a conditional, equal-work comparison
+of frozen-D K2 and state-dependent ISRU midpoint. The earlier sigmoid-clock
+feedback experiment failed, so feedback alone is not a supported remedy.
+No new model or job is selected by this recommendation.

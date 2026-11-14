@@ -9,3 +9,7 @@
 Snapshot14November22:31Shanghai: baseline passed140, FID25.98559;
 K1complete160, FID27.78868; K8trained160, finalFIDpending, FID14030.08220.
 No new experiment is selected by this status check.
+
+- [x] Review the next architecture question against prior controls and
+  primary literature; [recommendation](docs/research-assessments/2026-11-14-next-architecture/recommendation.md).
+  This is a conditional plan, with no new training launched.
