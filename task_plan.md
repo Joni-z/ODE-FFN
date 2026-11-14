@@ -32,3 +32,9 @@ validation; original scientific records were never modified.
 
 Runtime confirmed on H100gh012: epoch101 completed, warmed updates~.057s,
 GPU93–97%, loss~.0299. Baseline continuation active under job23117422.
+
+Final inspection confirmed106completed epochs and67310optimizer steps,
+continuing beyond63500. An initial inspection of the live replacing last
+checkpoint hit ESTALE; a temporary hard-link snapshot pinned the complete
+inode for verification. Training remained normal; the temporary link was
+removed after collecting the proof.
