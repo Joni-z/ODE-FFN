@@ -8,7 +8,8 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 - The user authorized continuing the existing K1/K8 trajectories from 100 to
   160 epochs, with FID at 120/140/160. Resume checks passed for model,
-  optimizer, both EMAs and RNG. Keep the qualified native baseline fixed.
+  optimizer, both EMAs and RNG. Continuation jobs23085012/23085013 are
+  submitted, with monitor2415208. Keep the qualified native baseline fixed.
   [Continuation](docs/celeba128-wide-20261114/continuation-160/README.md).
 - Authorized 14 November: retain the qualified native baseline and run widened
   ISRU-D K8/K1, both internal width 1200, seed 0, 100 epochs and periodic

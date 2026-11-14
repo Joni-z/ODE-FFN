@@ -1,0 +1,70 @@
+{
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "runtime": "/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114",
+  "start_epochs": 100,
+  "target_epochs": 160,
+  "seed": 0,
+  "new_FID_epochs": [
+    120,
+    140,
+    160
+  ],
+  "baseline_fixed_epoch100": true,
+  "wrapper_sha256": "6f11526d6bec8fe2bade1c26d73f2e19fad0984c1b918c9c311230e081afb6da",
+  "submitted_at": 1794631476.0916817,
+  "jobs": [
+    {
+      "job_id": "23085012",
+      "order": 8,
+      "hidden_dim": 1200,
+      "previous_job": "23015406",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0",
+      "start_checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0/checkpoint-last.pth",
+      "preserved_anchor": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0/checkpoint-0100.pth",
+      "time_limit_hours": 14,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba-wide-k8-s0-to160",
+        "--time=14:00:00",
+        "--no-requeue",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114,ODE_FFN_EPOCHS=160,ODE_FFN_MAX_TRAIN_SECONDS=0,ODE_FFN_FRESH_START=0",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+        "isru_d",
+        "celeba128-wide",
+        "8"
+      ],
+      "slurm_log": "/scratch/zz5070/ODE_FFN/runs/celeba/slurm/celeba-wide-k8-s0-to160-23085012.out"
+    },
+    {
+      "job_id": "23085013",
+      "order": 1,
+      "hidden_dim": 1200,
+      "previous_job": "23015408",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0",
+      "start_checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0/checkpoint-last.pth",
+      "preserved_anchor": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0/checkpoint-0100.pth",
+      "time_limit_hours": 6,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=celeba-wide-k1-s0-to160",
+        "--time=06:00:00",
+        "--no-requeue",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114,ODE_FFN_EPOCHS=160,ODE_FFN_MAX_TRAIN_SECONDS=0,ODE_FFN_FRESH_START=0",
+        "/scratch/zz5070/ODE_FFN/ODE-FFN/slurm/celeba.slurm",
+        "isru_d",
+        "celeba128-wide",
+        "1"
+      ],
+      "slurm_log": "/scratch/zz5070/ODE_FFN/runs/celeba/slurm/celeba-wide-k1-s0-to160-23085013.out"
+    }
+  ],
+  "monitor": {
+    "pid": 2415208,
+    "interval_seconds": 60,
+    "GPU_telemetry_seconds": 30,
+    "snapshot": "/scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/monitor.json",
+    "never_restarts_or_submits": true
+  }
+}

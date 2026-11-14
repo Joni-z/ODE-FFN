@@ -5,14 +5,15 @@
 The user requests continuing K1/K8 because FID still improves by about 24%
 between epochs 80 and 100. The bounded next stage resumes both complete
 100-epoch checkpoints to 160, evaluating at 120/140/160. Resume validation
-passed; submission is being prepared. Source/recipe/optimizer/EMA remain
+passed. Both continuations are submitted: K8 **23085012**, K1 **23085013**.
+They are waiting for allocation; monitor2415208 polls every60seconds. Source/recipe/optimizer/EMA remain
 fixed, and the native baseline stays at its published 100-epoch reference.
 [Continuation protocol](docs/celeba128-wide-20261114/continuation-160/README.md).
 
 ## Completed widened ISRU-D K8/K1
 
 Both seed 0 runs completed 100 epochs,63,500 updates and all five FID50k
-evaluations; both jobs exited 0:0. No ODE job remains allocated.
+evaluations; both first-stage jobs exited 0:0. The continuation jobs are listed above.
 
 | Model | Total parameters | Final FID50k |
 |---|---:|---:|
@@ -34,7 +35,7 @@ The persistent monitor 460860 recorded both COMPLETED states and exited
 normally. Source remains frozen at 17b61a5; the qualified baseline and final
 reports remain preserved. No additional experiment is submitted.
 
-Checked 14 November 2026, 12:34 Shanghai time.
+Checked 14 November 2026, 12:46 Shanghai time.
 
 ## Completed CelebA128 comparison
 

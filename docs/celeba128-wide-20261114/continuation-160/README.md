@@ -49,3 +49,16 @@ sbatch --test-only --job-name=celeba-wide-k1-s0-to160 --time=06:00:00 --no-reque
 
 A new launch replaces only `--test-only` with `--parsable` after resume-state
 verification. Previous terminal jobs must remain completed before submission.
+
+## Submitted continuation
+
+K8 job **23085012**, K1 job **23085013**; both target160epochs and reuse their
+original run folders. Checkpoint equality and documented scheduler admission
+passed. Monitor PID2415208 polls60seconds and records new FIDs/checkpoints.
+The current queue reason is QOSMaxGRESPerUser; no GPU has been allocated yet.
+
+[Launch](launch.json), [resume validation](resume-validation.json),
+[budget](budget.json), [scheduler check](agent-doc-pass.json),
+[monitor snapshot](monitor.json). The snapshot's initial progress100/100
+belongs to the completed first stage; the new Slurm state remains authoritative
+until the first continued epoch updates progress toward160.

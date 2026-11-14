@@ -34,6 +34,10 @@ For the candidate, `block.mlp` is replaced by the implementation in `ffn.py`.
 
 ## Current comparison
 
+The same K1/K8 checkpoints are now [continuing from100to160epochs](docs/celeba128-wide-20261114/continuation-160/README.md),
+with standard FID at120/140/160. The completed100epoch results below remain
+the original fixed-budget comparison.
+
 The qualified native **SwiGLU** baseline stays fixed at FID50k **35.91785**.
 The current [CelebA128 study](docs/celeba128-wide-20261114/README.md) completed
 **widened ISRU-D K8 and K1**, seed 0,100 epochs, with FID50k every20epochs.

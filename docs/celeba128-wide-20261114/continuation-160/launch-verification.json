@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-11-14T04:47:44Z",
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "start_epochs": 100,
+  "target_epochs": 160,
+  "queue": "23085012|PENDING|0:00||QOSGrpGRES\n23085013|PENDING|0:00||QOSGrpGRES\n",
+  "monitor_process": "2415208       03:08 /scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128/bin/python /scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114/scripts/monitor_slurm.py --launch /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/launch.json --interval 60\n",
+  "runtime_epoch101_verified": false,
+  "resume_state_verified": true,
+  "pending_runtime_check": "No GPU allocated yet; monitor Slurm state and resume logs when allocation begins.",
+  "priority_and_all_GPU_constraints_verified": true
+}

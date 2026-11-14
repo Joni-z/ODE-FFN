@@ -1,0 +1,92 @@
+{
+  "updated_at": 1794631662.9119947,
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "jobs": {
+    "23085012": {
+      "state": "PENDING",
+      "reason": "QOSGrpGRES",
+      "nodes": "",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 100,
+        "target_epochs": 100,
+        "updated_at": 1794610033.4631069,
+        "job_id": "23015406"
+      },
+      "FID": {
+        "fid_cfg0.0_res128": [
+          {
+            "epoch": 20,
+            "value": 342.3664245605469
+          },
+          {
+            "epoch": 40,
+            "value": 237.662109375
+          },
+          {
+            "epoch": 60,
+            "value": 76.5611572265625
+          },
+          {
+            "epoch": 80,
+            "value": 50.305320739746094
+          },
+          {
+            "epoch": 100,
+            "value": 38.1357421875
+          }
+        ]
+      },
+      "numbered_checkpoints": [
+        "checkpoint-0020.pth",
+        "checkpoint-0040.pth",
+        "checkpoint-0060.pth",
+        "checkpoint-0080.pth",
+        "checkpoint-0100.pth"
+      ]
+    },
+    "23085013": {
+      "state": "PENDING",
+      "reason": "QOSGrpGRES",
+      "nodes": "",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 100,
+        "target_epochs": 100,
+        "updated_at": 1794614300.8250775,
+        "job_id": "23015408"
+      },
+      "FID": {
+        "fid_cfg0.0_res128": [
+          {
+            "epoch": 20,
+            "value": 350.4965515136719
+          },
+          {
+            "epoch": 40,
+            "value": 245.96788024902344
+          },
+          {
+            "epoch": 60,
+            "value": 80.73377990722656
+          },
+          {
+            "epoch": 80,
+            "value": 50.10519790649414
+          },
+          {
+            "epoch": 100,
+            "value": 37.924861907958984
+          }
+        ]
+      },
+      "numbered_checkpoints": [
+        "checkpoint-0020.pth",
+        "checkpoint-0040.pth",
+        "checkpoint-0060.pth",
+        "checkpoint-0080.pth",
+        "checkpoint-0100.pth"
+      ]
+    }
+  }
+}
