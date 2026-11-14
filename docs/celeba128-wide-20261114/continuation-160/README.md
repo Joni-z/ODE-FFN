@@ -1,5 +1,9 @@
 # Continue the fixed widened models to160 epochs
 
+Current snapshot: K1 completed 160, FID 27.78868; K8 completed142, with
+latest 140-epoch FID30.08220. [Live results and curve](results.md).
+The initial queue observations below describe submission time.
+
 14 November 2026. The user requests further training because neither
 trajectory has flattened. K1 FID improves50.10520->37.92486 from80to100
 (24.31%); K8 improves50.30532->38.13574 (24.19%). The100epoch results are
@@ -9,7 +13,7 @@ Continue both existing seed0 checkpoints to160epochs, adding60epochs/38,100
 updates per arm. Evaluate standard FID50k at120/140/160. Use the same
 frozen source17b61a5, internal1200, batch256, AdamW5e-5, constant LR, original
 optimizer moments, both EMA states and training RNG. Epoch numbers continue
-from100; do not repeat warmup or initialize new weights.
+from 100; do not repeat warmup or initialize new weights.
 
 Retain the original100epoch full checkpoints and published results. New
 numbered checkpoints0120/0140/0160 and P snapshots append to the same run

@@ -1,17 +1,23 @@
 {
-  "updated_at": 1794631662.9119947,
+  "updated_at": 1794660189.708683,
   "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
   "jobs": {
     "23085012": {
-      "state": "PENDING",
-      "reason": "QOSGrpGRES",
-      "nodes": "",
+      "state": "RUNNING",
+      "reason": "None",
+      "nodes": "gl060",
       "progress": {
-        "status": "complete",
-        "completed_epochs": 100,
-        "target_epochs": 100,
-        "updated_at": 1794610033.4631069,
-        "job_id": "23015406"
+        "status": "running",
+        "completed_epochs": 142,
+        "epoch": 142,
+        "target_epochs": 160,
+        "epoch_seconds": 305.81672219600296,
+        "ffn": "isru_d",
+        "images_per_second": 531.5602064945704,
+        "lr": 5.0000000000000626e-05,
+        "loss": 0.02974169205023548,
+        "updated_at": 1794659931.2856667,
+        "job_id": "23085012"
       },
       "FID": {
         "fid_cfg0.0_res128": [
@@ -34,6 +40,14 @@
           {
             "epoch": 100,
             "value": 38.1357421875
+          },
+          {
+            "epoch": 120,
+            "value": 32.85066604614258
+          },
+          {
+            "epoch": 140,
+            "value": 30.082204818725586
           }
         ]
       },
@@ -42,19 +56,22 @@
         "checkpoint-0040.pth",
         "checkpoint-0060.pth",
         "checkpoint-0080.pth",
-        "checkpoint-0100.pth"
+        "checkpoint-0100.pth",
+        "checkpoint-0120.pth",
+        "checkpoint-0140.pth"
       ]
     },
     "23085013": {
-      "state": "PENDING",
-      "reason": "QOSGrpGRES",
-      "nodes": "",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "elapsed": "04:19:50",
+      "nodes": "gl024",
       "progress": {
         "status": "complete",
-        "completed_epochs": 100,
-        "target_epochs": 100,
-        "updated_at": 1794614300.8250775,
-        "job_id": "23015408"
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "updated_at": 1794649407.9752848,
+        "job_id": "23085013"
       },
       "FID": {
         "fid_cfg0.0_res128": [
@@ -77,6 +94,18 @@
           {
             "epoch": 100,
             "value": 37.924861907958984
+          },
+          {
+            "epoch": 120,
+            "value": 32.50212860107422
+          },
+          {
+            "epoch": 140,
+            "value": 29.629058837890625
+          },
+          {
+            "epoch": 160,
+            "value": 27.788681030273438
           }
         ]
       },
@@ -85,7 +114,10 @@
         "checkpoint-0040.pth",
         "checkpoint-0060.pth",
         "checkpoint-0080.pth",
-        "checkpoint-0100.pth"
+        "checkpoint-0100.pth",
+        "checkpoint-0120.pth",
+        "checkpoint-0140.pth",
+        "checkpoint-0160.pth"
       ]
     }
   }

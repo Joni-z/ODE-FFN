@@ -2,13 +2,27 @@
 
 ## Continuation to 160 epochs
 
-The user requests continuing K1/K8 because FID still improves by about 24%
-between epochs 80 and 100. The bounded next stage resumes both complete
-100-epoch checkpoints to 160, evaluating at 120/140/160. Resume validation
-passed. Both continuations are submitted: K8 **23085012**, K1 **23085013**.
-They are waiting for allocation; monitor2415208 polls every60seconds. Source/recipe/optimizer/EMA remain
-fixed, and the native baseline stays at its published 100-epoch reference.
-[Continuation protocol](docs/celeba128-wide-20261114/continuation-160/README.md).
+K1 completed **160 epochs**, FID50k **27.78868**, job 23085013 exited0:0
+on L40S gl024. K8 job 23085012 is running on L40S gl060, completed 142 epochs
+and training epoch 143 at the checked snapshot; latest FID 30.08220 at 140.
+
+| Epoch | Wide K1 FID50k | Wide K8 FID50k |
+|---|---:|---:|
+|100 |37.92486 |38.13574 |
+|120 |32.50213 |32.85067 |
+|140 |29.62906 |30.08220 |
+|160 |27.78868 |Pending |
+
+Both logs verify continuation from 100 with the original checkpoint and
+optimizer. K1's full 160-epoch checkpoint has 101,600 optimizer updates and finite
+model/twoEMA states; 161 P snapshots are retained. K8 GPU use 99–100%, ordinary
+epochs ~305 seconds, remaining time ~3.5h including its final FID50k.
+Monitor 2415208 remains active. No new jobs were submitted by this check.
+
+[Continuation curves and verified status](docs/celeba128-wide-20261114/continuation-160/results.md).
+Native 35.91785 is the fixed 100-epoch reference; the new scores use more training.
+
+Checked 14 November 2026, 20:46 Shanghai time.
 
 ## Completed widened ISRU-D K8/K1
 
@@ -35,7 +49,7 @@ The persistent monitor 460860 recorded both COMPLETED states and exited
 normally. Source remains frozen at 17b61a5; the qualified baseline and final
 reports remain preserved. No additional experiment is submitted.
 
-Checked 14 November 2026, 12:46 Shanghai time.
+First 100-epoch completion was recorded earlier on 14 November 2026.
 
 ## Completed CelebA128 comparison
 

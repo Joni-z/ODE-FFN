@@ -9,7 +9,9 @@ Preserve baseline100, original100epoch evidence and frozen source17b61a5.
 - [x] Register continuation, estimate full allocation including three FIDs.
 - [x] Submit both continuations with same source/recipe and no fresh start.
 - [x] Attach new job/progress/FID monitor.
-- [ ] Verify runtime starts at epoch101 when GPU allocation becomes available.
+- [x] Verify both logs restore original checkpoint/optimizer after100epochs.
+- [x] Verify K1 completed160,101600updates,finite model/twoEMAs and FID27.78868.
+- [ ] Collect K8 final160epoch FID when the remaining run completes.
 - [x] Publish updated status, registration and launch receipts to GitHub/Torch.
 
 No architecture, optimizer, EMA, sampler, dataset or baseline change.
@@ -23,7 +25,7 @@ normalized the receipt check before any real submission. No jobs existed
 from that failed preflight; duplicate guards remain in place.
 
 Submitted K8/K1 jobs23085012/23085013, source17b61a5, target160, monitor2415208.
-Both queue with QOSMaxGRESPerUser at last check; no fresh model launch.
+Both resumed correctly. K1 completed; K8 running on L40Sgl060.
 
-Submission and monitoring complete. Runtime epoch101 verification awaits GPU
-allocation; the live monitor continues independently of this session.
+Submission/resume verified. K8 snapshot142/160, FID140=30.08220, GPU99–100%;
+K1 complete160, FID27.78868. The live monitor continues independently.

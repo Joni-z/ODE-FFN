@@ -1,0 +1,324 @@
+{
+  "checked_at_utc": "2026-11-14T12:43:26Z",
+  "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+  "target_epochs": 160,
+  "arms": {
+    "8": {
+      "job_id": "23085012",
+      "progress": {
+        "status": "running",
+        "completed_epochs": 142,
+        "epoch": 142,
+        "target_epochs": 160,
+        "epoch_seconds": 305.81672219600296,
+        "ffn": "isru_d",
+        "images_per_second": 531.5602064945704,
+        "lr": 5.0000000000000626e-05,
+        "loss": 0.02974169205023548,
+        "updated_at": 1794659931.2856667,
+        "job_id": "23085012"
+      },
+      "resumed_after100_verified": true,
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 342.3664245605469
+        },
+        {
+          "epoch": 40,
+          "value": 237.662109375
+        },
+        {
+          "epoch": 60,
+          "value": 76.5611572265625
+        },
+        {
+          "epoch": 80,
+          "value": 50.305320739746094
+        },
+        {
+          "epoch": 100,
+          "value": 38.1357421875
+        },
+        {
+          "epoch": 120,
+          "value": 32.85066604614258
+        },
+        {
+          "epoch": 140,
+          "value": 30.082204818725586
+        }
+      ],
+      "new_console_TensorBoard_FIDs_agree": true,
+      "full_checkpoint_epochs": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140
+      ],
+      "P_snapshots": 143,
+      "last_epoch_records": [
+        {
+          "epoch": 140,
+          "target_epochs": 160,
+          "epoch_seconds": 7371.760329675046,
+          "ffn": "isru_d",
+          "images_per_second": 22.05172071935304,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.0298157582690162
+        },
+        {
+          "epoch": 141,
+          "target_epochs": 160,
+          "epoch_seconds": 303.26495569199324,
+          "ffn": "isru_d",
+          "images_per_second": 536.0329208795947,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029750469693635394
+        },
+        {
+          "epoch": 142,
+          "target_epochs": 160,
+          "epoch_seconds": 305.81672219600296,
+          "ffn": "isru_d",
+          "images_per_second": 531.5602064945704,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.02974169205023548
+        }
+      ],
+      "estimated_remaining_hours_including_FID160": 3.4858207199230593
+    },
+    "1": {
+      "job_id": "23085013",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "updated_at": 1794649407.9752848,
+        "job_id": "23085013"
+      },
+      "resumed_after100_verified": true,
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 350.4965515136719
+        },
+        {
+          "epoch": 40,
+          "value": 245.96788024902344
+        },
+        {
+          "epoch": 60,
+          "value": 80.73377990722656
+        },
+        {
+          "epoch": 80,
+          "value": 50.10519790649414
+        },
+        {
+          "epoch": 100,
+          "value": 37.924861907958984
+        },
+        {
+          "epoch": 120,
+          "value": 32.50212860107422
+        },
+        {
+          "epoch": 140,
+          "value": 29.629058837890625
+        },
+        {
+          "epoch": 160,
+          "value": 27.788681030273438
+        }
+      ],
+      "new_console_TensorBoard_FIDs_agree": true,
+      "full_checkpoint_epochs": [
+        20,
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160
+      ],
+      "P_snapshots": 161,
+      "last_epoch_records": [
+        {
+          "epoch": 158,
+          "target_epochs": 160,
+          "epoch_seconds": 114.36754481203388,
+          "ffn": "isru_d",
+          "images_per_second": 1421.3822659843902,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029521344792772467
+        },
+        {
+          "epoch": 159,
+          "target_epochs": 160,
+          "epoch_seconds": 113.0478099900065,
+          "ffn": "isru_d",
+          "images_per_second": 1437.9756672364588,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029581907303549173
+        },
+        {
+          "epoch": 160,
+          "target_epochs": 160,
+          "epoch_seconds": 2969.591470791027,
+          "ffn": "isru_d",
+          "images_per_second": 54.74153653758238,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.029488042466283785
+        }
+      ],
+      "checkpoint160": {
+        "completed_epochs": 160,
+        "optimizer_steps": [
+          101600
+        ],
+        "finite": {
+          "model": true,
+          "model_ema1": true,
+          "model_ema2": true
+        },
+        "seed": 0,
+        "first_EMA": 0.9999,
+        "num_images": 50000,
+        "sampler": "heun",
+        "steps": 50
+      }
+    }
+  },
+  "baseline_epoch100_FID": 35.91785430908203,
+  "accounting": "23085012|RUNNING|0:0|07:39:37|gl060\n23085012.batch|RUNNING|0:0|07:39:37|gl060\n23085012.extern|RUNNING|0:0|07:39:37|gl060\n23085013|COMPLETED|0:0|04:19:50|gl024\n23085013.batch|COMPLETED|0:0|04:19:50|gl024\n23085013.extern|COMPLETED|0:0|04:19:50|gl024\n",
+  "monitor_snapshot": {
+    "updated_at": 1794660189.708683,
+    "source_commit": "17b61a56af1174120e06cd01e25266625c277ce4",
+    "jobs": {
+      "23085012": {
+        "state": "RUNNING",
+        "reason": "None",
+        "nodes": "gl060",
+        "progress": {
+          "status": "running",
+          "completed_epochs": 142,
+          "epoch": 142,
+          "target_epochs": 160,
+          "epoch_seconds": 305.81672219600296,
+          "ffn": "isru_d",
+          "images_per_second": 531.5602064945704,
+          "lr": 5.0000000000000626e-05,
+          "loss": 0.02974169205023548,
+          "updated_at": 1794659931.2856667,
+          "job_id": "23085012"
+        },
+        "FID": {
+          "fid_cfg0.0_res128": [
+            {
+              "epoch": 20,
+              "value": 342.3664245605469
+            },
+            {
+              "epoch": 40,
+              "value": 237.662109375
+            },
+            {
+              "epoch": 60,
+              "value": 76.5611572265625
+            },
+            {
+              "epoch": 80,
+              "value": 50.305320739746094
+            },
+            {
+              "epoch": 100,
+              "value": 38.1357421875
+            },
+            {
+              "epoch": 120,
+              "value": 32.85066604614258
+            },
+            {
+              "epoch": 140,
+              "value": 30.082204818725586
+            }
+          ]
+        },
+        "numbered_checkpoints": [
+          "checkpoint-0020.pth",
+          "checkpoint-0040.pth",
+          "checkpoint-0060.pth",
+          "checkpoint-0080.pth",
+          "checkpoint-0100.pth",
+          "checkpoint-0120.pth",
+          "checkpoint-0140.pth"
+        ]
+      },
+      "23085013": {
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "elapsed": "04:19:50",
+        "nodes": "gl024",
+        "progress": {
+          "status": "complete",
+          "completed_epochs": 160,
+          "target_epochs": 160,
+          "updated_at": 1794649407.9752848,
+          "job_id": "23085013"
+        },
+        "FID": {
+          "fid_cfg0.0_res128": [
+            {
+              "epoch": 20,
+              "value": 350.4965515136719
+            },
+            {
+              "epoch": 40,
+              "value": 245.96788024902344
+            },
+            {
+              "epoch": 60,
+              "value": 80.73377990722656
+            },
+            {
+              "epoch": 80,
+              "value": 50.10519790649414
+            },
+            {
+              "epoch": 100,
+              "value": 37.924861907958984
+            },
+            {
+              "epoch": 120,
+              "value": 32.50212860107422
+            },
+            {
+              "epoch": 140,
+              "value": 29.629058837890625
+            },
+            {
+              "epoch": 160,
+              "value": 27.788681030273438
+            }
+          ]
+        },
+        "numbered_checkpoints": [
+          "checkpoint-0020.pth",
+          "checkpoint-0040.pth",
+          "checkpoint-0060.pth",
+          "checkpoint-0080.pth",
+          "checkpoint-0100.pth",
+          "checkpoint-0120.pth",
+          "checkpoint-0140.pth",
+          "checkpoint-0160.pth"
+        ]
+      }
+    }
+  },
+  "monitor_process": "2415208    07:58:56 /scratch/zz5070/ODE_FFN/envs/jit-celeba-cu128/bin/python /scratch/zz5070/ODE_FFN/runtimes/celeba128-wide-20261114/scripts/monitor_slurm.py --launch /scratch/zz5070/ODE_FFN/operations/celeba128-wide-20261114/continuation-160/launch.json --interval 60\n"
+}
