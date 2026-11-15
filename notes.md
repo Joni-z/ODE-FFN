@@ -17,3 +17,16 @@ automatically run common-bank evaluation followed by frozen-order diagnostics.
 Readiness passed after explicit-path imports removed a historical module-name
 collision. Full diagonal Jacobian coverage is dim2; dim16 has parameter/RNG,
 finite-gradient, checkpoint, and continuation checks. No formal retries.
+
+All four formal pipelines completed with exit0 and released their cards.
+Ring8 ISRU K1->K8 pooled SW2:0.13261->0.16779; Product16:0.07206->0.07321.
+Product16 tanh improves0.07006->0.06427, seven of eight paired banks better.
+Both K8 responses still benefit strongly from C8 projection on Ring8.
+Higher terms are active: deleting them from K8-trained weights is damaging.
+The inspected K8 exponential error is <=1.60e-4. These facts distinguish
+learned dependence on terms from an advantage over a separately trained K1.
+
+Published evidence lives in docs/research-assessments/2026-11-15-order-response/.
+The next proposed mechanism test remains paired C8 training augmentation on
+ISRU-D and ordinary SwiGLU. No extra architecture or image training was added.
+Report1/2 preservation covers all96 tracked files against4c336ef.

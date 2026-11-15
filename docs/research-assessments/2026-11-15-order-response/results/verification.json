@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "metric_rows": 24,
+  "bank_rows": 192,
+  "new_cells": 4,
+  "matched_k1_cases": 4,
+  "max_gpu_numpy_error": 2.7755575615628914e-17,
+  "k1_anchor_hashes_match": true,
+  "all_bank_hashes_match": true,
+  "source_sha256": "f5f0ae7b74f2db18d3ee4cebb2914ebea4d6146cfdd16d49f8dfaaae4e97711b",
+  "bindings": [
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "145",
+        "family": "pd_isru_k8",
+        "optimizer": "adamw",
+        "projection_lr": 0.0003,
+        "role": "order_response",
+        "gpu": 4
+      },
+      "binding_sha256": "8d4c23b8d4c85c193c7919419c9950bad2eed3438944149dcea52778ec2a17c0",
+      "diagnostic_sha256": "d51c81890fc2383e7856a6cdd2949bcfdca89575ce202b4365241ca29c8ea839",
+      "term_sha256": "2b558f4a76480b53b5b3563067829273bb9a31a3a0950de11da9cabf231c06c3"
+    },
+    {
+      "cell": {
+        "id": "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "data_version": "v1",
+        "host": "145",
+        "family": "pd_tanh_k8",
+        "optimizer": "adamw",
+        "projection_lr": 0.0003,
+        "role": "order_response",
+        "gpu": 5
+      },
+      "binding_sha256": "e75b3bc67a6318a8856cdb379f84fc2ee6fbd1911fff6ce13f367c3ce78e6a63",
+      "diagnostic_sha256": "22334ae674dd24ed885deb8b6944dfd88a968a455932de33b3e14645c838a852",
+      "term_sha256": "6075dd58ea89d720a22d8d93818d11c1c950c4e072598e98fe45eab74fdc3bcb"
+    },
+    {
+      "cell": {
+        "id": "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+        "dataset": "rotated_product_bimodal_16d",
+        "data_version": "product16_v1",
+        "host": "145",
+        "family": "pd_isru_k8",
+        "optimizer": "adamw",
+        "projection_lr": 0.0003,
+        "role": "order_response",
+        "gpu": 6
+      },
+      "binding_sha256": "d8904e5730e79732936e60427ecf6b6b034e45e7f516fad85e1cc7f905a2c288",
+      "diagnostic_sha256": "346ee5211c1939089183a396962488add16507db317e30233b5d94ae381d61ef",
+      "term_sha256": "bdf7bd3c25804c5019f7b087becc6ff8e68be894deeb51f44b0236613d35a85c"
+    },
+    {
+      "cell": {
+        "id": "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+        "dataset": "rotated_product_bimodal_16d",
+        "data_version": "product16_v1",
+        "host": "145",
+        "family": "pd_tanh_k8",
+        "optimizer": "adamw",
+        "projection_lr": 0.0003,
+        "role": "order_response",
+        "gpu": 7
+      },
+      "binding_sha256": "2cbc772231e6ca443d6ea75df3d55ca5f0c05282a5d099e1a8757a5b83835c84",
+      "diagnostic_sha256": "3e02ef3d479732bdbac0a41230715beae745cfe12a9641b4932af3d77bd7b866",
+      "term_sha256": "fd2118f7510ba48ff25e449c74caafb5455f5d5f26d75bd5966bf0a3a7ce9c81"
+    }
+  ]
+}

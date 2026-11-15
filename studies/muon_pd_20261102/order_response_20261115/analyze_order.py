@@ -27,7 +27,7 @@ def table(name,rows):
 
 def row(dataset,family,order,step,variant,s,checkpoint):
  eq=s.get('equivariance') or {}
- return dict(dataset=dataset,response='ISRU' if 'isru' in family else 'tanh',order=order,step=step,variant=variant,field_mse=s['field_mse'],sw2_mean=s['sw2_mean'],pooled_sw2=s['pooled_sw2'],sector_l1=s.get('sector_l1'),equivariance_relative_rms=eq.get('relative_rms'),checkpoint_sha256=checkpoint)
+ return dict(dataset=dataset,response='ISRU' if 'isru' in family else 'tanh',order=order,step=step,variant=variant,field_mse=s['field_mse'],sw2_mean=s['sw2_mean'],sw2_sd=s['sw2_sd'],pooled_sw2=s['pooled_sw2'],sector_l1=s.get('sector_l1'),equivariance_relative_rms=eq.get('relative_rms'),checkpoint_sha256=checkpoint)
 
 rows=[];banks=[];truncations=[];layerrows=[];exp_rows=[];bindings=[];bankhashes={};error=0.
 for bfile in sorted((root/'new').glob('gpu*/evaluations/*/binding.json')):
@@ -89,7 +89,7 @@ for step in (15000,20000):
   assert abs(s-float(source['numpy_sw2']))<1e-10
   banks.append(dict(dataset=dataset,response='ISRU',order=1,step=step,variant='native',bank=i,sw2=s,sha256=sha(file)))
  field=next(r for r in fields if r['cell']==b['case']['id'] and int(r['checkpoint_step'])==step)
- s=dict(field_mse=float(field['numpy_oracle_mse']),sw2_mean=float(np.mean(scores)),pooled_sw2=sw2(np.concatenate(values),np.concatenate([arrays[f'target_{i}'] for i in range(8)]),arrays['directions']))
+ s=dict(field_mse=float(field['numpy_oracle_mse']),sw2_mean=float(np.mean(scores)),sw2_sd=float(np.std(scores,ddof=1)),pooled_sw2=sw2(np.concatenate(values),np.concatenate([arrays[f'target_{i}'] for i in range(8)]),arrays['directions']))
  rows.append(row(dataset,'pd_isru_k1',1,step,'native',s,field['checkpoint_sha256']))
 assert len(rows)==24
 # All observed source checkpoints must match the registered K1 source identity.
@@ -138,4 +138,17 @@ for ax,dataset in zip(axes,('gmm_ring8_2d','rotated_product_bimodal_16d')):
   ax.plot([r['evaluation_order'] for r in sub],[r['pooled_sw2'] for r in sub],marker='o',label=response)
  ax.set(title='Ring8' if dataset=='gmm_ring8_2d' else 'Product16',xlabel='Evaluation order, K8-trained weights',ylabel='Pooled SW2',xticks=[1,2,4,8]);ax.legend()
 fig.savefig(out/'truncation.png',dpi=180);plt.close(fig)
+# Ring8 case study: the same bank and first2048 source samples for each panel.
+fig,axes=plt.subplots(2,3,figsize=(9,6),layout='constrained')
+for i,response in enumerate(('ISRU','tanh')):
+ family='isru' if response=='ISRU' else 'tanh'
+ old=next(f.parent for f in (previous/'evaluations').glob('gpu*/*/binding.json') if json.loads(f.read_text())['source_config']['cell']['dataset']=='gmm_ring8_2d' and json.loads(f.read_text())['source_config']['cell']['family']==f'pd_{family}_k1')
+ new=next(f.parent for f in (root/'new').glob('gpu*/evaluations/*/binding.json') if json.loads(f.read_text())['source_config']['cell']['dataset']=='gmm_ring8_2d' and json.loads(f.read_text())['source_config']['cell']['family']==f'pd_{family}_k8')
+ with np.load(new/'banks.npz') as z:limit=float(np.max(np.abs(z['target_0'])))*1.1
+ for j,(folder,order,variant) in enumerate(((old,1,'native'),(new,8,'native'),(new,8,'c8'))):
+  x=np.load(folder/f'20000-{variant}-b0.npy')[:2048]
+  metric=next(r for r in rows if r['dataset']=='gmm_ring8_2d' and r['response']==response and r['order']==order and r['step']==20000 and r['variant']==variant)
+  ax=axes[i,j];ax.scatter(x[:,0],x[:,1],s=2,alpha=.35,color='#0072B2' if response=='ISRU' else '#D55E00')
+  ax.set(xlim=(-limit,limit),ylim=(-limit,limit),aspect='equal',title=f"{response} K{order} {variant}\npooled SW2={metric['pooled_sw2']:.4f}")
+fig.savefig(out/'ring-samples.png',dpi=180);plt.close(fig)
 print(json.dumps(dict(passed=True,rows=len(rows),max_error=error,output=str(out))))

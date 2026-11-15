@@ -1,0 +1,312 @@
+{
+  "runtime_source": "9f72bd34daa242aa1a8812b5a490e94e7cee970c",
+  "runtime_dirty": "",
+  "checked_unix": 1794741709.0082202,
+  "runs": [
+    {
+      "gpu": 4,
+      "completion": {
+        "unix_time": 1794741551.156917,
+        "failed": false,
+        "completed": [
+          {
+            "cell": "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+            "dataset": "gmm_ring8_2d",
+            "pid": 3420116,
+            "started": 1794741222.127934,
+            "command": [
+              "/data2/zz5070/miniconda3/envs/py312/bin/python",
+              "-u",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+              "--cell",
+              "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+              "--data-root",
+              "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+              "--output",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/gpu4",
+              "--device",
+              "cuda"
+            ],
+            "exit_code": 0,
+            "finished": 1794741551.0808668,
+            "complete": true
+          }
+        ],
+        "unstarted": []
+      },
+      "pipeline": {
+        "cell": "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+        "phase": "complete",
+        "training_folder": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu4/order_response_20261115/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k8__adamw_0.0003/seed000",
+        "evaluation": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu4/evaluations/gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+        "diagnostics": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu4/diagnostics/gmm_ring8_2d__pd_isru_k8__adamw_0.0003"
+      },
+      "evaluation": {
+        "passed": true,
+        "witness": false,
+        "steps": [
+          15000,
+          20000
+        ],
+        "source_config_sha256": "e33b7aee538515d62c41ecfd8bd8dde114c42ddffb43b8e0de6b2bdf988c88ed"
+      },
+      "diagnostics": {
+        "passed": true,
+        "witness": false,
+        "checkpoint": {
+          "checkpoint_sha256": "8aa168529029c6a083116a215886aa41c075e2988254f1ace28e965fb9384a57",
+          "config_sha256": "e33b7aee538515d62c41ecfd8bd8dde114c42ddffb43b8e0de6b2bdf988c88ed",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        },
+        "source_sha256": "5f82018211f6b2f3f2ba7c825250f7e356824a62593dae85343dbf771c11178a",
+        "all_parameters_buffers_unchanged": true,
+        "orders_restored": 8
+      },
+      "training_final_metrics": {
+        "step": 20000,
+        "wall_seconds": 268.22846096009016,
+        "validation_oracle_mse": 0.011950538921356202,
+        "sample": {
+          "heun_steps": 32,
+          "nfe": 64,
+          "reference_floor": 0.15047864615917206,
+          "seconds": 0.20051755011081696,
+          "sliced_w2": 0.1725466549396515
+        }
+      },
+      "monitor_observations": 12,
+      "gpu_util_mean_unweighted_snapshots": 13.083333333333334,
+      "gpu_memory_max_MiB": 1356,
+      "queue_elapsed_seconds": 329.0295605659485
+    },
+    {
+      "gpu": 5,
+      "completion": {
+        "unix_time": 1794741647.5773685,
+        "failed": false,
+        "completed": [
+          {
+            "cell": "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+            "dataset": "gmm_ring8_2d",
+            "pid": 3420138,
+            "started": 1794741222.176864,
+            "command": [
+              "/data2/zz5070/miniconda3/envs/py312/bin/python",
+              "-u",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+              "--cell",
+              "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+              "--data-root",
+              "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+              "--output",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/gpu5",
+              "--device",
+              "cuda"
+            ],
+            "exit_code": 0,
+            "finished": 1794741647.5010846,
+            "complete": true
+          }
+        ],
+        "unstarted": []
+      },
+      "pipeline": {
+        "cell": "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+        "phase": "complete",
+        "training_folder": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu5/order_response_20261115/gmm_ring8_2d/gmm_ring8_2d__pd_tanh_k8__adamw_0.0003/seed000",
+        "evaluation": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu5/evaluations/gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+        "diagnostics": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu5/diagnostics/gmm_ring8_2d__pd_tanh_k8__adamw_0.0003"
+      },
+      "evaluation": {
+        "passed": true,
+        "witness": false,
+        "steps": [
+          15000,
+          20000
+        ],
+        "source_config_sha256": "fb57db7a9160ed3c0b38f11b4af2c39eaad0aa88f6916b946b50b209b4cd75a8"
+      },
+      "diagnostics": {
+        "passed": true,
+        "witness": false,
+        "checkpoint": {
+          "checkpoint_sha256": "0a154de2091bec3b7113441c64b4d6b825f9c1c393308c29128826a4c471fb11",
+          "config_sha256": "fb57db7a9160ed3c0b38f11b4af2c39eaad0aa88f6916b946b50b209b4cd75a8",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        },
+        "source_sha256": "5f82018211f6b2f3f2ba7c825250f7e356824a62593dae85343dbf771c11178a",
+        "all_parameters_buffers_unchanged": true,
+        "orders_restored": 8
+      },
+      "training_final_metrics": {
+        "step": 20000,
+        "wall_seconds": 345.04944979958236,
+        "validation_oracle_mse": 0.01096887674331665,
+        "sample": {
+          "heun_steps": 32,
+          "nfe": 64,
+          "reference_floor": 0.15047864615917206,
+          "seconds": 0.2782309502363205,
+          "sliced_w2": 0.1740349978208542
+        }
+      },
+      "monitor_observations": 16,
+      "gpu_util_mean_unweighted_snapshots": 16.0625,
+      "gpu_memory_max_MiB": 1356,
+      "queue_elapsed_seconds": 425.4010360240936
+    },
+    {
+      "gpu": 6,
+      "completion": {
+        "unix_time": 1794741527.2946718,
+        "failed": false,
+        "completed": [
+          {
+            "cell": "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+            "dataset": "rotated_product_bimodal_16d",
+            "pid": 3420145,
+            "started": 1794741222.224936,
+            "command": [
+              "/data2/zz5070/miniconda3/envs/py312/bin/python",
+              "-u",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+              "--cell",
+              "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+              "--data-root",
+              "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+              "--output",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/gpu6",
+              "--device",
+              "cuda"
+            ],
+            "exit_code": 0,
+            "finished": 1794741527.2166133,
+            "complete": true
+          }
+        ],
+        "unstarted": []
+      },
+      "pipeline": {
+        "cell": "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+        "phase": "complete",
+        "training_folder": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu6/order_response_20261115/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003/seed000",
+        "evaluation": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu6/evaluations/rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+        "diagnostics": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu6/diagnostics/rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003"
+      },
+      "evaluation": {
+        "passed": true,
+        "witness": false,
+        "steps": [
+          15000,
+          20000
+        ],
+        "source_config_sha256": "bf65e5881ae5ac6486f2e7411c5c3ebb275cef1b0ce5a4b4942768f2961241c0"
+      },
+      "diagnostics": {
+        "passed": true,
+        "witness": false,
+        "checkpoint": {
+          "checkpoint_sha256": "bfdbc9c0c36dc14876cda9c0f6962bc2d6692040605e4d6d523b6e5a44dcebeb",
+          "config_sha256": "bf65e5881ae5ac6486f2e7411c5c3ebb275cef1b0ce5a4b4942768f2961241c0",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        },
+        "source_sha256": "5f82018211f6b2f3f2ba7c825250f7e356824a62593dae85343dbf771c11178a",
+        "all_parameters_buffers_unchanged": true,
+        "orders_restored": 8
+      },
+      "training_final_metrics": {
+        "step": 20000,
+        "wall_seconds": 265.38382320664823,
+        "validation_oracle_mse": 0.015779118013381957,
+        "sample": {
+          "heun_steps": 32,
+          "nfe": 64,
+          "reference_floor": 0.05105132982134819,
+          "seconds": 0.19366811960935593,
+          "sliced_w2": 0.06997211277484894
+        }
+      },
+      "monitor_observations": 12,
+      "gpu_util_mean_unweighted_snapshots": 13.166666666666666,
+      "gpu_memory_max_MiB": 1358,
+      "queue_elapsed_seconds": 305.07029724121094
+    },
+    {
+      "gpu": 7,
+      "completion": {
+        "unix_time": 1794741601.5029032,
+        "failed": false,
+        "completed": [
+          {
+            "cell": "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+            "dataset": "rotated_product_bimodal_16d",
+            "pid": 3420150,
+            "started": 1794741222.270004,
+            "command": [
+              "/data2/zz5070/miniconda3/envs/py312/bin/python",
+              "-u",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+              "--cell",
+              "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+              "--data-root",
+              "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+              "--output",
+              "/data2/zz5070/ODE_FFN/order-response-20261115/gpu7",
+              "--device",
+              "cuda"
+            ],
+            "exit_code": 0,
+            "finished": 1794741601.4229648,
+            "complete": true
+          }
+        ],
+        "unstarted": []
+      },
+      "pipeline": {
+        "cell": "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+        "phase": "complete",
+        "training_folder": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu7/order_response_20261115/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003/seed000",
+        "evaluation": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu7/evaluations/rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+        "diagnostics": "/data2/zz5070/ODE_FFN/order-response-20261115/gpu7/diagnostics/rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003"
+      },
+      "evaluation": {
+        "passed": true,
+        "witness": false,
+        "steps": [
+          15000,
+          20000
+        ],
+        "source_config_sha256": "3e255e9f04bc5f9e48f5b0e6b2793b1f0194826abbcf22dc3b6bb1dc38b8e4e7"
+      },
+      "diagnostics": {
+        "passed": true,
+        "witness": false,
+        "checkpoint": {
+          "checkpoint_sha256": "e4c5d273412924739a71252e4ea0be7c6c012e8720ae7bb92b2c9cd2bf3df22a",
+          "config_sha256": "3e255e9f04bc5f9e48f5b0e6b2793b1f0194826abbcf22dc3b6bb1dc38b8e4e7",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        },
+        "source_sha256": "5f82018211f6b2f3f2ba7c825250f7e356824a62593dae85343dbf771c11178a",
+        "all_parameters_buffers_unchanged": true,
+        "orders_restored": 8
+      },
+      "training_final_metrics": {
+        "step": 20000,
+        "wall_seconds": 328.8443848323077,
+        "validation_oracle_mse": 0.015584873485565186,
+        "sample": {
+          "heun_steps": 32,
+          "nfe": 64,
+          "reference_floor": 0.05105132982134819,
+          "seconds": 0.2575257532298565,
+          "sliced_w2": 0.06576763838529587
+        }
+      },
+      "monitor_observations": 14,
+      "gpu_util_mean_unweighted_snapshots": 12.714285714285714,
+      "gpu_memory_max_MiB": 602,
+      "queue_elapsed_seconds": 379.23344349861145
+    }
+  ],
+  "gpu_after": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 1315 MiB, 59 %\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 1191 MiB, 59 %\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 1315 MiB, 47 %\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 1191 MiB, 54 %\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 2 MiB, 0 %\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 2 MiB, 0 %\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 2 MiB, 0 %\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 2 MiB, 0 %\n"
+}

@@ -9,8 +9,8 @@ Preserve finalized reports, native trainers, old runs and image baseline.
 - [x] Implement order-only adapter, shared evaluator bridge and term diagnostics.
 - [x] Verify explicit Taylor powers, full entrance-diagonal Jacobian (dim2), unchanged initialization and native8->16 continuation.
 - [x] Fresh documented witness; push/freeze source; launch four monitored pipelines.
-- [ ] Complete native/C8 sampling,20k order truncation and layer-term diagnostics.
-- [ ] Independently recompute metrics; compare response-by-order effects and ordinary controls.
+- [x] Complete native/C8 sampling,20k order truncation and layer-term diagnostics.
+- [x] Independently recompute metrics; compare response-by-order effects and ordinary controls.
 - [ ] Publish findings and next decision; record open research questions.
 
 GPU4 Ring8/ISRU-K8; GPU5 Ring8/tanh-K8;
@@ -19,9 +19,9 @@ Same20k updates, batch512, AdamW3e-4, eight common4096sample banks and Heun128.
 Equal parameters and updates; K8 uses eight P applications per internal solve.
 No new optimizer sweep, scaling, spectral caps or rotation augmentation.
 
-Current: four monitored pipelines are training on145 GPUs4-7 at frozen9f72bd3.
-Queue PIDs3420113/3420115/3420137/3420144; receipts under the study docs.
-Independent NumPy analysis is prepared locally; formal metrics are pending.
+Current: four pipelines completed at frozen9f72bd3, all exits zero, GPUs idle.
+NumPy recomputation passed (max sampled-metric difference2.8e-17).
+Figures inspected. Findings drafted; final publication and source sync pending.
 
 Readiness1 failed at helper import: historical check.py shadowed response
 check.py. Explicit-path imports fix the wrapper; attempt2 uses new output

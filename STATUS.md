@@ -1,16 +1,21 @@
 # Current project status
 
-## Running order-by-response comparison,15November
+## Completed order-by-response comparison,15 November
 
-Four seed0 K8 runs are training on145 GPUs4-7: ISRU/tanh on Ring8/Product16.
-The four K1 controls already exist and their checkpoints are hash-bound.
-Only Taylor order changes; optimizer, initialization, width and20k updates
-stay fixed. K8 uses eight P applications per solve, so this is not equal compute.
-Each monitored pipeline performs common-bank sampling and frozen K8->1/2/4
-diagnostics after training. Runtime source is frozen at9f72bd3.
+Four seed 0 K8 runs, common-bank evaluations and frozen-order diagnostics
+completed on 145 GPUs 4–7. All queues exited zero and released their cards.
+ISRU-K8 worsens Ring8 pooled SW2 from 0.13261 to 0.16779 relative to K1;
+Product16 changes from 0.07206 to 0.07321. Tanh-K8 is the positive case:
+Product16 improves from 0.07006 to 0.06427, with seven of eight banks better.
+High-order terms are active, and the measured K8 exponential error is small.
+Their necessity for K8-trained weights does not establish an ISRU advantage.
+Ring8 C8 projection still largely removes mode imbalance at either order.
 
-[Protocol](docs/research-assessments/2026-11-15-order-response/protocol.md),
-[launch and readiness receipt](docs/research-assessments/2026-11-15-order-response/launch-receipt.json).
+[Findings and figures](docs/research-assessments/2026-11-15-order-response/findings.md),
+[completion](docs/research-assessments/2026-11-15-order-response/completion.json),
+[metric verification](docs/research-assessments/2026-11-15-order-response/results/verification.json).
+Runtime source is frozen at 9f72bd3. Next priority is the proposed matched
+training-only rotation control, not another Taylor-order or width sweep.
 No new image run is submitted; finalized Reports1/2 are preserved.
 
 ## Completed professor follow-up,15November
