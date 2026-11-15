@@ -10,9 +10,12 @@ the same CPU host/backend. Seed0 and native training/metrics remain fixed.
 Independent selection/confirmation arrays are hash-bound before training.
 Source b5fe7aa passed16 native continuations, kernel checks and a fresh
 documented pass. The200step benchmark selected2workers (1.89x aggregate
-throughput). Queue3761 is training the first Ring8 ISRU K1/K8 pair; at the
-first30second monitor read they reached5500/2000updates. There are36
-trajectories total, each20k updates. Evaluation/selection/confirmation
+throughput). At the latest status audit,11of36 pipelines completed their
+20k training and selection evaluation with no failures. Softsign-K8 has the
+lowest completed Ring8 pooled SW2 (0.06956); tanh-K1 has the lowest field MSE
+(0.009478). Same-host SwiGLU and Product16 are still pending, so no CelebA
+candidate is selected. [Partial comparison](docs/research-assessments/2026-11-15-response-screen/current-comparison.md).
+Evaluation/selection/confirmation
 watcher3767 uses separate analysis source0e78ce7 and is waiting for training.
 [Execution amendment](docs/research-assessments/2026-11-15-response-screen/protocol.md).
 [Launch receipt](docs/research-assessments/2026-11-15-response-screen/launch-receipt.json)

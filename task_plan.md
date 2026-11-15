@@ -28,7 +28,12 @@ workers,1.889x aggregate throughput. Independent analysis watcher3767 uses
 0e78ce7 and automatically follows training with selection/confirmation.
 The145 weights remain historical diagnostic anchors. No task has
 been terminated, shared or submitted to Torch.
-No new jobs started. Earlier planning journals archived under
+Latest audit:11of36 training/selection pipelines completed, no failures.
+All11 completed20k selection metrics independently recompute within2.8e-17.
+Softsign-K8 is the current Ring8 sampling lead, not a final image choice;
+same-host SwiGLU and Product16 remain pending. Current comparison is under
+docs/research-assessments/2026-11-15-response-screen/current-comparison.md.
+Earlier planning journals archived under
 docs/history/2026-11-15-before-response-screen/.
 
 Tool note: a combined delete/add patch targeting the same journal was rejected;
