@@ -1,0 +1,188 @@
+{
+  "selected_responses": [
+    "isru",
+    "arctan"
+  ],
+  "ranking": [
+    {
+      "response": "isru",
+      "order": 1,
+      "eligible": true,
+      "worst_relative_sw2": 1.0165662581534323,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.0165662581534323,
+        "rotated_product_bimodal_16d": 1.0
+      },
+      "latency_mean": 0.0008931156131438911
+    },
+    {
+      "response": "tanh",
+      "order": 1,
+      "eligible": true,
+      "worst_relative_sw2": 1.0969848980732548,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.0,
+        "rotated_product_bimodal_16d": 1.0969848980732548
+      },
+      "latency_mean": 0.004966802091803402
+    },
+    {
+      "response": "arctan",
+      "order": 1,
+      "eligible": true,
+      "worst_relative_sw2": 1.013050323347408,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 0.8577680735718778,
+        "rotated_product_bimodal_16d": 1.013050323347408
+      },
+      "latency_mean": 0.004617522901389748
+    },
+    {
+      "response": "softsign",
+      "order": 1,
+      "eligible": false,
+      "worst_relative_sw2": 0.9541069311038767,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 0.7987178927164919,
+        "rotated_product_bimodal_16d": 0.9541069311038767
+      },
+      "latency_mean": 0.0009122916380874813
+    },
+    {
+      "response": "erf",
+      "order": 1,
+      "eligible": true,
+      "worst_relative_sw2": 1.073450244578299,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.073450244578299,
+        "rotated_product_bimodal_16d": 1.0668184673105214
+      },
+      "latency_mean": 0.004394985409453512
+    },
+    {
+      "response": "silu",
+      "order": 1,
+      "eligible": false,
+      "worst_relative_sw2": 1.4232453993374374,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.4232453993374374,
+        "rotated_product_bimodal_16d": 1.365997246123775
+      },
+      "latency_mean": 0.0009986958350054918
+    },
+    {
+      "response": "gelu",
+      "order": 1,
+      "eligible": false,
+      "worst_relative_sw2": 1.34204200445511,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.34204200445511,
+        "rotated_product_bimodal_16d": 1.3161333030439915
+      },
+      "latency_mean": 0.0010163572733290493
+    },
+    {
+      "response": "linear",
+      "order": 1,
+      "eligible": false,
+      "worst_relative_sw2": 1.0688219434865172,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.0688219434865172,
+        "rotated_product_bimodal_16d": 0.9524178836007889
+      },
+      "latency_mean": 0.0007794437580741942
+    },
+    {
+      "response": "isru",
+      "order": 8,
+      "eligible": true,
+      "worst_relative_sw2": 1.0,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.0,
+        "rotated_product_bimodal_16d": 1.0
+      },
+      "latency_mean": 0.002147087489720434
+    },
+    {
+      "response": "tanh",
+      "order": 8,
+      "eligible": true,
+      "worst_relative_sw2": 1.0498842442133711,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.0498842442133711,
+        "rotated_product_bimodal_16d": 1.017299721874708
+      },
+      "latency_mean": 0.006416719779372216
+    },
+    {
+      "response": "arctan",
+      "order": 8,
+      "eligible": true,
+      "worst_relative_sw2": 1.0041319155177966,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 0.9008380120919444,
+        "rotated_product_bimodal_16d": 1.0041319155177966
+      },
+      "latency_mean": 0.006241186463739723
+    },
+    {
+      "response": "softsign",
+      "order": 8,
+      "eligible": false,
+      "worst_relative_sw2": 0.9542728909680455,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 0.6939371360333506,
+        "rotated_product_bimodal_16d": 0.9542728909680455
+      },
+      "latency_mean": 0.0025819520931690933
+    },
+    {
+      "response": "erf",
+      "order": 8,
+      "eligible": true,
+      "worst_relative_sw2": 1.06331004206697,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.06331004206697,
+        "rotated_product_bimodal_16d": 1.0009296164691006
+      },
+      "latency_mean": 0.0058140979032032195
+    },
+    {
+      "response": "silu",
+      "order": 8,
+      "eligible": false,
+      "worst_relative_sw2": 1.516100196450717,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.516100196450717,
+        "rotated_product_bimodal_16d": 1.4355613536857375
+      },
+      "latency_mean": 0.00225608543260023
+    },
+    {
+      "response": "gelu",
+      "order": 8,
+      "eligible": false,
+      "worst_relative_sw2": 1.732035589041831,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.3018352786804068,
+        "rotated_product_bimodal_16d": 1.732035589041831
+      },
+      "latency_mean": 0.002121983328834176
+    },
+    {
+      "response": "linear",
+      "order": 8,
+      "eligible": false,
+      "worst_relative_sw2": 1.2318758085152224,
+      "dataset_ratios": {
+        "gmm_ring8_2d": 1.2318758085152224,
+        "rotated_product_bimodal_16d": 1.0673665567409563
+      },
+      "latency_mean": 0.002462260401807725
+    }
+  ],
+  "rule": "registered worst-task pooled SW2 ratio, MSE eligibility; selection arrays only",
+  "selected_before_confirmation": true,
+  "verification_sha256": "e7f078cd3c1aef5d8fd1ff2b62db3203268a0e45d83114e050d0a2e082ea6c46",
+  "latency_sha256": "758d8e52b52c88dc66b41a30b25015ce736c067dd4a98d19ddbb2f10c972e590"
+}

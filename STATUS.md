@@ -1,22 +1,28 @@
 # Current project status
 
-## Running response comparison on Mac mini CPU
+## Completed response comparison on Mac mini CPU
 
 [Response-family comparison](docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md):
-compare ISRU,tanh,arctan,Softsign,erf,slope-normalized SiLU/GELU and linear
-at K1/K8 on Ring8/Product16. The user authorized execution, then selected
-Mac mini CPU. All32 focal trajectories and4ordinary references will use
-the same CPU host/backend. Seed0 and native training/metrics remain fixed.
-Independent selection/confirmation arrays are hash-bound before training.
-Source b5fe7aa passed16 native continuations, kernel checks and a fresh
-documented pass. The200step benchmark selected2workers (1.89x aggregate
-throughput). At the latest live check,20of36 pipelines completed20k training and
-selection evaluation with no failures. Ring8 is complete, including its
-SwiGLU64/Muon reference: pooled SW2 0.11823 versus Softsign-K8 0.06956.
-Product16 has completed2of18 cases; the final shortlist and independent confirmation
-remain pending. [Current comparison](docs/research-assessments/2026-11-15-response-screen/current-comparison.md).
-Evaluation/selection/confirmation
-watcher3767 uses separate analysis source0e78ce7 and is waiting for training.
+compared eight responses at K1/K8 on Ring8/Product16. All32 focal trajectories
+and4ordinary references completed20k updates and selection evaluation on
+the same CPU host/backend. All12 independent confirmation cases are complete.
+Training queue3761 and analysis watcher3767 have exited. Seed0, pinned native
+training/metrics and prebound evaluation arrays remain fixed. Training source
+b5fe7aa and analysis0e78ce7 are preserved. Both streams independently
+recompute within5.56e-17; all96 protected Report1/2 hashes remain unchanged.
+
+**Next candidate: arctan-D K1 for a bounded JiT GPU readiness benchmark.**
+Its Ring8 confirmation SW2 is0.125849 versus SwiGLU0.141952, winning all8banks.
+Product16 is0.062764 versus SwiGLU0.039954, losing all8banks. Free ISRU also
+beats every confirmed ODE variant on Product16 at the same parameter count.
+K8 does not consistently improve quality over K1. Softsign-K8's strong Ring8
+selection score does not pass the registered Product16 field-MSE eligibility
+gate. No new image training is submitted.
+
+[Complete comparison](docs/research-assessments/2026-11-15-response-screen/current-comparison.md),
+[decision and analysis](docs/research-assessments/2026-11-15-response-screen/analysis-report.md),
+[paired-bank analysis](docs/research-assessments/2026-11-15-response-screen/stats-appendix.md),
+[completion evidence](docs/research-assessments/2026-11-15-response-screen/completion.json).
 [Execution amendment](docs/research-assessments/2026-11-15-response-screen/protocol.md).
 [Launch receipt](docs/research-assessments/2026-11-15-response-screen/launch-receipt.json)
 and [benchmark](docs/research-assessments/2026-11-15-response-screen/benchmark.json).

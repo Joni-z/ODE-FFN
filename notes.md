@@ -19,7 +19,7 @@ were stopped. Torch scheduler allocations are the fallback while145 is busy.
 Historical Ring8 linearK1 was on Lenovo; inspect145 for a mirrored checkpoint.
 If absent, explicitly register one deterministic seed0 replay within this wave.
 
-Current stage: Mac mini CPU preparation at the user's request. Existing local
+Execution history: Mac mini CPU preparation at the user's request. Existing local
 synthetic cache is present. Complete all32 focal trajectories on the same CPU
 host so the new response comparison does not mix training backends; preserve
 historical weights as context. This changes run count from23missing/replayed
@@ -32,9 +32,26 @@ freezes a shortlist and evaluates disjoint confirmation arrays afterward.
 Training sourceb5fe7aa; analysis0e78ce7. No GPU job stopped or Torch allocation
 submitted. Current progress and outputs are under response-screen-20261115.
 
-Latest partial audit:19/36 pipelines completed. Ring8 SwiGLU64/Muon SW2
-.11823; Softsign-K1 .09097 and Softsign-K8 .06956. All Ring8 response families
-are now compared; Product16 is in progress. The earlier pending-baseline
-statement referred only to this CPU rerun, not to historical synthetic/image
-baselines. Keep the registered cross-task selection and disjoint confirmation.
-All19 completed20k arrays independently recompute within2.8e-17.
+Final audit:36/36 training/selection pipelines completed, all exits zero.
+Selection72rows and confirmation12rows independently recompute within5.56e-17.
+ISRU/arctan shortlist was frozen before confirmation. Both queue and watcher
+have exited; no synthetic jobs remain in this wave. The pending-baseline
+statement from earlier updates referred only to the new CPU rerun.
+
+Confirmation pooled SW2 Ring8/Product16:
+SwiGLU .141952/.039954; Free ISRU .145836/.058042;
+ISRU-K1 .148122/.065610; ISRU-K8 .141806/.063602;
+arctan-K1 .125849/.062764; arctan-K8 .135097/.060880.
+Ring8 arctan-K1 wins all8paired banks versus SwiGLU; Product16 loses all8.
+Softsign-K8 selection .069559/.060901 misses the Product16 MSE gate
+(.020125 versus worse(ISRU,tanh)=.018331), so has no confirmation result.
+
+Recommendation: arctan-K1 is the first new response for a bounded JiT
+readiness benchmark, with K8 retained only as a comparison. Its warmed
+CPU forward cost is6.82x/4.70x SwiGLU on Ring8/Product16; image GPU cost must
+be measured rather than inferred. No response demonstrates cross-task
+superiority; parameter-matched Free ISRU also beats the ODE family on Product16.
+No new CelebA submission. Preserve native image baseline and finalized reports.
+
+Full evidence and interpretation:
+docs/research-assessments/2026-11-15-response-screen/analysis-report.md.

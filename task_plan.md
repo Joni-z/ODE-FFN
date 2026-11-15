@@ -12,27 +12,30 @@ runtimes. Push verified changes through GitHub.
 - [x] Verify16 formula/gradient cases, initialization, exact native continuations and evaluator restoration; ordinary Muon CPU smoke passed.
 - [x] Fresh documented witness and1-vs2-worker benchmark; freeze/publish source.
 - [x] Launch36same-host trajectories under persistent monitors.
-- [ ] Complete all training and selection evaluations.
-- [ ] Freeze shortlist using selection only; run disjoint confirmation.
-- [ ] Recompute metrics, plot quality/cost, publish findings and next image decision.
+- [x] Complete all training and selection evaluations:36/36, all exits zero.
+- [x] Freeze ISRU/arctan shortlist using selection only; complete12 disjoint confirmation cases.
+- [x] Independently recompute both metric streams and plot quality/cost.
+- [x] Record the next image decision and verify protected reports.
+- [x] Publish the completed evidence through GitHub main; verify the remote commit after pushing.
 
 Protocol: docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md.
 Separate new source/output: response-screen-20261115. No automatic CelebA launch.
 
-Current: Mac mini CPU queue3761 running2workers, sourceb5fe7aa.
-Use the existing local synthetic cache and PyTorch environment. No server
-allocation needed. Train the complete32cell cohort on the same host rather
-than mixing historical CUDA-trained incumbents into a CPU-trained ranking.
-Fresh documented pass16/16 and evaluator witness passed. Benchmark selects2
-workers,1.889x aggregate throughput. Independent analysis watcher3767 uses
-0e78ce7 and automatically follows training with selection/confirmation.
-The145 weights remain historical diagnostic anchors. No task has
-been terminated, shared or submitted to Torch.
-Latest live check:20of36 pipelines completed, no failures. All Ring8 cases,
-including SwiGLU64/Muon, are now evaluated on the new common banks. Product16 has2of18 completed;
-and final confirmation remain in progress/pending. All19 completed20k metrics
-independently recompute within2.8e-17. Current comparison is under
- docs/research-assessments/2026-11-15-response-screen/current-comparison.md.
+Current: COMPLETE. Training queue3761 and analysis watcher3767 have exited.
+Both complete metric streams independently recompute within5.56e-17.
+All96 protected Report1/2 files retain their hashes. No GPU task was stopped,
+shared or submitted. Frozen trainingb5fe7aa and analysis0e78ce7 are preserved.
+
+Decision: arctan-D K1 is the first new response for a bounded JiT GPU readiness
+benchmark, not an unconditional full-run promotion. Confirmation Ring8 SW2 is
+.125849 versus SwiGLU .141952; Product16 is .062764 versus .039954. Softsign
+has strong selection SW2 but misses the registered Product16 field-MSE gate.
+K8 has no consistent advantage over K1. No image training launched.
+
+Complete comparison:
+docs/research-assessments/2026-11-15-response-screen/current-comparison.md.
+Decision and interpretation:
+docs/research-assessments/2026-11-15-response-screen/analysis-report.md.
 Earlier planning journals archived under
 docs/history/2026-11-15-before-response-screen/.
 
