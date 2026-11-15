@@ -1,38 +1,27 @@
 {
-  "scope": "live partial status; training and confirmation are unfinished",
-  "checked_unix": 1794755353.893298,
+  "scope": "live partial status; training and confirmation unfinished",
+  "checked_unix": 1794755462.792365,
+  "monitor_unix": 1794755436.513091,
   "queue_pid": 3761,
-  "completed": 12,
+  "completed": 13,
   "total": 36,
   "failed": false,
   "running": [
     {
-      "cell": "gmm_ring8_2d__screen_silu_k8__adamw_0.0003",
+      "cell": "gmm_ring8_2d__screen_gelu_k8__adamw_0.0003",
       "latest": {
-        "step": 20000,
-        "validation_oracle_mse": 0.01517365198135376,
-        "wall_seconds": 199.0296269999817,
-        "sample": {
-          "heun_steps": 32,
-          "nfe": 64,
-          "reference_floor": 0.15047864615917206,
-          "seconds": 1.739117749966681,
-          "sliced_w2": 0.15236519277095795
-        }
+        "step": 11500,
+        "validation_oracle_mse": 0.014931311416625976,
+        "wall_seconds": 122.9851198750548,
+        "sample": null
       }
     },
     {
-      "cell": "gmm_ring8_2d__screen_gelu_k8__adamw_0.0003",
-      "latest": {
-        "step": 2000,
-        "validation_oracle_mse": 0.036316357803344725,
-        "wall_seconds": 21.677741792052984,
-        "sample": null
-      }
+      "cell": "gmm_ring8_2d__screen_linear_k1__adamw_0.0003",
+      "latest": null
     }
   ],
   "pending": [
-    "gmm_ring8_2d__screen_linear_k1__adamw_0.0003",
     "gmm_ring8_2d__screen_linear_k8__adamw_0.0003",
     "gmm_ring8_2d__free_isru__adamw_0.0003",
     "gmm_ring8_2d__swiglu64__muon_0.02",
@@ -55,5 +44,5 @@
     "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
     "rotated_product_bimodal_16d__swiglu192__adamw_0.0003"
   ],
-  "numpy_audited_cases": 12
+  "numpy_audited_cases": 13
 }
