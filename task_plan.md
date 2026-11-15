@@ -7,9 +7,9 @@ yp2841 jobs: user revoked prior permission during this turn. Preserve finalized 
 runtimes. Push verified changes through GitHub.
 
 - [x] Read protocol, environment ledger and live resource inventory.
-- [ ] Bind available anchors; register missing replays and all32 dispositions.
-- [ ] Add response-only builder and fresh selection/confirmation arrays.
-- [ ] Verify formulas/full derivatives, initialization, anchors and real continuation.
+- [x] Inventory historical anchors; register32same-host focal and4ordinary CPU trajectories.
+- [x] Add response-only builder and prebind selection/confirmation arrays.
+- [x] Verify16 formula/gradient cases, initialization, exact native continuations and evaluator restoration; ordinary Muon CPU smoke passed.
 - [ ] Fresh documented witness and1-vs2-worker benchmark; freeze/publish source.
 - [ ] Launch missing trajectories under persistent monitors, evaluate all cases.
 - [ ] Freeze shortlist using selection only; run disjoint confirmation.
@@ -22,7 +22,8 @@ Current: preparing Mac mini CPU execution and200step throughput comparison.
 Use the existing local synthetic cache and PyTorch environment. No server
 allocation needed. Train the complete32cell cohort on the same host rather
 than mixing historical CUDA-trained incumbents into a CPU-trained ranking.
-The145 weights remain optional historical diagnostic anchors. No task has
+Training source is frozen at b5fe7aa; fresh documented witness and200step
+benchmark are running. The145 weights remain historical diagnostic anchors. No task has
 been terminated, shared or submitted to Torch.
 No new jobs started. Earlier planning journals archived under
 docs/history/2026-11-15-before-response-screen/.

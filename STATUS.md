@@ -1,13 +1,18 @@
 # Current project status
 
-## Proposed response comparison before image transfer
+## Response comparison: Mac mini CPU readiness
 
 [Response-family comparison](docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md):
 compare ISRU,tanh,arctan,Softsign,erf,slope-normalized SiLU/GELU and linear
-at K1/K8 on Ring8/Product16. Reuse compatible anchors, fix the training
-recipe, and register separate selection/confirmation arrays. The earlier
-tanh-only transfer is superseded; compare before selecting a CelebA response.
-No implementation or new job is launched in this planning revision.
+at K1/K8 on Ring8/Product16. The user authorized execution, then selected
+Mac mini CPU. All32 focal trajectories and4ordinary references will use
+the same CPU host/backend. Seed0 and native training/metrics remain fixed.
+Independent selection/confirmation arrays are hash-bound before training.
+Source b5fe7aa passed16 native continuations and kernel checks; a fresh
+documented pass and one-versus-two-worker benchmark are in progress.
+[Execution amendment](docs/research-assessments/2026-11-15-response-screen/protocol.md).
+No formal run is launched yet. No other user's GPU jobs were stopped;
+the user explicitly revoked earlier yp2841 preemption permission.
 
 ## Completed order-by-response comparison,15 November
 
