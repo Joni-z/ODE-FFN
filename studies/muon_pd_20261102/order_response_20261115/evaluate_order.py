@@ -3,7 +3,10 @@ import json
 import sys
 from pathlib import Path
 from order_trial import HERE,base,build_model
-import evaluate as parent
+import importlib.util
+_spec=importlib.util.spec_from_file_location('response_evaluation_parent',HERE.parent/'followup_20261115/evaluate.py')
+parent=importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(parent)
 
 parent.build_model=build_model
 

@@ -20,3 +20,7 @@ Equal parameters and updates; K8 uses eight P applications per internal solve.
 No new optimizer sweep, scaling, spectral caps or rotation augmentation.
 
 Current: protocol and implementation. No new training submitted yet.
+
+Readiness1 failed at helper import: historical check.py shadowed response
+check.py. Explicit-path imports fix the wrapper; attempt2 uses new output
+paths and preserves the original failure. No formal training had started.

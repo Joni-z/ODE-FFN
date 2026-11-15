@@ -5,7 +5,11 @@ from pathlib import Path
 import subprocess
 import sys
 from order_trial import HERE,TAG,base,torch,build_model,k1_builder
-from check import same,numerical
+import importlib.util
+_helpers_spec=importlib.util.spec_from_file_location('response_check_helpers',HERE.parent/'followup_20261115/check.py')
+_helpers=importlib.util.module_from_spec(_helpers_spec)
+_helpers_spec.loader.exec_module(_helpers)
+same,numerical=_helpers.same,_helpers.numerical
 import evaluate_order as evaluator
 
 
