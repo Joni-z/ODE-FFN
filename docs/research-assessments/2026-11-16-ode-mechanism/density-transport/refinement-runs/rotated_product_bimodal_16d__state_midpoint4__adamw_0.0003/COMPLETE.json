@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "witness": false,
+  "refinement": true,
+  "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+  "selected_modes": [
+    "original",
+    "projected"
+  ],
+  "rows": [
+    {
+      "mode": "original",
+      "steps": 1024,
+      "previous_steps": 512,
+      "file": "original-heun1024.npz",
+      "sha256": "29aa7c4620e84a19a7206ada7cd12ef317788535f1e1a440fc2ba453e95d7153",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 2.7867996886810076e-06,
+        "logdet": 3.3437336323105527e-06,
+        "ratio_refinement": 0.00013142263010815225,
+        "endpoint_refinement": 2.7704573306112363e-05
+      },
+      "qualified": true
+    },
+    {
+      "mode": "projected",
+      "steps": 1024,
+      "previous_steps": 512,
+      "file": "projected-heun1024.npz",
+      "sha256": "186215c2e8e2036392dad283030f76edd7fd2d76c42e95c69c50cc65d1bc7619",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 2.8349715802122866e-06,
+        "logdet": 4.349379635670836e-06,
+        "ratio_refinement": 0.00013646472922457242,
+        "endpoint_refinement": 2.655266947253798e-05
+      },
+      "qualified": true
+    }
+  ],
+  "decisions": [
+    {
+      "mode": "original",
+      "final_steps": 1024,
+      "qualified": true
+    },
+    {
+      "mode": "projected",
+      "final_steps": 1024,
+      "qualified": true
+    }
+  ],
+  "parameters_unchanged": true,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+  "pilot_completion_sha256": "405c566897d41051c8ea5c9f00c1c9d1f4436140f912d59f57b9db2d9c7aa759",
+  "verification_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "source_sha256": {
+    "refine_density.py": "e22dc04c5e08d63af5d781a98d88ab21be2ff60d5a601ff9a040de13e1a40d46",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

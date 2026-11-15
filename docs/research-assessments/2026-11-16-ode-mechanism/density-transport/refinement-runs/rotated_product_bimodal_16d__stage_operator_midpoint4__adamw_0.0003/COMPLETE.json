@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "witness": false,
+  "refinement": true,
+  "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+  "selected_modes": [
+    "projected"
+  ],
+  "rows": [
+    {
+      "mode": "projected",
+      "steps": 1024,
+      "previous_steps": 512,
+      "file": "projected-heun1024.npz",
+      "sha256": "4951c1e6b338d8e3c2a8b59785b3c5d93f5a9e04f25b3605ab09c53a08890117",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 2.010965521728747e-06,
+        "logdet": 3.16859710047801e-06,
+        "ratio_refinement": 3.7106654340587214e-05,
+        "endpoint_refinement": 1.0990684200228395e-05
+      },
+      "qualified": true
+    }
+  ],
+  "decisions": [
+    {
+      "mode": "projected",
+      "final_steps": 1024,
+      "qualified": true
+    }
+  ],
+  "parameters_unchanged": true,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "checkpoint_sha256": "215420aab145fb625d2f90acb22f450663f2490eba1f78868409688691ef0ede",
+  "pilot_completion_sha256": "189fb04d45d7d314949917480c7cd59351034d521a09919aa8fbf349e2854b6b",
+  "verification_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "source_sha256": {
+    "refine_density.py": "e22dc04c5e08d63af5d781a98d88ab21be2ff60d5a601ff9a040de13e1a40d46",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

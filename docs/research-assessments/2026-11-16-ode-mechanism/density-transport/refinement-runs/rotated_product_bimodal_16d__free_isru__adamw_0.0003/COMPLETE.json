@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "witness": false,
+  "refinement": true,
+  "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+  "selected_modes": [
+    "projected"
+  ],
+  "rows": [
+    {
+      "mode": "projected",
+      "steps": 1024,
+      "previous_steps": 512,
+      "file": "projected-heun1024.npz",
+      "sha256": "f25239dc6828dcdd7cfeeac180dde1f39bdbf215c159545794c80ef654620b35",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 1.1554407695346658e-06,
+        "logdet": 3.7037342601742296e-06,
+        "ratio_refinement": 6.196437145018774e-05,
+        "endpoint_refinement": 2.5451919070185192e-05
+      },
+      "qualified": true
+    }
+  ],
+  "decisions": [
+    {
+      "mode": "projected",
+      "final_steps": 1024,
+      "qualified": true
+    }
+  ],
+  "parameters_unchanged": true,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a",
+  "pilot_completion_sha256": "431d03d65de5d65d6fa3fa1b42d293955a068e54970ea35f5ed0dae2bb3d8686",
+  "verification_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "source_sha256": {
+    "refine_density.py": "e22dc04c5e08d63af5d781a98d88ab21be2ff60d5a601ff9a040de13e1a40d46",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "task": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "mode": "original",
+      "field_mse": 0.011775148459787478,
+      "source_rms": 0.5934741442463305,
+      "field_mse_bank_mean": 0.011775148459787478,
+      "field_mse_bank_sd": 0.0005629999252999865,
+      "source_rms_bank_mean": 0.5925401099873631,
+      "source_rms_bank_sd": 0.03843224245479136
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "mode": "projected",
+      "field_mse": 0.007397521707643287,
+      "source_rms": 0.48163224537796945,
+      "field_mse_bank_mean": 0.0073975217076432875,
+      "field_mse_bank_sd": 0.00011438547027070188,
+      "source_rms_bank_mean": 0.4756984461586769,
+      "source_rms_bank_sd": 0.08702955904017123
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "field_mse": 0.011272192881994823,
+      "source_rms": 0.6544956342069501,
+      "field_mse_bank_mean": 0.011272192881994823,
+      "field_mse_bank_sd": 0.0012408332068379248,
+      "source_rms_bank_mean": 0.6460498243173187,
+      "source_rms_bank_sd": 0.12101878474308231
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "field_mse": 0.0063942126398014556,
+      "source_rms": 0.5019488215542479,
+      "field_mse_bank_mean": 0.0063942126398014556,
+      "field_mse_bank_sd": 0.00037169953282473813,
+      "source_rms_bank_mean": 0.4963255200888045,
+      "source_rms_bank_sd": 0.08651471989032476
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "free_isru",
+      "mode": "original",
+      "field_mse": 0.011655368094495746,
+      "source_rms": 0.5831514112698833,
+      "field_mse_bank_mean": 0.011655368094495744,
+      "field_mse_bank_sd": 0.001462231831227212,
+      "source_rms_bank_mean": 0.580082546585527,
+      "source_rms_bank_sd": 0.06899089420985541
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "free_isru",
+      "mode": "projected",
+      "field_mse": 0.0067945272410829234,
+      "source_rms": 0.469208912042941,
+      "field_mse_bank_mean": 0.0067945272410829234,
+      "field_mse_bank_sd": 0.000239614656410815,
+      "source_rms_bank_mean": 0.467691168263182,
+      "source_rms_bank_sd": 0.04354268815986302
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "mode": "original",
+      "field_mse": 0.012925364000916201,
+      "source_rms": 0.5476508892684392,
+      "field_mse_bank_mean": 0.012925364000916203,
+      "field_mse_bank_sd": 0.0003913400400694315,
+      "source_rms_bank_mean": 0.5453184889298551,
+      "source_rms_bank_sd": 0.058300853598916416
+    },
+    {
+      "task": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "mode": "projected",
+      "field_mse": 0.006682686190758092,
+      "source_rms": 0.37918834945011726,
+      "field_mse_bank_mean": 0.006682686190758092,
+      "field_mse_bank_sd": 0.00033386373438826667,
+      "source_rms_bank_mean": 0.3741122901171404,
+      "source_rms_bank_sd": 0.0714030694206051
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "mode": "original",
+      "field_mse": 0.016888567889038898,
+      "source_rms": 2.1159525719435295,
+      "field_mse_bank_mean": 0.016888567889038898,
+      "field_mse_bank_sd": 0.00020279831929816285,
+      "source_rms_bank_mean": 2.10505565757854,
+      "source_rms_bank_sd": 0.24764481342173814
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "mode": "projected",
+      "field_mse": 0.013463066353729089,
+      "source_rms": 1.9101761048566577,
+      "field_mse_bank_mean": 0.013463066353729089,
+      "field_mse_bank_sd": 0.00021126522018038155,
+      "source_rms_bank_mean": 1.904434497534176,
+      "source_rms_bank_sd": 0.17088786251848725
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "field_mse": 0.016207954939632518,
+      "source_rms": 1.9947170478700977,
+      "field_mse_bank_mean": 0.01620795493963252,
+      "field_mse_bank_sd": 0.00029893163921025884,
+      "source_rms_bank_mean": 1.984916378141775,
+      "source_rms_bank_sd": 0.2280440683965466
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "field_mse": 0.012499176785894402,
+      "source_rms": 1.7887715600346756,
+      "field_mse_bank_mean": 0.012499176785894402,
+      "field_mse_bank_sd": 8.168944582272685e-05,
+      "source_rms_bank_mean": 1.7807315820275926,
+      "source_rms_bank_sd": 0.19561433743770815
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "mode": "original",
+      "field_mse": 0.01298441554238638,
+      "source_rms": 1.8203610983602947,
+      "field_mse_bank_mean": 0.012984415542386378,
+      "field_mse_bank_sd": 0.0004036046861912441,
+      "source_rms_bank_mean": 1.8203353379372782,
+      "source_rms_bank_sd": 0.011182479168996382
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "mode": "projected",
+      "field_mse": 0.009710188868870939,
+      "source_rms": 1.6102177877730155,
+      "field_mse_bank_mean": 0.00971018886887094,
+      "field_mse_bank_sd": 0.0004866585074878165,
+      "source_rms_bank_mean": 1.6101556288376595,
+      "source_rms_bank_sd": 0.016337073708792855
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "mode": "original",
+      "field_mse": 0.014935115385458487,
+      "source_rms": 2.2392132560982287,
+      "field_mse_bank_mean": 0.014935115385458487,
+      "field_mse_bank_sd": 0.0007680634317280752,
+      "source_rms_bank_mean": 2.2282052646806996,
+      "source_rms_bank_sd": 0.2560658892687431
+    },
+    {
+      "task": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "mode": "projected",
+      "field_mse": 0.012281709830940003,
+      "source_rms": 2.198467905203968,
+      "field_mse_bank_mean": 0.012281709830940003,
+      "field_mse_bank_sd": 0.000768609730615336,
+      "source_rms_bank_mean": 2.1882819943787877,
+      "source_rms_bank_sd": 0.24408480299415095
+    }
+  ],
+  "field_times": [
+    0.05,
+    0.25,
+    0.5,
+    0.75,
+    0.95
+  ],
+  "field_banks": 4,
+  "points_per_time_bank": 64,
+  "trajectory_pilot_points": 8,
+  "population_kl_ranking": false,
+  "pilot_verified_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "refined_verified_sha256": "00e1f329eb536425919fef891169b2507c95ee9f302f1ab0f7136a27d68710aa"
+}

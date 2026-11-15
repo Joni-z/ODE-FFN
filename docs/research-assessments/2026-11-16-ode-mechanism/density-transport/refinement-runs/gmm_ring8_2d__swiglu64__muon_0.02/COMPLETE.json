@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "witness": false,
+  "refinement": true,
+  "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+  "selected_modes": [
+    "projected"
+  ],
+  "rows": [
+    {
+      "mode": "projected",
+      "steps": 1024,
+      "previous_steps": 512,
+      "file": "projected-heun1024.npz",
+      "sha256": "0886e6e0d87d32a1eb9a930e519e8f967d3f35d1f1a31ba314da775102841a46",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 1.2459974287837294e-05,
+        "logdet": 6.274546279128046e-05,
+        "ratio_refinement": 0.00012662572078561696,
+        "endpoint_refinement": 2.726225020396763e-05
+      },
+      "qualified": true
+    }
+  ],
+  "decisions": [
+    {
+      "mode": "projected",
+      "final_steps": 1024,
+      "qualified": true
+    }
+  ],
+  "parameters_unchanged": true,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+  "pilot_completion_sha256": "8e2ebaf688fb5aec561b5e3835477a1a3d39fd0239f22a192b03ec1d18806ca8",
+  "verification_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "source_sha256": {
+    "refine_density.py": "e22dc04c5e08d63af5d781a98d88ab21be2ff60d5a601ff9a040de13e1a40d46",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

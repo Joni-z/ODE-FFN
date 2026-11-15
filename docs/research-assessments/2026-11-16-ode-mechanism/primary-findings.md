@@ -154,3 +154,13 @@ across tasks. [New analysis and examples](sharing-symmetry/analysis-report.md).
 [Numerical/symmetry protocol](numerical-followup.md),
 [single-generator control](operator-sharing-control.md),
 [mathematical derivation](mathematical-basis.md).
+
+## Density-transport diagnostic is numerically qualified
+
+The exact observer preserves native sampling and passes oracle derivatives,
+complete-map determinant checks and all sixteen original/projected pilot cells.
+Six qualify at512steps; ten require1024under unchanged tolerances. On the
+new field banks, instantaneous density-source RMSdoes not reproduce the
+known Product16sampling order. [Measured diagnostics and figures](density-transport/analysis-report.md).
+The next object is signed along-path accumulation on four prebound256-source
+banks at common1024/2048steps. That comparison is [prepared, not launched](density-formal-next.md).

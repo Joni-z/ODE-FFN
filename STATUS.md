@@ -2,12 +2,17 @@
 
 ## Current priority: identify the ODE contribution
 
-P2 density-transport observer is verified on all eight frozen models. The
-48-row numerical pilot completed on Mac mini CPU, queue32943 terminal.
-Independent reconstruction error is below2.94e-14. Six of16original/projected
-cells qualify at512steps; ten need the registered1024/2048refinement.
-No terminal-density architecture ranking is reported before those gates pass.
-[Derivation and protocol](docs/research-assessments/2026-11-16-ode-mechanism/density-protocol.md).
+P2 density observer is verified on all eight frozen models. Its 48-row pilot
+and 10 targeted refinement rows are complete on Mac mini CPU; both queues are
+terminal. All 16 original/projected cells meet the numerical gates: six at
+512 steps, ten at 1024. Native Heun endpoints are unchanged, and independent
+NumPy checks recompute within 2.94e-14. The local density-source norm does not
+reproduce the known Product16 sharing ordering. The next measurement is the
+actual signed along-path density ratio on four common 256-source banks, at
+common 1024/2048 resolutions; it is prepared, not launched.
+[Derivation/protocol](docs/research-assessments/2026-11-16-ode-mechanism/density-protocol.md),
+[qualified pilot and figures](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/analysis-report.md),
+[next execution specification](docs/research-assessments/2026-11-16-ode-mechanism/density-formal-next.md).
 
 **Eight new 20k trajectories and their independent evaluations are complete.**
 Free Taylor coefficients (8c10a8d), state-evolving midpoint (1ff0d02), and

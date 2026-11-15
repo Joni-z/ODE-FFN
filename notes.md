@@ -1,70 +1,54 @@
 # ODE mechanism: current evidence
 
-## Structural result
+## Structural controls
 
-At the tested budget, state feedback and sharing P are the positive
-within-family interventions. Free Taylor coefficients/free midpoint stages
-match prescribed coefficients in sampling; the prescribed midpoint retains
-order 2 while free stages approach order 1. Higher numerical order is a real
-property, but does not automatically improve generation.
+State feedback and sharing P are positive within-family interventions at
+this budget. Free Taylor/free midpoint coefficients match prescribed-stage
+sampling, though prescribed midpoint retains numerical order 2. Sharing
+primary iid SW2 is Ring8 .091/.111 and Product16 .064/.073 (shared/stage),
+8/8 paired banks each, at equal dense work and fewer parameters. Larger
+ordinary Product16 controls remain stronger and cheaper.
 
-Sharing primary iid SW2: Ring8 .091/.111 and Product16 .064/.073
-(shared/released), wins8/8paired banks each. Released stages add73,728params
-at equal dense work; their learned actions and ordering effects are active.
-Product16field fitting improves while sampling worsens. Full outer refinement
-preserves the gap; hidden refinement weakens Ring8bank support to5/8.
-Ordinary Product16controls remain stronger and cheaper.
+## P1 symmetry complete
 
-## P1completed
+Eight frozen model/task cells; original/projected group-stratified SW2:
+Ring8 shared .072/.024, stage .096/.021; Product16 shared .059/.055,
+stage .068/.063. Ring8 reverses, Product16 retains the sharing comparison.
+Sharing lowers breaking error but worsens a preserved field component.
+The selected symmetry alone is insufficient across tasks.
 
-New group-stratified arrays, stream2026112200, four4096-base-point banks:
-Ring8original/projected shared .072/.024, released .096/.021;
-Product16shared .059/.055, released .068/.063.
-All four Ring8banks reverse; all four Product16banks retain sharing's lead.
-Ring8FreeISRUprojected .019; Product16SwiGLU .040/.039.
+## P2 density qualification complete
 
-Exact orbit-MSE split shows reduced breaking error but worse preserved error
-under Ring8 sharing. Product16stage projected MSEis lower, generation worse.
-The simple selected-symmetry explanation fails. Eight-bin projected masses
-are exactly balanced for all models, yet SW2 still differs.
+Exact along-model-path identity:
+ d log(rho/p)/dt = -[div(v-v_oracle)+(v-v_oracle) dot grad(log p)].
+Expected terminal log ratio is KL for the exact continuous flow under the
+stated smoothness/integrability assumptions. This is established transport
+calculus, not a proposed theorem or ODE-specific performance result.
 
-All 8 frozen cases exit 0, queue 2996899 terminal, physical145GPU4/5only.
-Fresh documented CUDA witness2988104passed8 references and 2 entry checks.
-Independent NumPy verification at c02da14 checks64 bank / 16 pooled/32subset
-scores, decompositions, source bindings, gaps, counts, flux matrices and paths;
-maximum disagreement 1.25e-16. The subset128->256SW2change<=5.44e-4,
-but individual endpoint coupling RMS reaches .065. Interpret distributions.
+Both native oracle laws, gradients/finite differences, continuity and
+Gaussian rotational/radial examples pass. All eight learned models preserve
+native Heun endpoints exactly. Full native-map logdet finite differences
+pass eight checks, maximum 5.25e-8. Data and CPU anchors are prebound.
 
-Producer source 5e78e6a. Raw root:
-/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-symmetry
-Remote root:
-/data2/zz5070/ODE_FFN/mechanism-sharing-symmetry-20261116
-All datasets/checkpoints/raw samples remain outside Git. Final reports fixed.
+The 48-row pilot qualifies 6/16 cells at 512. Only the ten unresolved cells
+were refined; all qualify at 1024 under unchanged tolerances. No 2048 pilot
+is needed. Maximum independent errors are 2.94e-14 (initial) and 2.14e-14
+(refinement). Both queues are terminal; no GPU was used for tiny pilot
+batches. Two diagnostic figures have been inspected.
 
-## Next mathematical question
+On the new fixed-time field banks, Product16 shared/stage source RMS is
+2.116/1.995; SwiGLU is 2.239. These local norms do not reproduce the known
+sampling ordering. Do not substitute this proxy for the signed path integral.
+The eight numerical sources are not a population-KL ranking cohort.
 
-Exact density difference obeys
-  partial_t(rho-p)+div(v * (rho-p)) = -div(p*(v-v_oracle)).
-The normalized density-error source is div(e)+e dot score(p).
-This retains divergence and score alignment that average field MSE discards.
-It is a candidate diagnostic, not yet an observed explanation; transport may
-amplify/cancel this source. See post-symmetry-decision.md for bounded checks.
-No new training, response search or image run is launched from this proposal.
+Next: all eight checkpoints, both fields, four prebound 256-source banks at
+common 1024/2048 steps. Add real-entry CPU/CUDA checks and a timing benchmark,
+then monitor and independently reconstruct 128 rows. If numerical gates fail
+on full-source tails, retain them; never drop points or loosen tolerances.
+Read density-formal-next.md before implementing this stage.
 
-P1execution/errors preserved in docs/history/2026-11-16-ode-mechanism-p1-execution.md.
-Warm145Python:/data2/zz5070/miniconda3/envs/py312/bin/python, Torch2.8.0+cu128.
-Warm localTorch:/Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
-
-P2exact log ratio: along X'=v, d log(rho/p)/dt = -[div(e)+e dot score(p)].
-It can be checked independently with the oracle log density and integral of
-model divergence. The oracle derivative/continuity errors are below1.03e-12.
-Eight real model observers pass native endpoint identity; coarse16-step density
-chain residuals are intentionally not performance results. New sources and
-derivative anchors are bound before the128/256/512numerical pilot.
-
-P2pilot observations are produced and independently verified:16cells,48rows,
-only6cells qualify numerically at512. The other10require the registered
-1024/2048refinement. Local residual RMSalone does not track the known
-Product16sharing advantage: shared2.116versusreleased1.995, though sharing
-has lower prior samplingSW2. This is a field proxy, not a path-KLresult.
-The exact signed along-path object remains the intended diagnostic.
+Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport
+Warm CPU: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python
+145: /data2/zz5070/miniconda3/envs/py312/bin/python, Torch 2.8.0+cu128
+Physical 0-3 forbidden; 4-7 only when idle. Never reclaim/share foreign tasks.
+Final reports immutable; all new work goes outside reports/.

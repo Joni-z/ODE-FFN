@@ -28,12 +28,12 @@ unique, the correct p_t also solves the model continuity equation despite
 nonzero velocity error.
 
 An isotropic Gaussian example makes the distinction concrete. A rotational
-error e=aJx with skew-symmetric Jhas zero divergence and is orthogonal to
+error e=aJx with skew-symmetric J has zero divergence and is orthogonal to
 the radial score, so the density source vanishes. A radial error e=ax can
 have the same mean squared magnitude while changing the density. This is
 a mathematical example, not an explanation already measured in our models.
 
-## Bounded execution plan — prepared, not launched
+## Execution plan and current disposition
 
 1. Derive oracle score and velocity divergence from the existing native
    mixture laws. Their log_density and velocity functions already provide
@@ -46,7 +46,7 @@ a mathematical example, not an explanation already measured in our models.
    stream. Measure exact full-field divergence, score-aligned error and
    density-source residual by time and data region, for original/projected
    fields. Trace exactly in dimension 2/16; no stochastic trace estimator.
-4. Treat residual norms as a diagnostic, not a guaranteed SW2bound. Register
+4. Treat residual norms as a diagnostic, not a guaranteed SW2 bound. Register
    one time-local oracle-replacement intervention only if a common feature
    of the remaining Product16 gap supports it. Include ordinary controls,
    identical sources, two outer resolutions, and retain every prediction.
@@ -63,7 +63,8 @@ No image architecture or training is promoted from these measurements.
 ## Derivation package: along-trajectory density ratio
 
 Status: **COHERENT AS STATED**, for the exact continuous flow under the
-assumptions below. The numerical estimator still requires validation.
+assumptions below. The estimator is validated on the registered numerical pilot; larger-bank
+measurement remains pending.
 
 **Target and invariant object.** Follow the log density ratio
 L(t)=log(rho_t(X_t)/p_t(X_t)) on a model trajectory X'=v(X,t). This keeps
@@ -110,3 +111,11 @@ resolved and a prespecified frozen-field intervention supports the predicted
 effect. KL and SW2are different metrics; agreement is not assumed. The
 identity applies to ordinary FFNs as well and does not establish novelty
 by itself. If derivative/solver checks fail, no model ranking is reported.
+
+## Completed numerical qualification
+
+The oracle derivatives, actual native sampler observer and independent full-
+map finite differences pass. All sixteen original/projected numerical cells
+qualify: six at 512steps, ten at 1024. Local source RMSdoes not supply the
+existing across-model sampling ordering. [Measured results and figures](density-transport/analysis-report.md).
+The four-bank population-density comparison is [prepared, not launched](density-formal-next.md).

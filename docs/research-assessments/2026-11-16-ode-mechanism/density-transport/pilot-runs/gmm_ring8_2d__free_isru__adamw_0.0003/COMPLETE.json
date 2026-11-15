@@ -1,0 +1,106 @@
+{
+  "passed": true,
+  "witness": false,
+  "pilot": true,
+  "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+  "dataset": "gmm_ring8_2d",
+  "family": "free_isru",
+  "device": "cpu",
+  "gpu_uuid": null,
+  "parameters_unchanged": true,
+  "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+  "portable_manifest_sha256": "e2cd8a8256e7590a01e7d0fbc7467d5fcf519d26c337661b0d0503a461ee1b3a",
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "fields": [
+    {
+      "mode": "original",
+      "file": "original-field.npz",
+      "sha256": "7008f66d8927555a93bf7e1e1cec8d8e394024ef777fc5e4b12f4bf7910d2a5e",
+      "points": 1280
+    },
+    {
+      "mode": "projected",
+      "file": "projected-field.npz",
+      "sha256": "b37997eebaa3f3927c6167a4557e36558ff37a7243b77e47bbabfcf327e02727",
+      "points": 1280
+    }
+  ],
+  "rows": [
+    {
+      "mode": "original",
+      "steps": 128,
+      "base_points": 8,
+      "file": "original-heun128.npz",
+      "sha256": "fdb5efb93698fa968fd51992be8c5a548b817ba846e0808b8219432393d42969",
+      "seconds": 0.35220658313483,
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "max_chain_residual_per_dim": 0.00025956886630860987,
+      "max_logdet_disagreement_per_dim": 0.0003106548790356989
+    },
+    {
+      "mode": "original",
+      "steps": 256,
+      "base_points": 8,
+      "file": "original-heun256.npz",
+      "sha256": "6e96626f1c9967d92b20869b102b3e4d1996da3dbadf34501ee057dfc43ed982",
+      "seconds": 0.6115772081539035,
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "max_chain_residual_per_dim": 5.88995930156655e-05,
+      "max_logdet_disagreement_per_dim": 8.042923631124133e-05
+    },
+    {
+      "mode": "original",
+      "steps": 512,
+      "base_points": 8,
+      "file": "original-heun512.npz",
+      "sha256": "c76d0077e220073b2901fb0dcf46ed8d35f7545644fa06fc0d62aad90905c28f",
+      "seconds": 1.2259703748859465,
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "max_chain_residual_per_dim": 1.4406214183651511e-05,
+      "max_logdet_disagreement_per_dim": 2.0528247720585924e-05
+    },
+    {
+      "mode": "projected",
+      "steps": 128,
+      "base_points": 8,
+      "file": "projected-heun128.npz",
+      "sha256": "152d4251f592a1d426556e67088e407b95a66fb28020226e73475ce4771b74ef",
+      "seconds": 0.572863791603595,
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "max_chain_residual_per_dim": 0.0004605296938104131,
+      "max_logdet_disagreement_per_dim": 0.0012756098003106064
+    },
+    {
+      "mode": "projected",
+      "steps": 256,
+      "base_points": 8,
+      "file": "projected-heun256.npz",
+      "sha256": "e81822bf10799baa52c6af60f65ff0491a0a113416802e602a0709d311b31bfb",
+      "seconds": 1.0940373330377042,
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "max_chain_residual_per_dim": 0.00010657180324366577,
+      "max_logdet_disagreement_per_dim": 0.0003219964527447772
+    },
+    {
+      "mode": "projected",
+      "steps": 512,
+      "base_points": 8,
+      "file": "projected-heun512.npz",
+      "sha256": "c593411f0101c03c37c624272cb4027f95fe960c8eb1a8eb8278ddfcf5baa152",
+      "seconds": 2.1844173329882324,
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "max_chain_residual_per_dim": 2.5609995233946692e-05,
+      "max_logdet_disagreement_per_dim": 8.072789138369174e-05
+    }
+  ],
+  "source_sha256": {
+    "density_probe.py": "a327559f5e6577d5fd12e4f939a143ab3fb6554b1b02a740c642a6d89ec2aa4b",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

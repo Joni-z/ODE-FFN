@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "witness": true,
+  "refinement": true,
+  "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+  "selected_modes": [
+    "original",
+    "projected"
+  ],
+  "rows": [
+    {
+      "mode": "original",
+      "steps": 16,
+      "previous_steps": 512,
+      "file": "original-heun16.npz",
+      "sha256": "ea1e37c8739f5fe9907832c0701a0b1cb923e3fc98738100e23af96459b668c0",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 0.008104997356801034,
+        "logdet": 0.01283107105067871,
+        "ratio_refinement": 0.02173788082501249,
+        "endpoint_refinement": 0.009403981544360288
+      },
+      "qualified": false
+    },
+    {
+      "mode": "projected",
+      "steps": 16,
+      "previous_steps": 512,
+      "file": "projected-heun16.npz",
+      "sha256": "3a3894061bdc3edc6b091241480716a3301157b408a32aba3a2e55fc86acb5ba",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 0.009875674316946456,
+        "logdet": 0.010449277209552799,
+        "ratio_refinement": 0.05144174024145787,
+        "endpoint_refinement": 0.01630740661894612
+      },
+      "qualified": false
+    }
+  ],
+  "decisions": [
+    {
+      "mode": "original",
+      "final_steps": 16,
+      "qualified": false
+    },
+    {
+      "mode": "projected",
+      "final_steps": 16,
+      "qualified": false
+    }
+  ],
+  "parameters_unchanged": true,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+  "pilot_completion_sha256": "405c566897d41051c8ea5c9f00c1c9d1f4436140f912d59f57b9db2d9c7aa759",
+  "verification_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "source_sha256": {
+    "refine_density.py": "e22dc04c5e08d63af5d781a98d88ab21be2ff60d5a601ff9a040de13e1a40d46",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

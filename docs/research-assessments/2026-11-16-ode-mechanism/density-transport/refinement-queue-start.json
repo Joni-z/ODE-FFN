@@ -1,0 +1,26 @@
+{
+  "queue_pid": 33293,
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/density_transport_20261116/run_density_queue.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-symmetry/portable-v2",
+    "--data",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/portable",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/refinement-runs",
+    "--readiness",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/doc-cpu/COMPLETE.json",
+    "--phase",
+    "refinement",
+    "--pilot",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/pilot-runs",
+    "--verification",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/verified-pilot",
+    "--workers",
+    "4"
+  ],
+  "frozen_commit": "5864256480befb663614666d382e3bf17462a862",
+  "started": 1794785384.1066391
+}
