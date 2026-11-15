@@ -24,4 +24,10 @@ synthetic cache is present. Complete all32 focal trajectories on the same CPU
 host so the new response comparison does not mix training backends; preserve
 historical weights as context. This changes run count from23missing/replayed
 to32same-host runs and will be budgeted from actual200step timings.
-No formal run launched; no GPU job stopped or Torch allocation submitted.
+Queue3761 now trains36same-host trajectories with2CPUworkers. The fresh
+documented check passed all16 continuations and the real evaluator witness.
+The benchmark selected2workers at1.889x aggregate throughput. Watcher3767
+automatically measures cost, independently recomputes selection metrics,
+freezes a shortlist and evaluates disjoint confirmation arrays afterward.
+Training sourceb5fe7aa; analysis0e78ce7. No GPU job stopped or Torch allocation
+submitted. Current progress and outputs are under response-screen-20261115.

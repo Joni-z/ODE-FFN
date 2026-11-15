@@ -1,6 +1,6 @@
 # Current project status
 
-## Response comparison: Mac mini CPU readiness
+## Running response comparison on Mac mini CPU
 
 [Response-family comparison](docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md):
 compare ISRU,tanh,arctan,Softsign,erf,slope-normalized SiLU/GELU and linear
@@ -8,10 +8,17 @@ at K1/K8 on Ring8/Product16. The user authorized execution, then selected
 Mac mini CPU. All32 focal trajectories and4ordinary references will use
 the same CPU host/backend. Seed0 and native training/metrics remain fixed.
 Independent selection/confirmation arrays are hash-bound before training.
-Source b5fe7aa passed16 native continuations and kernel checks; a fresh
-documented pass and one-versus-two-worker benchmark are in progress.
+Source b5fe7aa passed16 native continuations, kernel checks and a fresh
+documented pass. The200step benchmark selected2workers (1.89x aggregate
+throughput). Queue3761 is training the first Ring8 ISRU K1/K8 pair; at the
+first30second monitor read they reached5500/2000updates. There are36
+trajectories total, each20k updates. Evaluation/selection/confirmation
+watcher3767 uses separate analysis source0e78ce7 and is waiting for training.
 [Execution amendment](docs/research-assessments/2026-11-15-response-screen/protocol.md).
-No formal run is launched yet. No other user's GPU jobs were stopped;
+[Launch receipt](docs/research-assessments/2026-11-15-response-screen/launch-receipt.json)
+and [benchmark](docs/research-assessments/2026-11-15-response-screen/benchmark.json).
+Raw output root: `/Users/mr.z/ode-workspace-prep/response-screen-20261115/`.
+No other user's GPU jobs were stopped;
 the user explicitly revoked earlier yp2841 preemption permission.
 
 ## Completed order-by-response comparison,15 November

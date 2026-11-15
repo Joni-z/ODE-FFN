@@ -3,7 +3,7 @@
 Training runtime:
 `/Users/mr.z/ode-workspace-prep/response-screen-20261115/repo`, b5fe7aa.
 Analysis runtime:
-`/Users/mr.z/ode-workspace-prep/response-screen-20261115/analysis-repo`,1f556ce.
+`/Users/mr.z/ode-workspace-prep/response-screen-20261115/analysis-repo`,0e78ce7.
 Their builder, evaluator, grid and pipeline are byte-identical. Readiness and
 benchmark must pass before launching. Use benchmark-selected1or2workers.
 

@@ -10,23 +10,28 @@ runtimes. Push verified changes through GitHub.
 - [x] Inventory historical anchors; register32same-host focal and4ordinary CPU trajectories.
 - [x] Add response-only builder and prebind selection/confirmation arrays.
 - [x] Verify16 formula/gradient cases, initialization, exact native continuations and evaluator restoration; ordinary Muon CPU smoke passed.
-- [ ] Fresh documented witness and1-vs2-worker benchmark; freeze/publish source.
-- [ ] Launch missing trajectories under persistent monitors, evaluate all cases.
+- [x] Fresh documented witness and1-vs2-worker benchmark; freeze/publish source.
+- [x] Launch36same-host trajectories under persistent monitors.
+- [ ] Complete all training and selection evaluations.
 - [ ] Freeze shortlist using selection only; run disjoint confirmation.
 - [ ] Recompute metrics, plot quality/cost, publish findings and next image decision.
 
 Protocol: docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md.
 Separate new source/output: response-screen-20261115. No automatic CelebA launch.
 
-Current: preparing Mac mini CPU execution and200step throughput comparison.
+Current: Mac mini CPU queue3761 running2workers, sourceb5fe7aa.
 Use the existing local synthetic cache and PyTorch environment. No server
 allocation needed. Train the complete32cell cohort on the same host rather
 than mixing historical CUDA-trained incumbents into a CPU-trained ranking.
-Training source is frozen at b5fe7aa; fresh documented witness and200step
-benchmark are running. The145 weights remain historical diagnostic anchors. No task has
+Fresh documented pass16/16 and evaluator witness passed. Benchmark selects2
+workers,1.889x aggregate throughput. Independent analysis watcher3767 uses
+0e78ce7 and automatically follows training with selection/confirmation.
+The145 weights remain historical diagnostic anchors. No task has
 been terminated, shared or submitted to Torch.
 No new jobs started. Earlier planning journals archived under
 docs/history/2026-11-15-before-response-screen/.
 
 Tool note: a combined delete/add patch targeting the same journal was rejected;
 journals are replaced only after archiving their exact prior contents.
+Analysis worktree fast-forward uses explicit commit0e78ce7 because reflogs
+are worktree-specific; no source or result was overwritten.

@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "workers": 1,
+      "elapsed": 12.618727874942124,
+      "updates_per_second": 15.849458200707677,
+      "native_wall_seconds": [
+        6.9139070408418775
+      ]
+    },
+    {
+      "workers": 2,
+      "elapsed": 13.357225582934916,
+      "updates_per_second": 29.94633859527212,
+      "native_wall_seconds": [
+        7.375349749810994,
+        7.194940541870892
+      ]
+    }
+  ],
+  "two_worker_speedup": 1.8894234879230773,
+  "selected_workers": 2,
+  "source_sha256": "a14349da7bb6e99a6d6e78df3b2f281daa57ab47032e21f52f855ca93a11bc5a"
+}

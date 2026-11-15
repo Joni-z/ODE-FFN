@@ -1,0 +1,132 @@
+{
+  "training_source": "b5fe7aa279d5ce027f9658334376d906560d844b",
+  "analysis_source": "0e78ce74378b74a97f4c67adcba5350f27b4420c",
+  "queue_status": {
+    "unix_time": 1794753061.832391,
+    "started": 1794753031.6805918,
+    "queue_pid": 3761,
+    "host": "macmini",
+    "device": "cpu",
+    "workers": 2,
+    "cuda_visible_devices": null,
+    "running": [
+      {
+        "cell": "gmm_ring8_2d__screen_isru_k1__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "pid": 3763,
+        "started": 1794753031.682275,
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "-u",
+          "/Users/mr.z/ode-workspace-prep/response-screen-20261115/repo/studies/muon_pd_20261102/response_screen_20261115/pipeline_screen.py",
+          "--cell",
+          "gmm_ring8_2d__screen_isru_k1__adamw_0.0003",
+          "--data-root",
+          "/Users/mr.z/ode-workspace-prep/data/synthetic",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output",
+          "--device",
+          "cpu"
+        ],
+        "latest": {
+          "step": 5500,
+          "validation_oracle_mse": 0.01937528190612793,
+          "wall_seconds": 25.671887333039194,
+          "sample": null
+        }
+      },
+      {
+        "cell": "gmm_ring8_2d__screen_isru_k8__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "pid": 3764,
+        "started": 1794753031.683723,
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "-u",
+          "/Users/mr.z/ode-workspace-prep/response-screen-20261115/repo/studies/muon_pd_20261102/response_screen_20261115/pipeline_screen.py",
+          "--cell",
+          "gmm_ring8_2d__screen_isru_k8__adamw_0.0003",
+          "--data-root",
+          "/Users/mr.z/ode-workspace-prep/data/synthetic",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output",
+          "--device",
+          "cpu"
+        ],
+        "latest": {
+          "step": 2000,
+          "validation_oracle_mse": 0.12398949966430664,
+          "wall_seconds": 19.701656583696604,
+          "sample": null
+        }
+      }
+    ],
+    "completed": [],
+    "pending": [
+      "gmm_ring8_2d__screen_tanh_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_tanh_k8__adamw_0.0003",
+      "gmm_ring8_2d__screen_arctan_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_arctan_k8__adamw_0.0003",
+      "gmm_ring8_2d__screen_softsign_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_softsign_k8__adamw_0.0003",
+      "gmm_ring8_2d__screen_erf_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_erf_k8__adamw_0.0003",
+      "gmm_ring8_2d__screen_silu_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_silu_k8__adamw_0.0003",
+      "gmm_ring8_2d__screen_gelu_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_gelu_k8__adamw_0.0003",
+      "gmm_ring8_2d__screen_linear_k1__adamw_0.0003",
+      "gmm_ring8_2d__screen_linear_k8__adamw_0.0003",
+      "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "gmm_ring8_2d__swiglu64__muon_0.02",
+      "rotated_product_bimodal_16d__screen_isru_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_isru_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_tanh_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_tanh_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_arctan_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_arctan_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_softsign_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_softsign_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_erf_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_erf_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_silu_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_silu_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_gelu_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_gelu_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_linear_k1__adamw_0.0003",
+      "rotated_product_bimodal_16d__screen_linear_k8__adamw_0.0003",
+      "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "rotated_product_bimodal_16d__swiglu192__adamw_0.0003"
+    ],
+    "failed": false,
+    "gpu": "",
+    "gpu_query_exit": 0,
+    "cpu_load_average": [
+      3.8056640625,
+      4.41064453125,
+      3.6005859375
+    ]
+  },
+  "finish": {
+    "pid": 3767,
+    "started": 1794753031.7619479,
+    "source_commit": "0e78ce74378b74a97f4c67adcba5350f27b4420c",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+      "-u",
+      "/Users/mr.z/ode-workspace-prep/response-screen-20261115/analysis-repo/studies/muon_pd_20261102/response_screen_20261115/finish_screen.py",
+      "--runtime",
+      "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output",
+      "--data-root",
+      "/Users/mr.z/ode-workspace-prep/data/synthetic",
+      "--assets",
+      "/Users/mr.z/ode-workspace-prep/response-screen-20261115/assets",
+      "--numpy-python",
+      "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+      "--output",
+      "/Users/mr.z/ode-workspace-prep/response-screen-20261115/analysis-v1"
+    ]
+  },
+  "assets_manifest": "/Users/mr.z/ode-workspace-prep/response-screen-20261115/assets/manifest.json",
+  "no_remote_jobs_terminated": true
+}
