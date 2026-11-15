@@ -28,12 +28,12 @@ Product16 retains .059/.068 -> .055/.063. Sharing lowers some symmetry error
 but does not uniformly improve the preserved field. Ordinary controls remain
 strong; no image promotion. Numerical replication error is at most 1.25e-16.
 
-## Next: exact density-error diagnostic (not launched)
+## P2: exact density-error diagnostic (implementation underway)
 
-- [ ] Derive score and oracle divergence from the pinned mixture law.
-- [ ] Verify exact continuity-residual identity and Gaussian rotation/radial
+- [x] Derive score and oracle divergence from the pinned mixture law.
+- [x] Verify exact continuity-residual identity and Gaussian rotation/radial
   counterexamples, with derivative checks against native log_density/velocity.
-- [ ] Register the eight frozen-cell/time-region measurements and evaluation
+- [x] Register the eight frozen-cell/time-region measurements and evaluation
   stream before full measurement. Use exact traces in 2/16 dimensions.
 - [ ] Only if a measured source term supports it, register a bounded common-
   source, two-resolution oracle-replacement intervention. No response search.
@@ -50,3 +50,20 @@ P1errors and execution journal are preserved in
   docs/history/2026-11-16-ode-mechanism-p1-execution.md
 The goal remains active: the selected symmetry does not explain the remaining
 Product16sharing gap or establish an ODE-specific advantage over ordinary FFNs.
+
+Previous goal turn: progress. It completed and independently verified all eight
+P1cases, published five inspected figures and rejected the single selected-
+symmetry account. Current turn derives and implements an exact along-trajectory
+log-density diagnostic. Averages of source-residual norms remain secondary.
+
+P2execution: first verify native oracle derivatives, continuity and Gaussian
+counterexamples on CPU; then instrument the unchanged native Heun calls with
+exact model Jacobians. Check density/Jacobian quadrature and endpoint refinement
+before formal interpretations. Recheck idle145GPUs4-7; all are currently occupied.
+No new training is needed. Preserve P1arrays and all finalized reports.
+
+P2CPUauthor readiness passes all eight native models in both original/projected
+forms, including exact native sampling identity and two actual CLIentries.
+Evaluation stream2026112300is bound, with separate numerical pilot and four
+256-source banks. The observer instruments unchanged native Heun calls. Next:
+publish source, fresh documented CPUwitness, then monitored eight-case pilot.

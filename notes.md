@@ -54,3 +54,10 @@ No new training, response search or image run is launched from this proposal.
 P1execution/errors preserved in docs/history/2026-11-16-ode-mechanism-p1-execution.md.
 Warm145Python:/data2/zz5070/miniconda3/envs/py312/bin/python, Torch2.8.0+cu128.
 Warm localTorch:/Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
+
+P2exact log ratio: along X'=v, d log(rho/p)/dt = -[div(e)+e dot score(p)].
+It can be checked independently with the oracle log density and integral of
+model divergence. The oracle derivative/continuity errors are below1.03e-12.
+Eight real model observers pass native endpoint identity; coarse16-step density
+chain residuals are intentionally not performance results. New sources and
+derivative anchors are bound before the128/256/512numerical pilot.

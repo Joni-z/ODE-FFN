@@ -59,3 +59,54 @@ The source term alone does not determine the terminal error: transport by
 v can amplify or cancel it. Earlier local variational transport failed as
 a full learned-model explanation; this test must not recycle that claim.
 No image architecture or training is promoted from these measurements.
+
+## Derivation package: along-trajectory density ratio
+
+Status: **COHERENT AS STATED**, for the exact continuous flow under the
+assumptions below. The numerical estimator still requires validation.
+
+**Target and invariant object.** Follow the log density ratio
+L(t)=log(rho_t(X_t)/p_t(X_t)) on a model trajectory X'=v(X,t). This keeps
+the object of interest the evolving distribution, rather than substituting
+a field-error norm. Define e=v-v*, s=grad(log p), and a=div(e)+e dot s.
+
+**Assumptions.** Positive smooth native Gaussian-mixture marginals; a C1
+model field admitting a unique invertible flow on [0,1]; equal initial
+densities rho_0=p_0=N(0,I). Integrability is additionally required when
+taking expectations. Native LayerNorm has positive epsilon and the tested
+activations are smooth. Numerical Heun maps are not automatically exact
+continuous-flow maps or globally invertible at an arbitrary step size.
+
+**Derivation map.** Continuity -> material log-density derivative -> oracle
+log-density derivative on the model path -> log-ratio integral -> expectation.
+
+1. Identity: along X'=v, d log(rho_t(X_t))/dt = -div(v)(X_t,t).
+2. Identity: oracle continuity gives
+   d log(p_t(X_t))/dt = -div(v*)(X_t,t)+e(X_t,t) dot s(X_t,t).
+3. Identity: subtracting yields dL/dt=-a(X_t,t), L(0)=0, hence
+   L(1)=-integral_0^1 a(X_t,t)dt.
+4. Proposition under integrability: E[L(1)] over exact model-generated
+   endpoints is KL(rho_1||p_1). A finite sample average need not be nonnegative.
+5. Numerical approximation: integrate a and div(v) at the actual native
+   Heun stages, keeping its generated state unchanged. Cross-check
+   log(p_0(X_0))-integral div(v)-log(p_1(X_1)) against -integral a.
+
+The instantaneous change-of-variables identity is established background,
+not a proposed contribution: [Neural ODE, Theorem1](https://papers.neurips.cc/paper_files/paper/2018/file/69386f6bb1dfed68692a24c8686939b9-Paper.pdf),
+[FFJORD, Section2.2](https://arxiv.org/html/1810.01367v2). We use exact traces
+in dimensions2/16 instead of Hutchinson estimation.
+
+**Numerical boundaries.** The formula is for the continuous field. A coarse
+Heun endpoint paired with a divergence integral is not an exact likelihood
+of the discrete sampling map. Also accumulate the actual step-Jacobian
+log-determinants as a numerical consistency diagnostic, without assuming
+global discrete-map injectivity from a positive determinant on observed
+points. Refine state and log-ratio jointly; retain unresolved cases.
+
+**Interpretation and falsification.** Test whether shared/released models
+differ in the signed density-error accumulation, and where along time it
+arises. This can explain a distribution difference only if the estimate is
+resolved and a prespecified frozen-field intervention supports the predicted
+effect. KL and SW2are different metrics; agreement is not assumed. The
+identity applies to ordinary FFNs as well and does not establish novelty
+by itself. If derivative/solver checks fail, no model ranking is reported.

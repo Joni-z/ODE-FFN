@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "train_seed": 0,
+  "evaluation_stream": 2026112300,
+  "independent_banks": 4,
+  "points_per_bank": 256,
+  "pilot_points": 8,
+  "field_points": 1280,
+  "datasets": {
+    "gmm_ring8_2d": {
+      "file": "gmm_ring8_2d.npz",
+      "sha256": "48a267e56bfb0e4a94e280f46e7c2041badcd94ac2c41b72352f04ecfe53c34f",
+      "stream": 2026112300
+    },
+    "rotated_product_bimodal_16d": {
+      "file": "rotated_product_bimodal_16d.npz",
+      "sha256": "068586cfd398c9b502ee6f858b1da896980f77494f30fe907082ddc7482a6ab5",
+      "stream": 2026112301
+    }
+  },
+  "references": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "file": "reference/gmm_ring8_2d__state_midpoint4__adamw_0.0003.npz",
+      "sha256": "3219c4055ceb3b2de66f31d3de680d42003e4a34c7b5740fedd0d5d53c677e63"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+      "file": "reference/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003.npz",
+      "sha256": "bc2853e1fdca416b00db6b0ebcf731a518b471742d76fb6b0c2f2dd6c16b0f4d"
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+      "file": "reference/gmm_ring8_2d__free_isru__adamw_0.0003.npz",
+      "sha256": "0d518782bb245e5d129f48ae8a50af5c348827cef43ba3338bd703dfdc747663"
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+      "file": "reference/gmm_ring8_2d__swiglu64__muon_0.02.npz",
+      "sha256": "cd1ae821d69672a17c4298c3920b0a159048b9881538dc3240793fab94cdb510"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a",
+      "file": "reference/rotated_product_bimodal_16d__free_isru__adamw_0.0003.npz",
+      "sha256": "73aafdfa31e5ad3d28d1b33493f09d9d5dfb4694176c034deb4847102c539edf"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c",
+      "file": "reference/rotated_product_bimodal_16d__swiglu192__adamw_0.0003.npz",
+      "sha256": "e4107a7603b386ce695e67078f41d3799ff8f7efdfa913fddb943452ba44e56a"
+    },
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "0f4a7634dbf216bff768723eff3d7b3a5e591a8814f3663fea0a496e7f13df34",
+      "file": "reference/gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003.npz",
+      "sha256": "d61b764a0a7de60ed2e92c1034bff30d733ead15937ceb095af3a07ad71e0b6e"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "215420aab145fb625d2f90acb22f450663f2490eba1f78868409688691ef0ede",
+      "file": "reference/rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003.npz",
+      "sha256": "0d5ab3a081fe67c904dd69384de85035ce09a92f09dd98794e427af09889cc60"
+    }
+  ],
+  "portable_manifest_sha256": "e2cd8a8256e7590a01e7d0fbc7467d5fcf519d26c337661b0d0503a461ee1b3a",
+  "source_sha256": "b8f112484378d3c30453c84a495c700a2cce00a110505c79aaf7de3843098766"
+}
