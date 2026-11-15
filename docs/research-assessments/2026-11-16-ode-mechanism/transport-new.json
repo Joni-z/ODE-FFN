@@ -1,0 +1,165 @@
+{
+  "passed": true,
+  "scope": "bounded frozen-checkpoint transport probes, not SW2 or training conclusions",
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "states": 64,
+      "heun_steps": 160,
+      "nfe": 320,
+      "field_mse_by_time_window": [
+        0.008028966746630695,
+        0.008160839560545913,
+        0.008930116004462299,
+        0.01640822316737396,
+        0.0089940133198479
+      ],
+      "transport_predicted_endpoint_mse": 0.0015714669815552695,
+      "endpoint_mse": 0.032230747022503434,
+      "predicted_window_order": [
+        3,
+        2,
+        4,
+        0,
+        1
+      ],
+      "predicted_reduction": [
+        0.00036535817014719373,
+        -7.931979483920921e-05,
+        0.00046114298335039145,
+        0.0008236479426735573,
+        0.000411116751117335
+      ],
+      "repair_endpoint_mse": [
+        0.015495065560034599,
+        0.03341017652328355,
+        0.021446681812574656,
+        0.030373738392514577,
+        0.03241368673913583
+      ],
+      "observed_reduction": [
+        0.016735681462468836,
+        -0.0011794295007801145,
+        0.010784065209928778,
+        0.0018570086299888565,
+        -0.00018293971663239927
+      ],
+      "calibration": [
+        {
+          "weight": 0.125,
+          "endpoint_mse": 2.7753401681139648e-05,
+          "sensitivity_residual_mse": 2.2115346332109326e-07,
+          "relative_rms_residual": 0.08926655234822717
+        },
+        {
+          "weight": 0.25,
+          "endpoint_mse": 0.00013546014472361653,
+          "sensitivity_residual_mse": 6.180007867523119e-06,
+          "relative_rms_residual": 0.2135938512013687
+        },
+        {
+          "weight": 0.5,
+          "endpoint_mse": 0.012083259202946194,
+          "sensitivity_residual_mse": 0.009536894508708345,
+          "relative_rms_residual": 0.8884059192105476
+        },
+        {
+          "weight": 1.0,
+          "endpoint_mse": 0.032230747022503434,
+          "sensitivity_residual_mse": 0.023594618356738456,
+          "relative_rms_residual": 0.8556010183454477
+        }
+      ],
+      "oracle_solver_refinement_mse": 1.3093515668388213e-09,
+      "model_solver_refinement_mse": 0.0030422606873100368,
+      "checkpoint": {
+        "checkpoint_sha256": "e7c4aba0dc8f33c697fbfe805661e4c67168c5add12a1d09396a43a334079bec",
+        "config_sha256": "9343bd7b28c492f29f4837c32982485d05bd6a72b98e0c120cb693f35acdbe22",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      "asset_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+      "seconds": 4.84556983364746
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_coeff_k8__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "states": 64,
+      "heun_steps": 160,
+      "nfe": 320,
+      "field_mse_by_time_window": [
+        0.013006479674641188,
+        0.01448741710679467,
+        0.021440133422700527,
+        0.023857188450703438,
+        0.017143362922069035
+      ],
+      "transport_predicted_endpoint_mse": 0.005961660907727652,
+      "endpoint_mse": 0.10250752970786176,
+      "predicted_window_order": [
+        2,
+        4,
+        1,
+        0,
+        3
+      ],
+      "predicted_reduction": [
+        0.0005404160399761319,
+        0.0009053849809967651,
+        0.001684352413786846,
+        0.0003677165041901312,
+        0.0011558648063218551
+      ],
+      "repair_endpoint_mse": [
+        0.09153714740737343,
+        0.049607012339390244,
+        0.049694308170865426,
+        0.08810049594437297,
+        0.10052714652345232
+      ],
+      "observed_reduction": [
+        0.01097038230048833,
+        0.05290051736847151,
+        0.05281322153699633,
+        0.014407033763488786,
+        0.0019803831844094344
+      ],
+      "calibration": [
+        {
+          "weight": 0.125,
+          "endpoint_mse": 0.004274306092415011,
+          "sensitivity_residual_mse": 0.003557834362277938,
+          "relative_rms_residual": 0.9123470093696768
+        },
+        {
+          "weight": 0.25,
+          "endpoint_mse": 0.014113049258657832,
+          "sensitivity_residual_mse": 0.011547668086877074,
+          "relative_rms_residual": 0.9045586220506208
+        },
+        {
+          "weight": 0.5,
+          "endpoint_mse": 0.03132134295905311,
+          "sensitivity_residual_mse": 0.02437941440934105,
+          "relative_rms_residual": 0.8822495537881319
+        },
+        {
+          "weight": 1.0,
+          "endpoint_mse": 0.10250752970786176,
+          "sensitivity_residual_mse": 0.082335388026084,
+          "relative_rms_residual": 0.8962215539795043
+        }
+      ],
+      "oracle_solver_refinement_mse": 3.632566245918434e-09,
+      "model_solver_refinement_mse": 6.343448828447545e-05,
+      "checkpoint": {
+        "checkpoint_sha256": "529134589950e3661b6f182fac5f10f626c7dbe8ebafc18417a967f64daf71a1",
+        "config_sha256": "7f49f7020bf562bc654d826876dc0d2f392fc192580f995d50c43464dbca903e",
+        "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+      },
+      "asset_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+      "seconds": 5.068752792198211
+    }
+  ],
+  "source_sha256": "9e5cf9dbd885e75e8b9cbf0ad4e5b5d333d24b61ed947792d365787832b93af4"
+}

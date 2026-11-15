@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dim": 2,
+      "common_tensors_rng_exact": true,
+      "parameters_equal": true,
+      "midpoint_formula": true,
+      "full_gradient": true,
+      "refinement_errors": [
+        0.005166392962656605,
+        0.0012719841035836682,
+        0.000312459214633985
+      ]
+    },
+    {
+      "dim": 16,
+      "common_tensors_rng_exact": true,
+      "parameters_equal": true,
+      "midpoint_formula": true,
+      "full_gradient": true,
+      "refinement_errors": [
+        0.004035464126854072,
+        0.0010055365479058873,
+        0.0002485567017765448
+      ]
+    }
+  ],
+  "native_continuations": 2,
+  "real_evaluator_witnesses": 2,
+  "source_sha256": "e63fd63121a1e98fd78d1612f2a8efc994d43a80aabfe256223fb14db9be3531"
+}
