@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "cases": 8,
+  "device": "cpu",
+  "gpu_uuid": null,
+  "device_name": "CPU",
+  "kernels": [
+    {
+      "passed": true,
+      "dataset": "gmm_ring8_2d",
+      "oracle_max_error": 8.43769498715119e-15,
+      "linear_projection_max_error": 1.3877787807814457e-17,
+      "idempotence_max_error": 2.220446049250313e-16,
+      "equivariance_max_error": 4.440892098500626e-16,
+      "mse_identity_residual": 3.8163916471489756e-16,
+      "linear_shortcut_max_error": 4.440892098500626e-16,
+      "native_recording_exact": true
+    },
+    {
+      "passed": true,
+      "dataset": "rotated_product_bimodal_16d",
+      "oracle_max_error": 4.263256414560601e-14,
+      "linear_projection_max_error": 3.885780586188048e-16,
+      "idempotence_max_error": 1.9984014443252818e-15,
+      "equivariance_max_error": 1.2212453270876722e-15,
+      "mse_identity_residual": 4.683753385137379e-17,
+      "linear_shortcut_max_error": 1.9984014443252818e-15,
+      "native_recording_exact": true
+    }
+  ],
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "assets_sha256": "35ea4bbd9f72e7e889e64203f8899643da4f4289343f48b5788c35df374346cf",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 1.7763568394002505e-15,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+      "assets_sha256": "c341934f3d165c5e7a25979880dd0c77f872cc5c4304531fefb59745e2577956",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 5.995204332975845e-15,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+      "assets_sha256": "35ea4bbd9f72e7e889e64203f8899643da4f4289343f48b5788c35df374346cf",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 2.220446049250313e-15,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+      "assets_sha256": "35ea4bbd9f72e7e889e64203f8899643da4f4289343f48b5788c35df374346cf",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 3.552713678800501e-15,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a",
+      "assets_sha256": "c341934f3d165c5e7a25979880dd0c77f872cc5c4304531fefb59745e2577956",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 1.1657341758564144e-14,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c",
+      "assets_sha256": "c341934f3d165c5e7a25979880dd0c77f872cc5c4304531fefb59745e2577956",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 6.050715484207103e-14,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "0f4a7634dbf216bff768723eff3d7b3a5e591a8814f3663fea0a496e7f13df34",
+      "assets_sha256": "35ea4bbd9f72e7e889e64203f8899643da4f4289343f48b5788c35df374346cf",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 1.7763568394002505e-15,
+      "shortcut_allowed": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "checkpoint_sha256": "215420aab145fb625d2f90acb22f450663f2490eba1f78868409688691ef0ede",
+      "assets_sha256": "c341934f3d165c5e7a25979880dd0c77f872cc5c4304531fefb59745e2577956",
+      "field_max_error": 0.0,
+      "native64_sample_max_error": 0.0,
+      "shortcut_max_error": 3.6465275243813267e-13,
+      "shortcut_allowed": true
+    }
+  ],
+  "portable_manifest_sha256": "e2cd8a8256e7590a01e7d0fbc7467d5fcf519d26c337661b0d0503a461ee1b3a",
+  "source_sha256": {
+    "check.py": "f8d441e2c1ee479ef39b9ef26aab0fa833b5af601dff06444f853611d9fd8352",
+    "common.py": "39faa4e3bb356cb577ec8c8c8a40edaafb91c3f73d62a156f456b915dd6b84a4"
+  }
+}

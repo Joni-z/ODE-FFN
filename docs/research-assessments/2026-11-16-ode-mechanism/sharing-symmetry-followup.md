@@ -51,8 +51,10 @@ Use one precision throughout each comparison and check outer resolution.
 
 If the shared lead disappears after projection, with lower group-breaking
 error before projection, the observations support the symmetry explanation.
-If a resolved gap persists after group-breaking error is removed, symmetry
-alone is insufficient. If the projected lead reverses or the original
+If a resolved gap persists after this group-breaking error is removed, the
+selected symmetry component is insufficient. Product16 uses a subgroup of
+the full coordinate-reflection group; this does not remove every possible
+symmetry-breaking component. If the projected lead reverses or the original
 symmetry-error ordering disagrees, reject the simple explanation. Do not
 interpret SW2 gap changes as an additive causal mediation fraction.
 

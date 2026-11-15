@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "cases": 8,
+  "kernel_checks": [
+    {
+      "passed": true,
+      "dataset": "gmm_ring8_2d",
+      "oracle_max_error": 8.43769498715119e-15,
+      "linear_projection_max_error": 1.3877787807814457e-17,
+      "idempotence_max_error": 2.220446049250313e-16,
+      "equivariance_max_error": 4.440892098500626e-16,
+      "mse_identity_residual": 3.8163916471489756e-16,
+      "linear_shortcut_max_error": 4.440892098500626e-16,
+      "native_recording_exact": true
+    },
+    {
+      "passed": true,
+      "dataset": "rotated_product_bimodal_16d",
+      "oracle_max_error": 4.263256414560601e-14,
+      "linear_projection_max_error": 3.885780586188048e-16,
+      "idempotence_max_error": 1.9984014443252818e-15,
+      "equivariance_max_error": 1.2212453270876722e-15,
+      "mse_identity_residual": 4.683753385137379e-17,
+      "linear_shortcut_max_error": 1.9984014443252818e-15,
+      "native_recording_exact": true
+    }
+  ],
+  "protocol": {
+    "stream": 2026112200,
+    "training_seed": 0,
+    "banks": 4,
+    "base_samples": 4096,
+    "group_size": 8,
+    "field_points": 4096,
+    "directions": 256,
+    "dtype": "float64",
+    "heun_steps": 128,
+    "hidden_substeps": 4
+  },
+  "portable_manifest_sha256": "e2cd8a8256e7590a01e7d0fbc7467d5fcf519d26c337661b0d0503a461ee1b3a",
+  "source_sha256": {
+    "prepare.py": "8b0842134a9f18c15749b7786df128b85bd58f7468544e18f6a70992658c6432",
+    "common.py": "39faa4e3bb356cb577ec8c8c8a40edaafb91c3f73d62a156f456b915dd6b84a4"
+  }
+}
