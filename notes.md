@@ -32,9 +32,9 @@ freezes a shortlist and evaluates disjoint confirmation arrays afterward.
 Training sourceb5fe7aa; analysis0e78ce7. No GPU job stopped or Torch allocation
 submitted. Current progress and outputs are under response-screen-20261115.
 
-Partial audit:11/36 pipelines completed, no failures. Ring8 Softsign-K8 pooled
+Partial audit:12/36 pipelines completed, no failures. Ring8 Softsign-K8 pooled
 SW2 .06956 versus ISRU-K8 .10024 and tanh-K8 .10524; tanh-K1 has lower field
 MSE than those K8 models. No same-host ordinary or Product16 comparison yet.
-Independently checked all11 completed20k arrays; maximum discrepancy2.8e-17.
+Independently checked all12 completed20k arrays; maximum discrepancy2.8e-17.
 Keep sampling/fitting rankings separate and leave the shortlist untouched
 until the complete registered selection/confirmation stages run.
