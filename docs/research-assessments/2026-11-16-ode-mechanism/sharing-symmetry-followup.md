@@ -25,8 +25,9 @@ accounts for much of its distribution advantage over the released model.
 The earlier Ring8 C8 intervention motivates this hypothesis but cannot test
 it directly: released stage operators were absent from that cohort.
 
-Use seven frozen model/task cells: shared P, released P and Free ISRU on
-Ring8; shared P, released P, Free ISRU and native SwiGLU on Product16.
+Use eight frozen model/task cells: shared P, released P, Free ISRU and native
+SwiGLU on both Ring8 and Product16. Keeping SwiGLU on both tasks preserves
+the ordinary baseline on the same new banks throughout this follow-up.
 Keep the same checkpoints and all native loss/sampler definitions.
 
 - Ring8: its exact45-degree rotation group C8.

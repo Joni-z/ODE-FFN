@@ -53,8 +53,8 @@ P1must export them too. Finalized report directories and old runtimes stay fixed
 
 ## P1next
 
-Follow sharing-symmetry-followup.md. Three Ring8cells(shared/released/FreeISRU)
-and four Product16cells(addSwiGLU), four new4096-point banks, stream2026112200.
+Follow sharing-symmetry-followup.md. Four cells on each task: shared P,
+released P, Free ISRU and native SwiGLU; four new4096-point banks, stream2026112200.
 UseC8rotations forRing8and latent sign flips onaxes0,7,15forProduct16. Verify
 Qorientation from the native law and exact oracle equivariance. Compare
 original/projected full fields and sampling on identical group-stratified

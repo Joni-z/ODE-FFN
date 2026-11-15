@@ -35,7 +35,7 @@ shared/released SW2 isRing8 .091/.103 and Product16 .069/.082; Ring8bank
 support weakens to5/8while Product16 stays8/8. Outer128->512preserves the
 gap. The practical Product16 controls remain stronger and cheaper.
 
-Next action: implement P1from sharing-symmetry-followup.md. Seven frozen
+Next action: implement P1from sharing-symmetry-followup.md. Eight frozen
 model/task cells, four fresh4096-point banks, exact Ring8C8/Product16latent
 reflection groups. Prove oracle equivariance, group projection and MSE split;
 verify CPU/CUDA and fresh documented readiness before deploying to idle145
