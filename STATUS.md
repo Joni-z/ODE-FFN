@@ -38,11 +38,16 @@ separate float64 bundle, queue27668, after a passed fresh documented invocation.
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/numerical-launch.json).
 The single-generator [sharing control](docs/research-assessments/2026-11-16-ode-mechanism/operator-sharing-control.md)
 has passed initial-function, gradient, native continuation and fresh
-documented evaluator checks. Two seed0 runs are active on Mac mini CPU,
-queue27486, workers27487/27488, frozen8205c5a. Both have advanced past1500
-updates of20k. Evaluation watcher27667 uses new prebound common arrays;
+documented evaluator checks. Both seed0 runs completed20k on Mac mini CPU,
+queue27486, workers27487/27488, frozen8205c5a, both exit0. Formal initialization,
+recipe and data-RNG states match the shared controls at0/15k/20k. Evaluation
+watcher27667 uses new prebound common arrays;
 all six ordinary/shared references receive those same arrays.
 [Actual launch receipt](docs/research-assessments/2026-11-16-ode-mechanism/sharing-launch.json).
+Frozen probes confirm nonzero learned stage actions and ordering sensitivity;
+these are not substitute retrained generation comparisons. Same-host dense
+MAC accounting and CPU forward/sampling benchmarks pass for all eight cases.
+The complete new-cohort generation analysis remains pending.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),

@@ -18,6 +18,7 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [x] Validate and launch the registered single-generator release while independent symmetry inference continues; the full internal-refinement evidence supports this execution-order amendment.
 - [ ] Finish seven float64 C8 cases and independently verify the full numerical intervention bundle.
 - [ ] Complete and evaluate single-generator sharing with the registered same-work nested-class control.
+- [x] Measure actual stage-field differences and frozen-weight response to averaging/reordering; verify formal recipe/initialization/RNG pairing and same-host matrix work/CPU costs.
 - [ ] Synthesize positive/negative mechanism evidence and next research disposition.
 
 Current: six new20k trajectories and all28selection/14confirmation rows are
@@ -30,9 +31,13 @@ the comparison has one precision and does not relax the failed threshold.
 Shared-operator initial-function/native continuation checks pass; new
 evaluation arrays are bound before formal training. Fresh documented
 readiness passed. Frozen8205c5a runs two CPU training workers27487/27488
-(queue27486, both past1500updates), analysis watcher27667, and two separate
+(queue27486, now both20k complete with exit0), analysis watcher27667, and two separate
 float64 C8 inference workers (queue27668). All18resolution cases independently
 recompute within2.78e-17; remaining C8 and sharing evaluations are pending.
+Stage-field/reordering probes pass for four focal checkpoints. New stage
+actions are nonzero; compare generation before interpreting their benefit.
+Cost/recipe/initial-RNG pairing checks also pass; the two focal models have
+equal dense MACs, with73,728additional parameters in the released model.
 GPU6 became idle, passed8portable witnesses, then another task appeared;
 our occupancy guard stopped it. No full GPU evaluation or sharing continued.
 Re-poll actual handles rather than restarting on observation timeouts.
@@ -41,5 +46,8 @@ This turn proceeds to the authorized next action rather than repeating that stat
 
 Generic trial/evaluate import collisions were fixed by distinct adapter
 names. Failed short preflight outputs are preserved, not research results.
-No formal run failed. A journal patch failed before applying due to stale
+Previous goal turn made progress:18resolution cases independently verified,
+new sharing runs launched after fresh readiness, and failed float32 C8
+checks preserved/replaced by a separately registered float64 bundle.
+Native train runs have not failed. A journal patch failed before applying due to stale
 context and was reapplied with current text.

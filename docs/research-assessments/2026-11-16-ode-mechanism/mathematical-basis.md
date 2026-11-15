@@ -130,6 +130,52 @@ assume an explicit Euler step obeys the identical exponential bound. For
 skew J, ||exp(dt*J)||=1 whereas ||I+dt*J|| can exceed1. We do not introduce
 a contraction penalty: multimodal transports can need local expansion.
 
+## 5. What single-generator sharing actually restricts
+
+The released-stage control uses f_j(y)=P_j q(y). Its exact interpretation
+is a piecewise nonautonomous ODE, while a single shared P is autonomous.
+Both are ODEs. The structural question is the usefulness of time homogeneity
+and parameter reuse, not whether one model is continuous and the other is not.
+
+Using [f_i,f_j]=J_f_j f_i-J_f_i f_j gives
+
+```text
+[f_i,f_j](y) = P_j diag(q'(y)) P_i q(y)
+              - P_i diag(q'(y)) P_j q(y).
+```
+
+The bracket is zero for equal P_i and P_j. A consistent midpoint step is
+T_j^eps(y)=y+eps*f_j(y)+(eps^2/2)*J_f_j(y)f_j(y)+O(eps^3).
+Substitution therefore gives
+
+```text
+T_j^eps(T_i^eps(y)) - T_i^eps(T_j^eps(y))
+    = eps^2*[f_i,f_j](y) + O(eps^3).
+```
+
+This predicts an ordering sensitivity that can be checked at learned
+states. It does not predict better samples. Averaging P_j preserves the
+first-order sum of stage fields while removing their differences; reversing
+the schedule changes its ordering. Their frozen-weight effects show which
+computation is active. Only the separate trained controls test its usefulness.
+
+The chosen nested parameterization also changes optimization. If g_j is the
+loss gradient with respect to effective P_j, then at any fixed parameter state
+
+```text
+dL/dP = sum_j g_j;       dL/dDelta_j = g_j, j=2,3,4.
+```
+
+Under ordinary SGD, the effective update of P_1 is -eta*sum_j g_j; that of
+P_j for j>1 adds -eta*g_j. Adam and clipping modify these directions/scales
+further. Identical initial functions and common gradients do not make the
+optimization geometries identical. A worse-fitting released model therefore
+cannot by itself establish a helpful autonomous constraint.
+
+The probe independently checks the bracket with autograd, the eps^2 leading
+term with decreasing step sizes, and the exactly shared null. It then measures
+actual drift differences rather than substituting matrix norms for them.
+
 ## Numerical check and scope
 
 [verify_math.py](verify_math.py) uses NumPy/SciPy to verify the conditional

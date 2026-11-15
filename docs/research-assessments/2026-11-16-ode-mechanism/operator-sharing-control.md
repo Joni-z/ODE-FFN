@@ -90,3 +90,44 @@ its policy is unchanged, but effective clipping can differ. A training-fit
 deficit must therefore be treated as an optimization outcome, not automatic
 proof of a useful ODE constraint. Keep training curves and all stage matrices.
 Do not assume hidden and physical time have become mathematically identical.
+
+## Post-training attribution checks
+
+The following diagnostics were specified while the two runs were active;
+they do not select another checkpoint, optimizer or architecture. Use20k
+for both tasks. These are frozen-weight sensitivity checks and cannot
+replace the registered retrained comparison.
+
+For f_j(y)=P_j q(y), the average field is f_bar(y)=P_bar q(y), where P_bar
+is the mean of the four matrices. Measure both matrix deviations and
+feature-weighted drift deviations at learned layer entrances. A large
+matrix difference need not act on the features used by the model.
+
+With q'_i=(1+1.2*y_i^2)^(-3/2), the Lie bracket, using the convention
+[f_i,f_j]=J_f_j f_i-J_f_i f_j, is
+
+```text
+[f_i,f_j](y) = P_j diag(q'(y)) P_i q(y)
+              - P_i diag(q'(y)) P_j q(y).
+```
+
+It vanishes when all P_j are equal. Reversing two small midpoint flow steps
+changes their composition by eps^2*[f_i,f_j]+O(eps^3). Verify the derivative
+formula independently with autograd and the small-step expansion before
+measuring trained states. A nonzero bracket establishes schedule-dependent
+computation, not its benefit to generation or novelty of the algebra.
+
+On five physical times and16common interpolation pairs, collect six local
+layer entrances. Compare native local maps with reversed stage order, all
+stages replaced by P_bar, and all stages replaced by the base P. Also record
+complete-field MSE and prediction changes for these interventions. The shared
+model supplies a null control: ordering equal stages cannot change its map.
+
+Read the native training-fit and gradient-norm curves. On eight common
+512-example field-pair batches, measure full and new-matrix gradient norms
+and the implied original clip coefficient. These are frozen-batch probes,
+not a reconstruction of the actual training clip frequency. P+Delta is an
+overlapping parameterization: under SGD the common-P gradient sums stage
+gradients while Delta_j adds its own. Adam and global clipping further
+change this geometry. If released matrices fit worse too, these optimization
+effects prevent attributing a sampling gap solely to useful autonomy.
