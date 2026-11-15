@@ -18,3 +18,7 @@ P2: conditional image architecture work after these results.
 
 Current: implementation preparation. 145 GPUs4-7 idle; /data2 has47GB free.
 Lenovo SSH timed out; searching existing mirrors for Ring8 weights.
+
+Readiness attempt1: failed nonzero-gradient fixture because a constant readout
+annihilated centered LayerNorm output. Corrected test-only readout to a
+deterministic nonconstant row; record attempt2 separately. No formal training.

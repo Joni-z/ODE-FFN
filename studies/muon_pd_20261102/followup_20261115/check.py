@@ -48,7 +48,8 @@ def main():
         q=scalar*layer.step_size(scalar)
         for _ in range(3):q=torch.autograd.grad(q,scalar,create_graph=True)[0]
         assert abs(float(q.detach())+2.4)<1e-12
-        with torch.no_grad():model.output.weight.fill_(.01)
+        with torch.no_grad():
+            model.output.weight.copy_(torch.linspace(-.03,.04,model.output.weight.numel(),device=args.device,dtype=torch.double).reshape_as(model.output.weight))
         x=torch.randn(8,dim,device=args.device,dtype=torch.double)
         model(x,torch.ones(8,1,device=args.device,dtype=torch.double)*.3).square().mean().backward()
         assert all(p.grad is not None and bool(torch.isfinite(p.grad).all()) and float(p.grad.norm())>0 for _,p in base.projection_parameters(model))
