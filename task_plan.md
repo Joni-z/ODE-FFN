@@ -67,3 +67,9 @@ forms, including exact native sampling identity and two actual CLIentries.
 Evaluation stream2026112300is bound, with separate numerical pilot and four
 256-source banks. The observer instruments unchanged native Heun calls. Next:
 publish source, fresh documented CPUwitness, then monitored eight-case pilot.
+
+P2pilot complete: frozen8691431, queue32943and all8workers terminal. All48
+resolution rows and16field cells independently verify within2.94e-14. Only
+6/16density cells satisfy all512-step numerical gates. Ten require the
+registered conditional1024/2048refinement; no density ranking is allowed yet.
+Native full-sampler finite-difference log determinants pass8cases, max5.25e-8.

@@ -101,3 +101,28 @@ Only after COMPLETE.json passes with eight models and two actual probe entries,
 launch run_density_queue.py with the same root/data, its readiness path,
 a new pilot-runs output directory, --workers 4 and --detach. Do not restart an
 existing live queue after an observation timeout.
+
+## Registered follow-up after the 512-step pilot
+
+All 48 pilot rows and 16 field cells were independently checked; 6/16 cells
+qualify at 512 steps. The other 10 fail ratio refinement, with two also failing
+endpoint refinement. All fine-path determinant signs are positive. Do not
+report pilot log-ratio averages as architecture rankings.
+
+For only the 10 unresolved original/projected cells, compare 512->1024 under
+the identical five gates. If still unresolved, compare 1024->2048. Stop
+at 2048 and retain unresolved status if needed. Qualified 512 cells are retained
+without extra integration. Use the same eight numerical sources throughout.
+No tolerance, source, checkpoint or field changes are allowed.
+
+A fresh agent exercises the actual refinement entry with the bounded witness
+flag. The following command is run once, without a retry or code modification:
+
+```sh
+cd /Users/mr.z/ODE-FFN-upstream && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python -u studies/muon_pd_20261102/density_transport_20261116/refine_density.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-symmetry/portable-v2 --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/portable --pilot /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/pilot-runs --verification /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/verified-pilot --index 1 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/refine-doc-entry --witness
+```
+
+The witness is explicitly not a resolution qualification. On success, the
+same monitored CPUqueue uses --phase refinement, --pilot and --verification
+with a separate refinement-runs output. No formal population KL measurement
+is launched by this step.

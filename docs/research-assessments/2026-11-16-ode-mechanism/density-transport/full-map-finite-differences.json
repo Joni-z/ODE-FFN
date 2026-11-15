@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "actual_native_map_checks": 8,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "steps": 16,
+      "observer_logdet": -1.601837687483426,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -1.6018376458847299,
+          "absolute_error": 4.1598696043365635e-08,
+          "condition": 2.319930743865869
+        },
+        {
+          "step": 1e-05,
+          "logdet": -1.6018376870541404,
+          "absolute_error": 4.292854960397108e-10,
+          "condition": 2.3199306403943787
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "steps": 32,
+      "observer_logdet": -1.5832588395817206,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -1.5832587981282793,
+          "absolute_error": 4.145344134620643e-08,
+          "condition": 2.3236981246633905
+        },
+        {
+          "step": 1e-05,
+          "logdet": -1.5832588392622422,
+          "absolute_error": 3.194784436999498e-10,
+          "condition": 2.3236980203348914
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "steps": 16,
+      "observer_logdet": -1.589580268169311,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -1.589580234334202,
+          "absolute_error": 3.383510893684161e-08,
+          "condition": 2.4484911476047864
+        },
+        {
+          "step": 1e-05,
+          "logdet": -1.5895802677319764,
+          "absolute_error": 4.3733461296824316e-10,
+          "condition": 2.4484910649968503
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "steps": 32,
+      "observer_logdet": -1.5736378210240836,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -1.5736377912320911,
+          "absolute_error": 2.979199242858499e-08,
+          "condition": 2.461381938136737
+        },
+        {
+          "step": 1e-05,
+          "logdet": -1.5736378208426691,
+          "absolute_error": 1.8141443902663923e-10,
+          "condition": 2.4613818666763216
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "steps": 16,
+      "observer_logdet": -14.976402816205054,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -14.97640227944785,
+          "absolute_error": 5.367572040171353e-07,
+          "condition": 14.894948074092758
+        },
+        {
+          "step": 1e-05,
+          "logdet": -14.976402810907242,
+          "absolute_error": 5.297811966897825e-09,
+          "condition": 14.894942614292571
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "steps": 32,
+      "observer_logdet": -15.071629740815133,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -15.07162924237703,
+          "absolute_error": 4.984381032357987e-07,
+          "condition": 14.064356748211397
+        },
+        {
+          "step": 1e-05,
+          "logdet": -15.07162973591086,
+          "absolute_error": 4.9042725436265755e-09,
+          "condition": 14.06435187926839
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "steps": 16,
+      "observer_logdet": -13.068515814985247,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -13.06851060178776,
+          "absolute_error": 5.213197486142462e-06,
+          "condition": 62.76889113268375
+        },
+        {
+          "step": 1e-05,
+          "logdet": -13.068515762530264,
+          "absolute_error": 5.245498257977488e-08,
+          "condition": 62.76856504271124
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "steps": 32,
+      "observer_logdet": -13.295554074361482,
+      "full_native_map_finite_differences": [
+        {
+          "step": 0.0001,
+          "logdet": -13.295549489689982,
+          "absolute_error": 4.584671499330284e-06,
+          "condition": 54.42117287124358
+        },
+        {
+          "step": 1e-05,
+          "logdet": -13.29555402845163,
+          "absolute_error": 4.5909851920100664e-08,
+          "condition": 54.4209379517913
+        }
+      ]
+    }
+  ],
+  "source_sha256": "ba619b27d8c978b9a01bb50694484b495e3216db8deeb53fffb9fbdb01f97d25"
+}

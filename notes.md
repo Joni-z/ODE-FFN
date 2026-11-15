@@ -61,3 +61,10 @@ model divergence. The oracle derivative/continuity errors are below1.03e-12.
 Eight real model observers pass native endpoint identity; coarse16-step density
 chain residuals are intentionally not performance results. New sources and
 derivative anchors are bound before the128/256/512numerical pilot.
+
+P2pilot observations are produced and independently verified:16cells,48rows,
+only6cells qualify numerically at512. The other10require the registered
+1024/2048refinement. Local residual RMSalone does not track the known
+Product16sharing advantage: shared2.116versusreleased1.995, though sharing
+has lower prior samplingSW2. This is a field proxy, not a path-KLresult.
+The exact signed along-path object remains the intended diagnostic.

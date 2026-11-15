@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "witness": true,
+  "refinement": true,
+  "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+  "selected_modes": [
+    "original",
+    "projected"
+  ],
+  "rows": [
+    {
+      "mode": "original",
+      "steps": 16,
+      "previous_steps": 512,
+      "file": "original-heun16.npz",
+      "sha256": "542e7a470fbbd9ca0ca1517bf26957c444c1dc60e195ea4020baa11ee796e912",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 0.0230033318305273,
+        "logdet": 0.026557889100740306,
+        "ratio_refinement": 0.05251499865011533,
+        "endpoint_refinement": 0.004173387459933564
+      },
+      "qualified": false
+    },
+    {
+      "mode": "projected",
+      "steps": 16,
+      "previous_steps": 512,
+      "file": "projected-heun16.npz",
+      "sha256": "51d0b2b0e9567f5f22a54ad048cb9531e4c29e5c5436bdea52ae3f9f502034e1",
+      "native_endpoints_exact": true,
+      "metrics": {
+        "nonpositive_steps": 0,
+        "chain": 0.03290698391198127,
+        "logdet": 0.09213689257984203,
+        "ratio_refinement": 0.12053256754692332,
+        "endpoint_refinement": 0.005860054379678751
+      },
+      "qualified": false
+    }
+  ],
+  "decisions": [
+    {
+      "mode": "original",
+      "final_steps": 16,
+      "qualified": false
+    },
+    {
+      "mode": "projected",
+      "final_steps": 16,
+      "qualified": false
+    }
+  ],
+  "parameters_unchanged": true,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+  "pilot_completion_sha256": "8f9fb6ca51bbbe794852ed21743df16c1b32e679d173c21c240a7e3461e3caa8",
+  "verification_sha256": "f9671bb1f937c5996138c4d0a35165783f71f95f7c85a6e81b699415cb6d5729",
+  "source_sha256": {
+    "refine_density.py": "e22dc04c5e08d63af5d781a98d88ab21be2ff60d5a601ff9a040de13e1a40d46",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+  }
+}

@@ -2,6 +2,13 @@
 
 ## Current priority: identify the ODE contribution
 
+P2 density-transport observer is verified on all eight frozen models. The
+48-row numerical pilot completed on Mac mini CPU, queue32943 terminal.
+Independent reconstruction error is below2.94e-14. Six of16original/projected
+cells qualify at512steps; ten need the registered1024/2048refinement.
+No terminal-density architecture ranking is reported before those gates pass.
+[Derivation and protocol](docs/research-assessments/2026-11-16-ode-mechanism/density-protocol.md).
+
 **Eight new 20k trajectories and their independent evaluations are complete.**
 Free Taylor coefficients (8c10a8d), state-evolving midpoint (1ff0d02), and
 free midpoint stages (9a73953) all exited zero. Their28selection and14

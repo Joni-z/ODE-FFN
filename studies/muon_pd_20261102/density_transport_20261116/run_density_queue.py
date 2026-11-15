@@ -22,6 +22,9 @@ def main():
     for name in ['root', 'data', 'output', 'readiness']:
         p.add_argument('--'+name, required=True)
     p.add_argument('--workers', type=int, choices=[1, 2, 3, 4], default=4)
+    p.add_argument('--phase', choices=['pilot', 'refinement'], default='pilot')
+    p.add_argument('--pilot')
+    p.add_argument('--verification')
     p.add_argument('--detach', action='store_true')
     a = p.parse_args()
     root, data, out = map(Path, [a.root, a.data, a.output])
@@ -31,6 +34,8 @@ def main():
     assert meta['passed'] and len(meta['references']) == 8
     assert ready['passed'] and ready['device'] == 'cpu' and ready['density_data_sha256'] == digest
     assert len(ready['models']) == 8 and len(ready['entry_witnesses']) == 2
+    if a.phase == 'refinement':
+        assert a.pilot and a.verification and json.loads((Path(a.verification)/'COMPLETE.json').read_text())['passed']
     out.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ, OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1', CUDA_VISIBLE_DEVICES='-1')
     commit = subprocess.check_output(['git', '-C', str(HERE.parents[2]), 'rev-parse', 'HEAD'], text=True).strip()
@@ -55,7 +60,8 @@ def main():
             log.close()
             file = Path(row['output'])/'COMPLETE.json'
             done = json.loads(file.read_text()) if file.exists() else {}
-            passed = done.get('passed') and done.get('pilot') and not done.get('witness') and len(done.get('rows', [])) == 6
+            passed = done.get('passed') and not done.get('witness')
+            passed = passed and (done.get('pilot') and len(done.get('rows', [])) == 6 if a.phase == 'pilot' else done.get('refinement'))
             row.update(exit_code=code, complete=bool(passed), finished=time.time())
             completed.append(row)
             failed |= code != 0 or not passed
@@ -63,8 +69,12 @@ def main():
         while pending and len(active) < a.workers and not failed:
             index, reference = pending.pop(0)
             target = out/'cases'/reference['id']
-            command = [sys.executable, '-u', str(HERE/'density_probe.py'), '--root', str(root), '--data', str(data),
-                       '--output', str(target), '--readiness', a.readiness, '--index', str(index), '--phase', 'pilot', '--device', 'cpu']
+            command = [sys.executable, '-u', str(HERE/('density_probe.py' if a.phase == 'pilot' else 'refine_density.py')),
+                       '--root', str(root), '--data', str(data), '--output', str(target), '--index', str(index)]
+            if a.phase == 'pilot':
+                command += ['--readiness', a.readiness, '--phase', 'pilot', '--device', 'cpu']
+            else:
+                command += ['--pilot', a.pilot, '--verification', a.verification]
             log = (out/(reference['id']+'.log')).open('x')
             proc = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=log, stderr=log, env=env)
             row = dict(index=index, id=reference['id'], pid=proc.pid, output=str(target), command=command, started=time.time())
@@ -78,14 +88,14 @@ def main():
                 latest = None
             live.append(dict(row, progress=latest))
         dump(out/'status.json', dict(queue_pid=os.getpid(), frozen_commit=commit, running=live, completed=completed,
-                                    pending=[v['id'] for _, v in pending], failed=bool(failed), unix_time=time.time()))
+                                    pending=[v['id'] for _, v in pending], failed=bool(failed), phase=a.phase, unix_time=time.time()))
         if failed and not active:
             break
         if pending or active:
             time.sleep(5)
     passed = not failed and not pending and len(completed) == 8
     dump(out/'queue-finished.json', dict(passed=bool(passed), completed=completed, unstarted=[v['id'] for _, v in pending],
-                                        frozen_commit=commit, density_data_sha256=digest))
+                                        frozen_commit=commit, density_data_sha256=digest, phase=a.phase))
     if not passed:
         raise SystemExit(1)
 
