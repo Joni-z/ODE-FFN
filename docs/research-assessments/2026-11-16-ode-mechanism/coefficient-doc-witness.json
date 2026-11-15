@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dim": 2,
+      "extra_scalars": 42,
+      "initial_output_exact": true,
+      "original_parameter_gradients_exact": true,
+      "input_gradients_exact": true,
+      "coefficient_gradients_nonzero": true,
+      "polynomial_and_gradcheck": true
+    },
+    {
+      "dim": 16,
+      "extra_scalars": 42,
+      "initial_output_exact": true,
+      "original_parameter_gradients_exact": true,
+      "input_gradients_exact": true,
+      "coefficient_gradients_nonzero": true,
+      "polynomial_and_gradcheck": true
+    }
+  ],
+  "native_continuations": 2,
+  "real_evaluator_witnesses": 2,
+  "source_sha256": "bc906b074593402f97a5a15fb97a011f4f73a1668355872768e9a26ad0c020c9"
+}

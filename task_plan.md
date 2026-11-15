@@ -1,26 +1,19 @@
-# ODE mechanism research plan, 16 November 2026
+# Execute ODE mechanism investigation
 
-Goal: define a mathematically grounded, falsifiable test of what the ODE
-structure contributes. User requests a research decision; no new training
-or image job is launched during this planning task. Seed0 only; fixed native
-baseline; preserve both finalized reports. Present results to three decimals.
+Goal active: explain which ODE structure contributes, using falsifiable
+controls and full-field transport evidence. Mac mini authorized freely;
+145 physical0-3 forbidden,4-7 only if no existing task. No jobs may be killed.
+Seed0 only; pinned native training and qualified image baseline remain fixed.
 
-- [x] Read current evidence, project constraints and prior mechanism proposals.
-- [x] Derive exponential coefficient identities, conditional composition defects and physical error transport.
-- [x] Review primary flow-map/solver literature; identify and exclude an invalid discrete bound in a recent preprint.
-- [x] Specify two coefficient-control trajectories and a conditional two-trajectory state-flow follow-up.
-- [x] Verify numerical examples, source bindings, preserved journals and96 protected report hashes.
-- [x] Publish the plan through GitHub main; verify the remote commit after pushing.
+- [x] Recheck current source, live resources and execution authorization.
+- [ ] Implement free-coefficient adapter and exact initialization/gradient/continuation checks.
+- [ ] Freeze and publish source; run documented witness.
+- [ ] Launch two native20k CPU trajectories with persistent monitoring.
+- [ ] Reevaluate fixed/free/K1/ordinary controls on fresh prebound arrays.
+- [ ] Diagnose learned-state composition and physical error transport.
+- [ ] Decide whether state-evolving follow-up is warranted; execute if supported.
+- [ ] Synthesize positive/negative mechanism evidence and next research disposition.
 
-Working deliverable: docs/research-assessments/2026-11-16-ode-mechanism/research-question-card.md.
-Previous completed screen journals are preserved in docs/history/2026-11-16-before-ode-mechanism/.
-
-Decision: mechanism identification takes priority over arctan image transfer.
-Initial-function matching is required for the coefficient test. State-flow
-parameters can match but its initial hidden function differs. Neither lower
-hidden composition defect nor a mathematically accurate solve establishes
-generation benefit without full-field/sample evidence. No training launched.
-
-Lookup notes: the assumed native/data.py path was absent; existing oracle is
-reference/synthetic/data.py. FM guide HTML version probes returned404; they
-are not used as full-text evidence. Exact primary sources are in literature-notes.md.
+Current: implementation.145 physical4-7 occupied; use Mac mini two CPU workers.
+A prior goal turn only verified absence of runs; it did not advance experiments.
+This turn proceeds to the authorized next action rather than repeating that status.
