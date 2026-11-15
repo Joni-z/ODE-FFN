@@ -57,3 +57,12 @@ The new Ring8 tanh checkpoint also receives the same C8 read-only intervention,
 so its sensitivity can be compared with the three recovered references. Each
 GPU runs one monitored pipeline; evaluation follows training automatically.
 Queue completion requires both successful native training and frozen evaluation.
+
+## Read-only interpretation after the first results
+All completed Ring8 families improve strongly after C8projection. Before
+selecting further training, compute the exact-mixture oracle's Heun128 SW2 on
+the identical banks, and decompose error on complete C8orbits of the fixed
+validation states. On that finite invariant measure, total error equals
+symmetric error plus asymmetric error because the exact oracle is equivariant.
+Check the cross term numerically in float64; keep native float32 sampling
+metrics unchanged. This adds no training and is performed onCPU.
