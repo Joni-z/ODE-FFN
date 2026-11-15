@@ -1,5 +1,13 @@
 # Current project status
 
+## Proposed next image candidate
+
+[Tanh-D K8](docs/research-assessments/2026-11-14-next-architecture/tanh-k8-proposal.md):
+retain the widened ISRU-D K8 topology and change only its entrance diagonal
+to the verified scaled tanh response. One seed0/100epoch CelebA128 run is
+proposed, with the existing native SwiGLU and ISRU-D K8 controls. Source
+implementation, readiness and a run decision are pending; no job is submitted.
+
 ## Completed order-by-response comparison,15 November
 
 Four seed 0 K8 runs, common-bank evaluations and frozen-order diagnostics

@@ -38,8 +38,8 @@ Planning discussion only; no new jobs are authorized by this note.
 - [x] Recheck the three professor-comment findings and the completed K1/K8 response comparison.
 - [x] Prioritize the existing CelebA checkpoint diagnosis over additional response/order sweeps.
 - [ ] Measure native SwiGLU versus widened ISRU-D K1/K8 errors by noise time and layer responses; cap the proposed diagnosis at one GPU-hour.
-- [ ] Identify a measured architectural limitation before selecting a new operator; do not presume ISRU must be retained.
-- [ ] Register the next operator and ordinary controls only after that decision.
+- [x] Propose one concrete CelebA control: Tanh-D K8, changing only the diagonal response of widened ISRU-D K8.
+- [ ] Review the proposed transfer test, implement and verify it only under an execution decision; no run is launched here.
 
 Ring8 rotation augmentation remains an optional small control; it is not a
 prerequisite for answering the professor or evidence of an image-model gain.
@@ -50,3 +50,8 @@ the reason to privilege ISRU after the matched tanh results. A fixed-response
 feedback comparison could isolate one variable, but that alone does not make
 it the research priority. Neither a post-hoc improvement nor a post-hoc
 failure proves the potential of a newly trained operator.
+
+Current candidate proposal: docs/research-assessments/2026-11-14-next-architecture/tanh-k8-proposal.md.
+Use the registered20k synthetic K8-to-K8 response comparison as motivation,
+not as proof of an image gain. Proposed budget: one seed0/100epoch trajectory,
+same native recipe and FID50k every20; fixed native and wide ISRU-D references.

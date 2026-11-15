@@ -47,3 +47,12 @@ models include both ISRU-D and Tanh-D at K1/K8. All inherit the shared-P Taylor
 construction, but the latter are not unchanged copies of the original scalar
 clock layer. D is computed once per solve and reused across terms; K1 equals
 h+P ISRU(h), whereas higher terms do not repeatedly apply ISRU to the new term.
+
+The requested concrete CelebA candidate is now proposed as Tanh-D K8:
+the same widened768->1200 topology, two frozen-D Taylor solves around SiLU,
+and only d(h) changed to the verified scaled tanh ratio. At the registered
+synthetic20k endpoint, tanh-K8 beats ISRU-K8 on both tasks/metrics; earlier
+checkpoints are mixed. This motivates one transfer control, not an image
+superiority or novelty claim. Keep AdamW and the existing image recipe,
+reuse the native/wide-ISRU baselines, and propose one100epoch seed0 trajectory.
+No implementation or job is launched in this architecture-selection discussion.
