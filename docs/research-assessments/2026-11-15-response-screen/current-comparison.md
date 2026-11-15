@@ -1,13 +1,12 @@
 # Partial response-screen comparison
 
-This is a status audit, not the completed selection analysis. At this check,
-13 of36 pipelines have completed training and selection evaluation. All shown
-numbers use the20k checkpoint, new CPU cohort, eight common4096sample banks,
-256 directions and Heun128. Lower is better. Other arms and the automatic
-confirmation stage are still running/pending. Do not fill gaps with older
-CUDA scores or the earlier single-bank metric.
+19of36 pipelines have completed20k training and selection evaluation. Ring8
+now has all16 response/order cases and both ordinary controls. Product16 is
+in progress; the final cross-task shortlist and confirmation are unfinished.
+The existing queues continue. No new experiment or image allocation was added.
 
-## Ring8 completed comparisons
+All numbers below use this Mac mini CPU cohort, the same eight4096sample
+selection banks,256directions and Heun128. Lower is better.
 
 | Response | K1 field MSE | K8 field MSE | K1 pooled SW2 | K8 pooled SW2 |
 |---|---:|---:|---:|---:|
@@ -17,25 +16,30 @@ CUDA scores or the earlier single-bank metric.
 | softsign | 0.010443 | 0.011340 | 0.090968 | 0.069559 |
 | erf | 0.009703 | 0.011352 | 0.122258 | 0.106584 |
 | silu | 0.013458 | 0.014150 | 0.162098 | 0.151971 |
-| gelu | 0.012422 | pending | 0.152849 | pending |
-| linear | pending | pending | pending | pending |
+| gelu | 0.012422 | 0.014315 | 0.152849 | 0.130494 |
+| linear | 0.015525 | 0.018280 | 0.121731 | 0.123481 |
 
-The same-host SwiGLU64/Muon reference is still pending. The Product16 response
-and SwiGLU192/AdamW comparisons are also pending. Thus an all-model ranking
-against SwiGLU cannot yet be reported.
+| Ordinary Ring8 reference | Field MSE | Pooled SW2 |
+|---|---:|---:|
+| SwiGLU64 / Muon.02 | 0.012929 | 0.118231 |
+| Free ISRU / AdamW.0003 | 0.011497 | 0.112653 |
 
-Softsign-K8 is the current Ring8 sampling lead, while tanh-K1 has the lowest
-field MSE among the audited cases. Softsign-K8's pooled SW2 is0.06956 versus
-ISRU-K8 0.10024 and tanh-K8 0.10524; its field MSE is0.01134 versus0.01125
-for ISRU-K8. The ranking differs by metric. Keep it as a candidate to watch;
-no CelebA response is selected before the ordinary controls, Product16 and
-the registered disjoint confirmation are available.
+Softsign-K8 remains the Ring8 sampling lead. Its pooled SW2 is0.06956 versus
+the current SwiGLU64 reference0.11823. Its field MSE is0.01134 versus0.01293.
+Tanh-K1 has the lowest response-family field MSE0.009478. The selected ordinary
+optimizer settings differ and are labeled; this table does not isolate an
+optimizer or ODE-specific cause. The cross-task eligibility rule still awaits
+Product16, and disjoint confirmation has not started.
 
-All13 completed arrays were independently recomputed in NumPy: maximum
-metric difference2.8e-17. Checkpoint/config/array hashes and native restoration
-identities passed. The ordinary controls were registered after focal cases
-in each dataset, explaining why they are not yet in the completed table.
-The existing queue continues; no new experiment or image allocation was added.
+We have previous synthetic SwiGLU baselines and a qualified native CelebA
+baseline. This CPU SwiGLU run is the same-host comparison for the new screen;
+it does not replace or invalidate those earlier results. The current partial
+table must not mix older banks/backend values into the new cohort.
 
-[Exact audited rows](partial-status-audit.json), [queue snapshot](status-snapshot.json),
-[protocol](protocol.md). Finalized Reports1/2 and the image baseline are preserved.
+All19 completed20k arrays were independently recomputed in NumPy; maximum
+metric discrepancy2.8e-17. Checkpoint/config/asset hashes and native saved
+sampling restoration passed. Finalized Reports1/2 and the image baseline remain
+preserved.
+
+[Exact audited rows](partial-status-audit.json),[queue snapshot](status-snapshot.json),
+[protocol](protocol.md). No CelebA candidate is selected yet.

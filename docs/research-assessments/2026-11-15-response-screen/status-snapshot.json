@@ -1,48 +1,35 @@
 {
-  "scope": "live partial status; training and confirmation unfinished",
-  "checked_unix": 1794755462.792365,
-  "monitor_unix": 1794755436.513091,
-  "queue_pid": 3761,
-  "completed": 13,
+  "scope": "partial status, not final selection",
+  "checked_unix": 1794756074.9892852,
+  "monitor_unix": 1794756065.322638,
+  "completed": 19,
   "total": 36,
   "failed": false,
   "running": [
     {
-      "cell": "gmm_ring8_2d__screen_gelu_k8__adamw_0.0003",
+      "cell": "rotated_product_bimodal_16d__screen_isru_k8__adamw_0.0003",
       "latest": {
-        "step": 11500,
-        "validation_oracle_mse": 0.014931311416625976,
-        "wall_seconds": 122.9851198750548,
+        "step": 12000,
+        "validation_oracle_mse": 0.04924415864944458,
+        "wall_seconds": 115.94241200014949,
         "sample": null
       }
     },
     {
-      "cell": "gmm_ring8_2d__screen_linear_k1__adamw_0.0003",
-      "latest": null
+      "cell": "rotated_product_bimodal_16d__screen_tanh_k1__adamw_0.0003",
+      "latest": {
+        "step": 5000,
+        "validation_oracle_mse": 0.1884337703704834,
+        "wall_seconds": 78.09830162487924,
+        "sample": {
+          "heun_steps": 32,
+          "nfe": 64,
+          "reference_floor": 0.05105132982134819,
+          "seconds": 3.3189626252278686,
+          "sliced_w2": 0.08539963513612747
+        }
+      }
     }
   ],
-  "pending": [
-    "gmm_ring8_2d__screen_linear_k8__adamw_0.0003",
-    "gmm_ring8_2d__free_isru__adamw_0.0003",
-    "gmm_ring8_2d__swiglu64__muon_0.02",
-    "rotated_product_bimodal_16d__screen_isru_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_isru_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_tanh_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_tanh_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_arctan_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_arctan_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_softsign_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_softsign_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_erf_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_erf_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_silu_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_silu_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_gelu_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_gelu_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_linear_k1__adamw_0.0003",
-    "rotated_product_bimodal_16d__screen_linear_k8__adamw_0.0003",
-    "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
-    "rotated_product_bimodal_16d__swiglu192__adamw_0.0003"
-  ],
-  "numpy_audited_cases": 13
+  "numpy_audited_cases": 19
 }
