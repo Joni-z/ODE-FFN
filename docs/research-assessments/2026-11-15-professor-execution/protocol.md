@@ -52,3 +52,8 @@ new same-recipe trajectories, not recovered historical weights. Compare their
 native metrics to archived results before interpreting the C8 intervention.
 This raises the bounded training count from two to five; no additional seed
 or architecture is introduced. Product16 original weights remain available.
+
+The new Ring8 tanh checkpoint also receives the same C8 read-only intervention,
+so its sensitivity can be compared with the three recovered references. Each
+GPU runs one monitored pipeline; evaluation follows training automatically.
+Queue completion requires both successful native training and frozen evaluation.
