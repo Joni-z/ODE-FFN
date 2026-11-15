@@ -18,12 +18,12 @@ def table(path,rows):
  with Path(path).open('w') as f:
   w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
 
-def collect(root,out):
+def collect(root,out,split="selection",expected_cases=36):
  rows=[];banks=[];maximum=0.;checks=[]
- for file in sorted((root/'selection').glob('*/binding.json')):
+ for file in sorted((root/split).glob('*/binding.json')):
   folder=file.parent;b=json.loads(file.read_text());cfg=b['source_config'];c=cfg['cell'];asset=b['assets']
   done=json.loads((folder/'COMPLETE.json').read_text());assert done['passed'] and not done['witness']
-  assert b['split']=='selection' and asset['split']=='selection'
+  assert b['split']==split and asset['split']==split
   assert sha(asset['file'])==asset['sha256']
   with np.load(asset['file']) as z:arrays={k:z[k].copy() for k in z.files}
   assert {k:ah(v) for k,v in arrays.items()}==asset['arrays']
@@ -40,9 +40,9 @@ def collect(root,out):
    rows.append(dict(id=c['id'],dataset=c['dataset'],response=c['response'],order=c['order'],role=c['role'],step=s['step'],field_mse=mse,pooled_sw2=pool,sw2_mean=float(np.mean(scores)),sw2_sd=float(np.std(scores,ddof=1)),sector_l1=s.get('sector_l1'),gap_error_max=s.get('gap_error_max'),checkpoint_sha256=s['checkpoint_sha256']))
    for i,score in enumerate(scores):banks.append(dict(id=c['id'],step=s['step'],bank=i,sw2=score,sample_sha256=sha(folder/f"{s['step']}-b{i}.npy")))
   checks.append(dict(id=c['id'],binding_sha256=sha(file),completion_sha256=sha(folder/'COMPLETE.json')))
- assert len(checks)==36 and len(rows)==72
- table(out/'selection-metrics.csv',rows);table(out/'selection-banks.csv',banks)
- dump(out/'verification.json',dict(passed=True,cells=len(checks),rows=len(rows),max_numpy_difference=maximum,bindings=checks,source_sha256=sha(__file__)))
+ assert len(checks)==expected_cases and len(rows)==expected_cases*(2 if split=='selection' else 1)
+ table(out/(split+'-metrics.csv'),rows);table(out/(split+'-banks.csv'),banks)
+ dump(out/('verification.json' if split=='selection' else 'confirmation-verification.json'),dict(passed=True,cells=len(checks),rows=len(rows),max_numpy_difference=maximum,bindings=checks,source_sha256=sha(__file__)))
  return rows
 
 def shortlist(rows,latency):
@@ -66,7 +66,7 @@ def shortlist(rows,latency):
  selected=[x['response'] for x in eligible[:2]]
  return dict(selected_responses=selected,ranking=rankings,rule='registered worst-task pooled SW2 ratio, MSE eligibility; selection arrays only',selected_before_confirmation=True)
 
-def render(rows,out):
+def render(rows,out,latency):
  names=('isru','tanh','arctan','softsign','erf','silu','gelu','linear')
  fig,axes=plt.subplots(2,2,figsize=(11,7),layout='constrained')
  for i,d in enumerate(('gmm_ring8_2d','rotated_product_bimodal_16d')):
@@ -78,13 +78,30 @@ def render(rows,out):
    ax.set(xticks=np.arange(8),xticklabels=names,ylabel=metric,title=('Ring8' if i==0 else 'Product16'))
    ax.tick_params(axis='x',rotation=35);ax.legend()
  fig.savefig(out/'response-comparison.png',dpi=180);plt.close(fig)
+ fig,axes=plt.subplots(1,2,figsize=(11,4),layout='constrained')
+ for ax,d in zip(axes,('gmm_ring8_2d','rotated_product_bimodal_16d')):
+  for n in names:
+   points=[(x['median_seconds_per_forward']*1000,next(r['pooled_sw2'] for r in rows if r['id']==x['id'] and r['step']==20000),x['order']) for x in latency if x['dataset']==d and x['response']==n]
+   points.sort(key=lambda x:x[2]);ax.plot([x[0] for x in points],[x[1] for x in points],marker='o',label=n)
+   for x,y,k in points:ax.annotate(str(k),(x,y),xytext=(3,3),textcoords='offset points',fontsize=7)
+  for x in latency:
+   if x['dataset']==d and x['order']==0:
+    y=next(r['pooled_sw2'] for r in rows if r['id']==x['id'] and r['step']==20000)
+    ax.scatter(x['median_seconds_per_forward']*1000,y,marker='x',s=60,color='black')
+    ax.annotate(x['response'],(x['median_seconds_per_forward']*1000,y),fontsize=7)
+  ax.set(xlabel='CPU milliseconds per batch512 forward',ylabel='Pooled SW2',title='Ring8' if d=='gmm_ring8_2d' else 'Product16')
+ axes[1].legend(fontsize=7,ncol=2);fig.savefig(out/'quality-cost.png',dpi=180);plt.close(fig)
+
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--runtime',required=True);p.add_argument('--output',required=True);p.add_argument('--latency',required=True)
+ p=argparse.ArgumentParser();p.add_argument('--runtime',required=True);p.add_argument('--output',required=True);p.add_argument('--latency');p.add_argument('--confirmation-only',action='store_true');p.add_argument('--expected-cases',type=int,default=36)
  a=p.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=True)
+ if a.confirmation_only:
+  collect(Path(a.runtime),out,split='confirmation',expected_cases=a.expected_cases);print(json.dumps(dict(passed=True,confirmation_cases=a.expected_cases)));return
+ assert a.latency is not None
  rows=collect(Path(a.runtime),out);latency=json.loads(Path(a.latency).read_text())['rows']
  selected=shortlist(rows,latency);selected['verification_sha256']=sha(out/'verification.json');selected['latency_sha256']=sha(a.latency)
  path=out/'shortlist.json';assert not path.exists(),'Do not overwrite a frozen shortlist'
- dump(path,selected);render(rows,out);print(json.dumps(dict(passed=True,selected=selected['selected_responses'])))
+ dump(path,selected);render(rows,out,latency);print(json.dumps(dict(passed=True,selected=selected['selected_responses'])))
 
 if __name__=='__main__':main()

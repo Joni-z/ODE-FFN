@@ -28,6 +28,8 @@ def main():
         '--assets',a.assets,'--output',str(target),'--device','cpu','--split','confirmation','--steps','20000'],check=True)
    assert base.digest(shortlist)==frozen;count+=1
    phase('confirmation',selected=names,completed=count,shortlist_sha256=frozen)
+  phase('confirmation_recomputation',confirmation_cases=count)
+  subprocess.run([a.numpy_python,str(HERE/'analyze_screen.py'),'--runtime',str(out),'--output',str(out),'--confirmation-only','--expected-cases',str(count)],check=True)
   base.dump(out/'COMPLETE.json',dict(passed=True,selected=names,confirmation_cases=count,shortlist_sha256=frozen,source_sha256=base.digest(__file__)))
   phase('complete',selected=names,confirmation_cases=count)
  except Exception as e:
