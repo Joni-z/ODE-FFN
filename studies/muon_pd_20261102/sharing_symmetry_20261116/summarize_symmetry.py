@@ -149,6 +149,11 @@ def main():
     fig.savefig(figures/'ring-distributions.png')
     fig.savefig(figures/'ring-distributions.pdf')
     plt.close(fig)
+    order = np.argsort([c['exact_sign_p'] for c in contrasts])
+    previous = 0.
+    for rank, index in enumerate(order):
+        previous = max(previous, min(1., (len(contrasts)-rank)*contrasts[index]['exact_sign_p']))
+        contrasts[index]['holm_sign_p_four_sharing_contrasts'] = previous
     payload = dict(passed=True, training_seed=0, evaluation_stream=2026112200, independent_banks=4,
                    independent_base_points_per_bank=4096, correlated_group_points_per_bank=32768,
                    rows=rows, sharing_contrasts=contrasts, verified_receipt_sha256=digest(verified/'COMPLETE.json'))
@@ -158,11 +163,11 @@ def main():
         writer = csv.DictWriter(handle, fieldnames=list(flat[0]))
         writer.writeheader()
         writer.writerows(flat)
-    table = ['| Task | Model | Original SW2 | Projected SW2 | Total MSE | Breaking MSE |',
+    table = ['| Task | Model | Original SW2 | Projected SW2 | Total MSE x1,000 | Breaking MSE x1,000 |',
              '|---|---|---:|---:|---:|---:|']
     for r in rows:
         label = TASK_LABELS[TASKS.index(r['dataset'])].split(' / ')[0]
-        table.append(f"| {label} | {LABELS[r['family']]} | {r['original_pooled_sw2']:.3f} | {r['projected_pooled_sw2']:.3f} | {r['total_field_mse']:.3f} | {r['breaking_field_mse']:.3f} |")
+        table.append(f"| {label} | {LABELS[r['family']]} | {r['original_pooled_sw2']:.3f} | {r['projected_pooled_sw2']:.3f} | {1000*r['total_field_mse']:.3f} | {1000*r['breaking_field_mse']:.3f} |")
     (out/'numeric-summary.md').write_text('\n'.join(table)+'\n')
     print(json.dumps(dict(passed=True, rows=len(rows), contrasts=len(contrasts), output=str(out))))
 

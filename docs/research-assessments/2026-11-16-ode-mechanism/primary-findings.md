@@ -5,7 +5,7 @@ interventions. Prescribing exponential or midpoint coefficients has not improved
 fixed-budget sampling consistently. Fixed midpoint retains its expected numerical
 order. Ordinary controls remain stronger on Product16.**
 
-The six new20k trajectories and all28selection/14confirmation metric rows
+The six new 20k trajectories and all28selection/14confirmation metric rows
 are complete and independently recomputed. Training remains seed0. All18
 resolution cases and seven float64 symmetry cases are complete and independently
 recomputed. Two additional stage-operator trajectories and their fresh common-bank
@@ -110,7 +110,7 @@ All14outer-resolution and four full internal-refinement cases independently
 recompute within2.78e-17. [Bound verification](numerical-resolution/COMPLETE.json),
 [all64scores](numerical-resolution/scores.csv). The failed float32 C8 shortcut
 is preserved. All seven symmetry cases subsequently completed in float64,
-with independent verification of all25cases and78scores. No mixed-precision
+with independent verification of all25cases and 78 scores. No mixed-precision
 symmetry ranking is reported.
 
 ## What is unresolved
@@ -125,7 +125,7 @@ while generation worsens. Sharing therefore has measured value in this compariso
 
 Full-bank CUDA refinement then reproduces CPUwithin3.44e-8and independently
 recomputes all16pooled/128bank rows within2.78e-17. Heun128->512preserves
-the gap. Internal4->16retains the pooled sharing lead: Ring8shared/released
+the gap. Internal4->16retains the pooled sharing lead: Ring8 shared/released
 0.091/0.103, Product16 0.069/0.082. Ring8bank support falls to5/8with an
 approximate mean-gap interval crossing zero; Product16stays8/8. Thus the
 fixed-budget architectural result is stronger than a two-task claim about
@@ -141,9 +141,15 @@ The completed Ring8 C8 intervention removes the state-flow lead over ordinary
 controls on its paired stratified bank: state flow0.067->0.023, Free ISRU
 0.088->0.019 and SwiGLU0.094->0.022. This points to symmetry/mode allocation
 as an error component to test, not an equivariance guarantee of hidden ODEs.
-Released stage operators were absent from that cohort.
+Released stage operators were absent from that earlier cohort. The new complete
+eight-case sharing intervention includes them: Ring8 shared/stage SW2 changes
+from 0.072/0.096 to 0.024/0.021 under C8 projection; Product16 changes
+from 0.059/0.068 to 0.055/0.063 under selected reflections. Ring8 reverses,
+Product16 retains the gap. The selected-symmetry explanation is insufficient
+across tasks. [New analysis and examples](sharing-symmetry/analysis-report.md).
 [Completed numerical findings](numerical-findings.md),
-[targeted next mechanism test](sharing-symmetry-followup.md).
+[registered symmetry test](sharing-symmetry-followup.md),
+[next exact density-error diagnostic](post-symmetry-decision.md).
 
 [Numerical/symmetry protocol](numerical-followup.md),
 [single-generator control](operator-sharing-control.md),

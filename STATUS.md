@@ -2,12 +2,12 @@
 
 ## Current priority: identify the ODE contribution
 
-**Eight new20k trajectories and their independent evaluations are complete.**
+**Eight new 20k trajectories and their independent evaluations are complete.**
 Free Taylor coefficients (8c10a8d), state-evolving midpoint (1ff0d02), and
 free midpoint stages (9a73953) all exited zero. Their28selection and14
 confirmation rows independently recompute. All training/evaluation queues
 for these trajectories are terminal. The two released-stage-operator runs
-also completed20k with exit0; all16selection/8confirmation rows independently
+also completed20k with exit 0; all16selection/8confirmation rows independently
 recompute. The latest sharing cohort uses its own fresh prebound arrays:
 
 | Model | Ring8 SW2 | Product16 SW2 |
@@ -48,7 +48,7 @@ fixed K8's0.056. [Verification and scores](docs/research-assessments/2026-11-16-
 Numerical queue25633 stopped after21successful tasks and one failed float32
 C8 trajectory-equivariance witness; three symmetry tasks were unstarted.
 The failed bundle is preserved. All seven symmetry cases completed in a
-separate float64 bundle, queue27668 terminal. All25numerical cases and78scores
+separate float64 bundle, queue27668 terminal. All25numerical cases and 78 scores
 independently recompute within2.78e-17. The Ring8 state-flow lead over ordinary
 controls disappears after C8projection on the paired stratified bank.
 [Completed numerical findings](docs/research-assessments/2026-11-16-ode-mechanism/numerical-findings.md).
@@ -57,7 +57,7 @@ controls disappears after C8projection on the paired stratified bank.
 The single-generator [sharing control](docs/research-assessments/2026-11-16-ode-mechanism/operator-sharing-control.md)
 has passed initial-function, gradient, native continuation and fresh
 documented evaluator checks. Both seed0 runs completed20k on Mac mini CPU,
-queue27486, workers27487/27488, frozen8205c5a, both exit0. Formal initialization,
+queue27486, workers27487/27488, frozen8205c5a, both exit 0. Formal initialization,
 recipe and data-RNG states match the shared controls at0/15k/20k. Evaluation
 watcher27667 completed all16evaluation invocations on the new common arrays;
 all six ordinary/shared references received those same arrays.
@@ -73,20 +73,34 @@ the job has exited. All16pooled/128bank scores independently recompute within
 the gap. Inner4->16gives shared/released Ring8 0.091/0.103and Product16
 0.069/0.082; Ring8bank support weakens to5/8while Product16stays8/8.
 [Full refinement, figures and receipts](docs/research-assessments/2026-11-16-ode-mechanism/sharing-results/full-resolution/analysis.md).
-The targeted sharing-symmetry test is now running at frozen5e78e6a.
-[Follow-up hypotheses and decisions](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry-followup.md).
-All earlier workers are terminal. The eight-cell projection queue2996899
-is running on idle145GPUs4-7only, currently4and5, workers2996907/2996908.
-Its8CPU/CUDAreferences and two actual-entry witnesses passed; no training
-or checkpoint selection is added. [Execution and readiness](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry/execution.md).
-No image training was submitted.
+The eight-case frozen symmetry intervention is complete at 5e78e6a;
+all cases exit 0 and queue 2996899 is terminal. Independent NumPy recomputes
+64 bank / 16 pooled scores plus 32 resolution checks within 1.25e-16.
+
+| New group-stratified cohort | Shared P original/projected | Stage P original/projected | SwiGLU original/projected |
+|---|---:|---:|---:|
+| Ring8 / C8 |0.072 /0.024|0.096 /0.021|0.101 /0.022|
+| Product16 / selected reflections |0.059 /0.055|0.068 /0.063|0.040 /0.039|
+
+Ring8 reverses the sharing comparison after projection; Product16 retains it.
+The single selected-symmetry explanation fails. Original Ring8 sharing reduces
+breaking error but increases preserved-field error. Product16 still has lower
+stage field MSE but worse generation after projection. Ordinary controls remain
+in every comparison; no image promotion follows.
+[Completed analysis and examples](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry/analysis-report.md).
+These scores use fresh group-stratified arrays and must not be numerically
+pooled with the earlier iid cohort. GPU 4/5 contexts have been released; 6/7 were
+occupied and skipped. No other task was stopped. The next prepared diagnostic
+studies the exact density-error source div(p*e), not another response function.
+[Mathematics and bounded plan](docs/research-assessments/2026-11-16-ode-mechanism/post-symmetry-decision.md).
+No new training or image job was submitted.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),
 [state-flow gate and invocation](docs/research-assessments/2026-11-16-ode-mechanism/state-execution.md),
 [state launch](docs/research-assessments/2026-11-16-ode-mechanism/state-launch.json).
 Raw root: `/Users/mr.z/ode-workspace-prep/coefficient-20261116/`.
-145 physical0-3 remain prohibited. The earlier GPU6portability attempt
+145 physical 0-3 remain prohibited. The earlier GPU6portability attempt
 stopped when a foreign task appeared; later dedicated witnesses and inference
 use their own receipts. No other task was stopped.
 
@@ -110,7 +124,7 @@ runs are described above. Finalized reports remain fixed.
 compared eight responses at K1/K8 on Ring8/Product16. All32 focal trajectories
 and4ordinary references completed20k updates and selection evaluation on
 the same CPU host/backend. All12 independent confirmation cases are complete.
-Training queue3761 and analysis watcher3767 have exited. Seed0, pinned native
+Training queue3761 and analysis watcher3767 have exited. Seed 0, pinned native
 training/metrics and prebound evaluation arrays remain fixed. Training source
 b5fe7aa and analysis0e78ce7 are preserved. Both streams independently
 recompute within5.56e-17; all96 protected Report1/2 hashes remain unchanged.
@@ -174,7 +188,7 @@ on145. All before/after C8 comparisons use the same weights. Reports1/2 remain f
 
 ## Completed baseline/K1/K8 continuation
 
-All three completed160epochs and FID50k, exit0:0. Native SwiGLU leads at
+All three completed160epochs and FID50k, exit 0:0. Native SwiGLU leads at
 every matching checkpoint.
 
 | Epoch | Native SwiGLU | Wide K1 | Wide K8 |

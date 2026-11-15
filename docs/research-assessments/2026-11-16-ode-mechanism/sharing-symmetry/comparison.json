@@ -1,0 +1,381 @@
+{
+  "passed": true,
+  "training_seed": 0,
+  "evaluation_stream": 2026112200,
+  "independent_banks": 4,
+  "independent_base_points_per_bank": 4096,
+  "correlated_group_points_per_bank": 32768,
+  "rows": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "total_field_mse": 0.010277351069611989,
+      "projected_field_mse": 0.005595161128146212,
+      "breaking_field_mse": 0.0046821899414657775,
+      "original_pooled_sw2": 0.07240120801454963,
+      "projected_pooled_sw2": 0.024019752675542762,
+      "original_bank_mean": 0.07278625625186004,
+      "original_bank_sd": 0.0028055690564694627,
+      "projected_bank_mean": 0.024652064037316963,
+      "projected_bank_sd": 0.004656800162175078,
+      "original_balance_l1": 0.0311126708984375,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": null,
+      "projected_gap_error_max": null,
+      "projection_bank_effect": {
+        "differences": [
+          0.04494471335103092,
+          0.04885479347431494,
+          0.050203764845981505,
+          0.048533497186844944
+        ],
+        "mean": 0.04813419221454308,
+        "sd": 0.002246079319917234,
+        "approximate_95ci": [
+          0.044560178798020704,
+          0.05170820563106545
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "stage_operator_midpoint4",
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "total_field_mse": 0.010998125928200193,
+      "projected_field_mse": 0.005072457836820093,
+      "breaking_field_mse": 0.0059256680913801,
+      "original_pooled_sw2": 0.0963806157345413,
+      "projected_pooled_sw2": 0.021228321366810434,
+      "original_bank_mean": 0.09667489406360642,
+      "original_bank_sd": 0.0030968864273499073,
+      "projected_bank_mean": 0.021958136850281307,
+      "projected_bank_sd": 0.00440685152699482,
+      "original_balance_l1": 0.0388641357421875,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": null,
+      "projected_gap_error_max": null,
+      "projection_bank_effect": {
+        "differences": [
+          0.07202148334114412,
+          0.07571196805885229,
+          0.07709543691777657,
+          0.0740381405355275
+        ],
+        "mean": 0.07471675721332512,
+        "sd": 0.0021888797442885972,
+        "approximate_95ci": [
+          0.07123376108586432,
+          0.07819975334078591
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "total_field_mse": 0.011374602251224122,
+      "projected_field_mse": 0.004970889051157935,
+      "breaking_field_mse": 0.006403713200066188,
+      "original_pooled_sw2": 0.09430086215592004,
+      "projected_pooled_sw2": 0.019310014334056855,
+      "original_bank_mean": 0.09459219013227739,
+      "original_bank_sd": 0.0025679737271608015,
+      "projected_bank_mean": 0.02013618275159283,
+      "projected_bank_sd": 0.004506190983450685,
+      "original_balance_l1": 0.04473876953125,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": null,
+      "projected_gap_error_max": null,
+      "projection_bank_effect": {
+        "differences": [
+          0.07156343132521395,
+          0.07495867493438615,
+          0.0750402522634879,
+          0.07626167099965026
+        ],
+        "mean": 0.07445600738068456,
+        "sd": 0.0020183684908166495,
+        "approximate_95ci": [
+          0.0712443327075343,
+          0.07766768205383481
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "total_field_mse": 0.012310012516339583,
+      "projected_field_mse": 0.004883516925889361,
+      "breaking_field_mse": 0.007426495590450221,
+      "original_pooled_sw2": 0.10128964736093017,
+      "projected_pooled_sw2": 0.022472602311381852,
+      "original_bank_mean": 0.10154333349461674,
+      "original_bank_sd": 0.0023733109911031956,
+      "projected_bank_mean": 0.023229921232484314,
+      "projected_bank_sd": 0.004066334114643903,
+      "original_balance_l1": 0.049072265625,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": null,
+      "projected_gap_error_max": null,
+      "projection_bank_effect": {
+        "differences": [
+          0.07543376066022901,
+          0.07929092537358734,
+          0.07749175295081444,
+          0.08103721006389886
+        ],
+        "mean": 0.07831341226213241,
+        "sd": 0.00240431027671793,
+        "approximate_95ci": [
+          0.07448761808368409,
+          0.08213920644058073
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "total_field_mse": 0.019101981447094237,
+      "projected_field_mse": 0.015289496747308392,
+      "breaking_field_mse": 0.0038124846997858387,
+      "original_pooled_sw2": 0.05900202148280324,
+      "projected_pooled_sw2": 0.055170468159097395,
+      "original_bank_mean": 0.0664909665493653,
+      "original_bank_sd": 0.0033511814558204595,
+      "projected_bank_mean": 0.06324779928694897,
+      "projected_bank_sd": 0.003926708942704875,
+      "original_balance_l1": 0.0182952880859375,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": 0.02220069340857478,
+      "projected_gap_error_max": 0.02624427251013728,
+      "projection_bank_effect": {
+        "differences": [
+          0.004050225183308623,
+          0.0030646571577332346,
+          0.0035757174729628208,
+          0.0022820692356606276
+        ],
+        "mean": 0.0032431672624163264,
+        "sd": 0.0007566389285776011,
+        "approximate_95ci": [
+          0.002039185881073521,
+          0.004447148643759132
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "total_field_mse": 0.017763258319831027,
+      "projected_field_mse": 0.013635386675593126,
+      "breaking_field_mse": 0.004127871644237908,
+      "original_pooled_sw2": 0.06819573840934924,
+      "projected_pooled_sw2": 0.0632846738384359,
+      "original_bank_mean": 0.07475109099611946,
+      "original_bank_sd": 0.0030085975307580287,
+      "projected_bank_mean": 0.07030901602095038,
+      "projected_bank_sd": 0.003468376458799885,
+      "original_balance_l1": 0.02685546875,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": 0.011069406787481029,
+      "projected_gap_error_max": 0.013548960010137279,
+      "projection_bank_effect": {
+        "differences": [
+          0.004604733787900703,
+          0.004823459335689104,
+          0.0045773577462326215,
+          0.003762749030853829
+        ],
+        "mean": 0.004442074975169064,
+        "sd": 0.0004660819264803726,
+        "approximate_95ci": [
+          0.003700434622725577,
+          0.005183715327612552
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "total_field_mse": 0.014584083624144055,
+      "projected_field_mse": 0.010931589654824004,
+      "breaking_field_mse": 0.0036524939693200484,
+      "original_pooled_sw2": 0.06379567908863343,
+      "projected_pooled_sw2": 0.0625016479628025,
+      "original_bank_mean": 0.07073079249737257,
+      "original_bank_sd": 0.0027950484087249077,
+      "projected_bank_mean": 0.06962017683274928,
+      "projected_bank_sd": 0.0034615325781788917,
+      "original_balance_l1": 0.034698486328125,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": 0.005614389697637279,
+      "projected_gap_error_max": 0.010192026416387279,
+      "projection_bank_effect": {
+        "differences": [
+          -4.5386447657405626e-05,
+          0.0012122881137695135,
+          0.001614144887077576,
+          0.001661416105303501
+        ],
+        "mean": 0.0011106156646232962,
+        "sd": 0.0007965762097526626,
+        "approximate_95ci": [
+          -0.00015691484317883423,
+          0.0023781461724254266
+        ],
+        "positive_banks": 3,
+        "negative_banks": 1,
+        "exact_sign_p": 0.625
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "total_field_mse": 0.014870077990530445,
+      "projected_field_mse": 0.012009042929960525,
+      "breaking_field_mse": 0.002861035060569919,
+      "original_pooled_sw2": 0.040462930263662995,
+      "projected_pooled_sw2": 0.0390256830528223,
+      "original_bank_mean": 0.05090466307573969,
+      "original_bank_sd": 0.0012862891182514025,
+      "projected_bank_mean": 0.04989786979026739,
+      "projected_bank_sd": 0.0012993492058833587,
+      "original_balance_l1": 0.0316162109375,
+      "projected_balance_l1": 0.0,
+      "original_gap_error_max": 0.04241858891638728,
+      "projected_gap_error_max": 0.04595862797888728,
+      "projection_bank_effect": {
+        "differences": [
+          0.0007604014880733742,
+          0.0012040745345552883,
+          0.0009526505553082709,
+          0.0011100465639522772
+        ],
+        "mean": 0.0010067932854723027,
+        "sd": 0.00019426912931265908,
+        "approximate_95ci": [
+          0.0006976677490664253,
+          0.00131591882187818
+        ],
+        "positive_banks": 4,
+        "negative_banks": 0,
+        "exact_sign_p": 0.125
+      }
+    }
+  ],
+  "sharing_contrasts": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "mode": "original",
+      "comparison": "stage minus shared",
+      "pooled_difference": 0.02397940771999167,
+      "differences": [
+        0.024200858435553196,
+        0.023121351539547752,
+        0.02463157414098155,
+        0.023600767130903033
+      ],
+      "mean": 0.023888637811746383,
+      "sd": 0.0006635846742306577,
+      "approximate_95ci": [
+        0.022832726514372258,
+        0.024944549109120508
+      ],
+      "positive_banks": 4,
+      "negative_banks": 0,
+      "exact_sign_p": 0.125,
+      "holm_sign_p_four_sharing_contrasts": 0.5
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "mode": "projected",
+      "comparison": "stage minus shared",
+      "pooled_difference": -0.0027914313087323284,
+      "differences": [
+        -0.002875911554560011,
+        -0.0037358230449895877,
+        -0.0022600979308135156,
+        -0.0019038762177795224
+      ],
+      "mean": -0.002693927187035659,
+      "sd": 0.000802299538082382,
+      "approximate_95ci": [
+        -0.00397056478738621,
+        -0.0014172895866851082
+      ],
+      "positive_banks": 0,
+      "negative_banks": 4,
+      "exact_sign_p": 0.125,
+      "holm_sign_p_four_sharing_contrasts": 0.5
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "mode": "original",
+      "comparison": "stage minus shared",
+      "pooled_difference": 0.009193716926546004,
+      "differences": [
+        0.007107120963545752,
+        0.0075665803621353805,
+        0.010191532848557339,
+        0.008175263612778164
+      ],
+      "mean": 0.008260124446754159,
+      "sd": 0.0013598970800884692,
+      "approximate_95ci": [
+        0.006096224727707333,
+        0.010424024165800985
+      ],
+      "positive_banks": 4,
+      "negative_banks": 0,
+      "exact_sign_p": 0.125,
+      "holm_sign_p_four_sharing_contrasts": 0.5
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "mode": "projected",
+      "comparison": "stage minus shared",
+      "pooled_difference": 0.008114205679338508,
+      "differences": [
+        0.006552612358953672,
+        0.0058077781841795115,
+        0.009189892575287538,
+        0.006694583817584962
+      ],
+      "mean": 0.007061216734001421,
+      "sd": 0.001471446809682289,
+      "approximate_95ci": [
+        0.004719816502553971,
+        0.009402616965448871
+      ],
+      "positive_banks": 4,
+      "negative_banks": 0,
+      "exact_sign_p": 0.125,
+      "holm_sign_p_four_sharing_contrasts": 0.5
+    }
+  ],
+  "verified_receipt_sha256": "91a27ecb75928276258f2867fcfc2b4383596af76927d5576d135e4831d62545"
+}

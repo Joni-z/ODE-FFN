@@ -40,7 +40,7 @@ ssh -o BatchMode=yes -o ConnectTimeout=8 145 'cd /data2/zz5070/ODE_FFN/mechanism
 
 Require all eight native field references within2e-9and64-source trajectories
 within1e-7, seeded group/oracle/projection tests, two actual evaluator-entry
-witnesses, unchanged parameters, exit0and COMPLETE.json passed. A learned
+witnesses, unchanged parameters, exit 0and COMPLETE.json passed. A learned
 sampling shortcut is used only if its16-base-point comparison to actual
 orbit integration is below1e-9. A failed shortcut retains its error and uses
 direct projected integration; its tolerance is never relaxed.
@@ -65,3 +65,11 @@ with witness=false, a successful queue receipt, and an independent NumPy
 recomputation of64bank and16pooled scores, field decompositions, gap masses,
 mode counts, flux matrices and the32bounded-resolution scores. Source,
 checkpoint and array hashes are checked before interpreting any ranking.
+
+## Completed
+
+Eight full cases passed at frozen5e78e6a. Queue2996899used only idle
+physical145GPUs4/5and is terminal;6/7were occupied and skipped. Independent
+verification at c02da14recomputes64 bank / 16 pooled and32bounded-resolution
+scores, maximum1.25e-16. [Findings](analysis-report.md),
+[completion receipt](independent-COMPLETE.json), [queue](queue-finished.json).
