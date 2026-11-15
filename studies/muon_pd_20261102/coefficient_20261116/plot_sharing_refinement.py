@@ -13,7 +13,10 @@ def main():
     root=Path(a.analysis);verified=json.loads((root/'COMPLETE.json').read_text());assert verified['passed'] and verified['pooled_rows']==16 and verified['bank_rows']==128
     data=json.loads((root/'scores.json').read_text());rows=data['rows'];out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     for file in root.iterdir():
-        if file.is_file():shutil.copy2(file,out/file.name)
+        if file.name=='gpu-history.jsonl':
+            history=[json.loads(line) for line in file.read_text().splitlines()]
+            (out/'gpu-history.json').write_text(json.dumps(history,indent=2)+'\n')
+        elif file.is_file():shutil.copy2(file,out/file.name)
     for file in Path(a.receipts).iterdir():
         if file.is_file():shutil.copy2(file,out/file.name)
     tasks=['gmm_ring8_2d','rotated_product_bimodal_16d'];names=['Ring8','Product16']
