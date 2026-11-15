@@ -9,3 +9,8 @@ were on Lenovo. Existing local cycle14/15 ZIP files are evaluation outputs.
 Prior completed analysis: [three comments](docs/research-assessments/2026-11-15-professor-comments.md).
 The execution protocol and status will be bound to a separate15November study.
 No changes to final reports, the image trainer, or the original baseline.
+
+The old145v1 directory exists but lacks Ring8. Local original
+/Users/mr.z/ode-workspace-prep/data/synthetic/v1/gmm_ring8_2d and its manifest
+match every registered SHA256. Copy into the new runtime/data, leaving old
+caches intact. Product16 is symlinked. Readiness3uses this new data root.

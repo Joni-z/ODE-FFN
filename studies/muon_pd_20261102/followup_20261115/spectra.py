@@ -8,7 +8,7 @@ import numpy as np
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--runs',required=True);p.add_argument('--output',required=True)
+    p=argparse.ArgumentParser();p.add_argument('--runs',required=True);p.add_argument('--output',required=True);p.add_argument('--no-plots',action='store_true')
     a=p.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     rows=[];bindings=[]
     for f in sorted(Path(a.runs).rglob('update_spectra.jsonl')):
@@ -44,6 +44,8 @@ def main():
         endpoint.append(e)
     (out/'endpoints.json').write_text(json.dumps(endpoint,indent=2,allow_nan=False)+'\n')
     (out/'binding.json').write_text(json.dumps(dict(files=bindings,rows=len(rows),source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),condition_policy='sigma_max/sigma_min; singular values are not clamped; null means singular'),indent=2)+'\n')
+    if a.no_plots:
+        print(json.dumps(dict(rows=len(rows),files=len(bindings),output=str(out),plots=False)));return
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
