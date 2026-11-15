@@ -3,6 +3,8 @@ import argparse,json,time
 from pathlib import Path
 import numpy as np
 from coefficient_trial import base,torch
+from coefficient_trial import build_model as coefficient_builder
+from state_trial import build_model as state_builder
 import coefficient_evaluate as evaluation
 from transport import Oracle,oracle_jacobian,native_step
 
@@ -63,12 +65,21 @@ def self_test(law,source):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--data-root',required=True);p.add_argument('--output',required=True)
     group=p.add_mutually_exclusive_group();group.add_argument('--existing-only',action='store_true');group.add_argument('--new-only',action='store_true')
+    group.add_argument('--state-only',action='store_true')
     p.add_argument('--steps',type=int,default=160);p.add_argument('--samples',type=int,default=64)
     a=p.parse_args();root=Path(a.root);out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     assert a.steps%5==0;torch.set_num_threads(1);rows=[];reference_cache={}
     cases=json.loads((root/'anchors.json').read_text())['cases']
     if a.existing_only:cases=[c for c in cases if c['existing']]
     if a.new_only:cases=[c for c in cases if not c['existing']]
+    if a.state_only:
+        cases=[]
+        for folder in (root/'state-output/state_flow_20261116').glob('*/*/seed000'):
+            c=json.loads((folder/'config.json').read_text())['cell']
+            cases.append(dict(id=c['id'],folder=str(folder),existing=False))
+        assert len(cases)==2
+        evaluation.evaluator.ev.build_model=state_builder
+    else:evaluation.evaluator.ev.build_model=coefficient_builder
     for case in cases:
         started=time.monotonic();folder=Path(case['folder']);cfg=json.loads((folder/'config.json').read_text());cell=cfg['cell']
         cache=base.verify_data(a.data_root,cell);law=base.train.load_distribution(json.loads((cache/'manifest.json').read_text())['datasets'][cell['dataset']])

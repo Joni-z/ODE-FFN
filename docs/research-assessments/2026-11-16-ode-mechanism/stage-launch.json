@@ -1,0 +1,60 @@
+{
+  "source": "9a73953",
+  "queue_pid": 24468,
+  "workers": [
+    {
+      "cell": "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "pid": 24469,
+      "started": 1794771639.8557591,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/stage-repo/studies/muon_pd_20261102/coefficient_20261116/stage_trial.py",
+        "--cell",
+        "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/stage-output",
+        "--device",
+        "cpu"
+      ],
+      "latest": null
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__free_stage_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "pid": 24470,
+      "started": 1794771639.8571541,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/stage-repo/studies/muon_pd_20261102/coefficient_20261116/stage_trial.py",
+        "--cell",
+        "rotated_product_bimodal_16d__free_stage_midpoint4__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/stage-output",
+        "--device",
+        "cpu"
+      ],
+      "latest": null
+    }
+  ],
+  "watcher_pid": 24831,
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/stage-repo/studies/muon_pd_20261102/coefficient_20261116/stage_finish.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic",
+    "--numpy-python",
+    "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+  ],
+  "created_unix": 1794771665.2669802,
+  "device": "cpu"
+}
