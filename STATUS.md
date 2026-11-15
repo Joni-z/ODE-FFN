@@ -67,10 +67,16 @@ these are not substitute retrained generation comparisons. Same-host dense
 MAC accounting and CPU forward/sampling benchmarks pass for all eight cases.
 The complete new-cohort analysis is linked above. Its new512-point outer
 refinement independently recomputes, maximum128->512SW2 shift2.464e-4.
-Full-bank refinement and the targeted sharing-symmetry test are the next steps.
+Full-bank refinement also completed on idle145physicalGPU4, frozen7735abe;
+the job has exited. All16pooled/128bank scores independently recompute within
+2.78e-17, and native CUDA/CPUscores agree within3.44e-8. Outer128->512leaves
+the gap. Inner4->16gives shared/released Ring8 0.091/0.103and Product16
+0.069/0.082; Ring8bank support weakens to5/8while Product16stays8/8.
+[Full refinement, figures and receipts](docs/research-assessments/2026-11-16-ode-mechanism/sharing-results/full-resolution/analysis.md).
+The targeted sharing-symmetry test is the next step.
 [Follow-up hypotheses and decisions](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry-followup.md).
-Four focal checkpoints are prepared for guarded145inference; fresh CUDA
-readiness and the actual launch receipt must establish whether it has started.
+All current training/evaluation workers are terminal. The next projection
+study is registered but has not launched. No image training was submitted.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),

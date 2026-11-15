@@ -20,42 +20,35 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [x] Complete and evaluate single-generator sharing with the registered same-work nested-class control.
 - [x] Measure actual stage-field differences and frozen-weight response to averaging/reordering; verify formal recipe/initialization/RNG pairing and same-host matrix work/CPU costs.
 - [x] Synthesize the completed coefficient/state/sharing results, ordinary cost frontier and C8 findings.
-- [ ] P0: complete full-bank outer refinement of the new shared/released pair; the independent512-point check passes but is not a full-bank bound.
+- [x] P0: full-bank outer and internal refinement of the shared/released pair;16pooled/128bank scores independently verified.
 - [ ] P1: test the registered symmetry explanation of the sharing gap, using Ring8 rotations and Product16 latent reflections, without new training.
 
-Current: six new20k trajectories and all28selection/14confirmation rows are
-complete. Analysis watchers22707/23556/24831 are terminal. CPU numerical
-queue25633 stopped after21successful tasks and one failed float32 C8
-trajectory-equivariance witness; three tasks were unstarted. All14outer
-and four full internal-refinement tasks completed. Preserve the failed
-bundle; repeat all seven symmetry cases in a separate float64 bundle so
-the comparison has one precision and does not relax the failed threshold.
-Shared-operator initial-function/native continuation checks pass; new
-evaluation arrays are bound before formal training. Fresh documented
-readiness passed. Frozen8205c5a runs two CPU training workers27487/27488
-(queue27486, now both20k complete with exit0), analysis watcher27667, and two separate
-float64 C8 inference workers (queue27668). All18resolution cases independently
-recompute within2.78e-17. All sharing evaluations and25numerical cases now
-complete and independently recompute. Their queues/watchers have exited.
-Stage-field/reordering probes pass for four focal checkpoints. New stage
-actions are nonzero; compare generation before interpreting their benefit.
-Cost/recipe/initial-RNG pairing checks also pass; the two focal models have
-equal dense MACs, with73,728additional parameters in the released model.
-Shared/released SW2 on new confirmation: Ring8 .091/.111, Product16
-.064/.073, shared wins8/8banks each. Ordinary Product16 controls still win.
-Four new shared/released outer-subset cases independently recompute; their
-largest128->512score change is2.464e-4. Exported a four-case portable bundle
-for guarded full-bank inference on an idle145GPU, pending fresh readiness.
-GPU6 became idle, passed8portable witnesses, then another task appeared;
-our occupancy guard stopped it. No full GPU evaluation or sharing continued.
-Re-poll actual handles rather than restarting on observation timeouts.
-A prior goal turn only verified absence of runs; it did not advance experiments.
-This turn proceeds to the authorized next action rather than repeating that status.
 
-Generic trial/evaluate import collisions were fixed by distinct adapter
-names. Failed short preflight outputs are preserved, not research results.
-Previous goal turn made progress:18resolution cases independently verified,
-new sharing runs launched after fresh readiness, and failed float32 C8
-checks preserved/replaced by a separately registered float64 bundle.
-Native train runs have not failed. A journal patch failed before applying due to stale
-context and was reapplied with current text.
+Current: all eight new20k runs, primary common-bank evaluations,25numerical
+cases and full P0refinement are complete. Their workers/watchers have exited.
+The last GPU job used only idle physical145GPU4, frozen7735abe, PID2734223.
+All16pooled/128bank scores independently recompute within2.78e-17; GPU
+Heun128reproduces CPUwithin3.44e-8. It finished and released its context.
+
+Sharing wins the primary8/8banks on both tasks. After internal4->16, pooled
+shared/released SW2 isRing8 .091/.103 and Product16 .069/.082; Ring8bank
+support weakens to5/8while Product16 stays8/8. Outer128->512preserves the
+gap. The practical Product16 controls remain stronger and cheaper.
+
+Next action: implement P1from sharing-symmetry-followup.md. Seven frozen
+model/task cells, four fresh4096-point banks, exact Ring8C8/Product16latent
+reflection groups. Prove oracle equivariance, group projection and MSE split;
+verify CPU/CUDA and fresh documented readiness before deploying to idle145
+GPUs4-7. Evaluate original/projected fields on identical group-stratified
+sources. No response search, new training or automatic image promotion.
+
+Previous goal turn: progress. It completed the sharing controls, diagnostics,
+cost/recipe pairing,25-case inference verification and full CUDA P0checks.
+The main goal remains active because the symmetry explanation of the shared
+generator's benefit has not yet been tested directly.
+
+Errors and preserved evidence: the original float32C8shortcut failed; its
+queue and outputs remain intact and a separate float64cohort passed. An
+earlier GPU6witness stopped on foreign occupancy. No other user's task was
+stopped. A local link-audit regex initially parsed bracket formulas as links;
+excluding code blocks fixed it. Source and final reports were unaffected.

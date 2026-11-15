@@ -3,8 +3,7 @@
 The four-step state-flow FFN samples better when its stages share P than
 when they can learn separate matrices. This is the positive structural
 finding of the new control. It supports the autonomous sharing constraint
-at this training budget; it does not distinguish that constraint from
-ordinary recurrent weight sharing.
+at this training budget.
 
 ## Purpose and controlled comparison
 
@@ -77,9 +76,11 @@ state-flow lead over ordinary models on their paired stratified sample.
 The released-stage model was not in that cohort. A targeted follow-up must
 compare shared/released fields before and after the same symmetry projection;
 the current evidence does not yet attribute their gap to symmetry.
-The old outer-resolution cohort also omitted released stage operators.
-Their new512-point check changes SW2 by at most2.464e-4 at Heun128->512,
-but full-bank refinement is still required. [Registered next checks](../sharing-symmetry-followup.md).
+The subsequent full-bank refinement also completed. OuterHeun128->512
+preserves the gap. At16hidden substeps, pooled scores remain lower with
+sharing, but Ring8bank support falls to5/8while Product16stays8/8.
+[Exact refinement results](full-resolution/analysis.md),
+[registered symmetry checks](../sharing-symmetry-followup.md).
 
 ## Claim decisions
 

@@ -37,3 +37,13 @@ controls beat the ODE family on Product16. CPU timings are not GPU throughput.
 
 All four images were rendered and visually inspected for labels, legends,
 cropping and correspondence with the numeric tables.
+
+## full-resolution/refinement.png
+
+Purpose: separate outer-sampling resolution from hidden-map refinement on
+the completed sharing cohort. Top: Heun128/256/512, inner4 fixed. Bottom:
+inner4/16, Heun128 fixed. Every point uses all32768common samples. The outer
+solver leaves the gap; hidden refinement changes its magnitude and Ring8bank
+support. Those are different interventions: one integrates the same field,
+the other changes the evaluated network at frozen weights. The figure was
+rendered and visually checked. [Scores and interpretation](full-resolution/analysis.md).

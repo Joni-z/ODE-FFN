@@ -123,6 +123,15 @@ Released stages use their additional matrices, and Product16 field fitting impro
 while generation worsens. Sharing therefore has measured value in this comparison.
 [Full sharing analysis and figures](sharing-results/analysis-report.md).
 
+Full-bank CUDA refinement then reproduces CPUwithin3.44e-8and independently
+recomputes all16pooled/128bank rows within2.78e-17. Heun128->512preserves
+the gap. Internal4->16retains the pooled sharing lead: Ring8shared/released
+0.091/0.103, Product16 0.069/0.082. Ring8bank support falls to5/8with an
+approximate mean-gap interval crossing zero; Product16stays8/8. Thus the
+fixed-budget architectural result is stronger than a two-task claim about
+the continuous hidden-flow limit.
+[Complete refinement](sharing-results/full-resolution/analysis.md).
+
 This supports autonomy/parameter reuse at this budget, not a benefit unique to ODEs
 or a coupling of hidden time with physical FM time. The P+Delta parameterization
 changes optimization geometry, and Free ISRU/SwiGLU still beat the ODE family on

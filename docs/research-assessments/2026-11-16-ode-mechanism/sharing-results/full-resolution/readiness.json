@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "witness": true,
+  "cases": 4,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "field_max_error": 1.430511474609375e-06,
+      "sample64_max_error": 3.7550926208496094e-06
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "field_max_error": 4.76837158203125e-06,
+      "sample64_max_error": 1.9073486328125e-06
+    },
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "field_max_error": 1.6689300537109375e-06,
+      "sample64_max_error": 9.5367431640625e-07
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "field_max_error": 2.86102294921875e-06,
+      "sample64_max_error": 2.1457672119140625e-06
+    }
+  ],
+  "torch": "2.8.0+cu128",
+  "device": "NVIDIA RTX 6000 Ada Generation",
+  "source_sha256": "0d93135a5eb545cba1bacef01e53c8cd00f59ad116d690f5f86b0a142698750a",
+  "portable_manifest_sha256": "6e080d7008c25a0d8e8edcda46983d0fbb43c501a5de6c71e505a3f6f7bce160"
+}

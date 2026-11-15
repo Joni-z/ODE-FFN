@@ -97,6 +97,13 @@ global error when the mesh is refined. A trained coarse model must be
 checked against that limit; numerical integrators can themselves become
 part of the learned discrete architecture.
 
+Outer generative refinement holds the learned velocity field fixed. Hidden
+refinement instead changes the network's evaluated map at fixed trained
+weights: v_theta^(4) need not equal v_theta^(16). Training at four substeps
+optimizes the former. Comparing their generated distributions diagnoses
+deployment sensitivity to the hidden continuous limit, rather than comparing
+two models separately trained at their own integration resolutions.
+
 ## 4. The necessary bridge to the actual generative task
 
 A hidden flow is not the output velocity field or its flow map. The useful
@@ -175,6 +182,13 @@ cannot by itself establish a helpful autonomous constraint.
 The probe independently checks the bracket with autograd, the eps^2 leading
 term with decreasing step sizes, and the exactly shared null. It then measures
 actual drift differences rather than substituting matrix norms for them.
+
+A stationary P still has a state-dependent Jacobian P diag(q'(y)). Sharing
+therefore leaves nonlinear adaptation along the path and the matrix's spatial
+anisotropy available to learning. It constrains variation with hidden time,
+which differs from constraining singular-value scale or flattening the spectrum.
+At a fixed mesh the resulting map is also a shared recurrent FFN; the
+experimentally identified ingredient is the stationary nonlinear generator.
 
 ## Numerical check and scope
 
