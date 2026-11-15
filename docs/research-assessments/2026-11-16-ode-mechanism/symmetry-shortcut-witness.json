@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+  "family": "state_midpoint4",
+  "dataset": "gmm_ring8_2d",
+  "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+  "rows": [
+    {
+      "mode": "original",
+      "samples": 512,
+      "independent_base_samples": 64,
+      "stratified_sw2": 0.1000430513592196,
+      "counts": [
+        65,
+        64,
+        68,
+        63,
+        61,
+        68,
+        61,
+        62
+      ],
+      "sector_l1": 0.03515625,
+      "seconds": 0.7610075417906046,
+      "generated_file": "original.npy",
+      "generated_sha256": "ec69e94852dd55c435dff6d21cf2bf0bb2c3f9c5c76d6efeb63461be06e203bf"
+    },
+    {
+      "mode": "projected",
+      "samples": 512,
+      "independent_base_samples": 64,
+      "stratified_sw2": 0.06693262003828539,
+      "counts": [
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64,
+        64
+      ],
+      "sector_l1": 0.0,
+      "seconds": 0.8180141672492027,
+      "generated_file": "projected.npy",
+      "generated_sha256": "0ae0f8082993b577d874b91aa831be910cd52903b876e623c4176e6add575e90"
+    }
+  ],
+  "symmetry_shortcut_max_error": 5.10702591327572e-15,
+  "symmetry_shortcut_float32_max_error": 3.0994415283203125e-06,
+  "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+  "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+  "source_sha256": "e8e31dc3886a36ef4f425b15d57bba845c1aa81869482876b141a751a581adab"
+}

@@ -11,7 +11,7 @@ def builder(dim,family):
     if family=='free_stage_midpoint4':return stage_builder(dim,family)
     return coefficient_builder(dim,family)
 
-def load(root,case):
+def load(root,case,device='cuda'):
     cfg=json.loads((root/case['config']).read_text());manifest=root/case['dataset_manifest']
     assert base.digest(root/case['checkpoint'])==case['checkpoint_sha256']
     assert base.digest(root/case['config'])==case['config_sha256']
@@ -20,7 +20,7 @@ def load(root,case):
     assert state['step']==20000 and state['config_sha256']==case['config_sha256']
     assert state['dataset_manifest_sha256']==case['dataset_manifest_sha256']
     dim=json.loads(manifest.read_text())['datasets'][case['dataset']]['dim']
-    torch.manual_seed(0);model=builder(dim,cfg['cell']['family']).to('cuda').eval();base.train.restore_model(model,state)
+    torch.manual_seed(0);model=builder(dim,cfg['cell']['family']).to(device).eval();base.train.restore_model(model,state)
     return model
 
 def arrays(root,case):

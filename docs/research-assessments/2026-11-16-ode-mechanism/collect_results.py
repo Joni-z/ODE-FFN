@@ -16,7 +16,9 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
     out=HERE/'results';out.mkdir(exist_ok=True);rows={};banks={};bindings={}
-    for phase in ['analysis','state-analysis']:
+    phases=['analysis','state-analysis']
+    if (ROOT/'stage-analysis/COMPLETE.json').exists():phases.append('stage-analysis')
+    for phase in phases:
         p=ROOT/phase
         for n in ['COMPLETE.json','verification.json','confirmation-verification.json']:
             assert json.loads((p/n).read_text())['passed'],(phase,n)
@@ -27,10 +29,14 @@ def main():
         for n in ['COMPLETE.json','verification.json','confirmation-verification.json','selection-metrics.csv','selection-banks.csv','confirmation-metrics.csv','confirmation-banks.csv']:
             shutil.copyfile(p/n,target/n);bindings[phase+'/'+n]=sha(target/n)
     refinement=json.loads((ROOT/'state-analysis/refinement.json').read_text());assert refinement['passed']
+    if 'stage-analysis' in phases:
+        extra=json.loads((ROOT/'stage-analysis/refinement.json').read_text());assert extra['passed'];refinement['cases']+=extra['cases']
     dump(out/'refinement.json',refinement)
     datasets=['gmm_ring8_2d','rotated_product_bimodal_16d']
     families=['isru_k1','isru_k8','free_coeff','state_isru','free_isru','swiglu']
     names=['Fixed K1','Fixed exponential K8','Free coefficients K8','State flow / midpoint4','Free ISRU','SwiGLU']
+    if 'stage-analysis' in phases:
+        families.insert(4,'free_stage');names.insert(4,'Free-stage midpoint4')
     def row(split,d,f,step=20000):
         return next(r for r in rows[split] if r['dataset']==d and int(r['step'])==step and
                     ((r['response']=='isru' and int(r['order'])==int(f[-1])) if f.startswith('isru_k') else
@@ -49,11 +55,15 @@ def main():
     lines+=['','Ring8 SwiGLU64 uses Muon0.02; Product16 SwiGLU192 uses AdamW0.0003.',
             'All ODE/free-ISRU variants use AdamW0.0003. Comparisons to SwiGLU',
             'benchmark those labeled configurations, not isolated optimizer effects.',
-            'Free coefficients add42scalars; state-flow and fixed ODE share parameter counts.','',
+            'Free Taylor coefficients add42scalars; free midpoint stages add24.',
+            'Fixed state-flow and fixed ODE share parameter counts. State-flow uses',
+            'four second-order midpoint substeps, not an eighth-order Taylor method.','',
             '![Selection and confirmation](../2026-11-16-ode-mechanism/figures/final-comparison.png)']
     effects=[]
     for d in datasets:
-        for candidate,reference in [('free_coeff','isru_k8'),('state_isru','isru_k8'),('state_isru','free_coeff'),('isru_k8','swiglu'),('free_coeff','swiglu'),('state_isru','swiglu')]:
+        contrasts=[('free_coeff','isru_k8'),('state_isru','isru_k8'),('state_isru','free_coeff'),('isru_k8','swiglu'),('free_coeff','swiglu'),('state_isru','swiglu')]
+        if 'stage-analysis' in phases:contrasts += [('free_stage','state_isru'),('free_stage','swiglu')]
+        for candidate,reference in contrasts:
             c,b=row('confirmation',d,candidate),row('confirmation',d,reference)
             values=lambda r:np.array([float(x['sw2']) for x in sorted(banks['confirmation'],key=lambda x:int(x['bank'])) if x['id']==r['id']])
             delta=values(c)-values(b);assert len(delta)==8
@@ -64,16 +74,18 @@ def main():
     dump(out/'paired-effects.json',effects)
     lines+=['','Paired intervals in paired-effects.json describe conditional bank variation,',
             'not training variability or uncertainty of the pooled statistic.',
-            'All four new trajectories and both independent metric checks completed.']
+            f'All {2*len(phases)} new trajectories and all independent metric checks completed.']
     (HERE/'completed-comparison.md').write_text('\n'.join(lines)+'\n')
     fig,axes=plt.subplots(2,2,figsize=(11,8),layout='constrained')
     for col,d in enumerate(datasets):
         for ri,metric in enumerate(['field_mse','pooled_sw2']):
             ax=axes[ri,col]
             for i,(split,color,marker) in enumerate([('selection','#999999','o'),('confirmation','#176e82','D')]):
-                ax.plot(np.arange(6)+(-.1 if i==0 else .1),[float(row(split,d,f)[metric]) for f in families],
+                ax.plot(np.arange(len(families))+(-.1 if i==0 else .1),[float(row(split,d,f)[metric]) for f in families],
                         marker=marker,linestyle='none',color=color,label=split.capitalize())
-            ax.set_xticks(np.arange(6),['Fixed K1','Fixed K8','Free coeff. K8','State flow','Free ISRU','SwiGLU'],rotation=30,ha='right')
+            labels=['Fixed K1','Fixed K8','Free coeff. K8','State flow','Free ISRU','SwiGLU']
+            if 'stage-analysis' in phases:labels.insert(4,'Free stages')
+            ax.set_xticks(np.arange(len(families)),labels,rotation=30,ha='right')
             ax.set_title(('Ring8' if col==0 else 'Product16')+' /20k');ax.set_ylabel('Field MSE' if ri==0 else 'Pooled SW2');ax.grid(axis='y',alpha=.2)
             if ri==0 and col==0:ax.legend(frameon=False)
     (HERE/'figures').mkdir(exist_ok=True);fig.savefig(HERE/'figures/final-comparison.png',dpi=180);plt.close(fig)

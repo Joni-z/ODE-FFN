@@ -1,0 +1,329 @@
+{
+  "passed": true,
+  "scope": "bounded symmetry intervention,512samples; not pooled full-bank ranking",
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+      "family": "free_coeff_k8",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.010058778414834622,
+      "invariant_mse": 0.0049252032882635246,
+      "symmetry_breaking_mse": 0.005133575126571098,
+      "decomposition_residual": 0.0,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.19740868059142247,
+          "counts": [
+            63,
+            58,
+            70,
+            69,
+            69,
+            69,
+            58,
+            56
+          ],
+          "sector_l1": 0.08203125,
+          "file": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003-original.npy",
+          "sha256": "4e27101f82ec51c38b06ce3689023a8dd9ab34ee26cd97732777004ef3395748"
+        },
+        "projected": {
+          "sw2_512": 0.18264518692851103,
+          "counts": [
+            59,
+            59,
+            69,
+            69,
+            71,
+            62,
+            64,
+            59
+          ],
+          "sector_l1": 0.06640625,
+          "file": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003-projected.npy",
+          "sha256": "5e56b879bc9e4d27ef2c868523f41c4961a24cc63f4770f4796cc27cf9ca0663"
+        }
+      },
+      "checkpoint_sha256": "e7c4aba0dc8f33c697fbfe805661e4c67168c5add12a1d09396a43a334079bec",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "family": "free_isru",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.01107237618255565,
+      "invariant_mse": 0.004704433577776579,
+      "symmetry_breaking_mse": 0.0063679426047790685,
+      "decomposition_residual": 1.734723475976807e-18,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.18786449941284689,
+          "counts": [
+            64,
+            56,
+            72,
+            67,
+            69,
+            65,
+            63,
+            56
+          ],
+          "sector_l1": 0.06640625,
+          "file": "gmm_ring8_2d__free_isru__adamw_0.0003-original.npy",
+          "sha256": "8c288f380ac8a4cea63fedb1e27cc358457c8af49c11fa73eccf2be6b2d15290"
+        },
+        "projected": {
+          "sw2_512": 0.18884921468440333,
+          "counts": [
+            60,
+            57,
+            70,
+            69,
+            72,
+            61,
+            66,
+            57
+          ],
+          "sector_l1": 0.08203125,
+          "file": "gmm_ring8_2d__free_isru__adamw_0.0003-projected.npy",
+          "sha256": "36624864a6281b0b6ed9d9ad34ce961a9b7cb5b05ea8ba883b33858cee3568c9"
+        }
+      },
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    },
+    {
+      "id": "gmm_ring8_2d__screen_isru_k1__adamw_0.0003",
+      "family": "screen_isru_k1",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.009430173052623,
+      "invariant_mse": 0.004791213113373004,
+      "symmetry_breaking_mse": 0.004638959939249999,
+      "decomposition_residual": 2.6020852139652106e-18,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.19156755758942942,
+          "counts": [
+            63,
+            58,
+            71,
+            67,
+            70,
+            63,
+            64,
+            56
+          ],
+          "sector_l1": 0.0625,
+          "file": "gmm_ring8_2d__screen_isru_k1__adamw_0.0003-original.npy",
+          "sha256": "ad453c78a3cc4457721d6afedd53c0630fce4ff7ed99439a06821e2787361776"
+        },
+        "projected": {
+          "sw2_512": 0.18545838999959569,
+          "counts": [
+            59,
+            59,
+            69,
+            69,
+            72,
+            61,
+            65,
+            58
+          ],
+          "sector_l1": 0.07421875,
+          "file": "gmm_ring8_2d__screen_isru_k1__adamw_0.0003-projected.npy",
+          "sha256": "59826b2d5376ee96ba6df3c88d7e6652e31161c30012d35db4387b6a79a451c8"
+        }
+      },
+      "checkpoint_sha256": "42e4b7b6577d02765ebede1ad97f2327351c0724d34fea88eaeb61b6d0de8dd4",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    },
+    {
+      "id": "gmm_ring8_2d__screen_isru_k8__adamw_0.0003",
+      "family": "screen_isru_k8",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.010132366251837364,
+      "invariant_mse": 0.004992322188282074,
+      "symmetry_breaking_mse": 0.005140044063555291,
+      "decomposition_residual": 1.734723475976807e-18,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.1971414064990671,
+          "counts": [
+            62,
+            58,
+            70,
+            69,
+            69,
+            69,
+            58,
+            57
+          ],
+          "sector_l1": 0.08203125,
+          "file": "gmm_ring8_2d__screen_isru_k8__adamw_0.0003-original.npy",
+          "sha256": "8d87ae1c558a6b66e87fbcb1af491705c45d2fd3c22d5a9acf322c93d1063822"
+        },
+        "projected": {
+          "sw2_512": 0.18263251016907808,
+          "counts": [
+            59,
+            59,
+            69,
+            69,
+            71,
+            62,
+            64,
+            59
+          ],
+          "sector_l1": 0.06640625,
+          "file": "gmm_ring8_2d__screen_isru_k8__adamw_0.0003-projected.npy",
+          "sha256": "ba8487550610efea03e5fc4ee2bdbb33152955ed97623feeec9c84758aa1fc7d"
+        }
+      },
+      "checkpoint_sha256": "f65b6ebb00e6ece61a58a1b6a4c0f5908379707639c548cc3da7c7b6ee8f8b2c",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "family": "swiglu64",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.011256522692370093,
+      "invariant_mse": 0.004420166413758856,
+      "symmetry_breaking_mse": 0.0068363562786112365,
+      "decomposition_residual": 8.673617379884035e-19,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.18477432710120872,
+          "counts": [
+            61,
+            60,
+            71,
+            67,
+            68,
+            66,
+            64,
+            55
+          ],
+          "sector_l1": 0.0625,
+          "file": "gmm_ring8_2d__swiglu64__muon_0.02-original.npy",
+          "sha256": "60b1e136592c94125ac2e3ea9d8629c7527f1736ed95ce298c5ec075970fcf84"
+        },
+        "projected": {
+          "sw2_512": 0.18389714103057847,
+          "counts": [
+            61,
+            58,
+            69,
+            69,
+            72,
+            62,
+            63,
+            58
+          ],
+          "sector_l1": 0.0703125,
+          "file": "gmm_ring8_2d__swiglu64__muon_0.02-projected.npy",
+          "sha256": "4d8381f9c20e17a620bde3ed74404bd53f9b8b3543143fad3f2b5f6e044fb0ea"
+        }
+      },
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "family": "state_midpoint4",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.009322479472928382,
+      "invariant_mse": 0.004757430904532619,
+      "symmetry_breaking_mse": 0.004565048568395763,
+      "decomposition_residual": 0.0,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.18133012878634722,
+          "counts": [
+            62,
+            56,
+            70,
+            69,
+            70,
+            63,
+            62,
+            60
+          ],
+          "sector_l1": 0.06640625,
+          "file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003-original.npy",
+          "sha256": "130d3d1b6162227acf9e9ec7df57cdaf6cb035287164ee59374f644883b094f0"
+        },
+        "projected": {
+          "sw2_512": 0.18699373508467446,
+          "counts": [
+            59,
+            58,
+            70,
+            69,
+            72,
+            61,
+            65,
+            58
+          ],
+          "sector_l1": 0.078125,
+          "file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003-projected.npy",
+          "sha256": "caf7b4ea214c769e0c7190e2e7c171bef170361224a21da0760124c8cf6878f1"
+        }
+      },
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    },
+    {
+      "id": "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003",
+      "family": "free_stage_midpoint4",
+      "field_base_states": 256,
+      "orbit_states": 2048,
+      "total_orbit_mse": 0.009476084332740782,
+      "invariant_mse": 0.0047728671225358565,
+      "symmetry_breaking_mse": 0.004703217210204924,
+      "decomposition_residual": 1.734723475976807e-18,
+      "sampling": {
+        "original": {
+          "sw2_512": 0.18150189629196795,
+          "counts": [
+            62,
+            56,
+            70,
+            69,
+            70,
+            63,
+            62,
+            60
+          ],
+          "sector_l1": 0.06640625,
+          "file": "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003-original.npy",
+          "sha256": "1ea99e6d044a6e174085092b3bf557af403b81f114cd68826bc1b0bc57ad2e5f"
+        },
+        "projected": {
+          "sw2_512": 0.18749762158694822,
+          "counts": [
+            59,
+            58,
+            70,
+            69,
+            72,
+            61,
+            65,
+            58
+          ],
+          "sector_l1": 0.078125,
+          "file": "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003-projected.npy",
+          "sha256": "9f64eea79f6fb30b04456cc2b30f00df420a743139012b50dfe6e21a57d3f602"
+        }
+      },
+      "checkpoint_sha256": "a92a9ac035a6c0766b2be3e3d87ff869ff01bfa2bc9ac88fc7a03af506b42746",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990"
+    }
+  ],
+  "source_sha256": "dc0a2378ea1e534e022918eadd79012307f325fcd1911ca697bdb0a5690181b3"
+}
