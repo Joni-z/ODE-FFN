@@ -1,0 +1,64 @@
+{
+  "documented_invocation_executions": 1,
+  "exit_code": 0,
+  "complete_passed": true,
+  "case": "gmm_ring8_2d__screen_isru_k8__adamw_0.0003",
+  "base_samples": 16,
+  "dtype": "float64",
+  "arrays": {
+    "original.npy": {
+      "shape": [
+        128,
+        2
+      ],
+      "dtype": "float64",
+      "all_finite": true,
+      "finite_samples": 128,
+      "samples": 128
+    },
+    "projected.npy": {
+      "shape": [
+        128,
+        2
+      ],
+      "dtype": "float64",
+      "all_finite": true,
+      "finite_samples": 128,
+      "samples": 128
+    },
+    "stratified-source.npy": {
+      "shape": [
+        128,
+        2
+      ],
+      "dtype": "float64",
+      "all_finite": true,
+      "finite_samples": 128,
+      "samples": 128
+    },
+    "stratified-target.npy": {
+      "shape": [
+        128,
+        2
+      ],
+      "dtype": "float64",
+      "all_finite": true,
+      "finite_samples": 128,
+      "samples": 128
+    }
+  },
+  "projected_sector_counts_recomputed": [
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16,
+    16
+  ],
+  "symmetry_shortcut_max_error": 1.6087131626818518e-13,
+  "symmetry_shortcut_threshold": 1e-09,
+  "symmetry_shortcut_passed": true,
+  "scope": "Numerical readiness witness with 16 base samples; not a research score."
+}

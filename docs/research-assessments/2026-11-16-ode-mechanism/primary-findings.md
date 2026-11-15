@@ -6,9 +6,9 @@ budget sampling scores consistently. Fixed midpoint does retain its expected
 numerical convergence order after training. Operator sharing remains open.**
 
 The six new20k trajectories and all28selection/14confirmation metric rows
-are complete and independently recomputed. Training remains seed0. The
-pending numerical/symmetry queue is a separate fixed-weight investigation;
-its partial results are not used as completed evidence here.
+are complete and independently recomputed. Training remains seed0. All18
+resolution cases are also complete and independently recomputed. The separate
+symmetry investigation is incomplete and is not used as completed evidence.
 These are width64/depth3 synthetic velocity MLPs with replaceable FFNs,
 not JiT image-prediction models; no image-transfer improvement is claimed.
 
@@ -88,15 +88,39 @@ Lines show medians and shading the interquartile range over six learned
 layers. The reference solves the same local field, not the physical data
 velocity. [Exact layer results](trained-convergence.json).
 
+## Does the signal survive finer internal integration?
+
+Full32768-sample checks reuse the same checkpoint, source/target arrays and
+Heun128 outer sampler. Only the hidden integration changes from4to16steps.
+
+| Hidden model | Ring8,4steps | Ring8,16steps | Product16,4steps | Product16,16steps |
+|---|---:|---:|---:|---:|
+| Fixed midpoint |0.071|0.074|0.052|0.055|
+| Free midpoint stages |0.071|0.071|0.052|0.053|
+
+Ring8 retains its gain over fixed exponential K8(0.088). The fixed-midpoint
+Product16 advantage shrinks from0.052versus0.056to0.055versus0.056. Thus the
+Product16 result should not be described as a substantial continuous-flow
+advantage. More accurate internal integration does not improve sampling at
+these frozen weights. This is a resolution intervention, not retraining
+at each resolution or a comparison at equal inference cost.
+
+All14outer-resolution and four full internal-refinement cases independently
+recompute within2.78e-17. [Bound verification](numerical-resolution/COMPLETE.json),
+[all64scores](numerical-resolution/scores.csv). The failed float32 C8 shortcut
+is preserved and all seven symmetry cases are being checked separately in
+float64; no incomplete or mixed-precision symmetry ranking is reported.
+
 ## What is unresolved
 
 The current positive comparison identifies state feedback/repeated nonlinear
 computation. It does not isolate the benefit of using one shared P, establish
 an objective-specific relationship between hidden time and physical FM time,
 or demonstrate a general replacement for ordinary FFNs. The additional
-fixed-weight checks ask whether the observed gain survives internal/outer
-resolution and whether Ring8 mode allocation explains it. The next conditional
-training control releases stage matrices at the same matrix-work budget.
+fixed-weight checks now locate whether Ring8 mode allocation explains its
+remaining gain. The next training control releases stage matrices at the same
+matrix-work budget, with exactly the shared model's initial map and additional
+parameters reported explicitly. Its fresh native readiness checks pass.
 
 [Numerical/symmetry protocol](numerical-followup.md),
 [single-generator control](operator-sharing-control.md),

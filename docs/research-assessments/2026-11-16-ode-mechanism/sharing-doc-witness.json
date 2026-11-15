@@ -1,0 +1,64 @@
+{
+  "workdir": "/Users/mr.z/ODE-FFN-upstream",
+  "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \\\n/Users/mr.z/ode-workspace-prep/.venv-test/bin/python \\\nstudies/muon_pd_20261102/coefficient_20261116/sharing_check.py \\\n--data-root /Users/mr.z/ode-workspace-prep/data/synthetic \\\n--assets /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets \\\n--output /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-doc-witness",
+  "exit_code": 0,
+  "reruns": 0,
+  "pass_json": {
+    "passed": true,
+    "kernels": [
+      {
+        "dim": 2,
+        "extra_parameters": 73728,
+        "initial_output_exact": true,
+        "common_gradient_max_error": 4.336808689942018e-19,
+        "new_gradients_nonzero": true,
+        "formula_and_gradcheck": true
+      },
+      {
+        "dim": 16,
+        "extra_parameters": 73728,
+        "initial_output_exact": true,
+        "common_gradient_max_error": 1.6940658945086007e-21,
+        "new_gradients_nonzero": true,
+        "formula_and_gradcheck": true
+      }
+    ],
+    "native_continuations": 2,
+    "real_evaluator_witnesses": 2,
+    "source_sha256": "9195a6259e8d5a5e0eaade7a370cfb646d8d42a6127b734bc0fc7844037cf931"
+  },
+  "evaluator_and_cpu_verification": {
+    "gmm_ring8_2d": {
+      "evaluator": {
+        "passed": true,
+        "witness": true,
+        "split": "selection",
+        "steps": [
+          16
+        ],
+        "parameters_unchanged": true
+      },
+      "device": "cpu",
+      "gpu_name": null,
+      "from_step": 8,
+      "to_step": 16
+    },
+    "rotated_product_bimodal_16d": {
+      "evaluator": {
+        "passed": true,
+        "witness": true,
+        "split": "selection",
+        "steps": [
+          16
+        ],
+        "parameters_unchanged": true
+      },
+      "device": "cpu",
+      "gpu_name": null,
+      "from_step": 8,
+      "to_step": 16
+    }
+  },
+  "doc_vs_reality_divergence": [],
+  "scope": "Readiness only; no formal training launched. Source freeze/publication remains a separate prelaunch gate."
+}

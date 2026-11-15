@@ -62,3 +62,34 @@ not iid; their absolute scores must not be mixed with pooled-bank scores.
 Seven full symmetry interventions join the two-worker CPU queue, for25total
 tasks. This tests whether the state-flow ranking remains after removing C8
 breaking without adding training or a new architecture.
+# Precision recovery,16 November
+
+The original25-task CPU queue stopped after21successful tasks. Its fixed-K8
+C8 sampling shortcut failed the predeclared float32 trajectory tolerance;
+three further symmetry tasks were not started. All14outer-resolution and
+four full-sample internal-refinement cases completed and independently
+recompute within2.78e-17. Preserve the failed queue and all saved outputs.
+
+Repeat all seven C8cases in a separate float64 bundle using identical
+weights, source/target arrays, group action and Heun128. Do not relax the
+failed float32 threshold or combine mixed-precision cases into one ranking.
+The existing float64 equivariance tolerance remains1e-9. The saved exact
+stratified source and target arrays enable independent NumPy verification.
+Each consists of4096base points rotated eight ways; the32768points are
+correlated and are not an iid pooled-bank score.
+
+Fresh bounded documented invocation, from `/Users/mr.z/ODE-FFN-upstream`:
+
+```sh
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+/Users/mr.z/ode-workspace-prep/.venv-test/bin/python \
+studies/muon_pd_20261102/coefficient_20261116/full_symmetry_case.py \
+--root /Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-portable \
+--case gmm_ring8_2d__screen_isru_k8__adamw_0.0003 \
+--output /Users/mr.z/ode-workspace-prep/coefficient-20261116/symmetry64-doc-witness \
+--base-samples 16 --dtype float64
+```
+
+Require an independent agent to execute it once before the formal separate
+seven-case run. The native sampler and checkpoints remain unchanged.
+

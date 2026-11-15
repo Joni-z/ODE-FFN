@@ -15,12 +15,20 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [x] Complete state training, common-bank evaluations and bounded frozen-weight internal refinement.
 - [x] State evolution improved the two within-family comparisons; complete two matched-function free-stage controls, native witnesses and all evaluations.
 - [ ] Complete25numerical/symmetry inference tasks; independently recompute and interpret them.
+- [ ] Validate and launch the registered single-generator release while independent symmetry inference continues; the full internal-refinement evidence supports this execution-order amendment.
 - [ ] If the state-flow signal survives, test single-generator sharing with the registered same-work nested-class control.
 - [ ] Synthesize positive/negative mechanism evidence and next research disposition.
 
 Current: six new20k trajectories and all28selection/14confirmation rows are
 complete. Analysis watchers22707/23556/24831 are terminal. CPU numerical
-queue25633 is active with two workers, frozen24dbb60,25registered tasks.
+queue25633 stopped after21successful tasks and one failed float32 C8
+trajectory-equivariance witness; three tasks were unstarted. All14outer
+and four full internal-refinement tasks completed. Preserve the failed
+bundle; repeat all seven symmetry cases in a separate float64 bundle so
+the comparison has one precision and does not relax the failed threshold.
+Shared-operator initial-function/native continuation checks pass; new
+evaluation arrays are bound before formal training. Fresh documented
+readiness is in progress.
 GPU6 became idle, passed8portable witnesses, then another task appeared;
 our occupancy guard stopped it. No full GPU evaluation or sharing continued.
 Re-poll actual handles rather than restarting on observation timeouts.

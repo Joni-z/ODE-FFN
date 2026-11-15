@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dim": 2,
+      "extra_parameters": 73728,
+      "initial_output_exact": true,
+      "common_gradient_max_error": 4.336808689942018e-19,
+      "new_gradients_nonzero": true,
+      "formula_and_gradcheck": true
+    },
+    {
+      "dim": 16,
+      "extra_parameters": 73728,
+      "initial_output_exact": true,
+      "common_gradient_max_error": 1.6940658945086007e-21,
+      "new_gradients_nonzero": true,
+      "formula_and_gradcheck": true
+    }
+  ],
+  "native_continuations": 2,
+  "real_evaluator_witnesses": 2,
+  "source_sha256": "9195a6259e8d5a5e0eaade7a370cfb646d8d42a6127b734bc0fc7844037cf931"
+}

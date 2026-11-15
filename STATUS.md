@@ -25,12 +25,22 @@ retain shared P, so they do not establish the value of sharing itself.
 [All scores and paired effects](docs/research-assessments/2026-11-16-ode-mechanism/completed-comparison.md).
 [Interpretation and trained-state convergence](docs/research-assessments/2026-11-16-ode-mechanism/primary-findings.md).
 
-Active: two-worker CPU numerical queue25633, frozen24dbb60. It runs25
-outer-resolution, full internal-refinement and paired C8-stratified
-interventions. [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/numerical-followup.md),
+All18resolution cases independently recompute within2.78e-17. Full-sample
+internal4->16 changes fixed-midpoint SW2 Ring8 0.071->0.074, Product16
+0.052->0.055. Ring8's within-family gain remains; Product16 approaches
+fixed K8's0.056. [Verification and scores](docs/research-assessments/2026-11-16-ode-mechanism/numerical-resolution/COMPLETE.json).
+
+Numerical queue25633 stopped after21successful tasks and one failed float32
+C8 trajectory-equivariance witness; three symmetry tasks were unstarted.
+The failed bundle is preserved. All seven symmetry cases will run in a
+separate float64 bundle, with a passed fresh documented invocation.
+[Protocol](docs/research-assessments/2026-11-16-ode-mechanism/numerical-followup.md),
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/numerical-launch.json).
 The single-generator [sharing control](docs/research-assessments/2026-11-16-ode-mechanism/operator-sharing-control.md)
-is registered conditionally and has not launched.
+has passed initial-function, gradient, native continuation and fresh
+documented evaluator checks. Two seed0 runs are prepared with new prebound
+common evaluation arrays; all ordinary controls receive those same arrays.
+Source publication precedes launch; read its receipt for actual PIDs.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),
