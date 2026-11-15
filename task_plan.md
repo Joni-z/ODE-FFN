@@ -1,30 +1,20 @@
-# Track the matched baseline/K1/K8 continuation
+# Professor follow-up execution, 15 November 2026
 
-- [x] Verify all three restore original checkpoint/optimizer after100epochs.
-- [x] Read matching FID100/120/140 from original logs and TensorBoard.
-- [x] Publish matched-epoch table/curve and current job state.
-- [x] Collect baseline and K8 final160epoch FIDs after their evaluations finish.
-- [x] Publish the complete matched160epoch comparison.
+Authorized: execute on 145 physical GPUs **4, 5, 6, 7**; Torch overflow only.
+Training seed 0. Preserve Report1, Report2 and historical runtimes.
 
-Final160FID, verified15November: native24.30357,K1 27.78868,K8 28.08343.
-All jobs completed0:0. No further continuation is selected.
+- [x] Inspect resources, warm environment and prior protocol/evidence.
+- [ ] Recover source-bound Ring8 checkpoints; Product16 and both datasets are on145.
+- [ ] Register exact activation and C8 protocols, implement adapters and tests.
+- [ ] Verify native trainer continuation, derivatives, symmetry and real-checkpoint restoration.
+- [ ] Push source, run a fresh documented witness, launch with per-GPU monitoring.
+- [ ] Analyze actual parameter/update rank and condition separately.
+- [ ] Complete paired C8 sampling and the two tanh20k trajectories, then common-bank evaluation.
+- [ ] Publish source-bound conclusions and choose the next architecture test from evidence.
 
-- [x] Review the next architecture question against prior controls and
-  primary literature; [recommendation](docs/research-assessments/2026-11-14-next-architecture/recommendation.md).
-  This is a conditional plan, with no new training launched.
+P0: reuse spectra and frozen checkpoints; no new optimizer sweep.
+P1: exactly two new scaled-tanh K1 trajectories, Ring8 and Product16.
+P2: conditional image architecture work after these results.
 
-- [x] Prepare the [concrete next execution plan](docs/research-assessments/2026-11-14-next-architecture/execution-plan.md).
-- [ ] Later option after the professor-comment review: image two-arm implementation and readiness.
-- [ ] Later option: frozen K2 and midpoint100epoch runs. Not submitted.
-
-## 15 November: analyze the professor's three comments
-
-- [x] Read the supplied comments and assign separate evidence checks for
-  learned spectra, Ring8 symmetry and activation controls.
-- [x] Separate completed evidence from new mathematical tests.
-- [x] Write a source-bound response and revise the recommended priority.
-- [x] Verify and publish; no training or finalized-report changes.
-
-Recommended next work is documented in the [comment analysis](docs/research-assessments/2026-11-15-professor-comments.md):
-existing weight/update spectra, saved-checkpoint C8 diagnosis, then a matched
-scaled-tanh control. These are recommendations, not submitted experiments.
+Current: implementation preparation. 145 GPUs4-7 idle; /data2 has47GB free.
+Lenovo SSH timed out; searching existing mirrors for Ring8 weights.

@@ -1,0 +1,18 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "rotated_product_bimodal_16d__pd_tanh_k1__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "pd_tanh_k1",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "response_control",
+      "gpu": 5
+    }
+  ]
+}
