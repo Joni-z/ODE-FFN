@@ -76,3 +76,11 @@ was still active; its partial directory will be retained separately.
 P1CUDAreadiness passed at5e78e6a: max field5.67e-15, native64sample1.60e-14,
 shortcut5.90e-13; all8shortcuts qualified. Queue2996899uses permitted idle
 GPU4/5;6/7became occupied and were not used. No training added.
+
+The first full independent verification stopped before metric comparison:
+NumPy1.26.4and2.2.6recomputed Product16orbit dot products with maximum
+1.776e-15difference despite exact matching asset byte hashes. The independent
+reconstruction now uses the derived bound2*gamma_(d+1)*sum(abs(products))
+for two dot evaluations; observed maximum fraction0.072. Exact file/array
+hashes and1e-10score/decomposition tolerances are unchanged. No inference
+or arrays were changed. Preserve the first failed verifier console.

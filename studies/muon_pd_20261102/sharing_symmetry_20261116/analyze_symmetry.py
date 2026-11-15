@@ -57,10 +57,21 @@ def verify_case(root,folder,allow_witness=False,expected_commit=None):
             signs=np.ones(d);signs[[0,7,15]]=1-2*np.array(bits);expected_group.append((q*signs[None])@q.T)
         expected_group=np.stack(expected_group)
     expected_group[0]=np.eye(d);assert np.allclose(group,expected_group,atol=1e-12,rtol=1e-12)
+    orbit_max_error=0.;orbit_bound_fraction=0.
     for kind in ['source','target']:
         for b in range(4):
-            expected=np.einsum('nd,ked->kne',data[f'{kind}_{b}'].astype(float),group).reshape(-1,d)
-            assert np.array_equal(expected,data[f'orbit_{kind}_{b}'])
+            x=data[f'{kind}_{b}'].astype(float)
+            expected=np.einsum('nd,ked->kne',x,group).reshape(-1,d)
+            # Both dot-product evaluations may round differently across NumPy/BLAS.
+            # Asset byte hashes above remain exact. Bound the difference between
+            # two length-d dot products by twice their forward-error bound.
+            magnitude=np.einsum('nd,ked->kne',np.abs(x),np.abs(group)).reshape(-1,d)
+            gamma=(d+1)*np.finfo(float).eps/(1-(d+1)*np.finfo(float).eps)
+            bound=2*gamma*magnitude+np.finfo(float).tiny
+            error=np.abs(expected-data[f'orbit_{kind}_{b}'])
+            assert np.all(error<=bound)
+            orbit_max_error=max(orbit_max_error,float(error.max()))
+            orbit_bound_fraction=max(orbit_bound_fraction,float(np.max(error/bound)))
     assert sha(folder/'field-pulled.npy')==done['field_pulled_sha256'];pulled=np.load(folder/'field-pulled.npy');assert pulled.shape==(8,points,d)
     oracle=data['field_oracle'][:points];mean=pulled.mean(0)
     field=dict(total=float(np.mean((pulled-oracle[None])**2)),projected=float(np.mean((mean-oracle)**2)),breaking=float(np.mean((pulled-mean[None])**2)),base_mse=float(np.mean((pulled[0]-oracle)**2)))
@@ -101,7 +112,7 @@ def verify_case(root,folder,allow_witness=False,expected_commit=None):
         shift=float(np.sqrt(np.mean(np.sum((x-finest)**2,axis=1))));assert abs(shift-r['rms_endpoint_shift_to256'])<1e-12
     for r in done['paths']:
         f=folder/r['file'];assert sha(f)==r['sha256'];x=np.load(f);assert x.shape==(129,16,d) and np.isfinite(x).all();assert np.array_equal(x[0],data['source_0'][:16].astype(float))
-    return dict(passed=True,witness=done['witness'],base_samples=n,banks=banks,field_points=points,id=case['id'],field=field,bank_rows=rows,pooled=pool,max_numpy_error=maximum,completion_sha256=sha(folder/'COMPLETE.json'))
+    return dict(passed=True,witness=done['witness'],base_samples=n,banks=banks,field_points=points,id=case['id'],field=field,bank_rows=rows,pooled=pool,max_numpy_error=maximum,orbit_max_error=orbit_max_error,orbit_max_bound_fraction=orbit_bound_fraction,completion_sha256=sha(folder/'COMPLETE.json'))
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--runtime');p.add_argument('--witness-case');p.add_argument('--output',required=True);a=p.parse_args()

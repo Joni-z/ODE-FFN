@@ -133,6 +133,22 @@ def main():
     fig.savefig(figures/'ring-paths.png')
     fig.savefig(figures/'ring-paths.pdf')
     plt.close(fig)
+    fig, axs = plt.subplots(2, 4, figsize=(12, 6.2), constrained_layout=True)
+    for i, family in enumerate([f for f in FAMILIES if (TASKS[0], f) in case_for]):
+        case = case_for[TASKS[0], family]
+        for j, mode in enumerate(['original', 'projected']):
+            filename = runtime/'cases'/case['id']/(mode+'-bank0.npy')
+            row = next(r for r in read(runtime/'cases'/case['id']/'COMPLETE.json')['sample_rows']
+                       if r['bank'] == 0 and r['mode'] == mode)
+            assert digest(filename) == row['generated_sha256']
+            cloud = np.load(filename).reshape(8, 4096, 2)[:, :128].reshape(-1, 2)
+            axs[j, i].scatter(cloud[:, 0], cloud[:, 1], s=1.6, alpha=.35, c=COLORS[i], rasterized=True)
+            axs[j, i].set_title(LABELS[family]+' / '+mode, fontsize=9)
+            axs[j, i].set_aspect('equal', adjustable='box')
+            axs[j, i].set(xlim=(-3.6, 3.6), ylim=(-3.6, 3.6))
+    fig.savefig(figures/'ring-distributions.png')
+    fig.savefig(figures/'ring-distributions.pdf')
+    plt.close(fig)
     payload = dict(passed=True, training_seed=0, evaluation_stream=2026112200, independent_banks=4,
                    independent_base_points_per_bank=4096, correlated_group_points_per_bank=32768,
                    rows=rows, sharing_contrasts=contrasts, verified_receipt_sha256=digest(verified/'COMPLETE.json'))

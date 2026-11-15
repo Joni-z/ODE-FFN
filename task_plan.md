@@ -81,3 +81,11 @@ GPU6/7became occupied and were skipped. Freshdoc witness2988104passed all
 8references and2actualentry checks, exit0. Transfer47,226,880bytes verifies
 SHA4b06d18806ff5cf6c1edb05b7afe2f593b8acec10b7156873336e2c2fe27175b.
 The incomplete extraction is preserved as portable-transfer-incomplete.
+
+The first full independent verification stopped before metric comparison:
+NumPy1.26.4and2.2.6recomputed Product16orbit dot products with maximum
+1.776e-15difference despite exact matching asset byte hashes. The independent
+reconstruction now uses the derived bound2*gamma_(d+1)*sum(abs(products))
+for two dot evaluations; observed maximum fraction0.072. Exact file/array
+hashes and1e-10score/decomposition tolerances are unchanged. No inference
+or arrays were changed. Preserve the first failed verifier console.
