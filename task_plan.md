@@ -24,7 +24,7 @@ foreign task. Mac mini is available freely.
 
 ## Next: population-density comparison (not launched)
 
-- [ ] Implement formal entry with unchanged density_ops.py, all eight models
+- [x] Implement formal entry with unchanged density_ops.py, all eight models
   and both fields, four 256-source banks, common 1024/2048 steps: 128 rows.
 - [ ] Pass actual CPU entries, fresh documented CUDA readiness and a timing-only
   256-source benchmark before choosing host routing.
@@ -46,3 +46,14 @@ Pilot queue 32943 and refinement queue 33293 are terminal; all workers exited.
 P1/P2 journals are in docs/history/. Final reports remain untouched.
 Previous goal turn: progress. Current turn also completes new observations,
 validates the exact observer and qualifies all sixteen pilot cells.
+
+Formal-density execution started this turn. Previous goal turn is progress:
+it produced new field observations, validated the exact observer and completed
+all16pilot numerical qualifications. Current145GPUs4-7are occupied, so begin
+CPUentry/throughput checks while preparing guarded CUDAdeployment. Keep the
+full128-row population-density comparison and mechanism decision as the target.
+
+Formal author CPUentry passes all eight derivative/reference cases and two
+actual formal-entry witnesses. Benchmarks and full jobs are distinct phases.
+Source/data/sampler/operator mathematics stay fixed. Next: publish/freeze,
+fresh CPU/CUDAverbatim readiness, actual256-source benchmark and routing.
