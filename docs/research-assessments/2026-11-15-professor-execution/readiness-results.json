@@ -1,0 +1,90 @@
+{
+  "runtime": "da8b8a4",
+  "verified_unix": 1794737415.4787848,
+  "checks": {
+    "native": {
+      "kernel.json": {
+        "passed": true,
+        "rows": [
+          {
+            "dim": 2,
+            "parameters": 56706,
+            "initialization_exact": true,
+            "full_jacobian": true,
+            "third_derivative": -2.4
+          },
+          {
+            "dim": 16,
+            "parameters": 58512,
+            "initialization_exact": true,
+            "full_jacobian": true,
+            "third_derivative": -2.4
+          }
+        ],
+        "torch": "2.8.0+cu128",
+        "device": "cuda"
+      },
+      "PASS.json": {
+        "passed": true,
+        "completed": [
+          {
+            "cell": "gmm_ring8_2d__pd_tanh_k1__adamw_0.0003",
+            "resume16_exact": true,
+            "parent8_exact": false
+          },
+          {
+            "cell": "rotated_product_bimodal_16d__pd_tanh_k1__adamw_0.0003",
+            "resume16_exact": true,
+            "parent8_exact": false
+          },
+          {
+            "cell": "gmm_ring8_2d__pd_isru_k1__adamw_0.0003__replay145",
+            "resume16_exact": true,
+            "parent8_exact": true
+          },
+          {
+            "cell": "gmm_ring8_2d__free_isru__adamw_0.0003__replay145",
+            "resume16_exact": true,
+            "parent8_exact": true
+          },
+          {
+            "cell": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__replay145",
+            "resume16_exact": true,
+            "parent8_exact": true
+          }
+        ],
+        "source_sha256": "c4bb55e4a24f98c5b55039e78bb10f038e72874fcd18c55d0dfc55d6a0eb9a23"
+      }
+    },
+    "evaluator": {
+      "self-test.json": {
+        "passed": true,
+        "oracle": {
+          "absolute_rms": 3.1191631323832165e-15,
+          "relative_rms": 1.240970444834938e-15
+        },
+        "linear_group_projection": true,
+        "idempotence": true,
+        "native_recording_exact": true,
+        "rotated_solver_pair": true
+      },
+      "native-anchor.json": {
+        "passed": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "oracle_mse": 0.016058958201585746,
+        "checkpoint_sha256": "672daae9235f3dbe8ec790fd3e5b68f240a6a4c61d7fe7fe30fd6a5f447c6e37",
+        "config_sha256": "50a4c0095634e95da8f1e157549bf954040b9e0a7705ae4d0662fd8631951bf1",
+        "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+      },
+      "COMPLETE.json": {
+        "passed": true,
+        "witness": true,
+        "steps": [
+          20000
+        ],
+        "source_config_sha256": "50a4c0095634e95da8f1e157549bf954040b9e0a7705ae4d0662fd8631951bf1"
+      }
+    }
+  }
+}

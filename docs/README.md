@@ -57,3 +57,9 @@ describe the old `jit-codebase/src` workspace and earlier migrations.
 They are historical records; use the current development guide for paths.
 The full older training framework remains on
 [research-archive-20261101](https://github.com/Joni-z/ODE-FFN/tree/research-archive-20261101).
+
+## 15 November professor follow-up
+
+- [Execution and four-GPU allocation](research-assessments/2026-11-15-professor-execution/launch.md)
+- [Registered response and symmetry tests](research-assessments/2026-11-15-professor-execution/protocol.md)
+- [Actual weights versus updates: completed spectral analysis](research-assessments/2026-11-15-professor-execution/spectrum-findings.md)

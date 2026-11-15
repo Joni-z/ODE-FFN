@@ -1,5 +1,20 @@
 # Current project status
 
+## Active professor follow-up on145,15November
+
+Five seed0 native pipelines launched on physicalGPUs4-7, runtime`da8b8a4`.
+GPU4: Ring8 scaled tanh; GPU5: Product16 scaled tanh; GPU6: Ring8 ISRU-D then
+SwiGLU64/Muon replays; GPU7: Ring8 Free ISRU replay. Training is20k updates;
+15k/20k checkpoints receive common-bank Heun128 evaluation, with C8 projection
+for Ring8. Queues record GPU/process/step state every30seconds.
+
+[Protocol](docs/research-assessments/2026-11-15-professor-execution/protocol.md),
+[launch and monitoring](docs/research-assessments/2026-11-15-professor-execution/launch.md),
+[passed numerical checks](docs/research-assessments/2026-11-15-professor-execution/readiness-results.json),
+and [completed Product16 spectral analysis](docs/research-assessments/2026-11-15-professor-execution/spectrum-findings.md).
+Lenovo originals remain unavailable; the three Ring8 controls are explicitly
+new same-recipe trajectories. Report1/2 and the image baseline remain final.
+
 ## Completed baseline/K1/K8 continuation
 
 All three completed160epochs and FID50k, exit0:0. Native SwiGLU leads at
@@ -24,7 +39,8 @@ been implemented or submitted. Keep seed0, original baseline and FID every20.
 
 A later [professor-comment review](docs/research-assessments/2026-11-15-professor-comments.md)
 recommends spectrum/C8-symmetry diagnostics and a matched activation control
-before selecting that image pair. This changes the proposed priority only.
+before selecting that image pair. The authorized follow-up above now executes
+this recommendation; the image pair remains unsubmitted.
 
 Verified15November2026 from scheduler completion, progress, console and
 TensorBoard. No new model code or finalized report was changed.
