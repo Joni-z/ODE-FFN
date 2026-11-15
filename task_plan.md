@@ -22,8 +22,8 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [x] Synthesize the completed coefficient/state/sharing results, ordinary cost frontier and C8 findings.
 - [x] P0: full-bank outer and internal refinement of the shared/released pair;16pooled/128bank scores independently verified.
 - [ ] P1: test the registered symmetry explanation of the sharing gap, using Ring8 rotations and Product16 latent reflections, without new training.
-  - [ ] Implement exact group operators and check oracle equivariance, projection and the field-MSE decomposition.
-  - [ ] Bind four fresh banks and eight frozen checkpoints; produce CPU float64 portability references.
+  - [x] Implement exact group operators and check oracle equivariance, projection and the field-MSE decomposition.
+  - [x] Bind four fresh banks and eight frozen checkpoints; produce CPU float64 portability references.
   - [ ] Publish/freeze source and pass fresh documented CUDA readiness on an idle permitted card.
   - [ ] Run original/projected sampling, paths and outer-resolution checks with live resource monitoring.
   - [ ] Independently recompute complete metrics, render figures and accept/reject the proposed explanation.
@@ -46,6 +46,10 @@ reflection groups. Prove oracle equivariance, group projection and MSE split;
 verify CPU/CUDA and fresh documented readiness before deploying to idle145
 GPUs4-7. Evaluate original/projected fields on identical group-stratified
 sources. No response search, new training or automatic image promotion.
+P1source is implemented. Portable data is under sharing-symmetry/portable-v2;
+CPUreadiness-entry-v3passes all8references and two actual entry witnesses.
+Independent witness metrics differ by at most1.12e-16. Next: publish/freeze
+the source, stage the47MBbundle and run the fresh documented CUDAcommand.
 
 Previous goal turn: progress. It completed the sharing controls, diagnostics,
 cost/recipe pairing,25-case inference verification and full CUDA P0checks.
@@ -61,3 +65,8 @@ P1's first linear C8witness exposed an incomplete analytic expectation:
 rotation-equivariant linear maps retain an antisymmetric part as well as
 trace/2times identity. Corrected the expectation; preserve the failed empty
 preparation folder and use a separate v2folder. No P1sampling result existed.
+The first combined entry witness imported an older module named evaluate;
+load the intended file explicitly. Preserve that failed readiness directory;
+no formal inference was launched from it.
+Renamed the new queue module to run_symmetry_queue.py so it cannot shadow
+Python's standard queue module during a fresh Torch import.

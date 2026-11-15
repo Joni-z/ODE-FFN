@@ -46,6 +46,9 @@ mean_g g^-1 v(gx,t). Evaluate full-field error on complete group orbits and
 verify the exact MSE decomposition into projected error plus group-breaking
 variance. Then integrate both fields on the identical stratified sources.
 Record stratified SW2, sign/mode balance, Product16 gap mass and trajectories.
+Also record the eight-bin source-to-end transport matrix. Its column-minus-row
+mass gives net partition imbalance; total off-diagonal mass describes a
+particular coupling and is not a stand-in for distribution quality.
 Validate the projected-sampling shortcut against actual rotated integrations.
 Use one precision throughout each comparison and check outer resolution.
 

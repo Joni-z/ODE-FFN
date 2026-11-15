@@ -1,5 +1,5 @@
 """Seeded group/oracle checks, real CPU references and shortcut qualification."""
-import argparse,json
+import argparse,importlib.util,json
 from pathlib import Path
 import numpy as np
 from common import HERE,base,torch,load,arrays,law_for,Projection,orbit,kernel_checks,exclusive_gpu,ev
@@ -32,8 +32,19 @@ def main():
                          field_max_error=field_error,native64_sample_max_error=native_error,shortcut_max_error=error,shortcut_allowed=allowed))
         ev.same_tensors(model,snapshot);base.dump(out/'progress.json',dict(completed=len(rows),total=8,last=rows[-1]))
         if a.device=='cuda':exclusive_gpu(a.gpu_uuid)
-    base.dump(out/'COMPLETE.json',dict(passed=True,cases=8,device=a.device,gpu_uuid=a.gpu_uuid,device_name=torch.cuda.get_device_name(0) if a.device=='cuda' else 'CPU',
-        kernels=kernels,rows=rows,portable_manifest_sha256=base.digest(root/'portable.json'),source_sha256={f.name:base.digest(f) for f in [Path(__file__),HERE/'common.py']}))
+    stamp=dict(passed=True,cases=8,device=a.device,gpu_uuid=a.gpu_uuid,device_name=torch.cuda.get_device_name(0) if a.device=='cuda' else 'CPU',
+        kernels=kernels,rows=rows,portable_manifest_sha256=base.digest(root/'portable.json'),source_sha256={f.name:base.digest(f) for f in [Path(__file__),HERE/'common.py']})
+    provisional=out/'entry-readiness.json';base.dump(provisional,stamp)
+    spec=importlib.util.spec_from_file_location('sharing_symmetry_case',HERE/'evaluate.py')
+    evaluate=importlib.util.module_from_spec(spec);spec.loader.exec_module(evaluate)
+    entries=[]
+    for dataset,family in [('gmm_ring8_2d','state_midpoint4'),('rotated_product_bimodal_16d','stage_operator_midpoint4')]:
+        case=next(c for c in manifest['cases'] if c['dataset']==dataset and c['family']==family);target=out/('entry-'+dataset)
+        cmd=['--root',str(root),'--case',case['id'],'--output',str(target),'--readiness',str(provisional),'--device',a.device,'--witness']
+        if a.gpu_uuid:cmd+=['--gpu-uuid',a.gpu_uuid]
+        evaluate.main(cmd);done=json.loads((target/'COMPLETE.json').read_text());assert done['passed'] and done['witness'] and done['parameters_unchanged']
+        entries.append(dict(id=case['id'],completion_sha256=base.digest(target/'COMPLETE.json')))
+    stamp['entry_witnesses']=entries;base.dump(out/'COMPLETE.json',stamp)
     print(json.dumps(dict(passed=True,cases=8,shortcuts=sum(r['shortcut_allowed'] for r in rows),output=str(out))))
 
 if __name__=='__main__':main()
