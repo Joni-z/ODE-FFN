@@ -1,4 +1,4 @@
-# Full-bank outer refinement on idle145GPU4
+# Full-bank outer refinement on an idle145GPU4-7
 
 This executes P0 of [the mechanism follow-up](sharing-symmetry-followup.md).
 It changes no weights, response, training seed or optimizer. The eight primary
@@ -11,18 +11,19 @@ Warm environment: `/data2/zz5070/miniconda3/envs/py312/bin/python`,
 Torch2.8.0+cu128. No packages installed or rebuilt. Runtime root:
 `/data2/zz5070/ODE_FFN/mechanism-sharing-20261116`.
 
-Only physicalGPU4, UUID`GPU-6c644192-ce4a-5d10-b912-07a6fc24f352`, is visible.
-Require no resident foreign compute process before launching. Physical0-3
+The dispatcher selects a physicalGPU4-7 with no resident compute process
+and less than500MiB used, then exposes only its UUID. Require no resident
+foreign compute process before launching. Physical0-3
 are prohibited. Stop only our process if another task appears. Log occupancy,
 power and utilization after each sampling resolution.
 
 ## Fresh documented witness
 
 Execute exactly once from Mac mini after the source and portable files are
-present on145 and the card has been checked empty:
+present on145. The dispatcher selects and binds the currently empty card:
 
 ```sh
-ssh -o BatchMode=yes -o ConnectTimeout=8 145 'cd /data2/zz5070/ODE_FFN/mechanism-sharing-20261116/repo && CUDA_VISIBLE_DEVICES=GPU-6c644192-ce4a-5d10-b912-07a6fc24f352 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python -u studies/muon_pd_20261102/coefficient_20261116/gpu_resolution.py --root /data2/zz5070/ODE_FFN/mechanism-sharing-20261116/portable --output /data2/zz5070/ODE_FFN/mechanism-sharing-20261116/doc-witness --gpu-uuid GPU-6c644192-ce4a-5d10-b912-07a6fc24f352 --witness'
+ssh -o BatchMode=yes -o ConnectTimeout=8 145 'cd /data2/zz5070/ODE_FFN/mechanism-sharing-20261116/repo && /data2/zz5070/miniconda3/envs/py312/bin/python -u studies/muon_pd_20261102/coefficient_20261116/sharing_dispatch.py --root /data2/zz5070/ODE_FFN/mechanism-sharing-20261116/portable --output /data2/zz5070/ODE_FFN/mechanism-sharing-20261116/doc-witness --witness'
 ```
 
 Require all four cases, finite predictions, field portability at2e-5absolute
@@ -32,9 +33,12 @@ Do not replace a missing receipt with import success or partial progress.
 
 ## Full inference after readiness
 
-Run `sharing_gpu.py` with the same environment, `--root` set to the portable
+Run `sharing_dispatch.py` with the same environment, `--root` set to the portable
 directory, `--readiness` to the witness COMPLETE.json, and `--output` to a
-new `full-refinement` directory. Bind the same UUID and preserve frozen source.
+new `full-refinement` directory. Pass `--detach`. Preserve frozen source;
+the dispatcher records the selected UUID, actual child PID and command.
+It never selects physical0-3or an occupied card. The inference child repeats
+the occupancy check before and after each case/resolution.
 Pass `--include-inner16` for the registered hidden-resolution check too.
 
 Each of four models receives all32,768original confirmation sources at
