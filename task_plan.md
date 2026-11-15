@@ -24,7 +24,8 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [ ] P1: test the registered symmetry explanation of the sharing gap, using Ring8 rotations and Product16 latent reflections, without new training.
   - [x] Implement exact group operators and check oracle equivariance, projection and the field-MSE decomposition.
   - [x] Bind four fresh banks and eight frozen checkpoints; produce CPU float64 portability references.
-  - [ ] Publish/freeze source and pass fresh documented CUDA readiness on an idle permitted card.
+  - [x] Publish/freeze source5e78e6a and pass CPU actual-entry/independent checks.
+  - [ ] Pass fresh documented CUDA readiness on an idle permitted card.
   - [ ] Run original/projected sampling, paths and outer-resolution checks with live resource monitoring.
   - [ ] Independently recompute complete metrics, render figures and accept/reject the proposed explanation.
 
@@ -70,3 +71,7 @@ load the intended file explicitly. Preserve that failed readiness directory;
 no formal inference was launched from it.
 Renamed the new queue module to run_symmetry_queue.py so it cannot shadow
 Python's standard queue module during a fresh Torch import.
+
+P1deployment note: premature extraction while SCP was still writing raised
+Unexpected EOF. Preserve the partial directory; finish transfer and verify the
+archive hash before extracting to a fresh directory. No CUDA task launched.

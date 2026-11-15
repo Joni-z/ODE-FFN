@@ -66,3 +66,9 @@ Generic sharing_dispatch.py now selects only an idle145physical4-7UUID;
 exclusive_gpu rechecks occupancy during execution. Keep new source frozen
 and get a fresh documented CUDAwitness before full deployment. No new
 packages needed. The full goal remains active; P1is prepared, not launched.
+
+P1CPU entry receipts now explicitly label witness=true,16base points,2banks;
+these values are engineering checks, never evidence for a model ranking.
+Independent verification also reconstructs both selected groups from the
+native data specification. Premature remote extraction failed while SCP
+was still active; its partial directory will be retained separately.

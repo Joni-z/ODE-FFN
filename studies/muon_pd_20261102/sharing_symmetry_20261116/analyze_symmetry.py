@@ -49,6 +49,14 @@ def verify_case(root,folder,allow_witness=False,expected_commit=None):
     binding=next(b for b in manifest['asset_bindings'] if b['dataset']==case['dataset'])
     assert {k:ah(v) for k,v in data.items()}==binding['arrays']
     d=spec['dim'];group=data['group'];assert group.shape==(8,d,d)
+    if d==2:
+        theta=np.arange(8)*np.pi/4;c=np.cos(theta);s=np.sin(theta);expected_group=np.stack((c,-s,s,c),axis=1).reshape(8,2,2)
+    else:
+        q=np.array(spec['distribution']['rotation']);expected_group=[]
+        for bits in np.ndindex(2,2,2):
+            signs=np.ones(d);signs[[0,7,15]]=1-2*np.array(bits);expected_group.append((q*signs[None])@q.T)
+        expected_group=np.stack(expected_group)
+    expected_group[0]=np.eye(d);assert np.allclose(group,expected_group,atol=1e-12,rtol=1e-12)
     for kind in ['source','target']:
         for b in range(4):
             expected=np.einsum('nd,ked->kne',data[f'{kind}_{b}'].astype(float),group).reshape(-1,d)
@@ -93,7 +101,7 @@ def verify_case(root,folder,allow_witness=False,expected_commit=None):
         shift=float(np.sqrt(np.mean(np.sum((x-finest)**2,axis=1))));assert abs(shift-r['rms_endpoint_shift_to256'])<1e-12
     for r in done['paths']:
         f=folder/r['file'];assert sha(f)==r['sha256'];x=np.load(f);assert x.shape==(129,16,d) and np.isfinite(x).all();assert np.array_equal(x[0],data['source_0'][:16].astype(float))
-    return dict(passed=True,id=case['id'],field=field,bank_rows=rows,pooled=pool,max_numpy_error=maximum,completion_sha256=sha(folder/'COMPLETE.json'))
+    return dict(passed=True,witness=done['witness'],base_samples=n,banks=banks,field_points=points,id=case['id'],field=field,bank_rows=rows,pooled=pool,max_numpy_error=maximum,completion_sha256=sha(folder/'COMPLETE.json'))
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--runtime');p.add_argument('--witness-case');p.add_argument('--output',required=True);a=p.parse_args()
