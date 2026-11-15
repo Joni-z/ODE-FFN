@@ -1,12 +1,13 @@
 # Current project status
 
-## Proposed next image candidate
+## Proposed response comparison before image transfer
 
-[Tanh-D K8](docs/research-assessments/2026-11-14-next-architecture/tanh-k8-proposal.md):
-retain the widened ISRU-D K8 topology and change only its entrance diagonal
-to the verified scaled tanh response. One seed0/100epoch CelebA128 run is
-proposed, with the existing native SwiGLU and ISRU-D K8 controls. Source
-implementation, readiness and a run decision are pending; no job is submitted.
+[Response-family comparison](docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md):
+compare ISRU,tanh,arctan,Softsign,erf,slope-normalized SiLU/GELU and linear
+at K1/K8 on Ring8/Product16. Reuse compatible anchors, fix the training
+recipe, and register separate selection/confirmation arrays. The earlier
+tanh-only transfer is superseded; compare before selecting a CelebA response.
+No implementation or new job is launched in this planning revision.
 
 ## Completed order-by-response comparison,15 November
 

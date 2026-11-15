@@ -38,8 +38,8 @@ Planning discussion only; no new jobs are authorized by this note.
 - [x] Recheck the three professor-comment findings and the completed K1/K8 response comparison.
 - [x] Prioritize the existing CelebA checkpoint diagnosis over additional response/order sweeps.
 - [ ] Measure native SwiGLU versus widened ISRU-D K1/K8 errors by noise time and layer responses; cap the proposed diagnosis at one GPU-hour.
-- [x] Propose one concrete CelebA control: Tanh-D K8, changing only the diagonal response of widened ISRU-D K8.
-- [ ] Review the proposed transfer test, implement and verify it only under an execution decision; no run is launched here.
+- [x] Record the Tanh-D K8 proposal, subsequently superseded by the requested response-family comparison.
+- [ ] Review the response comparison, implement and verify it under an execution decision; no run is launched here.
 
 Ring8 rotation augmentation remains an optional small control; it is not a
 prerequisite for answering the professor or evidence of an image-model gain.
@@ -51,7 +51,24 @@ feedback comparison could isolate one variable, but that alone does not make
 it the research priority. Neither a post-hoc improvement nor a post-hoc
 failure proves the potential of a newly trained operator.
 
-Current candidate proposal: docs/research-assessments/2026-11-14-next-architecture/tanh-k8-proposal.md.
-Use the registered20k synthetic K8-to-K8 response comparison as motivation,
-not as proof of an image gain. Proposed budget: one seed0/100epoch trajectory,
-same native recipe and FID50k every20; fixed native and wide ISRU-D references.
+Current proposal: docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md.
+The earlier tanh-only image transfer is superseded. Compare representative
+responses under the same recipe before selecting up to two image candidates.
+
+## Response-family selection revision
+
+The user requests comparative selection rather than choosing tanh after one
+ISRU contrast. Prepare the bounded comparison before another image run.
+- [x] Recheck existing response evidence and standard function definitions.
+- [x] Register representative response families, scale matching and K1/K8 controls.
+- [x] Specify fresh selection/confirmation measurements and image-transfer decisions.
+- [x] Verify the response formulas and update the superseded tanh-only proposal.
+- [x] Publish the revised plan and record that training remains unlaunched.
+
+No new trainer, optimizer sweep, learned response scale or formal job in this
+planning turn. Preserve all completed results and finalized reports.
+
+Planning deliverables: response-screen-proposal.md, eight-family float64
+normalization/derivative checks and inspected curve plot in the existing
+next-architecture folder. All96 report files match their protected hashes.
+No model trainer or scheduler source changed; formal runs remain proposed.

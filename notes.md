@@ -48,7 +48,7 @@ construction, but the latter are not unchanged copies of the original scalar
 clock layer. D is computed once per solve and reused across terms; K1 equals
 h+P ISRU(h), whereas higher terms do not repeatedly apply ISRU to the new term.
 
-The requested concrete CelebA candidate is now proposed as Tanh-D K8:
+The earlier concrete CelebA candidate was proposed as Tanh-D K8:
 the same widened768->1200 topology, two frozen-D Taylor solves around SiLU,
 and only d(h) changed to the verified scaled tanh ratio. At the registered
 synthetic20k endpoint, tanh-K8 beats ISRU-K8 on both tasks/metrics; earlier
@@ -56,3 +56,14 @@ checkpoints are mixed. This motivates one transfer control, not an image
 superiority or novelty claim. Keep AdamW and the existing image recipe,
 reuse the native/wide-ISRU baselines, and propose one100epoch seed0 trajectory.
 No implementation or job is launched in this architecture-selection discussion.
+
+The user then required a broader comparison instead of preselecting tanh.
+The response-screen proposal supersedes the direct tanh-only transfer: five
+bounded odd responses match origin slope and saturation, two normalized
+standard unbounded responses test that family assumption, and linear tests
+input-dependent gating. Cross each with K1/K8 and the two existing tasks.
+Use fresh prebound selection/confirmation arrays for all competing weights;
+do not repeatedly select on the already-inspected common-bank results.
+The full32cell grid reuses eight ISRU/tanh and two linearK1 cases when anchors
+are available, leaving22 new runs plus explicitly recorded missing replays.
+All formal runs remain proposed. No new image architecture is selected yet.

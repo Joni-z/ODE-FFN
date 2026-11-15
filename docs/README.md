@@ -9,6 +9,7 @@ continue to resolve.
 | Topic | Entry |
 |---|---|
 | Current run and actual job snapshot | [Project status](../STATUS.md) |
+| Response selection before CelebA transfer | [Bounded comparison and selection rules](research-assessments/2026-11-14-next-architecture/response-screen-proposal.md) |
 | Completed wide K8/K1 and fixed native baseline | [Results and FID curves](celeba128-wide-20261114/results.md) |
 | Continuation of the same K1/K8 checkpoints to 160 epochs | [Live continuation results](celeba128-wide-20261114/continuation-160/results.md) |
 | Native SwiGLU continuation through the same 160 epochs | [Baseline continuation](celeba128-wide-20261114/continuation-160/baseline/README.md) |

@@ -1,5 +1,9 @@
 # Proposed CelebA candidate: Tanh-D K8
 
+**Superseded by the user-requested [response-family comparison](response-screen-proposal.md).**
+Retain tanh as one candidate and comparison anchor. The direct tanh-only
+image run below is not selected or submitted.
+
 15 November 2026. One candidate proposed in response to the request for a
 concrete image architecture. No implementation or training is launched by
 this document. The ISRU-midpoint pair is not the selected next comparison.
