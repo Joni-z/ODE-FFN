@@ -2,13 +2,28 @@
 
 ## Current priority: identify the ODE contribution
 
-**Six new20k trajectories and their independent evaluations are complete.**
+**Eight new20k trajectories and their independent evaluations are complete.**
 Free Taylor coefficients (8c10a8d), state-evolving midpoint (1ff0d02), and
 free midpoint stages (9a73953) all exited zero. Their28selection and14
 confirmation rows independently recompute. All training/evaluation queues
-for these trajectories are terminal.
+for these trajectories are terminal. The two released-stage-operator runs
+also completed20k with exit0; all16selection/8confirmation rows independently
+recompute. The latest sharing cohort uses its own fresh prebound arrays:
 
-Confirmation pooled SW2:
+| Model | Ring8 SW2 | Product16 SW2 |
+|---|---:|---:|
+| Shared generator |**0.091**|0.064|
+| Released stage matrices |0.111|0.073|
+| Free ISRU |0.116|0.055|
+| SwiGLU reference |0.120|**0.044**|
+
+Sharing wins all8paired banks per task at identical dense work and about56%
+fewer parameters than released stages. Released matrices are active, and
+Product16 field fitting improves while sampling worsens. This supports the
+sharing/autonomy constraint in this comparison; ordinary Product16 controls
+remain stronger and cheaper. [Completed sharing analysis](docs/research-assessments/2026-11-16-ode-mechanism/sharing-results/analysis-report.md).
+
+Earlier coefficient/state cohort, on its separate confirmation arrays:
 
 | Model | Ring8 | Product16 |
 |---|---:|---:|
@@ -20,8 +35,8 @@ Confirmation pooled SW2:
 | SwiGLU |0.091|0.034|
 
 The positive within-family comparison is state feedback; prescribed
-coefficients do not show a consistent added benefit. These comparisons
-retain shared P, so they do not establish the value of sharing itself.
+coefficients do not show a consistent added benefit. Those earlier comparisons
+retain shared P; the later matched stage release above tests sharing explicitly.
 [All scores and paired effects](docs/research-assessments/2026-11-16-ode-mechanism/completed-comparison.md).
 [Interpretation and trained-state convergence](docs/research-assessments/2026-11-16-ode-mechanism/primary-findings.md).
 
@@ -32,8 +47,11 @@ fixed K8's0.056. [Verification and scores](docs/research-assessments/2026-11-16-
 
 Numerical queue25633 stopped after21successful tasks and one failed float32
 C8 trajectory-equivariance witness; three symmetry tasks were unstarted.
-The failed bundle is preserved. All seven symmetry cases are running in a
-separate float64 bundle, queue27668, after a passed fresh documented invocation.
+The failed bundle is preserved. All seven symmetry cases completed in a
+separate float64 bundle, queue27668 terminal. All25numerical cases and78scores
+independently recompute within2.78e-17. The Ring8 state-flow lead over ordinary
+controls disappears after C8projection on the paired stratified bank.
+[Completed numerical findings](docs/research-assessments/2026-11-16-ode-mechanism/numerical-findings.md).
 [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/numerical-followup.md),
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/numerical-launch.json).
 The single-generator [sharing control](docs/research-assessments/2026-11-16-ode-mechanism/operator-sharing-control.md)
@@ -41,13 +59,18 @@ has passed initial-function, gradient, native continuation and fresh
 documented evaluator checks. Both seed0 runs completed20k on Mac mini CPU,
 queue27486, workers27487/27488, frozen8205c5a, both exit0. Formal initialization,
 recipe and data-RNG states match the shared controls at0/15k/20k. Evaluation
-watcher27667 uses new prebound common arrays;
-all six ordinary/shared references receive those same arrays.
+watcher27667 completed all16evaluation invocations on the new common arrays;
+all six ordinary/shared references received those same arrays.
 [Actual launch receipt](docs/research-assessments/2026-11-16-ode-mechanism/sharing-launch.json).
 Frozen probes confirm nonzero learned stage actions and ordering sensitivity;
 these are not substitute retrained generation comparisons. Same-host dense
 MAC accounting and CPU forward/sampling benchmarks pass for all eight cases.
-The complete new-cohort generation analysis remains pending.
+The complete new-cohort analysis is linked above. Its new512-point outer
+refinement independently recomputes, maximum128->512SW2 shift2.464e-4.
+Full-bank refinement and the targeted sharing-symmetry test are the next steps.
+[Follow-up hypotheses and decisions](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry-followup.md).
+Four focal checkpoints are prepared for guarded145inference; fresh CUDA
+readiness and the actual launch receipt must establish whether it has started.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),

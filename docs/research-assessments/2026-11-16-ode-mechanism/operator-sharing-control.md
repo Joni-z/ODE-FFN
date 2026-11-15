@@ -131,3 +131,11 @@ overlapping parameterization: under SGD the common-P gradient sums stage
 gradients while Delta_j adds its own. Adam and global clipping further
 change this geometry. If released matrices fit worse too, these optimization
 effects prevent attributing a sampling gap solely to useful autonomy.
+
+The completed sharing comparison is at Heun128. The earlier14-model outer
+refinement cohort did not include released stage matrices. Check all four
+shared/released final checkpoints on the new common confirmation inputs
+at Heun128/256/512. Start with512points from bank0 as a bounded numerical
+check, preserving samples for independent recomputation. Do not label this
+subset a full-bank quality ranking. Full-bank refinement remains required
+before a continuous-flow or image-promotion claim.

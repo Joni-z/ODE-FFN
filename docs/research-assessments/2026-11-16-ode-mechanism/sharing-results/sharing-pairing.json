@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "scope": "formal initialization/recipe/RNG pairing; not equality of optimization trajectories",
+  "rows": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "recipe_equal_except_architecture_identity": true,
+      "initial_common_tensors_exact": true,
+      "new_matrices_zero": true,
+      "checkpoints": [
+        {
+          "step": 0,
+          "data_rng_exact": true,
+          "left_sha256": "1c3174a02bdd41e74b944267d1f9342567ede15d4b865f75980fdc1bf60f45ef",
+          "right_sha256": "7da8a266345faa3c3939de6de0f283b116202bdd5dc73000c19fa489cc824008"
+        },
+        {
+          "step": 15000,
+          "data_rng_exact": true,
+          "left_sha256": "e6f49e91540a0bd2af52c5210d0141b9604a566acbc4c968cd42f754acdcd1dc",
+          "right_sha256": "5dea64ace821abb95da8113c48fadcfedf577eaad9bb13a23dca3cacd9500316"
+        },
+        {
+          "step": 20000,
+          "data_rng_exact": true,
+          "left_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+          "right_sha256": "0f4a7634dbf216bff768723eff3d7b3a5e591a8814f3663fea0a496e7f13df34"
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "recipe_equal_except_architecture_identity": true,
+      "initial_common_tensors_exact": true,
+      "new_matrices_zero": true,
+      "checkpoints": [
+        {
+          "step": 0,
+          "data_rng_exact": true,
+          "left_sha256": "bf6d7bb60fd78d8d118d671fa3a318a6e88f2a500af02f32d0a48f568a2a9151",
+          "right_sha256": "7637e12f235dd499941df10e73ff71495082b9a58c00c3b03062f1eb4173b0f5"
+        },
+        {
+          "step": 15000,
+          "data_rng_exact": true,
+          "left_sha256": "f21b48ea0af844b759386900e4a4019c77cb1d00009eec58e32408e21d0e790c",
+          "right_sha256": "86b9fa79a100617ea7541b8ef0494842489f8b3adc1022d2b54356a280ec0515"
+        },
+        {
+          "step": 20000,
+          "data_rng_exact": true,
+          "left_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+          "right_sha256": "215420aab145fb625d2f90acb22f450663f2490eba1f78868409688691ef0ede"
+        }
+      ]
+    }
+  ],
+  "source_sha256": "b4d65f9eead7ec24dbbc1b838c2a952a143a91f89ec61674a7942abdac5106b2"
+}

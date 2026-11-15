@@ -37,5 +37,16 @@ a confidence interval. Fixed midpoint retains approximately second order;
 free stages approach first order. This demonstrates numerical structure,
 not an established generation-quality gain or a new numerical method.
 
-All figures are generated from the archived measured JSON/CSV values. Pending
-full numerical and symmetry results are not silently added to these plots.
+## symmetry-full.png and internal-resolution-full.png
+
+The completed25-case cohort is plotted separately. The symmetry plot compares
+seven original/projected Ring8 fields on identical C8-stratified sources and
+targets. Its4,096base points are independent; their rotations are not. State
+flow's original lead disappears after projection, motivating the targeted
+sharing-symmetry follow-up. Equal projected sector counts are constructed by
+the group action. The internal-resolution plot uses the original iid pooled
+arrays, showing4->16steps at fixed weights. Scores from these two protocols
+must not be mixed. Both figures were rendered and visually checked.
+
+All figures use archived measured JSON/CSV. The additional four sharing figures,
+their purposes and limits are in [the sharing catalog](sharing-results/figure-catalog.md).

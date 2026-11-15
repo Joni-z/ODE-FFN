@@ -1,8 +1,9 @@
 # Completed frozen-checkpoint diagnosis
 
-These findings use final20k CPU checkpoints, separate from the pending
-common-bank comparison. The two coefficient trajectories are complete;
-the two state-flow trajectories and final evaluation pipelines are active.
+These frozen-checkpoint findings preceded the state-flow intervention.
+All eight new20k trajectories and common-bank evaluations have now completed.
+Their [primary interpretation](primary-findings.md) and [sharing comparison](sharing-results/analysis-report.md)
+keep these earlier diagnostic predictions separate from retrained evidence.
 
 ## Exponential accuracy is not the same as a reusable hidden flow
 

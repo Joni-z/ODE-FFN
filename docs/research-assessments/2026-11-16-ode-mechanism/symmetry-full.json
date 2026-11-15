@@ -1,0 +1,412 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+      "family": "free_coeff_k8",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.08731402920887829,
+          "counts": [
+            4179,
+            4146,
+            4267,
+            4066,
+            3862,
+            4479,
+            3791,
+            3978
+          ],
+          "sector_l1": 0.04193115234375,
+          "seconds": 273.3433296671137,
+          "generated_file": "original.npy",
+          "generated_sha256": "344d79dfd34a1dbe01a6d9d1251def58d686931b41e59357e12443f90b5f8047"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.023785696436639667,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 243.1452802498825,
+          "generated_file": "projected.npy",
+          "generated_sha256": "23cb3a350c24b2ecec5037703209a8910f4ff9e5bf96c70403d9f42e34f57c96"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 5.218048215738236e-15,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "e7c4aba0dc8f33c697fbfe805661e4c67168c5add12a1d09396a43a334079bec",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    },
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "family": "free_isru",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.08750638752012602,
+          "counts": [
+            4219,
+            4130,
+            4344,
+            3943,
+            3846,
+            4392,
+            3936,
+            3958
+          ],
+          "sector_l1": 0.04278564453125,
+          "seconds": 46.740987041033804,
+          "generated_file": "original.npy",
+          "generated_sha256": "ee5de5f4d3686d96fb2744d7ad33c49c9731c485feb4f999c1cfc31d424f93d0"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.018651518032419555,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 47.21529733296484,
+          "generated_file": "projected.npy",
+          "generated_sha256": "ee8adb17a1b43a6509a16e5d98396363df23107280ee3e9ef6d3ddfe1bce20aa"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 1.7763568394002505e-15,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    },
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003",
+      "family": "free_stage_midpoint4",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.0687221561944812,
+          "counts": [
+            4164,
+            4066,
+            4253,
+            4093,
+            3911,
+            4341,
+            3865,
+            4075
+          ],
+          "sector_l1": 0.0286865234375,
+          "seconds": 348.39594783307984,
+          "generated_file": "original.npy",
+          "generated_sha256": "abe70eefb8dc5f5eac34f9961172cef1479369eec985ba054e416b0f26acce8e"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.022873291583921266,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 257.0947167077102,
+          "generated_file": "projected.npy",
+          "generated_sha256": "c0e65054c91b2256e393b1a161ea127caefbecb3764f30a18c053ac4f4c5477b"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 2.220446049250313e-15,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "a92a9ac035a6c0766b2be3e3d87ff869ff01bfa2bc9ac88fc7a03af506b42746",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    },
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__screen_isru_k1__adamw_0.0003",
+      "family": "screen_isru_k1",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.09140054764254013,
+          "counts": [
+            4250,
+            4193,
+            4369,
+            3799,
+            3977,
+            4261,
+            3989,
+            3930
+          ],
+          "sector_l1": 0.04205322265625,
+          "seconds": 81.85732875019312,
+          "generated_file": "original.npy",
+          "generated_sha256": "bdfe6929c22953278faaa2e7579ff1c7aaec8ab2deb76f7f1524b4564ee1609e"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.021051425842772007,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 85.17022312479094,
+          "generated_file": "projected.npy",
+          "generated_sha256": "29e296af82ae21b47bfee4d41e71d871889c46c1efc5c0becbb16cfb531d8e6d"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 5.329070518200751e-15,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "42e4b7b6577d02765ebede1ad97f2327351c0724d34fea88eaeb61b6d0de8dd4",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    },
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__screen_isru_k8__adamw_0.0003",
+      "family": "screen_isru_k8",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.08348223870514883,
+          "counts": [
+            4172,
+            4143,
+            4239,
+            4056,
+            3916,
+            4467,
+            3802,
+            3973
+          ],
+          "sector_l1": 0.03887939453125,
+          "seconds": 214.69308074982837,
+          "generated_file": "original.npy",
+          "generated_sha256": "69c5c373980437c0510efb45f974a544fa8883519ebda2bea44e27af68272396"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.02420823272446023,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 254.46500249998644,
+          "generated_file": "projected.npy",
+          "generated_sha256": "2b9b7e1f784d52d7d857984b292121726094d23fa9c73e7cf0061d0cc7c85576"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 1.6087131626818518e-13,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "f65b6ebb00e6ece61a58a1b6a4c0f5908379707639c548cc3da7c7b6ee8f8b2c",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    },
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "family": "state_midpoint4",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.06657188372187538,
+          "counts": [
+            4164,
+            4060,
+            4246,
+            4087,
+            3922,
+            4334,
+            3874,
+            4081
+          ],
+          "sector_l1": 0.02783203125,
+          "seconds": 347.5044888332486,
+          "generated_file": "original.npy",
+          "generated_sha256": "2f5d3b1e9a98fada1df163d8ae637384323d87c14b923d5791311af08aa6ac56"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.02334119214953667,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 320.32780320895836,
+          "generated_file": "projected.npy",
+          "generated_sha256": "0f33939116cbdcad5fd7ebe606b51ec2d7fe0fd5774f711e3073228e736b5169"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 5.10702591327572e-15,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    },
+    {
+      "passed": true,
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "family": "swiglu64",
+      "dataset": "gmm_ring8_2d",
+      "scope": "paired C8-stratified evaluation, not iid pooled-bank scores",
+      "rows": [
+        {
+          "mode": "original",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.09436334529199009,
+          "counts": [
+            4204,
+            4148,
+            4417,
+            3879,
+            3785,
+            4351,
+            4139,
+            3845
+          ],
+          "sector_l1": 0.04754638671875,
+          "seconds": 46.68909766711295,
+          "generated_file": "original.npy",
+          "generated_sha256": "45039426622a888f3443e8c23b945ee4b31b09e74a497b3648b6fdfced383fd4"
+        },
+        {
+          "mode": "projected",
+          "samples": 32768,
+          "independent_base_samples": 4096,
+          "stratified_sw2": 0.022008211708182613,
+          "counts": [
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096,
+            4096
+          ],
+          "sector_l1": 0.0,
+          "seconds": 44.9814900001511,
+          "generated_file": "projected.npy",
+          "generated_sha256": "7c6feb7992d57880f5d47b5cb1ad4efda7f503625f87f89df0a3068e70973164"
+        }
+      ],
+      "dtype": "float64",
+      "base_samples": 4096,
+      "stratified_source_sha256": "738e40252765fa77dc0568be21279865ffe54118f354a8aa6e0bc46c0cc9c2e8",
+      "stratified_target_sha256": "fd5888acfc06f975a9d28e5a6c79e0916738f8489f8b8357c59c63b23b3fdad7",
+      "symmetry_shortcut_max_error": 3.219646771412954e-15,
+      "symmetry_shortcut_float32_max_error": null,
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "source_sha256": "4bb0451530677c07e40e5a624354bdea46825d93a02b0c53a29368a50aaac7e4"
+    }
+  ],
+  "queue_receipt_sha256": "b82b562e3a6b27dce9ed28a86adcb700c3b313b20ee41bdb70e98860a2eac4d4"
+}

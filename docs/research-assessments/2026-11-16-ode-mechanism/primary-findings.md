@@ -1,14 +1,15 @@
 # What the completed controls establish
 
-**Updating the hidden state is the positive architectural intervention.
-Prescribing exponential or midpoint coefficients has not improved the fixed-
-budget sampling scores consistently. Fixed midpoint does retain its expected
-numerical convergence order after training. Operator sharing remains open.**
+**State feedback and sharing a single generator are the positive within-family
+interventions. Prescribing exponential or midpoint coefficients has not improved
+fixed-budget sampling consistently. Fixed midpoint retains its expected numerical
+order. Ordinary controls remain stronger on Product16.**
 
 The six new20k trajectories and all28selection/14confirmation metric rows
 are complete and independently recomputed. Training remains seed0. All18
-resolution cases are also complete and independently recomputed. The separate
-symmetry investigation is incomplete and is not used as completed evidence.
+resolution cases and seven float64 symmetry cases are complete and independently
+recomputed. Two additional stage-operator trajectories and their fresh common-bank
+evaluations are also complete. Each cohort retains its own bound arrays.
 These are width64/depth3 synthetic velocity MLPs with replaceable FFNs,
 not JiT image-prediction models; no image-transfer improvement is claimed.
 
@@ -108,19 +109,32 @@ at each resolution or a comparison at equal inference cost.
 All14outer-resolution and four full internal-refinement cases independently
 recompute within2.78e-17. [Bound verification](numerical-resolution/COMPLETE.json),
 [all64scores](numerical-resolution/scores.csv). The failed float32 C8 shortcut
-is preserved and all seven symmetry cases are being checked separately in
-float64; no incomplete or mixed-precision symmetry ranking is reported.
+is preserved. All seven symmetry cases subsequently completed in float64,
+with independent verification of all25cases and78scores. No mixed-precision
+symmetry ranking is reported.
 
 ## What is unresolved
 
-The current positive comparison identifies state feedback/repeated nonlinear
-computation. It does not isolate the benefit of using one shared P, establish
-an objective-specific relationship between hidden time and physical FM time,
-or demonstrate a general replacement for ordinary FFNs. The additional
-fixed-weight checks now locate whether Ring8 mode allocation explains its
-remaining gain. The next training control releases stage matrices at the same
-matrix-work budget, with exactly the shared model's initial map and additional
-parameters reported explicitly. Its fresh native readiness checks pass.
+The completed sharing control now tests a single P against a larger stage-dependent
+class at equal matrix work and identical initial function. On its separate fresh
+confirmation cohort, shared/released pooled SW2 is0.091/0.111 on Ring8 and
+0.064/0.073 on Product16, with shared better in all eight banks per task.
+Released stages use their additional matrices, and Product16 field fitting improves
+while generation worsens. Sharing therefore has measured value in this comparison.
+[Full sharing analysis and figures](sharing-results/analysis-report.md).
+
+This supports autonomy/parameter reuse at this budget, not a benefit unique to ODEs
+or a coupling of hidden time with physical FM time. The P+Delta parameterization
+changes optimization geometry, and Free ISRU/SwiGLU still beat the ODE family on
+Product16. Their CPU cost is also much lower. No image promotion follows.
+
+The completed Ring8 C8 intervention removes the state-flow lead over ordinary
+controls on its paired stratified bank: state flow0.067->0.023, Free ISRU
+0.088->0.019 and SwiGLU0.094->0.022. This points to symmetry/mode allocation
+as an error component to test, not an equivariance guarantee of hidden ODEs.
+Released stage operators were absent from that cohort.
+[Completed numerical findings](numerical-findings.md),
+[targeted next mechanism test](sharing-symmetry-followup.md).
 
 [Numerical/symmetry protocol](numerical-followup.md),
 [single-generator control](operator-sharing-control.md),

@@ -6,7 +6,18 @@ from coefficient_trial import base,torch,build_model as coefficient_builder
 from state_trial import build_model as state_builder
 from stage_trial import build_model as stage_builder
 
+def exclusive_gpu(selected):
+    assert os.environ.get('CUDA_VISIBLE_DEVICES')==selected,'Bind exactly one registered physical GPU UUID'
+    query=subprocess.run(['nvidia-smi','-i',selected,'--query-gpu=index','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True)
+    assert int(query.stdout.strip()) in [4,5,6,7],'Physical145 GPUs0-3 are prohibited'
+    query=subprocess.run(['nvidia-smi','-i',selected,'--query-compute-apps=pid','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True)
+    foreign=[int(x.strip()) for x in query.stdout.splitlines() if x.strip().isdigit() and int(x.strip())!=os.getpid()]
+    assert not foreign,('Selected GPU occupied; stop only our own work',foreign)
+
 def builder(dim,family):
+    if family=='stage_operator_midpoint4':
+        from sharing_trial import build_model as sharing_builder
+        return sharing_builder(dim,family)
     if family=='state_midpoint4':return state_builder(dim,family)
     if family=='free_stage_midpoint4':return stage_builder(dim,family)
     return coefficient_builder(dim,family)
@@ -29,14 +40,10 @@ def arrays(root,case):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--output',required=True);p.add_argument('--witness',action='store_true')
+    p.add_argument('--gpu-uuid',default='GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023')
     a=p.parse_args();root=Path(a.root);out=Path(a.output);out.mkdir(exist_ok=False,parents=True)
-    selected=os.environ.get('CUDA_VISIBLE_DEVICES')
-    assert selected=='GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023','Only physical145 GPU6 is registered here'
-    def check_exclusive():
-        q=subprocess.run(['nvidia-smi','-i',selected,'--query-compute-apps=pid','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True)
-        pids=[int(x.strip()) for x in q.stdout.splitlines() if x.strip().isdigit()]
-        others=[pid for pid in pids if pid!=os.getpid()]
-        assert not others,('GPU6 occupied; stop own work rather than sharing',others)
+    selected=a.gpu_uuid
+    def check_exclusive():exclusive_gpu(selected)
     check_exclusive()
     torch.set_num_threads(1);assert torch.cuda.is_available();torch.backends.cuda.matmul.allow_tf32=False;base.verify_sources()
     manifest=json.loads((root/'portable.json').read_text());rows=[]
