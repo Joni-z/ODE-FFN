@@ -38,3 +38,7 @@ verification.json records a centered directional-derivative check, the frozen
 midpoint/Taylor2 identity, nonlinear midpoint local expansion, exact MACs,
 resolved evidence links and all11 protected Report2 hashes. No code under
 the active trainer or either final report was changed.
+
+##15November execution plan
+
+All160epoch results verified: native24.3035678864,K1 27.7886810303,K8 28.0834293365. Scheduler exits0:0 and nine continuation console/TensorBoard scores agree. The explicit plan uses a bounded diagnostic and finite/numerical implementation gates, rather than selecting a trained architecture based on a post-hoc frozen-checkpoint intervention. Formal training is not submitted.

@@ -6,8 +6,8 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current method
 
-- Three seed0 trajectories continue to160: native SwiGLU, expanded ISRU-D K1
-  and expanded ISRU-D K8. Standard FID50k is evaluated at120/140/160.
+- Three seed0 trajectories completed160: native SwiGLU, expanded ISRU-D K1
+  and expanded ISRU-D K8. Standard FID50k was evaluated at120/140/160.
   [Matched status](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
 - Native FFN is the author's unchanged SwiGLU. Both expanded ODE FFNs use
   internal1200, two square operators around SiLU, and entrance/exit projections.
@@ -43,14 +43,10 @@ See [STATUS.md](STATUS.md) for changing job states and training parameters.
 
 ## Current decisions
 
-Finish the authorized160epoch evaluations before selecting another experiment.
-K1 finished; native and K8 remain active. Preserve the100epoch evidence and
-final reports. No new architecture, optimizer, spectral penalty or seed is
-selected by the current status check. Compare models only at matching epochs
-in the main results table; pending160metrics remain blank.
-
-The [14 November architecture assessment](docs/research-assessments/2026-11-14-next-architecture/recommendation.md)
-recommends checkpoint diagnostics before a conditional, equal-work comparison
-of frozen-D K2 and state-dependent ISRU midpoint. The earlier sigmoid-clock
-feedback experiment failed, so feedback alone is not a supported remedy.
-No new model or job is selected by this recommendation.
+The160epoch comparison is complete: native24.30357,K1 27.78868,K8 28.08343.
+Do not continue these runs automatically. The [execution plan](docs/research-assessments/2026-11-14-next-architecture/execution-plan.md)
+fixes a one-hour diagnosis, implementation/readiness checks and exactly two
+proposed100epoch arms, frozen K2 and state-dependent ISRU midpoint. This replaces
+the earlier qualitative diagnostic-selection gate with explicit implementation
+and numerical gates. Diagnostic swap gains do not select the training winner.
+No new training is submitted. Reports1/2, baseline and prior evidence stay fixed.

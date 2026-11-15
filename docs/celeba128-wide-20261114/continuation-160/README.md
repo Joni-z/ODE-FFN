@@ -1,9 +1,9 @@
 # Continue the fixed widened models to160 epochs
 
-Current snapshot: K1 completed 160 with FID27.78868. K8 training reached160
-and its final FID is running. Native SwiGLU passed140, FID25.98559.
-[Current matched baseline/K1/K8 comparison](matched-results.md).
-The initial queue observations below describe submission time.
+Completed: native/K1/K8 FID160 is24.30357/27.78868/28.08343. All three
+jobs and final evaluations finished0:0.
+[Matched comparison and final receipt](matched-results.md).
+The launch chronology below describes submission time.
 
 14 November 2026. The user requests further training because neither
 trajectory has flattened. K1 FID improves50.10520->37.92486 from80to100

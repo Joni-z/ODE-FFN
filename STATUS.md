@@ -1,29 +1,29 @@
 # Current project status
 
-## Matched baseline/K1/K8 continuation
+## Completed baseline/K1/K8 continuation
 
-Native SwiGLU has the lowest FID at the available matching epochs.
+All three completed160epochs and FID50k, exit0:0. Native SwiGLU leads at
+every matching checkpoint.
 
 | Epoch | Native SwiGLU | Wide K1 | Wide K8 |
 |---|---:|---:|---:|
-|100 |35.91785 |37.92486 |38.13574 |
-|120 |29.47602 |32.50213 |32.85067 |
-|140 |**25.98559** |29.62906 |30.08220 |
-|160 |Pending |27.78868 |Pending |
+| 100 | 35.91785 | 37.92486 | 38.13574 |
+| 120 | 29.47602 | 32.50213 | 32.85067 |
+| 140 | 25.98559 | 29.62906 | 30.08220 |
+| 160 | 24.30357 | 27.78868 | 28.08343 |
 
-- Baseline 23117422 on H100 gh012: passed 140, training toward 160.
-- K1 job 23085013: completed 160 and all scheduled FIDs, exit 0:0.
-- K8 job 23085012 on L40S gl060: training reached 160; final FID50k generation is
-  running, GPU 100%. Training completion is not metric completion.
-- Baseline monitor 2838752 and ODE monitor 2415208 are active.
+At160, K1 trails native by3.48511FID and K8 by3.77986. All three still improve
+with added training. No experiment is extended beyond160.
 
-All three resumed from their original 100-epoch states with seed 0 and the
-same training/evaluation recipe. At 140, native leads K1 by 3.64347 FID and
-K8 by 4.09662 FID. No new job was submitted by this status check.
+[Matched curves and completed evidence](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
 
-[Matched curves, metrics and job snapshot](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
+The [next execution plan](docs/research-assessments/2026-11-14-next-architecture/execution-plan.md)
+specifies a one-hour checkpoint diagnosis, numerical/readiness checks and two
+proposed100epoch runs: frozen-D K2 versus refreshed-ISRU midpoint. It has not
+been implemented or submitted. Keep seed0, original baseline and FID every20.
 
-Checked 14 November 2026, 22:33 Shanghai time.
+Verified15November2026 from scheduler completion, progress, console and
+TensorBoard. No new model code or finalized report was changed.
 
 ## Completed widened ISRU-D K8/K1
 

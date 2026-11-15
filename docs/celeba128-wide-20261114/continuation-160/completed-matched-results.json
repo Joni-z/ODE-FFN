@@ -1,0 +1,142 @@
+{
+  "checked_at_utc": "2026-11-15T06:45:03Z",
+  "arms": {
+    "baseline": {
+      "job_id": "23117422",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "updated_at": 1794668692.9617805,
+        "job_id": "23117422"
+      },
+      "FID50k": [
+        {
+          "epoch": 100,
+          "value": 35.91785430908203
+        },
+        {
+          "epoch": 120,
+          "value": 29.476015090942383
+        },
+        {
+          "epoch": 140,
+          "value": 25.98558807373047
+        },
+        {
+          "epoch": 160,
+          "value": 24.30356788635254
+        }
+      ],
+      "console_TensorBoard_agree": true,
+      "last_log": [
+        "[10:03:06.003799] FID: 24.3036, Inception Score: 2.8975",
+        "[10:04:52.960664] Training time: 1:43:28"
+      ],
+      "accounting": "23117422|COMPLETED|0:0|01:44:58|gh012\n23117422.batch|COMPLETED|0:0|01:44:58|gh012\n23117422.extern|COMPLETED|0:0|01:44:58|gh012\n"
+    },
+    "K8": {
+      "job_id": "23085012",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k8-s0",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "updated_at": 1794672550.2297757,
+        "job_id": "23085012"
+      },
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 342.3664245605469
+        },
+        {
+          "epoch": 40,
+          "value": 237.662109375
+        },
+        {
+          "epoch": 60,
+          "value": 76.5611572265625
+        },
+        {
+          "epoch": 80,
+          "value": 50.305320739746094
+        },
+        {
+          "epoch": 100,
+          "value": 38.1357421875
+        },
+        {
+          "epoch": 120,
+          "value": 32.85066604614258
+        },
+        {
+          "epoch": 140,
+          "value": 30.082204818725586
+        },
+        {
+          "epoch": 160,
+          "value": 28.08342933654785
+        }
+      ],
+      "console_TensorBoard_agree": true,
+      "last_log": [
+        "[11:06:39.780054] FID: 28.0834, Inception Score: 2.8208",
+        "[11:09:10.227397] Training time: 11:03:36"
+      ],
+      "accounting": "23085012|COMPLETED|0:0|11:05:23|gl060\n23085012.batch|COMPLETED|0:0|11:05:23|gl060\n23085012.extern|COMPLETED|0:0|11:05:23|gl060\n"
+    },
+    "K1": {
+      "job_id": "23085013",
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k1-s0",
+      "progress": {
+        "status": "complete",
+        "completed_epochs": 160,
+        "target_epochs": 160,
+        "updated_at": 1794649407.9752848,
+        "job_id": "23085013"
+      },
+      "FID50k": [
+        {
+          "epoch": 20,
+          "value": 350.4965515136719
+        },
+        {
+          "epoch": 40,
+          "value": 245.96788024902344
+        },
+        {
+          "epoch": 60,
+          "value": 80.73377990722656
+        },
+        {
+          "epoch": 80,
+          "value": 50.10519790649414
+        },
+        {
+          "epoch": 100,
+          "value": 37.924861907958984
+        },
+        {
+          "epoch": 120,
+          "value": 32.50212860107422
+        },
+        {
+          "epoch": 140,
+          "value": 29.629058837890625
+        },
+        {
+          "epoch": 160,
+          "value": 27.788681030273438
+        }
+      ],
+      "console_TensorBoard_agree": true,
+      "last_log": [
+        "[04:41:05.931591] FID: 27.7887, Inception Score: 2.8111",
+        "[04:43:27.974520] Training time: 4:18:12"
+      ],
+      "accounting": "23085013|COMPLETED|0:0|04:19:50|gl024\n23085013.batch|COMPLETED|0:0|04:19:50|gl024\n23085013.extern|COMPLETED|0:0|04:19:50|gl024\n"
+    }
+  }
+}
