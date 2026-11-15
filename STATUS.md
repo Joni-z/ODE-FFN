@@ -2,6 +2,26 @@
 
 ## Current priority: identify the ODE contribution
 
+**Execution is active.** The two free-coefficient trajectories completed
+20k updates on Mac mini CPU and both exited zero. Training source8c10a8d,
+queue22510 is terminal; watcher22707 is evaluating all ten model/task
+combinations on two fresh streams and independently recomputing metrics.
+
+The conditional second stage is running: Ring8/Product16 state-evolving
+ISRU, four midpoint substeps and eight P applications per solve. Its
+trained-state diagnostic gate and fresh documented witness passed. Frozen
+source1ff0d02, training queue23380, workers23381/23382 and watcher23556.
+The watcher includes common-bank evaluations and internal4/8/16 refinement
+at frozen weights. No result is promoted before final evaluation.
+
+[Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
+[coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),
+[state-flow gate and invocation](docs/research-assessments/2026-11-16-ode-mechanism/state-execution.md),
+[state launch](docs/research-assessments/2026-11-16-ode-mechanism/state-launch.json).
+Raw root: `/Users/mr.z/ode-workspace-prep/coefficient-20261116/`.
+145 physical0-3 are prohibited;4-7 had resident compute processes, so no145
+GPU was allocated. No existing task was shared or stopped.
+
 On16 November the user asked for a falsifiable mechanism study instead of
 another response search. [Research plan](docs/research-assessments/2026-11-16-ode-mechanism/research-question-card.md)
 and [derivation](docs/research-assessments/2026-11-16-ode-mechanism/mathematical-basis.md):
@@ -13,8 +33,8 @@ velocity-error transport using the known synthetic oracle.
 
 This supersedes the immediate arctan-only image-readiness recommendation
 below as the next priority. The completed screen remains valid evidence.
-Mathematical examples passed deterministic checks; no new learned-model
-result or formal training launch is claimed. Finalized reports remain fixed.
+Mathematical examples and native execution witnesses passed. Current formal
+runs are described above. Finalized reports remain fixed.
 
 ## Completed response comparison on Mac mini CPU
 

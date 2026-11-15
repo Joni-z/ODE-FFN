@@ -1,0 +1,64 @@
+{
+  "training_source": "8c10a8d",
+  "queue_pid": 22510,
+  "training_processes": [
+    {
+      "cell": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "pid": 22511,
+      "started": 1794770040.26021,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/repo/studies/muon_pd_20261102/coefficient_20261116/coefficient_trial.py",
+        "--cell",
+        "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/output",
+        "--device",
+        "cpu"
+      ],
+      "latest": null
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__free_coeff_k8__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "pid": 22512,
+      "started": 1794770040.261648,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/repo/studies/muon_pd_20261102/coefficient_20261116/coefficient_trial.py",
+        "--cell",
+        "rotated_product_bimodal_16d__free_coeff_k8__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/output",
+        "--device",
+        "cpu"
+      ],
+      "latest": null
+    }
+  ],
+  "watcher_pid": 22707,
+  "watcher_command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/repo/studies/muon_pd_20261102/coefficient_20261116/finish.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic",
+    "--anchors",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/anchors.json",
+    "--numpy-python",
+    "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+  ],
+  "raw_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116",
+  "resource": "Mac mini CPU, two workers",
+  "created_unix": 1794770053.3911061,
+  "gpu_jobs_started": 0
+}

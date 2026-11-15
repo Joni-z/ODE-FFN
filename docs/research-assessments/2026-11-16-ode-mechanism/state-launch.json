@@ -1,0 +1,60 @@
+{
+  "training_source": "1ff0d02",
+  "queue_pid": 23380,
+  "training_processes": [
+    {
+      "cell": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "pid": 23381,
+      "started": 1794770619.511864,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-repo/studies/muon_pd_20261102/coefficient_20261116/state_trial.py",
+        "--cell",
+        "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output",
+        "--device",
+        "cpu"
+      ],
+      "latest": null
+    },
+    {
+      "cell": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "pid": 23382,
+      "started": 1794770619.513738,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-repo/studies/muon_pd_20261102/coefficient_20261116/state_trial.py",
+        "--cell",
+        "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output",
+        "--device",
+        "cpu"
+      ],
+      "latest": null
+    }
+  ],
+  "watcher_pid": 23556,
+  "watcher_command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-repo/studies/muon_pd_20261102/coefficient_20261116/state_finish.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic",
+    "--numpy-python",
+    "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+  ],
+  "created_unix": 1794770631.6749492,
+  "GPU_allocation": false
+}

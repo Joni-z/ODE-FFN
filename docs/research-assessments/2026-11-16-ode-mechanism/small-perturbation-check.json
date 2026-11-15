@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "values": [
+        {
+          "weight": 0.001,
+          "relative_rms_residual": 0.0005223706822556292
+        },
+        {
+          "weight": 0.004,
+          "relative_rms_residual": 0.0020948097201486777
+        },
+        {
+          "weight": 0.016,
+          "relative_rms_residual": 0.008465946903137053
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "values": [
+        {
+          "weight": 0.001,
+          "relative_rms_residual": 0.00803896586432646
+        },
+        {
+          "weight": 0.004,
+          "relative_rms_residual": 0.03334972867639349
+        },
+        {
+          "weight": 0.016,
+          "relative_rms_residual": 0.15965510785772963
+        }
+      ]
+    }
+  ],
+  "scope": "additional local calibration after failure at0.125 on Product16"
+}
