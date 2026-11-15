@@ -1,19 +1,23 @@
 # Current project status
 
-## Active professor follow-up on145,15November
+## Completed professor follow-up,15November
 
-Five seed0 native pipelines launched on physicalGPUs4-7, runtime`da8b8a4`.
-GPU4: Ring8 scaled tanh; GPU5: Product16 scaled tanh; GPU6: Ring8 ISRU-D then
-SwiGLU64/Muon replays; GPU7: Ring8 Free ISRU replay. Training is20k updates;
-15k/20k checkpoints receive common-bank Heun128 evaluation, with C8 projection
-for Ring8. Queues record GPU/process/step state every30seconds.
+Five seed0 trajectories, all15k/20k common-bank evaluations, and the independent
+original-script SwiGLU audit completed on145 GPUs4-7. Monitors ended; no pending
+jobs. Training runtime`da8b8a4` and separate analysis runtime`14c65a7` are preserved.
 
-[Protocol](docs/research-assessments/2026-11-15-professor-execution/protocol.md),
-[launch and monitoring](docs/research-assessments/2026-11-15-professor-execution/launch.md),
-[passed numerical checks](docs/research-assessments/2026-11-15-professor-execution/readiness-results.json),
-and [completed Product16 spectral analysis](docs/research-assessments/2026-11-15-professor-execution/spectrum-findings.md).
-Lenovo originals remain unavailable; the three Ring8 controls are explicitly
-new same-recipe trajectories. Report1/2 and the image baseline remain final.
+The main finding: Ring8 ISRU-D's symmetric error improves15k->20k while its
+asymmetric error grows. C8projection reduces pooledSW2 from0.13261 to0.05268;
+Free ISRU, Tanh-D and SwiGLU show similar sampling gains. Matched tanh controls
+show no consistent ISRU-specific advantage. Product16 weight/update spectra
+confirm that high-rank Muon updates need not yield higher-rank final weights.
+
+[Findings, figures and next decision](docs/research-assessments/2026-11-15-professor-execution/findings.md),
+[metric verification](docs/research-assessments/2026-11-15-professor-execution/results/verification.json),
+and [completion evidence](docs/research-assessments/2026-11-15-professor-execution/completion.json).
+Ring8 replays are separate from unavailable Lenovo checkpoints. The Muon control
+has a documented cross-host discrepancy, despite exact old/new entry agreement
+on145. All before/after C8 comparisons use the same weights. Reports1/2 remain final.
 
 ## Completed baseline/K1/K8 continuation
 

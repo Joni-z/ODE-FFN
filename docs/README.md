@@ -63,3 +63,5 @@ The full older training framework remains on
 - [Execution and four-GPU allocation](research-assessments/2026-11-15-professor-execution/launch.md)
 - [Registered response and symmetry tests](research-assessments/2026-11-15-professor-execution/protocol.md)
 - [Actual weights versus updates: completed spectral analysis](research-assessments/2026-11-15-professor-execution/spectrum-findings.md)
+
+- [Completed15November findings, figures and next ODE hypothesis](research-assessments/2026-11-15-professor-execution/findings.md)
