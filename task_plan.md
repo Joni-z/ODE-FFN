@@ -28,8 +28,8 @@ workers,1.889x aggregate throughput. Independent analysis watcher3767 uses
 0e78ce7 and automatically follows training with selection/confirmation.
 The145 weights remain historical diagnostic anchors. No task has
 been terminated, shared or submitted to Torch.
-Latest audit:19of36 pipelines completed, no failures. All Ring8 cases,
-including SwiGLU64/Muon, are now evaluated on the new common banks. Product16
+Latest live check:20of36 pipelines completed, no failures. All Ring8 cases,
+including SwiGLU64/Muon, are now evaluated on the new common banks. Product16 has2of18 completed;
 and final confirmation remain in progress/pending. All19 completed20k metrics
 independently recompute within2.8e-17. Current comparison is under
  docs/research-assessments/2026-11-15-response-screen/current-comparison.md.

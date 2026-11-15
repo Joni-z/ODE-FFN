@@ -10,10 +10,10 @@ the same CPU host/backend. Seed0 and native training/metrics remain fixed.
 Independent selection/confirmation arrays are hash-bound before training.
 Source b5fe7aa passed16 native continuations, kernel checks and a fresh
 documented pass. The200step benchmark selected2workers (1.89x aggregate
-throughput). At the latest audit,19of36 pipelines completed20k training and
+throughput). At the latest live check,20of36 pipelines completed20k training and
 selection evaluation with no failures. Ring8 is complete, including its
 SwiGLU64/Muon reference: pooled SW2 0.11823 versus Softsign-K8 0.06956.
-Product16 is in progress; the final shortlist and independent confirmation
+Product16 has completed2of18 cases; the final shortlist and independent confirmation
 remain pending. [Current comparison](docs/research-assessments/2026-11-15-response-screen/current-comparison.md).
 Evaluation/selection/confirmation
 watcher3767 uses separate analysis source0e78ce7 and is waiting for training.
