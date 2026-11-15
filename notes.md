@@ -68,3 +68,9 @@ separate float64 bundle. Do not combine prior float32 scores into its ranking.
 Sharing doc witness passes both native8->16 continuations and evaluators;
 initial outputs exact, common gradients agree within4.34e-19, added gradients
 nonzero. Additional73,728params and clipping effects remain explicit.
+
+Frozen8205c5a published before launch: operator-sharing queue27486,
+workers27487/27488 both past1500/20k, analysis watcher27667. Float64 C8queue
+27668 runs two inference workers. 145inventory later showed4-7idle, but
+the matched new trajectories remain on the original CPU backend;0-3are
+never used. No GPU training or card reclamation occurred.

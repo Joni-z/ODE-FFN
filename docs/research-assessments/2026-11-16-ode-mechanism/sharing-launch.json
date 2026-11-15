@@ -1,0 +1,204 @@
+{
+  "frozen_commit": "8205c5a512733175189bf26f722f8318808fe0ad",
+  "training_queue_pid": 27486,
+  "background": [
+    {
+      "pid": 27667,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-repo/studies/muon_pd_20261102/coefficient_20261116/sharing_finish.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--numpy-python",
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+      ],
+      "console": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-watcher-console.log"
+    },
+    {
+      "pid": 27668,
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-repo/studies/muon_pd_20261102/coefficient_20261116/resolution_queue.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-portable",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-symmetry64",
+        "--only",
+        "symmetry-full",
+        "--symmetry-dtype",
+        "float64"
+      ],
+      "console": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/symmetry64-console.log"
+    }
+  ],
+  "launched": 1794775294.9372659,
+  "training_seed": 0,
+  "device": "cpu",
+  "assets_manifest_sha256": "4ae16695aab2ec596aea36b048184d53ea004c9702831b56bf168a8015b71e92",
+  "anchors_sha256": "8e50f84fc2688bfbac0ae80bdbd1fa597fc086389cb3c241ecbbf4c2d86da882",
+  "training_snapshot": {
+    "unix_time": 1794775342.21089,
+    "started": 1794775281.947102,
+    "queue_pid": 27486,
+    "host": "macmini",
+    "device": "cpu",
+    "workers": 2,
+    "cuda_visible_devices": null,
+    "running": [
+      {
+        "cell": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+        "dataset": "gmm_ring8_2d",
+        "pid": 27487,
+        "started": 1794775281.948919,
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "-u",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-repo/studies/muon_pd_20261102/coefficient_20261116/sharing_trial.py",
+          "--cell",
+          "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+          "--data-root",
+          "/Users/mr.z/ode-workspace-prep/data/synthetic",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-output",
+          "--device",
+          "cpu"
+        ],
+        "latest": {
+          "step": 2500,
+          "validation_oracle_mse": 0.04015459709167481,
+          "wall_seconds": 49.86663999967277,
+          "sample": {
+            "heun_steps": 32,
+            "nfe": 64,
+            "reference_floor": 0.15047864615917206,
+            "seconds": 2.1646301252767444,
+            "sliced_w2": 0.22807243466377258
+          }
+        }
+      },
+      {
+        "cell": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+        "dataset": "rotated_product_bimodal_16d",
+        "pid": 27488,
+        "started": 1794775281.950485,
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "-u",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-repo/studies/muon_pd_20261102/coefficient_20261116/sharing_trial.py",
+          "--cell",
+          "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+          "--data-root",
+          "/Users/mr.z/ode-workspace-prep/data/synthetic",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-output",
+          "--device",
+          "cpu"
+        ],
+        "latest": {
+          "step": 2500,
+          "validation_oracle_mse": 0.23002862319946288,
+          "wall_seconds": 52.1239912500605,
+          "sample": {
+            "heun_steps": 32,
+            "nfe": 64,
+            "reference_floor": 0.05105132982134819,
+            "seconds": 2.2595488750375807,
+            "sliced_w2": 0.1001717671751976
+          }
+        }
+      }
+    ],
+    "completed": [],
+    "pending": [],
+    "failed": false,
+    "gpu": "",
+    "gpu_query_exit": 0,
+    "cpu_load_average": [
+      6.61767578125,
+      3.26416015625,
+      2.796875
+    ]
+  },
+  "symmetry_snapshot": {
+    "pid": 27668,
+    "unix_time": 1794775355.967037,
+    "running": [
+      {
+        "id": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+        "mode": "symmetry-full",
+        "pid": 27681,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-symmetry64/gmm_ring8_2d__free_coeff_k8__adamw_0.0003/symmetry-full",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-repo/studies/muon_pd_20261102/coefficient_20261116/full_symmetry_case.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-portable",
+          "--case",
+          "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-symmetry64/gmm_ring8_2d__free_coeff_k8__adamw_0.0003/symmetry-full",
+          "--dtype",
+          "float64"
+        ],
+        "started": 1794775295.8993258
+      },
+      {
+        "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+        "mode": "symmetry-full",
+        "pid": 27682,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-symmetry64/gmm_ring8_2d__free_isru__adamw_0.0003/symmetry-full",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-repo/studies/muon_pd_20261102/coefficient_20261116/full_symmetry_case.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-portable",
+          "--case",
+          "gmm_ring8_2d__free_isru__adamw_0.0003",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/cpu-symmetry64/gmm_ring8_2d__free_isru__adamw_0.0003/symmetry-full",
+          "--dtype",
+          "float64"
+        ],
+        "started": 1794775295.906862
+      }
+    ],
+    "completed": [],
+    "pending": [
+      [
+        "gmm_ring8_2d__screen_isru_k1__adamw_0.0003",
+        "symmetry-full"
+      ],
+      [
+        "gmm_ring8_2d__screen_isru_k8__adamw_0.0003",
+        "symmetry-full"
+      ],
+      [
+        "gmm_ring8_2d__swiglu64__muon_0.02",
+        "symmetry-full"
+      ],
+      [
+        "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+        "symmetry-full"
+      ],
+      [
+        "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003",
+        "symmetry-full"
+      ]
+    ],
+    "failed": false,
+    "cpu_load": [
+      6.40625,
+      3.38134765625,
+      2.8466796875
+    ]
+  },
+  "observed_unix_time": 1794775359.517198,
+  "readiness": {
+    "sharing_sha256": "517dfe02a058f8b3b31d23a6b7398226e811c203c3d843e4e969d4155fa453b1",
+    "symmetry_sha256": "925430070fa70cd6fe90611bd697f8a2596115aaeb32532167cd50cd6fbfbc07"
+  }
+}

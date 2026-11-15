@@ -32,15 +32,17 @@ fixed K8's0.056. [Verification and scores](docs/research-assessments/2026-11-16-
 
 Numerical queue25633 stopped after21successful tasks and one failed float32
 C8 trajectory-equivariance witness; three symmetry tasks were unstarted.
-The failed bundle is preserved. All seven symmetry cases will run in a
-separate float64 bundle, with a passed fresh documented invocation.
+The failed bundle is preserved. All seven symmetry cases are running in a
+separate float64 bundle, queue27668, after a passed fresh documented invocation.
 [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/numerical-followup.md),
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/numerical-launch.json).
 The single-generator [sharing control](docs/research-assessments/2026-11-16-ode-mechanism/operator-sharing-control.md)
 has passed initial-function, gradient, native continuation and fresh
-documented evaluator checks. Two seed0 runs are prepared with new prebound
-common evaluation arrays; all ordinary controls receive those same arrays.
-Source publication precedes launch; read its receipt for actual PIDs.
+documented evaluator checks. Two seed0 runs are active on Mac mini CPU,
+queue27486, workers27487/27488, frozen8205c5a. Both have advanced past1500
+updates of20k. Evaluation watcher27667 uses new prebound common arrays;
+all six ordinary/shared references receive those same arrays.
+[Actual launch receipt](docs/research-assessments/2026-11-16-ode-mechanism/sharing-launch.json).
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),
