@@ -11,7 +11,7 @@ Preserve finalized reports, native trainers, old runs and image baseline.
 - [x] Fresh documented witness; push/freeze source; launch four monitored pipelines.
 - [x] Complete native/C8 sampling,20k order truncation and layer-term diagnostics.
 - [x] Independently recompute metrics; compare response-by-order effects and ordinary controls.
-- [ ] Publish findings and next decision; record open research questions.
+- [x] Publish findings and next decision; record open research questions.
 
 GPU4 Ring8/ISRU-K8; GPU5 Ring8/tanh-K8;
 GPU6 Product16/ISRU-K8; GPU7 Product16/tanh-K8.
@@ -21,7 +21,10 @@ No new optimizer sweep, scaling, spectral caps or rotation augmentation.
 
 Current: four pipelines completed at frozen9f72bd3, all exits zero, GPUs idle.
 NumPy recomputation passed (max sampled-metric difference2.8e-17).
-Figures inspected. Findings drafted; final publication and source sync pending.
+Figures inspected. Findings and evidence published to GitHub in2639792.
+The four-run study is complete; the proposed rotation-training control and
+an ODE-specific quality/cost advantage remain open. Source sync is performed
+through GitHub; the145 experiment worktree remains frozen at9f72bd3.
 
 Readiness1 failed at helper import: historical check.py shadowed response
 check.py. Explicit-path imports fix the wrapper; attempt2 uses new output
