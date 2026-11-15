@@ -1,45 +1,26 @@
-# Execute response-family screen, 15 November 2026
+# ODE mechanism research plan, 16 November 2026
 
-Authorized by user: run the registered eight-response K1/K8 comparison on
-Ring8/Product16, seed0. Reuse native trainer, old anchors and ordinary controls.
-User subsequently selected Mac mini CPU for this synthetic screen. Never stop
-yp2841 jobs: user revoked prior permission during this turn. Preserve finalized Reports1/2, baseline and old
-runtimes. Push verified changes through GitHub.
+Goal: define a mathematically grounded, falsifiable test of what the ODE
+structure contributes. User requests a research decision; no new training
+or image job is launched during this planning task. Seed0 only; fixed native
+baseline; preserve both finalized reports. Present results to three decimals.
 
-- [x] Read protocol, environment ledger and live resource inventory.
-- [x] Inventory historical anchors; register32same-host focal and4ordinary CPU trajectories.
-- [x] Add response-only builder and prebind selection/confirmation arrays.
-- [x] Verify16 formula/gradient cases, initialization, exact native continuations and evaluator restoration; ordinary Muon CPU smoke passed.
-- [x] Fresh documented witness and1-vs2-worker benchmark; freeze/publish source.
-- [x] Launch36same-host trajectories under persistent monitors.
-- [x] Complete all training and selection evaluations:36/36, all exits zero.
-- [x] Freeze ISRU/arctan shortlist using selection only; complete12 disjoint confirmation cases.
-- [x] Independently recompute both metric streams and plot quality/cost.
-- [x] Record the next image decision and verify protected reports.
-- [x] Publish the completed evidence through GitHub main; verify the remote commit after pushing.
+- [x] Read current evidence, project constraints and prior mechanism proposals.
+- [x] Derive exponential coefficient identities, conditional composition defects and physical error transport.
+- [x] Review primary flow-map/solver literature; identify and exclude an invalid discrete bound in a recent preprint.
+- [x] Specify two coefficient-control trajectories and a conditional two-trajectory state-flow follow-up.
+- [x] Verify numerical examples, source bindings, preserved journals and96 protected report hashes.
+- [x] Publish the plan through GitHub main; verify the remote commit after pushing.
 
-Protocol: docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md.
-Separate new source/output: response-screen-20261115. No automatic CelebA launch.
+Working deliverable: docs/research-assessments/2026-11-16-ode-mechanism/research-question-card.md.
+Previous completed screen journals are preserved in docs/history/2026-11-16-before-ode-mechanism/.
 
-Current: COMPLETE. Training queue3761 and analysis watcher3767 have exited.
-Both complete metric streams independently recompute within5.56e-17.
-All96 protected Report1/2 files retain their hashes. No GPU task was stopped,
-shared or submitted. Frozen trainingb5fe7aa and analysis0e78ce7 are preserved.
+Decision: mechanism identification takes priority over arctan image transfer.
+Initial-function matching is required for the coefficient test. State-flow
+parameters can match but its initial hidden function differs. Neither lower
+hidden composition defect nor a mathematically accurate solve establishes
+generation benefit without full-field/sample evidence. No training launched.
 
-Decision: arctan-D K1 is the first new response for a bounded JiT GPU readiness
-benchmark, not an unconditional full-run promotion. Confirmation Ring8 SW2 is
-.125849 versus SwiGLU .141952; Product16 is .062764 versus .039954. Softsign
-has strong selection SW2 but misses the registered Product16 field-MSE gate.
-K8 has no consistent advantage over K1. No image training launched.
-
-Complete comparison:
-docs/research-assessments/2026-11-15-response-screen/current-comparison.md.
-Decision and interpretation:
-docs/research-assessments/2026-11-15-response-screen/analysis-report.md.
-Earlier planning journals archived under
-docs/history/2026-11-15-before-response-screen/.
-
-Tool note: a combined delete/add patch targeting the same journal was rejected;
-journals are replaced only after archiving their exact prior contents.
-Analysis worktree fast-forward uses explicit commit0e78ce7 because reflogs
-are worktree-specific; no source or result was overwritten.
+Lookup notes: the assumed native/data.py path was absent; existing oracle is
+reference/synthetic/data.py. FM guide HTML version probes returned404; they
+are not used as full-text evidence. Exact primary sources are in literature-notes.md.

@@ -1,5 +1,21 @@
 # Current project status
 
+## Current priority: identify the ODE contribution
+
+On16 November the user asked for a falsifiable mechanism study instead of
+another response search. [Research plan](docs/research-assessments/2026-11-16-ode-mechanism/research-question-card.md)
+and [derivation](docs/research-assessments/2026-11-16-ode-mechanism/mathematical-basis.md):
+hold ISRU fixed, compare exponential K8 with a shared-operator polynomial
+whose higher-order coefficients are free but initialized identically.
+Then conditionally test true state evolution at matched dense work and
+check whether any gain survives internal solver refinement. Diagnose actual
+velocity-error transport using the known synthetic oracle.
+
+This supersedes the immediate arctan-only image-readiness recommendation
+below as the next priority. The completed screen remains valid evidence.
+Mathematical examples passed deterministic checks; no new learned-model
+result or formal training launch is claimed. Finalized reports remain fixed.
+
 ## Completed response comparison on Mac mini CPU
 
 [Response-family comparison](docs/research-assessments/2026-11-14-next-architecture/response-screen-proposal.md):

@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "scope": "algebra verification, not learned-model evidence",
+  "semigroup_leading_coefficient": [
+    0.04946775839627081,
+    -0.1049528709380716
+  ],
+  "conditional_composition": [
+    {
+      "step": 0.04,
+      "scaled_defect": [
+        0.045116586403215475,
+        -0.10911556397583122
+      ],
+      "error_to_leading_coefficient": 0.0060216867271356425
+    },
+    {
+      "step": 0.02,
+      "scaled_defect": [
+        0.04729771120814963,
+        -0.10705329889615367
+      ],
+      "error_to_leading_coefficient": 0.0030200831786170177
+    },
+    {
+      "step": 0.01,
+      "scaled_defect": [
+        0.048384125539424616,
+        -0.10600784717706979
+      ],
+      "error_to_leading_coefficient": 0.001512360748395507
+    },
+    {
+      "step": 0.005,
+      "scaled_defect": [
+        0.04892629028141471,
+        -0.10548154846024005
+      ],
+      "error_to_leading_coefficient": 0.0007567612845884715
+    }
+  ],
+  "same_generator_composition_error": 0.0,
+  "true_flow_composition_error": 4.883214725018131e-14,
+  "midpoint_refinement": [
+    {
+      "steps": 4,
+      "P_applications": 8,
+      "error": 0.0008582322129117054
+    },
+    {
+      "steps": 8,
+      "P_applications": 16,
+      "error": 0.00020711555758768776
+    },
+    {
+      "steps": 16,
+      "P_applications": 32,
+      "error": 5.0932208942234065e-05
+    },
+    {
+      "steps": 32,
+      "P_applications": 64,
+      "error": 1.263205552239715e-05
+    }
+  ],
+  "conditional_scalar_derivative": -0.7802532598832467,
+  "transport_sensitivity": [
+    {
+      "epsilon": 0.01,
+      "first_order_residual": 0.00019411470710612653
+    },
+    {
+      "epsilon": 0.005,
+      "first_order_residual": 9.703903456724768e-05
+    },
+    {
+      "epsilon": 0.0025,
+      "first_order_residual": 4.851494872963117e-05
+    }
+  ],
+  "skew_euler_step_norm": 1.004987562112089,
+  "skew_continuous_exp_norm": 1.0
+}
