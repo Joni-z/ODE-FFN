@@ -18,7 +18,7 @@ def write(path, value):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--host', required=True, choices=['145', 'lenovo'])
+    p.add_argument('--host', required=True, choices=['145', 'lenovo', 'macmini'])
     p.add_argument('--device', required=True, choices=['cpu', 'cuda'])
     p.add_argument('--data-root', required=True)
     p.add_argument('--output', required=True)
@@ -98,13 +98,17 @@ def main():
                         except json.JSONDecodeError:
                             pass
                 running.append(dict(row, latest=last))
-            resources = subprocess.run(['nvidia-smi', '--query-gpu=index,uuid,utilization.gpu,memory.used,memory.total,power.draw',
-                                        '--format=csv,noheader,nounits'], capture_output=True, text=True, timeout=15)
+            if args.device == 'cpu':
+                resources = subprocess.CompletedProcess([], 0, stdout='', stderr='')
+            else:
+                resources = subprocess.run(['nvidia-smi', '--query-gpu=index,uuid,utilization.gpu,memory.used,memory.total,power.draw',
+                                            '--format=csv,noheader,nounits'], capture_output=True, text=True, timeout=15)
             status = dict(unix_time=time.time(), started=started, queue_pid=os.getpid(),
                           host=args.host, device=args.device, workers=args.workers,
                           cuda_visible_devices=os.environ.get('CUDA_VISIBLE_DEVICES'),
                           running=running, completed=done, pending=[c['id'] for c in pending],
-                          failed=failed, gpu=resources.stdout.strip(), gpu_query_exit=resources.returncode)
+                          failed=failed, gpu=resources.stdout.strip(), gpu_query_exit=resources.returncode,
+                          cpu_load_average=list(os.getloadavg()) if hasattr(os, 'getloadavg') else None)
             write(monitor/'status.json', status)
             with (monitor/'history.jsonl').open('a') as f:
                 f.write(json.dumps(status) + '\n')

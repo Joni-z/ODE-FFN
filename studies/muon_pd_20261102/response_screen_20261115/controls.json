@@ -1,0 +1,107 @@
+[
+  {
+    "id": "gmm_ring8_2d__ordinary_free_isru",
+    "dataset": "gmm_ring8_2d",
+    "response": "free_isru",
+    "order": 0,
+    "status": "ordinary_control",
+    "folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu7/professor_followup_20261115/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003__replay145/seed000",
+    "cell": {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003__replay145",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "145",
+      "family": "free_isru",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "same_recipe_replay",
+      "source_id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "source_host": "lenovo",
+      "gpu": 7
+    },
+    "steps": 20000,
+    "config_sha256": "a242bd3d867e814d22bf78f917dd83adc871bbff334e5f44dddd46ce23632c08",
+    "checkpoint_sha256": {
+      "15000": "bcc20974021c6c9b278dcbdf0d8cd6ea08d079e8715353c4a3ecc64cdb4e03d7",
+      "20000": "d7675707fa8920a54842c8bcea57abc757ab239c1ced1bac1414ae5453294e16"
+    }
+  },
+  {
+    "id": "gmm_ring8_2d__ordinary_swiglu64",
+    "dataset": "gmm_ring8_2d",
+    "response": "swiglu64",
+    "order": 0,
+    "status": "ordinary_control",
+    "folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu6/professor_followup_20261115/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__replay145/seed000",
+    "cell": {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor__replay145",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "145",
+      "family": "swiglu64",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "role": "same_recipe_replay",
+      "source_id": "gmm_ring8_2d__swiglu64__muon_0.02__isruD_anchor",
+      "source_host": "lenovo",
+      "gpu": 6
+    },
+    "steps": 20000,
+    "config_sha256": "545635eb28a7c14f0b3c752cc25eaaf4c802d6afa38ab26f80437a579fc2ffdb",
+    "checkpoint_sha256": {
+      "15000": "e6091537f202b0c3ec25905cc7bb545a9fce89f7ef94162dd440973f4828aaab",
+      "20000": "0e089be4a96c283125f7b173ca98a5e90e47a4f438b6064ff8f1bfd1350069ff"
+    }
+  },
+  {
+    "id": "rotated_product_bimodal_16d__ordinary_free_isru",
+    "dataset": "rotated_product_bimodal_16d",
+    "response": "free_isru",
+    "order": 0,
+    "status": "ordinary_control",
+    "folder": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle13-20261103/output/professor_autoresearch_cycle13_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003/seed000",
+    "cell": {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "free_isru",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "reference"
+    },
+    "steps": 20000,
+    "config_sha256": "3466fa3ad5047c1edeebae4a168ed7c0de3c8fdcaf28fb7f7d89c7a7b2e37c2e",
+    "checkpoint_sha256": {
+      "15000": "e1dcbd6fc2dd305f6deab46f8c92e3a721be08fbed2d9df88080cd724ff8b326",
+      "20000": "b50c3c42bdb4df03c7e52ca07c6f952fbb95217d6299386e3d2d94bc490d1c3c"
+    }
+  },
+  {
+    "id": "rotated_product_bimodal_16d__ordinary_swiglu192",
+    "dataset": "rotated_product_bimodal_16d",
+    "response": "swiglu192",
+    "order": 0,
+    "status": "ordinary_control",
+    "folder": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle13-20261103/output/professor_autoresearch_cycle13_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor/seed000",
+    "cell": {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003__isruD_anchor",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "145",
+      "family": "swiglu192",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "anchor",
+      "parent_id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "parent_group": "old",
+      "parent_checkpoint_sha256": "8ee010918e79a2d7b8fe2b3ae93a99dfc866cc1f2ff99ac6fb63f496d078773e"
+    },
+    "steps": 20000,
+    "config_sha256": "3b99a3e3cd2976c6bf64a436cbd22660ff483847f44be8aa2e551e0b180d9ff1",
+    "checkpoint_sha256": {
+      "15000": "043c9efe29445084c270e50b1de60c46a023b630f468cb4841eb264b49b063a6",
+      "20000": "163da458185a2aa523f2052910bce1e6e9a5e0de1665a130f8b235cb7a7c8f68"
+    }
+  }
+]
