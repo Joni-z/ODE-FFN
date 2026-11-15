@@ -1,5 +1,18 @@
 # Current project status
 
+## Running order-by-response comparison,15November
+
+Four seed0 K8 runs are training on145 GPUs4-7: ISRU/tanh on Ring8/Product16.
+The four K1 controls already exist and their checkpoints are hash-bound.
+Only Taylor order changes; optimizer, initialization, width and20k updates
+stay fixed. K8 uses eight P applications per solve, so this is not equal compute.
+Each monitored pipeline performs common-bank sampling and frozen K8->1/2/4
+diagnostics after training. Runtime source is frozen at9f72bd3.
+
+[Protocol](docs/research-assessments/2026-11-15-order-response/protocol.md),
+[launch and readiness receipt](docs/research-assessments/2026-11-15-order-response/launch-receipt.json).
+No new image run is submitted; finalized Reports1/2 are preserved.
+
 ## Completed professor follow-up,15November
 
 Five seed0 trajectories, all15k/20k common-bank evaluations, and the independent

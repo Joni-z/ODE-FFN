@@ -5,10 +5,10 @@ Use 145 physical GPUs 4-7 only; seed 0. Reuse existing K1 and ordinary controls.
 Preserve finalized reports, native trainers, old runs and image baseline.
 
 - [x] Verify resources and read source-bound K1 protocol/results.
-- [ ] Register four K8 runs and bind historical K1 checkpoints/evaluations.
-- [ ] Implement order-only adapter, shared evaluator bridge and term diagnostics.
-- [ ] Verify explicit Taylor powers, full entrance-diagonal Jacobian, unchanged initialization and native8->16 continuation.
-- [ ] Fresh documented witness; push/freeze source; launch four monitored pipelines.
+- [x] Register four K8 runs and bind historical K1 checkpoints/evaluations.
+- [x] Implement order-only adapter, shared evaluator bridge and term diagnostics.
+- [x] Verify explicit Taylor powers, full entrance-diagonal Jacobian (dim2), unchanged initialization and native8->16 continuation.
+- [x] Fresh documented witness; push/freeze source; launch four monitored pipelines.
 - [ ] Complete native/C8 sampling,20k order truncation and layer-term diagnostics.
 - [ ] Independently recompute metrics; compare response-by-order effects and ordinary controls.
 - [ ] Publish findings and next decision; record open research questions.
@@ -19,8 +19,12 @@ Same20k updates, batch512, AdamW3e-4, eight common4096sample banks and Heun128.
 Equal parameters and updates; K8 uses eight P applications per internal solve.
 No new optimizer sweep, scaling, spectral caps or rotation augmentation.
 
-Current: protocol and implementation. No new training submitted yet.
+Current: four monitored pipelines are training on145 GPUs4-7 at frozen9f72bd3.
+Queue PIDs3420113/3420115/3420137/3420144; receipts under the study docs.
+Independent NumPy analysis is prepared locally; formal metrics are pending.
 
 Readiness1 failed at helper import: historical check.py shadowed response
 check.py. Explicit-path imports fix the wrapper; attempt2 uses new output
-paths and preserves the original failure. No formal training had started.
+paths and preserves the original failure. Both documented checks then passed;
+four real K1 sampling replays, four exact continuations/evaluator round trips,
+and unchanged parameters through frozen-order diagnosis were verified.

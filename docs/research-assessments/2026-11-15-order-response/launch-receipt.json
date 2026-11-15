@@ -1,0 +1,317 @@
+{
+  "source": "9f72bd34daa242aa1a8812b5a490e94e7cee970c",
+  "host": "145",
+  "queues": [
+    {
+      "unix_time": 1794741252.2966173,
+      "started": 1794741222.1273565,
+      "queue_pid": 3420113,
+      "host": "145",
+      "device": "cuda",
+      "workers": 1,
+      "cuda_visible_devices": "4",
+      "running": [
+        {
+          "cell": "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+          "dataset": "gmm_ring8_2d",
+          "pid": 3420116,
+          "started": 1794741222.127934,
+          "command": [
+            "/data2/zz5070/miniconda3/envs/py312/bin/python",
+            "-u",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+            "--cell",
+            "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+            "--data-root",
+            "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+            "--output",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/gpu4",
+            "--device",
+            "cuda"
+          ],
+          "latest": {
+            "step": 1500,
+            "validation_oracle_mse": 0.1833614990234375,
+            "wall_seconds": 21.608026275411248,
+            "sample": null
+          }
+        }
+      ],
+      "completed": [],
+      "pending": [],
+      "failed": false,
+      "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 55, 1315, 49140, 107.35\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 60, 1191, 49140, 106.74\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 58, 1315, 49140, 106.74\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 57, 1191, 49140, 105.89\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 15, 600, 49140, 73.56\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 14, 602, 49140, 75.55\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 15, 600, 49140, 73.33\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 15, 602, 49140, 71.91",
+      "gpu_query_exit": 0
+    },
+    {
+      "unix_time": 1794741252.3543272,
+      "started": 1794741222.1763325,
+      "queue_pid": 3420115,
+      "host": "145",
+      "device": "cuda",
+      "workers": 1,
+      "cuda_visible_devices": "5",
+      "running": [
+        {
+          "cell": "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+          "dataset": "gmm_ring8_2d",
+          "pid": 3420138,
+          "started": 1794741222.176864,
+          "command": [
+            "/data2/zz5070/miniconda3/envs/py312/bin/python",
+            "-u",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+            "--cell",
+            "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+            "--data-root",
+            "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+            "--output",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/gpu5",
+            "--device",
+            "cuda"
+          ],
+          "latest": {
+            "step": 1000,
+            "validation_oracle_mse": 0.2438473129272461,
+            "wall_seconds": 18.68314204737544,
+            "sample": {
+              "heun_steps": 32,
+              "nfe": 64,
+              "reference_floor": 0.15047864615917206,
+              "seconds": 0.2777801789343357,
+              "sliced_w2": 0.24918681383132935
+            }
+          }
+        }
+      ],
+      "completed": [],
+      "pending": [],
+      "failed": false,
+      "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 55, 1315, 49140, 107.17\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 61, 1191, 49140, 106.84\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 55, 1315, 49140, 106.74\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 57, 1191, 49140, 105.89\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 15, 600, 49140, 73.55\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 14, 602, 49140, 75.55\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 15, 600, 49140, 73.32\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 15, 602, 49140, 71.89",
+      "gpu_query_exit": 0
+    },
+    {
+      "unix_time": 1794741252.3955498,
+      "started": 1794741222.2243745,
+      "queue_pid": 3420137,
+      "host": "145",
+      "device": "cuda",
+      "workers": 1,
+      "cuda_visible_devices": "6",
+      "running": [
+        {
+          "cell": "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+          "dataset": "rotated_product_bimodal_16d",
+          "pid": 3420145,
+          "started": 1794741222.224936,
+          "command": [
+            "/data2/zz5070/miniconda3/envs/py312/bin/python",
+            "-u",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+            "--cell",
+            "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+            "--data-root",
+            "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+            "--output",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/gpu6",
+            "--device",
+            "cuda"
+          ],
+          "latest": {
+            "step": 1500,
+            "validation_oracle_mse": 0.3846568229675293,
+            "wall_seconds": 20.573486492037773,
+            "sample": null
+          }
+        }
+      ],
+      "completed": [],
+      "pending": [],
+      "failed": false,
+      "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 55, 1315, 49140, 107.17\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 61, 1191, 49140, 106.84\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 55, 1315, 49140, 106.90\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 53, 1191, 49140, 105.70\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 15, 600, 49140, 73.55\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 14, 602, 49140, 75.55\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 15, 600, 49140, 73.32\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 15, 602, 49140, 71.89",
+      "gpu_query_exit": 0
+    },
+    {
+      "unix_time": 1794741252.4358838,
+      "started": 1794741222.2694597,
+      "queue_pid": 3420144,
+      "host": "145",
+      "device": "cuda",
+      "workers": 1,
+      "cuda_visible_devices": "7",
+      "running": [
+        {
+          "cell": "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+          "dataset": "rotated_product_bimodal_16d",
+          "pid": 3420150,
+          "started": 1794741222.270004,
+          "command": [
+            "/data2/zz5070/miniconda3/envs/py312/bin/python",
+            "-u",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/repo/studies/muon_pd_20261102/order_response_20261115/pipeline_order.py",
+            "--cell",
+            "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+            "--data-root",
+            "/data2/zz5070/ODE_FFN/professor-followup-20261115/data",
+            "--output",
+            "/data2/zz5070/ODE_FFN/order-response-20261115/gpu7",
+            "--device",
+            "cuda"
+          ],
+          "latest": {
+            "step": 1000,
+            "validation_oracle_mse": 0.45935559005737303,
+            "wall_seconds": 17.48883684910834,
+            "sample": {
+              "heun_steps": 32,
+              "nfe": 64,
+              "reference_floor": 0.05105132982134819,
+              "seconds": 0.25621686689555645,
+              "sliced_w2": 0.11736860871315002
+            }
+          }
+        }
+      ],
+      "completed": [],
+      "pending": [],
+      "failed": false,
+      "gpu": "0, GPU-5d6078be-3b77-0dfd-0e6b-9cb486e62ff4, 55, 1315, 49140, 107.17\n1, GPU-3ed37e6a-22ed-1558-93b4-b4c7db42d229, 61, 1191, 49140, 106.89\n2, GPU-3f1c6b3c-de42-45bd-fcf7-32e58f6fd846, 55, 1315, 49140, 106.90\n3, GPU-b8bf19b2-8101-a1e8-9e4d-19d50e0b9aed, 53, 1191, 49140, 105.70\n4, GPU-6c644192-ce4a-5d10-b912-07a6fc24f352, 15, 600, 49140, 73.57\n5, GPU-ce799976-7805-c539-9913-3bbadcdbadbf, 14, 602, 49140, 75.55\n6, GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023, 15, 600, 49140, 73.36\n7, GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b, 15, 602, 49140, 71.89",
+      "gpu_query_exit": 0
+    }
+  ],
+  "preflight": {
+    "kernel": {
+      "passed": true,
+      "rows": [
+        {
+          "dim": 2,
+          "family": "pd_isru_k8",
+          "parameters": 56706,
+          "initialization_rng_exact": true,
+          "explicit_polynomial": true,
+          "full_diagonal_jacobian": true,
+          "nonzero_gradients": true,
+          "restoration_exact": true
+        },
+        {
+          "dim": 2,
+          "family": "pd_tanh_k8",
+          "parameters": 56706,
+          "initialization_rng_exact": true,
+          "explicit_polynomial": true,
+          "full_diagonal_jacobian": true,
+          "nonzero_gradients": true,
+          "restoration_exact": true
+        },
+        {
+          "dim": 16,
+          "family": "pd_isru_k8",
+          "parameters": 58512,
+          "initialization_rng_exact": true,
+          "explicit_polynomial": true,
+          "full_diagonal_jacobian": false,
+          "nonzero_gradients": true,
+          "restoration_exact": true
+        },
+        {
+          "dim": 16,
+          "family": "pd_tanh_k8",
+          "parameters": 58512,
+          "initialization_rng_exact": true,
+          "explicit_polynomial": true,
+          "full_diagonal_jacobian": false,
+          "nonzero_gradients": true,
+          "restoration_exact": true
+        }
+      ],
+      "torch": "2.8.0+cu128",
+      "source_sha256": "0dde30ff8eadb7fbc3bef72a1039ba16202a82b24f66c15bb362d359d739c22e"
+    },
+    "anchors": {
+      "passed": true,
+      "rows": [
+        {
+          "family": "pd_tanh_k1",
+          "dataset": "gmm_ring8_2d",
+          "native_sampling_exact": true,
+          "checkpoint_sha256": "bd671e5a21015528a243dd9261e7170cded3a9e3ad5536ad7fe49ce52994d8ee",
+          "config_sha256": "d8ed09d9a7cfdb65e7507b3c9877dad0d34148f172d1d656f72ea72a2db23b12",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        },
+        {
+          "family": "pd_tanh_k1",
+          "dataset": "rotated_product_bimodal_16d",
+          "native_sampling_exact": true,
+          "checkpoint_sha256": "2b4e6ec0cefe8f3027ab62dd498192e3434963e319f955d853b42c8339907bd2",
+          "config_sha256": "7de4e437538a0e0a1549f6623a345c52a354a2ef208dc5fb10f7800bf7dd34a0",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        },
+        {
+          "family": "pd_isru_k1",
+          "dataset": "gmm_ring8_2d",
+          "native_sampling_exact": true,
+          "checkpoint_sha256": "4334645c2ec09657ec6567b6db146dd45827de2ac8548ce59a7b4fea01e72e10",
+          "config_sha256": "a61b25334bb3529a88ce539d21f7a575650a3e80326c212773d99703eda2a885",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        },
+        {
+          "family": "pd_isru_k1",
+          "dataset": "rotated_product_bimodal_16d",
+          "native_sampling_exact": true,
+          "checkpoint_sha256": "672daae9235f3dbe8ec790fd3e5b68f240a6a4c61d7fe7fe30fd6a5f447c6e37",
+          "config_sha256": "50a4c0095634e95da8f1e157549bf954040b9e0a7705ae4d0662fd8631951bf1",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        }
+      ]
+    },
+    "continuation": {
+      "passed": true,
+      "completed": [
+        {
+          "cell": "gmm_ring8_2d__pd_isru_k8__adamw_0.0003",
+          "resume16_exact": true,
+          "evaluator_roundtrip_exact": true,
+          "checkpoint_sha256": "82ef961b1c6478c9b9d16462455a7022c136d69c3e2b29dc3b2a17a04d311eda",
+          "config_sha256": "e33b7aee538515d62c41ecfd8bd8dde114c42ddffb43b8e0de6b2bdf988c88ed",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        },
+        {
+          "cell": "gmm_ring8_2d__pd_tanh_k8__adamw_0.0003",
+          "resume16_exact": true,
+          "evaluator_roundtrip_exact": true,
+          "checkpoint_sha256": "d5aa6d32352ad77beb8cc525da12683f5aabcd427eb019083a716101984b606d",
+          "config_sha256": "fb57db7a9160ed3c0b38f11b4af2c39eaad0aa88f6916b946b50b209b4cd75a8",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_isru_k8__adamw_0.0003",
+          "resume16_exact": true,
+          "evaluator_roundtrip_exact": true,
+          "checkpoint_sha256": "6174f856c321c572ca83ba1eef52cfb0622fd87a44d59acc316bf8be3af9eafc",
+          "config_sha256": "bf65e5881ae5ac6486f2e7411c5c3ebb275cef1b0ce5a4b4942768f2961241c0",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        },
+        {
+          "cell": "rotated_product_bimodal_16d__pd_tanh_k8__adamw_0.0003",
+          "resume16_exact": true,
+          "evaluator_roundtrip_exact": true,
+          "checkpoint_sha256": "c2169a2ce62e087e7044c43a1c4e95bdfbef141e32e3300522cc8039cf06a9e6",
+          "config_sha256": "3e255e9f04bc5f9e48f5b0e6b2793b1f0194826abbcf22dc3b6bb1dc38b8e4e7",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        }
+      ]
+    },
+    "diagnostics": {
+      "passed": true,
+      "witness": true,
+      "checkpoint": {
+        "checkpoint_sha256": "82ef961b1c6478c9b9d16462455a7022c136d69c3e2b29dc3b2a17a04d311eda",
+        "config_sha256": "e33b7aee538515d62c41ecfd8bd8dde114c42ddffb43b8e0de6b2bdf988c88ed",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      "source_sha256": "5f82018211f6b2f3f2ba7c825250f7e356824a62593dae85343dbf771c11178a",
+      "all_parameters_buffers_unchanged": true,
+      "orders_restored": 8
+    }
+  }
+}
