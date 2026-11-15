@@ -4,6 +4,15 @@
 this planning turn.** This makes the previous recommendation concrete. The
 scope is one diagnostic pass and two new training trajectories, seed0 only.
 
+**Priority update after the completed 15 November follow-up:** all three
+professor-comment checks now have evidence, including the K1/K8 by ISRU/tanh
+comparison. Prioritize M0 to locate the actual CelebA deficit. Ring8 rotation
+augmentation is an optional small control and does not establish an image
+architecture benefit. M1/M2 remain proposals for a reviewed run decision;
+this update launches nothing. The synthetic K8 exponential probes do not
+establish the same approximation accuracy on image-model activations or
+demonstrate that refreshed feedback will help.
+
 **Later15November priority review:** the new [professor-comment analysis](../2026-11-15-professor-comments.md)
 recommends learned-spectrum and Ring8 C8 diagnostics, then a matched activation
 control, before selecting this image pair. This plan remains preserved as a

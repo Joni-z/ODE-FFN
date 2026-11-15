@@ -14,8 +14,9 @@ Ring8 C8 projection still largely removes mode imbalance at either order.
 [Findings and figures](docs/research-assessments/2026-11-15-order-response/findings.md),
 [completion](docs/research-assessments/2026-11-15-order-response/completion.json),
 [metric verification](docs/research-assessments/2026-11-15-order-response/results/verification.json).
-Runtime source is frozen at 9f72bd3. Next priority is the proposed matched
-training-only rotation control, not another Taylor-order or width sweep.
+Runtime source is frozen at 9f72bd3. The subsequent planning discussion
+prioritizes the bounded CelebA checkpoint diagnosis described below. The
+rotation-training control remains an optional small synthetic check.
 No new image run is submitted; finalized Reports1/2 are preserved.
 
 ## Completed professor follow-up,15November

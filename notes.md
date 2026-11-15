@@ -27,6 +27,13 @@ The inspected K8 exponential error is <=1.60e-4. These facts distinguish
 learned dependence on terms from an advantage over a separately trained K1.
 
 Published evidence lives in docs/research-assessments/2026-11-15-order-response/.
-The next proposed mechanism test remains paired C8 training augmentation on
-ISRU-D and ordinary SwiGLU. No extra architecture or image training was added.
+The initial follow-up recommendation was paired C8 training augmentation on
+ISRU-D and ordinary SwiGLU. In the subsequent planning discussion, prioritize
+the existing CelebA checkpoint diagnosis to keep the main question tied to
+the measured image-model gap. C8 augmentation remains an optional small
+control, not a prerequisite for answering the professor. The sole retained
+image operator pair is frozen-D K2 versus refreshed ISRU midpoint, subject
+to review of the diagnosis and a concrete run decision. Synthetic exponential
+accuracy does not establish image accuracy or prove a benefit from feedback.
+No extra architecture or image training was added.
 Report1/2 preservation covers all96 tracked files against4c336ef.

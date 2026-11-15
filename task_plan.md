@@ -31,3 +31,18 @@ check.py. Explicit-path imports fix the wrapper; attempt2 uses new output
 paths and preserves the original failure. Both documented checks then passed;
 four real K1 sampling replays, four exact continuations/evaluator round trips,
 and unchanged parameters through frozen-order diagnosis were verified.
+
+## Proposed next work after the professor follow-up
+
+Planning discussion only; no new jobs are authorized by this note.
+- [x] Recheck the three professor-comment findings and the completed K1/K8 response comparison.
+- [x] Prioritize the existing CelebA checkpoint diagnosis over additional response/order sweeps.
+- [ ] Measure native/K1/K8 errors by noise time, layer responses and local frozen/refreshed differences; cap at one GPU-hour.
+- [ ] Review the diagnosis and register whether to execute the existing frozen-K2 versus refreshed-midpoint plan.
+- [ ] If selected, run only those two image arms under the unchanged recipe and original SwiGLU reference.
+
+Ring8 rotation augmentation remains an optional small control; it is not a
+prerequisite for answering the professor or evidence of an image-model gain.
+The detailed image plan is docs/research-assessments/2026-11-14-next-architecture/execution-plan.md.
+Its optimizer and response stay fixed. Neither a post-hoc improvement nor a
+post-hoc failure proves the potential of a newly trained operator.
