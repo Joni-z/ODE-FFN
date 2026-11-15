@@ -50,3 +50,11 @@ proposed100epoch arms, frozen K2 and state-dependent ISRU midpoint. This replace
 the earlier qualitative diagnostic-selection gate with explicit implementation
 and numerical gates. Diagnostic swap gains do not select the training winner.
 No new training is submitted. Reports1/2, baseline and prior evidence stay fixed.
+
+The later [professor-comment review](docs/research-assessments/2026-11-15-professor-comments.md)
+changes the recommended order: inspect existing weight/update ranks and Ring8
+C8 symmetry before the image solver comparison. The archived Free ISRU control
+already shows broader Muon updates with lower final weight effective rank.
+Full45degree equivariance and a slope/saturation-matched tanh control remain
+unmeasured. The earlier180degree and mode-flux studies are related evidence,
+not completed substitutes. No new run is authorized by this analysis.

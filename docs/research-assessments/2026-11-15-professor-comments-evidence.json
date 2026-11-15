@@ -1,0 +1,101 @@
+{
+  "date": "2026-11-15",
+  "scope": "Archived CSV extraction and mathematical witnesses only; no trained model reevaluation or new training",
+  "archived_endpoint_rows": [
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "optimizer": "adamw",
+      "lr": "0.0003",
+      "step": "20000",
+      "delta_stable_rank": "4.566587876077903",
+      "weight_stable_rank": "13.0177438762738",
+      "weight_entropy_rank": "55.54712276115202"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "optimizer": "muon",
+      "lr": "0.02",
+      "step": "20000",
+      "delta_stable_rank": "32.77568452527586",
+      "weight_stable_rank": "10.525345970122968",
+      "weight_entropy_rank": "43.78900052011597"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "pd_isru_k1",
+      "optimizer": "adamw",
+      "lr": "0.0003",
+      "step": "20000",
+      "delta_stable_rank": "1.6479934023727159",
+      "weight_stable_rank": "9.703089359803437",
+      "weight_entropy_rank": "47.50988958924029"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "pd_isru_k1",
+      "optimizer": "muon",
+      "lr": "0.02",
+      "step": "20000",
+      "delta_stable_rank": "32.905440841879106",
+      "weight_stable_rank": "12.37851844728457",
+      "weight_entropy_rank": "46.67368460203274"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "optimizer": "adamw",
+      "lr": "0.0003",
+      "step": "20000",
+      "delta_stable_rank": "2.3266902582392106",
+      "weight_stable_rank": "10.76598319558372",
+      "weight_entropy_rank": "60.63277909840665"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "optimizer": "muon",
+      "lr": "0.02",
+      "step": "20000",
+      "delta_stable_rank": "33.46434005352319",
+      "weight_stable_rank": "9.063450545449369",
+      "weight_entropy_rank": "45.88614826135233"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "pd_isru_k1",
+      "optimizer": "adamw",
+      "lr": "0.0003",
+      "step": "20000",
+      "delta_stable_rank": "1.8579340689508292",
+      "weight_stable_rank": "7.333287606705581",
+      "weight_entropy_rank": "47.01853522803347"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "pd_isru_k1",
+      "optimizer": "muon",
+      "lr": "0.02",
+      "step": "20000",
+      "delta_stable_rank": "34.23406252558835",
+      "weight_stable_rank": "11.40024601757643",
+      "weight_entropy_rank": "48.55938431745562"
+    }
+  ],
+  "rank_cancellation_witness": [
+    2,
+    2,
+    1
+  ],
+  "Ring8_analytic_oracle_C8_max_error": 1.4654943925052066e-14,
+  "generic_field_C8_projection_max_error": 3.3306690738754696e-16,
+  "matched_origin_slopes": [
+    0.9999999999994,
+    0.9999999999996
+  ],
+  "ISRU_subflow_composition_max_error": 1.1102230246251565e-16,
+  "elementwise_ISRU_C8_noncommutation_example_max_error": 0.3698470254587507,
+  "local_evidence_links_checked": 6,
+  "protected_Report2_hashes_checked": 11
+}

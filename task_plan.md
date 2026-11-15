@@ -14,5 +14,17 @@ All jobs completed0:0. No further continuation is selected.
   This is a conditional plan, with no new training launched.
 
 - [x] Prepare the [concrete next execution plan](docs/research-assessments/2026-11-14-next-architecture/execution-plan.md).
-- [ ] After a run decision: bounded diagnosis, two-arm implementation and readiness.
-- [ ] After checks: frozen K2 and midpoint100epoch runs. Not submitted.
+- [ ] Later option after the professor-comment review: image two-arm implementation and readiness.
+- [ ] Later option: frozen K2 and midpoint100epoch runs. Not submitted.
+
+## 15 November: analyze the professor's three comments
+
+- [x] Read the supplied comments and assign separate evidence checks for
+  learned spectra, Ring8 symmetry and activation controls.
+- [x] Separate completed evidence from new mathematical tests.
+- [x] Write a source-bound response and revise the recommended priority.
+- [x] Verify and publish; no training or finalized-report changes.
+
+Recommended next work is documented in the [comment analysis](docs/research-assessments/2026-11-15-professor-comments.md):
+existing weight/update spectra, saved-checkpoint C8 diagnosis, then a matched
+scaled-tanh control. These are recommendations, not submitted experiments.

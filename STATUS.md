@@ -22,6 +22,10 @@ specifies a one-hour checkpoint diagnosis, numerical/readiness checks and two
 proposed100epoch runs: frozen-D K2 versus refreshed-ISRU midpoint. It has not
 been implemented or submitted. Keep seed0, original baseline and FID every20.
 
+A later [professor-comment review](docs/research-assessments/2026-11-15-professor-comments.md)
+recommends spectrum/C8-symmetry diagnostics and a matched activation control
+before selecting that image pair. This changes the proposed priority only.
+
 Verified15November2026 from scheduler completion, progress, console and
 TensorBoard. No new model code or finalized report was changed.
 

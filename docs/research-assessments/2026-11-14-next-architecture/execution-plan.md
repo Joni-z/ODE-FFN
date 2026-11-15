@@ -4,6 +4,11 @@
 this planning turn.** This makes the previous recommendation concrete. The
 scope is one diagnostic pass and two new training trajectories, seed0 only.
 
+**Later15November priority review:** the new [professor-comment analysis](../2026-11-15-professor-comments.md)
+recommends learned-spectrum and Ring8 C8 diagnostics, then a matched activation
+control, before selecting this image pair. This plan remains preserved as a
+later option; no implementation or training has been launched.
+
 ## Decision and completed reference
 
 Test whether reevaluating the ISRU response during a local solve helps image
