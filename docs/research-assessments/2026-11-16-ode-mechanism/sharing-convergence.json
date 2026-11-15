@@ -1,0 +1,491 @@
+{
+  "passed": true,
+  "scope": "learned-state solver verification, not generation ranking",
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "family": "stage_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.002387357240795261
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0006236794322225779
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.00015975841697212856
+            },
+            {
+              "substeps": 32,
+              "relative_error": 4.04441736407343e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 1.0175319429183787e-05
+            }
+          ],
+          "observed_rates": [
+            1.9365378780005358,
+            1.9649127398612203,
+            1.9818881533635697,
+            1.9908577989161484
+          ],
+          "reference_refinement": 5.475740875976505e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.004124771184989416
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.001074220290621374
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.0002742242596646926
+            },
+            {
+              "substeps": 32,
+              "relative_error": 6.928708867878693e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 1.7414519477913894e-05
+            }
+          ],
+          "observed_rates": [
+            1.9410242129113522,
+            1.9698617654139938,
+            1.9846977638417516,
+            1.9922958730913167
+          ],
+          "reference_refinement": 2.0519459978988043e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.0014218846141841556
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0003621936914104187
+            },
+            {
+              "substeps": 16,
+              "relative_error": 9.13655576851407e-05
+            },
+            {
+              "substeps": 32,
+              "relative_error": 2.2944997912321166e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 5.749266346690189e-06
+            }
+          ],
+          "observed_rates": [
+            1.972971071970965,
+            1.9870391017122015,
+            1.993470735733909,
+            1.9967299022319571
+          ],
+          "reference_refinement": 4.273857840385559e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.006921111179040852
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0019265151430684071
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.0005088141560632406
+            },
+            {
+              "substeps": 32,
+              "relative_error": 0.00013079231679751548
+            },
+            {
+              "substeps": 64,
+              "relative_error": 3.315903535568764e-05
+            }
+          ],
+          "observed_rates": [
+            1.845010153910394,
+            1.9207828116297405,
+            1.9598610150518427,
+            1.9798038518538479
+          ],
+          "reference_refinement": 2.409950253579195e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.0009037470769474048
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.00023261824519432803
+            },
+            {
+              "substeps": 16,
+              "relative_error": 5.896707751817636e-05
+            },
+            {
+              "substeps": 32,
+              "relative_error": 1.4844199711922952e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 3.72389964939078e-06
+            }
+          ],
+          "observed_rates": [
+            1.9579548181773105,
+            1.9799826584034592,
+            1.990010378058894,
+            1.9950132149196385
+          ],
+          "reference_refinement": 1.2459468765178457e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.0059613987553972445
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0016392050807111872
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.0004300196964207385
+            },
+            {
+              "substeps": 32,
+              "relative_error": 0.00011014562651309777
+            },
+            {
+              "substeps": 64,
+              "relative_error": 2.787399074148509e-05
+            }
+          ],
+          "observed_rates": [
+            1.8626545166891235,
+            1.9305217141290167,
+            1.9649905299141444,
+            1.9824207378003662
+          ],
+          "reference_refinement": 1.479213010124139e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "checkpoint_sha256": "0f4a7634dbf216bff768723eff3d7b3a5e591a8814f3663fea0a496e7f13df34",
+      "assets_sha256": "b0ff421f36e36a195b25051535a175381b19e8fea393c572f15a8c5e52c96ae3"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "family": "stage_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.0015397405639977378
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0003956961392555426
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.00010045431357873404
+            },
+            {
+              "substeps": 32,
+              "relative_error": 2.5316307688941457e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 6.3551255781384405e-06
+            }
+          ],
+          "observed_rates": [
+            1.9602223925719438,
+            1.9778534734936153,
+            1.9884006034624107,
+            1.994074468690878
+          ],
+          "reference_refinement": 1.4679268874891589e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.003281455262453494
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0008721738164754549
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.00022446474163339306
+            },
+            {
+              "substeps": 32,
+              "relative_error": 5.695275698495749e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 1.434429641587437e-05
+            }
+          ],
+          "observed_rates": [
+            1.9116481792850333,
+            1.9581268321382812,
+            1.978651260672086,
+            1.989288475994384
+          ],
+          "reference_refinement": 1.0127654116784381e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.0018587482950899853
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.00046536373119452333
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.00011645281060564785
+            },
+            {
+              "substeps": 32,
+              "relative_error": 2.9127730790491893e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 7.283753818119822e-06
+            }
+          ],
+          "observed_rates": [
+            1.9979007373055957,
+            1.9986133169437033,
+            1.9992802424892586,
+            1.9996392450818552
+          ],
+          "reference_refinement": 9.932273718162007e-14,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.00317879439910718
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0008494113893089219
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.00021934306672218934
+            },
+            {
+              "substeps": 32,
+              "relative_error": 5.571320976235467e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 1.40378419246377e-05
+            }
+          ],
+          "observed_rates": [
+            1.9039443493159074,
+            1.9532743486340618,
+            1.9770977641345657,
+            1.9886982719871635
+          ],
+          "reference_refinement": 3.020197495562891e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.0015252637475437261
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0003929501055096112
+            },
+            {
+              "substeps": 16,
+              "relative_error": 9.984635488550574e-05
+            },
+            {
+              "substeps": 32,
+              "relative_error": 2.5186383666363642e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 6.326309618847814e-06
+            }
+          ],
+          "observed_rates": [
+            1.956640689762755,
+            1.9765644742580715,
+            1.9870657691959988,
+            1.9932079203238162
+          ],
+          "reference_refinement": 1.3905065629627258e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "errors": [
+            {
+              "substeps": 4,
+              "relative_error": 0.004628975996852995
+            },
+            {
+              "substeps": 8,
+              "relative_error": 0.0012309308065432938
+            },
+            {
+              "substeps": 16,
+              "relative_error": 0.0003175269743963738
+            },
+            {
+              "substeps": 32,
+              "relative_error": 8.063306961478838e-05
+            },
+            {
+              "substeps": 64,
+              "relative_error": 2.0316113285372938e-05
+            }
+          ],
+          "observed_rates": [
+            1.9109434147918425,
+            1.9547986055617026,
+            1.977435606089545,
+            1.9887472212620152
+          ],
+          "reference_refinement": 2.9725367281328835e-13,
+          "reference_segments": 4,
+          "gamma": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "checkpoint_sha256": "215420aab145fb625d2f90acb22f450663f2490eba1f78868409688691ef0ede",
+      "assets_sha256": "377af2d17ed91bc315db773a9f9a33c2049d0b3efd250726c3a5b6c3229fa4d9"
+    }
+  ],
+  "source_sha256": "5d5d7c69116eed3cf1b287da67e603ab2df7519fd451cdc44b954f645e82ce2a"
+}

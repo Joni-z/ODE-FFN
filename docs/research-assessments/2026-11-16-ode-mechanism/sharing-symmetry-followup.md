@@ -11,7 +11,9 @@ The old14-model Heun refinement cohort did not include released stage
 operators. The new four-model512-point check independently recomputes;
 its largest Heun128->512 SW2 change is2.464e-4. Those subset scores are not
 full-bank generation rankings. Reevaluate shared/released final models on
-all eight original confirmation banks at Heun128/256/512. Require Heun128
+all eight original confirmation banks at Heun128/256/512 and internal4.
+Also compare internal4and16atHeun128; the released field keeps its four
+quarter-interval matrices at either resolution. Require native Heun128
 to reproduce the completed primary scores within a declared backend
 tolerance before interpreting the new rows. Retain all samples and repeat
 the metrics independently in NumPy. No retraining or checkpoint selection.

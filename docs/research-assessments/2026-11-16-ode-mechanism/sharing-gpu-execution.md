@@ -35,10 +35,24 @@ Do not replace a missing receipt with import success or partial progress.
 Run `sharing_gpu.py` with the same environment, `--root` set to the portable
 directory, `--readiness` to the witness COMPLETE.json, and `--output` to a
 new `full-refinement` directory. Bind the same UUID and preserve frozen source.
+Pass `--include-inner16` for the registered hidden-resolution check too.
 
 Each of four models receives all32,768original confirmation sources at
-Heun128/256/512. Heun128 must reproduce the completed CPU pooled score within
+Heun128/256/512 with four internal substeps, plus internal16atHeun128.
+For released stages,16substeps preserves the same four quarter-interval
+matrices rather than changing its nonautonomous field. This asks whether
+the sharing advantage survives finer hidden integration as well as the outer
+generative solve. Native internal4/Heun128 must reproduce the CPU pooled score within
 1e-4, otherwise stop without a cross-backend ranking. Save every generated
 array, its hash, all eight bank scores and GPU telemetry. A separate NumPy
-pass recomputes the12pooled and96bank scores. Report candidate differences
+pass recomputes the16pooled and128bank scores. Report candidate differences
 at every resolution; do not select the best solver setting afterwards.
+
+The two released-stage checkpoints also pass bounded CPU convergence checks
+against separately integrated quarter-interval DOP853 references. Median
+observed32->64rates are1.992and1.991, consistent with midpoint order2;
+reference tolerance refinement stays below1e-8. This validates the intended
+piecewise hidden-field interpretation, not its sampling advantage.
+[Exact results](sharing-convergence.json). The portable bundle was exported
+with source61ddc56; its unchanged data hashes are bound independently of the
+later inference-runner revision.
