@@ -13,6 +13,7 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [x] Diagnose fixed-K8 composition and bounded oracle error transport for all ten fixed/free/control cases.
 - [x] State-flow gate met; midpoint formula/refinement and fresh native witnesses pass. Freeze1ff0d02 and launch two state trajectories.
 - [ ] Complete state training, common-bank evaluations and frozen-weight internal refinement.
+- [ ] If state evolution has a confirmed gain, separate feedback from prescribed solver structure using a matched-initial-function stage-coefficient control.
 - [ ] Synthesize positive/negative mechanism evidence and next research disposition.
 
 Current: coefficient training complete; state training and both analysis

@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "scope": "bounded512-sample solver test, not pooled full-bank ranking",
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "checkpoint": {
+        "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+        "config_sha256": "53f0e1a0eb36413342d2d4de508cf5e6b97bd87e69730d31347fd03b88bf063a",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "rows": [
+        {
+          "internal_substeps": 4,
+          "field_mse": 0.010601457992938709,
+          "one_bank_512_sw2": 0.18133012878634722,
+          "seconds": 0.8542817919515073,
+          "prediction_shift_from4": 0.0,
+          "sample_shift_from4": 0.0
+        },
+        {
+          "internal_substeps": 8,
+          "field_mse": 0.011031150318671808,
+          "one_bank_512_sw2": 0.1792032205485824,
+          "seconds": 1.465531624853611,
+          "prediction_shift_from4": 0.00767197459936142,
+          "sample_shift_from4": 0.018519140779972076
+        },
+        {
+          "internal_substeps": 16,
+          "field_mse": 0.011161923713026389,
+          "one_bank_512_sw2": 0.17838860494919326,
+          "seconds": 2.7870187079533935,
+          "prediction_shift_from4": 0.009732869453728199,
+          "sample_shift_from4": 0.029295552521944046
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "checkpoint": {
+        "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+        "config_sha256": "3e070775b2c7a990d8c72ec7681ca5e8e21e6e0d351dec133ea0a75070b317a6",
+        "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+      },
+      "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+      "rows": [
+        {
+          "internal_substeps": 4,
+          "field_mse": 0.018988035733789148,
+          "one_bank_512_sw2": 0.17467742202492234,
+          "seconds": 0.8759662080556154,
+          "prediction_shift_from4": 0.0,
+          "sample_shift_from4": 0.0
+        },
+        {
+          "internal_substeps": 8,
+          "field_mse": 0.019194006286829372,
+          "one_bank_512_sw2": 0.17575096330369172,
+          "seconds": 1.4126287498511374,
+          "prediction_shift_from4": 0.009896423667669296,
+          "sample_shift_from4": 0.06825105100870132
+        },
+        {
+          "internal_substeps": 16,
+          "field_mse": 0.019284545296760724,
+          "one_bank_512_sw2": 0.17597989773808362,
+          "seconds": 2.889348458033055,
+          "prediction_shift_from4": 0.012508008629083633,
+          "sample_shift_from4": 0.07284370064735413
+        }
+      ]
+    }
+  ]
+}

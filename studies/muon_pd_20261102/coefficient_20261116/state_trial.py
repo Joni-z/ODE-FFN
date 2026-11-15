@@ -26,7 +26,9 @@ class StateFlowLayer(ConditionalSpectrumLayer):
 def build_model(dim,family):
     if family!='state_midpoint4':return fixed_builder(dim,family)
     model=fixed_builder(dim,'screen_isru_k8')
-    for _,layer in model.ode_layers():layer.__class__=StateFlowLayer
+    for _,layer in model.ode_layers():
+        layer.__class__=StateFlowLayer
+        layer.orders=2 # midpoint accuracy order; the solve uses four substeps
     return model
 
 if __name__=='__main__':

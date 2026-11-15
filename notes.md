@@ -25,3 +25,9 @@ lambda1 residual is large on these multimodal tasks. Do not use its endpoint
 prediction as an explanation of full learned sampling. Window interventions
 are measured directly; paired endpoint error is not SW2. These are bounded
 diagnostics, not complete distribution-evaluation results.
+
+A state-flow win would initially identify feedback/repeated nonlinearity,
+not uniquely ODE structure. Conditional-stage-control.md registers a same-
+function initialization release of four midpoint stage coefficients, with
+equal response evaluations/P calls. It is not launched before confirmation.
+Do not close the full research goal merely because the first four runs finish.

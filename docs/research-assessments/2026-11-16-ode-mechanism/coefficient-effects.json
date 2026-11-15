@@ -1,0 +1,203 @@
+{
+  "passed": true,
+  "scope": "frozen-weight intervention, not retraining comparison",
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__free_coeff_k8__adamw_0.0003",
+      "checkpoint": {
+        "checkpoint_sha256": "e7c4aba0dc8f33c697fbfe805661e4c67168c5add12a1d09396a43a334079bec",
+        "config_sha256": "9343bd7b28c492f29f4837c32982485d05bd6a72b98e0c120cb693f35acdbe22",
+        "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+      },
+      "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+      "original_field_mse": 0.011102647227100318,
+      "coefficients_reset_field_mse": 0.03361079370306931,
+      "prediction_shift_rms": 0.17918218672275543,
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "alpha": [
+            1.1769360303878784,
+            1.1191036701202393,
+            1.0439956188201904,
+            1.054188847541809,
+            1.0543686151504517,
+            1.0328607559204102,
+            0.9987985491752625
+          ],
+          "same_generator_defect_relative": 0.016909517347812653,
+          "restarted_defect_relative": 0.19880786538124084
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "alpha": [
+            1.3686994314193726,
+            1.256131649017334,
+            1.2303622961044312,
+            1.1847463846206665,
+            1.1486790180206299,
+            1.1779446601867676,
+            1.1908644437789917
+          ],
+          "same_generator_defect_relative": 0.03095928207039833,
+          "restarted_defect_relative": 0.20027059316635132
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "alpha": [
+            1.231711983680725,
+            1.075283169746399,
+            1.0783082246780396,
+            1.0370105504989624,
+            1.0059723854064941,
+            1.0058550834655762,
+            1.0075881481170654
+          ],
+          "same_generator_defect_relative": 0.02500012144446373,
+          "restarted_defect_relative": 0.16017240285873413
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "alpha": [
+            1.2186633348464966,
+            1.0880815982818604,
+            1.0680900812149048,
+            0.992160975933075,
+            0.9707551002502441,
+            0.9821979403495789,
+            0.9801122546195984
+          ],
+          "same_generator_defect_relative": 0.013640514574944973,
+          "restarted_defect_relative": 0.20020058751106262
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "alpha": [
+            1.1688369512557983,
+            1.1063250303268433,
+            1.0868862867355347,
+            1.0586879253387451,
+            1.0535645484924316,
+            1.0514764785766602,
+            1.044665813446045
+          ],
+          "same_generator_defect_relative": 0.01698492281138897,
+          "restarted_defect_relative": 0.1652844399213791
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "alpha": [
+            1.171229362487793,
+            1.0162087678909302,
+            0.9608438014984131,
+            0.9216198921203613,
+            0.9003037810325623,
+            0.8674572110176086,
+            0.8561137914657593
+          ],
+          "same_generator_defect_relative": 0.011831743642687798,
+          "restarted_defect_relative": 0.18960805237293243
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_coeff_k8__adamw_0.0003",
+      "checkpoint": {
+        "checkpoint_sha256": "529134589950e3661b6f182fac5f10f626c7dbe8ebafc18417a967f64daf71a1",
+        "config_sha256": "7f49f7020bf562bc654d826876dc0d2f392fc192580f995d50c43464dbca903e",
+        "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+      },
+      "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+      "original_field_mse": 0.017715524396296287,
+      "coefficients_reset_field_mse": 0.19503782953086768,
+      "prediction_shift_rms": 0.4192081391811371,
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "alpha": [
+            1.2034425735473633,
+            1.0809825658798218,
+            0.931470513343811,
+            0.7895628213882446,
+            0.8532757759094238,
+            0.9798040986061096,
+            0.9049702286720276
+          ],
+          "same_generator_defect_relative": 0.022965244948863983,
+          "restarted_defect_relative": 0.0928831622004509
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "alpha": [
+            1.4148322343826294,
+            1.3242515325546265,
+            1.2361948490142822,
+            1.2873982191085815,
+            1.266400933265686,
+            1.1927410364151,
+            1.0604488849639893
+          ],
+          "same_generator_defect_relative": 0.051964662969112396,
+          "restarted_defect_relative": 0.1848948895931244
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "alpha": [
+            1.4685983657836914,
+            1.496533751487732,
+            1.6342432498931885,
+            1.5688371658325195,
+            1.4466577768325806,
+            1.4223859310150146,
+            1.4492441415786743
+          ],
+          "same_generator_defect_relative": 0.06318851560354233,
+          "restarted_defect_relative": 0.16053329408168793
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "alpha": [
+            1.470405101776123,
+            1.2829216718673706,
+            1.2106002569198608,
+            1.166388750076294,
+            1.1487963199615479,
+            1.1625685691833496,
+            1.123065710067749
+          ],
+          "same_generator_defect_relative": 0.053433191031217575,
+          "restarted_defect_relative": 0.2006228119134903
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "alpha": [
+            1.7092074155807495,
+            1.6598448753356934,
+            1.7904473543167114,
+            1.6793956756591797,
+            1.7026216983795166,
+            1.7436885833740234,
+            1.681813359260559
+          ],
+          "same_generator_defect_relative": 0.07577300816774368,
+          "restarted_defect_relative": 0.18472608923912048
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "alpha": [
+            1.6596397161483765,
+            1.610504388809204,
+            1.5509800910949707,
+            1.4984079599380493,
+            1.4200342893600464,
+            1.3325070142745972,
+            1.2459475994110107
+          ],
+          "same_generator_defect_relative": 0.06711551547050476,
+          "restarted_defect_relative": 0.28929877281188965
+        }
+      ]
+    }
+  ],
+  "source_sha256": "a48cc372e33737311809c7f23be2ca700c7a8ea75fe7f3bc3375bf04485771c8"
+}

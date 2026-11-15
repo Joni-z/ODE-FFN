@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dim": 2,
+      "extra_parameters": 24,
+      "initial_function_and_common_gradients_exact": true,
+      "new_gradients_nonzero": true,
+      "formula_and_gradcheck": true
+    },
+    {
+      "dim": 16,
+      "extra_parameters": 24,
+      "initial_function_and_common_gradients_exact": true,
+      "new_gradients_nonzero": true,
+      "formula_and_gradcheck": true
+    }
+  ],
+  "native_continuations": 2,
+  "real_evaluator_witnesses": 2,
+  "source_sha256": "19a68bcc88246e8d57e97ba082ea13870fbc948435e4a92b5fbacfa6c659651e"
+}
