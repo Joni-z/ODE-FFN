@@ -73,19 +73,22 @@ the job has exited. All16pooled/128bank scores independently recompute within
 the gap. Inner4->16gives shared/released Ring8 0.091/0.103and Product16
 0.069/0.082; Ring8bank support weakens to5/8while Product16stays8/8.
 [Full refinement, figures and receipts](docs/research-assessments/2026-11-16-ode-mechanism/sharing-results/full-resolution/analysis.md).
-The targeted sharing-symmetry test is the next step.
+The targeted sharing-symmetry test is now running at frozen5e78e6a.
 [Follow-up hypotheses and decisions](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry-followup.md).
-All current training/evaluation workers are terminal. The next projection
-study is registered but has not launched. No image training was submitted.
+All earlier workers are terminal. The eight-cell projection queue2996899
+is running on idle145GPUs4-7only, currently4and5, workers2996907/2996908.
+Its8CPU/CUDAreferences and two actual-entry witnesses passed; no training
+or checkpoint selection is added. [Execution and readiness](docs/research-assessments/2026-11-16-ode-mechanism/sharing-symmetry/execution.md).
+No image training was submitted.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),
 [state-flow gate and invocation](docs/research-assessments/2026-11-16-ode-mechanism/state-execution.md),
 [state launch](docs/research-assessments/2026-11-16-ode-mechanism/state-launch.json).
 Raw root: `/Users/mr.z/ode-workspace-prep/coefficient-20261116/`.
-145 physical0-3 remain prohibited. GPU6 briefly became idle; our portable
-witness passed8cases and stopped when a new process appeared. No full GPU
-evaluation or training was launched; no other task was stopped.
+145 physical0-3 remain prohibited. The earlier GPU6portability attempt
+stopped when a foreign task appeared; later dedicated witnesses and inference
+use their own receipts. No other task was stopped.
 
 On16 November the user asked for a falsifiable mechanism study instead of
 another response search. [Research plan](docs/research-assessments/2026-11-16-ode-mechanism/research-question-card.md)

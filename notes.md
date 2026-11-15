@@ -72,3 +72,7 @@ these values are engineering checks, never evidence for a model ranking.
 Independent verification also reconstructs both selected groups from the
 native data specification. Premature remote extraction failed while SCP
 was still active; its partial directory will be retained separately.
+
+P1CUDAreadiness passed at5e78e6a: max field5.67e-15, native64sample1.60e-14,
+shortcut5.90e-13; all8shortcuts qualified. Queue2996899uses permitted idle
+GPU4/5;6/7became occupied and were not used. No training added.

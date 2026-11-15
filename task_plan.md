@@ -25,7 +25,7 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
   - [x] Implement exact group operators and check oracle equivariance, projection and the field-MSE decomposition.
   - [x] Bind four fresh banks and eight frozen checkpoints; produce CPU float64 portability references.
   - [x] Publish/freeze source5e78e6a and pass CPU actual-entry/independent checks.
-  - [ ] Pass fresh documented CUDA readiness on an idle permitted card.
+  - [x] Pass fresh documented CUDA readiness on idle physicalGPU4;8references and two actual entries pass.
   - [ ] Run original/projected sampling, paths and outer-resolution checks with live resource monitoring.
   - [ ] Independently recompute complete metrics, render figures and accept/reject the proposed explanation.
 
@@ -41,7 +41,7 @@ shared/released SW2 isRing8 .091/.103 and Product16 .069/.082; Ring8bank
 support weakens to5/8while Product16 stays8/8. Outer128->512preserves the
 gap. The practical Product16 controls remain stronger and cheaper.
 
-Next action: implement P1from sharing-symmetry-followup.md. Eight frozen
+P1is implemented from sharing-symmetry-followup.md. Eight frozen
 model/task cells, four fresh4096-point banks, exact Ring8C8/Product16latent
 reflection groups. Prove oracle equivariance, group projection and MSE split;
 verify CPU/CUDA and fresh documented readiness before deploying to idle145
@@ -54,8 +54,7 @@ the source, stage the47MBbundle and run the fresh documented CUDAcommand.
 
 Previous goal turn: progress. It completed the sharing controls, diagnostics,
 cost/recipe pairing,25-case inference verification and full CUDA P0checks.
-The main goal remains active because the symmetry explanation of the shared
-generator's benefit has not yet been tested directly.
+The main goal remains active while the direct symmetry intervention runs.
 
 Errors and preserved evidence: the original float32C8shortcut failed; its
 queue and outputs remain intact and a separate float64cohort passed. An
@@ -75,3 +74,10 @@ Python's standard queue module during a fresh Torch import.
 P1deployment note: premature extraction while SCP was still writing raised
 Unexpected EOF. Preserve the partial directory; finish transfer and verify the
 archive hash before extracting to a fresh directory. No CUDA task launched.
+
+P1launch verified: queue2996899, frozen5e78e6a; workers2996907/2996908
+on physical145GPU4/5have advancing sample rows and100%GPUutilization.
+GPU6/7became occupied and were skipped. Freshdoc witness2988104passed all
+8references and2actualentry checks, exit0. Transfer47,226,880bytes verifies
+SHA4b06d18806ff5cf6c1edb05b7afe2f593b8acec10b7156873336e2c2fe27175b.
+The incomplete extraction is preserved as portable-transfer-incomplete.

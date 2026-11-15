@@ -1,0 +1,526 @@
+{
+  "passed": true,
+  "witness": true,
+  "base_samples": 16,
+  "banks": 2,
+  "field_points": 32,
+  "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+  "field": {
+    "total": 0.016757962368795634,
+    "projected": 0.013432290678923639,
+    "breaking": 0.0033256716898719934,
+    "base_mse": 0.01529038785951235
+  },
+  "bank_rows": [
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "bank": 0,
+      "sw2": 0.7123699951672493,
+      "balance_l1": 0.03125,
+      "coupling": {
+        "matrix": [
+          [
+            15,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            15
+          ]
+        ],
+        "changed_fraction": 0.015625,
+        "net_mass_change": [
+          -0.0078125,
+          0.0078125,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0078125,
+          -0.0078125
+        ],
+        "net_l1": 0.03125
+      },
+      "gap_mass": [
+        0.0625,
+        0.0,
+        0.0
+      ],
+      "gap_expected": [
+        0.03039635248986272,
+        0.0005034309711282048,
+        2.0522628041419466e-10
+      ],
+      "gap_error_max": 0.03210364751013728
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "bank": 1,
+      "sw2": 0.6110488603150072,
+      "balance_l1": 0.078125,
+      "coupling": {
+        "matrix": [
+          [
+            14,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            13,
+            0,
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            15,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16
+          ]
+        ],
+        "changed_fraction": 0.0703125,
+        "net_mass_change": [
+          -0.015625,
+          -0.015625,
+          0.0,
+          0.0,
+          0.0,
+          0.015625,
+          -0.0078125,
+          0.0234375
+        ],
+        "net_l1": 0.078125
+      },
+      "gap_mass": [
+        0.03125,
+        0.015625,
+        0.0
+      ],
+      "gap_expected": [
+        0.03039635248986272,
+        0.0005034309711282048,
+        2.0522628041419466e-10
+      ],
+      "gap_error_max": 0.015121569028871795
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "bank": 0,
+      "sw2": 0.7107343198649869,
+      "balance_l1": 0.0,
+      "coupling": {
+        "matrix": [
+          [
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16
+          ]
+        ],
+        "changed_fraction": 0.0,
+        "net_mass_change": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "net_l1": 0.0
+      },
+      "gap_mass": [
+        0.0625,
+        0.0,
+        0.0
+      ],
+      "gap_expected": [
+        0.03039635248986272,
+        0.0005034309711282048,
+        2.0522628041419466e-10
+      ],
+      "gap_error_max": 0.03210364751013728
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "bank": 1,
+      "sw2": 0.6092795654968247,
+      "balance_l1": 0.0,
+      "coupling": {
+        "matrix": [
+          [
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16
+          ]
+        ],
+        "changed_fraction": 0.0,
+        "net_mass_change": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "net_l1": 0.0
+      },
+      "gap_mass": [
+        0.0625,
+        0.0,
+        0.0
+      ],
+      "gap_expected": [
+        0.03039635248986272,
+        0.0005034309711282048,
+        2.0522628041419466e-10
+      ],
+      "gap_error_max": 0.03210364751013728
+    }
+  ],
+  "pooled": [
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "pooled_sw2": 0.5437865730510253,
+      "bank_mean": 0.6617094277411282,
+      "bank_sd": 0.07164486153153705,
+      "balance_l1": 0.03125,
+      "gap_mass": [
+        0.046875,
+        0.0078125,
+        0.0
+      ],
+      "gap_expected": [
+        0.03039635248986272,
+        0.0005034309711282048,
+        2.0522628041419466e-10
+      ],
+      "gap_error_max": 0.01647864751013728
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "pooled_sw2": 0.5422963996685951,
+      "bank_mean": 0.6600069426809059,
+      "bank_sd": 0.071739344797343,
+      "balance_l1": 0.0,
+      "gap_mass": [
+        0.0625,
+        0.0,
+        0.0
+      ],
+      "gap_expected": [
+        0.03039635248986272,
+        0.0005034309711282048,
+        2.0522628041419466e-10
+      ],
+      "gap_error_max": 0.03210364751013728
+    }
+  ],
+  "max_numpy_error": 1.1102230246251565e-16,
+  "completion_sha256": "6379f9f383dafdc043fbf34ab565163b1607dbf9ddbf177cca0572486615e960"
+}
