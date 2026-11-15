@@ -1,0 +1,46 @@
+[
+  {
+    "dataset": "gmm_ring8_2d",
+    "family": "pd_tanh_k1",
+    "folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu4/professor_followup_20261115/gmm_ring8_2d/gmm_ring8_2d__pd_tanh_k1__adamw_0.0003/seed000",
+    "config_sha256": "d8ed09d9a7cfdb65e7507b3c9877dad0d34148f172d1d656f72ea72a2db23b12",
+    "checkpoint_sha256": {
+      "15000": "b7a73c9fabebd06a80b1f7cc482a4be648bd20d5ef4a456f03f1eb312e213d1c",
+      "20000": "bd671e5a21015528a243dd9261e7170cded3a9e3ad5536ad7fe49ce52994d8ee"
+    },
+    "evaluation_folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu4/evaluations/gmm_ring8_2d__pd_tanh_k1__adamw_0.0003"
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "family": "pd_tanh_k1",
+    "folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu5/professor_followup_20261115/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_tanh_k1__adamw_0.0003/seed000",
+    "config_sha256": "7de4e437538a0e0a1549f6623a345c52a354a2ef208dc5fb10f7800bf7dd34a0",
+    "checkpoint_sha256": {
+      "15000": "65cdf1ff624ccfa299d8f2eb8e2026c737ae9f0ad83102ebf61c129cec2eee63",
+      "20000": "2b4e6ec0cefe8f3027ab62dd498192e3434963e319f955d853b42c8339907bd2"
+    },
+    "evaluation_folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu5/evaluations/rotated_product_bimodal_16d__pd_tanh_k1__adamw_0.0003"
+  },
+  {
+    "dataset": "gmm_ring8_2d",
+    "family": "pd_isru_k1",
+    "folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu6/professor_followup_20261115/gmm_ring8_2d/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__replay145/seed000",
+    "config_sha256": "a61b25334bb3529a88ce539d21f7a575650a3e80326c212773d99703eda2a885",
+    "checkpoint_sha256": {
+      "15000": "bbe1576da5a21462a548503b3318000264e1cd875ce7c530ddf0668a0135030b",
+      "20000": "4334645c2ec09657ec6567b6db146dd45827de2ac8548ce59a7b4fea01e72e10"
+    },
+    "evaluation_folder": "/data2/zz5070/ODE_FFN/professor-followup-20261115/gpu6/evaluations/gmm_ring8_2d__pd_isru_k1__adamw_0.0003__replay145"
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "family": "pd_isru_k1",
+    "folder": "/data2/zz5070/ODE_FFN/professor-autoresearch-cycle13-20261103/output/professor_autoresearch_cycle13_20261103/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003/seed000",
+    "config_sha256": "50a4c0095634e95da8f1e157549bf954040b9e0a7705ae4d0662fd8631951bf1",
+    "checkpoint_sha256": {
+      "15000": "dd54eca908f96a12c032bef248f480c9778d049a5c6e143cb57547d16048e101",
+      "20000": "672daae9235f3dbe8ec790fd3e5b68f240a6a4c61d7fe7fe30fd6a5f447c6e37"
+    },
+    "evaluation_folder": "/data2/zz5070/ODE_FFN/professor-validation14-v2-20261104/output/professor_validation14_20261104/rotated_product_bimodal_16d/rotated_product_bimodal_16d__pd_isru_k1__adamw_0.0003__validation14/seed000"
+  }
+]
