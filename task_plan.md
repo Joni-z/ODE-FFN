@@ -9,17 +9,21 @@ Seed0 only; pinned native training and qualified image baseline remain fixed.
 - [x] Implement free-coefficient adapter; exact initialization/gradient and two native continuation/evaluator checks pass.
 - [x] Freeze and publish8c10a8d; fresh documented witness passed.
 - [x] Launch two native20k CPU trajectories; both complete with exit0, queue22510 terminal.
-- [ ] Reevaluate fixed/free/K1/ordinary controls on fresh prebound arrays.
+- [x] Reevaluate fixed/free/K1/ordinary controls on fresh prebound arrays; independent recomputation passes.
 - [x] Diagnose fixed-K8 composition and bounded oracle error transport for all ten fixed/free/control cases.
 - [x] State-flow gate met; midpoint formula/refinement and fresh native witnesses pass. Freeze1ff0d02 and launch two state trajectories.
-- [ ] Complete state training, common-bank evaluations and frozen-weight internal refinement.
-- [ ] If state evolution has a confirmed gain, separate feedback from prescribed solver structure using a matched-initial-function stage-coefficient control.
+- [x] Complete state training, common-bank evaluations and bounded frozen-weight internal refinement.
+- [x] State evolution improved the two within-family comparisons; complete two matched-function free-stage controls, native witnesses and all evaluations.
+- [ ] Complete25numerical/symmetry inference tasks; independently recompute and interpret them.
+- [ ] If the state-flow signal survives, test single-generator sharing with the registered same-work nested-class control.
 - [ ] Synthesize positive/negative mechanism evidence and next research disposition.
 
-Current: coefficient training complete; state training and both analysis
-pipelines active.145 physical4-7 occupied; use Mac mini two CPU workers.
-Coefficient watcher22707 and state watcher23556 are persistent. Re-poll
-actual handles rather than restarting on observation timeouts.
+Current: six new20k trajectories and all28selection/14confirmation rows are
+complete. Analysis watchers22707/23556/24831 are terminal. CPU numerical
+queue25633 is active with two workers, frozen24dbb60,25registered tasks.
+GPU6 became idle, passed8portable witnesses, then another task appeared;
+our occupancy guard stopped it. No full GPU evaluation or sharing continued.
+Re-poll actual handles rather than restarting on observation timeouts.
 A prior goal turn only verified absence of runs; it did not advance experiments.
 This turn proceeds to the authorized next action rather than repeating that status.
 

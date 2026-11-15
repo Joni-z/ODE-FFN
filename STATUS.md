@@ -2,25 +2,44 @@
 
 ## Current priority: identify the ODE contribution
 
-**Execution is active.** The two free-coefficient trajectories completed
-20k updates on Mac mini CPU and both exited zero. Training source8c10a8d,
-queue22510 is terminal; watcher22707 is evaluating all ten model/task
-combinations on two fresh streams and independently recomputing metrics.
+**Six new20k trajectories and their independent evaluations are complete.**
+Free Taylor coefficients (8c10a8d), state-evolving midpoint (1ff0d02), and
+free midpoint stages (9a73953) all exited zero. Their28selection and14
+confirmation rows independently recompute. All training/evaluation queues
+for these trajectories are terminal.
 
-The conditional second stage is running: Ring8/Product16 state-evolving
-ISRU, four midpoint substeps and eight P applications per solve. Its
-trained-state diagnostic gate and fresh documented witness passed. Frozen
-source1ff0d02, training queue23380, workers23381/23382 and watcher23556.
-The watcher includes common-bank evaluations and internal4/8/16 refinement
-at frozen weights. No result is promoted before final evaluation.
+Confirmation pooled SW2:
+
+| Model | Ring8 | Product16 |
+|---|---:|---:|
+| Fixed exponential K8 |0.088|0.056|
+| Free Taylor coefficients |0.089|0.055|
+| State flow / midpoint4 |0.071|0.052|
+| Free midpoint stages |0.071|0.052|
+| Free ISRU |0.082|0.051|
+| SwiGLU |0.091|0.034|
+
+The positive within-family comparison is state feedback; prescribed
+coefficients do not show a consistent added benefit. These comparisons
+retain shared P, so they do not establish the value of sharing itself.
+[All scores and paired effects](docs/research-assessments/2026-11-16-ode-mechanism/completed-comparison.md).
+[Interpretation and trained-state convergence](docs/research-assessments/2026-11-16-ode-mechanism/primary-findings.md).
+
+Active: two-worker CPU numerical queue25633, frozen24dbb60. It runs25
+outer-resolution, full internal-refinement and paired C8-stratified
+interventions. [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/numerical-followup.md),
+[launch](docs/research-assessments/2026-11-16-ode-mechanism/numerical-launch.json).
+The single-generator [sharing control](docs/research-assessments/2026-11-16-ode-mechanism/operator-sharing-control.md)
+is registered conditionally and has not launched.
 
 [Coefficient invocation and readiness](docs/research-assessments/2026-11-16-ode-mechanism/execution.md),
 [coefficient launch](docs/research-assessments/2026-11-16-ode-mechanism/launch.json),
 [state-flow gate and invocation](docs/research-assessments/2026-11-16-ode-mechanism/state-execution.md),
 [state launch](docs/research-assessments/2026-11-16-ode-mechanism/state-launch.json).
 Raw root: `/Users/mr.z/ode-workspace-prep/coefficient-20261116/`.
-145 physical0-3 are prohibited;4-7 had resident compute processes, so no145
-GPU was allocated. No existing task was shared or stopped.
+145 physical0-3 remain prohibited. GPU6 briefly became idle; our portable
+witness passed8cases and stopped when a new process appeared. No full GPU
+evaluation or training was launched; no other task was stopped.
 
 On16 November the user asked for a falsifiable mechanism study instead of
 another response search. [Research plan](docs/research-assessments/2026-11-16-ode-mechanism/research-question-card.md)

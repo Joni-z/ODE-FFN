@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "scope": "fixed-weight coefficient reset, not a retraining result",
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__free_stage_midpoint4__adamw_0.0003",
+      "original_field_mse": 0.010652315137557579,
+      "reset_gamma_field_mse": 0.01062403667119312,
+      "prediction_shift_rms": 0.059298355132341385,
+      "gamma_min": 0.9171551465988159,
+      "gamma_max": 1.5200313329696655,
+      "mean_absolute_gamma_departure": 0.17799745500087738
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_stage_midpoint4__adamw_0.0003",
+      "original_field_mse": 0.01916834115901532,
+      "reset_gamma_field_mse": 0.023562409981446944,
+      "prediction_shift_rms": 0.06401622295379639,
+      "gamma_min": 0.8925768136978149,
+      "gamma_max": 1.9721070528030396,
+      "mean_absolute_gamma_departure": 0.2517583767573039
+    }
+  ]
+}

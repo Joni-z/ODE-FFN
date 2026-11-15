@@ -10,6 +10,7 @@ continue to resolve.
 |---|---|
 | Current run and actual job snapshot | [Project status](../STATUS.md) |
 | What does the ODE structure contribute? | [Falsifiable mechanism plan](research-assessments/2026-11-16-ode-mechanism/research-question-card.md), [mathematics](research-assessments/2026-11-16-ode-mechanism/mathematical-basis.md), [primary literature checks](research-assessments/2026-11-16-ode-mechanism/literature-notes.md) |
+| Completed coefficient/state-flow controls | [Primary findings](research-assessments/2026-11-16-ode-mechanism/primary-findings.md), [all scores](research-assessments/2026-11-16-ode-mechanism/completed-comparison.md), [paired statistics](research-assessments/2026-11-16-ode-mechanism/stats-appendix.md), [active numerical follow-up](research-assessments/2026-11-16-ode-mechanism/numerical-followup.md) |
 | Completed eight-response K1/K8 screen and independent confirmation | [Full comparison](research-assessments/2026-11-15-response-screen/current-comparison.md), [CelebA decision](research-assessments/2026-11-15-response-screen/analysis-report.md), [paired-bank statistics](research-assessments/2026-11-15-response-screen/stats-appendix.md) |
 | Response selection before CelebA transfer | [Bounded comparison and selection rules](research-assessments/2026-11-14-next-architecture/response-screen-proposal.md) |
 | Completed wide K8/K1 and fixed native baseline | [Results and FID curves](celeba128-wide-20261114/results.md) |
