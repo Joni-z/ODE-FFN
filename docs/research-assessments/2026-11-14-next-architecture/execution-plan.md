@@ -1,5 +1,12 @@
 # Execution plan: frozen K2 versus state-dependent ISRU
 
+**Current disposition after user review:** retained as a possible control,
+not selected as the default next architecture experiment. The completed tanh
+comparisons do not justify giving ISRU priority because of its ODE derivation.
+The existing CelebA diagnosis can inspect the tested ISRU-D models without
+committing to another ISRU design. Select any new operator from a measured
+limitation; the two training runs below have not been launched.
+
 15 November 2026. **Plan prepared; no new training authorized or launched in
 this planning turn.** This makes the previous recommendation concrete. The
 scope is one diagnostic pass and two new training trajectories, seed0 only.

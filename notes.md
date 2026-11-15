@@ -31,9 +31,19 @@ The initial follow-up recommendation was paired C8 training augmentation on
 ISRU-D and ordinary SwiGLU. In the subsequent planning discussion, prioritize
 the existing CelebA checkpoint diagnosis to keep the main question tied to
 the measured image-model gap. C8 augmentation remains an optional small
-control, not a prerequisite for answering the professor. The sole retained
-image operator pair is frozen-D K2 versus refreshed ISRU midpoint, subject
-to review of the diagnosis and a concrete run decision. Synthetic exponential
+control, not a prerequisite for answering the professor. The subsequently
+proposed ISRU-midpoint pair is no longer the default selected direction:
+the matched response evidence does not justify privileging ISRU. Any new
+operator needs a measured limitation and appropriate ordinary controls.
+Synthetic exponential
 accuracy does not establish image accuracy or prove a benefit from feedback.
 No extra architecture or image training was added.
 Report1/2 preservation covers all96 tracked files against4c336ef.
+
+Use full architecture names when discussing order. The professor's original
+layer uses a learned scalar clock s(h) and A=s(h)P. The recent CelebA K1/K8
+models are widened ISRU-D with A=P diag(1/sqrt(1+1.2*h^2)); recent synthetic
+models include both ISRU-D and Tanh-D at K1/K8. All inherit the shared-P Taylor
+construction, but the latter are not unchanged copies of the original scalar
+clock layer. D is computed once per solve and reused across terms; K1 equals
+h+P ISRU(h), whereas higher terms do not repeatedly apply ISRU to the new term.

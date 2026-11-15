@@ -57,8 +57,10 @@ with added training. No experiment is extended beyond160.
 
 The [next execution plan](docs/research-assessments/2026-11-14-next-architecture/execution-plan.md)
 specifies a one-hour checkpoint diagnosis, numerical/readiness checks and two
-proposed100epoch runs: frozen-D K2 versus refreshed-ISRU midpoint. It has not
-been implemented or submitted. Keep seed0, original baseline and FID every20.
+previously proposed100epoch runs: frozen-D K2 versus refreshed-ISRU midpoint.
+After review of the matched tanh results, that ISRU pair is retained as an
+option rather than the default next experiment. It has not been implemented
+or submitted. Keep seed0, original baseline and FID every20.
 
 A later [professor-comment review](docs/research-assessments/2026-11-15-professor-comments.md)
 recommends spectrum/C8-symmetry diagnostics and a matched activation control
