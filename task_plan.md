@@ -44,6 +44,15 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   learned-defect-field-results/ preserves all numerical flags and source audit.
 - [ ] Profile/compile the SAME256-step FP64observer per the registered runtime
   protocol before paying the projected132GPUhours for primary target transport.
+  - [x] Installed Torch2.8.0+cu128/Triton3.4.0and gcc/g++present; no packages
+    changed. nvccabsent; actual TorchInductorkernel still needs validation.
+  - [x] Factor one coupled RK4step without editing the canonical observer.
+    CPU66114actual0:8full-model prefix outputs/48nonzero-tangent layer checks
+    match the original eagerly, bit for bit. GPUcompilation remains pending.
+  - [ ] Validate compiled numerical identity on fixed small controls, publish/
+    freeze and obtain the independent exact documented execution.
+  - [ ] Check ALLsaved4096-input fields, then paired3-repeat timing on the
+    primary confirmation field. Keep compiler failures and actual exits.
 
 ## Subsequent causal link
 

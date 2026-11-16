@@ -1,0 +1,72 @@
+{
+  "actual_terminal_exit": 0,
+  "tool_session": 66114,
+  "exact_factor_check": {
+    "passed": true,
+    "compiled": false,
+    "rows": [
+      {
+        "case": "ring_midpoint_trained",
+        "split": "selection",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "ring_midpoint_trained",
+        "split": "confirmation",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "ring_rk4_trained",
+        "split": "selection",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "ring_rk4_trained",
+        "split": "confirmation",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "product_midpoint_trained",
+        "split": "selection",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "product_midpoint_trained",
+        "split": "confirmation",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "product_rk4_trained",
+        "split": "selection",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      },
+      {
+        "case": "product_rk4_trained",
+        "split": "confirmation",
+        "network_primal_exact": true,
+        "network_tangent_exact": true,
+        "nonzero_incoming_variation_layers": 6
+      }
+    ],
+    "network_cells": 8,
+    "local_layer_checks": 48,
+    "source_sha256": "e482b1bb133cc9f4494e7a22b818ef31e9b1c47b8c8e2fdc879c9ffc047cc9a0",
+    "step_source_sha256": "aa08d247bb86f0fa4c1a2f0fd170baa748f123a87e1033d10f93f3229c0b4c43",
+    "original_observer_sha256": "07e7ab04633a46ec4c230e054561c961fb6ab87e5755709e782ce2bde3b3a3d1",
+    "tensors_methods_rng_unchanged": true
+  }
+}
