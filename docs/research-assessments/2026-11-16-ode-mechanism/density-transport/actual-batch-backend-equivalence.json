@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "full_batch": 256,
+  "steps": 32,
+  "cells": 6,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "endpoints_exact": true,
+      "errors": {
+        "log_ratio_source": 0.0,
+        "log_ratio_divergence": 0.0,
+        "log_ratio_discrete_local": 0.0,
+        "time_parts": 0.0
+      },
+      "coordinate_seconds": 1.1696207919158041,
+      "batched_seconds": 1.405425834003836
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "endpoints_exact": true,
+      "errors": {
+        "log_ratio_source": 0.0,
+        "log_ratio_divergence": 0.0,
+        "log_ratio_discrete_local": 0.0,
+        "time_parts": 0.0
+      },
+      "coordinate_seconds": 7.126679708715528,
+      "batched_seconds": 7.261089874897152
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "mode": "original",
+      "endpoints_exact": true,
+      "errors": {
+        "log_ratio_source": 1.3322676295501878e-15,
+        "log_ratio_divergence": 7.105427357601002e-15,
+        "log_ratio_discrete_local": 3.552713678800501e-15,
+        "time_parts": 8.881784197001252e-16
+      },
+      "coordinate_seconds": 1.0536744580604136,
+      "batched_seconds": 1.7249573334120214
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "mode": "projected",
+      "endpoints_exact": true,
+      "errors": {
+        "log_ratio_source": 3.552713678800501e-15,
+        "log_ratio_divergence": 7.105427357601002e-15,
+        "log_ratio_discrete_local": 3.552713678800501e-15,
+        "time_parts": 6.661338147750939e-16
+      },
+      "coordinate_seconds": 9.777301124762744,
+      "batched_seconds": 11.886507333721966
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "endpoints_exact": true,
+      "errors": {
+        "log_ratio_source": 3.552713678800501e-15,
+        "log_ratio_divergence": 7.105427357601002e-15,
+        "log_ratio_discrete_local": 1.7763568394002505e-15,
+        "time_parts": 8.881784197001252e-16
+      },
+      "coordinate_seconds": 4.884218750055879,
+      "batched_seconds": 5.087129042018205
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "endpoints_exact": true,
+      "errors": {
+        "log_ratio_source": 1.7763568394002505e-15,
+        "log_ratio_divergence": 7.105427357601002e-15,
+        "log_ratio_discrete_local": 3.552713678800501e-15,
+        "time_parts": 6.661338147750939e-16
+      },
+      "coordinate_seconds": 29.519838000182062,
+      "batched_seconds": 62.2911934168078
+    }
+  ]
+}

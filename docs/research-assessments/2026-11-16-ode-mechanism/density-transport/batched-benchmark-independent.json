@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "phase": "benchmark",
+  "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+  "device": "cpu",
+  "derivative_backend": "batched",
+  "rows": [
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "mode": "original",
+      "bank": 0,
+      "steps": 32,
+      "n": 256,
+      "file": "original-bank0-heun32.npz",
+      "sha256": "5a7576bd51d194f074e2470e32767374d0b962224d6cb5577633ddaffec46bbc",
+      "mean_log_ratio": 0.9420369861588284,
+      "sd_log_ratio": 3.9378083602850715,
+      "mc_se": 0.24611302251781697,
+      "quantiles": [
+        -2.8018514720389622,
+        -1.8939444478074539,
+        0.3719959085627098,
+        9.114201847837712,
+        52.80916262521422
+      ],
+      "chain_max_per_dim": 0.009110343078638339,
+      "local_logdet_max_per_dim": 0.022633274634250355,
+      "time_bin_mean": [
+        -0.0015083271033963308,
+        0.0022738206381755655,
+        0.018142129023986493,
+        0.026511420435065852,
+        0.07409202198239917,
+        0.1661903310431302,
+        0.39098323186056944,
+        0.2653523582788981
+      ],
+      "seconds": 5.087129042018205
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "mode": "projected",
+      "bank": 0,
+      "steps": 32,
+      "n": 256,
+      "file": "projected-bank0-heun32.npz",
+      "sha256": "055bb1318fd401ad81dd5610d6e9fd2e837a4d5354b26bad0abe7e1060e6c315",
+      "mean_log_ratio": 0.5750513574235491,
+      "sd_log_ratio": 1.4286643596319628,
+      "mc_se": 0.08929152247699768,
+      "quantiles": [
+        -2.2776947866165673,
+        -1.6442394219551917,
+        0.18782877211578428,
+        5.5941219610369854,
+        7.630956084066505
+      ],
+      "chain_max_per_dim": 0.004776797950713785,
+      "local_logdet_max_per_dim": 0.013799627826458383,
+      "time_bin_mean": [
+        -0.002599750133100944,
+        0.000708967214168101,
+        0.015539150955282405,
+        0.022936011580225187,
+        0.06491843060321173,
+        0.1339913684028022,
+        0.24364785508283635,
+        0.09590932371812413
+      ],
+      "seconds": 62.2911934168078
+    }
+  ],
+  "numerical_gates": [],
+  "source_sha256": {
+    "formal_density.py": "3e06354883ad814d09b096b52c63b975de130f9f1adb56e5c8e04d044b2d671e",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728",
+    "jacobian_backend.py": "ba9334ed9a2110f9d7f6b7ad0f7ac041a1679e61b87874227828339885511014"
+  },
+  "completion_sha256": "4ac1d2bea2358408ab1b2ed23d75182f4cc6d0c9ba251587502a7491080f4e69",
+  "max_independent_error": 2.1316282072803006e-14
+}

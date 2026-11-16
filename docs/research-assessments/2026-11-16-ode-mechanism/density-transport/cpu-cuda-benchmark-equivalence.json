@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "points": 256,
+  "steps": 32,
+  "cells": 6,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "errors": {
+        "generated": 3.441691376337985e-14,
+        "log_ratio_source": 6.350475700855895e-13,
+        "log_ratio_divergence": 6.341593916658894e-13,
+        "log_ratio_discrete_local": 6.501466032204917e-13,
+        "time_parts": 4.738431869100168e-13
+      },
+      "cpu_seconds": 1.1696207919158041,
+      "cuda_seconds": 2.1341449543833733
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "errors": {
+        "generated": 2.220446049250313e-14,
+        "log_ratio_source": 5.204725539442734e-13,
+        "log_ratio_divergence": 5.364597654988756e-13,
+        "log_ratio_discrete_local": 5.400124791776761e-13,
+        "time_parts": 3.3439917501709715e-13
+      },
+      "cpu_seconds": 7.126679708715528,
+      "cuda_seconds": 1.5504937656223774
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "mode": "original",
+      "errors": {
+        "generated": 1.1039502645360244e-12,
+        "log_ratio_source": 9.85522774499259e-11,
+        "log_ratio_divergence": 9.625011898606317e-11,
+        "log_ratio_discrete_local": 9.622169727663277e-11,
+        "time_parts": 4.5623238520420273e-10
+      },
+      "cpu_seconds": 4.884218750055879,
+      "cuda_seconds": 2.1396974828094244
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "mode": "projected",
+      "errors": {
+        "generated": 1.2434497875801753e-14,
+        "log_ratio_source": 4.707345624410664e-13,
+        "log_ratio_divergence": 4.831690603168681e-13,
+        "log_ratio_discrete_local": 4.902744876744691e-13,
+        "time_parts": 2.4558133304708463e-13
+      },
+      "cpu_seconds": 29.519838000182062,
+      "cuda_seconds": 1.953341033309698
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "mode": "original",
+      "errors": {
+        "generated": 5.051514762044462e-14,
+        "log_ratio_source": 3.5491609651217004e-12,
+        "log_ratio_divergence": 3.5456082514429e-12,
+        "log_ratio_discrete_local": 3.574029960873304e-12,
+        "time_parts": 2.120970066243899e-12
+      },
+      "cpu_seconds": 1.0536744580604136,
+      "cuda_seconds": 0.9081966113299131
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "mode": "projected",
+      "errors": {
+        "generated": 5.10702591327572e-15,
+        "log_ratio_source": 2.824407374646398e-13,
+        "log_ratio_divergence": 2.1671553440683056e-13,
+        "log_ratio_discrete_local": 2.1671553440683056e-13,
+        "time_parts": 3.979039320256561e-13
+      },
+      "cpu_seconds": 9.777301124762744,
+      "cuda_seconds": 0.6508056540042162
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "device": "cpu",
+  "model_cases": 8,
+  "density_data_sha256": "c4edd23d703272298e31f8b0abf4fec13f8e99eb18e2b5dd67cee1239ec706ad",
+  "derivative_backend": "batched",
+  "backend_completion_sha256": "e4288500934773da8a41bcbea356f7035acc59c2f4297fafee0c1ef32e6ee39b",
+  "device_name": "CPU",
+  "gpu_uuid": null,
+  "formal_witnesses": [
+    {
+      "index": 0,
+      "completion_sha256": "3a4d95e2866393407ad5e4f75c30ddf44c58b8ab687f8861c4cad6e0b3779e08"
+    },
+    {
+      "index": 7,
+      "completion_sha256": "35f45d257196b83743904451c066a30fb1c0dbcb991288a39984b1ef5f2ba255"
+    }
+  ],
+  "derivative_completion_sha256": "8fe752f00c2916d66ad4b38e1a4f7e52de5efc17610fb6d8ee79022d450d4412",
+  "source_sha256": {
+    "check_formal.py": "d6a05cc45d2efcbfb89337b5d5e60864c810ad6cca51236d711ac56e8901abfb",
+    "formal_density.py": "3e06354883ad814d09b096b52c63b975de130f9f1adb56e5c8e04d044b2d671e",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728",
+    "jacobian_backend.py": "ba9334ed9a2110f9d7f6b7ad0f7ac041a1679e61b87874227828339885511014"
+  }
+}

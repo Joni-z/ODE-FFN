@@ -1,0 +1,53 @@
+{
+  "registered_before_formal_launch": true,
+  "train_seed": 0,
+  "evaluation_stream": 2026112300,
+  "total_cases": 8,
+  "total_rows": 128,
+  "samples_per_model_field": 1024,
+  "banks": 4,
+  "samples_per_bank": 256,
+  "levels": [
+    1024,
+    2048
+  ],
+  "cpu": {
+    "host": "macmini",
+    "indices": [
+      2,
+      3
+    ],
+    "workers": 2,
+    "backend": "coordinate",
+    "expected_rows": 32,
+    "readiness": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/formal-doc-cpu-coordinate/COMPLETE.json"
+  },
+  "cuda": {
+    "host": "145",
+    "indices": [
+      1,
+      7,
+      0,
+      6,
+      5,
+      4
+    ],
+    "workers": 4,
+    "backend": "batched",
+    "expected_rows": 96,
+    "allowed_physical_gpus": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "readiness": "/data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/formal-doc-cuda-batched/COMPLETE.json"
+  },
+  "rejected_routing": [
+    "Batched VJPs on Mac CPU: slower at real batch",
+    "145 CPU: slower than Mac for all timed representatives"
+  ],
+  "cross_host_observer_max_error": 4.5623238520420273e-10,
+  "estimated_duration": "About30-45min with four continuously available GPUs; grows if fewer remain eligible",
+  "mathematical_observer_sha256": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728"
+}
