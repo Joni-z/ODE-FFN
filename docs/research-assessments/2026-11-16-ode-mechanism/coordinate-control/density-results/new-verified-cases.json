@@ -1,0 +1,102 @@
+[
+  {
+    "passed": true,
+    "witness": false,
+    "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+    "dataset": "gmm_ring8_2d",
+    "family": "contrast_operator_midpoint4",
+    "completion_sha256": "003973ab7570e5eb21d69c2730225538791750e3ad644fcbf7a001cbec4d25a4",
+    "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+    "parent": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+    "cells": [
+      {
+        "mode": "original",
+        "qualified": true,
+        "samples": 1024,
+        "unresolved_indices": [],
+        "resolution_counts": {
+          "2048": 991,
+          "4096": 32,
+          "8192": 1
+        },
+        "file": "original-all-sources.npz",
+        "sha256": "ec0c004b785d32b01c948fa03185c845ee2979743e68037bd9ab844b0cf8cfca",
+        "max_errors": [
+          4.893266541072805e-06,
+          2.3437198723108565e-05,
+          0.001999814283995205,
+          0.0009877402780548046
+        ]
+      },
+      {
+        "mode": "projected",
+        "qualified": true,
+        "samples": 1024,
+        "unresolved_indices": [],
+        "resolution_counts": {
+          "2048": 1013,
+          "4096": 9,
+          "8192": 2
+        },
+        "file": "projected-all-sources.npz",
+        "sha256": "9a11e2c3155ab607a1aed97e743debdf8c2ed7e7e982be916dfb57774f37dfbd",
+        "max_errors": [
+          4.384676905222484e-06,
+          2.3654024623454006e-05,
+          0.001824673795912446,
+          0.00024310535531432204
+        ]
+      }
+    ],
+    "max_independent_error": 5.329070518200751e-15
+  },
+  {
+    "passed": true,
+    "witness": false,
+    "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+    "dataset": "rotated_product_bimodal_16d",
+    "family": "contrast_operator_midpoint4",
+    "completion_sha256": "1e1922e5db0a9569f86a09cc3a53bb96bde13d78ec1d97f71bc95025575b987f",
+    "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-product16-cpu/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+    "parent": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal-product16-cuda/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+    "cells": [
+      {
+        "mode": "original",
+        "qualified": true,
+        "samples": 1024,
+        "unresolved_indices": [],
+        "resolution_counts": {
+          "2048": 953,
+          "4096": 71
+        },
+        "file": "original-all-sources.npz",
+        "sha256": "c3ffbbf341ca170edbc1671ea4788e24e8c47f5079e3022933f6eddf542ec985",
+        "max_errors": [
+          2.5470173754538195e-06,
+          3.774251364996317e-06,
+          0.001992860998129231,
+          0.0009507488298186188
+        ]
+      },
+      {
+        "mode": "projected",
+        "qualified": true,
+        "samples": 1024,
+        "unresolved_indices": [],
+        "resolution_counts": {
+          "2048": 965,
+          "4096": 59
+        },
+        "file": "projected-all-sources.npz",
+        "sha256": "017fd43b5758fbc238b91525aa2488bca8dcb1c2034b960e0bfb450a95b39aa6",
+        "max_errors": [
+          2.6554169316739262e-06,
+          3.941968110265925e-06,
+          0.0019368626286012658,
+          0.0009555325116713631
+        ]
+      }
+    ],
+    "max_independent_error": 3.8191672047105385e-14
+  }
+]

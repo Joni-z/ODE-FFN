@@ -215,16 +215,33 @@ are substantial. Stage ordering is active, while the leading term alone is
 not a sufficient generation explanation.
 [Derivation and native measurements](coordinate-control/schedule-decomposition/analysis-report.md).
 
-## Remaining decision
+## Completed coordinate-control density result
 
-Finish the two new mean-preserving density/width measurements before selecting
-another structure. Ring8's full-source refinement is complete and independently
-verified within5.33e-15, with both fields qualified. Product16 is
-rerouted to idle145GPU7 after a measured 7.968x combined speedup. Its suspended
-CPU state is retained until the full GPU result passes independent and
-cross-host audits. [Resource handoff](coordinate-control/observations/resource-handoff.md).
+All new source paths now qualify, with independent reconstruction within
+3.82e-14. The combined analysis retains every source in all twenty fields;
+count-weight bootstrap and fsum moments reproduce the eight registered paired
+contrasts within6.11e-16. The two CPUrefinement workers finished successfully;
+unused GPUqueues were cancelled without starting population children.
 
-The registered comparison adds the new four qualified cells to the sixteen
-completed reference cells, retaining every source and eight prespecified
-paired contrasts. It can distinguish a density/width effect from a sliced
-distance benefit. It cannot by itself establish an ODE-exclusive advantage.
+On Product16, mean-preserving/anchored KL is0.773/0.516 originally and
+0.758/0.464 after projection. The new-minus-anchored differences0.256/0.294
+have adjusted intervals[0.102,0.421]/[0.145,0.455]. The new-minus-shared
+intervals include zero in both fields. All four Ring8 intervals also include
+zero. Removing the mean-update amplification does not produce a resolved
+shared-P joint-density advantage or improve the anchored result.
+
+The new projected Product16components are broader: relative variance1.227,
+versus anchored1.146and shared1.190. Pairwise dependence remains near the
+same target-sample floor. Coordinate choice affects the learned distribution;
+width alone is not a full explanation. [Completed analysis, three figures
+and all paired statistics](coordinate-control/density-results/analysis-report.md).
+
+## Next falsification test
+
+Keep two matricesP/B, the response, optimizer coordinates, initial function
+and eight matrix applications fixed. Compare stage orders(+,-,-,+)and
+(+,-,+,-), with W+=P+B,W-=P-B. The first cancels the leading stage-bracket
+term without removing B; the second retains it. This isolates a composition
+constraint from the previous coordinate intervention. It is proposed, not
+trained, and its small-time cancellation is not a performance guarantee.
+[Exact hypothesis, predicted coefficient and rejection rules](schedule-order-control.md).

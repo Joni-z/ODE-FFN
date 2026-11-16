@@ -1,218 +1,110 @@
 # ODE mechanism investigation
 
-Goal active: determine which ODE constraints help and identify the mechanism.
-Keep seed 0, the pinned native code and finalized reports. Mac mini is
-available freely. On145, use only idle physical GPUs4-7;0-3are forbidden.
-Never stop or share a foreign task.
+Goal active: identify which ODE constraints help generative modeling and why.
+Keep seed 0 and report scores to three decimals. Reports1/2 are final. Preserve
+the pinned image trainer, loss, sampler, baseline and frozen running sources.
+Mac mini is available; on145 use only empty physical GPUs4-7, never0-3.
+Never stop/share foreign jobs. Re-poll actual handles after observation timeouts.
 
-## Completed evidence
+## Evidence already complete
 
-- [x] Coefficient/state/stage training and fair ordinary controls. Fixed
-  Taylor coefficients do not add a consistent benefit; state feedback helps
-  the within-family Ring8 comparison.
-- [x] Shared versus released-stage operators at identical dense work. Sharing
-  improves generation on both tasks; Product16 field MSE moves oppositely.
-- [x] Full solver refinement and frozen symmetry intervention. Ring8 reverses
-  the sharing comparison after C8projection; Product16 retains the gap.
-- [x] Exact density transport identity and independently checked observer.
-- [x] Full population observation:8cases,2fields,4x256sources,1024/2048steps.
-  All128rows independently reconstruct within4.62e-14. All16cells include
-  some resolution-sensitive paths; the pilot did not certify those sources.
-- [x] Register bounded all-source adaptive refinement4096/8192/16384, with
-  original thresholds and no point removal. Fresh CPU/CUDAentries pass.
-- [x] Mac Ring8 FreeISRU/SwiGLU refinement and independent merge verification:
-  all4cells qualify; max reconstruction error1.16e-14.
-- [x] Prepare paired fixed-weight statistics and validate common-path/bank
-  resampling plus exact native SW2replay. Confirmation time profiles stay hidden.
-- [x] Independently verify all four Product16 models, both fields. Stage-minus-
-  shared KL is negative with adjusted intervals excluding zero; reject the
-  proposed density explanation of the earlier large-bank SW2 sharing lead.
-- [x] Diagnose Product16 component widths, centroids and pairwise dependence;
-  calibrate the finite-sample SW2 floor using an exact target-law endpoint map.
+- Fixed/free exponential and midpoint coefficients, state feedback, ordinary
+  Free ISRU/SwiGLU controls: [primary findings](docs/research-assessments/2026-11-16-ode-mechanism/primary-findings.md).
+- Shared/anchored stage training, full-bank solver/symmetry interventions,
+  original16-cell density comparison. Product16 rejects lower joint KL as
+  the explanation of the shared-P SW2 lead; Ring8 paired KL is unresolved.
+- Mean-preserving stage training, same-function optimizer probes and native
+  stage-order decomposition. Coordinate choice affects updates. The bracket
+  expansion holds at small horizon, but unit-horizon errors remain material.
+- New full-bank inner/outer numerical sweep; anchored/new Ring8 point ordering
+  reverses under inner refinement. No image promotion follows these scores.
+- New Ring8 density/adaptive observations: all1,024sources in both fields
+  qualify independently within5.33e-15. Queue48821/worker48824 exited0.
 
-## Current work
+## P0: finish the registered new-control comparison
 
-- [x] Finish six CUDAadaptive cases; queue3584295, source405a201. Keep all
-  sources, selected resolutions, previous estimates and unresolved flags.
-- [x] Independently reconstruct all eight adaptive merges and every source
-  gate. Do not rank an unresolved density contrast.
-- [x] Run four paired shared/stage density contrasts, their MCuncertainty
-  and resolution sensitivity. Compare SW2on these same prebound inputs.
-- [x] Implement the registered mean-update-preserving stage release. Verify
-  its full-model/native-continuation identities before the two matched20k
-  training controls. This tests sharing versus optimizer coordinates.
-  - [x] Add only the stage-coordinate adapter, grid and native evaluator wrapper.
-  - [x] Check zero-contrast function/input/common-gradient pairing, arbitrary
-    matrix reconstruction, real optimizer mean invariance and clipping factors.
-  - [x] Pass native8-to16 continuation and a fresh documented CPU witness.
-  - [x] Freeze/publish, run two20k CPU trajectories with the existing monitor,
-    and evaluate on the already bound common eight-bank arrays.
-- [x] Recompute all ten models, finish native same-function optimizer probes,
-  inspect both scientific figures and record cost/paired-bank statistics.
-- [x] Assemble the independently verified coordinate-control evidence,
-  updated snapshot and inspected figures for publication.
-- [ ] Measure new-checkpoint solver sensitivity and joint density/widths on
-  the existing sources. Reuse the sixteen completed reference cells; no
-  response search, new training or image promotion is authorized by these scores.
-  - [x] Extend the existing portable loader and density entry checks to the
-    two registered contrast checkpoints; bind the model-builder source hashes.
-  - [x] Copy the existing P2source arrays byte-for-byte and generate only the
-    two new native CPU anchors. Preserve all earlier portable/evidence roots.
-  - [x] Verify derivatives, native endpoints and real CLI entries; obtain a
-    fresh documented witness before the bounded observation queue.
-  - [x] Use Mac CPUwhile145physical4-7are occupied; benchmark the new cells
-    and freeze source before monitored1024/2048 observations.
-  - [ ] Independently collect all32new formal rows and refine unresolved
-    sources under the original unchanged gates, with no point removal.
-  - [ ] Extend the existing population-statistics reader to compare the two
-    new qualified cases with all eight preserved references. Verify identical
-    dataset bytes and retain the eight registered99.375%paired intervals.
-    Replay the completed original analysis unchanged as the regression check;
-    do not export confirmation time profiles or invent new training repeats.
-  - [x] Run outer128/256/512 and inner4/8/16checks on the original sharing
-    evaluation arrays, independently recompute scores and compare the same banks.
+1. [x] Product16formal queue641894/worker641939completed on145physical7,
+   all16rows, exit0. Frozenfd7f09b source stayed clean; processes are absent.
+2. [x] Copy the entire case to contrast-observations/formal-product16-cuda.
+   Independent audit of all32new formal rows agrees within4.27e-14. All9
+   retained CPUrows match GPUarrays within1.39e-12; no host/point splicing.
+3. [x] After that full audit, recheck fallback UID/parent/start/full command.
+   Only our CPU43094was terminated; actual exit-15and process absent. The
+   failed CPUqueue receipt is preserved, with no unrelated failure. Source,
+   model, data and gates stayed unchanged. Receipt:migration-product16-complete.json.
+4. [x] Product16 CPUrefinement49633/49635finished exit0. All1,024sources
+   in each field qualify: original953at2048/71at4096; projected965/59.
+   Both population processes are absent. No point was dropped or gate relaxed.
+5. [x] Independently verify the Product16merge, then both new cases together
+   using verify_adaptive.py. Require two cases/four qualified fields. Retain
+   source indices, previous estimates and selected resolutions. No density
+   ranking for an unresolved field.
+6. [x] Run prepared analyze_formal.py with the new two-case verification and
+   preserved original eight-case reference. Require identical dataset NPZbytes,
+   all20cells and all8registered paired contrasts,10,000within-bank resamples
+   RNG0,99.375%nominal intervals. No confirmation time-profile export.
+7. [x] Run prepared product_geometry.py on the new control; compare old/new
+   conditional widths, centroids and dependence with the same target calibration.
+   Render plot_formal.py's two scientific figures and inspect actual images.
+   Keep small1024-source SW2 apart from primary32768-source scores.
+8. [ ] Publish an evidence-bound analysis bundle (analysis-report.md,
+   stats-appendix.md, figure-catalog.md, actual figures), canonical findings,
+   STATUS/notes and source under Zhizhe Zhang to GitHubmain. Independently
+   check key means/paired intervals and all finalized-report hash bindings.
 
-## While the fixed observation queues run
+## P1: answer the mechanism question and choose the next intervention
 
-- [x] Extend the existing registered frozen-stage diagnostic to the new
-  mean-preserving checkpoints. Keep the five clocks,16common pairs and20k
-  weights; do not add training or sampling-quality selection.
-- [x] Derive the four-stage minus mean-generator expansion. Verify its
-  1/32coefficient independently with linear matrix exponentials and nonlinear
-  JVP checks. Test the scalar-clock and shared-Pnulls.
-- [x] Measure the predicted and observed local-map change across fixed
-  internal horizons. Report unit-horizon approximation failures explicitly;
-  a small-horizon identity alone is not a generation mechanism.
-- [x] Reuse the native full-field reverse/mean/base probes, and confirm
-  original/new parameter coordinates yield the same effective-stage results.
-  Freeze/publish the diagnostic and obtain a fresh documented execution.
-- [x] Prepare and independently verify new-model CUDAreadiness. Initial
-  routing was future refinement only; the measured amendment below now
-  replaces our slow Product16CPUobservation while preserving its state.
-  - [x] Fetch pinned fd7f09b through GitHub into an isolated145worktree;
-    transfer42,373,120bytes and independently verify all14input files.
-  - [x] Pass the new two-model CUDAderivative/native/backend entry. First
-    witnessed attempt exited75before a child; source and data stayed intact.
-    Author rechecks the exact selector:5/7eligible, matching raw driver output.
-    No parser fault reproduced; second fresh documented entry exits0on5,
-    both models and all four backend cells pass. Its CUDAcontext is released.
-  - [x] Pass a fresh Product16CUDAadaptive entry; independently reconstruct
-    four native witness rows within1.25e-13. It does not qualify a population.
+- Interpret each hypothesis as keep/weaken/reject using the completed controls.
+  Do not equate layer activity, ODE approximation accuracy or a lower SW2 with
+  a general distribution improvement or an ODE-exclusive contribution.
+- If a specific structural mechanism remains supported, register one matched,
+  mathematically predicted and falsifiable intervention before new training.
+  Otherwise report that current evidence favors generic feature/optimization
+  effects; do not continue response-only search or promote a new image model.
+- Preserve the full objective through analysis and the resulting research
+  decision. Completion of one queue is not completion of the goal.
 
-## Measured routing amendment
+## Resource observations and completed recovery
 
-The second CUDAentry has now passed on physical5and released its context.
-Newly available permitted GPUs change the earlier CPU-only routing premise.
-Measure the exact Product16B256/32step benchmark against its already saved
-CPU counterpart. If CUDAis at least3xfaster and full-batch arrays agree
-(relative endpoints/log ratios per dimension<1e-7), an intentional handoff
-may replace only our Product16CPUworker. Preserve all completed CPUrows.
-Suspend our exact Product16PID43094while securing the GPU; retain that
-in-memory state until the entire GPUcase has completed and passed independent
-and matched-completed-row audits. Resume it if the replacement fails. Rerun
-the entire unchanged16-row case on the GPUrather than splice hosts. Only
-after successful replacement audit terminate our suspended CPUworker and
-record its intentional supersession; never suppress another queue failure.
-Measured B256CUDA/CPU ratios are2.074original and14.431projected,7.968combined;
-endpoint/log-ratio differences are below3e-13. This is a measured resource change, not
-a timeout-driven retry or outcome-selected run. Ring8continues CPU.
+The actual71/59-source CPUbatched backend was slower on the projected field;
+kept coordinate CPUexecution. CUDAwas3.521xfaster in the bounded benchmark,
+but the card was reclaimed before a population child started. A too-early
+CPUhold cost240.9seconds; its exact in-memory state was recovered, no restart.
+The corrected905868queue waited while CPUcontinued, then was cancelled after
+CPUcompletion; it never started a population child. All raw attempt/identity,
+source and recovery records are preserved. Never suspend CPUfor a pending
+GPUallocation. No foreign job was stopped/shared; physical0-3were not used.
 
-Handoff is live: 145queue641894/worker641939on freshly idlephysical7at
-fd7f09b. CPU43094is suspended, with nine complete rows and the exact process
-identity saved. Keep that fallback until the full16-row replacement passes
-independent and cross-host audits. Ring8PID43093continues. Source, weights,
-arrays and numerical gates are unchanged. Readiness, adaptive-entry audit,
-measured portability/speed and the actual allocation are preserved under
-coordinate-control/observations/. No foreign task is stopped or shared.
+## Next concrete actions
 
-The Product16 oracle-window branch is rejected by its signed density result;
-do not select a favorable time bin. Keep confirmation time profiles unopened.
+1. Implement only the two same-P/B schedule adapters in the isolated study.
+2. Verify the bracket coefficient/nulls, identical full-model initialization,
+   common gradients, native continuation and actual evaluator before training.
+3. Obtain a fresh documented native witness and freeze/publish source.
+4. Run four seed0trajectories (two arms x Ring8/Product16), same20k recipe,
+   monitored on Mac CPUor freshly idle145physical4-7. Keep ordinary controls.
+5. Evaluate all common banks and registered refinements; accept or reject
+   the composition hypothesis using the prespecified rules. No response search.
 
-## Current execution
+The [proposal](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order-control.md)
+is not implemented or launched. Current evidence identifies the coordinate
+confound and active ordering, but has not established an ODE-exclusive gain.
 
-Full producer queues35441and3447050are terminal, with all workers exit0.
-Mac adaptive queue36629and workers36631/36632are terminal, exit0.
-CUDAadaptive queue3584295is terminal, with all six workers exit0; all
-sixteen combined model/field cells qualify independently within4.98e-14.
-The full paired statistics and rendered figures are complete. Our CUDA
-contexts are released; only idle GPUs4-7were used.
-Initial workers3584335/3584336/3584337/3584338; Product16ordinary controls
-follow in the same monitored queue. Re-poll live handles after timeouts.
+## Execution bindings
 
-The completed405a201adaptive engine and3a7d5feformal producer remain frozen.
-New statistics are separate files; no training or image experiment is added.
-Timing-only small-subset probes show that future tiny Ring8refinements should
-use Mac CPU; Product16projected subsets still favor GPU. Do not change a
-running producer based on an unverified estimate.
+Local raw root:
+/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations
+Frozen observer/checkpoint loader: fd7f09b0064ceab36a13f7757fd2716d002cbba6.
+Data SHA:af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577.
+Reference8verification: ../density-transport/adaptive-full-verified.
+Reference data: ../density-transport/portable. New data: density-data.
+CUDAreadiness:145doc-cuda-2; adaptive:145adaptive-doc-cuda-product16.
+CPUidentity/fallback and speed/portability: migration-product16-{start,live}.json,
+routing-benchmark.json and handoff-prefix-check/COMPLETE.json.
+Canonical evidence: docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/.
 
-Canonical evidence: docs/research-assessments/2026-11-16-ode-mechanism/.
-Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport.
-Current registration: density-adaptive-followup.md; execution: density-adaptive-execution.md.
-Previous plan: docs/history/2026-11-16-density-pre-adaptive-task-plan.md.
-
-Previous goal turn completed all-source density qualification and rejected
-the proposed Product16 explanation. Current coordinate control is complete:
-queue40445and workers40447/40448are terminal, both exit0; watcher40446has
-completed all new evaluations. New-versus-shared pooled SW2isRing8.104/.091,
-Product16.072/.064. Ring8paired support is5/8for shared and unresolved;
-Product16is8/8for shared. Same-function native AdamWprobes establish
-coordinate effects, but do not replay historical optimizer momentum.
-Goal remains active. New-control solver/density measurements remain pending.
-
-Current continuation is progress: coordinate-control results were published
-at4f359d1. Fresh145inventory finds4-7occupied (13--15GiBeach); noGPUis
-allocated. Implement the bounded observation extension next; keep density_ops.py,
-native loss/sampler and all finalized report files unchanged.
-
-Author preparation is complete: two new checkpoints replay the full native
-field and bank0exactly; two new and all eight original model entries pass.
-Eight full-native-map logdet checks pass within3.68e-8at the finest stencil.
-The fresh documented witness passes four commands, all exits0. Independent
-native-law/NumPyentry audits pass, max1.78e-14; eight bounded numerical scores
-reproduce within2.78e-17. Sequential256-source benchmarks pass independently.
-At frozenfd7f09b, densityqueue43084(workers43093/43094) and numericalqueue43096
-(initial workers43098/43099) are live with advancing integration and actual
-CPUutilization. Four numerical tasks use all32768sources; two new density
-cases retain all1024sources each, two fields and1024/2048steps.
-Protocol: coordinate-control/observation-protocol.md. No current blocker.
-
-Execution note: a publication-only Python helper had an unmatched brace and
-failed before executing. Corrected it once; no observation job was restarted.
-
-Current continuation is progress: six-model fixed-mean diagnostic at2f8dd60
-passed its fresh native command (PID44983exit0) and independent NumPyaudit,
-max vector7.11e-15/scalar1.34e-15. Both figures inspected. Numericalqueue43096
-is now terminal, all four tasks exit0; twelve pooled/96bank scores reproduce.
-Densityqueue43084and workers43093/43094remain live. New-model adaptive CPU
-witnesses45112/45157exit0and independent reconstruction passes within1.78e-14.
-The fresh145snapshot finds5-7idle; noGPUallocation or CPUjob restart occurs.
-
-
-Canonical findings are refreshed with the completed mean-coordinate,
-numerical, full-density and stage-composition results. Removed obsolete
-"not launched/not trained" statements from the three current findings
-pages, retaining their original scientific values and historical receipts.
-Reader changes were published at b5adc32. New-model statistics/geometry and
-coordinate plotting still await the qualified full population. Completed
-original eight-model analysis and geometry replay exactly by case identity.
-Some targeted Markdown patches initially missed wrapped text; reread and
-applied only the intended paragraphs. No runtime/source producer changed.
-
-
-Ring8formal worker43093 finished exit0; all16rows independently reconstruct
-within7.99e-15. The original/projected fields retain33/11unresolved paths;
-registered CPUadaptive queue48821/worker48824started at unchanged fd7f09b.
-ActualPID and increasing4096integration steps verified. Curated formal audit
-omits all per-bank time profiles; raw complete diagnostics remain outside Git.
-Product16CUDA641939 continues, with CPU43094held as fallback. No source removed.
-
-
-Ring8all-source refinement is complete: queue48821/worker48824exit0and PIDs
-absent. Both1,024-source fields qualify independently, error5.33e-15; no
-source removed. Curated completion is observations/adaptive-ring8-complete.json.
-Product16 remains live on145GPU7; its eight original-field rows already
-cross-check with retained CPUwithin1.39e-12. Await its full16-row completion,
-then independently audit and compare every nine retained CPUrows before
-terminating fallback43094. Proceed with Product16adaptive refinement only
-after its actual successful parent exit. Combined statistics still await
-both tasks; do not relax the two-case/20-cell requirements.
+Previous detailed execution journal is preserved verbatim at
+[history](docs/history/2026-11-16-before-coordinate-density-completion-task-plan.md).
+Current goal turn: progress. All observation jobs are terminal; twenty-cell
+analysis, independent statistics and three inspected figures are complete.
+Publication is being finalized. The matched order-control proposal is next.

@@ -63,6 +63,45 @@ needs higher-order terms. We therefore do not rely on that paper's stated
 finite-step bound or transfer it to Heun. This local objection does not audit
 all its experiments or exclude an asymptotic bound with corrected terms.
 
+## Additional checks: what autonomy and composition do not guarantee
+
+Tong et al., *Neural ODE Transformers: Analyzing Internal Dynamics and
+Adaptive Fine-tuning*, arXiv2503.01329v1 (March2025).
+[Primary full text](https://arxiv.org/html/2503.01329v1), sections4--6.
+The model generates attention and FFN weights as functions of continuous
+depth, deliberately relaxing shared weights. Its spectral observations and
+language-model evaluations challenge treating shared-weight dynamics as a
+universal description of transformers. This is whole-model language work,
+not a matched flow-matching FFN comparison. Consequence for our study:
+shared P is a testable restriction; "more autonomous" alone does not predict
+better generation. Our stationary-versus-stage controls must establish that
+benefit on their own tasks.
+
+He, *Neural Vector Field Transformations: Learning the Flow of Autonomous
+Systems by Conjugation to Explicitly Integrable Reference Flows*,
+arXiv2610.29039v1 (21October2026), preliminary preprint.
+[Primary record](https://arxiv.org/abs/2610.29039), abstract.
+The architecture conjugates an explicit reference flow through an invertible
+network, obtaining a flow for every parameter value. Conjugacy also preserves
+dynamical invariants, so the reference family restricts the learned dynamics.
+The abstract reports a setting where a time-input network is more accurate
+inside its training horizon. Scope here is the abstract, not a theorem audit
+or generative-image replication. This is an example of a precise structural
+guarantee with an expressivity tradeoff, rather than evidence that a valid
+flow necessarily fits a task better. We do not add a conjugacy architecture
+to the current experiment family.
+
+Bajars, *Locally-symplectic neural networks for learning volume-preserving
+dynamics*, arXiv2109.09151v2 / Journal of Computational Physics2023.
+[Primary full text](https://arxiv.org/html/2109.09151v2), sections2.4/3.3.
+The symmetric construction composes learned modules with their adjoints and
+shares parameters, targeting time reversal and volume-preserving dynamics.
+Thus symmetric learned compositions are established prior work. A possible
+future palindrome-versus-alternating schedule would be a controlled mechanism
+test, not a new numerical principle. Their volume-preserving assumptions do
+not hold automatically for our feature transformations or FM target flow;
+no volume constraint is imported from this paper.
+
 ## Research consequence
 
 Established mathematics gives useful identities to test, not a guarantee

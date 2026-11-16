@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "adaptive": true,
+  "completed": [
+    {
+      "index": 1,
+      "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+      "pid": 49635,
+      "physical_gpu": null,
+      "gpu_uuid": null,
+      "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-product16-cpu/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "-u",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_density.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models",
+        "--data",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data",
+        "--case-output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal-product16-cuda/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+        "--parent-commit",
+        "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-product16-cpu/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+        "--device",
+        "cpu",
+        "--derivative-backend",
+        "coordinate",
+        "--readiness",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-product16/COMPLETE.json"
+      ],
+      "started": 1794807853.715172,
+      "exit_code": 0,
+      "complete": true,
+      "finished": 1794809511.89035,
+      "numerical_resolved": true
+    }
+  ],
+  "unstarted": [],
+  "selected_indices": [
+    1
+  ],
+  "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "numerical_resolved": true
+}

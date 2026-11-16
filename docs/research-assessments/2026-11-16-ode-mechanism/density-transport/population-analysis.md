@@ -104,11 +104,13 @@ That new control has now completed both 20k trajectories and common-bank
 evaluation. Its pooled SW2 is 0.104/0.072 on Ring8/Product16, versus shared
 0.091/0.064. Ring8's paired comparison is unresolved; Product16 favors shared
 on all eight banks. Its solver sweep is also complete. New-control density
-and component-width observations are running; the original density numbers
-above must not be attributed to that new parameterization.
+and component-width observations are complete: new Product16 KL is
+0.773 original / 0.758 projected. Both new-minus-anchored intervals favor
+anchored; the new-minus-shared intervals include zero. The original numbers
+above retain their original parameterization and are not replaced.
 [Current coordinate-control analysis](../coordinate-control/analysis-report.md),
 [solver results](../coordinate-control/numerical-resolution/analysis.md),
-[measured observation handoff](../coordinate-control/observations/resource-handoff.md).
+[completed new density analysis](../coordinate-control/density-results/analysis-report.md).
 
 All Ring8 refinements and the full independent audit are complete. Their
 stage-minus-shared KL differences are -0.001 original and 0.001 projected,
@@ -120,5 +122,6 @@ establish a Ring8 density ordering. No oracle window is selected.
 All workers exited successfully and our CUDA contexts were released. No new
 image run or finalized report was changed. The broader goal remains identifying
 which ODE constraints help and why. The completed mean-preserving release
-tests the optimization confound; its pending density observation is required
-before attributing a distribution-level mechanism to the new comparison.
+tests the optimization confound and has completed density qualification.
+It does not establish a shared-P joint-density advantage. The next proposed
+intervention holds P/B coordinates fixed and changes only stage order.

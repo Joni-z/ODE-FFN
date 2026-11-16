@@ -107,13 +107,16 @@ shared remains 0.091. Product16 shared/anchored/new change from
 0.064/0.073/0.072 to 0.069/0.082/0.080. Outer refinement leaves the coarse
 ordering. [All independently reconstructed scores](numerical-resolution/analysis.md).
 
-Joint-density and width measurements reuse the fixed sources and sixteen
-completed reference cells. Ring8's sixteen initial rows and registered
-refinement are complete; both fields retain all1,024sources and qualify
-independently within5.33e-15. Product16 runs on idle145GPU7 after a measured speedup, retaining
-its suspended CPUfallback. Until these new measurements qualify, the original
-shared-versus-anchored KL result must not be attributed to the new control.
-[Observation routing](observations/resource-handoff.md).
+Joint-density and width measurements are complete, reusing the fixed sources
+and sixteen reference cells. All four new fields retain every1,024sources and
+qualify independently within3.82e-14. On Product16new/anchored KL is
+0.773/0.516originally and0.758/0.464projected, with adjusted paired intervals
+excluding zero in favor of anchored. All new-minus-shared intervals, and all
+four Ring8intervals, include zero. The new projected width ratio is1.227,
+versus anchored1.146and shared1.190. Thus removing mean-update amplification
+does not improve this density comparison.
+[Completed density analysis and three figures](density-results/analysis-report.md),
+[execution and resource recovery](observations/resource-handoff.md).
 No image run or finalized report is changed.
 
 ## Verification and artifacts

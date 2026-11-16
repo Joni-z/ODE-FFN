@@ -215,3 +215,76 @@ Ring8refinement finished: all1,024sources in each field qualify. The
 independent NumPymerge/source audit agrees within5.33e-15. Queue48821and
 worker48824both exit0and are absent. Population comparisons remain pending
 Product16, not blocked. No source removal or tolerance adjustment occurred.
+
+
+The current plan is shortened to the exact remaining Product16 handoff,
+all-source qualification,20-cell paired analysis and resulting mechanism
+decision. Its previous journal is preserved byte-for-byte in
+2026-11-16-before-coordinate-density-completion-task-plan.md (SHA256
+aa9afdcbd747a4343f6cd2602c40ef785a5b08b14b1d8b334ec91a14055445a8).
+A targeted primary-source review adds Tong et al.2025 (depth-dependent
+transformer weights), He2026preprint (exact conjugate-flow structure and
+expressivity tradeoffs; abstract inspected), and Bajars2023 (symmetric
+learned compositions as prior work). These motivate a narrower structural
+claim; no new architecture or experiment follows from the literature alone.
+
+
+Product16formal queue641894/worker641939finished exit0on physical7. All32new
+formal rows independently reconstruct within4.27e-14. Full cross-host audit
+covers every nine retained CPUrows, max endpoint7.09e-14/logratio-per-dim
+1.31e-12/other-per-dim1.39e-12. Only after this, our exact suspended CPU43094
+was identity-checked and terminated: actual exit-15, process absent. The
+failed old queue is preserved with this explicit supersession and no unrelated
+failure. No source/host rows were spliced. All permitted cards became occupied,
+so the passed CPUadaptive entry runs queue49633/worker49635from the completed
+GPUparent, preserving all sources. Initial unresolved counts:71/59.
+
+An actual-subset timing/equality probe checked both exact derivative backends
+on these71/59sources. Batched speedups:1.899original and0.828projected; the
+projected CPU path is slower. Maximum observer disagreement3.56e-15and native
+endpoints exactly equal. Keep the running coordinate worker. No speculative
+backend switch or restart occurred. The count-weight bootstrap implementation
+matches the indexed implementation on an actual qualified Ring8checkpoint
+pair (10kresamples,3columns), max1.25e-16. Full20-cell audit awaits Product16.
+
+
+Adaptive resource-race recovery:7became empty; the exact71/59-source CUDA
+probe measured combined3.521xspeedup. A full native GPUreplacement queue871807
+was prepared, but a foreign job reclaimed the card before guarded allocation.
+No population child started. Only our UID/command/PGID-verified pending queue
+was stopped. CPU49635was held too early for240.9seconds, then resumed its
+exact original in-memory state; advancing steps and unchanged process start
+are verified. It was not restarted. Preserve all attempt/recovery receipts.
+Corrected routing policy: keep the CPUworker running until a real GPUchild
+has started; do not suspend useful work for a pending allocation. All0-3
+restrictions and foreign jobs remain untouched. Current work is CPUrefinement.
+
+
+A new guarded queue905868waits at145/adaptive-product16-cuda-attempt2 while
+CPU49635continues useful work. No GPUworker was yet observed at its first
+live check. Do not suspend CPUfor a pending allocation. On actual GPUstart,
+check remaining-time benefit and record a new CPUidentity/progress snapshot;
+if CPUfinishes first cancel only our waiting GPUqueue. The cancelled first
+attempt871807is preserved and is not restarted. Current sources stay fd7f09b.
+
+
+The coordinate-control density comparison is complete. Product16CPU49633/
+49635exit0and are absent. Its71/59sensitive sources all qualify at4096;
+coarse-error scaling overpredicted higher-level needs and was never used as
+qualification. The second GPUqueue905868was cancelled while still pending;
+no adaptive GPUpopulation child ever ran. A status-capture helper encountered
+a missing CPU PIDbecause that worker had completed; inspected its actual
+terminal receipt and did not restart it. Both new cases/four fields now pass
+independent merge audit within3.82e-14, retaining every source. All20cells
+and8registered paired contrasts complete; count-weight bootstrap/fsum agrees
+within6.11e-16. Three real PNG/PDFfigures rendered and inspected.
+
+Core result: Product16mean-preserving/anchored KL0.773/0.516original and
+0.758/0.464projected. New-minus-anchored differences0.256/0.294 have adjusted
+intervals[0.102,0.421]/[0.145,0.455]. All new-minus-shared and Ring8intervals
+include0. New projected variance1.227versus anchored1.146/shared1.190;
+pairwise covariance remains near target floor. Same-class coordinate choice
+changes learned density; removing mean-update amplification is not a rescue.
+Analysis bundle: coordinate-control/density-results/. Current next proposal
+holds P/Bcoordinates/initial function/compute fixed and changes only stage
+order, with a predicted leading-bracket cancellation. Not implemented/trained.

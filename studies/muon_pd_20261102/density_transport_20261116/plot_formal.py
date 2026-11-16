@@ -79,7 +79,10 @@ def main():
             ax.set_yticks(range(4), labels)
             ax.set_xlabel('Mean-preserving minus reference (nats)\nPositive favors reference; intervals: 99.375%')
             ax.set_title(title)
-        fig.suptitle('Eight registered paired contrasts at fixed trained weights\n* Gray: resolution-sensitive contrast, no density ranking')
+        title = 'Eight registered paired contrasts at fixed trained weights'
+        if any(not r['valid_for_density_ranking'] for r in stats['contrasts']):
+            title += '\n* Gray: resolution-sensitive contrast, no density ranking'
+        fig.suptitle(title)
         save(fig, 'paired-coordinate-density')
     else:
         ax = axes[0]

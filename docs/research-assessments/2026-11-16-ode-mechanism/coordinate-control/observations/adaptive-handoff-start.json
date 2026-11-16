@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "state": "cpu_suspended_fallback",
+  "pid": 49635,
+  "parent_pid": 49633,
+  "uid": 501,
+  "process_start": "Mon Nov 16 13:44:13 2026",
+  "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_density.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data --case-output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal-product16-cuda/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003 --parent-commit fd7f09b0064ceab36a13f7757fd2716d002cbba6 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-product16-cpu/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003 --device cpu --derivative-backend coordinate --readiness /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-product16/COMPLETE.json",
+  "unix_time": 1794808751.022135,
+  "case_id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+  "source_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "completed_rows": [
+    {
+      "mode": "original",
+      "steps": 4096,
+      "samples": 71,
+      "file": "original-subset-heun4096.npz",
+      "sha256": "aa616845dbfcd0d3d8051c44b5a14ffc4bf9e0c71ba823a847d8e86285140836",
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "seconds": 347.5244435830973
+    }
+  ],
+  "merged_fields_sha256": {
+    "original-all-sources.npz": "c3ffbbf341ca170edbc1671ea4788e24e8c47f5079e3022933f6eddf542ec985"
+  },
+  "progress": {
+    "pid": 49635,
+    "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+    "mode": "projected",
+    "witness": false,
+    "steps": 4096,
+    "selected_sources": 59,
+    "completed_steps": 2240,
+    "total_steps": 4096,
+    "rows_completed": 1,
+    "seconds": 895.7333515826613
+  },
+  "source_data_sha256": "af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577",
+  "gpu_formal_parent_sha256": "769516689f4dbfa082ae4d47b66b095fde632c2f7fcbc0e43194761ed8c7a4a6",
+  "measured_combined_speedup": 3.521312401567954,
+  "benchmark_sha256": "d88f3c1686f77bdefb7b4a1e7b10348a78d6ceb1a2f536466b82ae190a07a756",
+  "replacement": "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/adaptive-product16-cuda",
+  "policy": "Hold exact CPU state until full GPU adaptive merge and native-law/cross-host audits; resume exact state if replacement fails."
+}

@@ -2,6 +2,30 @@
 
 ## Current priority: identify the ODE contribution
 
+**The new coordinate-control density comparison is complete.** All source
+paths qualify in both datasets and both fields. Product16 mean-preserving KL
+is 0.773 original / 0.758 projected, versus anchored 0.516 / 0.464. The paired
+new-minus-anchored adjusted intervals are [0.102, 0.421] / [0.145, 0.455]. All
+new-minus-shared intervals, and all four Ring8 intervals, include zero. The
+new projected Product16 width ratio is 1.227, versus anchored 1.146 and shared
+1.190. Removing mean-update amplification did not improve this density fit.
+[Full analysis and three figures](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/density-results/analysis-report.md),
+[all eight paired contrasts](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/density-results/stats-appendix.md).
+
+All new source merges independently reconstruct within 3.82e-14; twenty
+means/SDs and eight paired intervals reproduce within 6.11e-16. Every source
+is retained. CPU refinements finished successfully; both unused GPU waiting
+queues were cancelled without starting population workers. Our observation
+workload is terminal. Reports 1/2 and the native image baseline remain fixed.
+
+The next falsification test keeps P/B, optimizer coordinates, initial function
+and eight matrix applications fixed, while changing only the stage order.
+The palindrome cancels the leading bracket term; alternating retains it.
+[Exact proposal and rejection rules](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order-control.md).
+No new architecture has been trained from this proposal. Goal remains active.
+
+## Preceding observations and execution history
+
 **The stage-flow decomposition is complete and independently reconstructed.**
 The mean-preserving models actively use different stage directions: mean
 collapse changes oracle field MSE Ring8 0.011->0.186, Product16 0.020->0.449
@@ -20,17 +44,19 @@ Ring8 has completed all initial observations and registered refinement on
 Mac CPU. All1,024sources in both fields qualify; independent reconstruction
 error is5.33e-15. Queue48821/worker48824exit0and both PIDs are absent.
 [All-source completion](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/adaptive-ring8-complete.json).
-Product16 is deliberately
-rerouted to idle145physicalGPU7 after the actual256-source benchmark measured
-7.968xcombined speedup (14.431xprojected). Queue641894/worker641939are live
-with advancing integration. CPUworker43094is suspended as an in-memory
-fallback; its nine complete rows are retained for cross-host comparison.
-Keep it until the entire replacement passes an independent audit. No foreign
-task is stopped or shared. [Measured routing and receipts](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/resource-handoff.md).
+Product16 has completed all sixteen formal rows on145physicalGPU7, exit0.
+All32new formal rows independently reconstruct within4.27e-14. All nine
+retained CPUrows match their GPUcounterparts within1.39e-12; after that audit
+our exact suspended CPUworker43094was terminated and its intentional-15exit
+record preserved. All other workers passed. [Full handoff audit](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/handoff-complete.json).
+The subsequent original/projected fields retain71/59sensitive sources for
+registered refinement. All permitted GPUs became occupied, so verified
+CPUqueue49633/worker49635now runs on Mac mini. No foreign task is stopped or
+shared. [Measured routing and receipts](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/resource-handoff.md).
 CUDAformal and adaptive native-entry witnesses pass independently, maximum
 adaptive reconstruction error1.25e-13. These bounded witnesses do not qualify
-the full population. Ring8 population refinement is complete; Product16 waits
-for its successful completed formal parent.
+the full population. Ring8 population refinement is complete; Product16's
+all-source refinement is running from its actual completed GPUformal parent.
 
 **New-control observations were initially launched on Mac mini.** Both portable
 checkpoints reproduce their complete native field and bank0samples exactly.

@@ -122,7 +122,7 @@ qualify: six at 512steps, ten at 1024. Local source RMSdoes not supply the
 existing across-model sampling ordering. [Measured results and figures](density-transport/analysis-report.md).
 The four-bank population-density comparison is [complete](density-transport/population-analysis.md):
 all sixteen original model/field cells qualify independently. The subsequent
-mean-preserving control has completed training and solver evaluation; its
-population-density measurements are running.
+mean-preserving control has completed training, solver evaluation and all-source
+density qualification. Its full paired analysis is complete.
 [Current control](coordinate-control/analysis-report.md),
-[observation and routing](coordinate-control/observations/resource-handoff.md).
+[completed density analysis](coordinate-control/density-results/analysis-report.md).

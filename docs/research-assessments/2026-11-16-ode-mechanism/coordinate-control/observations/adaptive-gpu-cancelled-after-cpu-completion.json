@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "own_waiting_queue_cancelled": true,
+  "queue_pid": 905868,
+  "signaled_members": [
+    905868
+  ],
+  "old_status": {
+    "queue_pid": 905868,
+    "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+    "device": "cuda",
+    "unix_time": 1794809816.9224162,
+    "completed": [],
+    "running": [],
+    "pending": [
+      1
+    ],
+    "failed": false,
+    "gpus4to7": [
+      [
+        "4",
+        " GPU-6c644192-ce4a-5d10-b912-07a6fc24f352",
+        " 13974"
+      ],
+      [
+        "5",
+        " GPU-ce799976-7805-c539-9913-3bbadcdbadbf",
+        " 15020"
+      ],
+      [
+        "6",
+        " GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023",
+        " 14888"
+      ],
+      [
+        "7",
+        " GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b",
+        " 7928"
+      ]
+    ],
+    "inventory_error": null
+  },
+  "population_child_never_started": true,
+  "reason": "CPUcase completed and both new cases independently qualified; no duplicate observation needed",
+  "unix_time": 1794809823.1545937
+}

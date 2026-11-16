@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "timing_only": true,
+  "rows": [
+    {
+      "mode": "original",
+      "sources": 71,
+      "timings": {
+        "coordinate": [
+          2.8534736246801913,
+          3.1302064158953726
+        ],
+        "batched": [
+          1.7188939172774553,
+          1.4313552496023476
+        ]
+      },
+      "coordinate_median": 2.991840020287782,
+      "batched_median": 1.5751245834399015,
+      "max_observer_error": 3.552713678800501e-15,
+      "native_endpoints_exact": true,
+      "speedup": 1.8994307191586886
+    },
+    {
+      "mode": "projected",
+      "sources": 59,
+      "timings": {
+        "coordinate": [
+          9.17672329209745,
+          11.999254082795233
+        ],
+        "batched": [
+          12.776453624945134,
+          12.804295833222568
+        ]
+      },
+      "coordinate_median": 10.587988687446341,
+      "batched_median": 12.790374729083851,
+      "max_observer_error": 3.552713678800501e-15,
+      "native_endpoints_exact": true,
+      "speedup": 0.8278091073727859
+    }
+  ],
+  "source_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "current_formal_refinement_unchanged": true
+}

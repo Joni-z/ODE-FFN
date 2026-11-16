@@ -1,8 +1,10 @@
 # Measured Product16 observation handoff
 
-The Product16 density observer is running on145physicalGPU7. Ring8 continues
-on Mac CPU. This replaces our slower CPU observation using the same frozen
-model, all source points, observer and numerical gates. It adds no training.
+The Product16 formal density observer completed on145physicalGPU7. All sixteen
+rows passed independent audit and every nine retained CPUrows matched their
+GPUcounterparts. Only then was our suspended CPUfallback terminated. The
+original failed CPUqueue record is preserved as an intentional supersession.
+No foreign task was stopped or shared. Ring8 refinement is already complete.
 
 ## Why change the resource route?
 
@@ -60,11 +62,57 @@ Physical0-3remain prohibited. No foreign task is stopped or shared.
 [CPU identity and retained rows](migration-start.json),
 [verified replacement process](migration-live.json).
 
-This record establishes a live handoff, not final population qualification.
+## Completed handoff and remaining refinement
 
-The first eight complete formal GPUrows now match the corresponding retained
-CPUrows: relative endpoint error7.09e-14, log-ratio error per dimension1.31e-12,
-other observer errors per dimension1.39e-12. This covers all original-field
-banks at1024/2048steps. The ninth retained CPUrow is projected and remains
-to be checked after its GPUcounterpart completes. The CPUfallback is held.
-[Prefix-only cross-host audit](handoff-prefix-independent.json).
+The earlier [eight-row prefix audit](handoff-prefix-independent.json) is
+preserved. The [full audit](handoff-full-independent.json) now includes all
+nine CPUrows, including the projected row: maximum relative endpoint error
+7.09e-14, log-ratio error per dimension1.31e-12, other observer error per
+dimension1.39e-12. The sixteen GPUrows independently reconstruct within4.27e-14.
+[Actual termination and supersession](handoff-complete.json),
+[all32formal rows](formal-complete-independent.json).
+
+The CPUfallback was rechecked by UID, parent, start time and exact command,
+then only our PID43094received TERM/CONT. Its actual exit is-15and it is
+absent. CPUqueue43084records failure exactly for this superseded worker;
+Ring8's exit remains0and there is no unrelated failure. No partial host
+observations were spliced into the replacement.
+
+Product16 original/projected fields have71/59resolution-sensitive paths.
+All4-7cards became occupied after formal completion. The already verified
+CPUadaptive entry now runs queue49633/worker49635on Mac mini, using the
+complete GPUparent. Both fields retain all1,024sources and unchanged gates.
+It is not a qualified population comparison until refinement finishes.
+
+## Adaptive allocation attempt and recovery
+
+The card subsequently became empty. A native benchmark on the actual71/59
+unresolved sources measured3.521xcombined CUDA speedup. A replacement
+adaptive queue was prepared, but the card was reclaimed before its guarded
+worker started. Queue871807remained pending, with no population child.
+Only that verified own queue was cancelled. CPU49635had been suspended too
+early for240.9seconds; it resumed its exact in-memory state and advancing
+steps were verified. No computation was restarted or data removed.
+
+Future handoffs keep the CPUworker running until a GPUchild actually starts;
+a pending allocation must not suspend useful work.
+[Actual subset timings](cuda-adaptive-routing-timing.json),
+[suspended-state record](adaptive-handoff-start.json),
+[resume record](adaptive-cpu-resumed.json),
+[allocation cancellation and advancing recovery](adaptive-resource-recovery.json).
+
+The CPUcoordinate-versus-batched derivative timing check found1.899xspeedup
+on the original field but0.828xon the projected field. The running coordinate
+backend is retained. [Timing and equality check](cpu-backend-timing.json).
+
+
+## Final observation state
+
+CPUqueue49633/worker49635completed successfully. All Product16sources qualify
+at2048or4096steps; the coarse-error extrapolation did not predict the actual
+resolution needs. The combined Ring8/Product16 audit qualifies all four new
+fields, within3.82e-14. The second pending GPUqueue905868was cancelled after
+CPUcompletion without starting a population child. No compute worker remains
+from these observations. [Completion](adaptive-product16-complete.json),
+[cancelled unused queue](adaptive-gpu-cancelled-after-cpu-completion.json),
+[final paired analysis](../density-results/analysis-report.md).
