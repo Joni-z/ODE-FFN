@@ -21,6 +21,17 @@ another user job. Publish verified changes to main as Zhizhe Zhang.
 
 ## Decision and next executable actions
 
+Current continuation: previous goal turn was progress(completed twelve-case
+calibration and actual-law counterexample). Implement the registered six-model
+hidden-energy audit now. Latest145read-only check: each physical4-7still has
+one compute PIDand682MiB, so none is eligible. Warm MacCPUremains available.
+All earlier job handles remain terminal; no old calibration is restarted.
+
+Implementation error retained: initial hidden-energy author/native-check
+exited1before any model observation because new_casesanchors omit family.
+Read the family from each bound checkpoint config, as the existing restorer
+does. Failed output preserved; the corrected check uses native-check-v2.
+
 The first-order oracle-path approximation is not a general trained-scale
 mechanism: Ring8point fractions0.101--0.372, all six Product16points negative;
 only one adjusted conditional input interval is wholly positive. Exact law

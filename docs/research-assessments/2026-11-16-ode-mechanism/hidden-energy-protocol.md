@@ -79,6 +79,26 @@ This bounded diagnostic directly studies the hidden ODE. It is not a new
 architectural contribution or another distribution-ranking metric. MacCPUis
 sufficient; use145physical4-7only if unoccupied, never0-3or another user's job.
 
+## Numerical settings fixed before learned-state measurement
+
+References use rtol1e-10/atol1e-11and rtol1e-12/atol1e-13, each integrating
+state and symmetric work across the four exact quarter-intervals. Qualification
+is per entrance state: every endpoint component must agree within
+atol1e-9/rtol1e-9, reference work within1e-8*(1+abs(work)), and tight-reference
+energy closure within1e-8*(1+abs(E_start)+abs(E_end)+abs(work)). Retain both
+references and every unresolved state; no tolerance changes after outcomes.
+Native TorchandNumPymidpoint endpoints must agree within1e-11absolute/relative
+at every4/8/16/32level before interpretation. These are numerical checks,
+not architecture performance margins.
+
+The empirical feature-resolution floor is the norm of the reference-to-reference
+endpoint change plus64*machine_epsilon*(1+norm(y_ref)); the energy floor is
+the reference energy change plus64*machine_epsilon*(1+abs(E_loose)+abs(E_tight)).
+These are measured numerical scales, not rigorous error bounds. Report the
+normal-component share of feature squared error without selecting a percentage
+threshold after inspection. Also separate coarse energy gap into the change
+in symmetric work and the discrete balance defect; their signs can cancel.
+
 ## Completed mathematical readiness check
 
 [check_hidden_energy.py](../../../studies/muon_pd_20261102/target_geometry_20261116/check_hidden_energy.py)
