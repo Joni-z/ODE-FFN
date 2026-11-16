@@ -1,0 +1,32 @@
+{
+  "pid": 56007,
+  "frozen_commit": "303d2132c2525571d8c6ce0b0f009f6628828470",
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/bankwise-repo/studies/muon_pd_20261102/coefficient_20261116/resolution_queue.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-bankwise",
+    "--only",
+    "numerical",
+    "--full-outer",
+    "--inner-substeps",
+    "4",
+    "8",
+    "16",
+    "--bank-batches"
+  ],
+  "started": 1794815827.852868,
+  "device": "cpu",
+  "workers": 2,
+  "tasks": 8,
+  "unique_cells": 20,
+  "samples_per_cell": 32768,
+  "bank_size": 4096,
+  "portable_manifest_sha256": "69142666fa412fc63d8cc7183ad921fb15498698eb4a767bc6fcb57941616ea1",
+  "preflight_sha256": "3fccfd33e533261c22c7050b906273ec09a1be7a221978184a32f5639e87ad0e",
+  "old_queue_pid": 55052,
+  "old_queue_retained": true
+}

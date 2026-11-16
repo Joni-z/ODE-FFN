@@ -356,3 +356,12 @@ sixteen score reconstructions within5.55e-17. Generation-only timing64-68s;
 compare complete native-entry timing after launch. Source publication/freeze
 precedes the new eight-task queue. Old55052/55054/55055continue unchanged
 until replacement advancement and all retained-prefix audits.
+
+Current bankwise route: published/frozen303d213; queue56007with two live
+CPUworkers. New Ring8palindrome full-internal is complete; other tasks
+advance. Read-only bankwise_audit.py prefix-002matches7retained old rows
+exactly, but3cells are not yet present, so retirement is NOT eligible.
+Keep old55052and actualcurrentchildren (query status; originalworkerPIDs
+55054/55055have finished). Re-audit using a new output name; after eligibility
+follow bankwise-handoff.md with fresh UID/parent/start/full-command checks
+and a stable suspended-prefix audit. Preserve intentional native-queue exits.

@@ -15,6 +15,11 @@ reconstructs within7.11e-15; all twelve common-bank rows independently pass.
 Four actual CPUresolution witnesses and all sixteen independent scores pass,
 error5.55e-17. Full internal/outer refinement now runs at frozenfcbe347: queue55052,
 workers55054/55055, eight tasks/twenty unique cells with all32768sources.
+An optional bankwise replacement now runs at303d213, queue56007, preserving
+all sources and numerical settings. All four complete native-bank endpoint
+checks are exact; fresh entry witnesses pass. Retained-prefix audit currently
+matches seven rows exactly and still lacks three replacement rows, so the old
+queue remains active. [Routing and audit](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/bankwise-handoff.md).
 Independent full-result collection remains pending.1454-7have resident
 foreign contexts; Mac CPUcan proceed. No new image run or density run.
 

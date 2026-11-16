@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "pid": 56007,
+  "live_workers": [
+    {
+      "pid": 56422,
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "mode": "full-outer",
+      "progress": {
+        "inner_substeps": 4,
+        "heun_steps": 512,
+        "samples_completed": 8192,
+        "total_samples": 32768,
+        "seconds": 80.33864649990574
+      }
+    },
+    {
+      "pid": 56473,
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "mode": "full-internal",
+      "progress": {
+        "inner_substeps": 8,
+        "heun_steps": 128,
+        "samples_completed": 28672,
+        "total_samples": 32768,
+        "seconds": 135.13046879181638
+      }
+    }
+  ],
+  "completed": 2,
+  "pending": 4,
+  "unix_time": 1794816656.222665,
+  "complete": false
+}
