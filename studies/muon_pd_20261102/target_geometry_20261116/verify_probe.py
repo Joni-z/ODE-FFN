@@ -22,15 +22,20 @@ def main() -> None:
     root, out = Path(args.input), Path(args.output)
     out.mkdir(parents=True, exist_ok=False)
     complete, data = read(root/'COMPLETE.json'), read(root/'rows.json')
-    assert complete['passed'] and complete['cases'] == 12
+    confirmation = complete.get('split') == 'confirmation'
+    assert complete['passed'] and complete['cases'] == (2 if confirmation else 12)
     assert complete['rows_sha256'] == sha(root/'rows.json')
     summaries, per_pair_errors, error = [], {}, 0.
+    bank_indices = {}
     for case in data['cases']:
         file = root/case['raw_file']
         assert sha(file) == case['raw_sha256']
         with np.load(file) as z:
             arrays = {k: z[k].copy() for k in z.files}
         assert len(arrays['source']) == complete['points_per_time']
+        if confirmation:
+            bank_indices[case['id']] = arrays['bank_index']
+            assert np.array_equal(np.unique(arrays['bank_index']), np.arange(8))
         by_time, point_errors = [], []
         for i, t in enumerate(arrays['time']):
             pred, oracle = arrays['prediction'][i], arrays['oracle'][i]
@@ -65,28 +70,37 @@ def main() -> None:
             confirmation_pooled_sw2=case['confirmation_pooled_sw2'], **summary, by_time=by_time))
         per_pair_errors[case['id']] = np.asarray(point_errors).mean(axis=0)
     pairs = []
-    for dataset in ['gmm_ring8_2d', 'rotated_product_bimodal_16d']:
+    for dataset in sorted({r['dataset'] for r in summaries}):
         pal = next(r for r in summaries if r['dataset'] == dataset and r['family'] == 'palindrome_operator_midpoint4')
         alt = next(r for r in summaries if r['dataset'] == dataset and r['family'] == 'alternating_operator_midpoint4')
         gap = pal['velocity_jacobian_error']-alt['velocity_jacobian_error']
         expected_sign = -1 if dataset == 'gmm_ring8_2d' else 1
         difference = per_pair_errors[pal['id']]-per_pair_errors[alt['id']]
         assert abs(difference.mean()-gap) < 1e-11
+        if confirmation:
+            assert np.array_equal(bank_indices[pal['id']], bank_indices[alt['id']])
+            unit_difference = np.array([difference[bank_indices[pal['id']] == b].mean() for b in range(8)])
+        else:
+            unit_difference = difference
         rng = np.random.default_rng(0)
-        bootstrap = difference[rng.integers(0, len(difference), (10000, len(difference)))].mean(axis=1)
+        bootstrap = unit_difference[rng.integers(0, len(unit_difference), (10000, len(unit_difference)))].mean(axis=1)
         pairs.append(dict(dataset=dataset, palindrome=pal['velocity_jacobian_error'],
             alternating=alt['velocity_jacobian_error'], primary_gap=gap, expected_gap_sign=expected_sign,
             predicted_direction_holds=bool(expected_sign*gap > 0),
             point_pair_difference_sd=float(difference.std(ddof=1)),
+            resampling_unit='sampling_bank' if confirmation else 'source_target_pair',
+            resampling_units=len(unit_difference), bootstrap_unit_sd=float(unit_difference.std(ddof=1)),
+            bank_differences=unit_difference.tolist() if confirmation else None,
             conditional_pair_bootstrap95=np.quantile(bootstrap, [.025, .975]).tolist(),
             conditional_two_contrast_bonferroni=np.quantile(bootstrap, [.0125, .9875]).tolist(),
             sampling_gap=pal['confirmation_pooled_sw2']-alt['confirmation_pooled_sw2']))
     output = dict(passed=True, witness=complete['witness'], rows=summaries, matched_pairs=pairs,
-        primary_explanation_passes_both_tasks=all(r['predicted_direction_holds'] for r in pairs),
+        primary_explanation_passes_both_tasks=len(pairs) == 2 and all(r['predicted_direction_holds'] for r in pairs),
+        primary_explanation_passes_present_tasks=all(r['predicted_direction_holds'] for r in pairs),
         reconstruction_max_error=error, input_complete_sha256=sha(root/'COMPLETE.json'),
         input_rows_sha256=sha(root/'rows.json'), source_sha256=sha(Path(__file__)))
     (out/'summary.json').write_text(json.dumps(output, indent=2, allow_nan=False)+'\n')
-    (out/'COMPLETE.json').write_text(json.dumps(dict(passed=True, cases=12, rows=complete['rows'],
+    (out/'COMPLETE.json').write_text(json.dumps(dict(passed=True, cases=complete['cases'], rows=complete['rows'],
         witness=complete['witness'], summary_sha256=sha(out/'summary.json'), max_error=error), indent=2)+'\n')
     print(json.dumps(dict(passed=True, rows=complete['rows'], reconstruction_max_error=error,
         matched_pairs=pairs)), flush=True)

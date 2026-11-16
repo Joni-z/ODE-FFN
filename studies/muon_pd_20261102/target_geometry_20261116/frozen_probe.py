@@ -16,6 +16,15 @@ def tensor_hashes(model) -> dict:
             for name, value in list(model.named_parameters())+list(model.named_buffers())}
 
 
+def chunked_jacobian(model, x, t):
+    values, derivatives = [], []
+    for start in range(0, len(x), 128):
+        value, jac = exact_jacobian(model, x[start:start+128], t[start:start+128])
+        values.append(value)
+        derivatives.append(jac)
+    return torch.cat(values), torch.cat(derivatives)
+
+
 def restore(study: Path, anchor: dict, row: dict, data_root: Path):
     folder = Path(row['folder'])
     for name, digest in row.get('bound_files', {}).items():
@@ -56,6 +65,7 @@ def main() -> None:
     for key in ['study', 'data-root', 'output']:
         p.add_argument('--'+key, required=True)
     p.add_argument('--witness', action='store_true')
+    p.add_argument('--confirmation-dataset', choices=['gmm_ring8_2d', 'rotated_product_bimodal_16d'])
     args = p.parse_args()
     study, out, data_root = map(Path, [args.study, args.output, args.data_root])
     out.mkdir(parents=True, exist_ok=False)
@@ -66,18 +76,29 @@ def main() -> None:
     assert read(study/'analysis/COMPLETE.json')['passed']
     rows = anchor['references']+anchor['new_cases']
     assert len(rows) == 12 and len({r['id'] for r in rows}) == 12
+    confirmation = args.confirmation_dataset is not None
+    if confirmation:
+        rows = [r for r in rows if r['dataset'] == args.confirmation_dataset and
+                read(Path(r['folder'])/'config.json')['cell']['family'] in
+                ['palindrome_operator_midpoint4', 'alternating_operator_midpoint4']]
+        assert len(rows) == 2
     n, times = (4, (.5,)) if args.witness else (128, TIMES)
+    per_bank = 4 if args.witness else 4096
+    if confirmation:
+        n = 8*per_bank
     started = time.monotonic()
-    dump(out/'RUNNING.json', dict(pid=os.getpid(), cases=12, points_per_time=n,
+    dump(out/'RUNNING.json', dict(pid=os.getpid(), cases=len(rows), points_per_time=n,
                                   times=times, witness=args.witness))
     summaries, identities = [], []
     for index, row in enumerate(rows):
         case_start = time.monotonic()
         model, law, cell, evaluation, identity = restore(study, anchor, row, data_root)
-        arrays, _, bound = assets(anchor['assets'], cell['dataset'], 'selection', 'cpu')
+        arrays, _, bound = assets(anchor['assets'], cell['dataset'],
+                                  'confirmation' if confirmation else 'selection', 'cpu')
         # Bind this adapter to actual saved FP32 predictions before conversion.
-        x = torch.from_numpy(arrays['field_x'][:128])
-        t = torch.from_numpy(arrays['field_t'][:128])
+        native_arrays = assets(anchor['assets'], cell['dataset'], 'selection', 'cpu')[0] if confirmation else arrays
+        x = torch.from_numpy(native_arrays['field_x'][:128])
+        t = torch.from_numpy(native_arrays['field_t'][:128])
         with torch.no_grad():
             fp32 = model(x, t).numpy()
         saved = np.load(evaluation/'field-20000.npy')[:128]
@@ -91,6 +112,10 @@ def main() -> None:
         assert np.allclose(fp64, fp32, atol=3e-5, rtol=3e-5), (row['id'], precision_error)
         full = dict(time=np.asarray(times), source=arrays['source_0'][:n].astype(float),
                     target=arrays['target_0'][:n].astype(float))
+        if confirmation:
+            full['source'] = np.concatenate([arrays[f'source_{b}'][:per_bank] for b in range(8)]).astype(float)
+            full['target'] = np.concatenate([arrays[f'target_{b}'][:per_bank] for b in range(8)]).astype(float)
+            full['bank_index'] = np.repeat(np.arange(8), per_bank)
         for key in ['x', 'prediction', 'jacobian', 'oracle', 'oracle_jacobian', 'oracle_image_jacobian']:
             full[key] = []
         time_rows = []
@@ -99,7 +124,7 @@ def main() -> None:
             point = (1-value)*full['source']+value*full['target']
             xt = torch.from_numpy(point)
             tt = xt.new_full((n, 1), value)
-            pred, jac = exact_jacobian(model, xt, tt)
+            pred, jac = chunked_jacobian(model, xt, tt)
             truth = target(law, point, value)
             if value == .5:
                 direction = torch.sin(torch.arange(1, law.dim+1, dtype=torch.double))
@@ -120,6 +145,9 @@ def main() -> None:
                 ('oracle', truth['velocity']), ('oracle_jacobian', truth['velocity_jacobian']),
                 ('oracle_image_jacobian', truth['image_jacobian'])]:
                 full[key].append(array)
+            dump(out/'progress.json', dict(pid=os.getpid(), completed=index, total=len(rows),
+                current=row['id'], completed_times=len(time_rows), total_times=len(times),
+                points_per_time=n, seconds=time.monotonic()-started))
         full = {k: np.asarray(v) for k, v in full.items()}
         assert all(np.isfinite(v).all() for v in full.values())
         assert snapshot == tensor_hashes(model), row['id']
@@ -138,10 +166,11 @@ def main() -> None:
         summaries.extend(time_rows)
         identities.append(identity)
         dump(out/'rows.json', dict(rows=summaries, cases=identities))
-        dump(out/'progress.json', dict(pid=os.getpid(), completed=index+1, total=12,
+        dump(out/'progress.json', dict(pid=os.getpid(), completed=index+1, total=len(rows),
                                       seconds=time.monotonic()-started, last=row['id']))
-        print(f'{index+1}/12 {row["id"]}', flush=True)
-    dump(out/'COMPLETE.json', dict(passed=True, witness=args.witness, cases=12, rows=len(summaries),
+        print(f'{index+1}/{len(rows)} {row["id"]}', flush=True)
+    dump(out/'COMPLETE.json', dict(passed=True, witness=args.witness, cases=len(rows), rows=len(summaries),
+        split='confirmation' if confirmation else 'selection', banks=8 if confirmation else 1,
         points_per_time=n, times=times, seconds=time.monotonic()-started,
         rows_sha256=sha(out/'rows.json'), anchors_sha256=sha(study/'anchors.json'),
         source_sha256={f.name: sha(f) for f in [Path(__file__), HERE/'geometry.py', HERE/'oracle_check.py']},

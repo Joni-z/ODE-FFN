@@ -42,9 +42,13 @@ physical transport. No new training, image or density job is queued now.
 
 Earlier detailed notes are archived verbatim under docs/history/.
 
-Target-geometry implementation is now written: independent posterior moments,
-whole-output derivative probe and a separate NumPy summary verifier. The exact
-formula, registered population/primary direction, four-paper coverage and CPU
-commands are in .../target-geometry/. Author oracle and twelve checkpoint
-witnesses pass; the formal128-point/five-time observation has not started.
-The next required check is the fresh documented invocation at a published freeze.
+Target geometry: source49f6e19fresh documented exits0/0/0; all12formal
+checkpoints and60time rows pass, process59854exit0, independent error1.11e-16.
+Primary Jerror PAL/ALT Ring8.155/.168; Product16.281/.269. Both point directions
+match sampling, but both paired input intervals span zero. Ordinary Product16
+SwiGLU has betterSW2despite higherJerror, so this is no universal predictor.
+Two actual scientific figures have been inspected. Evidence is in
+.../target-geometry/results/. All-bank independent confirmation is registered
+before execution, using all8x4096pairs/five times and the same four checkpoints.
+Chunking passes257-point unchunked checks within1.78e-15. ThirteenGiBdisk
+headroom is adequate for the derivative arrays; no dataset or report is deleted.

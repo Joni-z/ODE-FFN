@@ -1,5 +1,20 @@
 # Current project status
 
+## Target-response observation
+
+The Bayes clean-data predictor has a posterior-covariance Jacobian; this is
+an existing whole-output identity, not a hidden-P constraint. Native oracle
+checks and all12frozen checkpoint derivatives pass. Equal-time full-Jacobian
+errors PAL/ALT are Ring8.155/.168 and Product16.281/.269. Both point directions
+match sampling, while both input-bootstrap intervals span zero. Ordinary
+Product16SwiGLU samples better despite higher averageJerror.
+
+[Derivation](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/derivation.md),
+[complete selection analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/results/analysis-report.md),
+[independent all-bank confirmation protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/confirmation-protocol.md).
+The confirmation extension is being checked before dispatch. No new training
+or image architecture is launched from this unresolved association.
+
 ## Completed matched stage-order study
 
 **Palindrome helps Ring8 relative to alternating stages and hurts Product16.
@@ -36,9 +51,8 @@ Raw evidence: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
 
 ## Current research priority
 
-Derive which constraints follow from the FM target velocity and image predictor,
-check them against the existing oracle and whole-model diagnostics, and review
-current primary work before the next architecture. The hidden ODE time/global
+Confirm the focal output-Jacobian association on all existing independent banks,
+then test the remaining trajectory-level explanation. The hidden ODE time/global
 FM time connection remains open. No additional training or image promotion is
 queued. The broader ODE-mechanism research goal remains active.
 
