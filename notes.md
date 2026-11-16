@@ -10,7 +10,8 @@ evaluators and independent NumPy reconstruction of ten maps, error2.22e-16.
 Linear/nonlinear remainder orders2.999/2.999 support the predicted -1/8
 bracket coefficient; B=0 is exact. B proportional to P cancels the leading
 bracket, not all discrete-map differences. Initial B gradients are active
-and different, with no rescaling. Source publication/formal runs are next.
+and different, with no rescaling. Published/frozen67b4664; queue52859and watcher52860are live. Ring8workers
+52862/52863advance; Product16will follow. All241source bindings match.
 Canonical: schedule-order-control.md and schedule-order/execution.md under
 2026-11-16-ode-mechanism. No response search or image-training change.
 

@@ -5,7 +5,9 @@
 The matched stage-order adapters and fresh documented native validation now
 pass: four continuations/evaluators, exact common initialization and data RNG,
 NumPy map error2.22e-16. The small-horizon predicted remainder is cubic.
-Four formal20k seed0CPU trajectories are prepared, not launched yet.
+Four formal20k seed0CPU trajectories are launched at frozen67b4664.
+Queue52859and watcher52860are live; Ring8workers52862/52863advance,
+with Product16queued next. Two one-thread CPUworkers, no GPU allocation.
 [Exact code, validation and invocation](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/execution.md).
 
 
@@ -29,7 +31,7 @@ The next falsification test keeps P/B, optimizer coordinates, initial function
 and eight matrix applications fixed, while changing only the stage order.
 The palindrome cancels the leading bracket term; alternating retains it.
 [Exact proposal and rejection rules](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order-control.md).
-The adapters are verified, but formal training has not started. Goal remains active.
+The adapters are verified and formal training is active; final comparisons are pending. Goal remains active.
 
 ## Preceding observations and execution history
 

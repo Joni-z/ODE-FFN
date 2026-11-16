@@ -83,7 +83,7 @@ GPUallocation. No foreign job was stopped/shared; physical0-3were not used.
    continuation/evaluator checks pass. Independent NumPy error2.22e-16.
 3. [x] Fresh documented agent exits0/0/0; all four initial checkpoints match
    shared references and data RNG. Eight old references and arrays are bound.
-4. [ ] Publish/freeze source, then launch four20k seed0trajectories on Mac CPU,
+4. [x] Publish/freeze67b4664, then launch four20k seed0trajectories on Mac CPU,
    two workers. Preserve the registered midpoint2, AdamW0.0003, batch512 recipe.
 5. [ ] Native final-test replay;15k/20k selection and20k confirmation on all
    eight common4096-source banks. Independently reconstruct twelve rows.
@@ -93,7 +93,10 @@ GPUallocation. No foreign job was stopped/shared; physical0-3were not used.
 The previous explanation turn made no experimental progress. This turn
 implements and verifies the registered control. B gradients differ by design;
 no normalization or extra learning rate is introduced. The proposal is now
-implemented and validated, but no formal trajectory has started yet.
+implemented and validated. Queue52859and watcher52860are live; two Ring8
+workers advance, with two Product16cells pending. All241frozen study source
+files match actual invocation hashes. Frozen source and all97report files
+remain unchanged.
 [Exact invocation and scope](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/execution.md).
 
 ## Execution bindings
@@ -114,4 +117,4 @@ Previous detailed execution journal is preserved verbatim at
 Current goal turn: progress. All observation jobs are terminal; twenty-cell
 analysis, independent statistics and three inspected figures are complete.
 Publication at f145682 is verified on GitHubmain. The matched order control is implemented and independently validated;
-source publication and formal training are next.
+source is published and four formal trajectories are active/queued.

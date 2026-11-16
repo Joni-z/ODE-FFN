@@ -1,6 +1,6 @@
 # Next mechanism control: cancel stage drift without removing parameters
 
-Status: adapters implemented; fresh native and independent validation pass, not trained.
+Status: validated and published at67b4664; four formal trajectories launched, results pending.
 The completed density analysis is published at f145682/c023ef5. No response search, spectrum
 penalty, optimizer change or image run is part of this proposal.
 
