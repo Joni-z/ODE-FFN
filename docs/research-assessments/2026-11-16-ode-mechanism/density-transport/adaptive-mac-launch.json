@@ -1,0 +1,34 @@
+{
+  "queue_pid": 36629,
+  "frozen_commit": "405a2014a1b333cba36ca39c663ba60f1aa19009",
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/density_transport_20261116/adaptive_dispatch.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-symmetry/portable-v2",
+    "--data",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/portable",
+    "--runtimes",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/formal-runs-mac-ring-controls",
+    "--indices",
+    "2,3",
+    "--device",
+    "cpu",
+    "--derivative-backend",
+    "coordinate",
+    "--workers",
+    "2",
+    "--readiness",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/adaptive-doc-cpu/COMPLETE.json",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/adaptive-runs-mac-ring-controls"
+  ],
+  "started": 1794791295.5519848,
+  "device": "cpu",
+  "indices": [
+    2,
+    3
+  ],
+  "adaptive": true
+}

@@ -87,13 +87,15 @@ def analyze(verification, data_root, output):
                     asset[f'target_{b}'], directions) for b in range(4)]))
     contrasts, discovery = [], None
     for dataset in sorted({k[0] for k in values}):
+        # A task's paired intervals do not depend on whether another task has finished.
+        contrast_rng = np.random.default_rng(0)
         for mode in ['original', 'projected']:
             shared, shared_cell = values[dataset, 'state_midpoint4', mode]
             stage, stage_cell = values[dataset, 'stage_operator_midpoint4', mode]
             fine = stage['log_ratio_source']-shared['log_ratio_source']
             previous = stage['previous_log_ratio_source']-shared['previous_log_ratio_source']
             divergence = stage['log_ratio_divergence']-shared['log_ratio_divergence']
-            draws = bootstrap_means(np.column_stack([fine, previous, divergence]), shared['bank'], rng)
+            draws = bootstrap_means(np.column_stack([fine, previous, divergence]), shared['bank'], contrast_rng)
             qualified = shared_cell['qualified'] and stage_cell['qualified']
             sign_flip = float(fine.mean())*float(previous.mean()) < 0
             family_interval = np.quantile(draws[:, 0], [.00625, .99375]).tolist()

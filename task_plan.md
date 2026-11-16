@@ -1,89 +1,70 @@
 # ODE mechanism investigation
 
-Goal active: identify which ODE constraints contribute and why. Training
-seed 0 only; pinned native source and finalized reports fixed. On 145,
-physical GPUs 0-3 are forbidden; 4-7 only when empty. Never stop/share a
-foreign task. Mac mini is available freely.
+Goal active: determine which ODE constraints help and identify the mechanism.
+Keep seed 0, the pinned native code and finalized reports. Mac mini is
+available freely. On145, use only idle physical GPUs4-7;0-3are forbidden.
+Never stop or share a foreign task.
 
-## Completed
+## Completed evidence
 
-- [x] Eight 20k coefficient/state/stage/sharing trajectories, native witnesses,
-  matched initialization/RNG/gradient controls and ordinary cost references.
-- [x] All 25 earlier numerical/symmetry cases and 78 scores independently checked.
-- [x] Sharing primary paired banks plus full P0 solver refinement.
-- [x] P1 eight-model symmetry intervention: Ring8 reverses the sharing ranking,
-  Product16 retains it. Full independent checks and five inspected figures.
-- [x] P2 exact density-ratio derivation, native oracle derivatives, continuity,
-  Gaussian examples, eight model observers and eight full-map finite differences.
-- [x] Fresh documented CPU witnesses; exact unaltered native sampling endpoints.
-- [x] Bind stream 2026112300 and four 256-source banks before measurement.
-- [x] Complete 48 pilot and 10 targeted refinement integrations, frozen
-  8691431 / 5864256. Independent verification errors <=2.94e-14.
-- [x] Qualify all 16 pilot cells: six at 512 steps, ten at 1024. No 2048 pilot needed.
-- [x] Inspect two diagnostic plots and preserve all frozen evidence.
+- [x] Coefficient/state/stage training and fair ordinary controls. Fixed
+  Taylor coefficients do not add a consistent benefit; state feedback helps
+  the within-family Ring8 comparison.
+- [x] Shared versus released-stage operators at identical dense work. Sharing
+  improves generation on both tasks; Product16 field MSE moves oppositely.
+- [x] Full solver refinement and frozen symmetry intervention. Ring8 reverses
+  the sharing comparison after C8projection; Product16 retains the gap.
+- [x] Exact density transport identity and independently checked observer.
+- [x] Full population observation:8cases,2fields,4x256sources,1024/2048steps.
+  All128rows independently reconstruct within4.62e-14. All16cells include
+  some resolution-sensitive paths; the pilot did not certify those sources.
+- [x] Register bounded all-source adaptive refinement4096/8192/16384, with
+  original thresholds and no point removal. Fresh CPU/CUDAentries pass.
+- [x] Mac Ring8 FreeISRU/SwiGLU refinement and independent merge verification:
+  all4cells qualify; max reconstruction error1.16e-14.
+- [x] Prepare paired fixed-weight statistics and validate common-path/bank
+  resampling plus exact native SW2replay. Confirmation time profiles stay hidden.
+- [x] Independently verify all four Product16 models, both fields. Stage-minus-
+  shared KL is negative with adjusted intervals excluding zero; reject the
+  proposed density explanation of the earlier large-bank SW2 sharing lead.
+- [x] Diagnose Product16 component widths, centroids and pairwise dependence;
+  calibrate the finite-sample SW2 floor using an exact target-law endpoint map.
 
-## Current: population-density comparison (running)
+## Current work
 
-- [x] Implement formal entry with unchanged density_ops.py, all eight models
-  and both fields, four 256-source banks, common 1024/2048 steps: 128 rows.
-- [x] Pass actual CPU entries, fresh documented CUDA readiness and a timing-only
-  256-source benchmark before choosing host routing.
-- [x] Launch on idle 145 physical GPUs 4-7, with exclusive UUID guards
-  and live progress/PID/resource records. Retain gates on all full-source points.
-- [ ] Independently reconstruct per-point ratios, time bins and resolution
-  changes; compare paired density contrasts with Monte Carlo uncertainty.
-- [ ] Prepare the fixed-weight statistics reader while integrations run: paired
-  path bootstrap stratified by the four common source banks; retain failed
-  numerical cells; expose time-bin discovery on bank 0 only.
-- [ ] Resolve full-source numerical failures with registered 4096/8192/16384
-  per-source refinement; preserve every original point and the running engine.
-- [ ] Only if the contrast supports it, register one time-local oracle
-  intervention, select on bank 0 and confirm on banks 1-3. No response search.
+- [ ] Finish six CUDAadaptive cases; queue3584295, source405a201. Keep all
+  sources, selected resolutions, previous estimates and unresolved flags.
+- [ ] Independently reconstruct all eight adaptive merges and every source
+  gate. Do not rank an unresolved density contrast.
+- [ ] Run four paired shared/stage density contrasts, their MCuncertainty
+  and resolution sensitivity. Compare SW2on these same prebound inputs.
+- [ ] Implement the registered mean-update-preserving stage release. Verify
+  its full-model/native-continuation identities before the two matched20k
+  training controls. This tests sharing versus optimizer coordinates.
 
-Current finding: local field MSE and density-source RMS do not give the known
-Product16 sampling ordering. The two completed Ring8 ordinary controls have independently reproducible
-density observations, but all four model/field cells include resolution-sensitive
-paths. Population density contrasts remain unqualified. No architecture or image run is promoted.
+The Product16 oracle-window branch is rejected by its signed density result;
+do not select a favorable time bin. Keep confirmation time profiles unopened.
 
-Canonical study: docs/research-assessments/2026-11-16-ode-mechanism/
-Current: density-transport/analysis-report.md; density-formal-next.md.
-Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport
-Pilot queue 32943 and refinement queue 33293 are terminal; all workers exited.
-P1/P2 journals are in docs/history/. Final reports remain untouched.
-Previous goal turn: progress. It independently reconstructed both completed
-CPU cases and identified full-source resolution failures, changing the next
-action from immediate density ranking to bounded numerical refinement.
+## Current execution
 
-Formal-density execution started this turn. Previous goal turn is progress:
-it produced new field observations, validated the exact observer and completed
-all16pilot numerical qualifications. Current145GPUs4-7are occupied, so begin
-CPUentry/throughput checks while preparing guarded CUDAdeployment. Keep the
-full128-row population-density comparison and mechanism decision as the target.
+Full producer queues35441and3447050are terminal, with all workers exit0.
+Mac adaptive queue36629and workers36631/36632are terminal, exit0.
+CUDAadaptive queue3584295uses only newly idle GPUs4-7, one worker per GPU.
+Initial workers3584335/3584336/3584337/3584338; Product16ordinary controls
+follow in the same monitored queue. Re-poll live handles after timeouts.
 
-Formal author CPUentry passes all eight derivative/reference cases and two
-actual formal-entry witnesses. Benchmarks and full jobs are distinct phases.
-Source/data/sampler/operator mathematics stay fixed. Next: publish/freeze,
-fresh CPU/CUDAverbatim readiness, actual256-source benchmark and routing.
+The running405a201adaptive engine and3a7d5feformal producer remain frozen.
+New statistics are separate files; no training or image experiment is added.
+Timing-only small-subset probes show that future tiny Ring8refinements should
+use Mac CPU; Product16projected subsets still favor GPU. Do not change a
+running producer based on an unverified estimate.
 
-Execution-only amendment from actual256-source CPUtimings: projected Product16
-state flow requires29.520sfor32steps; the full case extrapolates to220minutes.
-Before formal launch, test exact batched reverse VJPs against the frozen
-coordinate-Jacobian observer. Keep density_ops.py, every sample, step size and
-architecture unchanged. An adapter is allowed only after all-model Jacobians,
-complete observer arrays and native endpoints agree. Record both backend
-speeds; retain the original if batching does not help. This is not a stochastic
-trace approximation or a new model intervention.
+Canonical evidence: docs/research-assessments/2026-11-16-ode-mechanism/.
+Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport.
+Current registration: density-adaptive-followup.md; execution: density-adaptive-execution.md.
+Previous plan: docs/history/2026-11-16-density-pre-adaptive-task-plan.md.
 
-Launch verified: Mac queue35441 / workers35443,35444; GPUqueue3447050 /
-workers3447077-3447080on physical4-7. CPUcases2/3and GPUcases1,7,0,6,5,4
-are disjoint and coverall8models. Routing is published beforelaunch. Mac
-sourcef79f027; GPUsource3a7d5fe; producer file hashes match. Full rows need
-independent numerical validation before interpretation. Do not edit the
-running formal_density.py,density_ops.py,jacobian_backend.pyor dispatch core.
-
-Latest numerical checkpoint: both Mac cases completed, queue35441 exit0.
-All32rows independently reconstruct within5.33e-15. At the unchanged gates,
-FreeISRU original/projected has58/23of1024failing source observations;
-SwiGLU has25/11. Retain all points. Wait for the remaining GPUcases, then
-register bounded refinement of unresolved paths before density ranking.
-Do not treat pilot readiness as full-source numerical convergence.
+Previous goal turn: progress, exposing full-source numerical failures.
+Current goal turn: progress, completing128-row reconstruction, qualifying
+allCPUcontrol sources, and launching the remaining bounded refinement.
+Goal remains active; mechanism analysis and its conditional intervention remain.

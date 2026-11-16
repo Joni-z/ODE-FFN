@@ -77,3 +77,41 @@ original/projected fields, each outof1024. Every bank contains at least one
 unresolved source. No point is removed and no full density ranking is made.
 Continue the frozen GPUqueue and audit all cases before registering refinement.
 Existing SW2comparisons are separate completed evidence.
+
+## Full-source density follow-up
+
+All128original observations completed and independently reconstruct within
+4.62e-14. All16model/field cells contain resolution-sensitive source paths.
+The registered per-source4096/8192/16384refinement retains every original
+point and gate. Fresh CPU/CUDAwitnesses pass; native endpoints remain exact.
+Both Mac Ring8ordinary controls finished, all4cells qualify independently
+within1.16e-14. CUDAqueue3584295refines the remaining6cases at405a201.
+The new statistical reader preserves common-path and bank pairing, exposes
+only bank0time profiles and also checks SW2on the same1024inputs. No new
+architecture/training is introduced. Reports1/2remain finalized and fixed.
+
+Execution note: a Git bundle command naming a short unreferenced SHA was
+refused as empty. Recreated it using the named HEADref, transferred it,
+verified SHA256and added a separate405a201worktree. The running3a7d5fe
+producer and environment were unchanged. Timing-only small-subset checks
+favor CPUfor future tiny Ring8refinements and CUDAfor projectedProduct16.
+
+## Product16 density explanation rejected
+
+All four Product16 models and both fields pass independent adaptive audit,
+max error4.98e-14. Stage-minus-shared KL is -0.247original/-0.204projected;
+four-comparison-adjusted intervals exclude0. This rejects lower joint density
+error as the explanation for the earlier large-bank SW2sharing lead. No
+oracle window is selected and confirmation time profiles remain unopened.
+Projected component variance ratios are1.190shared,1.146stage,1.085FreeISRU
+and1.212SwiGLU, versus population target1. Pairwise sign covariance is near
+the native target sampling floor. Width is a concrete discrepancy, not a
+complete causal account of KL. A moment-based population KLbound and exact
+target endpoint calibration are derived in product-metric-diagnosis.md.
+
+The next structural control removes an optimizer-coordinate confound in the
+anchored P+Delta release: orthogonal zero-mean contrasts keep mean(W)=P
+while representing the same untied function class and parameter count.
+Algebra/common-gradient/actual first AdamWupdate checks pass; full-model
+implementation and matched20k controls are not launched yet.
+Current analysis: density-transport/population-analysis.md. Reports stay final.
