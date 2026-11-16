@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "kind": "fresh-agent-follows-doc",
+  "invocation_document": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/repo/docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/refined-trajectory-execution.md",
+  "invocation_document_sha256": "e7381106c153050bd01eab10c18c785d4b0036b0eae72cc720f64cea5bdd74a6",
+  "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/repo",
+  "output_directories_absent_before_start": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "commands": [
+    {
+      "index": 1,
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_geometry_20261116/check_native_time.py --study /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order --pilot /Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/check",
+      "output_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/check",
+      "exit_code": 0,
+      "session_id": 30370,
+      "stdout": "1/12 native and packed equivalence\n2/12 native and packed equivalence\n3/12 native and packed equivalence\n4/12 native and packed equivalence\n5/12 native and packed equivalence\n6/12 native and packed equivalence\n7/12 native and packed equivalence\n8/12 native and packed equivalence\n9/12 native and packed equivalence\n10/12 native and packed equivalence\n11/12 native and packed equivalence\n12/12 native and packed equivalence\n",
+      "observed_elapsed_seconds": 56.236
+    },
+    {
+      "index": 2,
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_geometry_20261116/refined_trajectory_probe.py --study /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order --pilot /Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot --native /Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/verified --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring --witness",
+      "output_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring",
+      "exit_code": 0,
+      "session_id": 98200,
+      "stdout": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003 refined Heun2048: qualified=False\ngmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003 refined Heun4096: qualified=True\n",
+      "observed_elapsed_seconds": 35.226
+    },
+    {
+      "index": 3,
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 studies/muon_pd_20261102/target_geometry_20261116/verify_refined_trajectory.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring-verified",
+      "output_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring-verified",
+      "exit_code": 0,
+      "session_id": null,
+      "stdout": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003: qualified=True, independent error=2.711e-20\n",
+      "observed_elapsed_seconds": 0.219
+    },
+    {
+      "index": 4,
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_geometry_20261116/refined_trajectory_probe.py --study /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order --pilot /Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot --native /Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/verified --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product --witness",
+      "output_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product",
+      "exit_code": 0,
+      "session_id": 10253,
+      "stdout": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003 refined Heun2048: qualified=False\nrotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003 refined Heun4096: qualified=True\n",
+      "observed_elapsed_seconds": 37.125
+    },
+    {
+      "index": 5,
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 studies/muon_pd_20261102/target_geometry_20261116/verify_refined_trajectory.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product-verified",
+      "output_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product-verified",
+      "exit_code": 0,
+      "session_id": null,
+      "stdout": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003: qualified=True, independent error=6.661e-16\n",
+      "observed_elapsed_seconds": 0.266
+    }
+  ],
+  "formal_dispatch": false,
+  "notes": [
+    "Executed each documented readiness command verbatim and sequentially.",
+    "Observed actual terminal exit codes; retained the same exec session for every poll.",
+    "Observed elapsed times include polling and observation gaps.",
+    "Eight-source/eight-bank witnesses do not establish full-population scientific qualification."
+  ]
+}

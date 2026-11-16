@@ -20,9 +20,9 @@ another job. Publish verified changes to main as Zhizhe Zhang.
 
 ## Next executable actions
 
-1. [ ] Publish native evidence and refined source; freeze runtime and run five
+1. [x] Publish native evidence and refined source; freeze runtime and run five
    fresh exact documented commands before formal dispatch.
-2. [ ] Launch all twelve refined cases with the existing two-worker monitored
+2. [x] Launch all twelve refined cases with the existing two-worker monitored
    queue; reuse1024cache, compute2048/4096and8192only if needed. Preserve all rows.
 3. [ ] Independently reconstruct all refined arrays, numerical gates and exact
    bank uncertainty. Compare full-scale explained fractions with zero and1024.
@@ -34,7 +34,13 @@ another job. Publish verified changes to main as Zhizhe Zhang.
 Native raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution.
 Queue67437and collector67542are terminal. Twelve actual native and verifier exits0.
 The source freeze41df8eeis preserved. Independent maximum error4.17e-17.
-New raw: .../coefficient-20261116/refined-trajectory; no formal dispatch yet.
+New raw: .../coefficient-20261116/refined-trajectory. Formal queue69184is live,
+with two actual child processes; collector exec session50287waits for its exact
+terminal receipt, then runs twelve independent verifiers. Runtime1fbd9da.
+Fresh documented commands actually exit0/0/0/0/0with no divergence. Both
+eight-source witnesses qualify4096; packed cached paths are exact on all
+twelve256-source cases and measured execution throughput is1.377x. This is
+batching efficiency, not model or training improvement.
 Original pilot and frozen scientific evidence are unchanged. Last145check:
 all4-7occupied; noGPUused. Warm CPUenvironment04f11f75unchanged.
 

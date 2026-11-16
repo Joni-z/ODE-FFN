@@ -9,9 +9,12 @@ and all twelve independent verifiers exit0; reconstruction error<=4.17e-17.
 Nearby1000/1024/1032grids still give different endpoints at fixed weights.
 [Complete native precision analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-results/analysis-report.md).
 
-Next refine the full oracle/tangent/four-blend calculation under the same
+The full oracle/tangent/four-blend refinement is running under the same
 component tolerances. Native qualification does not yet validate its
 first-order mechanism. [Registered extension](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/refined-trajectory-protocol.md).
+Frozen1fbd9da, MacCPUqueue69184, two one-thread workers and an attached
+independent collector. Five fresh documented readiness commands exit0with no
+divergence. Completion requires all twelve actual case and verifier exits.
 No new training or image architecture is launched.145physical4-7remain
 occupied; MacCPUis used without sharing or stopping another job.
 
