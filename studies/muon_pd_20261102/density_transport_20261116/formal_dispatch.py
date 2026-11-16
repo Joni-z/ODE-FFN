@@ -29,6 +29,7 @@ def main():
     p.add_argument('--device', choices=['cpu', 'cuda'], required=True)
     p.add_argument('--indices', default='0,1,2,3,4,5,6,7')
     p.add_argument('--readiness')
+    p.add_argument('--derivative-backend', choices=['coordinate', 'batched'], default='coordinate')
     p.add_argument('--workers', type=int, choices=[1, 2, 3, 4], default=4)
     p.add_argument('--detach', action='store_true')
     a = p.parse_args()
@@ -53,7 +54,7 @@ def main():
             index, uuid = free[0]
             env['CUDA_VISIBLE_DEVICES'] = uuid
         command = [sys.executable, '-u', str(HERE/'check_formal.py'), '--root', str(root), '--data', str(data),
-                   '--output', str(out), '--device', a.device]
+                   '--output', str(out), '--device', a.device, '--derivative-backend', a.derivative_backend]
         if uuid:
             command += ['--gpu-uuid', uuid]
         with out.with_name(out.name+'-console.log').open('x') as log:
@@ -68,8 +69,9 @@ def main():
     assert a.readiness
     ready = json.loads(Path(a.readiness).read_text())
     assert ready['passed'] and ready['device'] == a.device and ready['model_cases'] == 8
+    assert ready['derivative_backend'] == a.derivative_backend
     assert ready['density_data_sha256'] == digest and len(ready['formal_witnesses']) == 2
-    for name in ['density_ops.py', 'formal_density.py']:
+    for name in ['density_ops.py', 'formal_density.py', 'jacobian_backend.py']:
         assert ready['source_sha256'][name] == hashlib.sha256((HERE/name).read_bytes()).hexdigest()
     if a.phase == 'benchmark':
         assert a.workers == 1, 'Time cases sequentially on each host'
@@ -118,7 +120,8 @@ def main():
             case = meta['references'][index]['id']
             target = out/'cases'/case
             command = [sys.executable, '-u', str(HERE/'formal_density.py'), '--root', str(root), '--data', str(data),
-                       '--output', str(target), '--index', str(index), '--phase', a.phase, '--device', a.device, '--readiness', a.readiness]
+                       '--output', str(target), '--index', str(index), '--phase', a.phase, '--device', a.device,
+                       '--readiness', a.readiness, '--derivative-backend', a.derivative_backend]
             if uuid:
                 command += ['--gpu-uuid', uuid]
             log = (out/(case+'.log')).open('x')

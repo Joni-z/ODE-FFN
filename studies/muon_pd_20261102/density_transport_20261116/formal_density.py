@@ -7,6 +7,7 @@ import subprocess
 import time
 import numpy as np
 from density_ops import HERE, base, torch, symmetry, MixtureOracle, sample_density
+from jacobian_backend import derivative_backend
 
 
 def main(argv=None):
@@ -18,6 +19,7 @@ def main(argv=None):
     parser.add_argument('--device', choices=['cpu', 'cuda'], default='cpu')
     parser.add_argument('--gpu-uuid')
     parser.add_argument('--readiness')
+    parser.add_argument('--derivative-backend', choices=['coordinate', 'batched'], default='coordinate')
     a = parser.parse_args(argv)
     root, data_root, out = map(Path, [a.root, a.data, a.output])
     manifest, meta = [json.loads(p.read_text()) for p in [root/'portable.json', data_root/'density-data.json']]
@@ -29,8 +31,9 @@ def main(argv=None):
         assert a.readiness
         ready = json.loads(Path(a.readiness).read_text())
         assert ready['passed'] and ready['device'] == a.device and ready['model_cases'] == 8
+        assert ready['derivative_backend'] == a.derivative_backend
         assert len(ready['formal_witnesses']) == 2 and ready['density_data_sha256'] == base.digest(data_root/'density-data.json')
-        for name in ['density_ops.py', 'formal_density.py']:
+        for name in ['density_ops.py', 'formal_density.py', 'jacobian_backend.py']:
             assert ready['source_sha256'][name] == base.digest(HERE/name)
     out.mkdir(parents=True, exist_ok=False)
     torch.set_num_threads(1)
@@ -84,7 +87,8 @@ def main(argv=None):
                 if a.device == 'cuda':
                     torch.cuda.synchronize()
                 before = time.monotonic()
-                result = sample_density(net, oracle, source, steps, callback)
+                with derivative_backend(a.derivative_backend):
+                    result = sample_density(net, oracle, source, steps, callback)
                 if a.device == 'cuda':
                     torch.cuda.synchronize()
                 elapsed = time.monotonic()-before
@@ -106,10 +110,11 @@ def main(argv=None):
     guard(True)
     base.dump(out/'COMPLETE.json', dict(passed=True, phase=a.phase, witness=a.phase=='witness',
         formal=a.phase=='formal', benchmark=a.phase=='benchmark', id=case['id'], dataset=case['dataset'],
+        derivative_backend=a.derivative_backend,
         family=case['family'], device=a.device, gpu_uuid=a.gpu_uuid, dtype='float64', parameters_unchanged=True,
         samples_per_bank=n, banks=banks, levels=levels, checkpoint_sha256=case['checkpoint_sha256'],
         portable_manifest_sha256=base.digest(root/'portable.json'), density_data_sha256=base.digest(data_root/'density-data.json'),
-        rows=rows, source_sha256={p.name: base.digest(p) for p in [Path(__file__), HERE/'density_ops.py']}))
+        rows=rows, source_sha256={p.name: base.digest(p) for p in [Path(__file__), HERE/'density_ops.py', HERE/'jacobian_backend.py']}))
     print(json.dumps(dict(passed=True, id=case['id'], phase=a.phase, rows=len(rows), seconds=time.monotonic()-started)))
 
 

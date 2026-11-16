@@ -57,3 +57,12 @@ Formal author CPUentry passes all eight derivative/reference cases and two
 actual formal-entry witnesses. Benchmarks and full jobs are distinct phases.
 Source/data/sampler/operator mathematics stay fixed. Next: publish/freeze,
 fresh CPU/CUDAverbatim readiness, actual256-source benchmark and routing.
+
+Execution-only amendment from actual256-source CPUtimings: projected Product16
+state flow requires29.520sfor32steps; the full case extrapolates to220minutes.
+Before formal launch, test exact batched reverse VJPs against the frozen
+coordinate-Jacobian observer. Keep density_ops.py, every sample, step size and
+architecture unchanged. An adapter is allowed only after all-model Jacobians,
+complete observer arrays and native endpoints agree. Record both backend
+speeds; retain the original if batching does not help. This is not a stochastic
+trace approximation or a new model intervention.
