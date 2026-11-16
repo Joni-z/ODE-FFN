@@ -29,12 +29,26 @@ def descriptive(values):
         largest_one_percent_contribution_to_mean=float(np.sort(values)[-math.ceil(len(values)*.01):].sum()/len(values)))
 
 
-def analyze(verification, output):
+def sliced_w2(x, y, directions):
+    """NumPy replay of the pinned native equal-count empirical metric."""
+    assert len(x) == len(y)
+    return float(np.sqrt(np.mean((np.sort(x@directions.T, axis=0)-
+                                  np.sort(y@directions.T, axis=0))**2)))
+
+
+def analyze(verification, data_root, output):
     verification, output = map(Path, [verification, output])
+    data_root = Path(data_root)
     receipt, cases = read(verification/'COMPLETE.json'), read(verification/'verified-cases.json')
     assert receipt['passed'] and receipt['cases'] == 8 and not receipt['witness']
     assert len(cases) == len({c['id'] for c in cases}) == 8
     assert all(c['passed'] and not c['witness'] for c in cases)
+    assert sha(data_root/'density-data.json') == receipt['density_data_sha256']
+    meta = read(data_root/'density-data.json')
+    assets = {}
+    for name, item in meta['datasets'].items():
+        assert sha(data_root/item['file']) == item['sha256']
+        assets[name] = npz(data_root/item['file'])
     rng = np.random.default_rng(0)
     values, summaries = {}, []
     for case in cases:
@@ -56,6 +70,9 @@ def analyze(verification, output):
             values[key] = z, cell
             target = z['log_ratio_source']
             draws = bootstrap_means(target, z['bank'], rng)
+            asset = assets[case['dataset']]
+            targets = np.concatenate([asset[f'target_{b}'] for b in range(4)])
+            directions = asset['directions']
             summaries.append(dict(id=case['id'], dataset=case['dataset'], family=case['family'], mode=cell['mode'],
                 numerical_qualified=cell['qualified'], unresolved=len(cell['unresolved_indices']),
                 resolution_counts=cell['resolution_counts'], **descriptive(target),
@@ -63,7 +80,11 @@ def analyze(verification, output):
                 divergence_mean=float(z['log_ratio_divergence'].mean()),
                 previous_resolution_mean=float(z['previous_log_ratio_source'].mean()),
                 resolution_mean_change=float((target-z['previous_log_ratio_source']).mean()),
-                bank_means=[float(target[z['bank'] == b].mean()) for b in range(4)]))
+                bank_means=[float(target[z['bank'] == b].mean()) for b in range(4)],
+                same_sources_sw2_pool=sliced_w2(z['generated'], targets, directions),
+                previous_resolution_sw2_pool=sliced_w2(z['previous_generated'], targets, directions),
+                same_sources_sw2_banks=[sliced_w2(z['generated'][z['bank'] == b],
+                    asset[f'target_{b}'], directions) for b in range(4)]))
     contrasts, discovery = [], None
     for dataset in sorted({k[0] for k in values}):
         for mode in ['original', 'projected']:
@@ -119,9 +140,10 @@ def analyze(verification, output):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--verification', required=True)
+    p.add_argument('--data', required=True)
     p.add_argument('--output', required=True)
     a = p.parse_args()
-    analyze(a.verification, a.output)
+    analyze(a.verification, a.data, a.output)
 
 
 if __name__ == '__main__':

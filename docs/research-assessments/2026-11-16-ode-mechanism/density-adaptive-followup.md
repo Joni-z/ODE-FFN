@@ -49,6 +49,13 @@ bins or resolutions as extra independent observations. Do not clip negative
 finite-sample mean log-density ratios. Report tail contributions without
 trimming them.
 
+As a paired metric check, also replay the pinned native SW2 formula on the
+same 1024 endpoints, prebound target banks and 256 directions. Report pooled
+and four bank scores, plus previous-resolution scores. This smaller cohort
+has a higher empirical sampling floor; it supplements the completed large
+sampling comparison and does not replace it. Independent NumPy and native
+Torch replay must agree before using these descriptive scores.
+
 Only bank 0 may be used to inspect time-bin profiles and select a single
 candidate time window. Banks 1-3 remain hidden at the time-bin level until
 an oracle-replacement prediction is registered. If the resolved density
