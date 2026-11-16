@@ -39,8 +39,12 @@ A separate fixed-first-layer sampling pilot is registered, with new trajectory
 checks, inner256/512, outer128/129and ordinary controls. It compares empirical
 terminal distributions rather than source-coupled endpoint distances.
 [Sampling protocol](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-protocol.md).
-Author six-model candidate replay and both actual-sampler witnesses/independent
-verifiers exit0. Fresh frozen documented pass is next; formal pilot has not launched.
+Author checks and the fresh frozen five-command documented pass exit0.
+Two MacCPUworkers now run the complete64source pilot, one task each, with
+three focal models and two ordinary controls per task. Runtime freeze9d46b2d;
+actual tool sessions2572/38657. Raw progress/logs:
+`/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-sampling/formal/`.
+Formal numerical qualification and the six-model hypothesis remain pending.
 
 The earlier twelve-case first-order oracle-path calibration is numerically
 resolved but not a general trained-scale explanation. An exact actual-law

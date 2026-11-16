@@ -87,3 +87,9 @@ All six candidate/output replays are exact. Both author actual-sampler witnesses
 verifiers exit0. These do not replace the registered full64source/five-case
 pilot. Next publish/freeze, obtain fresh documented execution, then dispatch
 two one-thread workers and independently analyze the complete pilot.
+
+Fresh frozen9d46b2dfive-command pass is complete, actual exits0/0/0/0/0.
+Full64source pilot now runs on MacCPU: original native tool sessions2572/38657,
+one thread each, five cases/task. launch.json binds both live PIDs and source.
+Re-poll these same handles to terminal exits, then run both independent verifiers
+and the strict analysis bundle; do not infer a formal result from witness scores.
