@@ -32,8 +32,10 @@ Publish verified code and evidence promptly to GitHub main as Zhizhe Zhang.
 2. [x] Author checks: independent algebra/gradients/order/Pcalls, native
   8->16resume, real evaluator entries and exact original-midpoint step0 tensors,
    buffers/data_rng. No quality conclusion from short checks.
-3. [ ] Publish/freeze source; fresh agent executes documented readiness command
-   verbatim. Preserve original exit status and all divergences.
+3. [ ] First frozen documented pass exits 0, all native checks pass. It flags
+   gradient-check wording broader than the actual directional test. Preserve the
+   receipt, correct only wording, and repeat from a new frozen doc/output path.
+   Publish/freeze source; fresh agent executes the corrected command verbatim.
 4. [ ] Launch two one-thread Mac CPU 20k training trajectories with a persistent
    monitor; verify live command identity. Poll same handles, never restart on timeout.
 5. [ ] Require actual native exits 0,20k checkpoint, standard final test and

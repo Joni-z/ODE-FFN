@@ -62,7 +62,8 @@ controls are also competitive. No image run is selected before those results.
 ## Execution gates and budget
 
 First prove the copied RK4 algebra against an independent implementation,
-full input/parameter gradients, fourth-order refinement, exact eight P calls,
+input fast-mode gradcheck, one projection-gradient directional finite difference,
+fourth-order refinement, exact eight P calls,
 and common initialized tensors/RNG. Check native8->16resume versus continuous16
 and real common-bank evaluator entries on both tasks. A fresh frozen documented
 pass must reproduce these checks. Preserve failed entries rather than retuning.

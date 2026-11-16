@@ -3,26 +3,27 @@
 Use warm response-screen-cpu@04f11f75, one CPU thread, no package installation
 or accelerator. A fresh agent runs the following command verbatim from:
 
-`/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/repo`
+`/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/repo-v2`
 
-First confirm readiness/check does not exist. Do not change source, arguments,
+First confirm readiness-v2/check does not exist. Do not change source, arguments,
 recipe, data or outputs. Run to an actual terminal exit; re-poll the same handle
 if the observation yields. No fixes or full training dispatch by the witness.
 
 ```sh
-env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/coefficient_20261116/rk4_check.py --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --assets /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/readiness/check
+env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/coefficient_20261116/rk4_check.py --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --assets /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/readiness-v2/check
 ```
 
 Require PASS.json passed=true, native_continuations2, real_evaluator_witnesses2.
 Both kernel dimensions must have exact initialized parameters/buffers/RNG,
-an independent RK4 formula check, complete input/projection gradient checks,
+an independent RK4 formula check, input autograd.gradcheck(fast_mode=True) and one normalized sine-direction
+central finite-difference projection-gradient check,
 fourth-order refinement and matrix_applications[8,8]. Each dataset's native
 8->16 continuation must match continuous16, and the training data-generator
 state at8 must match the unchanged midpoint control. The local initialized
 maps need not match: the solver is the intended difference. No quality claim
 is made from16-step checks.
 
-Save readiness/command-exits.json with commands:[{command,actual_terminal_exit}],
+Save readiness-v2/command-exits.json with commands:[{command,actual_terminal_exit}],
 divergences:[...],and source freeze. Report actual parameter counts, errors,
 child continuation/evaluator results and any document/reality divergence.
 

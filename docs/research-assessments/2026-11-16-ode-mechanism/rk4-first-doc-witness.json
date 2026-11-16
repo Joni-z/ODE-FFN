@@ -1,0 +1,230 @@
+{
+  "recorded_at_utc": "2026-11-16T14:45:30.403241+00:00",
+  "witness": "fresh agent follows documented command verbatim",
+  "working_directory": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/repo",
+  "execution_document": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/repo/docs/research-assessments/2026-11-16-ode-mechanism/rk4-control-execution.md",
+  "commands": [
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/coefficient_20261116/rk4_check.py --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --assets /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/readiness/check",
+      "actual_terminal_exit": 0,
+      "tool_session_id": 20974,
+      "observation": "Started once; polled the same handle until actual terminal exit 0. No retry or formal training dispatch."
+    }
+  ],
+  "preconditions": {
+    "readiness_check_absent_before_launch": true,
+    "absence_check_command": "test ! -e /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/readiness/check",
+    "absence_check_actual_terminal_exit": 0
+  },
+  "witness_precheck_notes": [
+    {
+      "command": "/usr/bin/test ! -e /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/readiness/check",
+      "actual_terminal_exit": 127,
+      "reason": "Witness initially selected a nonexistent utility path on macOS; shell builtin test then confirmed absence before the documented command. This is not a documented-invocation divergence."
+    }
+  ],
+  "source_freeze": {
+    "path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/source-freeze.json",
+    "commit": "ab82c4fab32df3b699ab990ad34dd70c470849a7",
+    "manifest_sha256": "0037da712e317576fb4a980d53fd72ce0f92b17b6c7207eed28057e5866ccbaf",
+    "file_count": 4917,
+    "verified_file_count": 4917,
+    "mismatches": [],
+    "check_script_sha256": "1019c0c6a34e38340bbecb4a551fbe6aebfc6ec5a2ea732f69a24afb8b3eddbc"
+  },
+  "pass_json": {
+    "path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/readiness/check/PASS.json",
+    "sha256": "3f4481c0efbd0bbd14e9daed57bd2c81c49e502f83b3d0e8f72227676eeb64e1",
+    "results": {
+      "passed": true,
+      "kernels": [
+        {
+          "dimension": 2,
+          "parameters": 56706,
+          "initialized_tensors_buffers_rng_exact": true,
+          "numpy_rk4_formula": true,
+          "full_input_gradient": true,
+          "projection_directional_gradient_error": 3.795492566072145e-13,
+          "matrix_applications": [
+            8,
+            8
+          ],
+          "refinement_errors": [
+            8.262345961144174e-05,
+            4.852041911215822e-06,
+            2.976957807310681e-07
+          ],
+          "initial_local_map_difference": 0.005105807505231126
+        },
+        {
+          "dimension": 16,
+          "parameters": 58512,
+          "initialized_tensors_buffers_rng_exact": true,
+          "numpy_rk4_formula": true,
+          "full_input_gradient": true,
+          "projection_directional_gradient_error": 2.694153168787683e-12,
+          "matrix_applications": [
+            8,
+            8
+          ],
+          "refinement_errors": [
+            5.406005541851666e-05,
+            3.2591523256338015e-06,
+            2.0206213671507627e-07
+          ],
+          "initial_local_map_difference": 0.003931615037523829
+        }
+      ],
+      "continuations": [
+        {
+          "dataset": "gmm_ring8_2d",
+          "native_resume_matches": true,
+          "training_data_rng_matches_midpoint": true,
+          "native_evaluator_passed": true
+        },
+        {
+          "dataset": "rotated_product_bimodal_16d",
+          "native_resume_matches": true,
+          "training_data_rng_matches_midpoint": true,
+          "native_evaluator_passed": true
+        }
+      ],
+      "native_continuations": 2,
+      "real_evaluator_witnesses": 2,
+      "source_sha256": "1019c0c6a34e38340bbecb4a551fbe6aebfc6ec5a2ea732f69a24afb8b3eddbc"
+    }
+  },
+  "child_process_results": {
+    "per_dataset_subprocesses": [
+      "rk4_8",
+      "rk4_resume16",
+      "rk4_continuous16",
+      "midpoint8",
+      "real_evaluator16"
+    ],
+    "datasets": [
+      "gmm_ring8_2d",
+      "rotated_product_bimodal_16d"
+    ],
+    "actual_terminal_exits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "exit_evidence": "All ten child calls use synchronous subprocess.run(..., check=True) in the frozen rk4_check.py; reaching PASS.json and the parent actual exit 0 proves each returned 0. No independent tool handles were assigned to children."
+  },
+  "evaluator_results": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "complete": {
+        "passed": true,
+        "witness": true,
+        "split": "selection",
+        "steps": [
+          16
+        ],
+        "parameters_unchanged": true
+      },
+      "summary": [
+        {
+          "step": 16,
+          "field_mse": 2.385932600302217,
+          "sw2_mean": 1.2583937480288805,
+          "sw2_sd": 0.0,
+          "pooled_sw2": 1.2583937480288805,
+          "bank_sw2": [
+            1.2583937480288805
+          ],
+          "seconds": 0.3151364582590759,
+          "equivariance": {
+            "absolute_rms": 0.04402797452568747,
+            "relative_rms": 0.2588060166543328
+          },
+          "counts": [
+            7,
+            12,
+            5,
+            2,
+            12,
+            13,
+            6,
+            7
+          ],
+          "sector_l1": 0.40625,
+          "checkpoint_sha256": "5ebadc98b7d1a85ee3d5f313f1ec2a5cb923acec99b5d1c948e2ef080e963007",
+          "config_sha256": "7462a0377ce56ffe006f0775653a49fe12dcbea7a52501bbf7b36c1c5d732747",
+          "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "complete": {
+        "passed": true,
+        "witness": true,
+        "split": "selection",
+        "steps": [
+          16
+        ],
+        "parameters_unchanged": true
+      },
+      "summary": [
+        {
+          "step": 16,
+          "field_mse": 1.5798445191057233,
+          "sw2_mean": 0.6417419410376303,
+          "sw2_sd": 0.0,
+          "pooled_sw2": 0.6417419410376303,
+          "bank_sw2": [
+            0.6417419410376303
+          ],
+          "seconds": 0.3090650411322713,
+          "equivariance": null,
+          "gap_axes": [
+            0,
+            7,
+            15
+          ],
+          "gap_mass": [
+            0.28125,
+            0.53125,
+            0.765625
+          ],
+          "gap_expected": [
+            0.030396352489862666,
+            0.0005034309711281493,
+            2.052263359253459e-10
+          ],
+          "gap_error_max": 0.7656249997947737,
+          "checkpoint_sha256": "fc54c01f6c1d47ce4fc6b63ecf63bf5e30f4c9c9bd367024d70a3818690555a8",
+          "config_sha256": "a36cfe5c3edb3579efb64a8dd8e623924d3e5b69162444b69387f51dcbb7a55e",
+          "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+        }
+      ]
+    }
+  ],
+  "divergences": [
+    {
+      "kind": "validation_scope_wording",
+      "document_claim": "complete input/projection gradient checks",
+      "observed": "Frozen rk4_check.py uses torch.autograd.gradcheck(..., fast_mode=True) for the full input path, then checks a finite/nonzero projection-weight gradient and one normalized sin-direction central difference. It does not compare all projection-gradient components separately.",
+      "impact": "The documented command and its encoded gates pass. Evidence supports the stated fast-mode input and single-direction projection checks; the broader wording should be narrowed before claiming complete componentwise projection-gradient validation."
+    }
+  ],
+  "untouched_by_witness": [
+    "frozen source and execution document",
+    "environment and packages",
+    "recipe and data",
+    "native check outputs after creation by documented command",
+    "formal training directory"
+  ],
+  "formal_training_launched": false,
+  "quality_claim": false
+}
