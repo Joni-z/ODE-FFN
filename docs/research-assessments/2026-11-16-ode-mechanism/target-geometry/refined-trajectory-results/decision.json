@@ -1,0 +1,36 @@
+{
+  "cases": 12,
+  "qualified": 12,
+  "positive_points": 6,
+  "positive_adjusted_intervals": 1,
+  "tasks": {
+    "gmm_ring8_2d": {
+      "qualified": 6,
+      "positive": 6,
+      "positive_adjusted_interval": 1,
+      "fractions": {
+        "Alternating": 0.2726086201683966,
+        "Free ISRU": 0.13730823875119103,
+        "Palindrome": 0.20684352546016116,
+        "Released stages": 0.34285758132463273,
+        "Shared P": 0.3720934199498792,
+        "SwiGLU64/Muon": 0.10123424026125383
+      }
+    },
+    "rotated_product_bimodal_16d": {
+      "qualified": 6,
+      "positive": 0,
+      "positive_adjusted_interval": 0,
+      "fractions": {
+        "Alternating": -1.9411060112362692,
+        "Free ISRU": -2.601663503285386,
+        "Palindrome": -8.097186247892163,
+        "Released stages": -11.443030572184364,
+        "Shared P": -3.12785478635383,
+        "SwiGLU192/AdamW": -1.8485691040699805
+      }
+    }
+  },
+  "input_complete_sha256": "56dcc80ec76da89b5a9797be59844cc5ee9d948ce6b738f955da2005f34b47af",
+  "scope": "fixed-weight source-coupled endpoint prediction; not distribution quality or ODE causality"
+}

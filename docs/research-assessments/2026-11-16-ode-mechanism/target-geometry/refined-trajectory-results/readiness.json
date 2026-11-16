@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "mode": "refined",
+  "native_kernel_cases": 12,
+  "native_cli_witnesses": 2,
+  "fresh_agent": "/root/refined_trajectory_doc_witness",
+  "actual_command_exits": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_freeze": {
+    "commit": "1fbd9daec95c598e256a0257c03aeafaa2345e9d",
+    "archive_sha256": "5fed74da6206b24a83d97d6638ac5ae63ef01ace044b1855b0724e777d8b0ca4",
+    "runtime": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/repo"
+  },
+  "bound_artifacts": {
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/command-exits.json": "b402411165ba571dca32c400fad8751288a0a73b8bfcbf59d9b4edec96a50e91",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/check/PASS.json": "cc29e65c7d06de5df5ed66ccc8f77f38f89713b98fb900e89083a0a225516370",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring/COMPLETE.json": "2dcf1f71d3d0e6f0948c0c2b5572749b5a7a5c15453db55f9aabcea957c66c4c",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring/rows.json": "9bcc9cb7a2b7fd25c4617e281801f42e9baf8ccb4ccd0229bfe709581ddbb631",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring-verified/COMPLETE.json": "dd29a5be67d4881879ca2a535f192df217e070937a76f1860c4e3508cd804eab",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/ring-verified/summary.json": "f7156129966b7f40829c198153ad57bf3e579608835e4958b6bcf84ccf6884ff",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product/COMPLETE.json": "676c12c910b2174cf1002cb9c82ef581c0157931ea4fd725a06dc934ca6cc4c6",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product/rows.json": "ae444b02b0ce5648376ab9d3cfcd8cc8fbf2628c7f38b4acecb71b42db45d013",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product-verified/COMPLETE.json": "4a673f15898a28466c51ce722f86877c2d062d7c12e034a1a848dee89948c5a5",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/readiness/product-verified/summary.json": "9029201595bc43b336e7d3a6d6f198147bbcd8f561c9e46557370ec520567aca"
+  },
+  "runtime_source_sha256": {
+    "refined_trajectory_probe.py": "40ca797f2dab1a8970cc8712addd511cd9703c85f4f9e6df403b02a5d47781ff",
+    "native_time_queue.py": "741db60d1a252913aa24ae2eb327813f27012b9c79aa7291402c5cbd916ed566",
+    "native_time.py": "ab9ffb1432626c1b3f8d67a31fd7c6cf3f4cc04b91db3d796372cb108be058c7",
+    "trajectory.py": "4a79bf3674d88e2193d4d83dfa371db74bc0776224f04127d8ec2ba359d068bf",
+    "frozen_probe.py": "7a667c3fa6425c6a8983c7a2507085b8212f62d40911e75e240954801631903e",
+    "geometry.py": "79483652d9278f98e71a50a3155ceada5e493e2a9201bf8c808dae8cb2a48239",
+    "trajectory_probe.py": "bb62afbdd128621eb6739b9a2b6c7bdccb9936179eeb110a05d72061a196dbdf",
+    "verify_refined_trajectory.py": "63f613a0605dd8b7555711b35e6311d97458b2f977f7db0ebbd9eea857f0b6ea",
+    "verify_trajectory.py": "948d72431471e5d414a4490d67daee7a44215a07abae52a66604a47306fa5aee",
+    "collect_native_time.py": "57268f075abf14013e35de8a8c32477a05a71ad355cbcc6976edb678a185071f"
+  },
+  "packed_throughput_measurement": 1.3766614253544847,
+  "qualification_scope": "two eight-source readiness witnesses; not the formal256-source experiment"
+}

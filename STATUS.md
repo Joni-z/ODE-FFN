@@ -1,5 +1,22 @@
 # Current project status
 
+## Complete mechanism calibration and decision
+
+**All twelve refined cases now qualify numerically and independently.**
+Eight pass at4096steps, four at8192;12native+12verifier actual exits0,
+independent metric error<=2.14e-14. Every original256source/model is retained.
+Ring8full-scale fractions range0.101--0.372; Product16all six point estimates
+are negative(-1.849to-11.443). Only one of twelve adjusted input intervals
+has a positive lower bound. This is not a general trained-scale explanation.
+[Complete results and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/refined-trajectory-results/analysis-report.md),
+[architecture decision](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/decision-after-calibration.md).
+
+All precision/calibration jobs are terminal. The next bounded diagnosis is
+the hidden ISRU flow's energy/direction balance at frozen weights, to investigate
+the already observed coarse-versus-continuous feature change. It is registered,
+not launched. No new training or image architecture is promoted.
+[Next protocol](docs/research-assessments/2026-11-16-ode-mechanism/hidden-energy-protocol.md).
+
 ## New mathematical control
 
 **First-order endpoint prediction can fail while the generated law is exactly
@@ -13,8 +30,8 @@ every population marginal is unchanged. Independent metric error<=3.56e-15.
 The exact Product16 oracle path also independently checks saved numerical
 integration: at4096steps, endpoint max error2.49e-6. This extends the earlier
 Gaussian null to the actual non-Gaussian law. It does not attribute this
-special error structure to trained models. Complete the running twelve-model
-calibration, then require distribution-relevant evidence for a mechanism claim.
+special error structure to trained models. The twelve-model calibration is complete; require distribution-relevant
+evidence for a mechanism claim.
 
 ## Current precision question
 
@@ -25,12 +42,11 @@ and all twelve independent verifiers exit0; reconstruction error<=4.17e-17.
 Nearby1000/1024/1032grids still give different endpoints at fixed weights.
 [Complete native precision analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-results/analysis-report.md).
 
-The full oracle/tangent/four-blend refinement is running under the same
-component tolerances. Native qualification does not yet validate its
-first-order mechanism. [Registered extension](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/refined-trajectory-protocol.md).
-Frozen1fbd9da, MacCPUqueue69184, two one-thread workers and an attached
-independent collector. Five fresh documented readiness commands exit0with no
-divergence. Completion requires all twelve actual case and verifier exits.
+The separately registered full oracle/tangent/four-blend refinement is now
+complete under the same component tolerances. Its frozen1fbd9daqueue69184and
+collector69185are terminal; actual collector exec session50287exited0.
+Five fresh documented readiness commands and all formal cases/verifiers exit0.
+[Registered extension](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/refined-trajectory-protocol.md).
 No new training or image architecture is launched.145physical4-7remain
 occupied; MacCPUis used without sharing or stopping another job.
 
@@ -111,10 +127,11 @@ Raw evidence: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
 
 ## Current research priority
 
-Native fields now meet the registered precision test. Resolve the
-transported-error approximation before another architecture. The hidden ODE time/global
-FM time connection remains open. No additional training or image promotion is
-queued. The broader ODE-mechanism research goal remains active.
+Native and full-sensitivity precision now qualify, and the first-order
+approximation is insufficient as a general trained-model account. Diagnose
+the hidden solver's feature energy/direction before another architecture.
+The hidden ODE time/global FM time connection remains open. No additional
+training or image promotion is queued. The broader research goal remains active.
 [Registered bounded calibration](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/trajectory-protocol.md).
 
 ## Image benchmark

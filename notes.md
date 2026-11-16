@@ -1,46 +1,42 @@
-# Current ODE evidence and next decision
+# ODE mechanism: complete calibration and current decision
 
-New actual-law mathematical control: Product16oracle equals its quantile
-flow in the known rotated basis. The transition derivative is the marginal
-density ratio. All256sources and9times checked; saved4096oracle endpoint
-max error2.49e-6. The largest source-to-endpoint derivative is626.415.
+All12refined cases qualify,8at4096and4at8192;12nativeand12independent actual
+exits0. Every256-source cohort and all banks retained; independent maximum
+2.14e-14. Ring8fractions0.101--0.372; Product16all six negative(-1.849to-11.443).
+Only Ring8released stages has a positive lower adjusted conditional interval.
+The full-scale linear account is insufficient as a general mechanism.
 
-Paths Psi_t(exp(lambda*t*Omega)z0)have exactly the same Product16marginals
-for everyt, using a fixed cyclic skewOmega=.2(C-C^T). Their finite-scale
-linear endpoint fractions are-1.529/-3.285/-7.051/-12.579. Quantile/gauge/
-independent actual exits0/0/0, reconstruction3.56e-15. This rejects the
-implication from failed endpoint linearization to poor generation. It does
-not establish the same special error in learned models. All12formal cases
-continue unchanged; require distribution-level evidence before ODE attribution.
+Product16has an exact oracle quantile flow in the known latent basis, with
+transition derivative p_a/p_b. Its saved4096oracle endpoint max error2.49e-6.
+The maximum source-to-endpoint derivative on all256sources is626.415.
+An exact actual-law control using Psi_t(exp(lambda*t*Omega)z0), fixed cyclic
+Omega=.2(C-C^T), preserves every marginal but has fractions-1.529/-3.285/
+-7.051/-12.579. Independent metric reconstruction3.56e-15. Thus endpoint
+linearization success is not a generation-quality requirement. This is not
+an attribution of that special error structure to learned fields.
 
-All twelve native endpoint checks are qualified, ten at4096and two at8192.
-Ring8released-stage and Product16SwiGLUrequire8192.12native+12independent actual
-exits0; independent maximum4.17e-17.256sources/model, all eight original banks,
-no new weights, training, packages orGPU. Native grid figures inspected.
+Earlier factorial coefficient and stage-order controls show no general
+ODE-specific gain; sharing has task-dependent within-family effects. The
+native image reference remains stronger:160epoch FIDnative/K1/K8is24.304/
+27.789/28.083. Earlier spatial association remains valid but is not causal.
+No image promotion or new training is justified by the completed calibration.
 
-Nearby1000/1024/1032grids differ at fixed weights. Original Heun128large-bank
-SW2scores remain unchanged. Endpoint difference is coupling dependent and is
-not a distribution distance. Native qualification does not qualify the tangent.
+Next inspect the actual hidden flow's potential E=sum(sqrt(1+1.2*y²)-1)/1.2.
+Its derivative q^T sym(P)q separates potential change from skew redirection;
+finite midpoint can introduce a balance defect. The registered bounded audit
+checks whether this explains coarse-versus-continuous feature change, before
+considering a causal intervention. Deterministic potential/skew/midpoint
+controls pass(max potential-gradient error1.98e-9); the learned-state audit
+has not launched.
 
-The separately registered refined oracle/tangent/four-blend test is running.
-Queue69184has two one-thread CPUworkers; collector exec session50287is attached
-to this exact queue. Runtime1fbd9da; five fresh documented actual exits0with no
-divergence. Every original source/model remains in the dispatch population.
-Both eight-source author witnesses qualify4096; no full256-source conclusion
-yet. Initial wrong old-pilot path failed before solving and remains preserved.
-Packed execution exactly reproduces the original twelve full256-source traces.
-
-Earlier spatial PAL/ALTassociation is confirmed independently on32768pairs
-per task, but ordinary Product16SwiGLUis a counterexample to a general derivative
-ranking. Task-dependent order effects and coefficient-release controls still
-provide no general ODE-specific generation advantage.
-
-Canonical: docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/
-- native-time-results/analysis-report.md (complete new evidence)
-- refined-trajectory-protocol.md and refined-trajectory-execution.md (next)
-- trajectory-results/, time-alias-results/ (unchanged earlier evidence)
-- confirmation-results/ (unchanged spatial association)
+Canonical: docs/research-assessments/2026-11-16-ode-mechanism/
+- target-geometry/refined-trajectory-results/ (complete12case analysis)
+- target-geometry/product-oracle-control-results/ (exact actual-law control)
+- target-geometry/decision-after-calibration.md (current disposition)
+- hidden-energy-protocol.md (next frozen-weight diagnostic)
 
 Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.
-Native source freeze41df8ee; refined1fbd9da; original calibration4eeec25and alias130a5edpreserved.
-145physical4-7occupied,0-3prohibited; no foreign task touched. Goal active.
+Formal1fbd9daqueue69184and collector69185terminal; exec50287exit0.
+97protected report hashes/11final bindings/5native image files unchanged.
+NoGPUor package changes.145physical4-7occupied at latest check,0-3prohibited.
+All phase jobs terminal. Goal active; next energy audit not yet dispatched.

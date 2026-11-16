@@ -11,7 +11,7 @@ the model extension replaces only each Transformer block's FFN.
 | Current experiment, budget and jobs | [STATUS.md](STATUS.md) |
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |
-| Current continuous-flow precision question | [Completed native-grid qualification](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-results/analysis-report.md) |
+| Current mechanism result and next action | [Complete calibration and architecture decision](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/decision-after-calibration.md) |
 | Does endpoint linearization measure generation quality? | [Exact actual-law counterexample](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/product-oracle-control-results/analysis-report.md) |
 | Baseline/K1/K8 at matching epochs | [Matched FID comparison](docs/celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Candidate FFN implementation | [ffn.py](ffn.py) |
@@ -52,9 +52,11 @@ Later trajectory calibration remains numerically unresolved at its1024step cap.
 An actual-model temporal-alias construction shows why dyadic-grid agreement
 alone does not establish a continuous-field explanation.
 [Precision audit](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/time-alias-results/analysis-report.md).
-All twelve native fields now pass the separate endpoint precision check,
-ten at4096steps and two at8192. The full oracle/tangent/blend refinement is next.
-[Native results and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-results/analysis-report.md).
+All twelve full oracle/tangent/blend refinements now qualify. The first-order
+endpoint account is modest on Ring8 and fails on Product16at the trained scale.
+An exact actual-law counterexample preserves every marginal while failing that
+approximation. The next diagnosis returns to the hidden solver's energy/direction.
+[Complete results and decision](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/decision-after-calibration.md).
 These mechanism tests use velocity MLPs; the image code below remains the
 author-derived JiT trainer.
 

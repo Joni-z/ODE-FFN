@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "learned_models": 0,
+  "gradient_finite_difference_max_error": 1.977045638312802e-09,
+  "symmetric_work_identity_max_error": 0.0,
+  "skew_work_max_error": 7.496746626679614e-18,
+  "smooth_potential_remainder": [
+    0.002339371669295029,
+    0.001968014084201505,
+    0.00039988992262404016,
+    6.211660691737841e-05
+  ],
+  "smooth_potential_bound": [
+    0.002340549872144374,
+    0.0019899126047128054,
+    0.0028078855943748956,
+    0.00292049266650573
+  ],
+  "quadratic_controls": [
+    {
+      "step": 0.001,
+      "quadratic_midpoint_defect_max_error": 9.06059209696043e-15,
+      "expected_defect": [
+        0.0,
+        1.7201111111111122e-14,
+        9.075375000000003e-12,
+        2.730811250000001e-11
+      ],
+      "observed_defect": [
+        0.0,
+        1.7194579093882112e-14,
+        9.07363073565648e-12,
+        2.729905190790305e-11
+      ]
+    },
+    {
+      "step": 0.01,
+      "quadratic_midpoint_defect_max_error": 2.4886945544426128e-15,
+      "expected_defect": [
+        0.0,
+        1.7201111111111118e-10,
+        9.075375000000001e-08,
+        2.7308112500000006e-07
+      ],
+      "observed_defect": [
+        0.0,
+        1.720110998082447e-10,
+        9.07537511807277e-08,
+        2.730811274886946e-07
+      ]
+    },
+    {
+      "step": 0.1,
+      "quadratic_midpoint_defect_max_error": 1.047209194360299e-14,
+      "expected_defect": [
+        0.0,
+        1.7201111111111121e-06,
+        0.0009075375000000003,
+        0.002730811250000001
+      ],
+      "observed_defect": [
+        0.0,
+        1.7201111111031508e-06,
+        0.0009075375000016095,
+        0.0027308112499895287
+      ]
+    },
+    {
+      "step": 0.25,
+      "quadratic_midpoint_defect_max_error": 4.038436252074007e-15,
+      "expected_defect": [
+        0.0,
+        6.71918402777778e-05,
+        0.035450683593750004,
+        0.10667231445312501
+      ],
+      "observed_defect": [
+        0.0,
+        6.719184027777214e-05,
+        0.035450683593751364,
+        0.10667231445312098
+      ]
+    }
+  ],
+  "source_sha256": "5491d8c382637c26fd3b9462a0f5f4adbb17a51ba379c600d3454d9c97e0c7b3",
+  "scope": "mathematical identities only; no learned-state mechanism claim"
+}

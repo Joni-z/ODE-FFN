@@ -1,5 +1,15 @@
 # From hidden dynamics to the learned target response
 
+## Complete calibration
+
+All twelve refined observations qualify;12nativeand12independent actual exits0.
+The full-scale approximation is modest on Ring8 and fails on every fixed
+Product16point estimate. The actual-law control below also shows why this is
+not a generation-quality verdict.
+[Complete calibration](refined-trajectory-results/analysis-report.md),
+[current decision](decision-after-calibration.md),
+[next hidden-flow diagnostic](../hidden-energy-protocol.md).
+
 ## Actual-law counterexample
 
 The Product16 oracle is exactly a coordinatewise quantile flow in its known
@@ -8,8 +18,8 @@ linear endpoint fraction-12.579despite every population marginal remaining
 correct. This rules out treating first-order prediction failure as generation
 failure. [Derivation](product-quantile-derivation.md),
 [complete oracle/control evidence and figures](product-oracle-control-results/analysis-report.md).
-The registered twelve-model calibration continues; its outcomes concern
-approximation usefulness, separately from distribution quality.
+The twelve-model calibration is complete; its outcomes concern approximation
+usefulness, separately from distribution quality.
 [Targeted primary-source scope/novelty check](control-literature-check.md).
 
 ## Later precision audit

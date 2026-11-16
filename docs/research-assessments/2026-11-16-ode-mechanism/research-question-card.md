@@ -1,5 +1,11 @@
 # Does an ODE constraint improve the learned generative field?
 
+Current disposition: the coefficient/state/sharing/schedule controls and
+full refined transport calibration are complete. The general first-order
+endpoint explanation is not supported at the trained scale.
+[Completed decision and next bounded diagnosis](target-geometry/decision-after-calibration.md).
+The original plan below is retained; do not relaunch its completed controls.
+
 16 November 2026. Research plan, not a training submission.
 
 **Priority: identify the contribution of the exponential constraint before
