@@ -48,10 +48,10 @@ before frozen documented readiness; do not use this first witness as full study.
   independently reconstruct target changes and preserve every failed gate.
 - [ ] Publish results and decide whether the ODE-defect transport stage qualifies.
 
-1. [ ] Implement the exact tangent of the native Heun sampler around the ACTUAL
+1. [x] Implement the exact tangent of the native Heun sampler around the ACTUAL
    learned field, forcing it with the same-weight crossed-solver perturbation.
    Kernel/JVP/endpoint replay checks first; no new training or response search.
-2. [ ] Differentiate the SAME empirical squared SW2 functional via its sorted
+2. [x] Differentiate the SAME empirical squared SW2 functional via its sorted
    projected endpoints. Track ties and the right directional derivative.
 3. [ ] Bind fresh common evaluation banks before new outcomes. Primary case:
    Product16 RK4-trained model's observed midpoint benefit; retain other cases.
@@ -116,3 +116,32 @@ endpoint transport. Preserve the original primary result; before interpreting
 any failure, calculate the exact functional-remainder decomposition on all
 cases from the already saved endpoints. No new samples or fitted coefficients.
 Current full progress:8/64banks qualify; queue98117 remains live, not completed.
+
+## Current continuation: separate the two prediction remainders
+
+Previous goal turn was progress: published implementation, independent algebra
+and derivative controls, launched the fixed full cohort and observed8qualified
+full banks. Revalidated original15465/82357handles and actual queue/worker PIDs:
+they remain live; no restart. Worktree starts clean at7e1146e.
+
+- [x] Implement cached-output decomposition Lactual-L0-lambda*Lprime
+  =(Lactual-Lhat)+(Lhat-L0-lambda*Lprime), keeping original primary decision.
+- [x] Check translation/rank-crossing/zero controls and all eight cached64-source witnesses;
+  independently compare the new Lhat values with the native Torch SW2 metric.
+- [ ] Bind code/inputs and publish the verified diagnostic; use every case,
+  split, bank and fixed lambda when the formal queue becomes terminal.
+- [ ] Audit complete formal outputs/statistics/figures, then determine whether
+  ODE-derived hidden defects may be propagated to the full field and sampling.
+  No learned defect observations or new architecture while that gate is pending.
+
+Secondary author control61878 exited1 when writing its receipt because passed
+was supplied twice to dict; calculations completed before the serialization
+error. Fix only that receipt construction, retain the failed exit and rerun
+unchanged control gates. No formal worker/source/output is modified.
+
+Actual controls54474exit0; cached decomposition20885/25918exit0; native
+verification55201/17991exit0, all64metric rows agree within8.88e-16. Both
+updated witness PNGs inspected with shared legends; no witness quality claim.
+Exact frozen postprocessing commands are in metric-remainder-execution.md;
+fresh documented cached execution is next. Original native queue remains live:
+12/64full banks qualified at the latest actual check; none resubmitted.

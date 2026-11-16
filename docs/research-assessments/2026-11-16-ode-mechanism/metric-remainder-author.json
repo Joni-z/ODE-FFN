@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "witness_only": true,
+  "native_metric_verification": {
+    "passed": true,
+    "witness": true,
+    "cases": 8,
+    "metric_rows": 64,
+    "independent_native_metric_max_error": 8.881784197001252e-16,
+    "original_primary_gate_unchanged": true,
+    "summary_sha256": "50a848f7bf4ab1df6d64cdc11c714b8f74813d689995fd2e569f3c58f2af9e45",
+    "source_sha256": "cec3b8bf378533922b4fca06bf3a3600369964eb899f0259882b9d4c77fbae9d",
+    "controls": {
+      "passed": true,
+      "controls": [
+        {
+          "name": "translation",
+          "max_error": 1.0408340855860843e-17
+        },
+        {
+          "name": "rank_crossing",
+          "max_error": 4.440892098500626e-16
+        },
+        {
+          "name": "zero",
+          "max_error": 0.0
+        }
+      ]
+    }
+  },
+  "controls": {
+    "check_only": true,
+    "passed": true,
+    "controls": [
+      {
+        "name": "translation",
+        "max_error": 1.0408340855860843e-17
+      },
+      {
+        "name": "rank_crossing",
+        "max_error": 4.440892098500626e-16
+      },
+      {
+        "name": "zero",
+        "max_error": 0.0
+      }
+    ]
+  },
+  "source_sha256": {
+    "studies/muon_pd_20261102/target_transport_20261117/metric_remainder.py": "aeb8f1cfe7da18c1c9f08114bb74836a002863fc03fe300faafb119010c87586",
+    "studies/muon_pd_20261102/target_transport_20261117/verify_metric_remainder.py": "cec3b8bf378533922b4fca06bf3a3600369964eb899f0259882b9d4c77fbae9d"
+  },
+  "figures_inspected": [
+    "endpoint-metric.png",
+    "remainder-components.png"
+  ],
+  "original_primary_gate_unchanged": true,
+  "full_results_complete": false,
+  "actual_commands_exit": [
+    0,
+    0
+  ],
+  "initial_receipt_serialization_failure_exit": 1
+}

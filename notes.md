@@ -68,3 +68,12 @@ qualify. This is a general flow counterexample, not an ODE-FFN gain. An exact
 linear endpoint path can still produce nonlinear squared SW2; Section5 of the
 target-aware derivation separates both remainder sources without changing the
 original primary gate. Full first8/64banks qualify; no complete result yet.
+
+Cached secondary decomposition now implemented in metric_remainder.py and
+independently checked with the unchanged native Torch SW2. All eight64-source
+cases/both splits/four lambdas,64bank/pooled metric rows agree within8.88e-16;
+translation, rank-crossing and zero-distance controls pass. Both revised witness
+PNGs inspected; plots remain execution-only. A duplicate keyword in the initial
+control receipt caused61878exit1, fixed only serialization;54474exit0. Raw inputs,
+primary gate, formal sourcea6f4d42 and all running jobs remain unchanged.
+Formal actual check:12/64banks qualify, four CPUworkers near100%,1454-7occupied.
