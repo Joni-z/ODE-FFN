@@ -52,3 +52,11 @@ final relative errors6.79e-4midpoint and5.51e-4RK4. No learned checkpoint used.
 This is preparation for the conditional mechanism link, not a new quality result.
 The full-cohort analysis entry also rejects witness-only input before writing
 an output. Its scientific analysis still awaits the complete formal cohort.
+
+Formal first-bank qualification: each of four live Ring8case/split workers
+completed its full4096-source bank0; all gates pass.4/64banks, no full-quality
+decision. About9minutes/bank gives an initial2-3hour total queue estimate.
+Collector98379/session82357 binds PID98117/start identity and source-hashed
+analysis0be62ae. It waits for actual exit and all16zero child exits, then runs
+complete analysis automatically. Caffeinate29502 is scoped to98117. Independent
+recursive multinomial-bootstrap control passes, full-statistics audit pending.

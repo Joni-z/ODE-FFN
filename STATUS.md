@@ -41,6 +41,11 @@ banks are bound before outcomes. Full transport is now running on four Mac CPU
 workers: queue98117, native98125-98128, original tool session15465. No result is
 claimed from the64-source witnesses. All four frozen cases, both splits, eight
 4096-source banks and four fixed interpolation strengths remain in the queue.
+The first four full4096-source banks have completed and passed all numerical
+gates (4/64banks, not4/8complete cases). Initial throughput is about9minutes/bank
+with four concurrent workers, suggesting roughly2-3hours for the complete queue.
+Collector98379/session82357 watches this specific queue identity and will run
+the source-bound complete-cohort analysis once the queue actually exits.
 [Mathematical plan](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md).
 [Registered numerical protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-protocol.md).
 
@@ -57,6 +62,9 @@ Earlier field/crossed-sampling workers are terminal. Target-transport workers
 are live and near100% of one CPU core each; stages and actual child exits are
 recorded by the queue.145 physical4-7 were freshly checked: each uses about14GB,
 so none is used;0-3 are prohibited. No packages changed.
+The conditional next-stage RK4 defect algebra is independently checked with
+polynomial jets, an explicit formula and80-digit scalar implicit solutions;
+no learned-state application has run yet.
 Reports1/2 and their 97 protected files/11 bindings, plus five native image source
 files, remain unchanged. CelebA128 at 160 epochs stays native 24.304/K1 27.789/K8
 28.083 FID50k. Current raw study:

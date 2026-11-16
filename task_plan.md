@@ -92,3 +92,14 @@ native/eight independent children actual0, all gates qualified; source5011hashes
 match. Frozena6f4d42 full dispatch registered in raw launch.json. First four
 native PIDs98125-98128 verified live near100% CPU, not a completion signal.
 Retain/re-poll session15465; never duplicate this queue after observation timeout.
+
+First four full4096-source banks pass every numerical gate;4/64banks complete,
+not a full result. Collector98379/session82357 binds the specific live queue
+identity and frozen analysis source0be62ae; analysis executes only after actual
+queue exit and16zero native/verifier exits. Caffeinate session29502 keeps this
+specific queue awake. Independent recursive-bootstrap controls pass; run
+verify_transport_statistics.py on the complete analysis, then inspect both
+actual figures and recheck all protected hashes before publishing conclusions.
+This continuation is progress (implementation, independent controls and formal
+observations), not goal completion. Full transport and ODE-specific novelty
+remain unresolved; no new image architecture is promoted.
