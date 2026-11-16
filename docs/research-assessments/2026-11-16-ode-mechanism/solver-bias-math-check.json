@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "response_derivative_max_error": 5.658862267665654e-11,
+  "response_second_derivative_max_error": 1.7888190928516678e-10,
+  "isru_local": [
+    {
+      "step": 0.125,
+      "relative_bias_residual": 0.06999395702942734
+    },
+    {
+      "step": 0.0625,
+      "relative_bias_residual": 0.03500152692833699
+    },
+    {
+      "step": 0.03125,
+      "relative_bias_residual": 0.017500360536224193
+    },
+    {
+      "step": 0.015625,
+      "relative_bias_residual": 0.008749889252126943
+    }
+  ],
+  "exact_quadratic_local": [
+    {
+      "step": 0.125,
+      "relative_bias_residual": 0.0701754385970355
+    },
+    {
+      "step": 0.0625,
+      "relative_bias_residual": 0.03418803419685891
+    },
+    {
+      "step": 0.03125,
+      "relative_bias_residual": 0.01687763712258544
+    },
+    {
+      "step": 0.015625,
+      "relative_bias_residual": 0.008385744019809164
+    }
+  ],
+  "exact_linear_global": [
+    {
+      "steps": 4,
+      "relative_global_residual": 0.04794573792158146
+    },
+    {
+      "steps": 8,
+      "relative_global_residual": 0.024198885793346184
+    },
+    {
+      "steps": 16,
+      "relative_global_residual": 0.012154940623351242
+    },
+    {
+      "steps": 32,
+      "relative_global_residual": 0.006091215434665106
+    },
+    {
+      "steps": 64,
+      "relative_global_residual": 0.0030490276678461947
+    }
+  ],
+  "isru_variational_global": [
+    {
+      "steps": 4,
+      "relative_global_residual": 0.02692371891183904
+    },
+    {
+      "steps": 8,
+      "relative_global_residual": 0.013473649816955867
+    },
+    {
+      "steps": 16,
+      "relative_global_residual": 0.006739344007910707
+    },
+    {
+      "steps": 32,
+      "relative_global_residual": 0.003370216104805009
+    },
+    {
+      "steps": 64,
+      "relative_global_residual": 0.0016851420931272283
+    }
+  ],
+  "skew_leading_normal_work": 3.469446951953614e-18,
+  "source_sha256": "18bcd52d00982e5608aa1b400aa8b3a3212b0f55aa52dcf7c18af3b167a3b656",
+  "scope": "deterministic mathematical controls; no learned checkpoint observed"
+}

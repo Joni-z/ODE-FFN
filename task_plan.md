@@ -63,6 +63,22 @@ their64-direction null means, and preserve every direction. Use the unchanged
 two-worker CPUenvironment. Separately register the fixed512/1024 numerical
 extension before new sampling; old256failures remain part of the evidence.
 
+Equal-dimension control complete: all six tangent-minus-null intervals are
+negative. Ring8 normal specificity resolves; Product16 does not. Uniform
+sampling extension native sessions64713/23175exit0, monitor23282exit0;
+independent sessions96719/83354exit0. Collect its complete numerical outcome.
+
+Next mathematical object: the midpoint forward modified field
+g=-H[f,f]/24-J(Jf)/6. Derivation and deterministic controls pass without trained
+observations. The complete solver-bias protocol is registered; first-layer
+author native witnesses and stable-source independent perturbation checks exit0.
+Prepare frozen four-command pass, then all six layers. Do not substitute fine
+asymptotic accuracy for actual trained4-step explanatory success.
+
+An unused zero-denominator guard was edited while initial author verifiers ran.
+Their outputs are preserved and not used for source readiness. Both stable-source
+v2 verifiers passed at new paths before freezing; native arrays were unchanged.
+
 ## Retained errors
 
 A post-completion ps query returned1 because its worker was already terminal;
