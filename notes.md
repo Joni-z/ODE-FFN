@@ -209,3 +209,9 @@ qualification; keep CPU43094suspended until the full replacement audit.
 Canonical findings now include the completed coordinate, numerical,
 population-density and stage-composition controls, with obsolete status
 statements removed. Reports1/2 and the native image trainer remain unchanged.
+
+
+Ring8refinement finished: all1,024sources in each field qualify. The
+independent NumPymerge/source audit agrees within5.33e-15. Queue48821and
+worker48824both exit0and are absent. Population comparisons remain pending
+Product16, not blocked. No source removal or tolerance adjustment occurred.

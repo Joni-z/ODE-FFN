@@ -108,9 +108,9 @@ shared remains 0.091. Product16 shared/anchored/new change from
 ordering. [All independently reconstructed scores](numerical-resolution/analysis.md).
 
 Joint-density and width measurements reuse the fixed sources and sixteen
-completed reference cells. Ring8's sixteen initial rows independently verify;
-33 original-field and 11 projected-field paths require the registered
-refinement. Product16 runs on idle145GPU7 after a measured speedup, retaining
+completed reference cells. Ring8's sixteen initial rows and registered
+refinement are complete; both fields retain all1,024sources and qualify
+independently within5.33e-15. Product16 runs on idle145GPU7 after a measured speedup, retaining
 its suspended CPUfallback. Until these new measurements qualify, the original
 shared-versus-anchored KL result must not be attributed to the new control.
 [Observation routing](observations/resource-handoff.md).

@@ -205,3 +205,14 @@ registered CPUadaptive queue48821/worker48824started at unchanged fd7f09b.
 ActualPID and increasing4096integration steps verified. Curated formal audit
 omits all per-bank time profiles; raw complete diagnostics remain outside Git.
 Product16CUDA641939 continues, with CPU43094held as fallback. No source removed.
+
+
+Ring8all-source refinement is complete: queue48821/worker48824exit0and PIDs
+absent. Both1,024-source fields qualify independently, error5.33e-15; no
+source removed. Curated completion is observations/adaptive-ring8-complete.json.
+Product16 remains live on145GPU7; its eight original-field rows already
+cross-check with retained CPUwithin1.39e-12. Await its full16-row completion,
+then independently audit and compare every nine retained CPUrows before
+terminating fallback43094. Proceed with Product16adaptive refinement only
+after its actual successful parent exit. Combined statistics still await
+both tasks; do not relax the two-case/20-cell requirements.

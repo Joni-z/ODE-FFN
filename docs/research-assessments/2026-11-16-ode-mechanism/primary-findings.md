@@ -218,7 +218,8 @@ not a sufficient generation explanation.
 ## Remaining decision
 
 Finish the two new mean-preserving density/width measurements before selecting
-another structure. Ring8 observation continues on Mac CPU; Product16 is
+another structure. Ring8's full-source refinement is complete and independently
+verified within5.33e-15, with both fields qualified. Product16 is
 rerouted to idle145GPU7 after a measured 7.968x combined speedup. Its suspended
 CPU state is retained until the full GPU result passes independent and
 cross-host audits. [Resource handoff](coordinate-control/observations/resource-handoff.md).

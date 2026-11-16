@@ -1,0 +1,116 @@
+{
+  "passed": true,
+  "scope": "Ring8 mean-preserving control only; Product16 pending",
+  "independent": {
+    "passed": true,
+    "cases": 1,
+    "witness": false,
+    "qualified_cells": 2,
+    "max_independent_error": 5.329070518200751e-15,
+    "density_data_sha256": "af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577",
+    "source_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+    "verification_source_sha256": "bdb0dd31850fcfac0ba24a5c6e596b4f15d0b7a44b8c457b5c11714622f34caa"
+  },
+  "case": {
+    "passed": true,
+    "witness": false,
+    "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+    "dataset": "gmm_ring8_2d",
+    "family": "contrast_operator_midpoint4",
+    "completion_sha256": "003973ab7570e5eb21d69c2730225538791750e3ad644fcbf7a001cbec4d25a4",
+    "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+    "parent": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+    "cells": [
+      {
+        "mode": "original",
+        "qualified": true,
+        "samples": 1024,
+        "unresolved_indices": [],
+        "resolution_counts": {
+          "2048": 991,
+          "4096": 32,
+          "8192": 1
+        },
+        "file": "original-all-sources.npz",
+        "sha256": "ec0c004b785d32b01c948fa03185c845ee2979743e68037bd9ab844b0cf8cfca",
+        "max_errors": [
+          4.893266541072805e-06,
+          2.3437198723108565e-05,
+          0.001999814283995205,
+          0.0009877402780548046
+        ]
+      },
+      {
+        "mode": "projected",
+        "qualified": true,
+        "samples": 1024,
+        "unresolved_indices": [],
+        "resolution_counts": {
+          "2048": 1013,
+          "4096": 9,
+          "8192": 2
+        },
+        "file": "projected-all-sources.npz",
+        "sha256": "9a11e2c3155ab607a1aed97e743debdf8c2ed7e7e982be916dfb57774f37dfbd",
+        "max_errors": [
+          4.384676905222484e-06,
+          2.3654024623454006e-05,
+          0.001824673795912446,
+          0.00024310535531432204
+        ]
+      }
+    ],
+    "max_independent_error": 5.329070518200751e-15
+  },
+  "terminal": {
+    "passed": true,
+    "adaptive": true,
+    "completed": [
+      {
+        "index": 0,
+        "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+        "pid": 48824,
+        "physical_gpu": null,
+        "gpu_uuid": null,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "-u",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_density.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models",
+          "--data",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data",
+          "--case-output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "--parent-commit",
+          "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "--device",
+          "cpu",
+          "--derivative-backend",
+          "coordinate",
+          "--readiness",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-ring8/COMPLETE.json"
+        ],
+        "started": 1794806572.260919,
+        "exit_code": 0,
+        "complete": true,
+        "finished": 1794806947.962177,
+        "numerical_resolved": true
+      }
+    ],
+    "unstarted": [],
+    "selected_indices": [
+      0
+    ],
+    "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+    "numerical_resolved": true
+  },
+  "workers_absent": [
+    48821,
+    48824
+  ],
+  "confirmation_time_profiles_exported": false
+}
