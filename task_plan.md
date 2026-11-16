@@ -35,6 +35,8 @@ foreign task. Mac mini is available freely.
 - [ ] Prepare the fixed-weight statistics reader while integrations run: paired
   path bootstrap stratified by the four common source banks; retain failed
   numerical cells; expose time-bin discovery on bank 0 only.
+- [ ] Resolve full-source numerical failures with registered 4096/8192/16384
+  per-source refinement; preserve every original point and the running engine.
 - [ ] Only if the contrast supports it, register one time-local oracle
   intervention, select on bank 0 and confirm on banks 1-3. No response search.
 
@@ -48,8 +50,9 @@ Current: density-transport/analysis-report.md; density-formal-next.md.
 Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport
 Pilot queue 32943 and refinement queue 33293 are terminal; all workers exited.
 P1/P2 journals are in docs/history/. Final reports remain untouched.
-Previous goal turn: progress. Current turn also completes new observations,
-validates the exact observer and qualifies all sixteen pilot cells.
+Previous goal turn: progress. It independently reconstructed both completed
+CPU cases and identified full-source resolution failures, changing the next
+action from immediate density ranking to bounded numerical refinement.
 
 Formal-density execution started this turn. Previous goal turn is progress:
 it produced new field observations, validated the exact observer and completed
