@@ -102,3 +102,12 @@ Next execute the prebound four-case crossed-solver sampling forecasts on both
 selection/confirmation banks. Use the copied native evaluator, preserve native
 Heun32anchor before substitution, and independently reconstruct every metric.
 No new training or image architecture is selected.
+
+
+Crossed-sampling execution issue: all eight native evaluations exited0. Original
+supervisor32346exited1when a confirmation verifier incorrectly compared its
+field inputs with the selection-only full-FP64diagnostic. No samples were
+regenerated. Preserve original terminal/logs and failed output. Add a reference
+computed on EACH actual bound split, keep the unchanged3e-5precision gate and
+all4096field inputs, then independently verify all eight cached outputs at new
+paths. Corrected failing-case author precision98334/verifier89063exit0.

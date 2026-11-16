@@ -34,8 +34,11 @@ def main() -> None:
                 [sys.executable,str(candidate),'--folder',row['folder'],'--data-root','/Users/mr.z/ode-workspace-prep/data/synthetic',
                  '--assets',controls['assets_root'],'--output',str(target),'--device','cpu','--split','selection',
                  '--steps','20000','--solver',solver,'--witness'],
+                [sys.executable,str(HERE/'cross_solver_precision.py'),'--evaluation',str(target),
+                 '--output',str(out/(task+'-'+trained+'-precision'))],
                 [sys.executable,str(HERE/'verify_cross_solver.py'),'--input',str(target),
-                 '--output',str(out/(task+'-'+trained+'-verified')),'--exposure',str(root/'field-exposure')]]
+                 '--output',str(out/(task+'-'+trained+'-verified')),
+                 '--precision',str(out/(task+'-'+trained+'-precision'))]]
             for i,command in enumerate(invocations):
                 log = out/(task+'-'+trained+f'-{i}.log')
                 with log.open('x') as stream:

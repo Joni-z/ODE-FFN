@@ -1,5 +1,6 @@
 """Reconstruct copied-evaluator field, sample and case metrics in NumPy."""
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -15,9 +16,9 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', required=True)
     parser.add_argument('--output', required=True)
-    parser.add_argument('--exposure', required=True)
+    parser.add_argument('--precision', required=True)
     args = parser.parse_args()
-    root,out,exposure = map(Path,[args.input,args.output,args.exposure])
+    root,out,precision = map(Path,[args.input,args.output,args.precision])
     out.mkdir(parents=True,exist_ok=False)
     complete,binding = read(root/'COMPLETE.json'),read(root/'binding.json')
     assert complete['passed'] and complete['steps']==[20000]
@@ -34,11 +35,17 @@ def main() -> None:
     assert summary['checkpoint_sha256']==anchor['checkpoint_sha256']
     field = np.load(root/'field-20000.npy')
     mse = float(np.mean((field.astype(float)-arrays['field_oracle'].astype(float))**2))
-    task = 'ring' if field.shape[1]==2 else 'product'
     cell = binding['source_config']['cell']
-    source = exposure/'formal'/task/cell['id']/(binding['inference_solver']+'.npz')
-    with np.load(source) as z:
-        double_field = z['predictions'].copy()
+    reference = read(precision/'PASS.json')
+    assert reference['passed'] and reference['split']==binding['split']
+    assert reference['source_binding_sha256']==sha(root/'binding.json')
+    assert reference['asset_sha256']==asset['sha256']
+    assert reference['checkpoint_sha256']==anchor['checkpoint_sha256']
+    assert reference['inference_solver']==binding['inference_solver']
+    assert reference['field_x_sha256']==hashlib.sha256(arrays['field_x'].tobytes()).hexdigest()
+    assert reference['field_t_sha256']==hashlib.sha256(arrays['field_t'].tobytes()).hexdigest()
+    assert reference['prediction_sha256']==sha(precision/'field-fp64.npy')
+    double_field = np.load(precision/'field-fp64.npy')
     assert np.allclose(field,double_field,atol=3e-5,rtol=3e-5)
     banks = 1 if complete['witness'] else 8
     n = 64 if complete['witness'] else 4096
@@ -76,7 +83,8 @@ def main() -> None:
         inference_solver=binding['inference_solver'],split=binding['split'],metrics=metrics,
         checkpoint_sha256=anchor['checkpoint_sha256'],asset_sha256=asset['sha256'],sample_files=hashes,
         maximum_independent_error=maximum,field_precision_conversion_max_error=float(np.max(np.abs(field-double_field))),
-        input_complete_sha256=sha(root/'COMPLETE.json'),source_sha256=sha(Path(__file__)))
+        input_complete_sha256=sha(root/'COMPLETE.json'),precision_sha256=sha(precision/'PASS.json'),
+        source_sha256=sha(Path(__file__)))
     (out/'PASS.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     print(json.dumps(dict(passed=True,id=cell['id'],split=binding['split'],error=maximum)),flush=True)
 
