@@ -339,3 +339,13 @@ mathematics. Legacy four-model Product16plot also executes unchanged. All
 our prior observation queue/worker PIDs are terminal. Next is implementation
 and native validation of the registered matched stage-order control; not yet
 trained. The broader ODE-mechanism objective remains active.
+
+Measured CPU performance: first full32768-source4/128row takes134.1s,
+versus48-55s for the native eight4096-source bank evaluations. This is a
+large-batch CPU performance issue, not training. Next safe efficiency action:
+consider bankwise4096inference in the existing CPUentry, retaining exact
+source ordering and all samples. Verify actual full-bank endpoints/scores
+and refinement semantics before routing work. Keep live55052/55054/55055
+until any replacement actually advances and retained completed prefixes
+are audited; never stop merely for a waiting alternative. Do not restart
+the existing queue on timeout. All twenty unique cells still required.

@@ -133,3 +133,13 @@ CPUentry witnesses pass, with sixteen NumPyscores within5.55e-17.
 Observerfcbe347is published/frozen. Numericalqueue55052and workers55054/55055
 are live on Mac CPU, two workers/eight full-bank tasks. Full results and
 verify_numerical.py collection remain pending; do not duplicate the queue.
+
+Measured CPU performance: first full32768-source4/128row takes134.1s,
+versus48-55s for the native eight4096-source bank evaluations. This is a
+large-batch CPU performance issue, not training. Next safe efficiency action:
+consider bankwise4096inference in the existing CPUentry, retaining exact
+source ordering and all samples. Verify actual full-bank endpoints/scores
+and refinement semantics before routing work. Keep live55052/55054/55055
+until any replacement actually advances and retained completed prefixes
+are audited; never stop merely for a waiting alternative. Do not restart
+the existing queue on timeout. All twenty unique cells still required.
