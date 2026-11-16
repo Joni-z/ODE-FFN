@@ -19,7 +19,7 @@ Taylor-K8 layer.
 
 Density is measured on 1,024 common Gaussian starting points per model/field.
 Every point is retained and numerically qualified. The signed density-source
-integral estimates KL of each learned generative flow; it is not an exact
+integral estimates KL(rho_model || p_target) for each learned generative flow; it is not an exact
 likelihood for a finite Heun map. Full-precision values and resolution checks
 are in [the statistics](statistics.json) and [the source audit](new-cases-independent.json).
 

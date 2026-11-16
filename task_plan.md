@@ -47,7 +47,7 @@ Never stop/share foreign jobs. Re-poll actual handles after observation timeouts
    conditional widths, centroids and dependence with the same target calibration.
    Render plot_formal.py's two scientific figures and inspect actual images.
    Keep small1024-source SW2 apart from primary32768-source scores.
-8. [ ] Publish an evidence-bound analysis bundle (analysis-report.md,
+8. [x] Publish an evidence-bound analysis bundle (analysis-report.md,
    stats-appendix.md, figure-catalog.md, actual figures), canonical findings,
    STATUS/notes and source under Zhizhe Zhang to GitHubmain. Independently
    check key means/paired intervals and all finalized-report hash bindings.
@@ -107,4 +107,5 @@ Previous detailed execution journal is preserved verbatim at
 [history](docs/history/2026-11-16-before-coordinate-density-completion-task-plan.md).
 Current goal turn: progress. All observation jobs are terminal; twenty-cell
 analysis, independent statistics and three inspected figures are complete.
-Publication is being finalized. The matched order-control proposal is next.
+Publication at f145682 is verified on GitHubmain. The matched order-control
+proposal is next; no training from that proposal has started.

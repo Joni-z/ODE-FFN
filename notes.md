@@ -288,3 +288,14 @@ changes learned density; removing mean-update amplification is not a rescue.
 Analysis bundle: coordinate-control/density-results/. Current next proposal
 holds P/Bcoordinates/initial function/compute fixed and changes only stage
 order, with a predicted leading-bracket cancellation. Not implemented/trained.
+
+
+Completed bundle/source published to GitHubmain atf145682 under Zhizhe Zhang.
+All96report files and11finalized Report2bindings remain unchanged. Final
+syntax/JSON/link, statistic/plot-source and six exported figure-hash checks
+pass. The link checker initially treated a bracket formula inside a code
+fence as a hyperlink; fixed the check to exclude code rather than changing
+mathematics. Legacy four-model Product16plot also executes unchanged. All
+our prior observation queue/worker PIDs are terminal. Next is implementation
+and native validation of the registered matched stage-order control; not yet
+trained. The broader ODE-mechanism objective remains active.
