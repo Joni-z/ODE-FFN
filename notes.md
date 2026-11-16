@@ -10,7 +10,8 @@ shared P(.091) has an unresolved paired-bank interval. Ordinary Product16
 SwiGLU(.044) remains stronger. No image promotion or response search follows.
 Fresh geometry/cost/portable commands pass; six-model180record NumPyerror
 7.11e-15. All four bounded CPUresolution entries pass and sixteen independent
-scores agree within5.55e-17. Full inner/outer refinement is next on Mac CPU;
+scores agree within5.55e-17. Full inner/outer refinement runs on Mac CPUat frozenfcbe347, queue55052
+with initialworkers55054/55055; eight tasks and twenty unique full-bank cells;
 1454-7have foreign contexts. Canonical: schedule-order/analysis-report.md.
 
 

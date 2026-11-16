@@ -1,0 +1,33 @@
+{
+  "frozen_commit": "fcbe3477892ffc98e688807c4e9c1bd2476d4018",
+  "pid": 55052,
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/resolution_queue.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full",
+    "--only",
+    "numerical",
+    "--full-outer",
+    "--inner-substeps",
+    "4",
+    "8",
+    "16"
+  ],
+  "started": 1794814744.256289,
+  "device": "cpu",
+  "workers": 2,
+  "tasks": 8,
+  "unique_model_resolution_cells": 20,
+  "sources_per_cell": 32768,
+  "portable_manifest_sha256": "69142666fa412fc63d8cc7183ad921fb15498698eb4a767bc6fcb57941616ea1",
+  "readiness_sha256": "29e7bf366e3ab08534509a86d7cd5eab78473f1bd093f682cfbea4ac5c4468c7",
+  "estimated_wall_minutes": [
+    20,
+    30
+  ],
+  "estimate_basis": "native32768-source Heun128 at trained inner4 takes48-55seconds/case; two workers"
+}

@@ -130,4 +130,6 @@ Ring8palindrome/alternatingSW2.086/.108; Product16.072/.066. Opposite primary
 effects reject a task-general coarse-resolution benefit. Both tasks and both
 schedules remain in the registered numerical sweep. Fresh four-case actual
 CPUentry witnesses pass, with sixteen NumPyscores within5.55e-17.
-Freeze/publish this observer, then launch eight full-bank numerical tasks.
+Observerfcbe347is published/frozen. Numericalqueue55052and workers55054/55055
+are live on Mac CPU, two workers/eight full-bank tasks. Full results and
+verify_numerical.py collection remain pending; do not duplicate the queue.

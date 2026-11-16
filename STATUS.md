@@ -13,7 +13,9 @@ Product16ordinary SwiGLU remains stronger at0.044.
 Fresh native activity/cost/portable entries pass. Six-model180record geometry
 reconstructs within7.11e-15; all twelve common-bank rows independently pass.
 Four actual CPUresolution witnesses and all sixteen independent scores pass,
-error5.55e-17. Full internal/outer refinement is next.1454-7nowhave resident
+error5.55e-17. Full internal/outer refinement now runs at frozenfcbe347: queue55052,
+workers55054/55055, eight tasks/twenty unique cells with all32768sources.
+Independent full-result collection remains pending.1454-7have resident
 foreign contexts; Mac CPUcan proceed. No new image run or density run.
 
 **The new coordinate-control density comparison is complete.** All source
