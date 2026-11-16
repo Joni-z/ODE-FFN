@@ -1,5 +1,10 @@
 # Mean-preserving stage release: native execution
 
+**Completed:** both 20k CPU trajectories exited 0, and all ten model/task
+rows independently reconstruct. Frozen source: cdd79e5. The commands below
+are execution records; do not relaunch them as a status check.
+[Results, paired banks and update-coordinate probes](coordinate-control/analysis-report.md).
+
 The [registered control](sharing-optimization-control.md) changes only the
 coordinates of the four effective stage matrices. Keep the ISRU response,
 four midpoint steps, eight matrix applications, seed 0, batch 512, 20k updates,

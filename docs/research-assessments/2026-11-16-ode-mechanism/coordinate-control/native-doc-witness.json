@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dim": 2,
+      "parameters": 130434,
+      "extra_vs_shared": 73728,
+      "initial_output_exact": true,
+      "input_gradient_max_error": 0.0,
+      "common_gradient_max_error": 6.505213034913027e-19,
+      "all_contrast_gradients_active": true,
+      "controlled_unclipped_first_P_update_error": 1.3877787807814457e-17,
+      "nonzero_coordinate_conversion_error": 2.220446049250313e-16,
+      "formula_and_gradcheck": true,
+      "initial_shared_and_contrast_gradient_norms": [
+        0.913773927435032,
+        0.9137815675615949
+      ],
+      "native_nonzero_contrast_anchored_and_contrast_gradient_norms": [
+        405.11048105261176,
+        404.9999274151052
+      ],
+      "native_clip_factors": [
+        0.0024684624177908334,
+        0.0024691362388959454
+      ],
+      "mean_invariance_after_native_clipped_step": 2.7755575615628914e-17
+    },
+    {
+      "dim": 16,
+      "parameters": 132240,
+      "extra_vs_shared": 73728,
+      "initial_output_exact": true,
+      "input_gradient_max_error": 0.0,
+      "common_gradient_max_error": 1.6940658945086007e-21,
+      "all_contrast_gradients_active": true,
+      "controlled_unclipped_first_P_update_error": 1.3877787807814457e-17,
+      "nonzero_coordinate_conversion_error": 2.6194324487249787e-16,
+      "formula_and_gradcheck": true,
+      "initial_shared_and_contrast_gradient_norms": [
+        0.010805513488204063,
+        0.01080552330017286
+      ],
+      "native_nonzero_contrast_anchored_and_contrast_gradient_norms": [
+        4.549461326652343,
+        4.549350349188192
+      ],
+      "native_clip_factors": [
+        0.2198061942708372,
+        0.2198115562515181
+      ],
+      "mean_invariance_after_native_clipped_step": 2.7755575615628914e-17
+    }
+  ],
+  "native_continuations": 2,
+  "real_evaluator_witnesses": 2,
+  "source_sha256": {
+    "contrast_check.py": "c53fd9d440dd26cb49c4c9193dd29d4ba7695b02cc68fa93224fb0ca8f51a580",
+    "contrast_trial.py": "37b530fc5d9752f636d5fbad50d96bc23b6cd0ef9876000a0d7f477cbb618509",
+    "contrast-grid.json": "7bb6b430c816e490e523ba758c323f1cf1234d2991624d0fdb308894fe323018",
+    "contrast_evaluate.py": "43c2e335f988d87262dc880b5bafee49ce9c4624a2eff5e3771e343b24940cc3"
+  }
+}

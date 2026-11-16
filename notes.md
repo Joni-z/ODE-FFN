@@ -1,5 +1,22 @@
 # ODE mechanism: current evidence
 
+## Latest: mean-preserving coordinate control complete
+
+Two20kCPUtrajectories at frozen cdd79e5and all common-bank evaluations
+finished. All10model/task rows independently reproduce within2.78e-17.
+Newrelease pooled SW2Ring8.104/Product16.072; shared.091/.064; anchored
+.111/.073. Shared wins5/8Ring8banks (interval includes0) and8/8Product16
+banks. Neither paired new-versus-anchored improvement is resolved.
+Four same-function probes show effective-mean/native-common-P step ratios
+1.636--1.648in anchored coordinates versus1.000in zero-mean coordinates.
+Exact fields and effective gradients agree before the update. These use
+fresh AdamWstate; they do not replay historical momentum. Reparameterization
+changes optimization without changing capacity. It modestly changes point
+SW2and does not close Product16's sharing gap. Ordinary Product16SwiGLU
+still wins at.044. New-control solver/density measurements remain pending.
+Current evidence: coordinate-control/analysis-report.md under the canonical
+2026-11-16-ode-mechanism directory. Reports1/2and native image code unchanged.
+
 ## Structural controls
 
 State feedback and sharing P are positive within-family interventions at

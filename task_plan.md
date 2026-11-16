@@ -38,15 +38,22 @@ Never stop or share a foreign task.
   gate. Do not rank an unresolved density contrast.
 - [x] Run four paired shared/stage density contrasts, their MCuncertainty
   and resolution sensitivity. Compare SW2on these same prebound inputs.
-- [ ] Implement the registered mean-update-preserving stage release. Verify
+- [x] Implement the registered mean-update-preserving stage release. Verify
   its full-model/native-continuation identities before the two matched20k
   training controls. This tests sharing versus optimizer coordinates.
-  - [ ] Add only the stage-coordinate adapter, grid and native evaluator wrapper.
-  - [ ] Check zero-contrast function/input/common-gradient pairing, arbitrary
+  - [x] Add only the stage-coordinate adapter, grid and native evaluator wrapper.
+  - [x] Check zero-contrast function/input/common-gradient pairing, arbitrary
     matrix reconstruction, real optimizer mean invariance and clipping factors.
-  - [ ] Pass native8-to16 continuation and a fresh documented CPU witness.
-  - [ ] Freeze/publish, run two20k CPU trajectories with the existing monitor,
+  - [x] Pass native8-to16 continuation and a fresh documented CPU witness.
+  - [x] Freeze/publish, run two20k CPU trajectories with the existing monitor,
     and evaluate on the already bound common eight-bank arrays.
+- [x] Recompute all ten models, finish native same-function optimizer probes,
+  inspect both scientific figures and record cost/paired-bank statistics.
+- [x] Assemble the independently verified coordinate-control evidence,
+  updated snapshot and inspected figures for publication.
+- [ ] Measure new-checkpoint solver sensitivity and joint density/widths on
+  the existing sources. Reuse the sixteen completed reference cells; no
+  response search, new training or image promotion is authorized by these scores.
 
 The Product16 oracle-window branch is rejected by its signed density result;
 do not select a favorable time bin. Keep confirmation time profiles unopened.
@@ -73,8 +80,11 @@ Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport.
 Current registration: density-adaptive-followup.md; execution: density-adaptive-execution.md.
 Previous plan: docs/history/2026-11-16-density-pre-adaptive-task-plan.md.
 
-Previous goal turn: progress, completing all-source density qualification and
-rejecting the proposed Product16 explanation. Current turn implements the
-registered coordinate control and tests it before the two bounded trainings.
-Goal remains active. The density explanation is rejected; the registered
-mean-update control remains to isolate sharing from optimizer coordinates.
+Previous goal turn completed all-source density qualification and rejected
+the proposed Product16 explanation. Current coordinate control is complete:
+queue40445and workers40447/40448are terminal, both exit0; watcher40446has
+completed all new evaluations. New-versus-shared pooled SW2isRing8.104/.091,
+Product16.072/.064. Ring8paired support is5/8for shared and unresolved;
+Product16is8/8for shared. Same-function native AdamWprobes establish
+coordinate effects, but do not replay historical optimizer momentum.
+Goal remains active. New-control solver/density measurements remain pending.

@@ -1,0 +1,114 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "references": [
+        {
+          "family": "state_midpoint4",
+          "recipe_paired": true,
+          "checkpoints": [
+            {
+              "step": 0,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "cea7f992dcd56c2b3ff2e2bb495bf70acf78c0a35ba96224265e2c72d1d9b6a6",
+              "reference_checkpoint_sha256": "1c3174a02bdd41e74b944267d1f9342567ede15d4b865f75980fdc1bf60f45ef"
+            },
+            {
+              "step": 15000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "25a3efd7637000ccea824ba2af9693806b7ddd73df35051f6e91b51361012301",
+              "reference_checkpoint_sha256": "e6f49e91540a0bd2af52c5210d0141b9604a566acbc4c968cd42f754acdcd1dc"
+            },
+            {
+              "step": 20000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "84bee4e81cb78d1719e4e83e24f29c89f56ee9c8c0e47ef664da664c59cdbcc9",
+              "reference_checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e"
+            }
+          ]
+        },
+        {
+          "family": "stage_operator_midpoint4",
+          "recipe_paired": true,
+          "checkpoints": [
+            {
+              "step": 0,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "cea7f992dcd56c2b3ff2e2bb495bf70acf78c0a35ba96224265e2c72d1d9b6a6",
+              "reference_checkpoint_sha256": "7da8a266345faa3c3939de6de0f283b116202bdd5dc73000c19fa489cc824008"
+            },
+            {
+              "step": 15000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "25a3efd7637000ccea824ba2af9693806b7ddd73df35051f6e91b51361012301",
+              "reference_checkpoint_sha256": "5dea64ace821abb95da8113c48fadcfedf577eaad9bb13a23dca3cacd9500316"
+            },
+            {
+              "step": 20000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "84bee4e81cb78d1719e4e83e24f29c89f56ee9c8c0e47ef664da664c59cdbcc9",
+              "reference_checkpoint_sha256": "0f4a7634dbf216bff768723eff3d7b3a5e591a8814f3663fea0a496e7f13df34"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "references": [
+        {
+          "family": "state_midpoint4",
+          "recipe_paired": true,
+          "checkpoints": [
+            {
+              "step": 0,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "1fa7f3fec67b648f74e1f363368cb90196ff08cd6fd824dfbafdcc26a8bc0101",
+              "reference_checkpoint_sha256": "bf6d7bb60fd78d8d118d671fa3a318a6e88f2a500af02f32d0a48f568a2a9151"
+            },
+            {
+              "step": 15000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "0c970eea03f18d27d8792d4db59883acf2216e5decca7c9a51890bdea0e77456",
+              "reference_checkpoint_sha256": "f21b48ea0af844b759386900e4a4019c77cb1d00009eec58e32408e21d0e790c"
+            },
+            {
+              "step": 20000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "fc5e9dcdb5c6c6baaf9e93ae003926e2a3c53b7548e281792cb8a9358c3f7a32",
+              "reference_checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8"
+            }
+          ]
+        },
+        {
+          "family": "stage_operator_midpoint4",
+          "recipe_paired": true,
+          "checkpoints": [
+            {
+              "step": 0,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "1fa7f3fec67b648f74e1f363368cb90196ff08cd6fd824dfbafdcc26a8bc0101",
+              "reference_checkpoint_sha256": "7637e12f235dd499941df10e73ff71495082b9a58c00c3b03062f1eb4173b0f5"
+            },
+            {
+              "step": 15000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "0c970eea03f18d27d8792d4db59883acf2216e5decca7c9a51890bdea0e77456",
+              "reference_checkpoint_sha256": "86b9fa79a100617ea7541b8ef0494842489f8b3adc1022d2b54356a280ec0515"
+            },
+            {
+              "step": 20000,
+              "exact_data_rng": true,
+              "new_checkpoint_sha256": "fc5e9dcdb5c6c6baaf9e93ae003926e2a3c53b7548e281792cb8a9358c3f7a32",
+              "reference_checkpoint_sha256": "215420aab145fb625d2f90acb22f450663f2490eba1f78868409688691ef0ede"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": "9a099830d0579a2d462753bf69b1184f967d0747bba5486e91e085ac7daea4ff"
+}

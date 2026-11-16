@@ -97,4 +97,35 @@ still wins, the positive constraint result survives this particular mean-update
 control. Neither outcome makes finite-step ODE unrolling exclusive to ODEs:
 the same computation can also be written as a recurrent network.
 
-Status: mathematically prepared; not implemented or launched.
+Status: implemented and independently checked; both matched 20k CPU runs
+and all common-bank evaluations are complete. The new release improves the
+pooled point estimates over anchored release, but those paired intervals
+span zero. Shared P retains the Product16 bank advantage; Ring8 is unresolved
+against the new release. [Completed analysis](coordinate-control/analysis-report.md).
+The registered new-checkpoint density and solver measurements remain pending.
+
+## Frozen-function optimizer probe
+
+Before inspecting the new final results, also specify this mechanism check.
+For each original anchored and new mean-preserving20kfunction, represent
+exactly the same four effective matrices in both coordinate systems. Preserve
+all other tensors and Fourier buffers. Verify the complete predicted field
+and reconstructed effective-matrix gradients agree before any update.
+
+Use the eight prebound512-example field-pair batches, native pair MSE,
+clipping1and a fresh AdamW state with the unchanged learning rates. Measure
+the common-P update, mean-effective-matrix update, their stable ranks and
+the complete-field change. These are frozen-function fresh-state probes,
+not a reconstruction of the actual historical AdamW momentum trajectory.
+Keep the original checkpoint unchanged. No hyperparameter is selected.
+
+The mathematical prediction is concrete. If all four effective-matrix
+gradients equal G and epsilon is negligible, the first AdamW update of P
+and each anchored offset is approximately -eta*sign(G). The anchored
+effective mean therefore moves by about1.75times the shared-P step, while
+the zero-mean contrasts have zero gradient and leave the mean step unchanged.
+Actual stages need not have equal gradients: report their common-mode
+gradient energy and measured mean-step amplification instead of assuming
+this limiting factor holds during training. This probe can establish a
+coordinate effect at the same function; only the retrained comparison tests
+its relevance to the sampling gap.

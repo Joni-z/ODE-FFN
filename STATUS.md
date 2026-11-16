@@ -2,6 +2,29 @@
 
 ## Current priority: identify the ODE contribution
 
+**The mean-preserving stage control is complete.** It represents the same
+function class as anchored stage release while keeping the effective mean
+matrix equal to P. Two 20k seed0 CPU trajectories and all common-bank
+evaluations finished; independent metric reconstruction agrees within2.78e-17.
+
+| Fixed20k / pooled SW2 | Ring8 | Product16 |
+|---|---:|---:|
+| Shared P |**0.091**|0.064|
+| Anchored stage release |0.111|0.073|
+| Mean-preserving stage release |0.104|0.072|
+| Free ISRU |0.116|0.055|
+| SwiGLU reference |0.120|**0.044**|
+
+Shared P wins8/8Product16banks against the new release; Ring8 wins5/8and
+its paired interval includes zero. Improvements over anchored release have
+unresolved paired intervals on both tasks. At exactly the same frozen
+functions, fresh native AdamW probes show mean-step amplification1.636--1.648
+in anchored coordinates versus1.000in mean-preserving coordinates. This
+establishes an optimizer-coordinate effect, not its historical causal share
+of the final gap. The new control's solver/density measurements remain
+pending. No new GPU/image job was launched; finalized reports remain fixed.
+[Completed analysis, statistics and figures](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/analysis-report.md).
+
 **Product16 rejects the proposed density explanation of sharing.** After the
 same reflection projection, estimated joint KL is 0.668 for Shared P versus
 0.464 for Stage P, 0.289 for Free ISRU and 0.894 for SwiGLU. The paired
