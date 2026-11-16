@@ -29,6 +29,9 @@ Publish verified work promptly to GitHub main as Zhizhe Zhang.
 1. Implement dimension-matched one-dimensional/complement interventions under
    direction-dimension-audit.md. Bind every orthonormal frame before observing
    outputs. Retain all64 directions, six models, six layers and80 original inputs.
+   COMPLETE: both native and independent full entries exit0. All six tangent
+   contrasts and adjusted intervals are negative; normal contrasts resolve
+   positively on Ring8 only. Preserve the rejected tangential-specificity claim.
 2. Test the strong tangential-specificity claim against frame-mean complement
    effects; separately test potential-normal specificity. A nonpositive paired
    difference rejects the corresponding six-case claim. Do not equate63-versus1
@@ -36,6 +39,8 @@ Publish verified work promptly to GitHub main as Zhizhe Zhang.
 3. Register an unchanged-gate512/1024 sampling extension before running it.
    Retain all six original models, both fixed grids and the same64sources;
    preserve all original256 failures. No result-dependent source/layer selection.
+   REGISTERED and author actual-sampler/verifier witnesses exit0. Reuse exact
+   original512/native arrays; only1024arms are new. Fresh frozen pass pending.
 4. After these controls, decide whether a larger distribution comparison adds
    evidence. Do not select an image architecture or a new activation from G.
 

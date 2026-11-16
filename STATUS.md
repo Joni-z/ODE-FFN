@@ -20,6 +20,13 @@ rank methods against earlier32768-source studies. It does not select a new FFN.
 
 ## The next mechanism control
 
+The complete equal-dimension control is now finished. Potential-tangential F
+is lower than the generic63D-complement mean in all six models, with every
+adjusted paired interval below zero. Tangential dominance alone therefore
+does not establish special ODE sensitivity. Ring8 potential-normal F exceeds
+its1D null with positive adjusted intervals; Product16 remains inconclusive.
+[Complete null comparison](docs/research-assessments/2026-11-16-ode-mechanism/hidden-null-results/analysis-report.md).
+
 Normal and tangential spaces have dimensions1 and63. Directional dominance
 alone may reflect that difference. An exact audit of all2880 old local states
 shows normal error is enriched2.158--16.489 times relative to the1/64 isotropic
@@ -30,10 +37,11 @@ orthonormal-frame controls before promoting this as special ODE sensitivity.
 
 Also register a512/1024 numerical extension before resolving the three remaining
 pilot gates. Preserve the original256 failures and all fixed samplers/sources.
-The dimension-matched control is registered and all36 complete frames are
-bound before new outputs. Both first-layer author witnesses and independent
-verifiers exit0, retaining all64 directions and80 inputs in all six models.
-Fresh frozen execution is next. No larger sampling run or architecture change.
+All36 bound frames,64 directions,80 inputs and six layers are retained.
+Native and independent full-frame entries exit0; candidate reconstruction is
+exact. The unchanged-gate512/1024 extension is registered; both author native
+witnesses and independent verifiers exit0. Reused arrays are exact and bound.
+Fresh frozen extension execution is next. No new architecture or training.
 
 ## Earlier evidence and image benchmark
 

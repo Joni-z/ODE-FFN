@@ -35,7 +35,11 @@ def main() -> None:
     complete = read(root/'COMPLETE.json')
     assert complete['passed'] and not complete['check_only']
     assert complete['first_layer'] == 'blocks.0.ffn.ode1'
-    assert complete['inner_steps'] == [256, 512] and complete['heun_steps'] == [128, 129]
+    assert complete['inner_steps'] in ([256, 512], [512, 1024]) and complete['heun_steps'] == [128, 129]
+    coarse_level, fine_level = complete['inner_steps']
+    if complete.get('extension_source'):
+        assert complete['inner_steps'] == [512, 1024]
+        assert sha(Path(complete['extension_source'])/'terminal-receipts.json') == complete['extension_source_terminal_sha256']
     assert sha(root/'rows.json') == complete['rows_sha256']
     rows, max_reconstruction = [], 0.
     for row in read(root/'rows.json')['rows']:
@@ -56,6 +60,9 @@ def main() -> None:
         for arm in row['arms']:
             file = root/arm['file']
             assert sha(file) == arm['sha256']
+            if arm.get('reused'):
+                assert arm['inner_steps'] in [0, 512]
+                assert sha(Path(arm['source_file'])) == arm['source_file_sha256'] == sha(file)
             with np.load(file) as bundle:
                 z = {key: bundle[key].copy() for key in bundle.files}
             value = z['endpoints']
@@ -123,7 +130,7 @@ def main() -> None:
                 native = endpoints[outer, 0, 'identity']
                 numerical_points, g_difference = [], []
                 fractions_by_level = {}
-                for inner in (256, 512):
+                for inner in (coarse_level, fine_level):
                     ref = endpoints[outer, inner, 'reference']
                     fractions_by_level[inner] = []
                     for mask in [np.ones(len(source), dtype=bool)]+[banks == bank for bank in range(8)]:
@@ -131,21 +138,21 @@ def main() -> None:
                                                         for mode in MODES[2:]])
                 valid = all(value is not None for values in fractions_by_level.values() for group in values for value in group)
                 if valid:
-                    g_difference = np.abs(np.asarray(fractions_by_level[256])-np.asarray(fractions_by_level[512]))
+                    g_difference = np.abs(np.asarray(fractions_by_level[coarse_level])-np.asarray(fractions_by_level[fine_level]))
                 for mode in MODES[1:]:
-                    fine = endpoints[outer, 512, mode]
-                    change = np.linalg.norm(endpoints[outer, 256, mode]-fine, axis=-1)
+                    fine = endpoints[outer, fine_level, mode]
+                    change = np.linalg.norm(endpoints[outer, coarse_level, mode]-fine, axis=-1)
                     scale = 1e-7+.01*np.linalg.norm(fine-native, axis=-1)
                     numerical_points.append(change/scale)
                 numerical_ratio = float(np.max(numerical_points))
                 snapshots_ok = all(arm['snapshot_qualified'] for arm in arm_rows if arm['heun_steps'] == outer)
                 # Compare the measured refinement to its numerical shift, preserving unresolved cases.
-                ref256, ref512 = endpoints[outer, 256, 'reference'], endpoints[outer, 512, 'reference']
-                effect_resolved = all(sw2(native[mask], ref512[mask], directions) >
-                    1e-7+100*sw2(ref256[mask], ref512[mask], directions)
+                coarse_ref, fine_ref = endpoints[outer, coarse_level, 'reference'], endpoints[outer, fine_level, 'reference']
+                effect_resolved = all(sw2(native[mask], fine_ref[mask], directions) >
+                    1e-7+100*sw2(coarse_ref[mask], fine_ref[mask], directions)
                     for mask in [np.ones(len(source), dtype=bool)]+[banks == bank for bank in range(8)])
                 qualified = bool(valid and snapshots_ok and numerical_ratio <= 1 and np.max(g_difference) <= .005 and effect_resolved)
-                point = fractions_by_level[512][0]
+                point = fractions_by_level[fine_level][0]
                 support = bool(valid and point[1] > 0 and point[1] > point[0] and point[1] > point[2])
                 comparisons.append(dict(heun_steps=outer, fractions_by_level={str(k):v for k,v in fractions_by_level.items()},
                     pointwise_endpoint_max_limit_ratio=numerical_ratio,

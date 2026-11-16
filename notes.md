@@ -49,3 +49,14 @@ hidden-null-frames.json before any downstream observation. Both first-layer
 author native and independent verifier exits0; candidate reconstruction is
 exact. Full all-layer results remain pending; no hypothesis outcome is promoted
 from the author witness. Same warm04f11f75, noGPU or package changes.
+
+Complete null244c5c3: actual native sessions67840/94181exit0; both independent
+verifiers exit0. Fpotential-tangent=.916--.987 versus generic63Dmean=.992--.997;
+all six adjusted paired intervals are negative. The strong tangential-specificity
+claim is falsified on this cohort. Ring8 potential-normal F=.144--.236 versus
+1Dnull=.027--.028, with positive adjusted intervals; Product16 normal intervals
+cross0. Ring8 normal finite-response gains exceed null; Product16 gains are lower.
+The canonical normal carries structure, but no architecture benefit follows.
+Next explanatory object should predict the hidden solver's discretization bias,
+not just remeasure an output fraction. Uniform512/1024 precision extension is
+registered and author witnesses pass; original256failures stay unchanged.

@@ -1,6 +1,7 @@
 """Fixed-first-layer interventions through the unchanged native Heun sampler."""
 import argparse
 import os
+import shutil
 from pathlib import Path
 import time
 import numpy as np
@@ -92,6 +93,7 @@ def main() -> None:
     parser.add_argument('--dataset', choices=['gmm_ring8_2d', 'rotated_product_bimodal_16d'])
     parser.add_argument('--witness', action='store_true')
     parser.add_argument('--check-only', action='store_true')
+    parser.add_argument('--extend1024-from', help='Reuse bound native/512 arms from the original pilot')
     args = parser.parse_args()
     assert os.environ.get('CUDA_VISIBLE_DEVICES') == '-1'
     torch.set_num_threads(1)
@@ -102,6 +104,12 @@ def main() -> None:
     assert terminal['passed'] and all(value == 0 for value in terminal['native_exits'].values())
     assert all(value == 0 for value in terminal['independent_exits'].values())
     anchors = read(study/'anchors.json')
+    previous = Path(args.extend1024_from) if args.extend1024_from else None
+    inner_levels = (512, 1024) if previous else (256, 512)
+    if previous:
+        prior_terminal = read(previous/'terminal-receipts.json')
+        assert prior_terminal['passed'] and all(value == 0 for value in prior_terminal['native_exits'].values())
+        assert all(value == 0 for value in prior_terminal['independent_exits'].values())
     cases = []
     for row in anchors['references']+anchors['new_cases']:
         cell = read(Path(row['folder'])/'config.json')['cell']
@@ -155,14 +163,45 @@ def main() -> None:
             bank_index = np.repeat(np.arange(8), per_bank)
             inputs_file = folder/'inputs.npz'
             np.savez_compressed(inputs_file, source=source, target=target, bank=bank_index, directions=data['directions'])
+            prior_root, prior_row = None, None
+            if previous:
+                prior_root = previous/('readiness' if args.witness else 'formal')/task
+                prior_complete = read(prior_root/'COMPLETE.json')
+                assert prior_complete['passed'] and prior_complete['witness'] == args.witness
+                assert prior_complete['inner_steps'] == [256, 512] and prior_complete['per_bank'] == per_bank
+                assert sha(prior_root/'rows.json') == prior_complete['rows_sha256']
+                prior_row = next(item for item in read(prior_root/'rows.json')['rows'] if item['id'] == row['id'])
+                assert prior_row['checkpoint_sha256'] == identity['checkpoint_sha256']
+                assert sha(prior_root/prior_row['inputs_file']) == prior_row['inputs_sha256']
+                with np.load(prior_root/prior_row['inputs_file']) as old_inputs, np.load(inputs_file) as new_inputs:
+                    assert old_inputs.files == new_inputs.files
+                    assert all(np.array_equal(old_inputs[key], new_inputs[key]) for key in old_inputs.files)
             records = []
             for outer in (128, 129):
                 with torch.no_grad():
                     baseline = base.train.generated_samples(model, torch.from_numpy(source), outer).numpy()
-                variants = [('identity', 0)]+[(mode, level) for level in (256, 512) for mode in MODES[1:]] if focal else [('identity', 0)]
+                variants = [('identity', 0)]+[(mode, level) for level in inner_levels for mode in MODES[1:]] if focal else [('identity', 0)]
                 for mode, level in variants:
                     run_start = time.monotonic()
                     snapshots, metrics = {}, {}
+                    if prior_row is not None and level in (0, 512):
+                        old_arm = next(item for item in prior_row['arms'] if item['mode'] == mode
+                                       and item['inner_steps'] == level and item['heun_steps'] == outer)
+                        old_file = prior_root/old_arm['file']
+                        assert sha(old_file) == old_arm['sha256']
+                        if mode == 'identity':
+                            with np.load(old_file) as bundle:
+                                assert np.array_equal(bundle['endpoints'], baseline)
+                        file = folder/f'{mode}-inner{level}-heun{outer}.npz'
+                        shutil.copyfile(old_file, file)
+                        assert sha(file) == old_arm['sha256']
+                        records.append(dict(old_arm, file=str(file.relative_to(out)), reused=True,
+                                            source_file=str(old_file), source_file_sha256=sha(old_file)))
+                        dump(out/'progress.json', dict(pid=os.getpid(), completed_cases=len(results), cases=len(cases),
+                            current=row['id'], completed_arms=len(records), total_arms=18 if focal else 2,
+                            seconds=time.monotonic()-started))
+                        print(row['id'], mode, level, outer, 'reused', flush=True)
+                        continue
                     if focal:
                         field = Intervention(model, mode, level, outer)
                         generated = base.train.generated_samples(field, torch.from_numpy(source), outer).numpy()
@@ -196,7 +235,9 @@ def main() -> None:
         dump(out/'rows.json', dict(rows=results))
     dump(out/'COMPLETE.json', dict(passed=True, witness=args.witness, check_only=args.check_only,
         cases=len(results), per_bank=0 if args.check_only else (1 if args.witness else 8),
-        first_layer=FIRST, inner_steps=[256, 512], heun_steps=[128, 129],
+        first_layer=FIRST, inner_steps=list(inner_levels), heun_steps=[128, 129],
+        extension_source=str(previous) if previous else None,
+        extension_source_terminal_sha256=sha(previous/'terminal-receipts.json') if previous else None,
         rows_sha256=sha(out/'rows.json'), anchors_sha256=sha(study/'anchors.json'),
         surrogate_terminal_sha256=sha(surrogate/'terminal-receipts.json'), seconds=time.monotonic()-started,
         environment_spec_hash='04f11f75', source_sha256={name:sha(Path(__file__).with_name(name)) for name in
