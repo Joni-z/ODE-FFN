@@ -97,3 +97,10 @@ norm step fails the exact rotation control; its continuous bound remains valid.
 CFMMconcerns physical-time maps and stated absolute-continuity conditions.
 Canonical links, coverage and the counterexample are in literature-scope-audit.md.
 No new model family or sampling run follows from this audit.
+
+First full task completed: all four Ring8solver/split cases have8x4096sources,
+all8native/independentactual exits0 and full numerical qualification. Independent
+reconstruction error0. Product16four-case second wave is live under the same
+supervisor/session, actual PIDs1713/1715/1737/1741near100%CPU.32/64model-bank
+evaluations completed; full target-transport interpretation remains pending.
+Canonical partial execution receipt: target-transport-ring-completion.json.

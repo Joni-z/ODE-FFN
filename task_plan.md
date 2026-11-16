@@ -183,3 +183,11 @@ OpenReview's browser challenge was not bypassed. Independent rotation check
 rejects the quoted finite Euler inequality and its naive Heun extension while
 preserving the valid continuous bound. Known solver bias is not a new claim;
 our conditional full-field/target prediction and ordinary controls remain gates.
+
+Ring8 first wave is complete: four full32,768-source cases, all eight actual
+native/independent exits0, every numerical gate qualified, independent error0.
+This is32/64model/bank evaluations, not the complete two-task result. Product16
+continues under the same queue98117/session15465 with actual native
+1713/1715/1737/1741verified live near100%CPU. Original Ring workers finished as
+expected; their missing PIDs are not a stopped queue. Do not restart any case.
+Collector98379/82357and postprocessor332/64468remain waiting for the full cohort.

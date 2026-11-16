@@ -38,14 +38,16 @@ quality. The derivation and calibration/confirmation sequence are registered;
 its implementation passes deterministic controls and all eight checkpoint/split
 witnesses, including a fresh documented execution at a6f4d42. Fresh evaluation
 banks are bound before outcomes. Full transport is now running on four Mac CPU
-workers: queue98117, native98125-98128, original tool session15465. No result is
+workers: queue98117, original tool session15465. No result is
 claimed from the64-source witnesses. All four frozen cases, both splits, eight
 4096-source banks and four fixed interpolation strengths remain in the queue.
-Completed16/64full4096-source model/bank evaluations, all numerical gates passed;
-no complete case yet. Initial throughput is about9minutes/bank
+Ring8 is complete: four full cases, all eight native/independent exits0 and all
+numerical gates pass.32/64model/bank evaluations are complete; the four Product16
+cases now run on native PIDs1713/1715/1737/1741. Initial throughput is about9minutes/bank
 with four concurrent workers, suggesting roughly2-3hours for the complete queue.
 Collector98379/session82357 watches this specific queue identity and will run
 the source-bound complete-cohort analysis once the queue actually exits.
+[Completed Ring8 execution/verification](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-ring-completion.json).
 [Mathematical plan](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md).
 [Registered numerical protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-protocol.md).
 
@@ -63,6 +65,11 @@ That protocol now passes a fresh exact three-command witness (0/0/0,5026source
 hashes unchanged). Postprocessor332/session64468 watches the existing collector
 and will run the three full cached checks once, after actual completion. Do not
 duplicate its commands while it is live. No new sampling or training is added.
+
+The [six-paper source audit](docs/research-assessments/2026-11-16-ode-mechanism/literature-scope-audit.md)
+confirms that useful coarse-solver bias is established prior work. The pending
+contribution is the unfitted hidden-bias/full-field/target-effect chain, with
+the original primary gate and ordinary controls retained.
 
 ## Execution and preserved benchmark
 

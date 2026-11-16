@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "scope": "Completed Ring8 cases only; full fixed cohort still running",
+  "full_results_complete": false,
+  "completed_cases": 4,
+  "total_cases": 8,
+  "completed_model_bank_evaluations": 32,
+  "total_model_bank_evaluations": 64,
+  "frozen_native_source": "a6f4d422f2b51ebdbf8fd747000470f2b86d6714",
+  "rows": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "actual_exits": [
+        0,
+        0
+      ],
+      "banks": 8,
+      "samples_per_bank": 4096,
+      "all_numerically_qualified": true,
+      "independent_max_error": 0.0,
+      "source_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/formal/confirmation/ring_midpoint_trained",
+      "summary_sha256": "a18d119023c882271ce789441ffa8f60c21091bad07e8de1b8282ff24157cf4e"
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "actual_exits": [
+        0,
+        0
+      ],
+      "banks": 8,
+      "samples_per_bank": 4096,
+      "all_numerically_qualified": true,
+      "independent_max_error": 0.0,
+      "source_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/formal/confirmation/ring_rk4_trained",
+      "summary_sha256": "449b4f40592fcef675811fb8c349ba6037cc7c598c08374d65600b420a18bedb"
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "actual_exits": [
+        0,
+        0
+      ],
+      "banks": 8,
+      "samples_per_bank": 4096,
+      "all_numerically_qualified": true,
+      "independent_max_error": 0.0,
+      "source_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/formal/selection/ring_midpoint_trained",
+      "summary_sha256": "f308b6362ddf8f6a8c187094a42f94285f9e3bcd4cb69fff1a1f854e531d33a8"
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "actual_exits": [
+        0,
+        0
+      ],
+      "banks": 8,
+      "samples_per_bank": 4096,
+      "all_numerically_qualified": true,
+      "independent_max_error": 0.0,
+      "source_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/formal/selection/ring_rk4_trained",
+      "summary_sha256": "c9f13a5151c275589ddf2a85c1360253dd19296c94962f27fe810e188d0c3262"
+    }
+  ]
+}
