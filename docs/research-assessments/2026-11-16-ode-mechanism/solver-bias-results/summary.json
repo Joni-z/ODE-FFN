@@ -1,0 +1,2904 @@
+{
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9908319566902832,
+              "normal_fraction": 0.9845423112754218,
+              "actual_normal_share": 0.04860856729288845
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9976566413175965,
+              "normal_fraction": 0.9957168022369332,
+              "actual_normal_share": 0.050694254540271315
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.999402992584284,
+              "normal_fraction": 0.9988858111262389,
+              "actual_normal_share": 0.05203221601283436
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9998491078617933,
+              "normal_fraction": 0.9997159097760913,
+              "actual_normal_share": 0.05276214706855412
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999620531213038,
+              "normal_fraction": 0.9999282699041054,
+              "actual_normal_share": 0.05314292728627532
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999904840419196,
+              "normal_fraction": 0.999981977897055,
+              "actual_normal_share": 0.053337382453111155
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999976172744519,
+              "normal_fraction": 0.9999954831997038,
+              "actual_normal_share": 0.053435642814662364
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00020027722160475755,
+          "perturbation_file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer0-perturbation.npz",
+          "perturbation_sha256": "5dbcd4fb8df4b63061bd7382ba1b280528c0025f7e596a109507685aa78c1fec",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer0.npz",
+          "source_native_sha256": "8c603ae2bb5f4867187f93b4ba69a52fd7f7414d342c795b14f3d0855ccd9642"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9692439612275134,
+              "normal_fraction": 0.9820901239097559,
+              "actual_normal_share": 0.20788368494520992
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9926061560795257,
+              "normal_fraction": 0.9953469535910043,
+              "actual_normal_share": 0.19903913052057656
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9981908472926458,
+              "normal_fraction": 0.9988117573699034,
+              "actual_normal_share": 0.19468896666735075
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9995527341821518,
+              "normal_fraction": 0.9996995878145865,
+              "actual_normal_share": 0.192563777220168
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998888159547482,
+              "normal_fraction": 0.9999244622839629,
+              "actual_normal_share": 0.19151776901832646
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999722832420324,
+              "normal_fraction": 0.9999810601960777,
+              "actual_normal_share": 0.190999436598727
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999930807101479,
+              "normal_fraction": 0.9999952580627777,
+              "actual_normal_share": 0.1907415068814401
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0001442616534205289,
+          "perturbation_file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer1-perturbation.npz",
+          "perturbation_sha256": "078302f3081d9da49749035ebc45631a9bab5634b8997b9a7a43070588ce6cc1",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer1.npz",
+          "source_native_sha256": "659d671c7217de06a877c9f54d4bc46ffec7a1cdf661d2550e57ebebc8552412"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9914392576734132,
+              "normal_fraction": 0.9947870603919803,
+              "actual_normal_share": 0.06944137080742156
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9978055728360704,
+              "normal_fraction": 0.9987085266285984,
+              "actual_normal_share": 0.07055204343247858
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9994426267203963,
+              "normal_fraction": 0.9996762210947195,
+              "actual_normal_share": 0.07098219301614912
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9998594755626926,
+              "normal_fraction": 0.9999188979560083,
+              "actual_normal_share": 0.07116734266495044
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999647157280355,
+              "normal_fraction": 0.9999797022757331,
+              "actual_normal_share": 0.0712522206416874
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999911594360138,
+              "normal_fraction": 0.9999949226432676,
+              "actual_normal_share": 0.0712926933555041
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999977874098719,
+              "normal_fraction": 0.9999987303032786,
+              "actual_normal_share": 0.07131243210684814
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00026333946218584875,
+          "perturbation_file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer2-perturbation.npz",
+          "perturbation_sha256": "7c8f7db33106e055cf42f42217eee9c86af489a46b63e0cb979617683974aa77",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer2.npz",
+          "source_native_sha256": "c8fe5f4d140ef8521c5bcf7cac347e23abbbdc5aee2d314994f2e0b1d3aace7d"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9769690135558651,
+              "normal_fraction": 0.9821318466206725,
+              "actual_normal_share": 0.2792043846678648
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9945044802077135,
+              "normal_fraction": 0.9957297007031849,
+              "actual_normal_share": 0.277984450109803
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9986613031799202,
+              "normal_fraction": 0.9989572100261351,
+              "actual_normal_share": 0.27720955597251684
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9996698667071707,
+              "normal_fraction": 0.9997424091662503,
+              "actual_normal_share": 0.2767923471704863
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999180429874459,
+              "normal_fraction": 0.9999359910821843,
+              "actual_normal_share": 0.27657790200919186
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999795833213584,
+              "normal_fraction": 0.9999840463939145,
+              "actual_normal_share": 0.2764694304395644
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999949049371403,
+              "normal_fraction": 0.9999960176749407,
+              "actual_normal_share": 0.27641490935241575
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0001612114643937821,
+          "perturbation_file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer3-perturbation.npz",
+          "perturbation_sha256": "e43c4904afca91200edfe33b8ff46ca5dc69ec0bd83cc299d81ae63a9575e156",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer3.npz",
+          "source_native_sha256": "f786434c70f182071b6036b067d91e69c6290704b5fea9bfb6570f98b1f12353"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9844187548171257,
+              "normal_fraction": 0.9799585694869241,
+              "actual_normal_share": 0.0790197768357298
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9961457941524449,
+              "normal_fraction": 0.9949183063260139,
+              "actual_normal_share": 0.08103556333488593
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9990422092830332,
+              "normal_fraction": 0.9987232514077271,
+              "actual_normal_share": 0.08214980759720539
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9997613005118405,
+              "normal_fraction": 0.9996801935914259,
+              "actual_normal_share": 0.08274101916409017
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999404202039276,
+              "normal_fraction": 0.9999199807670909,
+              "actual_normal_share": 0.08304564217624398
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999851170225837,
+              "normal_fraction": 0.9999799873231646,
+              "actual_normal_share": 0.0832002757415129
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999962807576454,
+              "normal_fraction": 0.999994995890549,
+              "actual_normal_share": 0.08327818269945458
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00030215617506303984,
+          "perturbation_file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer4-perturbation.npz",
+          "perturbation_sha256": "8ed116ece7a1193ffff04b97315307472d1c623f4df591bf8c97c8e4553c6727",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer4.npz",
+          "source_native_sha256": "581ad7218b55cd138d8be7c9de6d29b381b3e978d3a4584c7280413d67770cd7"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9426467212440904,
+              "normal_fraction": 0.9477765255649738,
+              "actual_normal_share": 0.3376426099305631
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9865998161886129,
+              "normal_fraction": 0.9877327993881971,
+              "actual_normal_share": 0.33638496536763607
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9967717714409579,
+              "normal_fraction": 0.9970296673423802,
+              "actual_normal_share": 0.3355125895318037
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9992084098119437,
+              "normal_fraction": 0.9992692055459366,
+              "actual_normal_share": 0.3350439830764245
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998040504956054,
+              "normal_fraction": 0.9998187576158382,
+              "actual_normal_share": 0.33480637894100457
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999512569981582,
+              "normal_fraction": 0.9999548702660802,
+              "actual_normal_share": 0.3346874114602215
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999878448079739,
+              "normal_fraction": 0.9999887400168666,
+              "actual_normal_share": 0.33462797051339066
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0002900128688921617,
+          "perturbation_file": "gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer5-perturbation.npz",
+          "perturbation_sha256": "3d5ea9217a187bd76e0f6c010b3c4e4a9a2b7fc8dc0afd9e8dfd5d1177cf3fed",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__state_midpoint4__adamw_0.0003/layer5.npz",
+          "source_native_sha256": "f6ff41101681fdfe8e6c8a0a0819522b88c5da88b1d1c3bb070d5cbe3bda2270"
+        }
+      ],
+      "levels": [
+        {
+          "steps": 4,
+          "total_fraction": 0.9610909391946122,
+          "normal_fraction": 0.9630049227386301,
+          "relative_total_residual": 0.19725379794921016,
+          "actual_normal_share": 0.2576414258894165,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.9591539371967621,
+          "chain_only_fraction": 0.5624917835235564
+        },
+        {
+          "steps": 8,
+          "total_fraction": 0.9906171967373361,
+          "normal_fraction": 0.9909817365152669,
+          "relative_total_residual": 0.0968648711487501,
+          "actual_normal_share": 0.25833168315601984,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.8593154193054617,
+          "chain_only_fraction": 0.6830840230094053
+        },
+        {
+          "steps": 16,
+          "total_fraction": 0.9977033092450368,
+          "normal_fraction": 0.9977763383598536,
+          "relative_total_residual": 0.04792380154957633,
+          "actual_normal_share": 0.25858832229778056,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.8100745373599785,
+          "chain_only_fraction": 0.7290983417503785
+        },
+        {
+          "steps": 32,
+          "total_fraction": 0.9994323183928022,
+          "normal_fraction": 0.9994479878778854,
+          "relative_total_residual": 0.023826069906674997,
+          "actual_normal_share": 0.2587132373336091,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.785780562247854,
+          "chain_only_fraction": 0.7487329515337626
+        },
+        {
+          "steps": 64,
+          "total_fraction": 0.9998589134310084,
+          "normal_fraction": 0.9998624867938556,
+          "relative_total_residual": 0.011877986739829535,
+          "actual_normal_share": 0.2587779431199046,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.7737273019211228,
+          "chain_only_fraction": 0.7577270937114823
+        },
+        {
+          "steps": 128,
+          "total_fraction": 0.9999648339587534,
+          "normal_fraction": 0.9999656829848359,
+          "relative_total_residual": 0.005930096225749694,
+          "actual_normal_share": 0.2588112716234391,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.7677254639949522,
+          "chain_only_fraction": 0.7620208899815101
+        },
+        {
+          "steps": 256,
+          "total_fraction": 0.9999912217503154,
+          "normal_fraction": 0.9999914283593946,
+          "relative_total_residual": 0.0029628111118732573,
+          "actual_normal_share": 0.258828232560736,
+          "predicted_normal_share": 0.2588454150811446,
+          "curvature_only_fraction": -0.7647309078869804,
+          "chain_only_fraction": 0.7641172850649317
+        }
+      ],
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true,
+      "fd_max_limit_ratio": 0.00030215617506303984,
+      "asymptotic_point_support": true,
+      "trained_total_point_support": true,
+      "trained_normal_point_support": true,
+      "trained_actual_energy_by_bank": [
+        [
+          0.07753487191200992,
+          0.09102053362954435,
+          0.09553275967835893,
+          0.06598817682383287,
+          0.07132833161079616,
+          0.08425294314118867,
+          0.08489019877867404,
+          0.07649194443143338
+        ],
+        [
+          0.01914141705824031,
+          0.02389144454989707,
+          0.027930575594460452,
+          0.015940826988539717,
+          0.016495916793881335,
+          0.021437885920488647,
+          0.024295893869575955,
+          0.01757028559996656
+        ]
+      ],
+      "trained_residual_energy_by_bank": [
+        [
+          0.0033628337730769653,
+          0.0032286544637005928,
+          0.004228596406551971,
+          0.0025341023414937134,
+          0.0024960738248291634,
+          0.0034285964007143887,
+          0.003025505919960924,
+          0.002871346235242989
+        ],
+        [
+          0.0006206235284718277,
+          0.0008075419446029615,
+          0.001244364585277777,
+          0.000635420096000703,
+          0.0004576803149006006,
+          0.000900793565200342,
+          0.0007989925834883434,
+          0.0007018198565008565
+        ]
+      ],
+      "uncertainty": {
+        "resolved": true,
+        "ordered_resamples": 16777216,
+        "intervals": {
+          "trained_total_fraction": {
+            "conditional95": [
+              0.9585927061894621,
+              0.9634333838574792
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9575382274298121,
+              0.9642576017519641
+            ]
+          },
+          "trained_normal_fraction": {
+            "conditional95": [
+              0.9592575454105459,
+              0.9668341853011186
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9577674513197411,
+              0.9684119135451119
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "palindrome_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9239992813468156,
+              "normal_fraction": 0.9070239045661428,
+              "actual_normal_share": 0.03944764269904016
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9893041239028582,
+              "normal_fraction": 0.987922594820898,
+              "actual_normal_share": 0.04169273572118672
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9976594569915817,
+              "normal_fraction": 0.9972290090077672,
+              "actual_normal_share": 0.043122623379171915
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9994095981260992,
+              "normal_fraction": 0.9993038511186618,
+              "actual_normal_share": 0.04382221944875181
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.999851545633343,
+              "normal_fraction": 0.9998251481056494,
+              "actual_normal_share": 0.0441800187726379
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999627665577061,
+              "normal_fraction": 0.999956164083266,
+              "actual_normal_share": 0.04436103140665724
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999906758366459,
+              "normal_fraction": 0.9999890243694317,
+              "actual_normal_share": 0.04445207059774589
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00023088987241670725,
+          "perturbation_file": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer0-perturbation.npz",
+          "perturbation_sha256": "569c126a24f880e2932591e024feb092cd6c522c957b0f1feed996654ca6c6fa",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer0.npz",
+          "source_native_sha256": "7dc94d4f2520a3f60accf9ac1da7c686aa8e5b0da00a0952cff24615c15d02b5"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9361812827367263,
+              "normal_fraction": 0.9499465073705055,
+              "actual_normal_share": 0.21421598222121893
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9849490488157914,
+              "normal_fraction": 0.987638773406939,
+              "actual_normal_share": 0.21037622819901566
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9963470389777168,
+              "normal_fraction": 0.9969194317327537,
+              "actual_normal_share": 0.20836949702842536
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9991003967303949,
+              "normal_fraction": 0.9992303365378943,
+              "actual_normal_share": 0.20739708368064216
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997767940910877,
+              "normal_fraction": 0.9998075912994185,
+              "actual_normal_share": 0.20692558684715368
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999444095537229,
+              "normal_fraction": 0.999951895133155,
+              "actual_normal_share": 0.206694419635201
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999861286969117,
+              "normal_fraction": 0.9999879732076785,
+              "actual_normal_share": 0.20658009840506503
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0003540531461176155,
+          "perturbation_file": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer1-perturbation.npz",
+          "perturbation_sha256": "c97f890b7a703c7df8850810cd02516556f7452459502d99577cbc29340137bf",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer1.npz",
+          "source_native_sha256": "3850b224736dfad09327bab68b9da0c1f7c26e1a3b1a22e44377c469ea6e9393"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9131899680986001,
+              "normal_fraction": 0.9638325714991256,
+              "actual_normal_share": 0.04820652878395352
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9876953293644213,
+              "normal_fraction": 0.9954517824200426,
+              "actual_normal_share": 0.05514822958840497
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9970130083159873,
+              "normal_fraction": 0.9989579733233025,
+              "actual_normal_share": 0.05617507296100579
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9992363310396268,
+              "normal_fraction": 0.9997376909215773,
+              "actual_normal_share": 0.05655539653385345
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.99980660786273,
+              "normal_fraction": 0.9999340376638886,
+              "actual_normal_share": 0.05671377651720892
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999513219399037,
+              "normal_fraction": 0.9999834503063199,
+              "actual_normal_share": 0.05678494391030407
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.999987788006305,
+              "normal_fraction": 0.9999958544814831,
+              "actual_normal_share": 0.05681850057473701
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0002280634538733659,
+          "perturbation_file": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer2-perturbation.npz",
+          "perturbation_sha256": "05fe9127d3d41694c2e1c2b2c0708322eb46843e2099c08656a63090f65d6c4a",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer2.npz",
+          "source_native_sha256": "80cb58f7ed94c6cbff5a638045c3d7df02c10664a902b397a10badcb40ceb42f"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9544830082316391,
+              "normal_fraction": 0.9167637677158946,
+              "actual_normal_share": 0.054325608501883435
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9890192794339205,
+              "normal_fraction": 0.9772783129388141,
+              "actual_normal_share": 0.05355918191667774
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9973045709841076,
+              "normal_fraction": 0.9941294137353213,
+              "actual_normal_share": 0.053650605492437255
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9993325154731963,
+              "normal_fraction": 0.9985117264142049,
+              "actual_normal_share": 0.05385082992308411
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998339246526627,
+              "normal_fraction": 0.9996255542121117,
+              "actual_normal_share": 0.053995052264195396
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999585801950452,
+              "normal_fraction": 0.9999061039736109,
+              "actual_normal_share": 0.054078936561005236
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999896574032554,
+              "normal_fraction": 0.9999764911981952,
+              "actual_normal_share": 0.05412391937169535
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00022220382689148627,
+          "perturbation_file": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer3-perturbation.npz",
+          "perturbation_sha256": "2d4920eb2cf33edabf2e82815806444d4c1a2148fc2c4f65a0ad02611dfa06cd",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer3.npz",
+          "source_native_sha256": "6396ee04e52bdb45a7781326928eba10938f878978136625a0b3f5f7d4eb7801"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.85264019053119,
+              "normal_fraction": 0.9354386339038074,
+              "actual_normal_share": 0.07824376729107296
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9800568729171825,
+              "normal_fraction": 0.9899104152048145,
+              "actual_normal_share": 0.07221464077895104
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.995766170102949,
+              "normal_fraction": 0.9977435777845506,
+              "actual_normal_share": 0.07117129886584954
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9989624897530224,
+              "normal_fraction": 0.9994481959833845,
+              "actual_normal_share": 0.0707378831000706
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997425987549049,
+              "normal_fraction": 0.9998632215221147,
+              "actual_normal_share": 0.07054221949666832
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999358685561932,
+              "normal_fraction": 0.9999659321208597,
+              "actual_normal_share": 0.07045117743596667
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999839930634349,
+              "normal_fraction": 0.9999914976672263,
+              "actual_normal_share": 0.07040745726909041
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0004200545421740961,
+          "perturbation_file": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer4-perturbation.npz",
+          "perturbation_sha256": "26d2c213799e9a72108ad42338f793d4c49b77fff94028e4e46e6cbd55451d69",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer4.npz",
+          "source_native_sha256": "03110db62b08e905046c323efc2332f8c4b77a86c208fa349d9859dfbab40fe6"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9142968988284519,
+              "normal_fraction": 0.9086194081062621,
+              "actual_normal_share": 0.18189381448724534
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9785184918077289,
+              "normal_fraction": 0.9782233394375006,
+              "actual_normal_share": 0.19082095991385023
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9946631973567958,
+              "normal_fraction": 0.994676788632443,
+              "actual_normal_share": 0.19467659575008087
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9986732327320608,
+              "normal_fraction": 0.9986843241217265,
+              "actual_normal_share": 0.19648749449082242
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9996694433647096,
+              "normal_fraction": 0.9996729569296542,
+              "actual_normal_share": 0.19736639742084083
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999175155202239,
+              "normal_fraction": 0.9999184723079129,
+              "actual_normal_share": 0.197799985167978
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999793990087599,
+              "normal_fraction": 0.9999796471126958,
+              "actual_normal_share": 0.198015434451242
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00018387629844174067,
+          "perturbation_file": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer5-perturbation.npz",
+          "perturbation_sha256": "109606f46e9f8ee98cc9a27e69cf34900bc199b71ecf6ee9846a5a8771a34cba",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/layer5.npz",
+          "source_native_sha256": "754c2d9a720f0ea4e5c19a5fb9fcc442f66094a811c243e66a9958af08cc9908"
+        }
+      ],
+      "levels": [
+        {
+          "steps": 4,
+          "total_fraction": 0.9130944357633228,
+          "normal_fraction": 0.9361884241219978,
+          "relative_total_residual": 0.29479749699866387,
+          "actual_normal_share": 0.10865715205460892,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.3165036884969006,
+          "chain_only_fraction": 0.5480084262077216
+        },
+        {
+          "steps": 8,
+          "total_fraction": 0.984775701132136,
+          "normal_fraction": 0.9860512887375195,
+          "relative_total_residual": 0.12338678562902926,
+          "actual_normal_share": 0.11905166081851416,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.32542716565465946,
+          "chain_only_fraction": 0.6490613838115908
+        },
+        {
+          "steps": 16,
+          "total_fraction": 0.9964127229111577,
+          "normal_fraction": 0.9965517200926887,
+          "relative_total_residual": 0.05989388189825694,
+          "actual_normal_share": 0.12316886900407772,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.3159300464920982,
+          "chain_only_fraction": 0.680183520314539
+        },
+        {
+          "steps": 32,
+          "total_fraction": 0.9991054802721303,
+          "normal_fraction": 0.9991370458212047,
+          "relative_total_residual": 0.02990852266277447,
+          "actual_normal_share": 0.1251429675754558,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.30931644116898327,
+          "chain_only_fraction": 0.6924955513302762
+        },
+        {
+          "steps": 64,
+          "total_fraction": 0.9997765382523134,
+          "normal_fraction": 0.9997840660735756,
+          "relative_total_residual": 0.01494863698424025,
+          "actual_normal_share": 0.12612220969873914,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.30551304103857646,
+          "chain_only_fraction": 0.6977842446737789
+        },
+        {
+          "steps": 128,
+          "total_fraction": 0.9999441505451244,
+          "normal_fraction": 0.9999459872922946,
+          "relative_total_residual": 0.007473249284984805,
+          "actual_normal_share": 0.126610364006557,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.3034870322593821,
+          "chain_only_fraction": 0.7002066050230558
+        },
+        {
+          "steps": 256,
+          "total_fraction": 0.9999860393871451,
+          "normal_fraction": 0.9999864928710618,
+          "relative_total_residual": 0.0037363903509727934,
+          "actual_normal_share": 0.1268541368873123,
+          "predicted_normal_share": 0.12709773072896752,
+          "curvature_only_fraction": -0.30244339556009914,
+          "chain_only_fraction": 0.7013619321096767
+        }
+      ],
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true,
+      "fd_max_limit_ratio": 0.0004200545421740961,
+      "asymptotic_point_support": true,
+      "trained_total_point_support": true,
+      "trained_normal_point_support": true,
+      "trained_actual_energy_by_bank": [
+        [
+          0.3315386907000528,
+          0.33729594337857666,
+          0.34915620258914076,
+          0.32491196827531327,
+          0.342975827797647,
+          0.3555878168274327,
+          0.37695928334114975,
+          0.35713641328098383
+        ],
+        [
+          0.032640188764602195,
+          0.038530020805359014,
+          0.041687089729422755,
+          0.03578266051361242,
+          0.04226822942222537,
+          0.034352104398934026,
+          0.04464420960681417,
+          0.03168017491464583
+        ]
+      ],
+      "trained_residual_energy_by_bank": [
+        [
+          0.0331267734103739,
+          0.02413777543626929,
+          0.029178686761119475,
+          0.024552392428972378,
+          0.03087287274368497,
+          0.03179887413532703,
+          0.03108710003674066,
+          0.03645731943614287
+        ],
+        [
+          0.0015976024696200608,
+          0.0018420254115747152,
+          0.003041912203392366,
+          0.0022878795882493564,
+          0.002138585420497722,
+          0.002665488894077535,
+          0.0027363771875963377,
+          0.0029347223987618676
+        ]
+      ],
+      "uncertainty": {
+        "resolved": true,
+        "ordered_resamples": 16777216,
+        "intervals": {
+          "trained_total_fraction": {
+            "conditional95": [
+              0.9062090536538046,
+              0.9198796448439364
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9031440731518543,
+              0.9227169508154529
+            ]
+          },
+          "trained_normal_fraction": {
+            "conditional95": [
+              0.926039109992894,
+              0.9453500101020514
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9210827075253454,
+              0.9487268831549802
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "alternating_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9642500474057982,
+              "normal_fraction": 0.9533560999235302,
+              "actual_normal_share": 0.046020813948227046
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.99368381435618,
+              "normal_fraction": 0.9888443499554865,
+              "actual_normal_share": 0.05378150741821039
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.998407162876109,
+              "normal_fraction": 0.9970296234989448,
+              "actual_normal_share": 0.05664330227690905
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9995934442639055,
+              "normal_fraction": 0.999227721251697,
+              "actual_normal_share": 0.05799284638866288
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998970127203102,
+              "normal_fraction": 0.9998029346679097,
+              "actual_normal_share": 0.05865635669592714
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999740654386908,
+              "normal_fraction": 0.999950214784759,
+              "actual_normal_share": 0.05898588617367992
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999934916798787,
+              "normal_fraction": 0.9999874875593376,
+              "actual_normal_share": 0.059150156912283855
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00020667158115720782,
+          "perturbation_file": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer0-perturbation.npz",
+          "perturbation_sha256": "bd3c743e3b6f5511833642cc838ede68204a999855bcccf8e821405677a3718d",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer0.npz",
+          "source_native_sha256": "3c839e18ec46560676a12bf757faf3e65c8972c5c38afc15df9bb0c054ec1085"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9465731479212982,
+              "normal_fraction": 0.9620681369018997,
+              "actual_normal_share": 0.23239939519458255
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9875473256887246,
+              "normal_fraction": 0.9907000276332831,
+              "actual_normal_share": 0.22728204468449303
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9969850368327857,
+              "normal_fraction": 0.9976684508309398,
+              "actual_normal_share": 0.2242368156050091
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9992578244945238,
+              "normal_fraction": 0.9994146435759416,
+              "actual_normal_share": 0.22268980533871408
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998158457303205,
+              "normal_fraction": 0.9998532347647874,
+              "actual_normal_share": 0.22192129198992963
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999541311886313,
+              "normal_fraction": 0.9999632475277003,
+              "actual_normal_share": 0.22153962945146113
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999885537555208,
+              "normal_fraction": 0.9999908037199167,
+              "actual_normal_share": 0.22134961551454202
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00033630371665805493,
+          "perturbation_file": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer1-perturbation.npz",
+          "perturbation_sha256": "d5842d2f00d162aa2b4536de6f9357c2952b5db98bb73f584d01fe246329ef5d",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer1.npz",
+          "source_native_sha256": "2f4cb466ba8f0e348a15d6a74fcdf4efd920b3c228347e8b3e5d93b30686f76d"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9763909060585377,
+              "normal_fraction": 0.9622085930997819,
+              "actual_normal_share": 0.043676833254983075
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9942458792345942,
+              "normal_fraction": 0.9896732033703878,
+              "actual_normal_share": 0.04822369350416694
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9985745585372757,
+              "normal_fraction": 0.9971879330467018,
+              "actual_normal_share": 0.05083824225376063
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9996405961110122,
+              "normal_fraction": 0.9992695017045431,
+              "actual_normal_share": 0.05221246267591586
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999095754630084,
+              "normal_fraction": 0.9998140319117235,
+              "actual_normal_share": 0.05292354689122079
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.999977311850882,
+              "normal_fraction": 0.9999530961913923,
+              "actual_normal_share": 0.05328589191561164
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999943171102812,
+              "normal_fraction": 0.9999882230298927,
+              "actual_normal_share": 0.05346884416729072
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00020595444391171506,
+          "perturbation_file": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer2-perturbation.npz",
+          "perturbation_sha256": "1b22db0881d219e101954c3db4de8f557a407c35154dcbddd31c0cfd82dc3b46",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer2.npz",
+          "source_native_sha256": "1f04c77c62e48fd05a209b17b016461b4647b88e8a7b2927c833240caaf07238"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9664212971177313,
+              "normal_fraction": 0.9782151604104915,
+              "actual_normal_share": 0.18796057028709007
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9917862420850486,
+              "normal_fraction": 0.9946073677983386,
+              "actual_normal_share": 0.18551404469290528
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9979682715824927,
+              "normal_fraction": 0.998640617146555,
+              "actual_normal_share": 0.18334399623893907
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9994945470191222,
+              "normal_fraction": 0.9996573553045548,
+              "actual_normal_share": 0.18206960585171472
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998739258829102,
+              "normal_fraction": 0.9999138903754801,
+              "actual_normal_share": 0.18138851802190506
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999685160781767,
+              "normal_fraction": 0.9999784099072592,
+              "actual_normal_share": 0.18103738126607521
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999921332469952,
+              "normal_fraction": 0.9999945942134836,
+              "actual_normal_share": 0.18085920899492644
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00018173968036750711,
+          "perturbation_file": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer3-perturbation.npz",
+          "perturbation_sha256": "4404df79d1626f5d504f60e36fe93c446e97c7ae29d4f0cb59a29d936c91890b",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer3.npz",
+          "source_native_sha256": "aae64849468c2eb040daa18d31e1c12f43d1f274ae6e46753910f91a68802654"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9766812293990735,
+              "normal_fraction": 0.9792734383817344,
+              "actual_normal_share": 0.10734101358386891
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9945432073355625,
+              "normal_fraction": 0.9944173390883643,
+              "actual_normal_share": 0.10915732332261427
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9985942759913073,
+              "normal_fraction": 0.9984748679414964,
+              "actual_normal_share": 0.11047514937377616
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9996411727105678,
+              "normal_fraction": 0.9996011642266519,
+              "actual_normal_share": 0.11134036847733486
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999092448449931,
+              "normal_fraction": 0.999898031271366,
+              "actual_normal_share": 0.11182433917766207
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999771724385003,
+              "normal_fraction": 0.9999742214804415,
+              "actual_normal_share": 0.11207920883239393
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999942752848296,
+              "normal_fraction": 0.9999935193074968,
+              "actual_normal_share": 0.11220987425907025
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0003880868269610245,
+          "perturbation_file": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer4-perturbation.npz",
+          "perturbation_sha256": "91e318c5af54d01c43d39857839b0ff6a75c19dc6e7017d6cc299bd36989d281",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer4.npz",
+          "source_native_sha256": "c77d64c388104ea026443bddeea59b595f22559e909468e49cec15334bf1f86e"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9408799407670755,
+              "normal_fraction": 0.9381547237354577,
+              "actual_normal_share": 0.15012942663791604
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9862123947601212,
+              "normal_fraction": 0.9858899410970667,
+              "actual_normal_share": 0.15465634407804396
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.996679331766772,
+              "normal_fraction": 0.9965786845042384,
+              "actual_normal_share": 0.15628578513915206
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9991855012855735,
+              "normal_fraction": 0.9991540110918508,
+              "actual_normal_share": 0.15699683457788613
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997983106282176,
+              "normal_fraction": 0.999789422794241,
+              "actual_normal_share": 0.15733659413728454
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999498175680145,
+              "normal_fraction": 0.9999474549844952,
+              "actual_normal_share": 0.15750385211976417
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999874842302535,
+              "normal_fraction": 0.9999868751661272,
+              "actual_normal_share": 0.1575869965566234
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0002659516028157691,
+          "perturbation_file": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer5-perturbation.npz",
+          "perturbation_sha256": "7f1e8cf92098abc53e08133282af2bdb2c6affb88bfa43e34b77871571530c8c",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/ring/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/layer5.npz",
+          "source_native_sha256": "df7017b5bae4ac12481f8aba41dcc31c4191b7b72910809e17811731bd9f0170"
+        }
+      ],
+      "levels": [
+        {
+          "steps": 4,
+          "total_fraction": 0.9526635361672624,
+          "normal_fraction": 0.9592879521473304,
+          "relative_total_residual": 0.21756944599997846,
+          "actual_normal_share": 0.16795984714440587,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -1.0387631717521253,
+          "chain_only_fraction": 0.28019882581002764
+        },
+        {
+          "steps": 8,
+          "total_fraction": 0.9889608141411328,
+          "normal_fraction": 0.990137707587108,
+          "relative_total_residual": 0.10506752999317732,
+          "actual_normal_share": 0.17190812502338146,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -0.943449968403284,
+          "chain_only_fraction": 0.4393580421969898
+        },
+        {
+          "steps": 16,
+          "total_fraction": 0.9972957758715589,
+          "normal_fraction": 0.99753196365249,
+          "relative_total_residual": 0.05200215503650874,
+          "actual_normal_share": 0.1726164779690931,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -0.8840591011879113,
+          "chain_only_fraction": 0.4973984114034359
+        },
+        {
+          "steps": 32,
+          "total_fraction": 0.999330091201615,
+          "normal_fraction": 0.9993805371065969,
+          "relative_total_residual": 0.025882596438244452,
+          "actual_normal_share": 0.1728047150498817,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -0.8528955906014299,
+          "chain_only_fraction": 0.5212542530590144
+        },
+        {
+          "steps": 64,
+          "total_fraction": 0.9998332482103306,
+          "normal_fraction": 0.9998446866823609,
+          "relative_total_residual": 0.012913240866233442,
+          "actual_normal_share": 0.17286919769639233,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -0.8370367079229142,
+          "chain_only_fraction": 0.5319139068582972
+        },
+        {
+          "steps": 128,
+          "total_fraction": 0.9999583997388117,
+          "normal_fraction": 0.999961106357667,
+          "relative_total_residual": 0.0064498264463686145,
+          "actual_normal_share": 0.17289536384572232,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -0.8290463433994839,
+          "chain_only_fraction": 0.5369290899727059
+        },
+        {
+          "steps": 256,
+          "total_fraction": 0.9999896106960126,
+          "normal_fraction": 0.999990267818967,
+          "relative_total_residual": 0.003223244326371999,
+          "actual_normal_share": 0.17290708947229025,
+          "predicted_normal_share": 0.17291797050262694,
+          "curvature_only_fraction": -0.8250367860638976,
+          "chain_only_fraction": 0.5393582763414426
+        }
+      ],
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true,
+      "fd_max_limit_ratio": 0.0003880868269610245,
+      "asymptotic_point_support": true,
+      "trained_total_point_support": true,
+      "trained_normal_point_support": true,
+      "trained_actual_energy_by_bank": [
+        [
+          0.10970563951810408,
+          0.13896316568350509,
+          0.13568539976934774,
+          0.12284897510669701,
+          0.12392590396783411,
+          0.13527632794930708,
+          0.1340436624755877,
+          0.13392634759122707
+        ],
+        [
+          0.01536240372532785,
+          0.023048689987111456,
+          0.019569918839558536,
+          0.019104658963358945,
+          0.02349949970708963,
+          0.027680099346971698,
+          0.02003660867655296,
+          0.025431658533427243
+        ]
+      ],
+      "trained_residual_energy_by_bank": [
+        [
+          0.004663326504826659,
+          0.007238536138698046,
+          0.006954106926146046,
+          0.005831552921192481,
+          0.005272665092036255,
+          0.007203462790822336,
+          0.006457877855113325,
+          0.005342146527056886
+        ],
+        [
+          0.000725558685766681,
+          0.0009427541362662063,
+          0.000682547747559794,
+          0.0007308513329250352,
+          0.0010711271206184396,
+          0.0013036983653532638,
+          0.0005317949292045874,
+          0.0010847157859944286
+        ]
+      ],
+      "uncertainty": {
+        "resolved": true,
+        "ordered_resamples": 16777216,
+        "intervals": {
+          "trained_total_fraction": {
+            "conditional95": [
+              0.9495612338521251,
+              0.9560624991711517
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9484165863336693,
+              0.9575577634868433
+            ]
+          },
+          "trained_normal_fraction": {
+            "conditional95": [
+              0.9553978500353322,
+              0.9642186233889689
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9541411099164053,
+              0.9667251222753148
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9892776196462546,
+              "normal_fraction": 0.9968943408470651,
+              "actual_normal_share": 0.11306767802942495
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9973013563457646,
+              "normal_fraction": 0.9992097650124928,
+              "actual_normal_share": 0.11247185638401817
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.999323149438508,
+              "normal_fraction": 0.9998008102510235,
+              "actual_normal_share": 0.11215676503593541
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9998305216091193,
+              "normal_fraction": 0.9999500087145108,
+              "actual_normal_share": 0.11199821663843583
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999575977756827,
+              "normal_fraction": 0.9999874787312553,
+              "actual_normal_share": 0.1119190927514434
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999893954158522,
+              "normal_fraction": 0.9999968668096891,
+              "actual_normal_share": 0.11187961834727228
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999973483744871,
+              "normal_fraction": 0.9999992163547176,
+              "actual_normal_share": 0.11185990915064548
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00011988670653859641,
+          "perturbation_file": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer0-perturbation.npz",
+          "perturbation_sha256": "ed426e1977d096ed52fe5396772063cbceb8fa6586345d55a138879afdf34847",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer0.npz",
+          "source_native_sha256": "e42ed6559da8eaa241fe6b8660784ce4b29aea65dd7669fa2e854239be31c2cd"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.981395261156132,
+              "normal_fraction": 0.9830006624420488,
+              "actual_normal_share": 0.07031945511947654
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.995318118394711,
+              "normal_fraction": 0.9958591287826752,
+              "actual_normal_share": 0.07183056180915551
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9988183922056773,
+              "normal_fraction": 0.9989832610701276,
+              "actual_normal_share": 0.07271850434308426
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9997029600783193,
+              "normal_fraction": 0.9997484948599078,
+              "actual_normal_share": 0.07319055103166694
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999255129811372,
+              "normal_fraction": 0.9999374780511953,
+              "actual_normal_share": 0.07343321521156271
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999813482228971,
+              "normal_fraction": 0.9999844148979562,
+              "actual_normal_share": 0.07355616938337585
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999953331921408,
+              "normal_fraction": 0.9999961094622428,
+              "actual_normal_share": 0.07361804753069429
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00013795866506151048,
+          "perturbation_file": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer1-perturbation.npz",
+          "perturbation_sha256": "bca2dd6b44196c7894b0d22fa5b596ea988669931c5e136fd42b2ba0eede4ee3",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer1.npz",
+          "source_native_sha256": "98e7bc462412a5b9ac4e80cbecb803342c3b0152242c310b8d155f39835f5fc8"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9867898643803454,
+              "normal_fraction": 0.9760983807950543,
+              "actual_normal_share": 0.016573697223133895
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9967491394683624,
+              "normal_fraction": 0.994399756125337,
+              "actual_normal_share": 0.017665901842037868
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9991931060068163,
+              "normal_fraction": 0.9986334699981235,
+              "actual_normal_share": 0.018187215530277773
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9997989724192835,
+              "normal_fraction": 0.9996618642372918,
+              "actual_normal_share": 0.01844256360343649
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999498280789445,
+              "normal_fraction": 0.9999158617883939,
+              "actual_normal_share": 0.018568988045271392
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999874675132097,
+              "normal_fraction": 0.9999790124400008,
+              "actual_normal_share": 0.018631900523811626
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999968681836544,
+              "normal_fraction": 0.9999947589502513,
+              "actual_normal_share": 0.01866328433888741
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00015410995998684635,
+          "perturbation_file": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer2-perturbation.npz",
+          "perturbation_sha256": "f71017807e5b66d6d7a78811361e5e25502ad1c4c501eb3428706313b7304033",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer2.npz",
+          "source_native_sha256": "4ba3acd0c53e73ba17a22786fc94bc184cc2871b8ef4851758bd5b0839e29b00"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9716537715557834,
+              "normal_fraction": 0.9759504529232769,
+              "actual_normal_share": 0.05448603081428464
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9924064805187215,
+              "normal_fraction": 0.9937026152490909,
+              "actual_normal_share": 0.05382976042931994
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9979900706897225,
+              "normal_fraction": 0.9983831652381668,
+              "actual_normal_share": 0.053551505501734646
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9994800112613681,
+              "normal_fraction": 0.999590091980467,
+              "actual_normal_share": 0.05345251488651632
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998675401070474,
+              "normal_fraction": 0.9998967710506226,
+              "actual_normal_share": 0.053412734757708594
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999665580889502,
+              "normal_fraction": 0.9999740957090879,
+              "actual_normal_share": 0.053395152366039
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999915974096409,
+              "normal_fraction": 0.9999935115828984,
+              "actual_normal_share": 0.05338691853066564
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0004902010597801468,
+          "perturbation_file": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer3-perturbation.npz",
+          "perturbation_sha256": "cc7ecb26bf4a23ff758b7252165dbf54fa264910d7fb44c8f708971aaafed977",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer3.npz",
+          "source_native_sha256": "77204fb5e58f75e64e30b8263c860d6cc26a44da61a27b2ad33d0f0af5b3f3c0"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.977537539791151,
+              "normal_fraction": 0.9767170528883646,
+              "actual_normal_share": 0.049949589418159156
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9944325108138351,
+              "normal_fraction": 0.9943668706868479,
+              "actual_normal_share": 0.05161440736025556
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9986162247205927,
+              "normal_fraction": 0.9986182416058612,
+              "actual_normal_share": 0.05242763168216712
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9996553203442189,
+              "normal_fraction": 0.9996577628429621,
+              "actual_normal_share": 0.0528257025659843
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999140049775167,
+              "normal_fraction": 0.9999148385776284,
+              "actual_normal_share": 0.05302318092686731
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.999978524189874,
+              "normal_fraction": 0.99997875932004,
+              "actual_normal_share": 0.05312159499837869
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999946339811618,
+              "normal_fraction": 0.9999946960424334,
+              "actual_normal_share": 0.05317072883431789
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0003639221162812401,
+          "perturbation_file": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer4-perturbation.npz",
+          "perturbation_sha256": "26e46ba756b1f5586087234820a9a606b07d37324167f63279f0f057caeb5a44",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer4.npz",
+          "source_native_sha256": "dcb92ce9cc9813d4b11f6e9afde46b3860da858c0f839a918c50e0d1e7a9f7c1"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9506148774255432,
+              "normal_fraction": 0.9015044641207606,
+              "actual_normal_share": 0.01310738038764945
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9871476569628052,
+              "normal_fraction": 0.9773131316218255,
+              "actual_normal_share": 0.014095753495406304
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9967093830374434,
+              "normal_fraction": 0.9945172775430272,
+              "actual_normal_share": 0.014729072329547954
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9991674252901023,
+              "normal_fraction": 0.9986541840148871,
+              "actual_normal_share": 0.015081363512884353
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997905836364613,
+              "normal_fraction": 0.9996667134342406,
+              "actual_normal_share": 0.01526653442282043
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.999947483781493,
+              "normal_fraction": 0.9999170758853365,
+              "actual_normal_share": 0.01536133791959548
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999868504538172,
+              "normal_fraction": 0.999979318701965,
+              "actual_normal_share": 0.015409289270522679
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0001685837553551474,
+          "perturbation_file": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer5-perturbation.npz",
+          "perturbation_sha256": "df0a248bddbcc741328515562d808c0127a31113fc3ed24e505e19990e39dc4c",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/layer5.npz",
+          "source_native_sha256": "23e1bc21d72cc61b6e5c3e28fa1eb5cc93049b074c46650d402bee866efdf2cf"
+        }
+      ],
+      "levels": [
+        {
+          "steps": 4,
+          "total_fraction": 0.9705917276246498,
+          "normal_fraction": 0.9745999172009874,
+          "relative_total_residual": 0.17148840303457874,
+          "actual_normal_share": 0.04747392647082492,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.6799475453936763,
+          "chain_only_fraction": 0.6446394931422755
+        },
+        {
+          "steps": 8,
+          "total_fraction": 0.9923624951395797,
+          "normal_fraction": 0.9936694121052557,
+          "relative_total_residual": 0.08739281927263981,
+          "actual_normal_share": 0.048110026379404,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.6158160911011004,
+          "chain_only_fraction": 0.6851763239342837
+        },
+        {
+          "steps": 16,
+          "total_fraction": 0.9980324122798487,
+          "normal_fraction": 0.9984129278999978,
+          "relative_total_residual": 0.04435749902949078,
+          "actual_normal_share": 0.048424610216937315,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.5781070165387301,
+          "chain_only_fraction": 0.6943472853599995
+        },
+        {
+          "steps": 32,
+          "total_fraction": 0.9994995191712285,
+          "normal_fraction": 0.9996026337916589,
+          "relative_total_residual": 0.022371428849573292,
+          "actual_normal_share": 0.04859195836062044,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.558040980796368,
+          "chain_only_fraction": 0.695945922386429
+        },
+        {
+          "steps": 64,
+          "total_fraction": 0.9998737033327245,
+          "normal_fraction": 0.9999005750286546,
+          "relative_total_residual": 0.011238179001755045,
+          "actual_normal_share": 0.048678021441234995,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.54770669781926,
+          "chain_only_fraction": 0.6959735031395735
+        },
+        {
+          "steps": 128,
+          "total_fraction": 0.9999682714098271,
+          "normal_fraction": 0.9999751324494504,
+          "relative_total_residual": 0.005632813699459232,
+          "actual_normal_share": 0.048721584278549925,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.5424632334495316,
+          "chain_only_fraction": 0.6957902148524591
+        },
+        {
+          "steps": 256,
+          "total_fraction": 0.9999920480625724,
+          "normal_fraction": 0.9999937816346769,
+          "relative_total_residual": 0.0028199179824229576,
+          "actual_normal_share": 0.0487434882361683,
+          "predicted_normal_share": 0.04876546884446833,
+          "curvature_only_fraction": -0.5398222100178842,
+          "chain_only_fraction": 0.6956486957626365
+        }
+      ],
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true,
+      "fd_max_limit_ratio": 0.0004902010597801468,
+      "asymptotic_point_support": true,
+      "trained_total_point_support": true,
+      "trained_normal_point_support": true,
+      "trained_actual_energy_by_bank": [
+        [
+          0.04963592153992677,
+          0.051507636892547545,
+          0.06346130424681193,
+          0.06225989646302138,
+          0.06345720435618238,
+          0.068015999451489,
+          0.06969792529679278,
+          0.06143458196156746
+        ],
+        [
+          0.002855181143214138,
+          0.0026207737840747733,
+          0.0024742685066013086,
+          0.0018267824864791403,
+          0.0030201327255980574,
+          0.0038636307048428437,
+          0.003924481606844037,
+          0.002651834154656498
+        ]
+      ],
+      "trained_residual_energy_by_bank": [
+        [
+          0.0015302510261692008,
+          0.0014417992819114587,
+          0.00206920651439535,
+          0.0018629450948226957,
+          0.0019586109412379924,
+          0.001768859172219879,
+          0.0022255653871891224,
+          0.001537243489631831
+        ],
+        [
+          5.156712200572546e-05,
+          5.33369105952292e-05,
+          6.742735636696968e-05,
+          5.3804289793052655e-05,
+          7.494288362677048e-05,
+          7.808439545666787e-05,
+          0.00013115831841701257,
+          7.990260959897114e-05
+        ]
+      ],
+      "uncertainty": {
+        "resolved": true,
+        "ordered_resamples": 16777216,
+        "intervals": {
+          "trained_total_fraction": {
+            "conditional95": [
+              0.9688339727546529,
+              0.9725304325275825
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9682701656687116,
+              0.9733847468548903
+            ]
+          },
+          "trained_normal_fraction": {
+            "conditional95": [
+              0.9706039875020303,
+              0.978362510992483
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.96899681719924,
+              0.979697005003647
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "palindrome_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.914920227875997,
+              "normal_fraction": 0.9934016594871473,
+              "actual_normal_share": 0.1180619629444308
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9916941803230765,
+              "normal_fraction": 0.9990301388881866,
+              "actual_normal_share": 0.14606134163992976
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9983420442196049,
+              "normal_fraction": 0.9997970524506892,
+              "actual_normal_share": 0.15025657664647235
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9995772071211726,
+              "normal_fraction": 0.9999476258622572,
+              "actual_normal_share": 0.15265520062368051
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998927086781288,
+              "normal_fraction": 0.9999866958214273,
+              "actual_normal_share": 0.153800016505178
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999729452975136,
+              "normal_fraction": 0.9999966458643038,
+              "actual_normal_share": 0.1543623227540918
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.999993205201724,
+              "normal_fraction": 0.9999991578377386,
+              "actual_normal_share": 0.15464082367565282
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0004540087816639915,
+          "perturbation_file": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer0-perturbation.npz",
+          "perturbation_sha256": "603fc47979e335489a9313af77bb99b85acb33dddc2352c19b7c1f40a6747b12",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer0.npz",
+          "source_native_sha256": "53ffc48d5e6907051ec2e1cbbf262a8ac0d65565f19f19ccf05b1e979dd563da"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.910073291349402,
+              "normal_fraction": 0.9825052863944013,
+              "actual_normal_share": 0.0987531095336898
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9816768729750259,
+              "normal_fraction": 0.995799516346312,
+              "actual_normal_share": 0.09586950265310457
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9955928625601024,
+              "normal_fraction": 0.9989658809905905,
+              "actual_normal_share": 0.09415339588938076
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9989166162227927,
+              "normal_fraction": 0.99974308981766,
+              "actual_normal_share": 0.0932361319134806
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997312987961834,
+              "normal_fraction": 0.9999359231690483,
+              "actual_normal_share": 0.09276402574902422
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999330837788779,
+              "normal_fraction": 0.9999839956563944,
+              "actual_normal_share": 0.09252502913319482
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999833027744299,
+              "normal_fraction": 0.999996000497946,
+              "actual_normal_share": 0.09240485524618641
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0008983306800694025,
+          "perturbation_file": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer1-perturbation.npz",
+          "perturbation_sha256": "b3755896c9a3d4a35d615cc7597a190319e962ce5d794efb835a2608b17e76c0",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer1.npz",
+          "source_native_sha256": "db5e395200d881c73cded3cac217a84d91cda1bf28dc74359162fb7d561d7a61"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.8863801630698115,
+              "normal_fraction": 0.7723997114700468,
+              "actual_normal_share": 0.021340761011465783
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9795323605619273,
+              "normal_fraction": 0.9575719639974447,
+              "actual_normal_share": 0.020668305107010183
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9951207600324259,
+              "normal_fraction": 0.990482757892237,
+              "actual_normal_share": 0.021559469096547098
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9987997796735464,
+              "normal_fraction": 0.9977867737816167,
+              "actual_normal_share": 0.022165285420229594
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997021095845398,
+              "normal_fraction": 0.9994669528014518,
+              "actual_normal_share": 0.022493489655952065
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999257818447478,
+              "normal_fraction": 0.9998692146224667,
+              "actual_normal_share": 0.022662960753763478
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.999981476280435,
+              "normal_fraction": 0.9999676092693285,
+              "actual_normal_share": 0.022748935276645694
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0023322786378074532,
+          "perturbation_file": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer2-perturbation.npz",
+          "perturbation_sha256": "3ebf85d89f1a78b45dd86fe5619652e8dedd09d38195714b9df0555bbe59053c",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer2.npz",
+          "source_native_sha256": "5a0f456d2241511431bc4364ed09c114085d7c8055e515f7c8915fc43c0d6193"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9217915515054689,
+              "normal_fraction": 0.8992457237142456,
+              "actual_normal_share": 0.033298626142926335
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9848434751615751,
+              "normal_fraction": 0.9782539430086241,
+              "actual_normal_share": 0.03397967801967251
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9964539539873399,
+              "normal_fraction": 0.9952752676528115,
+              "actual_normal_share": 0.03455550501276586
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9991351519144749,
+              "normal_fraction": 0.9988659089380089,
+              "actual_normal_share": 0.03479691831778361
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997865333858772,
+              "normal_fraction": 0.9997214853453308,
+              "actual_normal_share": 0.03491027117427492
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999469791514183,
+              "normal_fraction": 0.999930958841192,
+              "actual_normal_share": 0.03496617212578176
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999867881705187,
+              "normal_fraction": 0.9999828110715377,
+              "actual_normal_share": 0.03499403887176754
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0030139109671743027,
+          "perturbation_file": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer3-perturbation.npz",
+          "perturbation_sha256": "38940897944adee9ecd9cfaab4c396f67c78205dab8379280439ffa0cf1b02c1",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer3.npz",
+          "source_native_sha256": "38ba3e10028231c43aaca8e2b1a9441730a2f6b3e900dd02dd409b21f0870e03"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.8805444997354779,
+              "normal_fraction": 0.9348880873532021,
+              "actual_normal_share": 0.13860775216884497
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9764989303314713,
+              "normal_fraction": 0.9854241831961523,
+              "actual_normal_share": 0.16195545781800755
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9944162929641839,
+              "normal_fraction": 0.9965771220364761,
+              "actual_normal_share": 0.16926704303187787
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.998610227053684,
+              "normal_fraction": 0.9991387403452298,
+              "actual_normal_share": 0.17290014318129918
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9996534122602817,
+              "normal_fraction": 0.9997843136199142,
+              "actual_normal_share": 0.1747936677248568
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999134498558649,
+              "normal_fraction": 0.9999460282067897,
+              "actual_normal_share": 0.17575983168251966
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999783737734356,
+              "normal_fraction": 0.9999865005408433,
+              "actual_normal_share": 0.17624838817322125
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.007345920698516927,
+          "perturbation_file": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer4-perturbation.npz",
+          "perturbation_sha256": "3337290a0a80cdd8735d9ed96196ec38da30ee7c20de01bae2b50906117d80f1",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer4.npz",
+          "source_native_sha256": "eb9be14097cda4658ce0741b2cc379139d0ee637f89e3666c6b06537615918ee"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.7021746670572965,
+              "normal_fraction": 0.4344387766134171,
+              "actual_normal_share": 0.024759811554689027
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9294401805264321,
+              "normal_fraction": 0.8873450563704536,
+              "actual_normal_share": 0.031281566363259905
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9834037260882862,
+              "normal_fraction": 0.9732731140710043,
+              "actual_normal_share": 0.03403924978010601
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9959891611569779,
+              "normal_fraction": 0.9936072689492877,
+              "actual_normal_share": 0.035640505788218646
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9990163356593047,
+              "normal_fraction": 0.9984402027741139,
+              "actual_normal_share": 0.03648212096635902
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9997565686102641,
+              "normal_fraction": 0.9996149172981024,
+              "actual_normal_share": 0.03691396238557241
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999394589305527,
+              "normal_fraction": 0.9999043406164714,
+              "actual_normal_share": 0.0371327616566783
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.007567482960112609,
+          "perturbation_file": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer5-perturbation.npz",
+          "perturbation_sha256": "01dc17cbf68e3c01824a6df650c3f21d2e382fffa171b68d3ee1478bd9f504d8",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003/layer5.npz",
+          "source_native_sha256": "907535153c949d92cf48027712808c9e0b683591fc3d60cf4f3b6c8627228d70"
+        }
+      ],
+      "levels": [
+        {
+          "steps": 4,
+          "total_fraction": 0.8305781981611176,
+          "normal_fraction": 0.8670275671841207,
+          "relative_total_residual": 0.4116087970863626,
+          "actual_normal_share": 0.06285258432258017,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.2016822579597224,
+          "chain_only_fraction": 0.5577452032781518
+        },
+        {
+          "steps": 8,
+          "total_fraction": 0.9614339171173711,
+          "normal_fraction": 0.9683883606120754,
+          "relative_total_residual": 0.19638249128328333,
+          "actual_normal_share": 0.06710462578524018,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.19422195265194953,
+          "chain_only_fraction": 0.7340239757373288
+        },
+        {
+          "steps": 16,
+          "total_fraction": 0.9906331451088611,
+          "normal_fraction": 0.9919599314747811,
+          "relative_total_residual": 0.09678251335411213,
+          "actual_normal_share": 0.06801513949431699,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.17461647762990795,
+          "chain_only_fraction": 0.7833888466700074
+        },
+        {
+          "steps": 32,
+          "total_fraction": 0.9976836454923798,
+          "normal_fraction": 0.997967068423824,
+          "relative_total_residual": 0.04812852072960742,
+          "actual_normal_share": 0.06849240481819323,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.16306980951292016,
+          "chain_only_fraction": 0.7996082480905857
+        },
+        {
+          "steps": 64,
+          "total_fraction": 0.9994248860275605,
+          "normal_fraction": 0.9994895124078744,
+          "relative_total_residual": 0.023981533988456757,
+          "actual_normal_share": 0.06874499187397992,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.1569252511175172,
+          "chain_only_fraction": 0.8055869470828878
+        },
+        {
+          "steps": 128,
+          "total_fraction": 0.9998567684019741,
+          "normal_fraction": 0.9998721150405566,
+          "relative_total_residual": 0.01196794042539659,
+          "actual_normal_share": 0.06887597591221553,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.15377337421745718,
+          "chain_only_fraction": 0.8080477301691995
+        },
+        {
+          "steps": 256,
+          "total_fraction": 0.9999642635927821,
+          "normal_fraction": 0.99996799699958,
+          "relative_total_residual": 0.0059779935779377185,
+          "actual_normal_share": 0.06894290501544517,
+          "predicted_normal_share": 0.06901089820898293,
+          "curvature_only_fraction": -0.15217896431894196,
+          "chain_only_fraction": 0.8091467891616493
+        }
+      ],
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true,
+      "fd_max_limit_ratio": 0.007567482960112609,
+      "asymptotic_point_support": true,
+      "trained_total_point_support": true,
+      "trained_normal_point_support": true,
+      "trained_actual_energy_by_bank": [
+        [
+          1.1052039477767817,
+          1.1697679412962254,
+          1.379457129057564,
+          1.4635159124643804,
+          1.609833685073934,
+          1.6255718115462137,
+          1.3850877873098162,
+          1.4481219148492293
+        ],
+        [
+          0.06971054883638597,
+          0.09496842536168469,
+          0.08833434524708433,
+          0.08618101883300223,
+          0.09031392245911637,
+          0.08078373733761533,
+          0.11966846338252991,
+          0.07314375235368312
+        ]
+      ],
+      "trained_residual_energy_by_bank": [
+        [
+          0.21667713597893307,
+          0.16804010427366584,
+          0.2016974528831095,
+          0.3051018733148256,
+          0.2130163240180752,
+          0.3327602391034724,
+          0.18316019625758467,
+          0.274793847667903
+        ],
+        [
+          0.01201150830429915,
+          0.010332710223464072,
+          0.005514935681612226,
+          0.014465048557786003,
+          0.008381999849054116,
+          0.015581235586553312,
+          0.013207780644695553,
+          0.013998258986093944
+        ]
+      ],
+      "uncertainty": {
+        "resolved": true,
+        "ordered_resamples": 16777216,
+        "intervals": {
+          "trained_total_fraction": {
+            "conditional95": [
+              0.8084398214029069,
+              0.8530375917491487
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.7998492881238222,
+              0.8617420257718917
+            ]
+          },
+          "trained_normal_fraction": {
+            "conditional95": [
+              0.833937511382346,
+              0.896576889008523
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.8193963005795057,
+              0.9088982773372143
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "alternating_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9785158134931705,
+              "normal_fraction": 0.9862383255269854,
+              "actual_normal_share": 0.04525279200388438
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9947830291279671,
+              "normal_fraction": 0.9967948883461003,
+              "actual_normal_share": 0.04394154289668776
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9986441383349207,
+              "normal_fraction": 0.9991891032641117,
+              "actual_normal_share": 0.04358617692420206
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9996532720840288,
+              "normal_fraction": 0.9997955406573484,
+              "actual_normal_share": 0.04341665077301093
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9999122675151977,
+              "normal_fraction": 0.9999486364603949,
+              "actual_normal_share": 0.043331921540456335
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999779305385191,
+              "normal_fraction": 0.9999871261434854,
+              "actual_normal_share": 0.043289353051066896
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999944652844461,
+              "normal_fraction": 0.9999967772853452,
+              "actual_normal_share": 0.04326799351067409
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.00011592029970773612,
+          "perturbation_file": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer0-perturbation.npz",
+          "perturbation_sha256": "50f3d64173ffc897a5f73ad17adf1cd7c876239dfda907ace72a3753a086f655",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer0.npz",
+          "source_native_sha256": "d7c53044e3d32e880ee3eabc0b3038717918002ff2b17e2863c4b04cf84000b3"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9692608032620054,
+              "normal_fraction": 0.9646145492158195,
+              "actual_normal_share": 0.027080005546322835
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9929855401939872,
+              "normal_fraction": 0.991389178544228,
+              "actual_normal_share": 0.02573689003078776
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9982834771473617,
+              "normal_fraction": 0.9978749395671497,
+              "actual_normal_share": 0.025138546934954063
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9995741979937438,
+              "normal_fraction": 0.9994730592801072,
+              "actual_normal_share": 0.024872360356245043
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9998938952082438,
+              "normal_fraction": 0.9998688663418801,
+              "actual_normal_share": 0.024747148742311192
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999735125694341,
+              "normal_fraction": 0.9999672955844215,
+              "actual_normal_share": 0.024686439525584282
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.999993382694338,
+              "normal_fraction": 0.9999918340107364,
+              "actual_normal_share": 0.02465654863190744
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0003522152792761159,
+          "perturbation_file": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer1-perturbation.npz",
+          "perturbation_sha256": "5dee60f1abe3e22300f7f939263991b78afddebd73853ddef81fd416e15a5f86",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer1.npz",
+          "source_native_sha256": "a33dd8c2925ea199b6531511806c5b27547eca519cbdc28e58f110322563b401"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9605616560112692,
+              "normal_fraction": 0.7689290812677372,
+              "actual_normal_share": 0.024487044417534683
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9913122734868818,
+              "normal_fraction": 0.9532807698896968,
+              "actual_normal_share": 0.026835960188980587
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9978481008269557,
+              "normal_fraction": 0.9892679043263242,
+              "actual_normal_share": 0.02871698482082872
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9994583580337326,
+              "normal_fraction": 0.997427051604023,
+              "actual_normal_share": 0.029821934243320154
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.999863832120497,
+              "normal_fraction": 0.9993703351099295,
+              "actual_normal_share": 0.030414182566699585
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999658446743197,
+              "normal_fraction": 0.9998442688823848,
+              "actual_normal_share": 0.030719824414607078
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999914458060405,
+              "normal_fraction": 0.9999612770862597,
+              "actual_normal_share": 0.030874969356159045
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.000321472199462851,
+          "perturbation_file": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer2-perturbation.npz",
+          "perturbation_sha256": "0da0d297bb8d92ff017ddb0d4ca08f9dc8cae40932c001f16ecc169410bd1ea6",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer2.npz",
+          "source_native_sha256": "271436be1e00a9d7f5350e995517b603385993f4940c7a8eddfb7065196f46b3"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9409473969483109,
+              "normal_fraction": 0.9703181121960319,
+              "actual_normal_share": 0.050796368577186446
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9851289491647566,
+              "normal_fraction": 0.9933074309909056,
+              "actual_normal_share": 0.05092095007491134
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9961922740893356,
+              "normal_fraction": 0.9984264004553313,
+              "actual_normal_share": 0.050493947592223094
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9990332974927797,
+              "normal_fraction": 0.999604129886796,
+              "actual_normal_share": 0.0499919794843498
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.999756294489064,
+              "normal_fraction": 0.9998999772221465,
+              "actual_normal_share": 0.049663173864174605
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999388067882101,
+              "normal_fraction": 0.9999748125106032,
+              "actual_normal_share": 0.049479122923101186
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999846674465296,
+              "normal_fraction": 0.9999936771437254,
+              "actual_normal_share": 0.049382146898537434
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.000751510575634206,
+          "perturbation_file": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer3-perturbation.npz",
+          "perturbation_sha256": "e2d9cf875123b9b62b19005190fad6e411499b73af66803cf2492b930b4d7262",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer3.npz",
+          "source_native_sha256": "17965fb4aa18f78ff1cadbedb895a9e23ae58b2eecb1c055a15397bda8c97e82"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.926668585436309,
+              "normal_fraction": 0.8209744132309006,
+              "actual_normal_share": 0.02167516560257169
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9856252256601344,
+              "normal_fraction": 0.9444639374170294,
+              "actual_normal_share": 0.019281869399271474
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9965129954311182,
+              "normal_fraction": 0.9848271030738426,
+              "actual_normal_share": 0.018488532873472536
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9990925359968628,
+              "normal_fraction": 0.9959983806350339,
+              "actual_normal_share": 0.01823621380505577
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9997682362210013,
+              "normal_fraction": 0.9989739449290677,
+              "actual_normal_share": 0.018142936387898316
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.99994141903099,
+              "normal_fraction": 0.9997404128879959,
+              "actual_normal_share": 0.018106838330253297
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999852729043546,
+              "normal_fraction": 0.9999347289062206,
+              "actual_normal_share": 0.018091618167858748
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.0021851546921673373,
+          "perturbation_file": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer4-perturbation.npz",
+          "perturbation_sha256": "257629ddceb51910bc06ee82fd3be2a1e4d981190f994ee42c8bab9b7679ef09",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer4.npz",
+          "source_native_sha256": "548f982ec33ad23ab4a0f48660f4ee87cf85327c131b575e2bb09f5d509e9820"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "levels": [
+            {
+              "steps": 4,
+              "total_fraction": 0.9044007037803756,
+              "normal_fraction": 0.9298017980795561,
+              "actual_normal_share": 0.03432983542190452
+            },
+            {
+              "steps": 8,
+              "total_fraction": 0.9789179160517825,
+              "normal_fraction": 0.9852588772762012,
+              "actual_normal_share": 0.03596826780693572
+            },
+            {
+              "steps": 16,
+              "total_fraction": 0.9947258186186121,
+              "normal_fraction": 0.9961459356474075,
+              "actual_normal_share": 0.0361851012070499
+            },
+            {
+              "steps": 32,
+              "total_fraction": 0.9986600979124385,
+              "normal_fraction": 0.9990157236493307,
+              "actual_normal_share": 0.03618970327753955
+            },
+            {
+              "steps": 64,
+              "total_fraction": 0.9996621655388995,
+              "normal_fraction": 0.9997510943115561,
+              "actual_normal_share": 0.03614226773181631
+            },
+            {
+              "steps": 128,
+              "total_fraction": 0.9999151761891664,
+              "normal_fraction": 0.999937413039227,
+              "actual_normal_share": 0.03610814513870719
+            },
+            {
+              "steps": 256,
+              "total_fraction": 0.9999787477812758,
+              "normal_fraction": 0.9999843075907002,
+              "actual_normal_share": 0.036088578225677945
+            }
+          ],
+          "qualified_points": 80,
+          "points": 80,
+          "fd_max_limit_ratio": 0.007362468073022025,
+          "perturbation_file": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer5-perturbation.npz",
+          "perturbation_sha256": "8492736b11d2040304f4baa787dab53db4b511c55d129f50446555cea873329e",
+          "source_native": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/solver-bias/formal/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003/layer5.npz",
+          "source_native_sha256": "2eb828fb5563c34b44657a9ecc07a85123d9bc8fc094e2e6d440ab092536e022"
+        }
+      ],
+      "levels": [
+        {
+          "steps": 4,
+          "total_fraction": 0.9254503963217107,
+          "normal_fraction": 0.923218180537852,
+          "relative_total_residual": 0.2730377330668589,
+          "actual_normal_share": 0.033711050781369586,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.32779582726960577,
+          "chain_only_fraction": 0.4838880694536679
+        },
+        {
+          "steps": 8,
+          "total_fraction": 0.9834912128531582,
+          "normal_fraction": 0.9825847435016906,
+          "relative_total_residual": 0.12848652515669418,
+          "actual_normal_share": 0.034504795148899196,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.33171618188085805,
+          "chain_only_fraction": 0.5821735698249583
+        },
+        {
+          "steps": 16,
+          "total_fraction": 0.9958619685632305,
+          "normal_fraction": 0.9955794086705517,
+          "relative_total_residual": 0.06432753249402215,
+          "actual_normal_share": 0.0345828470915049,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.31568853838307565,
+          "chain_only_fraction": 0.6127565605740506
+        },
+        {
+          "steps": 32,
+          "total_fraction": 0.99894342574846,
+          "normal_fraction": 0.9988738209325954,
+          "relative_total_residual": 0.0325049881024448,
+          "actual_normal_share": 0.03453703683715177,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.30147783879357903,
+          "chain_only_fraction": 0.6231443443087192
+        },
+        {
+          "steps": 64,
+          "total_fraction": 0.9997328162995597,
+          "normal_fraction": 0.9997152642853728,
+          "relative_total_residual": 0.016345754814029723,
+          "actual_normal_share": 0.03447899000678493,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.2929182123565002,
+          "chain_only_fraction": 0.6270618520491311
+        },
+        {
+          "steps": 128,
+          "total_fraction": 0.9999328082237601,
+          "normal_fraction": 0.9999283933301523,
+          "relative_total_residual": 0.008197058999418782,
+          "actual_normal_share": 0.03444253067398188,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.2883176486511483,
+          "chain_only_fraction": 0.6286868116587276
+        },
+        {
+          "steps": 256,
+          "total_fraction": 0.9999831514948961,
+          "normal_fraction": 0.9999820438941809,
+          "relative_total_residual": 0.004104693058417163,
+          "actual_normal_share": 0.03442249974260865,
+          "predicted_normal_share": 0.03440128109738348,
+          "curvature_only_fraction": -0.2859409129857855,
+          "chain_only_fraction": 0.629414328605995
+        }
+      ],
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true,
+      "fd_max_limit_ratio": 0.007362468073022025,
+      "asymptotic_point_support": true,
+      "trained_total_point_support": true,
+      "trained_normal_point_support": true,
+      "trained_actual_energy_by_bank": [
+        [
+          0.519878886320898,
+          0.5739980840829991,
+          0.4537209618707252,
+          0.5441095720620853,
+          0.5027215961069145,
+          0.645559529641335,
+          0.476971735423525,
+          0.5398539426198381
+        ],
+        [
+          0.021265625666758714,
+          0.02557874884109397,
+          0.017737840166400287,
+          0.015717372769792713,
+          0.012334516673542888,
+          0.013232705992381709,
+          0.02167311389828762,
+          0.015961759299916514
+        ]
+      ],
+      "trained_residual_energy_by_bank": [
+        [
+          0.04011398767003118,
+          0.03761266733756162,
+          0.03351902989843502,
+          0.042501172617754227,
+          0.025936386435926873,
+          0.05641385778867064,
+          0.03698201673345641,
+          0.04426470112120154
+        ],
+        [
+          0.002115701450482608,
+          0.0015596357069859487,
+          0.0011623412698770104,
+          0.0013215513865149839,
+          0.00103497360926063,
+          0.0016899843379691959,
+          0.0012484924852714432,
+          0.000885640093920764
+        ]
+      ],
+      "uncertainty": {
+        "resolved": true,
+        "ordered_resamples": 16777216,
+        "intervals": {
+          "trained_total_fraction": {
+            "conditional95": [
+              0.9189059226239746,
+              0.9333923462620376
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.9167950775466407,
+              0.9373448128501267
+            ]
+          },
+          "trained_normal_fraction": {
+            "conditional95": [
+              0.9064532908476101,
+              0.9363247543533666
+            ],
+            "nominal_twelve_contrast_adjusted": [
+              0.8974892664994738,
+              0.9401463137658705
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "bindings": [
+    {
+      "task": "ring",
+      "native_complete_sha256": "3290d6e78beacb57c7349e99a97db5db56031488459ce087a4d4ee50b08587b6",
+      "verified_summary_sha256": "00b0e91742566f1dac3093797ec4502753757aaf9e6337acd5974ecf40d8633b",
+      "native_seconds": 4.919744041748345
+    },
+    {
+      "task": "product",
+      "native_complete_sha256": "428cd1ec5acb0d3897c71ac4ebca1d335e579430091806a0afd3eabc64b66c5e",
+      "verified_summary_sha256": "51e57e74a950394f8f1b19d6e9d613b8b922920e614369db6e8134d7a1311311",
+      "native_seconds": 6.090039416681975
+    }
+  ],
+  "qualified_cases": 6,
+  "asymptotic_supported_cases": 6,
+  "trained_total_supported_cases": 6,
+  "trained_normal_supported_cases": 6,
+  "adjusted_total_positive_cases": 6,
+  "adjusted_normal_positive_cases": 6
+}

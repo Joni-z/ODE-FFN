@@ -171,15 +171,18 @@ in the protocol. Identity trajectories and final native roundtrips are exact.
 Both native entries and independent verifiers exit0; candidate reconstruction
 error is at most{maximum:.3e}. Raw arrays bind all original banks and checkpoints.
 
-## Remaining geometry control
+## Geometry control and interpretation
 
 Potential-normal error occupies one of64feature dimensions, while its tangent
 complement occupies63. A large tangential share alone does not establish
 unusual directional sensitivity. For a uniformly random unit normal r,
-E[||rr^T delta||²]=||delta||²/64. The next mechanism control must compare the
-actual potential normal with equally dimensioned random normals, keeping all
-trained states and corrections fixed. No full-bank or architecture promotion
-is justified solely by a highGagainst this dimensional imbalance.
+E[||rr^T delta||²]=||delta||²/64. The [completed local-output control](../hidden-null-results/analysis-report.md)
+compares equally dimensioned components and rejects the strong tangential-
+specificity prediction on all six models. That result concerns local outputs,
+not this pilot's terminal-distribution G. Together they identify a route for
+the refinement effect without establishing an ODE-specific benefit. The next
+question is a quantitative prediction of hidden numerical bias; high G alone
+does not select an architecture or justify a larger sampling comparison.
 
 ## Claim candidates and next decision
 
@@ -192,8 +195,8 @@ is justified solely by a highGagainst this dimensional imbalance.
     outer-flow convergence, or an advantage exclusive to ODEparameter sharing.
   - Uncertainty: finite-direction empirical distributions, fixed weights and
     a bounded source pilot. Retain unresolved comparisons explicitly.
-  - Next check: resolve the remaining precision failures and dimension-matched
-    null before deciding a larger distribution comparison.
+  - Next check: use the complete precision and local-null evidence to test a
+    parameter-free hidden solver-bias prediction before architecture selection.
   - Decision: keep the measured outcome and its exact scope.
 ''')
     stats = '# Conditional pilot statistics\n\n'

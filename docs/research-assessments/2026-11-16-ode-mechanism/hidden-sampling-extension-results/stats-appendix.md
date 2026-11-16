@@ -1,0 +1,127 @@
+# Conditional pilot statistics
+
+Six focal and four ordinary checkpoints, seed0only. Each uses the same64
+ordered sources and targets, eight per original bank, with two outer grids.
+The18arms per focal model are repeated interventions at fixed weights.
+No independent-training inference, significance test or populationCIis
+reported. The registered primary claim requires all six focal cases at
+both grids to qualify numerically and meet G_T>0,G_T>G_N,G_T>G_ray.
+Mean/std below describe bank variation only. Gcontrasts and pooledSW2
+are effect magnitudes, not estimates of a training-population benefit.
+
+- gmm_ring8_2d / Shared P / identity / inner0 / Heun128: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / reference / inner512 / Heun128: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / normal / inner512 / Heun128: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / tangential / inner512 / Heun128: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / ray / inner512 / Heun128: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / reference / inner1024 / Heun128: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / normal / inner1024 / Heun128: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / tangential / inner1024 / Heun128: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / ray / inner1024 / Heun128: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / identity / inner0 / Heun129: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / reference / inner512 / Heun129: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / normal / inner512 / Heun129: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / tangential / inner512 / Heun129: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / ray / inner512 / Heun129: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / reference / inner1024 / Heun129: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / normal / inner1024 / Heun129: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / tangential / inner1024 / Heun129: bank SW2 1.549 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Shared P / ray / inner1024 / Heun129: bank SW2 1.548 ± 0.472; pooled0.407.
+- gmm_ring8_2d / Free ISRU / identity / inner0 / Heun128: bank SW2 1.544 ± 0.473; pooled0.408.
+- gmm_ring8_2d / Free ISRU / identity / inner0 / Heun129: bank SW2 1.544 ± 0.473; pooled0.408.
+- gmm_ring8_2d / SwiGLU / identity / inner0 / Heun128: bank SW2 1.563 ± 0.459; pooled0.419.
+- gmm_ring8_2d / SwiGLU / identity / inner0 / Heun129: bank SW2 1.563 ± 0.459; pooled0.419.
+- gmm_ring8_2d / Palindrome / identity / inner0 / Heun128: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / reference / inner512 / Heun128: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / normal / inner512 / Heun128: bank SW2 1.546 ± 0.473; pooled0.405.
+- gmm_ring8_2d / Palindrome / tangential / inner512 / Heun128: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / ray / inner512 / Heun128: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / reference / inner1024 / Heun128: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / normal / inner1024 / Heun128: bank SW2 1.546 ± 0.473; pooled0.405.
+- gmm_ring8_2d / Palindrome / tangential / inner1024 / Heun128: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / ray / inner1024 / Heun128: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / identity / inner0 / Heun129: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / reference / inner512 / Heun129: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / normal / inner512 / Heun129: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / tangential / inner512 / Heun129: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / ray / inner512 / Heun129: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / reference / inner1024 / Heun129: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / normal / inner1024 / Heun129: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Palindrome / tangential / inner1024 / Heun129: bank SW2 1.547 ± 0.474; pooled0.404.
+- gmm_ring8_2d / Palindrome / ray / inner1024 / Heun129: bank SW2 1.546 ± 0.473; pooled0.406.
+- gmm_ring8_2d / Alternating / identity / inner0 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / reference / inner512 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / normal / inner512 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / tangential / inner512 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / ray / inner512 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / reference / inner1024 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / normal / inner1024 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / tangential / inner1024 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / ray / inner1024 / Heun128: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / identity / inner0 / Heun129: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / reference / inner512 / Heun129: bank SW2 1.545 ± 0.472; pooled0.408.
+- gmm_ring8_2d / Alternating / normal / inner512 / Heun129: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / tangential / inner512 / Heun129: bank SW2 1.545 ± 0.472; pooled0.408.
+- gmm_ring8_2d / Alternating / ray / inner512 / Heun129: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / reference / inner1024 / Heun129: bank SW2 1.545 ± 0.472; pooled0.408.
+- gmm_ring8_2d / Alternating / normal / inner1024 / Heun129: bank SW2 1.545 ± 0.472; pooled0.409.
+- gmm_ring8_2d / Alternating / tangential / inner1024 / Heun129: bank SW2 1.545 ± 0.472; pooled0.408.
+- gmm_ring8_2d / Alternating / ray / inner1024 / Heun129: bank SW2 1.545 ± 0.472; pooled0.409.
+- rotated_product_bimodal_16d / Shared P / identity / inner0 / Heun128: bank SW2 1.115 ± 0.046; pooled0.419.
+- rotated_product_bimodal_16d / Shared P / reference / inner512 / Heun128: bank SW2 1.115 ± 0.046; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / normal / inner512 / Heun128: bank SW2 1.115 ± 0.046; pooled0.419.
+- rotated_product_bimodal_16d / Shared P / tangential / inner512 / Heun128: bank SW2 1.115 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / ray / inner512 / Heun128: bank SW2 1.115 ± 0.046; pooled0.419.
+- rotated_product_bimodal_16d / Shared P / reference / inner1024 / Heun128: bank SW2 1.115 ± 0.046; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / normal / inner1024 / Heun128: bank SW2 1.115 ± 0.046; pooled0.419.
+- rotated_product_bimodal_16d / Shared P / tangential / inner1024 / Heun128: bank SW2 1.115 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / ray / inner1024 / Heun128: bank SW2 1.115 ± 0.046; pooled0.419.
+- rotated_product_bimodal_16d / Shared P / identity / inner0 / Heun129: bank SW2 1.115 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / reference / inner512 / Heun129: bank SW2 1.114 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / normal / inner512 / Heun129: bank SW2 1.115 ± 0.046; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / tangential / inner512 / Heun129: bank SW2 1.114 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / ray / inner512 / Heun129: bank SW2 1.115 ± 0.046; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / reference / inner1024 / Heun129: bank SW2 1.114 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / normal / inner1024 / Heun129: bank SW2 1.115 ± 0.046; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / tangential / inner1024 / Heun129: bank SW2 1.114 ± 0.047; pooled0.418.
+- rotated_product_bimodal_16d / Shared P / ray / inner1024 / Heun129: bank SW2 1.115 ± 0.046; pooled0.418.
+- rotated_product_bimodal_16d / Free ISRU / identity / inner0 / Heun128: bank SW2 1.111 ± 0.052; pooled0.438.
+- rotated_product_bimodal_16d / Free ISRU / identity / inner0 / Heun129: bank SW2 1.109 ± 0.052; pooled0.439.
+- rotated_product_bimodal_16d / SwiGLU / identity / inner0 / Heun128: bank SW2 1.102 ± 0.061; pooled0.424.
+- rotated_product_bimodal_16d / SwiGLU / identity / inner0 / Heun129: bank SW2 1.102 ± 0.061; pooled0.424.
+- rotated_product_bimodal_16d / Palindrome / identity / inner0 / Heun128: bank SW2 1.115 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / reference / inner512 / Heun128: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / normal / inner512 / Heun128: bank SW2 1.115 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / tangential / inner512 / Heun128: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / ray / inner512 / Heun128: bank SW2 1.115 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / reference / inner1024 / Heun128: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / normal / inner1024 / Heun128: bank SW2 1.115 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / tangential / inner1024 / Heun128: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / ray / inner1024 / Heun128: bank SW2 1.115 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / identity / inner0 / Heun129: bank SW2 1.114 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / reference / inner512 / Heun129: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / normal / inner512 / Heun129: bank SW2 1.114 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / tangential / inner512 / Heun129: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / ray / inner512 / Heun129: bank SW2 1.114 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / reference / inner1024 / Heun129: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / normal / inner1024 / Heun129: bank SW2 1.114 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Palindrome / tangential / inner1024 / Heun129: bank SW2 1.110 ± 0.053; pooled0.419.
+- rotated_product_bimodal_16d / Palindrome / ray / inner1024 / Heun129: bank SW2 1.114 ± 0.046; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / identity / inner0 / Heun128: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / reference / inner512 / Heun128: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / normal / inner512 / Heun128: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / tangential / inner512 / Heun128: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / ray / inner512 / Heun128: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / reference / inner1024 / Heun128: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / normal / inner1024 / Heun128: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / tangential / inner1024 / Heun128: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / ray / inner1024 / Heun128: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / identity / inner0 / Heun129: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / reference / inner512 / Heun129: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / normal / inner512 / Heun129: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / tangential / inner512 / Heun129: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / ray / inner512 / Heun129: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / reference / inner1024 / Heun129: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / normal / inner1024 / Heun129: bank SW2 1.104 ± 0.053; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / tangential / inner1024 / Heun129: bank SW2 1.104 ± 0.052; pooled0.420.
+- rotated_product_bimodal_16d / Alternating / ray / inner1024 / Heun129: bank SW2 1.104 ± 0.053; pooled0.420.

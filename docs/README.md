@@ -52,6 +52,11 @@ The [completed fixed-first-layer distribution pilot](research-assessments/2026-1
 retains the global qualification failure and separately checks generated states.
 The [dimension audit and next control](research-assessments/2026-11-16-ode-mechanism/direction-dimension-audit.md)
 separates a63-versus1dimensional effect from a potentially special response.
+That [complete control](research-assessments/2026-11-16-ode-mechanism/hidden-null-results/analysis-report.md)
+rejects tangential specificity. The [parameter-free bias prediction](research-assessments/2026-11-16-ode-mechanism/solver-bias-results/analysis-report.md)
+then predicts the trained hidden solver's numerical error, including its normal
+concentration. The [uniform precision extension](research-assessments/2026-11-16-ode-mechanism/hidden-sampling-extension-results/analysis-report.md)
+qualifies all12 model/grid comparisons while preserving the original failures.
 
 | Question or deliverable | Entry |
 |---|---|
