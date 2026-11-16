@@ -27,7 +27,10 @@ witnesses pass numerical/independent checks; original Product16coarser-reference
 failures remain preserved. Full4096-input predictions are not yet evaluated.
 [Fixed hypothesis](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-protocol.md),
 [registered numerical refinement](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-reference-refinement.md).
-Fresh documented learned CUDA/NumPyreadiness precedes the full-field test.
+Fresh learned CUDA/NumPy3852/20969actual0/0passes on all8prefixes,
+104independent array gates,5175source hashes unchanged. Formal all4096-input
+diagnostics now run on a single freshly empty145GPU4, original session52369.
+[Fresh receipt](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-fresh-receipt.json).
 
 ## Execution and resources
 

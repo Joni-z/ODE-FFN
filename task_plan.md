@@ -32,9 +32,11 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 - [x] Register uniform128/256refinement before observations. Author11984actual0,
   all8refined numerical cells qualify; independent NumPyactual0,error3.88e-18.
   Original Product16flags remainfalse. Prefixes are numerical readiness only.
-- [ ] Publish/freeze exact CLI; fresh documented CUDA/NumPywitness with actual
-  learned tensors and CPUparity. No formal run before its actual0/0receipt.
-- [ ] Full8x4096-input field predictions on a freshly empty145GPU4-7; retain
+- [x] Source055a860/5175files: fresh CUDA/NumPy3852/20969actual0/0,
+  all8refined cells/104reconstructed gates pass; no source changes.
+  fieldsSHAa6c55e28, no invocation divergence. Receipt retained.
+- [ ] Full8x4096-input field predictions now run in original session52369,
+  only the freshly empty permitted physicalGPU4. Retain
   all five reference counts, both original/refined flags and every input.
 - [ ] Reconstruct prediction errors/risk accounting independently, inspect
   figures and apply the registered two-stream primary criterion without fitting.

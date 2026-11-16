@@ -34,7 +34,9 @@ CPU11984actual0: all8refined16-input cells qualify, final tangent differences
 <=6.09e-10. Independent saved-array/risk reconstruction error<=3.88e-18.
 These are CLI/numerical witnesses, not full4096-input prediction evidence.
 Exact authored source SHAis preserved outsideGit before a formal-only assertion
-edit. Fresh documented learned CUDA/NumPyexecution remains next.
+edit. Fresh3852/20969actual0/0on source055a860/5175hashes; all8refined cells
+qualify,104independent gates/error2.63e-18. Formal session52369now evaluates
+all8x4096field inputs on one empty permitted145GPU4. No new training/draws.
 
 ## Runtime and audit
 
