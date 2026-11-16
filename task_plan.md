@@ -26,7 +26,7 @@ response; exact-potential ray reproduces0.014--0.179. All18registered adjusted
 conditional bank contrasts have positive lower bounds. This supports a local
 output mechanism, not improved generation or a unique skew-Padvantage.
 
-1. [ ] Register an affordable native fixed-resolution approximation to the
+1. [x] Register an affordable native fixed-resolution approximation to the
    local continuous reference before any generation-level intervention.
 2. [ ] Compare its feature and one-layer output effects against the existing
    qualified DOP853references on every registered state; preserve all cases.
@@ -59,3 +59,15 @@ Current continuation: progress(completed hidden feature and direct output
 interventions). Current user question requests the rationale/concepts/code map;
 answer it while preserving the broader objective. Prior journals archived under
  docs/history/2026-11-16-before-hidden-flow-completion/.
+
+## Current continuation: native-reference qualification
+
+The preceding explanatory turn was no progress toward the research goal:
+it inspected evidence but changed no scientific state. This turn registers
+and executes the next numerical qualification, retaining all six models,
+80 inputs and six local layers. Levels16/32/64/128/256are fixed in advance.
+See hidden-surrogate-protocol.md for the per-point and aggregate error gates.
+The smallest level passing every model/layer/mode is eligible for a later
+sampling intervention; no generation job is authorized by a local score alone.
+145physical4-7currently each have two compute PIDs and1191MiBoccupied;
+use the unchanged MacCPUenvironment. No remote process is modified.

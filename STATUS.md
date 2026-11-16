@@ -31,6 +31,11 @@ model's predictions on the registered inputs. They do not establish a sampling
 mechanism or a new winning FFN. The next step is to qualify an affordable native
 reference for a generation-level intervention before any sample jobs.
 
+That qualification is now registered at16/32/64/128/256native substeps.
+Both first-layer author witnesses and independent verifiers exit0; only256
+passes the fixed approximation gates there. The fresh frozen documented pass
+and all-layer qualification remain pending. [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-protocol.md).
+
 The earlier twelve-case first-order oracle-path calibration is numerically
 resolved but not a general trained-scale explanation. An exact actual-law
 Product16control preserves every marginal despite failed endpoint linearization.

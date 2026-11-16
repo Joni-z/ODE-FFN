@@ -32,3 +32,14 @@ Code: studies/muon_pd_20261102/target_geometry_20261116/
 Evidence: docs/research-assessments/2026-11-16-ode-mechanism/
   hidden-energy-results/,hidden-readout-results/,hidden-flow-audit.json.
 Raw freezesb0a61af/4135f5dpreserved; all jobs terminal. Reports/imagecode unchanged.
+
+## Native-reference qualification in progress
+
+Registered levels16/32/64/128/256before observing outcomes. Per-point local
+and full-output approximation error must be <=one part in1000of the original
+refinement response plus fixed floors; layer/bank/model fraction errors must
+be <=0.0005. All six models/all80inputs/all six layers remain the formal cohort.
+Author first-layer witnesses exit0on both tasks; independently reconstructed
+endpoints/candidates agree within3.56e-15. Only256passes each task's bounded
+witness. This does not yet qualify all layers or generated trajectories.
+Fresh frozen documented pass and full six-layer execution follow.
