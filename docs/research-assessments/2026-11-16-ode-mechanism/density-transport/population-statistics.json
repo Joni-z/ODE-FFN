@@ -1,0 +1,959 @@
+{
+  "passed": true,
+  "statistics_only": true,
+  "unit": "independent common Gaussian initial point at fixed trained weights",
+  "evaluation_only": true,
+  "training_seed": 0,
+  "analysis_rng_seed": 0,
+  "bootstrap_repetitions": 10000,
+  "qualified_cells": 16,
+  "qualified_contrasts": 4,
+  "summaries": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 998,
+        "4096": 23,
+        "8192": 3
+      },
+      "n": 1024,
+      "mean": 0.039189412681605085,
+      "sd": 0.3391394893323978,
+      "mc_se": 0.010598109041637431,
+      "quantiles": [
+        -0.6940448714662497,
+        -0.4917030726765972,
+        0.017006421180380357,
+        0.948055893541203,
+        4.41407418167938
+      ],
+      "largest_one_percent_contribution_to_mean": 0.025511651647651498,
+      "bootstrap_95": [
+        0.019406349699180543,
+        0.06109435036044675
+      ],
+      "divergence_mean": 0.03918915985461394,
+      "previous_resolution_mean": 0.039340922872391465,
+      "resolution_mean_change": -0.00015151019078638096,
+      "bank_means": [
+        0.049413074435462175,
+        0.020728331451002766,
+        0.04204467142805407,
+        0.04457157341190132
+      ],
+      "same_sources_sw2_pool": 0.32075555120817834,
+      "previous_resolution_sw2_pool": 0.32074381246838557,
+      "same_sources_sw2_banks": [
+        0.42824827791094655,
+        0.4620464832420409,
+        0.34850143159642993,
+        0.4276642576143398
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 1018,
+        "4096": 4,
+        "8192": 2
+      },
+      "n": 1024,
+      "mean": 0.03046627706852014,
+      "sd": 0.308607562556679,
+      "mc_se": 0.009643986329896218,
+      "quantiles": [
+        -0.3280999918447578,
+        -0.2971420106096094,
+        -0.003212225847404515,
+        0.9915188729495517,
+        4.815573761712463
+      ],
+      "largest_one_percent_contribution_to_mean": 0.02250327089756696,
+      "bootstrap_95": [
+        0.012831714898829436,
+        0.050687284210940375
+      ],
+      "divergence_mean": 0.030465898907261427,
+      "previous_resolution_mean": 0.03055894610319891,
+      "resolution_mean_change": -9.266903467877304e-05,
+      "bank_means": [
+        0.02367280777774397,
+        0.023816493130005136,
+        0.04142335970215593,
+        0.03295244766417552
+      ],
+      "same_sources_sw2_pool": 0.32657526746974447,
+      "previous_resolution_sw2_pool": 0.3265938854501027,
+      "same_sources_sw2_banks": [
+        0.4372407220401442,
+        0.4509523506655224,
+        0.3690084995482616,
+        0.4367130918897685
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 943,
+        "4096": 81
+      },
+      "n": 1024,
+      "mean": 0.7633613735456696,
+      "sd": 1.694580864426647,
+      "mc_se": 0.052955652013332716,
+      "quantiles": [
+        -2.6365655413059144,
+        -1.8253653238690801,
+        0.4691801462096332,
+        6.826606736785612,
+        16.25773566324002
+      ],
+      "largest_one_percent_contribution_to_mean": 0.10406495972964883,
+      "bootstrap_95": [
+        0.6609805175974924,
+        0.8696927444118596
+      ],
+      "divergence_mean": 0.7633608612080662,
+      "previous_resolution_mean": 0.7631639210260326,
+      "resolution_mean_change": 0.00019745251963697384,
+      "bank_means": [
+        0.6690928399958611,
+        0.840763095873766,
+        0.7278879347922222,
+        0.815701623520829
+      ],
+      "same_sources_sw2_pool": 0.12639056724165124,
+      "previous_resolution_sw2_pool": 0.12640801377228453,
+      "same_sources_sw2_banks": [
+        0.24698833379758586,
+        0.20375988165099043,
+        0.2271677689700143,
+        0.1997479786752878
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 950,
+        "4096": 74
+      },
+      "n": 1024,
+      "mean": 0.6679982510348851,
+      "sd": 1.5992691624639843,
+      "mc_se": 0.04997716132699951,
+      "quantiles": [
+        -2.3834045065898373,
+        -1.6510031073654747,
+        0.4037611833195206,
+        6.584365483331856,
+        16.313154459943398
+      ],
+      "largest_one_percent_contribution_to_mean": 0.10444484721205949,
+      "bootstrap_95": [
+        0.572218218063493,
+        0.7708383786007481
+      ],
+      "divergence_mean": 0.6679973436373394,
+      "previous_resolution_mean": 0.6675611346580264,
+      "resolution_mean_change": 0.0004371163768587967,
+      "bank_means": [
+        0.5622366606438033,
+        0.6945784278216818,
+        0.6854716338620983,
+        0.7297062818119568
+      ],
+      "same_sources_sw2_pool": 0.12035717411199438,
+      "previous_resolution_sw2_pool": 0.12036968891278571,
+      "same_sources_sw2_banks": [
+        0.24123746841990132,
+        0.20110258136210182,
+        0.22662216062025586,
+        0.19352118879525196
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 966,
+        "4096": 55,
+        "8192": 3
+      },
+      "n": 1024,
+      "mean": 0.0334982982037341,
+      "sd": 0.35217643422248696,
+      "mc_se": 0.011005513569452717,
+      "quantiles": [
+        -0.8153248157053123,
+        -0.4740541540420849,
+        0.0036742193452094837,
+        1.042489834016796,
+        7.1681000581060985
+      ],
+      "largest_one_percent_contribution_to_mean": 0.02368570505741133,
+      "bootstrap_95": [
+        0.013398431102670616,
+        0.0561877057359468
+      ],
+      "divergence_mean": 0.03349793414240282,
+      "previous_resolution_mean": 0.033626648441834835,
+      "resolution_mean_change": -0.00012835023810073648,
+      "bank_means": [
+        0.025322674553446434,
+        0.02226906307891769,
+        0.01767266264016343,
+        0.06872879254240885
+      ],
+      "same_sources_sw2_pool": 0.3433785736370256,
+      "previous_resolution_sw2_pool": 0.3433757604281776,
+      "same_sources_sw2_banks": [
+        0.4447677295874414,
+        0.47321399128132585,
+        0.3612095781311169,
+        0.44768011668730495
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 1001,
+        "4096": 23
+      },
+      "n": 1024,
+      "mean": 0.020415641233083693,
+      "sd": 0.23380788659867896,
+      "mc_se": 0.0073064964562087175,
+      "quantiles": [
+        -0.3798462257206537,
+        -0.339535392230472,
+        0.006697978147173338,
+        0.6515018706948437,
+        4.454471160880835
+      ],
+      "largest_one_percent_contribution_to_mean": 0.01655902401232409,
+      "bootstrap_95": [
+        0.0071090091910121465,
+        0.036123313087321376
+      ],
+      "divergence_mean": 0.020415187569735753,
+      "previous_resolution_mean": 0.02053940967496124,
+      "resolution_mean_change": -0.00012376844187754783,
+      "bank_means": [
+        0.01062161015774828,
+        0.028762099960175695,
+        0.027642330997187006,
+        0.014636523817223789
+      ],
+      "same_sources_sw2_pool": 0.32526656628978184,
+      "previous_resolution_sw2_pool": 0.32528674357204046,
+      "same_sources_sw2_banks": [
+        0.4414804726585046,
+        0.4451259837746636,
+        0.3701184538331079,
+        0.4300126628936789
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 999,
+        "4096": 22,
+        "8192": 2,
+        "16384": 1
+      },
+      "n": 1024,
+      "mean": 0.040517449795493564,
+      "sd": 0.34886581732353783,
+      "mc_se": 0.010902056791360557,
+      "quantiles": [
+        -0.5613060941747369,
+        -0.4503197396946925,
+        -0.032144706507958976,
+        1.336510691141325,
+        3.6214771739441445
+      ],
+      "largest_one_percent_contribution_to_mean": 0.02224967305922534,
+      "bootstrap_95": [
+        0.02037230648081841,
+        0.06257093856888744
+      ],
+      "divergence_mean": 0.04051724482211448,
+      "previous_resolution_mean": 0.04053712264225177,
+      "resolution_mean_change": -1.967284675819897e-05,
+      "bank_means": [
+        0.030755904771184187,
+        0.0333987691941759,
+        0.04152471701890197,
+        0.0563904081977122
+      ],
+      "same_sources_sw2_pool": 0.35021871015125355,
+      "previous_resolution_sw2_pool": 0.35022330935810286,
+      "same_sources_sw2_banks": [
+        0.45584724955736283,
+        0.4720849038259481,
+        0.3682658907260285,
+        0.4510786101336019
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 1013,
+        "4096": 11
+      },
+      "n": 1024,
+      "mean": 0.03414189464485924,
+      "sd": 0.3473518553593834,
+      "mc_se": 0.010854745479980731,
+      "quantiles": [
+        -0.30675860608049016,
+        -0.27558255548407984,
+        -0.027211534344885616,
+        1.2242983725457988,
+        6.833632325672084
+      ],
+      "largest_one_percent_contribution_to_mean": 0.026695676330464754,
+      "bootstrap_95": [
+        0.01434536647454867,
+        0.0567304922464783
+      ],
+      "divergence_mean": 0.034141548846900106,
+      "previous_resolution_mean": 0.03416276525714342,
+      "resolution_mean_change": -2.0870612284178472e-05,
+      "bank_means": [
+        0.003688568804720372,
+        0.027163450024233902,
+        0.04087913193602037,
+        0.06483642781446233
+      ],
+      "same_sources_sw2_pool": 0.3201871063986938,
+      "previous_resolution_sw2_pool": 0.3202016355182206,
+      "same_sources_sw2_banks": [
+        0.42739856070718624,
+        0.44838744599335856,
+        0.3590707900891886,
+        0.43530816195820093
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 984,
+        "4096": 40
+      },
+      "n": 1024,
+      "mean": 0.3099592192097403,
+      "sd": 0.9733028818306692,
+      "mc_se": 0.03041571505720841,
+      "quantiles": [
+        -2.2545428651800816,
+        -1.6895111710757953,
+        0.21929230987731685,
+        3.528271259528693,
+        9.380467010256838
+      ],
+      "largest_one_percent_contribution_to_mean": 0.05101902576240813,
+      "bootstrap_95": [
+        0.25076506162495,
+        0.3699868920257341
+      ],
+      "divergence_mean": 0.3099564392694326,
+      "previous_resolution_mean": 0.31010019932216326,
+      "resolution_mean_change": -0.00014098011242294684,
+      "bank_means": [
+        0.1793981315223759,
+        0.3311203801830088,
+        0.32013369170103145,
+        0.409184673432545
+      ],
+      "same_sources_sw2_pool": 0.13140754463174464,
+      "previous_resolution_sw2_pool": 0.13141217442518302,
+      "same_sources_sw2_banks": [
+        0.2506399769552908,
+        0.20725248572744312,
+        0.22909352951013257,
+        0.20828049897458928
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 989,
+        "4096": 35
+      },
+      "n": 1024,
+      "mean": 0.2889785898842627,
+      "sd": 0.968334447765303,
+      "mc_se": 0.030260451492665718,
+      "quantiles": [
+        -2.0790488559732836,
+        -1.406788763513873,
+        0.20319691597533251,
+        3.418342398037051,
+        14.027028991071294
+      ],
+      "largest_one_percent_contribution_to_mean": 0.05875834250173377,
+      "bootstrap_95": [
+        0.23071812585815601,
+        0.34851096444345836
+      ],
+      "divergence_mean": 0.28897567433724075,
+      "previous_resolution_mean": 0.2890774052706086,
+      "resolution_mean_change": -9.881538634587898e-05,
+      "bank_means": [
+        0.24719024334244738,
+        0.2890185815187508,
+        0.26400920220659974,
+        0.35569633246925303
+      ],
+      "same_sources_sw2_pool": 0.1269390709606514,
+      "previous_resolution_sw2_pool": 0.12694335763727072,
+      "same_sources_sw2_banks": [
+        0.24867654799729383,
+        0.20153817131054388,
+        0.22458999060702756,
+        0.20297376582258855
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 951,
+        "4096": 71,
+        "8192": 2
+      },
+      "n": 1024,
+      "mean": 0.8902264664805548,
+      "sd": 2.2445360491709105,
+      "mc_se": 0.07014175153659095,
+      "quantiles": [
+        -2.4102369251639253,
+        -1.7976240326223023,
+        0.37965966276993846,
+        8.947754901983677,
+        27.411541881015534
+      ],
+      "largest_one_percent_contribution_to_mean": 0.1463865432683307,
+      "bootstrap_95": [
+        0.7598097160349986,
+        1.0297515213172095
+      ],
+      "divergence_mean": 0.8902246834467502,
+      "previous_resolution_mean": 0.8901954078472967,
+      "resolution_mean_change": 3.105863325791949e-05,
+      "bank_means": [
+        0.6800381506324115,
+        0.9942311719276384,
+        0.9680310483897789,
+        0.9186054949723902
+      ],
+      "same_sources_sw2_pool": 0.12621563842395195,
+      "previous_resolution_sw2_pool": 0.12620620518157663,
+      "same_sources_sw2_banks": [
+        0.24259796586439006,
+        0.2027876129387001,
+        0.22677743865867833,
+        0.20926895761942363
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 953,
+        "4096": 71
+      },
+      "n": 1024,
+      "mean": 0.8936726286942607,
+      "sd": 2.196439644372188,
+      "mc_se": 0.06863873888663087,
+      "quantiles": [
+        -2.4248702721534414,
+        -1.6562432316043427,
+        0.3287598019851722,
+        9.568376601899676,
+        17.811040650202415
+      ],
+      "largest_one_percent_contribution_to_mean": 0.1407902349802619,
+      "bootstrap_95": [
+        0.7607580416541826,
+        1.031827279403112
+      ],
+      "divergence_mean": 0.893670859566349,
+      "previous_resolution_mean": 0.8938728050333106,
+      "resolution_mean_change": -0.0002001763390499101,
+      "bank_means": [
+        0.7395044377498317,
+        1.0275766539079656,
+        0.9889002565304217,
+        0.818709166588824
+      ],
+      "same_sources_sw2_pool": 0.12389823974468235,
+      "previous_resolution_sw2_pool": 0.12389073128646337,
+      "same_sources_sw2_banks": [
+        0.24063735424185678,
+        0.20109011659554166,
+        0.22833809301101216,
+        0.20671266494881296
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 995,
+        "4096": 26,
+        "8192": 2,
+        "16384": 1
+      },
+      "n": 1024,
+      "mean": 0.0386268594479904,
+      "sd": 0.27523519514579325,
+      "mc_se": 0.00860109984830604,
+      "quantiles": [
+        -0.7205196350152275,
+        -0.4136228272653562,
+        0.007575019850345639,
+        1.05402408067695,
+        2.2737182219919863
+      ],
+      "largest_one_percent_contribution_to_mean": 0.017368625240883263,
+      "bootstrap_95": [
+        0.022189923964011565,
+        0.05589179564116662
+      ],
+      "divergence_mean": 0.03862679788770558,
+      "previous_resolution_mean": 0.03861053408060214,
+      "resolution_mean_change": 1.6325367388255808e-05,
+      "bank_means": [
+        0.030807593628775984,
+        0.0314761137061828,
+        0.052814763372509316,
+        0.03940896708449351
+      ],
+      "same_sources_sw2_pool": 0.3174382761032835,
+      "previous_resolution_sw2_pool": 0.31742512893149566,
+      "same_sources_sw2_banks": [
+        0.4236009915858447,
+        0.47185997490600107,
+        0.3420004437784997,
+        0.4195073186595583
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 1010,
+        "4096": 12,
+        "8192": 2
+      },
+      "n": 1024,
+      "mean": 0.031313015210904155,
+      "sd": 0.3196556417835227,
+      "mc_se": 0.009989238805735084,
+      "quantiles": [
+        -0.2509762086345886,
+        -0.23915641039323834,
+        -0.025479785670871554,
+        0.9306590096005141,
+        5.132614502263609
+      ],
+      "largest_one_percent_contribution_to_mean": 0.024275975958958508,
+      "bootstrap_95": [
+        0.01318295137777681,
+        0.05193028677159876
+      ],
+      "divergence_mean": 0.03131285726721218,
+      "previous_resolution_mean": 0.03129724030341842,
+      "resolution_mean_change": 1.5774907485737426e-05,
+      "bank_means": [
+        0.024361867794396648,
+        0.027927688848972877,
+        0.03465901421277917,
+        0.03830348998746794
+      ],
+      "same_sources_sw2_pool": 0.3247903860990687,
+      "previous_resolution_sw2_pool": 0.3247905369929828,
+      "same_sources_sw2_banks": [
+        0.438575563871124,
+        0.44838306974182934,
+        0.36553584008337364,
+        0.4332191288015154
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "original",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 966,
+        "4096": 58
+      },
+      "n": 1024,
+      "mean": 0.5163154361726665,
+      "sd": 1.2758645005877087,
+      "mc_se": 0.0398707656433659,
+      "quantiles": [
+        -2.0745889242017577,
+        -1.7383265553052205,
+        0.33536827033461186,
+        5.4467163001555585,
+        13.297402438659079
+      ],
+      "largest_one_percent_contribution_to_mean": 0.07399155153395018,
+      "bootstrap_95": [
+        0.4388733484055726,
+        0.5961231932311443
+      ],
+      "divergence_mean": 0.5163137733841107,
+      "previous_resolution_mean": 0.5162788518742032,
+      "resolution_mean_change": 3.6584298463295285e-05,
+      "bank_means": [
+        0.4757296754954387,
+        0.5906414258224003,
+        0.4447098711863202,
+        0.5541807721865067
+      ],
+      "same_sources_sw2_pool": 0.12448683009586671,
+      "previous_resolution_sw2_pool": 0.12449164620167728,
+      "same_sources_sw2_banks": [
+        0.24830915967213882,
+        0.2016251467979137,
+        0.22709857143577916,
+        0.19901704771542553
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "mode": "projected",
+      "numerical_qualified": true,
+      "unresolved": 0,
+      "resolution_counts": {
+        "2048": 986,
+        "4096": 38
+      },
+      "n": 1024,
+      "mean": 0.4637358490767679,
+      "sd": 1.2908932834213391,
+      "mc_se": 0.04034041510691685,
+      "quantiles": [
+        -1.830642163856249,
+        -1.3365382961048433,
+        0.23086728618939528,
+        5.1528558536539535,
+        13.60466473560848
+      ],
+      "largest_one_percent_contribution_to_mean": 0.08721380945862345,
+      "bootstrap_95": [
+        0.3878395781572931,
+        0.5444802153570198
+      ],
+      "divergence_mean": 0.4637338101530599,
+      "previous_resolution_mean": 0.4634298279617621,
+      "resolution_mean_change": 0.00030602111500585143,
+      "bank_means": [
+        0.4845219182003655,
+        0.5281301102135496,
+        0.37520260379275716,
+        0.46708876410039935
+      ],
+      "same_sources_sw2_pool": 0.11867215103871702,
+      "previous_resolution_sw2_pool": 0.11868064502332458,
+      "same_sources_sw2_banks": [
+        0.24447252414053397,
+        0.19875725547607026,
+        0.2245366493103586,
+        0.19520345282156298
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "mode": "original",
+      "direction": "stage minus shared; positive favors sharing",
+      "numerical_qualified": true,
+      "resolution_sign_flip": false,
+      "valid_for_density_ranking": true,
+      "n": 1024,
+      "mean": -0.0005625532336146865,
+      "sd": 0.305597930206274,
+      "mc_se": 0.009549935318946063,
+      "quantiles": [
+        -3.7406328912591276,
+        -0.5700091622654014,
+        -0.0055371680216804095,
+        0.7112631590362974,
+        2.350823386675459
+      ],
+      "largest_one_percent_contribution_to_mean": 0.014911570098680577,
+      "bootstrap_95": [
+        -0.019612636522305094,
+        0.017539410032640135
+      ],
+      "bonferroni_four_contrasts_98_75": [
+        -0.02562355649982629,
+        0.022677454431657963
+      ],
+      "previous_resolution_mean": -0.0007303887917893227,
+      "resolution_mean_change": 0.0001678355581746375,
+      "divergence_mean": -0.000562361966908358,
+      "bank_means": [
+        -0.0186054808066862,
+        0.010747782255180029,
+        0.01077009194445524,
+        -0.0051626063274078145
+      ]
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "mode": "projected",
+      "direction": "stage minus shared; positive favors sharing",
+      "numerical_qualified": true,
+      "resolution_sign_flip": false,
+      "valid_for_density_ranking": true,
+      "n": 1024,
+      "mean": 0.0008467381423840172,
+      "sd": 0.2981209849222017,
+      "mc_se": 0.009316280778818803,
+      "quantiles": [
+        -4.714399280419012,
+        -0.07773208141516777,
+        -0.010380256393481238,
+        0.22816425514033306,
+        4.6162733515459005
+      ],
+      "largest_one_percent_contribution_to_mean": 0.01474283803836041,
+      "bootstrap_95": [
+        -0.017680080588473847,
+        0.0188880021098822
+      ],
+      "bonferroni_four_contrasts_98_75": [
+        -0.02281760150890752,
+        0.023666692912668083
+      ],
+      "previous_resolution_mean": 0.0007382942002195042,
+      "resolution_mean_change": 0.00010844394216451059,
+      "divergence_mean": 0.0008469583599507548,
+      "bank_means": [
+        0.0006890600166526824,
+        0.004111195718967744,
+        -0.006764345489376765,
+        0.005351042323292408
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "mode": "original",
+      "direction": "stage minus shared; positive favors sharing",
+      "numerical_qualified": true,
+      "resolution_sign_flip": false,
+      "valid_for_density_ranking": true,
+      "n": 1024,
+      "mean": -0.24704593737300307,
+      "sd": 1.5758771074999893,
+      "mc_se": 0.049246159609374666,
+      "quantiles": [
+        -14.016184307175996,
+        -6.253442226840612,
+        -0.04567181653730411,
+        3.1272640072686286,
+        7.626802344279027
+      ],
+      "largest_one_percent_contribution_to_mean": 0.04697171407308373,
+      "bootstrap_95": [
+        -0.3460620400248829,
+        -0.152474645222482
+      ],
+      "bonferroni_four_contrasts_98_75": [
+        -0.37650283422981823,
+        -0.1285310262791281
+      ],
+      "previous_resolution_mean": -0.2468850691518294,
+      "resolution_mean_change": -0.00016086822117368404,
+      "divergence_mean": -0.24704708782395546,
+      "bank_means": [
+        -0.1933631645004224,
+        -0.25012167005136554,
+        -0.2831780636059019,
+        -0.26152085133432235
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "mode": "projected",
+      "direction": "stage minus shared; positive favors sharing",
+      "numerical_qualified": true,
+      "resolution_sign_flip": false,
+      "valid_for_density_ranking": true,
+      "n": 1024,
+      "mean": -0.20426240195811712,
+      "sd": 1.4608362418692131,
+      "mc_se": 0.04565113255841291,
+      "quantiles": [
+        -10.070469968180213,
+        -5.018598091021513,
+        -0.06849792290001969,
+        3.379482768865427,
+        12.751435936740226
+      ],
+      "largest_one_percent_contribution_to_mean": 0.06303863180950285,
+      "bootstrap_95": [
+        -0.2938332306814914,
+        -0.11527384164911925
+      ],
+      "bonferroni_four_contrasts_98_75": [
+        -0.31985763331396355,
+        -0.0922967465407224
+      ],
+      "previous_resolution_mean": -0.20413130669626417,
+      "resolution_mean_change": -0.00013109526185294196,
+      "divergence_mean": -0.2042635334842796,
+      "bank_means": [
+        -0.07771474244343765,
+        -0.16644831760813206,
+        -0.3102690300693411,
+        -0.26261751771155767
+      ]
+    }
+  ],
+  "discovery": {
+    "dataset": "rotated_product_bimodal_16d",
+    "mode": "projected",
+    "bank": 0,
+    "independent_sources": 256,
+    "mean_stage_minus_shared_by_bin": [
+      -0.000985569753403501,
+      -0.002033609404716982,
+      -0.015460717330252935,
+      0.0008026446007123533,
+      -0.021584337358106342,
+      -0.014148368616820051,
+      0.004236263357498208,
+      -0.028541047938348742
+    ],
+    "paired_95_by_bin": [
+      [
+        -0.00932330394245927,
+        0.007740819091490456
+      ],
+      [
+        -0.00798911871344713,
+        0.003922852096179536
+      ],
+      [
+        -0.0279153461326936,
+        -0.0022996788892728492
+      ],
+      [
+        -0.019441124414867696,
+        0.02146417366731794
+      ],
+      [
+        -0.05299826931833532,
+        0.008988532417021515
+      ],
+      [
+        -0.07360736059264923,
+        0.04225612409023975
+      ],
+      [
+        -0.0810274425839884,
+        0.09786919622553515
+      ],
+      [
+        -0.08879489771203934,
+        0.033007497623273534
+      ]
+    ],
+    "bin_edges": [
+      0.0,
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.625,
+      0.75,
+      0.875,
+      1.0
+    ],
+    "intervention_candidate_eligible": false,
+    "candidate_bin": null,
+    "candidate_window": null,
+    "confirmation_time_profiles_exported": false
+  },
+  "verification_sha256": "e1f179e5435a512519eb010d3a1dc66eb69a04cc14b1d8a489610c2d7ff95386",
+  "analysis_source_sha256": "72a3e8c83fd2e1fccfcf4ed1dc1ea359a529e8773bbea2039de93bb276a2839a"
+}

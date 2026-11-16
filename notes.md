@@ -115,3 +115,14 @@ while representing the same untied function class and parameter count.
 Algebra/common-gradient/actual first AdamWupdate checks pass; full-model
 implementation and matched20k controls are not launched yet.
 Current analysis: density-transport/population-analysis.md. Reports stay final.
+
+## Full population-density conclusion
+
+All eight adaptive cases complete, all16cells qualify; independent error
+4.98e-14and16mean/SDrows reproduce via fsumwithin1.12e-16. Ring8shared/stage
+KLties at this evaluation precision (adjusted intervals include0); Product16
+reverses the earlier SW2lead in KL. No oracle-window intervention is eligible.
+Full statistics and three inspected scientific figures are published in the
+canonical density-transport folder. All workers exit0and our GPUcontexts
+are released. Next: implement/check the registered mean-preserving release
+before the two matched training controls. No finalized report is changed.

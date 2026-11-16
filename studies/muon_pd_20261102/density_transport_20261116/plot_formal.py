@@ -24,7 +24,8 @@ def main():
     families = [('state_midpoint4', 'Shared P', '#2166ac'),
                 ('stage_operator_midpoint4', 'Stage P', '#d6604d'),
                 ('free_isru', 'Free ISRU', '#757575'), ('swiglu', 'SwiGLU', '#222222')]
-    plt.rcParams.update({'font.size': 10, 'axes.spines.top': False, 'axes.spines.right': False})
+    plt.rcParams.update({'font.size': 10, 'axes.spines.top': False, 'axes.spines.right': False,
+                         'pdf.fonttype': 42})
     saved = []
     def save(fig, name):
         fig.savefig(out/(name+'.png'), dpi=180, bbox_inches='tight')
@@ -46,22 +47,8 @@ def main():
             ax.set_xticks(range(4), [f[1] for f in families])
             ax.set_title(f'{label}: {mode}')
             ax.set_ylabel('Mean terminal log-density ratio (nats)')
-    fig.suptitle('Four common source banks; 1024 independent paths per fixed model/field\nIntervals: paired-bank-stratified bootstrap 95%')
+    fig.suptitle('Four common source banks; 1024 independent paths per fixed model/field\nIntervals: within-bank bootstrap 95%')
     save(fig, 'terminal-density')
-
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4.2), constrained_layout=True)
-    for ax, (dataset, label) in zip(axes, datasets):
-        for mode, marker in [('original', 'o'), ('projected', 'D')]:
-            for family, name, color in families:
-                r = get(dataset, mode, family)
-                ax.scatter(r['mean'], r['same_sources_sw2_pool'], marker=marker, color=color, s=45)
-                ax.annotate(name+(' / projected' if mode == 'projected' else ''),
-                    (r['mean'], r['same_sources_sw2_pool']), xytext=(4, 4), textcoords='offset points', fontsize=8)
-        ax.set_title(label)
-        ax.set_xlabel('Mean terminal log-density ratio (nats)')
-        ax.set_ylabel('Pooled SW2 on the same 1024 endpoints')
-    fig.suptitle('Density and sliced distribution errors measure different discrepancies')
-    save(fig, 'density-and-sw2')
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.2), constrained_layout=True)
     ax = axes[0]

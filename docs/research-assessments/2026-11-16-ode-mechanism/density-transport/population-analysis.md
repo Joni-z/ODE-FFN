@@ -1,14 +1,26 @@
-# Sharing does not reduce Product16 density error
+# Sharing's sampling lead is not a joint-density lead
 
 The Product16 result rejects the proposed explanation of the sharing SW2
 advantage. Shared P has higher estimated joint KL than released stage matrices,
 both before and after the selected reflection projection. The direction is
 stable under numerical refinement and the paired evaluation intervals exclude zero.
 
+The full eight-model comparison is now complete: all sixteen model/field
+cells qualify, with no removed sources. Independent reconstruction and merge
+checks agree within 4.98e-14. Ring8 does not show a resolved sharing KL lead
+either: its shared/stage estimates are 0.039/0.039 originally and 0.030/0.031
+after projection. The adjusted paired intervals include zero in both cases.
+[Full statistics](population-statistics.json),
+[all-source audit](population-independent.json).
+
+![All model and field density estimates](figures/terminal-density.png)
+
 ## Purpose and completed comparison
 
 Test whether a shared hidden generator reduces signed density-error accumulation
 along the generated paths, despite its worse average velocity-field MSE.
+These are the existing width-64, depth-3 synthetic velocity MLPs; image JiT
+training and its qualified native baseline are unchanged.
 All four existing Product16 models and both frozen fields are included. Each
 uses 1,024 common Gaussian sources in four prebound banks. All eight Product16
 cells now pass the registered numerical gates, after retaining and refining
@@ -90,7 +102,14 @@ the same released-stage function class and parameter count.
 [Mathematics and registered control](../sharing-optimization-control.md).
 That new model has not been implemented or trained.
 
-The two Ring8 state models still need their final refinement/audit; the full
-two-task conclusion remains open. No new image run or finalized report was
-changed. The full goal remains identifying which ODE constraints help and why,
-including results that refute the initial explanation.
+All Ring8 refinements and the full independent audit are complete. Their
+stage-minus-shared KL differences are -0.001 original and 0.001 projected,
+with adjusted intervals [-0.026,0.023] and [-0.023,0.024]. The result does not
+establish a Ring8 density ordering. No oracle window is selected.
+
+![Paired density contrasts and bank-0 profile](figures/paired-density-and-discovery.png)
+
+All workers exited successfully and our CUDA contexts were released. No new
+image run or finalized report was changed. The broader goal remains identifying
+which ODE constraints help and why; the next mean-preserving release control
+is still required before attributing the earlier sharing result to stationarity.

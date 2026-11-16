@@ -1,5 +1,28 @@
 # Population-density figure catalog
 
+## terminal-density.png / .pdf
+
+Purpose: show all eight models and both fields on their complete common-source
+density evaluation. Points are mean log-density ratios; intervals are 95%
+within-bank bootstrap intervals for each fixed model. These individual-model
+intervals are descriptive; use the predeclared paired contrasts to compare
+Shared P and Stage P. Notice the near-tie on Ring8 and the opposite Product16
+density ordering to the earlier large-bank SW2 result.
+
+## paired-density-and-discovery.png / .pdf
+
+Purpose: make the four hypothesis tests and the unselected discovery profile
+explicit. Left: Stage-minus-Shared means and 98.75% paired intervals; positive
+would favor sharing. Both Ring8 intervals include zero and both Product16
+intervals favor Stage P. Right: pointwise 95% intervals on the eight signed
+bin contributions, using only the 256 sources of Product16 discovery bank0.
+Those time-bin intervals are exploratory, not eight independent hypothesis
+tests. No window is selected because the primary explanation has the wrong
+sign. Confirmation-bank profiles are not used for selection.
+
+Full-figure data/source bindings: figures/population-figure-bindings.json.
+Both figures were rendered and inspected for labels, signs, units and clipping.
+
 ## product16-density-width.png / .pdf
 
 Purpose: compare qualified joint density errors with two measurable features

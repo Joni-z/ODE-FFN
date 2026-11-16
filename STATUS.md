@@ -10,8 +10,9 @@ All eight Product16 cells qualify numerically and independently reconstruct.
 Shared P has broader components (relative variance 1.190 versus Stage P's
 1.146; target 1). Pairwise dependence is near the target sampling floor.
 [Analysis, figure and next control](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/population-analysis.md).
-Do not launch the rejected oracle-window branch. The two Ring8 state-model
-merges still need their final audit; one GPU worker remains in the latest snapshot.
+Do not launch the rejected oracle-window branch. The full comparison is complete: all sixteen model/field cells qualify.
+Ring8 paired KL intervals include zero, so neither field has a resolved
+sharing lead. All workers exited0; our CUDAcontexts are released.
 
 All 128 original density observations completed successfully. Independent
 NumPy reconstructs every identity within4.62e-14. Some sources in every
@@ -25,11 +26,13 @@ or relaxed threshold. Independent source selection, identities and merges
 agree within1.16e-14. One source required16384steps.
 [CPU independent audit](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/adaptive-mac-independent.json).
 
-The remaining six adaptive cases are running on145, queue3584295, frozen
-405a201. Only newly idle physicalGPUs4-7are used, one worker per card;
-exclusive UUIDguards remain active. No new training or image run was added.
-The analysis reader is ready: paired density contrasts, numerical sensitivity
-and SW2on common inputs, with bank0-only time-bin discovery.
+The six 145adaptive cases are complete, queue3584295terminal, source405a201.
+All workers exited0and every cell qualifies. Only idle physicalGPUs4-7were
+used; no foreign task was stopped or shared. No new training or image run was added.
+The full paired analysis and figures are complete: no Ring8KLsharing
+advantage is resolved; Product16favors stage matrices in KL. The rejected
+oracle-window branch remains unlaunched. The next registered structural
+control preserves the mean effective matrix while releasing the stages.
 [Registration](docs/research-assessments/2026-11-16-ode-mechanism/density-adaptive-followup.md),
 [execution](docs/research-assessments/2026-11-16-ode-mechanism/density-adaptive-execution.md),
 [CUDA launch](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/adaptive-cuda-launch.json).

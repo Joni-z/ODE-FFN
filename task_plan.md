@@ -32,11 +32,11 @@ Never stop or share a foreign task.
 
 ## Current work
 
-- [ ] Finish six CUDAadaptive cases; queue3584295, source405a201. Keep all
+- [x] Finish six CUDAadaptive cases; queue3584295, source405a201. Keep all
   sources, selected resolutions, previous estimates and unresolved flags.
-- [ ] Independently reconstruct all eight adaptive merges and every source
+- [x] Independently reconstruct all eight adaptive merges and every source
   gate. Do not rank an unresolved density contrast.
-- [ ] Run four paired shared/stage density contrasts, their MCuncertainty
+- [x] Run four paired shared/stage density contrasts, their MCuncertainty
   and resolution sensitivity. Compare SW2on these same prebound inputs.
 - [ ] Implement the registered mean-update-preserving stage release. Verify
   its full-model/native-continuation identities before the two matched20k
@@ -49,7 +49,10 @@ do not select a favorable time bin. Keep confirmation time profiles unopened.
 
 Full producer queues35441and3447050are terminal, with all workers exit0.
 Mac adaptive queue36629and workers36631/36632are terminal, exit0.
-CUDAadaptive queue3584295uses only newly idle GPUs4-7, one worker per GPU.
+CUDAadaptive queue3584295is terminal, with all six workers exit0; all
+sixteen combined model/field cells qualify independently within4.98e-14.
+The full paired statistics and rendered figures are complete. Our CUDA
+contexts are released; only idle GPUs4-7were used.
 Initial workers3584335/3584336/3584337/3584338; Product16ordinary controls
 follow in the same monitored queue. Re-poll live handles after timeouts.
 
@@ -67,4 +70,5 @@ Previous plan: docs/history/2026-11-16-density-pre-adaptive-task-plan.md.
 Previous goal turn: progress, exposing full-source numerical failures.
 Current goal turn: progress, completing128-row reconstruction, qualifying
 allCPUcontrol sources, and launching the remaining bounded refinement.
-Goal remains active; mechanism analysis and its conditional intervention remain.
+Goal remains active. The density explanation is rejected; the registered
+mean-update control remains to isolate sharing from optimizer coordinates.
