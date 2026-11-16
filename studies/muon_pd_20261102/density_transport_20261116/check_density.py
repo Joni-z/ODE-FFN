@@ -190,13 +190,14 @@ def main():
                     portability.append(errors)
                 row['cpu_portability'] = portability
             models.append(row)
-            base.dump(out/'progress.json', dict(completed=len(models), total=8, last=models[-1]))
+            base.dump(out/'progress.json', dict(completed=len(models), total=len(manifest['cases']), last=models[-1]))
     entries = []
     if meta and not args.oracle_only:
         module_spec = importlib.util.spec_from_file_location('actual_density_probe', HERE/'density_probe.py')
         entry = importlib.util.module_from_spec(module_spec)
         module_spec.loader.exec_module(entry)
-        for index in [0, 7]:
+        assert len(manifest['cases']) >= 2
+        for index in [0, len(manifest['cases'])-1]:
             target = out/('entry-'+str(index))
             command = ['--root', str(root), '--data', str(data_root), '--index', str(index), '--output', str(target),
                        '--phase', 'witness', '--device', args.device]

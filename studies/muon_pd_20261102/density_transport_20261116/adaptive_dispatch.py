@@ -25,7 +25,7 @@ def main():
     data, out = Path(a.data), Path(a.output)
     refs = json.loads((data/'density-data.json').read_text())['references']
     indices = [int(v) for v in a.indices.split(',')]
-    assert indices and len(set(indices)) == len(indices) and all(0 <= i < 8 for i in indices)
+    assert indices and len(set(indices)) == len(indices) and all(0 <= i < len(refs) for i in indices)
     parents = {}
     for name in a.runtimes:
         runtime = Path(name)

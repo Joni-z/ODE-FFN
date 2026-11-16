@@ -54,6 +54,17 @@ Never stop or share a foreign task.
 - [ ] Measure new-checkpoint solver sensitivity and joint density/widths on
   the existing sources. Reuse the sixteen completed reference cells; no
   response search, new training or image promotion is authorized by these scores.
+  - [x] Extend the existing portable loader and density entry checks to the
+    two registered contrast checkpoints; bind the model-builder source hashes.
+  - [x] Copy the existing P2source arrays byte-for-byte and generate only the
+    two new native CPU anchors. Preserve all earlier portable/evidence roots.
+  - [ ] Verify derivatives, native endpoints and real CLI entries; obtain a
+    fresh documented witness before the bounded observation queue.
+  - [ ] Use Mac CPUwhile145physical4-7are occupied; benchmark the new cells
+    and freeze source before monitored1024/2048 observations. Refine unresolved
+    sources under the original unchanged gates, with no point removal.
+  - [ ] Run outer128/256/512 and inner4/8/16checks on the original sharing
+    evaluation arrays, independently recompute scores and compare the same banks.
 
 The Product16 oracle-window branch is rejected by its signed density result;
 do not select a favorable time bin. Keep confirmation time profiles unopened.
@@ -88,3 +99,14 @@ Product16.072/.064. Ring8paired support is5/8for shared and unresolved;
 Product16is8/8for shared. Same-function native AdamWprobes establish
 coordinate effects, but do not replay historical optimizer momentum.
 Goal remains active. New-control solver/density measurements remain pending.
+
+Current continuation is progress: coordinate-control results were published
+at4f359d1. Fresh145inventory finds4-7occupied (13--15GiBeach); noGPUis
+allocated. Implement the bounded observation extension next; keep density_ops.py,
+native loss/sampler and all finalized report files unchanged.
+
+Author preparation is complete: two new checkpoints replay the full native
+field and bank0exactly; two new and all eight original model entries pass.
+Eight full-native-map logdet checks pass within3.68e-8. No population-density
+or full-bank numerical job is launched before the fresh documented witness.
+Protocol: coordinate-control/observation-protocol.md. No current blocker.

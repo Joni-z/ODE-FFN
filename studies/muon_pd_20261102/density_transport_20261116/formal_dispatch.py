@@ -27,7 +27,7 @@ def main():
         p.add_argument('--'+name, required=True)
     p.add_argument('--phase', choices=['witness', 'benchmark', 'formal'], required=True)
     p.add_argument('--device', choices=['cpu', 'cuda'], required=True)
-    p.add_argument('--indices', default='0,1,2,3,4,5,6,7')
+    p.add_argument('--indices', help='Comma-separated indices; default all manifest cases')
     p.add_argument('--readiness')
     p.add_argument('--derivative-backend', choices=['coordinate', 'batched'], default='coordinate')
     p.add_argument('--workers', type=int, choices=[1, 2, 3, 4], default=4)
@@ -35,9 +35,10 @@ def main():
     a = p.parse_args()
     root, data, out = map(Path, [a.root, a.data, a.output])
     meta = json.loads((data/'density-data.json').read_text())
-    assert meta['passed'] and len(meta['references']) == 8
-    indices = [int(v) for v in a.indices.split(',')]
-    assert indices and len(set(indices)) == len(indices) and all(0 <= i < 8 for i in indices)
+    count = len(meta['references'])
+    assert meta['passed'] and count >= 2
+    indices = [int(v) for v in a.indices.split(',')] if a.indices else list(range(count))
+    assert indices and len(set(indices)) == len(indices) and all(0 <= i < count for i in indices)
     digest = hashlib.sha256((data/'density-data.json').read_bytes()).hexdigest()
     commit = subprocess.check_output(['git', '-C', str(HERE.parents[2]), 'rev-parse', 'HEAD'], text=True).strip()
     env = dict(os.environ, OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1')
@@ -68,7 +69,7 @@ def main():
         raise SystemExit(row['exit_code'])
     assert a.readiness
     ready = json.loads(Path(a.readiness).read_text())
-    assert ready['passed'] and ready['device'] == a.device and ready['model_cases'] == 8
+    assert ready['passed'] and ready['device'] == a.device and ready['model_cases'] == count
     assert ready['derivative_backend'] == a.derivative_backend
     assert ready['density_data_sha256'] == digest and len(ready['formal_witnesses']) == 2
     for name in ['density_ops.py', 'formal_density.py', 'jacobian_backend.py']:

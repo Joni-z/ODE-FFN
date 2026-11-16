@@ -30,7 +30,7 @@ def main(argv=None):
     if a.phase == 'formal':
         assert a.readiness
         ready = json.loads(Path(a.readiness).read_text())
-        assert ready['passed'] and ready['device'] == a.device and ready['model_cases'] == 8
+        assert ready['passed'] and ready['device'] == a.device and ready['model_cases'] == len(manifest['cases'])
         assert ready['derivative_backend'] == a.derivative_backend
         assert len(ready['formal_witnesses']) == 2 and ready['density_data_sha256'] == base.digest(data_root/'density-data.json')
         for name in ['density_ops.py', 'formal_density.py', 'jacobian_backend.py']:

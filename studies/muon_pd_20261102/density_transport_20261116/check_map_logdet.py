@@ -18,7 +18,8 @@ def main():
     cases = json.loads((root/'portable.json').read_text())['cases']
     meta = json.loads((data_root/'density-data.json').read_text())
     rows = []
-    for index in [0, 7]:
+    assert len(cases) >= 2
+    for index in [0, len(cases)-1]:
         case = cases[index]
         with np.load(data_root/meta['datasets'][case['dataset']]['file']) as z:
             source = torch.from_numpy(z['source_0'][:1].copy())

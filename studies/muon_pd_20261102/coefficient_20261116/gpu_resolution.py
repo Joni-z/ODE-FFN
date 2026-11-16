@@ -6,6 +6,20 @@ from coefficient_trial import base,torch,build_model as coefficient_builder
 from state_trial import build_model as state_builder
 from stage_trial import build_model as stage_builder
 
+STATE_FAMILIES = ('state_midpoint4', 'free_stage_midpoint4',
+                  'stage_operator_midpoint4', 'contrast_operator_midpoint4')
+
+def verify_builder_sources(case):
+    """New portable families bind their complete imported local model source."""
+    files = case.get('builder_sources_sha256', {})
+    if case['family'] == 'contrast_operator_midpoint4':
+        assert files and any(p.endswith('/contrast_trial.py') for p in files)
+    repo = Path(__file__).resolve().parents[3]
+    for relative, digest in files.items():
+        path = (repo/relative).resolve()
+        assert path.is_relative_to(repo)
+        assert base.digest(path) == digest, ('Builder source differs', relative)
+
 def exclusive_gpu(selected):
     assert os.environ.get('CUDA_VISIBLE_DEVICES')==selected,'Bind exactly one registered physical GPU UUID'
     query=subprocess.run(['nvidia-smi','-i',selected,'--query-gpu=index','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True)
@@ -15,6 +29,9 @@ def exclusive_gpu(selected):
     assert not foreign,('Selected GPU occupied; stop only our own work',foreign)
 
 def builder(dim,family):
+    if family=='contrast_operator_midpoint4':
+        from contrast_trial import build_model as contrast_builder
+        return contrast_builder(dim,family)
     if family=='stage_operator_midpoint4':
         from sharing_trial import build_model as sharing_builder
         return sharing_builder(dim,family)
@@ -23,6 +40,7 @@ def builder(dim,family):
     return coefficient_builder(dim,family)
 
 def load(root,case,device='cuda'):
+    verify_builder_sources(case)
     cfg=json.loads((root/case['config']).read_text());manifest=root/case['dataset_manifest']
     assert base.digest(root/case['checkpoint'])==case['checkpoint_sha256']
     assert base.digest(root/case['config'])==case['config_sha256']
@@ -67,8 +85,8 @@ def main():
         target=torch.from_numpy(np.concatenate([data[f'target_{i}'] for i in range(8)])).to(device).double()
         directions=torch.from_numpy(data['directions']).to(device).double()
         cpu_samples=np.concatenate([np.load(root/f) for f in case['cpu_samples']])
-        configs=[(4,128),(4,256),(4,512)] if case['family'] in ['state_midpoint4','free_stage_midpoint4'] else [(0,128),(0,256),(0,512)]
-        if case['family'] in ['state_midpoint4','free_stage_midpoint4']:configs += [(8,128),(16,128)]
+        configs=[(4,128),(4,256),(4,512)] if case['family'] in STATE_FAMILIES else [(0,128),(0,256),(0,512)]
+        if case['family'] in STATE_FAMILIES:configs += [(8,128),(16,128)]
         for inner,outer in configs:
             if inner:
                 for _,layer in model.ode_layers():layer.substeps=inner

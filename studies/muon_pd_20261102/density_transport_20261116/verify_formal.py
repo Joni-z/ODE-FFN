@@ -24,6 +24,12 @@ def verify_case(root, data_root, folder, commit, phase='formal'):
     if done.get('derivative_backend') == 'batched':
         assert 'jacobian_backend.py' in done['source_sha256']
     case = next(c for c in manifest['cases'] if c['id'] == done['id'])
+    builder_sources = case.get('builder_sources_sha256', {})
+    if case['family'] == 'contrast_operator_midpoint4':
+        assert builder_sources and any(p.endswith('/contrast_trial.py') for p in builder_sources)
+    for filename, digest in builder_sources.items():
+        content = subprocess.check_output(['git', '-C', str(REPO), 'show', commit+':'+filename])
+        assert hashlib.sha256(content).hexdigest() == digest, filename
     assert done['checkpoint_sha256'] == case['checkpoint_sha256'] == sha(root/case['checkpoint'])
     assert done['dataset'] == case['dataset'] and done['family'] == case['family']
     for name in ['config', 'dataset_manifest']:
@@ -133,16 +139,16 @@ def main():
             result['raw_folder'] = str(folder)
             results.append(result)
     expected = {r['id'] for r in read(Path(a.data)/'density-data.json')['references']}
-    assert len(results) == 8 and {r['id'] for r in results} == expected
+    assert len(results) == len(expected) and {r['id'] for r in results} == expected
     assert len({tuple(sorted(r['source_sha256'].items())) for r in results}) == 1
     rows = [v for r in results for v in r['rows']]
     gates = [v for r in results for v in r['numerical_gates']]
-    assert len(rows) == 128 and len(gates) == 64
+    assert len(rows) == 16*len(expected) and len(gates) == 8*len(expected)
     cells = [dict(id=r['id'], mode=mode, qualified=all(g['qualified'] for g in r['numerical_gates'] if g['mode'] == mode))
              for r in results for mode in ['original', 'projected']]
     out.mkdir(parents=True)
     (out/'verified-cases.json').write_text(json.dumps(results, indent=2, allow_nan=False)+'\n')
-    receipt = dict(passed=True, cases=8, rows=128, bank_gate_checks=64, resolved_cells=sum(c['qualified'] for c in cells), cells=cells,
+    receipt = dict(passed=True, cases=len(expected), rows=len(rows), bank_gate_checks=len(gates), resolved_cells=sum(c['qualified'] for c in cells), cells=cells,
                    max_independent_error=max(r['max_independent_error'] for r in results), source_sha256=sha(__file__))
     (out/'COMPLETE.json').write_text(json.dumps(receipt, indent=2, allow_nan=False)+'\n')
     print(json.dumps({k: v for k, v in receipt.items() if k != 'cells'}))

@@ -2,6 +2,15 @@
 
 ## Current priority: identify the ODE contribution
 
+**New-control numerical/density observations are prepared.** Both portable
+checkpoints reproduce their complete native field and bank0samples exactly.
+P2density arrays are copied byte-for-byte. Two new-model derivative/formal
+entries and the original eight-model regression pass; eight full-native-map
+finite-difference checks agree within3.68e-8. The density observer is unchanged.
+Next: frozen-source documented witness, sequential timing, then monitored
+Mac CPUobservations.145physical4-7are occupied; noGPUis allocated.
+[Exact scope and invocation](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observation-protocol.md).
+
 **The mean-preserving stage control is complete.** It represents the same
 function class as anchored stage release while keeping the effective mean
 matrix equal to P. Two 20k seed0 CPU trajectories and all common-bank

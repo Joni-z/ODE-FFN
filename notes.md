@@ -2,6 +2,14 @@
 
 ## Latest: mean-preserving coordinate control complete
 
+New-control follow-up preparation: two portable checkpoints preserve native
+field/bank0outputs exactly and copy the original P2arrays byte-for-byte.
+The existing entries accept manifest-sized two/eight-case populations;
+both new and original derivative/formal regressions pass. Eight complete
+native-sampler-map finite differences agree within3.68e-8. The augmented
+observer and its math remain unchanged. Fresh documented CPUwitness is next;
+no new population or full32768-source sweep is launched yet.1454-7occupied.
+
 Two20kCPUtrajectories at frozen cdd79e5and all common-bank evaluations
 finished. All10model/task rows independently reproduce within2.78e-17.
 Newrelease pooled SW2Ring8.104/Product16.072; shared.091/.064; anchored

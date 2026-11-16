@@ -1,6 +1,7 @@
 """Bind new evaluation-only streams and CPU derivative references; no training."""
 import argparse
 import json
+import shutil
 from pathlib import Path
 import numpy as np
 from density_ops import HERE, base, torch, symmetry, exact_jacobian
@@ -10,6 +11,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--root', required=True)
     p.add_argument('--output', required=True)
+    p.add_argument('--reuse-data', help='Copy existing bound density banks byte-for-byte; generate only new model anchors')
     a = p.parse_args()
     root, out = Path(a.root), Path(a.output)
     out.mkdir(parents=True, exist_ok=False)
@@ -18,8 +20,25 @@ def main():
     base.verify_sources()
     manifest = json.loads((root/'portable.json').read_text())
     assets, references = {}, []
+    reused = Path(a.reuse_data) if a.reuse_data else None
+    previous = json.loads((reused/'density-data.json').read_text()) if reused else None
+    if previous:
+        assert previous['passed'] and previous['independent_banks'] == 4 and previous['points_per_bank'] == 256
     for index, dataset in enumerate(['gmm_ring8_2d', 'rotated_product_bimodal_16d']):
         case = next(c for c in manifest['cases'] if c['dataset'] == dataset)
+        if previous:
+            binding = previous['datasets'][dataset]
+            assert base.digest(reused/binding['file']) == binding['sha256']
+            target = out/binding['file']
+            target.parent.mkdir(exist_ok=True, parents=True)
+            shutil.copy2(reused/binding['file'], target)
+            assert base.digest(target) == binding['sha256']
+            with np.load(target) as z:
+                original = symmetry.arrays(root, case)
+                assert np.array_equal(z['group'], original['group'])
+                assert np.array_equal(z['directions'], original['directions'])
+            assets[dataset] = binding.copy()
+            continue
         law = symmetry.law_for(root, case)
         rng = np.random.default_rng(2026112300+index)
         arrays = {}
@@ -62,7 +81,7 @@ def main():
     base.dump(out/'density-data.json', dict(passed=True, train_seed=0, evaluation_stream=2026112300,
         independent_banks=4, points_per_bank=256, pilot_points=8, field_points=1280,
         datasets=assets, references=references, portable_manifest_sha256=base.digest(root/'portable.json'),
-        source_sha256=base.digest(__file__)))
+        source_sha256=base.digest(__file__), reused_data_sha256=base.digest(reused/'density-data.json') if reused else None))
     print(json.dumps(dict(passed=True, cases=len(references), output=str(out))))
 
 

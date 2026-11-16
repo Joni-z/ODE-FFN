@@ -64,14 +64,14 @@ def main():
             assert max(errors.values()) < 1e-8
             rows.append(dict(id=case['id'], mode=mode, jacobian_max_error=max_jac,
                 native_endpoints_exact=True, observer_array_errors=errors, timing=timing))
-            base.dump(out/'progress.json', dict(completed=len(rows), total=16, last=rows[-1]))
+            base.dump(out/'progress.json', dict(completed=len(rows), total=2*len(cases), last=rows[-1]))
         symmetry.ev.same_tensors(model, snapshot)
     if a.device == 'cuda':
         symmetry.exclusive_gpu(a.gpu_uuid)
-    base.dump(out/'COMPLETE.json', dict(passed=True, device=a.device, cells=16, rows=rows,
+    base.dump(out/'COMPLETE.json', dict(passed=True, device=a.device, cells=len(rows), rows=rows,
         density_data_sha256=base.digest(data_root/'density-data.json'),
         source_sha256={f.name: base.digest(f) for f in [Path(__file__), HERE/'jacobian_backend.py', HERE/'density_ops.py']}))
-    print(json.dumps(dict(passed=True, cells=16, max_jacobian_error=max(r['jacobian_max_error'] for r in rows),
+    print(json.dumps(dict(passed=True, cells=len(rows), max_jacobian_error=max(r['jacobian_max_error'] for r in rows),
         max_observer_error=max(max(r['observer_array_errors'].values()) for r in rows))))
 
 

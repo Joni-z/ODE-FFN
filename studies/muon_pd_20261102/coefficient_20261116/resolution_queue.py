@@ -2,17 +2,20 @@
 import argparse,json,os,subprocess,sys,time
 from pathlib import Path
 from coefficient_trial import base,HERE
+from gpu_resolution import STATE_FAMILIES
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--root',required=True);p.add_argument('--output',required=True)
-    p.add_argument('--only',choices=['all','symmetry-full'],default='all');p.add_argument('--symmetry-dtype',choices=['float32','float64'],default='float32');a=p.parse_args()
+    p.add_argument('--only',choices=['all','symmetry-full','numerical'],default='all');p.add_argument('--symmetry-dtype',choices=['float32','float64'],default='float32')
+    p.add_argument('--inner-substeps',nargs='+',type=int,choices=[4,8,16],default=[4,16])
+    p.add_argument('--full-outer',action='store_true');a=p.parse_args()
     root=Path(a.root);out=Path(a.output);out.mkdir(exist_ok=False);tasks=[]
     for c in json.loads((root/'portable.json').read_text())['cases']:
-        if a.only=='all':
-            tasks.append((c['id'],'outer-subset'))
-            if c['family'] in ['state_midpoint4','free_stage_midpoint4']:tasks.append((c['id'],'full-internal'))
+        if a.only in ['all','numerical']:
+            tasks.append((c['id'],'full-outer' if a.full_outer else 'outer-subset'))
+            if c['family'] in STATE_FAMILIES:tasks.append((c['id'],'full-internal'))
     for c in json.loads((root/'portable.json').read_text())['cases']:
-        if c['dataset']=='gmm_ring8_2d':tasks.append((c['id'],'symmetry-full'))
+        if a.only!='numerical' and c['dataset']=='gmm_ring8_2d':tasks.append((c['id'],'symmetry-full'))
     active={};done=[];failed=False
     while tasks or active:
         for pid,(proc,log,row) in list(active.items()):
@@ -23,7 +26,7 @@ def main():
             name,mode=tasks.pop(0);target=out/name/mode;log=(out/(name+'-'+mode+'.log')).open('x')
             script='full_symmetry_case.py' if mode=='symmetry-full' else 'cpu_resolution.py'
             cmd=[sys.executable,str(HERE/script),'--root',str(root),'--case',name,'--output',str(target)]
-            if mode!='symmetry-full':cmd+=['--mode',mode]
+            if mode!='symmetry-full':cmd+=['--mode',mode,'--inner-substeps']+[str(x) for x in a.inner_substeps]
             else:cmd+=['--dtype',a.symmetry_dtype]
             proc=subprocess.Popen(cmd,stdout=log,stderr=log,stdin=subprocess.DEVNULL,env=dict(os.environ,OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',MKL_NUM_THREADS='1'))
             active[proc.pid]=(proc,log,dict(id=name,mode=mode,pid=proc.pid,output=str(target),command=cmd,started=time.time()))

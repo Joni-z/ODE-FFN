@@ -28,7 +28,7 @@ def main(argv=None):
     if a.phase == 'pilot':
         assert a.readiness
         ready = json.loads(Path(a.readiness).read_text())
-        assert ready['passed'] and len(ready['models']) == 8 and len(ready['entry_witnesses']) == 2
+        assert ready['passed'] and len(ready['models']) == len(cases) and len(ready['entry_witnesses']) == 2
         assert ready['density_data_sha256'] == base.digest(data_root/'density-data.json')
         assert ready['device'] == a.device
     out.mkdir(parents=True, exist_ok=False)
