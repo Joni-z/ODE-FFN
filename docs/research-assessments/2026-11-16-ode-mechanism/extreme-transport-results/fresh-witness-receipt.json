@@ -1,0 +1,587 @@
+{
+  "schema": "extreme-transport-agent-follows-doc-v1",
+  "created_utc": "2026-11-16T21:37:21.122Z",
+  "scope": "fresh documented CPU validation only; three commands sequentially once",
+  "source_commit": "146c158c63bc6fb472d33845a9c6dde966758d33",
+  "source_before": {
+    "all_match": true,
+    "checked_count": 5090,
+    "commit": "146c158c63bc6fb472d33845a9c6dde966758d33",
+    "critical_sha256": {
+      "docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-execution.md": "02fafa09aedce68c9f17b4ada6d800587d82967a740a6deb2dc5d3f4e67f2ba1",
+      "studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py": "d8fb4cfb2a9f416528ebb9d77ac2f4d861e159f00bb3afba5b52ec6ccb02596a",
+      "studies/muon_pd_20261102/target_transport_20261117/verify_extreme_transport.py": "115df592968ae0fb0ed31e331ee277e7125aeb44b4e97ad311b82f997c64d26f"
+    },
+    "env_spec_hash": "04f11f75",
+    "expected_count": 5090,
+    "expected_map_sha256": "74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca",
+    "manifest_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/source-freeze.json",
+    "manifest_sha256": "4b38293a6ad176a3416a1713050969ff8a7d43e90c44e7c44643cdfa51aedcf0",
+    "mismatches": [],
+    "missing": [],
+    "observed_map_sha256": "74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca",
+    "readiness_exists": false,
+    "source_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo",
+    "unmanifested_files": []
+  },
+  "source_after": {
+    "all_match": true,
+    "checked_count": 5090,
+    "commit": "146c158c63bc6fb472d33845a9c6dde966758d33",
+    "expected_count": 5090,
+    "expected_map_sha256": "74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca",
+    "manifest_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/source-freeze.json",
+    "manifest_sha256": "4b38293a6ad176a3416a1713050969ff8a7d43e90c44e7c44643cdfa51aedcf0",
+    "mismatches": [],
+    "missing": [],
+    "observed_map_sha256": "74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca",
+    "output_files": {
+      "math.json": {
+        "bytes": 2843,
+        "sha256": "6d97c00b99d44690a52f4d1ff384b79cd6b1e525aa12a21219b88e3c43d38544"
+      },
+      "primary-confirmation/COMPLETE.json": {
+        "bytes": 156,
+        "sha256": "a845f1603fd6ac6a4227cef54500652d6f5c73d53161a2f3d1a9824269e39d36"
+      },
+      "primary-confirmation/arrays.npz": {
+        "bytes": 6440,
+        "sha256": "aac30316638f5f1d9d4104b92c06f155468fae60e6094236cb10c3382fdd908f"
+      },
+      "primary-confirmation/independent.json": {
+        "bytes": 437,
+        "sha256": "c668e547dabdee9291ad513961afe544f1ee6f6ec38a52c9effcb11d8492623a"
+      },
+      "primary-confirmation/progress.json": {
+        "bytes": 195,
+        "sha256": "5494e19f4d258ff48e6054968239c75d5545ebfcfcbbfa100019f2831cf1a301"
+      },
+      "primary-confirmation/summary.json": {
+        "bytes": 4940,
+        "sha256": "c65576525bf6362d03b4d0bf94a073163126bab4073903b8be29f8556d7ea5e1"
+      }
+    },
+    "source_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo",
+    "unmanifested_files": [
+      "studies/muon_pd_20261102/__pycache__/run.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/__pycache__/trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/ordinary.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/trial13.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle14/__pycache__/audit.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle15/__pycache__/transport.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle2/__pycache__/trial2.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle3/__pycache__/trial3.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle4/__pycache__/trial4.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/coefficient_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/cross_solver_evaluate.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_step.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/state_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/followup_20261115/__pycache__/evaluate.cpython-312.pyc",
+      "studies/muon_pd_20261102/followup_20261115/__pycache__/train.cpython-312.pyc",
+      "studies/muon_pd_20261102/order_response_20261115/__pycache__/evaluate_order.cpython-312.pyc",
+      "studies/muon_pd_20261102/order_response_20261115/__pycache__/order_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/augmented.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/covariance.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/data.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagnostics.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagonal.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/forced_gate.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/models.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/state_clock.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/train.cpython-312.pyc",
+      "studies/muon_pd_20261102/response_screen_20261115/__pycache__/screen_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/target_transport_20261117/__pycache__/common.cpython-312.pyc",
+      "studies/muon_pd_20261102/target_transport_20261117/__pycache__/learned_transport.cpython-312.pyc",
+      "studies/muon_pd_20261102/vendor/__pycache__/muon.cpython-312.pyc"
+    ]
+  },
+  "source_manifest_unchanged": true,
+  "all_5090_manifested_source_hashes_match_before_and_after": true,
+  "environment": {
+    "ledger": "/Users/mr.z/ODE-FFN-upstream/.aris/compute/macmini.md",
+    "entry": "response-screen-cpu@04f11f75",
+    "spec_hash_verified": "04f11f75",
+    "python": "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "warm_reuse": true,
+    "packages_installed_or_modified": false,
+    "device": "CPU",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "gpu_used": false
+  },
+  "commands": [
+    {
+      "ordinal": 1,
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py --math --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/readiness/math.json",
+      "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo",
+      "executed_once": true,
+      "actual_terminal_exit": 0,
+      "session_ids": [
+        44780
+      ],
+      "terminal_chunks": [
+        {
+          "chunk_id": "294549",
+          "wall_time_seconds": 1.003398958,
+          "session_id": 44780,
+          "original_token_count": 0,
+          "output": ""
+        },
+        {
+          "chunk_id": "a64144",
+          "wall_time_seconds": 0.000008292,
+          "exit_code": 0,
+          "original_token_count": 7,
+          "output": "EXTREME_TRANSPORT_MATH_PASS\n"
+        }
+      ]
+    },
+    {
+      "ordinal": 2,
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --source-cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case product_rk4_trained --split confirmation --witness --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/readiness/primary-confirmation",
+      "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo",
+      "executed_once": true,
+      "actual_terminal_exit": 0,
+      "session_ids": [
+        78041
+      ],
+      "terminal_chunks": [
+        {
+          "chunk_id": "dc233c",
+          "wall_time_seconds": 1.003291625,
+          "session_id": 78041,
+          "original_token_count": 0,
+          "output": ""
+        },
+        {
+          "chunk_id": "2ea4c0",
+          "wall_time_seconds": 5.003153917,
+          "session_id": 78041,
+          "original_token_count": 31,
+          "output": "EXTREME_RESOLUTION product_rk4_trained confirmation 128\nEXTREME_FINITE_DIFFERENCE product_rk4_trained confirmation 0.0001\n"
+        },
+        {
+          "chunk_id": "62a174",
+          "wall_time_seconds": 0.000024042,
+          "exit_code": 0,
+          "original_token_count": 65,
+          "output": "EXTREME_FINITE_DIFFERENCE product_rk4_trained confirmation 1e-05\nEXTREME_FINITE_DIFFERENCE product_rk4_trained confirmation 1e-06\nEXTREME_FINITE_DIFFERENCE product_rk4_trained confirmation 1e-07\nEXTREME_TRANSPORT_COMPLETE product_rk4_trained confirmation True\n"
+        }
+      ]
+    },
+    {
+      "ordinal": 3,
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/verify_extreme_transport.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/readiness/primary-confirmation --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/readiness/primary-confirmation/independent.json",
+      "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo",
+      "executed_once": true,
+      "actual_terminal_exit": 0,
+      "session_ids": [],
+      "terminal_chunks": [
+        {
+          "chunk_id": "4c332f",
+          "wall_time_seconds": 0.079887042,
+          "exit_code": 0,
+          "original_token_count": 19,
+          "output": "EXTREME_TRANSPORT_INDEPENDENT_PASS product_rk4_trained confirmation True\n"
+        }
+      ]
+    }
+  ],
+  "receipt_written_in_separate_call_after_all_actual_terminal_exits": true,
+  "documented_command_count_executed": 3,
+  "formal_queue_command_executed": false,
+  "no_repairs_retries_or_overwrites": true,
+  "documentation_or_invocation_divergences": [],
+  "numerical_gate_changes": [],
+  "expected_runtime_artifacts": {
+    "kind": "ordinary Python bytecode caches",
+    "count": 31,
+    "paths": [
+      "studies/muon_pd_20261102/__pycache__/run.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/__pycache__/trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/ordinary.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/trial13.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle14/__pycache__/audit.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle15/__pycache__/transport.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle2/__pycache__/trial2.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle3/__pycache__/trial3.cpython-312.pyc",
+      "studies/muon_pd_20261102/autoresearch_20261103/cycle4/__pycache__/trial4.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/coefficient_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/cross_solver_evaluate.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_step.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/coefficient_20261116/__pycache__/state_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/followup_20261115/__pycache__/evaluate.cpython-312.pyc",
+      "studies/muon_pd_20261102/followup_20261115/__pycache__/train.cpython-312.pyc",
+      "studies/muon_pd_20261102/order_response_20261115/__pycache__/evaluate_order.cpython-312.pyc",
+      "studies/muon_pd_20261102/order_response_20261115/__pycache__/order_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/augmented.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/covariance.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/data.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagnostics.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagonal.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/forced_gate.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/models.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/state_clock.cpython-312.pyc",
+      "studies/muon_pd_20261102/reference/synthetic/__pycache__/train.cpython-312.pyc",
+      "studies/muon_pd_20261102/response_screen_20261115/__pycache__/screen_trial.cpython-312.pyc",
+      "studies/muon_pd_20261102/target_transport_20261117/__pycache__/common.cpython-312.pyc",
+      "studies/muon_pd_20261102/target_transport_20261117/__pycache__/learned_transport.cpython-312.pyc",
+      "studies/muon_pd_20261102/vendor/__pycache__/muon.cpython-312.pyc"
+    ],
+    "preserved": true,
+    "considered_divergence": false
+  },
+  "kernel_controls": {
+    "independent_time_varying_affine_recurrence": {
+      "finite_differences": [
+        {
+          "epsilon": 0.0001,
+          "failed_components": 0,
+          "max_error": 2.2588042547511122e-12,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "epsilon": 0.00001,
+          "failed_components": 0,
+          "max_error": 1.6835605826104327e-11,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "epsilon": 0.000001,
+          "failed_components": 0,
+          "max_error": 2.0079590073995846e-10,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "epsilon": 1e-7,
+          "failed_components": 0,
+          "max_error": 2.2515706521453183e-9,
+          "nonfinite_components": 0,
+          "qualified": true
+        }
+      ],
+      "passed": true,
+      "scope": "independent time-varying affine recurrence only",
+      "seed": 0,
+      "source_sha256": "d8fb4cfb2a9f416528ebb9d77ac2f4d861e159f00bb3afba5b52ec6ccb02596a",
+      "steps": [
+        {
+          "augmented_primal_exact": true,
+          "primal": {
+            "failed_components": 0,
+            "max_error": 3.469446951953614e-18,
+            "nonfinite_components": 0,
+            "qualified": true
+          },
+          "steps": 127,
+          "tangent": {
+            "failed_components": 0,
+            "max_error": 1.3877787807814457e-17,
+            "nonfinite_components": 0,
+            "qualified": true
+          }
+        },
+        {
+          "augmented_primal_exact": true,
+          "primal": {
+            "failed_components": 0,
+            "max_error": 0,
+            "nonfinite_components": 0,
+            "qualified": true
+          },
+          "steps": 128,
+          "tangent": {
+            "failed_components": 0,
+            "max_error": 6.938893903907228e-18,
+            "nonfinite_components": 0,
+            "qualified": true
+          }
+        },
+        {
+          "augmented_primal_exact": true,
+          "primal": {
+            "failed_components": 0,
+            "max_error": 5.551115123125783e-17,
+            "nonfinite_components": 0,
+            "qualified": true
+          },
+          "steps": 129,
+          "tangent": {
+            "failed_components": 0,
+            "max_error": 1.3877787807814457e-17,
+            "nonfinite_components": 0,
+            "qualified": true
+          }
+        },
+        {
+          "augmented_primal_exact": true,
+          "primal": {
+            "failed_components": 0,
+            "max_error": 0,
+            "nonfinite_components": 0,
+            "qualified": true
+          },
+          "steps": 256,
+          "tangent": {
+            "failed_components": 0,
+            "max_error": 3.469446951953614e-18,
+            "nonfinite_components": 0,
+            "qualified": true
+          }
+        },
+        {
+          "augmented_primal_exact": true,
+          "primal": {
+            "failed_components": 0,
+            "max_error": 0,
+            "nonfinite_components": 0,
+            "qualified": true
+          },
+          "steps": 512,
+          "tangent": {
+            "failed_components": 0,
+            "max_error": 1.3877787807814457e-17,
+            "nonfinite_components": 0,
+            "qualified": true
+          }
+        }
+      ]
+    },
+    "learned_native_replay_steps": [
+      {
+        "all_outputs_finite": true,
+        "augmented_primal_exact": true,
+        "jvp_primal_error": 0,
+        "jvp_primal_qualified": true,
+        "steps": 128
+      }
+    ],
+    "native_cache_checks": {
+      "crossed": {
+        "failed_components": 0,
+        "max_error": 8.881784197001252e-16,
+        "nonfinite_components": 0,
+        "qualified": true
+      },
+      "native": {
+        "failed_components": 0,
+        "max_error": 2.473798943469774e-12,
+        "nonfinite_components": 0,
+        "qualified": true
+      },
+      "tangent": {
+        "failed_components": 0,
+        "max_error": 6.54040377412457e-10,
+        "nonfinite_components": 0,
+        "qualified": true
+      }
+    },
+    "parameters_buffers_rng_unchanged": true
+  },
+  "independent_saved_array_reconstruction": {
+    "all_epsilon_records_reconstructed": true,
+    "case": "product_rk4_trained",
+    "original_sources_and_cached_arrays_exact": true,
+    "passed": true,
+    "replay_qualified": true,
+    "roles": 3,
+    "source_sha256": "115df592968ae0fb0ed31e331ee277e7125aeb44b4e97ad311b82f997c64d26f",
+    "split": "confirmation",
+    "summary_sha256": "c65576525bf6362d03b4d0bf94a073163126bab4073903b8be29f8556d7ea5e1",
+    "unique_sources": 3,
+    "witness": true
+  },
+  "fixed_binding": {
+    "arrays_sha256": "aac30316638f5f1d9d4104b92c06f155468fae60e6094236cb10c3382fdd908f",
+    "checkpoint_sha256": "b3980a82c16ca190e9e89dad7a4b336261c9e385fcac15fc5f87e954395fcbd5",
+    "config_sha256": "a36cfe5c3edb3579efb64a8dd8e623924d3e5b69162444b69387f51dcbb7a55e",
+    "input_cases_sha256": "ff3e49e11b14ac399f9ecb96e532f5b907c1de557995afe9ec7cd016856f890e",
+    "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+    "native_anchor_exact": true,
+    "selected_arrays_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/product_rk4_trained-confirmation.npz",
+    "selected_arrays_sha256": "1622be383fc306e605310fcb785474120253cce8f91f490713b548fc580a90d8",
+    "source_cases_sha256": "97fe6f6b84de0b12c0843b7813e70a71888fbff90ea8f21018227a58a9f170ba",
+    "source_sha256": "d8fb4cfb2a9f416528ebb9d77ac2f4d861e159f00bb3afba5b52ec6ccb02596a"
+  },
+  "retained_finite_difference_observations": [
+    {
+      "epsilon": 0.0001,
+      "unique_source_comparisons": [
+        {
+          "failed_components": 16,
+          "max_error": 0.23418446986531194,
+          "nonfinite_components": 0,
+          "qualified": false
+        },
+        {
+          "failed_components": 0,
+          "max_error": 1.1585749720710581e-11,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 0.000011175021551679265,
+          "nonfinite_components": 0,
+          "qualified": true
+        }
+      ]
+    },
+    {
+      "epsilon": 0.00001,
+      "unique_source_comparisons": [
+        {
+          "failed_components": 0,
+          "max_error": 0.0023430535731563396,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 7.709835699552803e-11,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 1.023573767966468e-7,
+          "nonfinite_components": 0,
+          "qualified": true
+        }
+      ]
+    },
+    {
+      "epsilon": 0.000001,
+      "unique_source_comparisons": [
+        {
+          "failed_components": 0,
+          "max_error": 0.00002399893037363654,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 1.079566082362593e-9,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 2.4856140257156767e-8,
+          "nonfinite_components": 0,
+          "qualified": true
+        }
+      ]
+    },
+    {
+      "epsilon": 1e-7,
+      "unique_source_comparisons": [
+        {
+          "failed_components": 0,
+          "max_error": 0.00004833576068108414,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 4.47154904076319e-9,
+          "nonfinite_components": 0,
+          "qualified": true
+        },
+        {
+          "failed_components": 0,
+          "max_error": 6.984264047105171e-7,
+          "nonfinite_components": 0,
+          "qualified": true
+        }
+      ]
+    }
+  ],
+  "witness_roles": [
+    {
+      "bank": 0,
+      "index": 1481,
+      "original_bank_file_sha256": "ba05ffe005e9e6207df3601a9b5b529e61f6a806350b77b9fa81ee5e652fc64f",
+      "role": "maximum",
+      "tangent_norm": 381.3589312598022,
+      "unique_row": 0
+    },
+    {
+      "bank": 0,
+      "index": 3462,
+      "original_bank_file_sha256": "ba05ffe005e9e6207df3601a9b5b529e61f6a806350b77b9fa81ee5e652fc64f",
+      "role": "lower_median",
+      "tangent_norm": 0.027837611379583158,
+      "unique_row": 1
+    },
+    {
+      "bank": 5,
+      "index": 7,
+      "original_bank_file_sha256": "b279a871d402ad3a5ae1d02b0d0fd25fa9b6f55fb286fb88775f7e51379c3a12",
+      "role": "probe_maximum",
+      "tangent_norm": 6.996841461812123,
+      "unique_row": 2
+    }
+  ],
+  "complete": {
+    "passed": true,
+    "replay_qualified": true,
+    "summary_sha256": "c65576525bf6362d03b4d0bf94a073163126bab4073903b8be29f8556d7ea5e1",
+    "witness": true
+  },
+  "output_hashes": {
+    "math.json": {
+      "bytes": 2843,
+      "sha256": "6d97c00b99d44690a52f4d1ff384b79cd6b1e525aa12a21219b88e3c43d38544"
+    },
+    "primary-confirmation/COMPLETE.json": {
+      "bytes": 156,
+      "sha256": "a845f1603fd6ac6a4227cef54500652d6f5c73d53161a2f3d1a9824269e39d36"
+    },
+    "primary-confirmation/arrays.npz": {
+      "bytes": 6440,
+      "sha256": "aac30316638f5f1d9d4104b92c06f155468fae60e6094236cb10c3382fdd908f"
+    },
+    "primary-confirmation/independent.json": {
+      "bytes": 437,
+      "sha256": "c668e547dabdee9291ad513961afe544f1ee6f6ec38a52c9effcb11d8492623a"
+    },
+    "primary-confirmation/progress.json": {
+      "bytes": 195,
+      "sha256": "5494e19f4d258ff48e6054968239c75d5545ebfcfcbbfa100019f2831cf1a301"
+    },
+    "primary-confirmation/summary.json": {
+      "bytes": 4940,
+      "sha256": "c65576525bf6362d03b4d0bf94a073163126bab4073903b8be29f8556d7ea5e1"
+    }
+  },
+  "source_hash_check_terminal_chunks": {
+    "before": {
+      "chunk_id": "4f7b02",
+      "wall_time_seconds": 0.7121255,
+      "exit_code": 0,
+      "original_token_count": 305,
+      "output": "{\"all_match\": true, \"checked_count\": 5090, \"commit\": \"146c158c63bc6fb472d33845a9c6dde966758d33\", \"critical_sha256\": {\"docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-execution.md\": \"02fafa09aedce68c9f17b4ada6d800587d82967a740a6deb2dc5d3f4e67f2ba1\", \"studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py\": \"d8fb4cfb2a9f416528ebb9d77ac2f4d861e159f00bb3afba5b52ec6ccb02596a\", \"studies/muon_pd_20261102/target_transport_20261117/verify_extreme_transport.py\": \"115df592968ae0fb0ed31e331ee277e7125aeb44b4e97ad311b82f997c64d26f\"}, \"env_spec_hash\": \"04f11f75\", \"expected_count\": 5090, \"expected_map_sha256\": \"74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca\", \"manifest_path\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/source-freeze.json\", \"manifest_sha256\": \"4b38293a6ad176a3416a1713050969ff8a7d43e90c44e7c44643cdfa51aedcf0\", \"mismatches\": [], \"missing\": [], \"observed_map_sha256\": \"74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca\", \"readiness_exists\": false, \"source_root\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo\", \"unmanifested_files\": []}\n"
+    },
+    "after": {
+      "chunk_id": "4b5b2d",
+      "wall_time_seconds": 0.814259833,
+      "exit_code": 0,
+      "original_token_count": 1051,
+      "output": "{\"all_match\": true, \"checked_count\": 5090, \"commit\": \"146c158c63bc6fb472d33845a9c6dde966758d33\", \"expected_count\": 5090, \"expected_map_sha256\": \"74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca\", \"manifest_path\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/source-freeze.json\", \"manifest_sha256\": \"4b38293a6ad176a3416a1713050969ff8a7d43e90c44e7c44643cdfa51aedcf0\", \"mismatches\": [], \"missing\": [], \"observed_map_sha256\": \"74d9769c079b1054fc500707f3e9a54ebca5fe33b57b9922cce1cc30fe20a0ca\", \"output_files\": {\"math.json\": {\"bytes\": 2843, \"sha256\": \"6d97c00b99d44690a52f4d1ff384b79cd6b1e525aa12a21219b88e3c43d38544\"}, \"primary-confirmation/COMPLETE.json\": {\"bytes\": 156, \"sha256\": \"a845f1603fd6ac6a4227cef54500652d6f5c73d53161a2f3d1a9824269e39d36\"}, \"primary-confirmation/arrays.npz\": {\"bytes\": 6440, \"sha256\": \"aac30316638f5f1d9d4104b92c06f155468fae60e6094236cb10c3382fdd908f\"}, \"primary-confirmation/independent.json\": {\"bytes\": 437, \"sha256\": \"c668e547dabdee9291ad513961afe544f1ee6f6ec38a52c9effcb11d8492623a\"}, \"primary-confirmation/progress.json\": {\"bytes\": 195, \"sha256\": \"5494e19f4d258ff48e6054968239c75d5545ebfcfcbbfa100019f2831cf1a301\"}, \"primary-confirmation/summary.json\": {\"bytes\": 4940, \"sha256\": \"c65576525bf6362d03b4d0bf94a073163126bab4073903b8be29f8556d7ea5e1\"}}, \"source_root\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo\", \"unmanifested_files\": [\"studies/muon_pd_20261102/__pycache__/run.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/__pycache__/trial.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/ordinary.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/trial13.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle14/__pycache__/audit.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle15/__pycache__/transport.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle2/__pycache__/trial2.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle3/__pycache__/trial3.cpython-312.pyc\", \"studies/muon_pd_20261102/autoresearch_20261103/cycle4/__pycache__/trial4.cpython-312.pyc\", \"studies/muon_pd_20261102/coefficient_20261116/__pycache__/coefficient_trial.cpython-312.pyc\", \"studies/muon_pd_20261102/coefficient_20261116/__pycache__/cross_solver_evaluate.cpython-312.pyc\", \"studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_step.cpython-312.pyc\", \"studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_trial.cpython-312.pyc\", \"studies/muon_pd_20261102/coefficient_20261116/__pycache__/state_trial.cpython-312.pyc\", \"studies/muon_pd_20261102/followup_20261115/__pycache__/evaluate.cpython-312.pyc\", \"studies/muon_pd_20261102/followup_20261115/__pycache__/train.cpython-312.pyc\", \"studies/muon_pd_20261102/order_response_20261115/__pycache__/evaluate_order.cpython-312.pyc\", \"studies/muon_pd_20261102/order_response_20261115/__pycache__/order_trial.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/augmented.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/covariance.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/data.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/diagnostics.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/diagonal.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/forced_gate.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/models.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/state_clock.cpython-312.pyc\", \"studies/muon_pd_20261102/reference/synthetic/__pycache__/train.cpython-312.pyc\", \"studies/muon_pd_20261102/response_screen_20261115/__pycache__/screen_trial.cpython-312.pyc\", \"studies/muon_pd_20261102/target_transport_20261117/__pycache__/common.cpython-312.pyc\", \"studies/muon_pd_20261102/target_transport_20261117/__pycache__/learned_transport.cpython-312.pyc\", \"studies/muon_pd_20261102/vendor/__pycache__/muon.cpython-312.pyc\"]}\n"
+    }
+  },
+  "limits": [
+    "Learned-model witness covers Product RK4 confirmation at Heun128 only.",
+    "Independent affine controls cover all five step counts and all four finite-difference scales.",
+    "The maximum-source epsilon 1e-4 failure (16 components) is retained as an observation; no replay gate changed.",
+    "No new draws, training, quality comparison, GPU work, other study launch or actor changes."
+  ]
+}

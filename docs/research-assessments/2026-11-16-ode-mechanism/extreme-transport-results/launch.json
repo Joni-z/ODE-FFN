@@ -1,0 +1,34 @@
+{
+  "source_commit": "146c158c63bc6fb472d33845a9c6dde966758d33",
+  "queue_pid": 7738,
+  "queue_identity": "501 Tue Nov 17 05:38:56 2026     /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python studies/muon_pd_20261102/target_transport_20261117/run_extreme_study.py --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --source-cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/formal --workers 4",
+  "original_tool_session": 34920,
+  "progress": {
+    "pid": 7738,
+    "total": 8,
+    "completed": 0,
+    "passed": 0,
+    "seconds": 50.07334683323279
+  },
+  "live_native_workers": [
+    {
+      "pid": 7746,
+      "identity": "7746  99.1 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo/studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --source-cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case ring_midpoint_trained --split confirmation --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/formal/confirmation/ring_midpoint_trained"
+    },
+    {
+      "pid": 7749,
+      "identity": "7749  97.9 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo/studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --source-cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case ring_rk4_trained --split confirmation --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/formal/confirmation/ring_rk4_trained"
+    },
+    {
+      "pid": 7748,
+      "identity": "7748  99.3 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo/studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --source-cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case ring_midpoint_trained --split selection --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/formal/selection/ring_midpoint_trained"
+    },
+    {
+      "pid": 7747,
+      "identity": "7747 100.0 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/repo/studies/muon_pd_20261102/target_transport_20261117/extreme_transport.py --input-cases docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json --source-cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --case ring_rk4_trained --split selection --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport/formal/selection/ring_rk4_trained"
+    }
+  ],
+  "readiness_sha256": "6804a7318d67b217c4e11e3fb7e78f7838ba00c7e5f01f071923e83c2fd8857d",
+  "new_training_runs": 0,
+  "gpu_used": false
+}

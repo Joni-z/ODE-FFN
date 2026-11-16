@@ -1,0 +1,198 @@
+{
+  "case": "product_midpoint_trained",
+  "split": "selection",
+  "roles": [
+    {
+      "role": "maximum",
+      "bank": 1,
+      "index": 2236,
+      "tangent_norm": 85.65936695576735,
+      "original_bank_file_sha256": "41fa6d18eb57bfa81508ad28fd6348ba68f1a32469fb733071310932de9caa7c",
+      "unique_row": 0
+    },
+    {
+      "role": "lower_median",
+      "bank": 7,
+      "index": 803,
+      "tangent_norm": 0.02735247933837696,
+      "original_bank_file_sha256": "31be2a77aedfb1d54dd9a7f0701672f5860e92d16b1c3b3d34510b09e3419002",
+      "unique_row": 1
+    },
+    {
+      "role": "probe_maximum",
+      "bank": 4,
+      "index": 56,
+      "tangent_norm": 1.36727390916974,
+      "original_bank_file_sha256": "8f7450ca73bb4d92950aa82730146a400607d2a6369223e1fdf64fd8b854c48a",
+      "unique_row": 2
+    }
+  ],
+  "unique_sources": 3,
+  "witness": false,
+  "steps": [
+    {
+      "steps": 127,
+      "augmented_primal_exact": true,
+      "jvp_primal_qualified": true,
+      "jvp_primal_error": 0.0,
+      "all_outputs_finite": true
+    },
+    {
+      "steps": 128,
+      "augmented_primal_exact": true,
+      "jvp_primal_qualified": true,
+      "jvp_primal_error": 0.0,
+      "all_outputs_finite": true
+    },
+    {
+      "steps": 129,
+      "augmented_primal_exact": true,
+      "jvp_primal_qualified": true,
+      "jvp_primal_error": 0.0,
+      "all_outputs_finite": true
+    },
+    {
+      "steps": 256,
+      "augmented_primal_exact": true,
+      "jvp_primal_qualified": true,
+      "jvp_primal_error": 0.0,
+      "all_outputs_finite": true
+    },
+    {
+      "steps": 512,
+      "augmented_primal_exact": true,
+      "jvp_primal_qualified": true,
+      "jvp_primal_error": 0.0,
+      "all_outputs_finite": true
+    }
+  ],
+  "cache_checks": {
+    "native": {
+      "qualified": true,
+      "failed_components": 0,
+      "nonfinite_components": 0,
+      "max_error": 1.2818635042322057e-12
+    },
+    "crossed": {
+      "qualified": true,
+      "failed_components": 0,
+      "nonfinite_components": 0,
+      "max_error": 4.884981308350689e-15
+    },
+    "tangent": {
+      "qualified": true,
+      "failed_components": 0,
+      "nonfinite_components": 0,
+      "max_error": 1.680504624346213e-10
+    }
+  },
+  "finite_differences": [
+    {
+      "epsilon": 0.0001,
+      "unique_source_comparisons": [
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 0.00028006605004726737
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 3.901717490761847e-12
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 3.0216143809269624e-08
+        }
+      ]
+    },
+    {
+      "epsilon": 1e-05,
+      "unique_source_comparisons": [
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 2.811137683522702e-06
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 9.480708535944404e-11
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 6.950361397528582e-10
+        }
+      ]
+    },
+    {
+      "epsilon": 1e-06,
+      "unique_source_comparisons": [
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 3.46919279792246e-06
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 6.474241680959336e-10
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 1.24495223019494e-08
+        }
+      ]
+    },
+    {
+      "epsilon": 1e-07,
+      "unique_source_comparisons": [
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 1.560088605145893e-05
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 3.8808005194818085e-09
+        },
+        {
+          "qualified": true,
+          "failed_components": 0,
+          "nonfinite_components": 0,
+          "max_error": 1.993555684975945e-07
+        }
+      ]
+    }
+  ],
+  "replay_qualified": true,
+  "parameters_buffers_rng_unchanged": true,
+  "binding": {
+    "input_cases_sha256": "ff3e49e11b14ac399f9ecb96e532f5b907c1de557995afe9ec7cd016856f890e",
+    "source_cases_sha256": "97fe6f6b84de0b12c0843b7813e70a71888fbff90ea8f21018227a58a9f170ba",
+    "selected_arrays_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/product_midpoint_trained-selection.npz",
+    "selected_arrays_sha256": "b5b4b2ff409ca13ac59c8eed0efecc886a6206784bd8c63154727d44112cb487",
+    "arrays_sha256": "54e57ebf672383dbf67c497d13b8ddbd47bcca28e4c23505dbf62b9b65bcc20d",
+    "source_sha256": "d8fb4cfb2a9f416528ebb9d77ac2f4d861e159f00bb3afba5b52ec6ccb02596a",
+    "native_anchor_exact": true,
+    "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+    "config_sha256": "3e070775b2c7a990d8c72ec7681ca5e8e21e6e0d351dec133ea0a75070b317a6",
+    "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+  },
+  "seconds": 60.476527207996696
+}

@@ -1,0 +1,141 @@
+{
+  "source_commit": "146c158c63bc6fb472d33845a9c6dde966758d33",
+  "source_files_checked": 5090,
+  "all_source_hashes_unchanged": true,
+  "cases": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "summary_sha256": "bcaaf299b421ca2ac3fbda2d1e734017f2a246d98d327c81b629fda9ce3c596d",
+      "arrays_sha256": "ab8cab1cc270808850c8e9ceb242876defe73f9738045380b67cc0ecdb8b4a6a",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "summary_sha256": "608692a226cefd829cb700b1848029a1fa700ac9ea34c90250ac78cdfdfc9347",
+      "arrays_sha256": "b258b44a28b4eef9f3378c7da57be40403d63b9fbb12099bf0b8d83ba5f68156",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "summary_sha256": "ac1bacc07243bd7bf35eb328712ddf6c264beead5f20606952bc3373fe214eba",
+      "arrays_sha256": "08d386613362e0701a0a8ae9856bc1d607be9945e439a026a7045a7db37a656a",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "summary_sha256": "ceaca9746a3e0a3c2c34d206fdbe9b2bc6bec09337957821f19e8bceba7c1b7a",
+      "arrays_sha256": "333a0eeae1561ffee187f6fe3782e6a9dc1fa26fd9018afb5f9ceac6d4c6bbbf",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "summary_sha256": "cccc85daef7412fb5ba72689bb74492bee7a5d14ef2949c91a106114d6bcf5a0",
+      "arrays_sha256": "54e57ebf672383dbf67c497d13b8ddbd47bcca28e4c23505dbf62b9b65bcc20d",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "summary_sha256": "56b563694bd1ba4dda8f40321475318a9d1d850d8cb94c2c999fa882c62227ed",
+      "arrays_sha256": "e3ca911db1bb6f1973343469bcf4910c7c30f72fc61bd27db4506fbfcfc2fb3f",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "summary_sha256": "0bf54a19e54cf01cbc3c608e804e75bb7cb085949e012925dda3a64e06622963",
+      "arrays_sha256": "c80e9dae81f7d52366fdf2ce3af6a34877046e8d9f012cbbde8b491b2d4c1c0e",
+      "child_exits": [
+        0,
+        0
+      ]
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "summary_sha256": "5475db5ea08d34f914094e3680e4e80d83990630e71915102e8242de1cbd768d",
+      "arrays_sha256": "51b7d5490e9bc14e07ba8acc9fa439c30422be5c699de00ee50eed06d912f3e0",
+      "child_exits": [
+        0,
+        0
+      ]
+    }
+  ],
+  "roles": 24,
+  "full_derivative_gate_pass_counts": {
+    "0.0001": 22,
+    "1e-05": 24,
+    "1e-06": 24,
+    "1e-07": 24
+  },
+  "formal_queue_actual_terminal_exit": 0,
+  "formal_seconds": 140.22293037502095,
+  "raw_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport",
+  "protected_files": 97,
+  "report2_final_bindings": 11,
+  "native_image_files_unchanged": [
+    "main_jit.py",
+    "engine_jit.py",
+    "model_jit.py",
+    "denoiser.py",
+    "ffn.py"
+  ],
+  "figures_visually_inspected": [
+    "resolution-sensitivity.png",
+    "finite-difference-convergence.png"
+  ],
+  "analysis_source_sha256": "f0650c6eb92ddb2f43110e09fd657a02ea17816939445817b25b7aeb06e082af",
+  "all_output_files_sha256": {
+    "summary.json": "a30c43a9ba80c5c18a0e84f9667ad384a35b850bb4e465734801e3d760f4b7f0",
+    "table.md": "6a81e32bf5cc1093de70d82208ff7fda4a3b789f632f87eadf43b334193fde23",
+    "fresh-witness-receipt.json": "6804a7318d67b217c4e11e3fb7e78f7838ba00c7e5f01f071923e83c2fd8857d",
+    "figure-catalog.md": "8fc0b1d75a2402e56fa9cfde4c6fbe4c79e71b8c4951f141a012cb016760a201",
+    "analysis-report.md": "ee4be5bedd4f7c908d8620df352c0bf2c392af5538f16f1f5494ca008e34c698",
+    "stats-appendix.md": "6fcac6614a99ed3d55b9c9625eb7e44dc49a544b192451959afc1f92b78cb954",
+    "terminal-receipt.json": "9deacd094261be122a50dbefb6ca7179098a63b20c956b7ff21625b4fbb51130",
+    "launch.json": "6ebdf3e6bc4300bf228febcbe03046180411d167fe9e40528ebc5b0226f188f6",
+    "figures/finite-difference-convergence.pdf": "99af042b577f9a5326eb84e4ff857b0730fed343a82c6588f69dde2b282031bb",
+    "figures/finite-difference-convergence.png": "fbf4d40b9d27df94ee97bd0bd8fa07c5488c413a59110bce2bf25a6a8e09940d",
+    "figures/resolution-sensitivity.png": "77ac9e4396c737d25c490f6377b778326c8f92edccb70ce2bccf0db5f75f3304",
+    "figures/resolution-sensitivity.pdf": "14c5a9667a453264bd59a70b4180cfc2fd56cb81decf0136c2e903b94b5e0b45",
+    "cases/confirmation/product_rk4_trained/summary.json": "5475db5ea08d34f914094e3680e4e80d83990630e71915102e8242de1cbd768d",
+    "cases/confirmation/product_rk4_trained/independent.json": "ab8034118a5ac8def338bfc45ecc424b175c067c7353f94d7185509709db98c4",
+    "cases/confirmation/product_midpoint_trained/summary.json": "56b563694bd1ba4dda8f40321475318a9d1d850d8cb94c2c999fa882c62227ed",
+    "cases/confirmation/product_midpoint_trained/independent.json": "d0cec61fadf03c5912fc742a64260183bc4172c38ebf386d58b767feaa4153d2",
+    "cases/confirmation/ring_midpoint_trained/summary.json": "608692a226cefd829cb700b1848029a1fa700ac9ea34c90250ac78cdfdfc9347",
+    "cases/confirmation/ring_midpoint_trained/independent.json": "5266efe4c9303cc6ca7cc47b4b52a72acd7988b39772d78b6190ed97b673e833",
+    "cases/confirmation/ring_rk4_trained/summary.json": "ceaca9746a3e0a3c2c34d206fdbe9b2bc6bec09337957821f19e8bceba7c1b7a",
+    "cases/confirmation/ring_rk4_trained/independent.json": "e529fab2b82350d83468e062aaf1701da41de134b44c585b9d75d6b1c5cbbbcd",
+    "cases/selection/product_rk4_trained/summary.json": "0bf54a19e54cf01cbc3c608e804e75bb7cb085949e012925dda3a64e06622963",
+    "cases/selection/product_rk4_trained/independent.json": "95828cbd7d3e518f9c07ae825937e655941a83ef4dd5d1ba03e967000d1a8600",
+    "cases/selection/product_midpoint_trained/summary.json": "cccc85daef7412fb5ba72689bb74492bee7a5d14ef2949c91a106114d6bcf5a0",
+    "cases/selection/product_midpoint_trained/independent.json": "a1a69253e9464a0530749bea325ec3a3743bd580b6d0fba3870f5d7be86f25ff",
+    "cases/selection/ring_midpoint_trained/summary.json": "bcaaf299b421ca2ac3fbda2d1e734017f2a246d98d327c81b629fda9ce3c596d",
+    "cases/selection/ring_midpoint_trained/independent.json": "47574e175bc52f05c24e1a2ba5755ba078a633dae928bc3e0578775ceacc7a88",
+    "cases/selection/ring_rk4_trained/summary.json": "ac1bacc07243bd7bf35eb328712ddf6c264beead5f20606952bc3373fe214eba",
+    "cases/selection/ring_rk4_trained/independent.json": "bb80e15ee4b279f596ae4730d5e5f93201a5175d1227a50e2c5fdf4ff81f4cea"
+  }
+}

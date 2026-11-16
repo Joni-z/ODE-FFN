@@ -43,19 +43,22 @@ retained. Large signed functional/transport remainders cancel. Scalar agreement
 does not imply particle accuracy; particle failure also is not a new rejection
 gate for the original scalar test. Six full figures inspected.
 
-## Immediate next scientific check
+## Rare-source diagnosis complete; full-bank decision next
 
-Extreme-transport-protocol.md registers small-lambda derivative checks and
-Heun127/128/129/256/512on the maximum/lower-median/probe-maximum tangent
-sources in every case. Extreme-transport-cases.json binds8cases/24roles, original
-file hashes and cached endpoints/tangents. Raw selected arrays are outsideGit;
-no model observation/new draw yet. Validate those rare derivatives and outer
-resolution before attributing their amplification to hidden ODEstructure.
+Extreme-transport-results/: four frozen weights/two streams/24prebound roles,
+all five Heun127/128/129/256/512counts and four perturbation scales retained.
+Formal34920actual0in140.223s, all16child exits0;5090source hashes unchanged.
+All24roles pass component derivative gates at1e-5/1e-6/1e-7;22/24at1e-4.
+Two figures inspected. ProductRK4confirmation max tangent381.359at128,
+1.390at129,2.025at512; median0.028throughout. Original-probe max peaks32.678
+at256. Maxima selected at128cannot establish population mesh fragility.
 
-Then replace measured delta_v with the analytic BOTH-solver defect to test
-ODE-specific predictivity. The local algebra and full-network observer pass
-untrained controls, but learned defect-to-field/target effects remain untested.
-Coarse numerical bias itself is established literature, not our novelty.
+Next register full-bank native/crossed generation at127/129/512/2048and cached
+128anchor. Same4weights/2streams/8x4096banks, zero new random draws/training.
+Port actual FP32restored tensors AND nonpersistent buffers to FP64CUDA; keep
+all-source128replay as a gate before new-mesh observations.2048is a finer
+check, not a certified continuous reference. Then apply analytic BOTH-solver
+defects to the full model and target metric. Their learned link remains untested.
 
 ## Runtime preparation
 

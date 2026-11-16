@@ -33,24 +33,29 @@ squared norm: predicted displacement381.359versus actual1.801. All sources
 remain in the analysis. Accurate aggregate response does not imply accurate
 finite particle displacements.
 
-## Next bounded check
+## Rare-source check complete; full-bank resolution is next
 
-Verify the maximum-, median- and original-probe-sensitive sources on all8cases.
-Use four small perturbations and outer Heun127/128/129/256/512to distinguish
-genuine local sensitivity from a time-resolution effect. The8cases/24roles
-are already bound from original arrays; no new draw or model observation.
-[Protocol](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-protocol.md),
-[fixed source bindings](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-cases.json).
-Then test whether the analytic midpoint/RK4defects predict the useful field/
-distributional change. This ODE-specific link remains untested; no new image
-architecture is promoted. Do not add particle accuracy to the old scalar gate.
+All8cases/24prebound roles complete in140.223s, native/independent exits0/0.
+All24pass endpoint derivative checks at epsilon1e-5and1e-6. ProductRK4
+confirmation maximum tangent changes381.359at128to1.390at129and2.025at512;
+its median control stays0.028. The exact sources were selected at128, so this
+is source-local mesh dependence, not a population quality/sensitivity ranking.
+[Complete findings and two figures](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-results/analysis-report.md),
+[source/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-results/audit.json).
+
+Next compare full-bank native/crossed generation at Heun127/129/512/2048,
+with cached128as replay anchor, on the same four frozen weights/two streams.
+Export actual parameters and nonpersistent buffers before CUDAportability checks.
+The analytic ODE-defect-to-target prediction remains untested. No new image
+architecture is promoted; the original target-derivative gate stays unchanged.
 
 ## Execution and resources
 
 The original Mac queue98117/15465, collector98379/82357, postprocessor332/64468
 and cached-rank actor3315/10554are terminal. Full raw evidence remains under
 /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/.
-Warm CPU04f11f75unchanged; no new formal trajectory study is running yet.
+Warm CPU04f11f75unchanged; the24-role probe queue34920is terminal, actual0.
+Source146c158/5090hashes and all original inputs remain unchanged.
 
 The complete-network ODE-defect observer passes independent algebra/JVP/FD
 checks. CUDArecovery14772has actual direct exit0,5050source hashes unchanged
