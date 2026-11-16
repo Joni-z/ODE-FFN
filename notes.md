@@ -126,3 +126,13 @@ frozen separately from the active evaluator. Single finish_full actor10554
 waits for original postprocessor332then owns metric-rank-diagnosis/full.json.
 Its actual PID/identity and receipts are in metric-rank-readiness.json. This
 adds cached audit only; original primary gate, samples and thresholds unchanged.
+
+Full-network ODE-defect preparation: hidden-defect-transport.md registers
+crossed-minus-native forcing including BOTH midpoint and RK4local defects.
+Coupled local variation passes through unchanged model via forwardAD, rather
+than copying normalization/conditioning/readout. Independent full injected-
+drift epsilon-JVP and finite differences validate all six flows. Author13835
+actual0; JVP8.14e-20/FD8.95e-12, original model replay exact. Only deterministic
+untrained fixtures with a prescribed nonzero head; no learned observation.
+Source under target_transport_20261117/hidden_defect_transport.py; control
+values in hidden-defect-controls.json. Learned use remains conditional.

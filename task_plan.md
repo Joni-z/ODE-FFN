@@ -226,3 +226,35 @@ Single actor10554waits for original postprocessor332to exit, then owns full.json
 unchanged. Do not duplicate that full cached command. Original source5011and
 postprocess source5026hashes, all97protected files/11Report2bindings/five native
 image files pass recheck.
+
+## Current continuation: prepare the full-network ODE-defect calculation
+
+Previous goal turn was progress: independently diagnosed two original metric
+finite-difference failures, preserved their flags/arrays, publishede60d318and
+attached cached full-cohort actor3315/session10554. Revalidated all original
+workers/collectors live; latest46/64banks,43originally qualified. No restart.
+
+While original full target transport remains pending, prepare only deterministic
+untrained controls for the next missing arrow: hidden ODE defects -> complete
+model output. Learned application remains conditional on the full result.
+
+- [x] Register the exact midpoint/RK4 forcing difference and its propagation
+  through all six local flows and the existing full model.
+- [x] Implement coupled hidden variation with the copied official RK4 step;
+  reuse the unchanged model for normalization, conditioning and readout.
+- [x] Check independent polynomial jets, whole-model epsilon JVP/finite
+  differences, zero/sign controls, nonzero fixture head and16/32/64refinement.
+- [ ] Freeze/publish code and obtain the required fresh documented CPUwitness.
+- [ ] Recheck current full outputs and original terminal checks before any
+  learned defect observation or architecture decision.
+
+No checkpoint loading, training, sampling, parameter fitting or image changes
+in this preparation. Reports1/2 and original running source stay unchanged.
+
+Author full-model deterministic13835actual0: both fixed2D/16Dfixtures pass;
+all six original local solves/modules retained. Independent polynomial-jet
+2.61e-17, complete epsilon-JVP8.14e-20, centralFD8.95e-12; zero/sign controls
+exact.32->64reference changes<=4.43e-11primal/6.79e-13tangent. The fixture
+head is prescribed nonzero, with output tangent norms1.60e-4/8.80e-4. Original
+tensors/methods/RNG and native replay unchanged. No learned weights or banks
+used. Publish/freeze and fresh exact documented witness next.
