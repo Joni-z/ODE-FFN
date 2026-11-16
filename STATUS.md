@@ -3,17 +3,25 @@
 ## Target-response observation
 
 The Bayes clean-data predictor has a posterior-covariance Jacobian; this is
-an existing whole-output identity, not a hidden-P constraint. Native oracle
-checks and all12frozen checkpoint derivatives pass. Equal-time full-Jacobian
-errors PAL/ALT are Ring8.155/.168 and Product16.281/.269. Both point directions
-match sampling, while both input-bootstrap intervals span zero. Ordinary
-Product16SwiGLU samples better despite higher averageJerror.
+an existing whole-output identity, not a hidden-P constraint. The initial
+twelve-checkpoint observation and independent all-bank confirmation are done.
+
+| Full independent inputs | PAL J error | ALT J error | PAL SW2 | ALT SW2 |
+|---|---:|---:|---:|---:|
+| Ring8 |0.156|0.191|0.086|0.108|
+| Product16 |0.261|0.236|0.072|0.066|
+
+Every one of eight banks supports each task's focal direction. Conditional
+two-contrast intervals exclude zero. This confirms an output-response
+association, not its causal role. Ordinary Product16SwiGLU samples better
+despite higher averageJerror, ruling out a general cross-model ranking.
 
 [Derivation](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/derivation.md),
 [complete selection analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/results/analysis-report.md),
-[independent all-bank confirmation protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/confirmation-protocol.md).
-The confirmation extension is being checked before dispatch. No new training
-or image architecture is launched from this unresolved association.
+[completed independent confirmation and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/confirmation-results/analysis-report.md).
+Both one-thread CPUtasks and both independent verifiers exited0; all655360
+interpolation states and original source/target arrays are retained. NoGPU
+was used. No new training or image architecture follows from this association.
 
 ## Completed matched stage-order study
 
@@ -51,10 +59,11 @@ Raw evidence: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
 
 ## Current research priority
 
-Confirm the focal output-Jacobian association on all existing independent banks,
-then test the remaining trajectory-level explanation. The hidden ODE time/global
+Calibrate transported field-error predictions along common oracle trajectories
+before using them to guide another architecture. The hidden ODE time/global
 FM time connection remains open. No additional training or image promotion is
 queued. The broader ODE-mechanism research goal remains active.
+[Registered bounded calibration](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/trajectory-protocol.md).
 
 ## Image benchmark
 

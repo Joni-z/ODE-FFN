@@ -10,6 +10,7 @@ the model extension replaces only each Transformer block's FFN.
 |---|---|
 | Current experiment, budget and jobs | [STATUS.md](STATUS.md) |
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
+| Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |
 | Baseline/K1/K8 at matching epochs | [Matched FID comparison](docs/celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Candidate FFN implementation | [ffn.py](ffn.py) |
 | Training parameters and GPU request | [slurm/celeba.slurm](slurm/celeba.slurm) |
@@ -41,6 +42,10 @@ work fixed while changing the order of four hidden ODE stages. The symmetric
 schedule improves Ring8 relative to alternating stages and worsens Product16;
 both effects survive the complete internal/outer numerical sweeps.
 [Analysis, figures and statistics](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md).
+The same focal ordering appears in whole-output Jacobian error on every
+independent input bank. This is a confirmed association; ordinary Product16
+SwiGLU still samples better despite greater average Jacobian error.
+[Derivation and complete confirmation](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md).
 These mechanism tests use velocity MLPs; the image code below remains the
 author-derived JiT trainer.
 

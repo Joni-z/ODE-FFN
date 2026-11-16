@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "witness": false,
+  "cases": 2,
+  "rows": 10,
+  "split": "confirmation",
+  "banks": 8,
+  "points_per_time": 32768,
+  "times": [
+    0.1,
+    0.3,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "seconds": 208.92723054112867,
+  "rows_sha256": "acbce5ac1a19190e9d7fe28888a699b2be29c51a58fc3e58b76cbaa131aa57f0",
+  "anchors_sha256": "a14c4d7246177f7317a9fdbe08aba7277d8c8e88d7e2ee6ded4975d1bb59fcf7",
+  "source_sha256": {
+    "frozen_probe.py": "7a667c3fa6425c6a8983c7a2507085b8212f62d40911e75e240954801631903e",
+    "geometry.py": "79483652d9278f98e71a50a3155ceada5e493e2a9201bf8c808dae8cb2a48239",
+    "oracle_check.py": "663ba0352a909738ca06010f626bc072973ba1da8de9184189fba8603eedc293"
+  },
+  "device": "cpu",
+  "torch": "2.10.0",
+  "numpy": "2.2.6"
+}

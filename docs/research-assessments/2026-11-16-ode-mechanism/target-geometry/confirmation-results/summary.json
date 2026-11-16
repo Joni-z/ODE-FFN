@@ -1,0 +1,539 @@
+{
+  "passed": true,
+  "all_point_directions_match": true,
+  "both_exact_adjusted_intervals_resolved": true,
+  "pairs": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "palindrome": 0.15589144847694505,
+      "alternating": 0.19054155547752832,
+      "primary_gap": -0.03465010700058327,
+      "expected_gap_sign": -1,
+      "predicted_direction_holds": true,
+      "point_pair_difference_sd": 0.31280259222824097,
+      "resampling_unit": "sampling_bank",
+      "resampling_units": 8,
+      "bootstrap_unit_sd": 0.005215726077403122,
+      "bank_differences": [
+        -0.03480524923485226,
+        -0.03833533173070082,
+        -0.03422339211137783,
+        -0.038839720036976624,
+        -0.022488853202800516,
+        -0.03782276869739356,
+        -0.035630220121773463,
+        -0.03505532086879133
+      ],
+      "conditional_pair_bootstrap95": [
+        -0.03727100634555516,
+        -0.030721629419940784
+      ],
+      "conditional_two_contrast_bonferroni": [
+        -0.03749084024756149,
+        -0.030024197090904245
+      ],
+      "sampling_gap": -0.021890704556433924,
+      "exact_bootstrap": {
+        "bootstrap95": [
+          -0.03730226529979755,
+          -0.030800422597811666
+        ],
+        "two_contrast_bonferroni": [
+          -0.03752107736092494,
+          -0.030248248897506085
+        ],
+        "distinct_resample_multisets": 6435,
+        "ordered_resamples": 16777216
+      },
+      "expected_direction_banks": 8
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "palindrome": 0.2614741446917078,
+      "alternating": 0.2364859293136874,
+      "primary_gap": 0.02498821537802043,
+      "expected_gap_sign": 1,
+      "predicted_direction_holds": true,
+      "point_pair_difference_sd": 0.15924974165036304,
+      "resampling_unit": "sampling_bank",
+      "resampling_units": 8,
+      "bootstrap_unit_sd": 0.0013450606946149046,
+      "bank_differences": [
+        0.024785084232044213,
+        0.024102521169692696,
+        0.025196255381247916,
+        0.026181381267750936,
+        0.024728481358464775,
+        0.02689046212732716,
+        0.022465636447329164,
+        0.025555901040306587
+      ],
+      "conditional_pair_bootstrap95": [
+        0.024086767937370225,
+        0.02582644843067821
+      ],
+      "conditional_two_contrast_bonferroni": [
+        0.023952517284287357,
+        0.025941849544794532
+      ],
+      "sampling_gap": 0.005401280757033819,
+      "exact_bootstrap": {
+        "bootstrap95": [
+          0.02407899244849764,
+          0.025818731437092443
+        ],
+        "two_contrast_bonferroni": [
+          0.02394057060463586,
+          0.025927049921521055
+        ],
+        "distinct_resample_multisets": 6435,
+        "ordered_resamples": 16777216
+      },
+      "expected_direction_banks": 8
+    }
+  ],
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "palindrome_operator_midpoint4",
+      "confirmation_pooled_sw2": 0.0859373988839486,
+      "field_mse": 0.008409517284911069,
+      "velocity_jacobian_error": 0.15589144847694505,
+      "image_jacobian_error": 0.02430567106535595,
+      "velocity_skew_energy": 0.012065844232589587,
+      "image_skew_energy": 0.001866566743168411,
+      "image_symmetric_negative_energy": 2.9750289693795403e-07,
+      "image_symmetric_negative_fraction": 0.00029296875,
+      "mean_field_bias_energy": 0.0016833655007077956,
+      "by_time": [
+        {
+          "time": 0.1,
+          "field_mse": 0.0041619206981067195,
+          "velocity_jacobian_error": 0.003953166362078116,
+          "image_jacobian_error": 0.0032020647532832744,
+          "velocity_skew_energy": 0.0003017866332191159,
+          "image_skew_energy": 0.00024444717290748386,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.30421240262111937,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.4180568393800419,
+            0.5628652304190177,
+            0.6441148314887545
+          ],
+          "mean_field_bias_energy": 0.003134810936275779
+        },
+        {
+          "time": 0.3,
+          "field_mse": 0.007974589119494065,
+          "velocity_jacobian_error": 0.055223698568263827,
+          "image_jacobian_error": 0.027059612298449272,
+          "velocity_skew_energy": 0.0041035905903071025,
+          "image_skew_energy": 0.0020107593892504804,
+          "image_symmetric_negative_energy": 1.4875144846897702e-06,
+          "image_symmetric_negative_fraction": 0.00146484375,
+          "image_symmetric_min_eigenvalue": -0.05876053461667307,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.290802902100661,
+            1.5020124016706098,
+            2.733866129035183
+          ],
+          "mean_field_bias_energy": 0.00331310646965705
+        },
+        {
+          "time": 0.5,
+          "field_mse": 0.01165266815162821,
+          "velocity_jacobian_error": 0.18909737018472944,
+          "image_jacobian_error": 0.04727434254618236,
+          "velocity_skew_energy": 0.014880298318850628,
+          "image_skew_energy": 0.003720074579712657,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.0619986460646147,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.14434590996206456,
+            0.6929587269140861,
+            2.9720125223198472
+          ],
+          "mean_field_bias_energy": 0.00030339425306303094
+        },
+        {
+          "time": 0.7,
+          "field_mse": 0.0154797993290787,
+          "velocity_jacobian_error": 0.4835063207021037,
+          "image_jacobian_error": 0.043515568863189344,
+          "velocity_skew_energy": 0.03683896397207153,
+          "image_skew_energy": 0.0033155067574864383,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.13366940996840931,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.21640844400073012,
+            0.3218089421785079,
+            1.07198022070349
+          ],
+          "mean_field_bias_energy": 0.0012268984585434113
+        },
+        {
+          "time": 0.9,
+          "field_mse": 0.0027786091262476456,
+          "velocity_jacobian_error": 0.047676686567550156,
+          "image_jacobian_error": 0.00047676686567550144,
+          "velocity_skew_energy": 0.00420458164849956,
+          "image_skew_energy": 4.2045816484995575e-05,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.8229187269586198,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.8340177674366136,
+            0.8542932665793391,
+            0.8816239226801301
+          ],
+          "mean_field_bias_energy": 0.00043861738599970684
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "alternating_operator_midpoint4",
+      "confirmation_pooled_sw2": 0.10782810344038253,
+      "field_mse": 0.008847578017331274,
+      "velocity_jacobian_error": 0.19054155547752832,
+      "image_jacobian_error": 0.028317744744534117,
+      "velocity_skew_energy": 0.012265086640015117,
+      "image_skew_energy": 0.0019164601391611687,
+      "image_symmetric_negative_energy": 0.0,
+      "image_symmetric_negative_fraction": 0.0,
+      "mean_field_bias_energy": 0.002198280145679233,
+      "by_time": [
+        {
+          "time": 0.1,
+          "field_mse": 0.005343229890440291,
+          "velocity_jacobian_error": 0.004007018606698517,
+          "image_jacobian_error": 0.003245685071425799,
+          "velocity_skew_energy": 0.0003295007020142377,
+          "image_skew_energy": 0.00026689556863153255,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.31335795306984204,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.43090347847099714,
+            0.5478847530156558,
+            0.6346945586730766
+          ],
+          "mean_field_bias_energy": 0.004347054881243217
+        },
+        {
+          "time": 0.3,
+          "field_mse": 0.008418499881621076,
+          "velocity_jacobian_error": 0.05259913378858849,
+          "image_jacobian_error": 0.025773575556408357,
+          "velocity_skew_energy": 0.00433290168012078,
+          "image_skew_energy": 0.002123121823259182,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.09373674287041457,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.30402219562362526,
+            1.5014734101369687,
+            2.747265417466112
+          ],
+          "mean_field_bias_energy": 0.0038375382852695664
+        },
+        {
+          "time": 0.5,
+          "field_mse": 0.011433085861428919,
+          "velocity_jacobian_error": 0.2262233274573419,
+          "image_jacobian_error": 0.05655583186433547,
+          "velocity_skew_energy": 0.01535156380168668,
+          "image_skew_energy": 0.00383789095042167,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.007986171304652465,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.12767072896148088,
+            0.698834536704418,
+            3.022942132095012
+          ],
+          "mean_field_bias_energy": 0.00047980912993624605
+        },
+        {
+          "time": 0.7,
+          "field_mse": 0.016485307559533174,
+          "velocity_jacobian_error": 0.6164356031893853,
+          "image_jacobian_error": 0.05547920428704469,
+          "velocity_skew_energy": 0.03676597104163651,
+          "image_skew_energy": 0.0033089373937472866,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.11581733675723693,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.21280499736042302,
+            0.313172857574432,
+            1.0583004496327946
+          ],
+          "mean_field_bias_energy": 0.0019634699490858535
+        },
+        {
+          "time": 0.9,
+          "field_mse": 0.0025577668936329085,
+          "velocity_jacobian_error": 0.053442694345627505,
+          "image_jacobian_error": 0.0005344269434562749,
+          "velocity_skew_energy": 0.004545495974617384,
+          "image_skew_energy": 4.545495974617382e-05,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.8162398855426692,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.8345391095738194,
+            0.8545834013892455,
+            0.8861332720661319
+          ],
+          "mean_field_bias_energy": 0.0003635284828612816
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "palindrome_operator_midpoint4",
+      "confirmation_pooled_sw2": 0.07162171993326616,
+      "field_mse": 0.018974123537625093,
+      "velocity_jacobian_error": 0.2614741446917078,
+      "image_jacobian_error": 0.0361676102564155,
+      "velocity_skew_energy": 0.024354195946377534,
+      "image_skew_energy": 0.0036650804848173714,
+      "image_symmetric_negative_energy": 0.00017447133586306207,
+      "image_symmetric_negative_fraction": 0.01293487548828125,
+      "mean_field_bias_energy": 0.003908927575875536,
+      "by_time": [
+        {
+          "time": 0.1,
+          "field_mse": 0.01123887086239761,
+          "velocity_jacobian_error": 0.020167213967155984,
+          "image_jacobian_error": 0.016335443313396345,
+          "velocity_skew_energy": 0.0023048021549447522,
+          "image_skew_energy": 0.0018668897455052496,
+          "image_symmetric_negative_energy": 0.0008543542426082565,
+          "image_symmetric_negative_fraction": 0.05191230773925781,
+          "image_symmetric_min_eigenvalue": -1.0289814390851957,
+          "image_symmetric_eigenvalue_quantiles": [
+            -0.0019455399336767195,
+            0.25083982869917626,
+            0.7431655485092553
+          ],
+          "mean_field_bias_energy": 0.00477409957833873
+        },
+        {
+          "time": 0.3,
+          "field_mse": 0.014058867479648155,
+          "velocity_jacobian_error": 0.05418046167827338,
+          "image_jacobian_error": 0.026548426222353955,
+          "velocity_skew_energy": 0.00648667928461175,
+          "image_skew_energy": 0.003178472849459757,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.11858415489435317,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.3070977361666574,
+            0.6395807031166095,
+            2.3575030783853603
+          ],
+          "mean_field_bias_energy": 0.004654653490049672
+        },
+        {
+          "time": 0.5,
+          "field_mse": 0.02190635918614877,
+          "velocity_jacobian_error": 0.26334613870185347,
+          "image_jacobian_error": 0.06583653467546337,
+          "velocity_skew_energy": 0.027835931938103523,
+          "image_skew_energy": 0.006958982984525881,
+          "image_symmetric_negative_energy": 9.10920431471241e-06,
+          "image_symmetric_negative_fraction": 0.008867263793945312,
+          "image_symmetric_min_eigenvalue": -0.16899742355446112,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.057140930753598634,
+            0.4476913356782153,
+            2.8397465089426617
+          ],
+          "mean_field_bias_energy": 0.002651923364049274
+        },
+        {
+          "time": 0.7,
+          "field_mse": 0.032125044979527895,
+          "velocity_jacobian_error": 0.7802609747468909,
+          "image_jacobian_error": 0.0702234877272202,
+          "velocity_skew_energy": 0.06837026476317112,
+          "image_skew_energy": 0.006153323828685402,
+          "image_symmetric_negative_energy": 8.893232392341569e-06,
+          "image_symmetric_negative_fraction": 0.003894805908203125,
+          "image_symmetric_min_eigenvalue": -0.23009719564845518,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.10054216091732883,
+            0.27327944097764767,
+            1.2808180177975281
+          ],
+          "mean_field_bias_energy": 0.004096476762936297
+        },
+        {
+          "time": 0.9,
+          "field_mse": 0.015541475180403018,
+          "velocity_jacobian_error": 0.18941593436436552,
+          "image_jacobian_error": 0.0018941593436436542,
+          "velocity_skew_energy": 0.01677330159105651,
+          "image_skew_energy": 0.000167733015910565,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.7504570615361764,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.8239335587829887,
+            0.8583872690727732,
+            0.906449188286719
+          ],
+          "mean_field_bias_energy": 0.003367484684003705
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "alternating_operator_midpoint4",
+      "confirmation_pooled_sw2": 0.06622043917623234,
+      "field_mse": 0.017657192329475282,
+      "velocity_jacobian_error": 0.2364859293136874,
+      "image_jacobian_error": 0.03399388358518079,
+      "velocity_skew_energy": 0.02060529355387874,
+      "image_skew_energy": 0.0031468226689676756,
+      "image_symmetric_negative_energy": 0.0001628569180239998,
+      "image_symmetric_negative_fraction": 0.011235809326171875,
+      "mean_field_bias_energy": 0.0039023663723758593,
+      "by_time": [
+        {
+          "time": 0.1,
+          "field_mse": 0.009989571433449786,
+          "velocity_jacobian_error": 0.0173946843034746,
+          "image_jacobian_error": 0.014089694285814424,
+          "velocity_skew_energy": 0.002193743238614214,
+          "image_skew_energy": 0.0017769320232775133,
+          "image_symmetric_negative_energy": 0.0007981054441860665,
+          "image_symmetric_negative_fraction": 0.040447235107421875,
+          "image_symmetric_min_eigenvalue": -1.399051957856417,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.009543678384388493,
+            0.2595679969292141,
+            0.7366594955270312
+          ],
+          "mean_field_bias_energy": 0.004444254331149736
+        },
+        {
+          "time": 0.3,
+          "field_mse": 0.014681738573286175,
+          "velocity_jacobian_error": 0.0628083739039319,
+          "image_jacobian_error": 0.030776103212926623,
+          "velocity_skew_energy": 0.005315504136823228,
+          "image_skew_energy": 0.0026045970270433807,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.09856663729207515,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.3049867540906983,
+            0.6595993868381667,
+            2.4602595730481456
+          ],
+          "mean_field_bias_energy": 0.004987187486614257
+        },
+        {
+          "time": 0.5,
+          "field_mse": 0.020598017908129415,
+          "velocity_jacobian_error": 0.25770962180894474,
+          "image_jacobian_error": 0.06442740545223619,
+          "velocity_skew_energy": 0.02473837761074462,
+          "image_skew_energy": 0.006184594402686155,
+          "image_symmetric_negative_energy": 1.5576120829890687e-05,
+          "image_symmetric_negative_fraction": 0.014554977416992188,
+          "image_symmetric_min_eigenvalue": -0.14611840911808427,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.045101414066344436,
+            0.46601474059437603,
+            2.7866362458602083
+          ],
+          "mean_field_bias_energy": 0.0032208434311449367
+        },
+        {
+          "time": 0.7,
+          "field_mse": 0.028656804465321567,
+          "velocity_jacobian_error": 0.6528880663675729,
+          "image_jacobian_error": 0.058759925973081585,
+          "velocity_skew_energy": 0.05575251829999015,
+          "image_skew_energy": 0.005017726646999115,
+          "image_symmetric_negative_energy": 6.030251040416885e-07,
+          "image_symmetric_negative_fraction": 0.0011768341064453125,
+          "image_symmetric_min_eigenvalue": -0.10900041606635968,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.10045828235947675,
+            0.2727960401123687,
+            1.214996143575705
+          ],
+          "mean_field_bias_energy": 0.004061049102567542
+        },
+        {
+          "time": 0.9,
+          "field_mse": 0.01435982926718947,
+          "velocity_jacobian_error": 0.1916289001845129,
+          "image_jacobian_error": 0.0019162890018451278,
+          "velocity_skew_energy": 0.0150263244832215,
+          "image_skew_energy": 0.00015026324483221492,
+          "image_symmetric_negative_energy": 0.0,
+          "image_symmetric_negative_fraction": 0.0,
+          "image_symmetric_min_eigenvalue": 0.7595487303166637,
+          "image_symmetric_eigenvalue_quantiles": [
+            0.8222795592832401,
+            0.857752984453283,
+            0.9103947333352225
+          ],
+          "mean_field_bias_energy": 0.0027984975104028264
+        }
+      ]
+    }
+  ],
+  "source_coverage": [
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "pairs": 32768,
+      "times": 5,
+      "banks": 8,
+      "exact_all_source_target_arrays": true,
+      "raw_sha256": "7b340c24773799166e701dd78b2b60c9357ab1bc5ce0f3974305daca43161278",
+      "assets_sha256": "b0ff421f36e36a195b25051535a175381b19e8fea393c572f15a8c5e52c96ae3"
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "pairs": 32768,
+      "times": 5,
+      "banks": 8,
+      "exact_all_source_target_arrays": true,
+      "raw_sha256": "b20a55217475574a89f939a6c71c2fd319e659883b8456e9c3bc4c00124ea00c",
+      "assets_sha256": "b0ff421f36e36a195b25051535a175381b19e8fea393c572f15a8c5e52c96ae3"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "pairs": 32768,
+      "times": 5,
+      "banks": 8,
+      "exact_all_source_target_arrays": true,
+      "raw_sha256": "90bd8da4ba6508953032da9491a6433c03117d1930e9e9fd0ed70730e0ebfb25",
+      "assets_sha256": "377af2d17ed91bc315db773a9f9a33c2049d0b3efd250726c3a5b6c3229fa4d9"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "pairs": 32768,
+      "times": 5,
+      "banks": 8,
+      "exact_all_source_target_arrays": true,
+      "raw_sha256": "60feebf598690cfbaf00ea8d3816d2bc26d2f13e6599c73470ad712dc4a49d34",
+      "assets_sha256": "377af2d17ed91bc315db773a9f9a33c2049d0b3efd250726c3a5b6c3229fa4d9"
+    }
+  ]
+}

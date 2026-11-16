@@ -1,120 +1,66 @@
 # ODE mechanism investigation
 
 Goal active: identify which ODE constraints help generative modeling and why.
-Seed 0 only. Mac mini is available. On 145 use only empty physical GPUs 4-7;
-never 0-3, never stop/share foreign jobs. Reports 1/2 and the native image
-trainer/loss/sampler/baseline remain fixed. Push verified changes to main.
+Seed0only. Mac mini is available. On145, physical0-3are prohibited and4-7may
+be used only without compute PIDs and below500MiB. Never stop/share foreign
+jobs. Reports1/2and native image model/trainer/loss/sampler remain fixed.
+Publish verified changes to GitHubmain under Zhizhe Zhang.
 
 ## Completed evidence
 
-- Fixed/free exponential and midpoint coefficients, refreshed state response,
-  sharing and mean-preserving stage controls, symmetry and qualified density:
-  [primary findings](docs/research-assessments/2026-11-16-ode-mechanism/primary-findings.md).
-- Matched P/Bcomposition: four 20k trajectories; all twelve common-bank rows;
-  exact initial functions/data RNG; six-model native feature/gradient probes.
-- Full registered internal 4/8/16 and outer 128/256/512 sweeps: eight tasks exit 0,
-  twenty unique new cells plus four duplicate anchors. Every cell keeps32768
-  sources. NumPy reconstruction error2.78e-17. Both actual scientific PNGs
-  inspected; statistical corrections and figure meanings are included.
-- CPU batching preserves all endpoints. New frozen 303d213 queue 56007 finished.
-  Old55052and two duplicate workers were retired only after 10 full-prefix
-  rows matched exactly before/after stabilizing owned processes. Actual -15
-  exits and unstarted records are preserved. All these workers are absent.
+- [x] Coefficient release, evolving state flow, operator sharing, optimizer
+  coordinates, qualified symmetry/density and their independent numerical checks.
+- [x] Four20kmatched P/Bschedule trajectories and complete common-bank sampling.
+  All registered inner/outer refinements preserve Ring8PALlead/Product16ALTlead.
+- [x] Exact Gaussian-source target Jacobians and wrong-object/sampling controls;
+  ten native oracle task/time cells pass. Four-paper targeted primary review.
+- [x] Twelve frozen checkpoints/60time slices on128selection pairs; restored
+  FP32anchors, FP64JVPs/batch separation and independent NumPy checks pass.
+- [x] Independent confirmation on all8x4096pairs/five times/four focal models:
+  655360evaluated interpolation states; both native and both verifier exits0.
+  Every source/target array equals its original bound NPZ. NumPy error1.11e-16.
+  Exhaustive bootstrap intervals agree with a second enumeration exactly.
 
-## Findings that decide the next direction
+## Findings that decide the next action
 
-- Palindrome's Ring8 lead over alternating survives every setting: internal 16
-  SW2.084/.107. Product16 keeps the opposite effect:.087/.075; shared.069.
-- Leading cancellation works, and higher-order stage features are active.
-  It does not produce a task-general generation gain. Product16generation
-  worsens with finer hidden integration at frozen trained weights.
-- Ordinary Product16Free ISRU/SwiGLU remain stronger at the original Heun128
-  setting(.055/.044). No new image promotion, response search or training.
-- Hidden feature time still has no demonstrated correspondence with FM time.
-  That missing connection is the next mathematical question.
+| All independent pairs | PAL J error | ALT J error | PAL SW2 | ALT SW2 |
+|---|---:|---:|---:|---:|
+| Ring8 |0.156|0.191|0.086|0.108|
+| Product16 |0.261|0.236|0.072|0.066|
+
+Eight/eight banks support each focal direction. Adjusted conditional input
+intervals exclude zero. This confirms an output-space association. It does
+not establish its cause or ODE-specific value. Ordinary Product16SwiGLU
+samples better despite greater averageJerror. Hidden time/globalFMtime remain
+unconnected by a demonstrated useful constraint.
 
 ## Next concrete actions
 
-1. [x] Published numerical analysis/source at2ffd09c to GitHubmain. All97
-   protected reports,11Report2bindings and ended-process checks pass.
-2. Derive exact Gaussian-source FMvelocity/image-predictor Jacobian identities
-   and check them against the existing Gaussian-mixture oracle. Distinguish
-   full output-field constraints from a constraint on a hidden P matrix.
-3. Review recent primary work on continuous feature depth, tied flow models
-   and noise-time conditioning. Identify which proposed link is already known.
-4. Use those derivations and frozen-checkpoint diagnostics to register a single
-   matched, falsifiable architecture hypothesis if a concrete bottleneck remains.
-   Keep the broader research goal active; completion of this sweep is a phase.
+1. [ ] Implement read-only oracle-path field-error sensitivity, following
+   target-geometry/trajectory-protocol.md. Keep all twelve existing checkpoints.
+2. [ ] Check independent exact Gaussian examples, native endpoint identity and
+   Heun128/256qualification. Fix executable numerical tolerances before pilot;
+   freeze/publish and obtain a fresh documented witness. Reuse warm CPUenv.
+3. [ ] Run the bounded256-source/eight-bank calibration at lambda.125/.25/.5/1.
+   Report the full-scale explained fraction for every model; no favorable-time
+   or model selection. No new training/image run is included.
+4. [ ] Only if the approximation is useful at learned error scale, register
+   its all-source distribution-level test. Otherwise reject that approximation
+   as an architecture guide. Keep the broader research goal active.
 
-## Authoritative paths and runtime state
+## Authoritative state
 
-Source: /Users/mr.z/ODE-FFN-upstream; published training freeze 67b4664,
-numerical freeze 303d213. All scientific runtimes stay frozen and clean.
-Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
-New complete raw sweep: numerical-bankwise; independent: numerical-verified;
-analysis: numerical-analysis-v2. Old intentional partial run: numerical-full.
-Canonical: docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/
-  numerical-results/{analysis-report.md,stats-appendix.md,figure-catalog.md}.
-All earlier execution journals are archived under docs/history/.
-Current goal turn: progress, completed full numerical inference and audit.
+Source: /Users/mr.z/ODE-FFN-upstream. Published selection freeze49f6e19and
+confirmation freeze4e96911remain unchanged. Raw:
+/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-geometry.
+Both confirmation PIDs60825/60826ended. The selection PID59854ended.
+No scientific observation or new training remains live from this phase.
+Warm Python: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
+No packages changed and noGPUwas needed. Report checks97files/11final bindings pass.
 
-## Target-geometry continuation
-
-Previous goal turn: progress, full numerical sweep/statistics published.
-P0now: derive the Bayes clean-data predictor and full velocity Jacobians for
-Gaussian-source independent FM, then validate against the unchanged native
-Ring8/Product16oracles and the author JiTloss conversion. Target derivation:
-docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/derivation.md.
-The invariant object is the full Bayes image predictor, not hidden P.
-
-Use four identified primary papers only: Wan et al. ICML2025; Li/He JiTv2;
-Graikos et al. September2026denoiser Jacobians; LiFT October2026. Local
-papers/literature PDFfolders and optional Zotero/Obsidian tools are absent.
-The arXiv helper is unresolved, so use the primary web records/full texts.
-TiedFlow remains an unresolved name in prior notes; no claim relies on it.
-
-Then register a frozen twelve-model diagnostic on existing selection pairs,
-128points at five fixed times(.1,.3,.5,.7,.9). Primary explanatory metric:
-full output-Jacobian error against oracle. Symmetry/PSDare secondary; include
-analytic rotation and additive-bias controls to test their insufficiency.
-No new architecture, training trajectory, image or density run is part of
-this diagnostic. Preserve all scientific source freezes and finalized reports.
-
-## Executable target-geometry phase
-
-The preceding explanation turn was no progress on the research objective:
-it verified and explained existing files but produced no new scientific evidence.
-Resume with the next available safe action rather than another plan-only turn.
-
-1. [x] Write the exact posterior/Jacobian derivation and native oracle check.
-   Check both tasks, five interior times, nonunit-noise Gaussian and counterexamples.
-2. [x] Complete two bounded read-only paper shards and record four-paper coverage.
-3. [x] Register the twelve-checkpoint output-Jacobian diagnostic before execution;
-   verify restoration, precision conversion and finite-difference derivatives.
-4. [x] Run the bounded frozen observation on the warm Mac CPU environment,
-   independently recompute its summaries and publish the evidence to GitHub.
-5. [x] Decide whether full-Jacobian error explains both matched schedule effects;
-   use the result to choose the next falsifiable mechanism test. No new training
-   or image promotion is included in this phase. The full goal remains active.
-
-Author checks: ten native oracle cells pass (velocity2.66e-14, Jacobian1.99e-13);
-nonunit-noise posterior/control examples pass. Twelve real checkpoint derivative
-witnesses pass; independent NumPy reconstruction1.11e-16. These four-point
-witnesses cannot decide the128-point/five-time registered question. Freeze and
-run the fresh exact documented pass before the formal observation.
-
-Formal source49f6e19: all12checkpoints/60time rows complete, process59854exit0;
-independent reconstruction1.11e-16. Ring8primary error PAL/ALT.155/.168;
-Product16.281/.269. Point directions match sampling, but both input-bootstrap
-intervals span zero. Product16ordinary SwiGLU has lowerSW2despite greaterJerror.
-Keep this association unresolved, not an architecture mechanism conclusion.
-
-## Registered independent confirmation
-
-- [x] Fix the same primary question on all8x4096preexisting confirmation pairs,
-  all five times and only the four matched schedule checkpoints. No training.
-- [x] Verify128-point chunking against unchunked257-point derivatives on all4
-  checkpoints (maximum1.78e-15). Preserve original selection source/results.
-- [ ] Publish/freeze the extension; fresh exact all-bank witness.
-- [ ] Run two one-thread Mac CPUtasks, verify every derivative bank and summarize
-  all32,768pairs per task. Check disk usage; noGPUallocation is needed.
+Canonical results: docs/research-assessments/2026-11-16-ode-mechanism/
+  target-geometry/{README.md,derivation.md,results/,confirmation-results/}.
+Earlier complete mechanism findings: .../primary-findings.md.
+Current goal turn: progress, completed theory/native checks and independent
+all-bank output-response evidence. The broader objective is not complete.
+Prior execution journals are archived under docs/history/.

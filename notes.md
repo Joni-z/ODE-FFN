@@ -1,54 +1,43 @@
 # ODE mechanism: current evidence and decisions
 
-The matched order experiment is complete. At identical P/B coordinates,
-parameter counts, initial functions and matrix work, palindrome(+--+) beats
-alternating(+-+-) on Ring8 and loses on Product16. Both effects survive all
-registered one-axis numerical sweeps. Internal 16 pooled SW2: Ring8 0.084/0.107;
-Product16 0.087/0.075. Shared P: 0.091/0.069. Product16 ordinary controls at the
-original Heun128 setting: Free ISRU 0.055, SwiGLU 0.044.
+The matched stage-order comparison now has an independently confirmed
+whole-output response correlate. All8x4096preexisting confirmation pairs at
+five times give full velocity-Jacobian errors PAL/ALT Ring8.156/.191 and
+Product16.261/.236. Their SW2values remain.086/.108 and.072/.066.
+All eight input banks support each task direction. Exact adjusted input
+intervals for PALminusALTare[-.038,-.030]and[.024,.026]. These are fixed-weight
+input resampling intervals, not independent trainings.
 
-The leading bracket cancels exactly in trained palindrome features, but its
-higher-order stage action is active. Mean-collapse raises selection field
-MSE 0.011->0.028 on Ring8 and0.020->0.179 on Product16. Alternating reversal raises
-MSE 00.011->0.227 and0.019->0.818. This explains feature computation; the matched
-training and numerical comparison determine the task-dependent utility.
+The derivative identity is about the Bayes clean-data predictor:
+J_m=alpha/beta²*posteriorCovariance. For unit-source straightFM,
+J_v=(J_m-I)/(1-t). Native oracles and independent moments agree within1.99e-13.
+A hidden P does not inherit this condition. A biased field can have the same
+Jacobian and a wrong final law; a rotational field can alter Jacobians while
+preserving an isotropic law. Output response is a measurable hypothesis,
+not a complete sampling certificate.
 
-All eight full observation tasks exit 0. Independent NumPy reconstructs 24 rows,
-including 20 unique cells, within 2.78e-17. Sampling unit: eight common banks at
-fixed weights; settings repeat those banks. Marginal/ten-contrast intervals
-and Holm sign tests are retained transparently in the statistical appendix.
-No source removed and no numerical gate changed.
+Product16ordinary SwiGLU has betterSW2despite greater averageJerror. Thus
+local response alone does not rank all models. Next: calibrate transported
+field-error predictions along common oracle paths before another architecture.
+The exact sensitivity identity is known; its usefulness at trained error
+scale must be measured rather than assumed. Endpoint coupling error is notSW2.
 
-CPU bankwise sampling exactly reproduces full endpoints and every retained
-old prefix. New numerical source 303d213 is frozen. Old queue 55052 retirement
-is intentional: two earlier tasks exit 0, two duplicate children actual -15,
-four tasks unstarted. The complete new eight-task run replaces the entire
-comparison, with no old/new row splicing. All these processes are terminal.
+All12selection checkpoints/60time rows and4confirmation checkpoints/20time
+rows are retained. Formal source49f6e19; confirmation4e96911. Independent
+NumPy summaries agree within1.11e-16; two exact bootstrap enumerations agree
+exactly. Four actual scientific PNGs inspected. Original arrays, source freezes,
+97report files and11Report2final bindings are preserved. Both CPUconfirmation
+processes and both verifiers exit0; noGPU, package change or foreign task.
+Raw confirmation occupies1.6GiB; rawarrays remain outsideGit.
 
-Canonical evidence:
-- docs/research-assessments/2026-11-16-ode-mechanism/primary-findings.md
-- .../schedule-order/numerical-results/analysis-report.md
-- .../schedule-order/numerical-results/stats-appendix.md
-- .../schedule-order/bankwise-handoff-complete.json
-Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
-Warm CPU: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python
-No packages changed. Both finalized reports and native image code unchanged.
-
-Next research question: derive which geometric properties the FM target and
-JiT image predictor actually satisfy; determine whether hidden ODE structure
-controls those properties. Review current primary literature before another
-architecture. Avoid interpreting hidden solver order as a proof of better
-physical transport. No new training, image or density job is queued now.
-
-Earlier detailed notes are archived verbatim under docs/history/.
-
-Target geometry: source49f6e19fresh documented exits0/0/0; all12formal
-checkpoints and60time rows pass, process59854exit0, independent error1.11e-16.
-Primary Jerror PAL/ALT Ring8.155/.168; Product16.281/.269. Both point directions
-match sampling, but both paired input intervals span zero. Ordinary Product16
-SwiGLU has betterSW2despite higherJerror, so this is no universal predictor.
-Two actual scientific figures have been inspected. Evidence is in
-.../target-geometry/results/. All-bank independent confirmation is registered
-before execution, using all8x4096pairs/five times and the same four checkpoints.
-Chunking passes257-point unchunked checks within1.78e-15. ThirteenGiBdisk
-headroom is adequate for the derivative arrays; no dataset or report is deleted.
+Canonical:
+- docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md
+- .../derivation.md and literature.md (four identified primary papers)
+- .../results/analysis-report.md (initial selection and uncertainty)
+- .../confirmation-results/analysis-report.md (all independent inputs)
+- .../trajectory-protocol.md (next bounded calibration; not yet implemented)
+Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-geometry.
+Warm CPU: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
+Earlier controls: .../primary-findings.md and schedule-order/numerical-results/.
+Previous detailed notes/plans are archived verbatim under docs/history/.
+The goal remains active. No new training or image candidate follows this phase.
