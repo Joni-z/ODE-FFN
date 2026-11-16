@@ -111,3 +111,26 @@ After the population run, independently verify all32rows, then refine only
 unresolved sources through the existing adaptive entry with a separately
 recorded native witness. Merge the four new numerically qualified cells with
 the sixteen preserved reference cells for the paired density/width analysis.
+
+
+## Adaptive-entry witness for the new checkpoints
+
+The formal population queues remain untouched. Before any unresolved new
+sources are refined, a fresh documented pass runs these two commands once,
+sequentially, stopping on failure. They use the completed four-source
+formal-entry witnesses as verified parents. They are not population results
+and must report witness=true with both qualification flags false.
+
+```sh
+env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_density.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data --case-output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/doc-witness/formal-entry-0 --parent-commit fd7f09b0064ceab36a13f7757fd2716d002cbba6 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-ring8 --device cpu --derivative-backend coordinate --witness
+
+env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_density.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data --case-output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/doc-witness/formal-entry-1 --parent-commit fd7f09b0064ceab36a13f7757fd2716d002cbba6 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-product16 --device cpu --derivative-backend coordinate --witness
+```
+
+Require both exits0, four native observer rows and two four-source merged
+cells per model. Preserve the unchanged gates, observer and source snapshot.
+The parent verifies source and model dependencies at fd7f09b; no running
+engine is edited. After independent NumPy reconstruction, a completed formal
+case may use the same adaptive entry with all1,024sources and its actual
+completed parent. Begin only on a successful terminal parent worker;
+a partial progress file is insufficient.

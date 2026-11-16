@@ -1,0 +1,320 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "field_mse": 0.010217505741145043,
+      "interventions": [
+        {
+          "mode": "reverse",
+          "field_mse": 0.010217505741145043,
+          "prediction_shift_rms": 0.0
+        },
+        {
+          "mode": "mean",
+          "field_mse": 0.010217505741145043,
+          "prediction_shift_rms": 0.0
+        },
+        {
+          "mode": "base",
+          "field_mse": 0.010217505741145043,
+          "prediction_shift_rms": 0.0
+        }
+      ],
+      "statistics": {
+        "unit_relative_prediction_error": {
+          "median": 0.0,
+          "iqr": [
+            0.0,
+            0.0
+          ],
+          "maximum": 0.0
+        },
+        "small_horizon_relative_prediction_error": {
+          "median": 0.0,
+          "iqr": [
+            0.0,
+            0.0
+          ],
+          "maximum": 0.0
+        },
+        "unit_gap_over_increment": {
+          "median": 0.0,
+          "iqr": [
+            0.0,
+            0.0
+          ],
+          "maximum": 0.0
+        },
+        "unit_cosine_median": null,
+        "small_remainder_order_median": null,
+        "unit_prediction_error_at_least_one": 0
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "field_mse": 0.01926662506050201,
+      "interventions": [
+        {
+          "mode": "reverse",
+          "field_mse": 0.01926662506050201,
+          "prediction_shift_rms": 0.0
+        },
+        {
+          "mode": "mean",
+          "field_mse": 0.01926662506050201,
+          "prediction_shift_rms": 0.0
+        },
+        {
+          "mode": "base",
+          "field_mse": 0.01926662506050201,
+          "prediction_shift_rms": 0.0
+        }
+      ],
+      "statistics": {
+        "unit_relative_prediction_error": {
+          "median": 0.0,
+          "iqr": [
+            0.0,
+            0.0
+          ],
+          "maximum": 0.0
+        },
+        "small_horizon_relative_prediction_error": {
+          "median": 0.0,
+          "iqr": [
+            0.0,
+            0.0
+          ],
+          "maximum": 0.0
+        },
+        "unit_gap_over_increment": {
+          "median": 0.0,
+          "iqr": [
+            0.0,
+            0.0
+          ],
+          "maximum": 0.0
+        },
+        "unit_cosine_median": null,
+        "small_remainder_order_median": null,
+        "unit_prediction_error_at_least_one": 0
+      }
+    },
+    {
+      "id": "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "stage_operator_midpoint4",
+      "field_mse": 0.011034410294364137,
+      "interventions": [
+        {
+          "mode": "reverse",
+          "field_mse": 0.02165519570950237,
+          "prediction_shift_rms": 0.09784790028305639
+        },
+        {
+          "mode": "mean",
+          "field_mse": 0.014158300298291258,
+          "prediction_shift_rms": 0.04938034789000401
+        },
+        {
+          "mode": "base",
+          "field_mse": 0.8331828152154267,
+          "prediction_shift_rms": 0.926729055140468
+        }
+      ],
+      "statistics": {
+        "unit_relative_prediction_error": {
+          "median": 0.5146311679901261,
+          "iqr": [
+            0.46593913274651094,
+            0.6327695768851018
+          ],
+          "maximum": 0.966290958119726
+        },
+        "small_horizon_relative_prediction_error": {
+          "median": 0.047660418590166356,
+          "iqr": [
+            0.04382793396950459,
+            0.06077402456280792
+          ],
+          "maximum": 0.07317580513114086
+        },
+        "unit_gap_over_increment": {
+          "median": 0.032787987978975745,
+          "iqr": [
+            0.026067699442795477,
+            0.04256064030712679
+          ],
+          "maximum": 0.048407555039622345
+        },
+        "unit_cosine_median": 0.8692468599291083,
+        "small_remainder_order_median": 2.992289442659837,
+        "unit_prediction_error_at_least_one": 0
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "stage_operator_midpoint4",
+      "field_mse": 0.017934012671489905,
+      "interventions": [
+        {
+          "mode": "reverse",
+          "field_mse": 0.1175758179414952,
+          "prediction_shift_rms": 0.3095815139205293
+        },
+        {
+          "mode": "mean",
+          "field_mse": 0.0440230157684314,
+          "prediction_shift_rms": 0.1550929357684207
+        },
+        {
+          "mode": "base",
+          "field_mse": 1.6747213412049435,
+          "prediction_shift_rms": 1.279794835684844
+        }
+      ],
+      "statistics": {
+        "unit_relative_prediction_error": {
+          "median": 0.5436756840442654,
+          "iqr": [
+            0.4708258232243383,
+            0.591479061765565
+          ],
+          "maximum": 0.6998709627765196
+        },
+        "small_horizon_relative_prediction_error": {
+          "median": 0.04105623069416375,
+          "iqr": [
+            0.035086856117777405,
+            0.050168659172320884
+          ],
+          "maximum": 0.10283654290264425
+        },
+        "unit_gap_over_increment": {
+          "median": 0.05740411136531081,
+          "iqr": [
+            0.049454083613948714,
+            0.07409857631977147
+          ],
+          "maximum": 0.16826929764497972
+        },
+        "unit_cosine_median": 0.8526335967291792,
+        "small_remainder_order_median": 3.00439528578365,
+        "unit_prediction_error_at_least_one": 0
+      }
+    },
+    {
+      "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "contrast_operator_midpoint4",
+      "field_mse": 0.011309372897175811,
+      "interventions": [
+        {
+          "mode": "reverse",
+          "field_mse": 0.6564790670773326,
+          "prediction_shift_rms": 0.8213828396919417
+        },
+        {
+          "mode": "mean",
+          "field_mse": 0.18563569052096995,
+          "prediction_shift_rms": 0.4333071532813508
+        },
+        {
+          "mode": "base",
+          "field_mse": 0.18563568964513671,
+          "prediction_shift_rms": 0.4333071516483838
+        }
+      ],
+      "statistics": {
+        "unit_relative_prediction_error": {
+          "median": 0.4082989691279277,
+          "iqr": [
+            0.3695648295619498,
+            0.4571438904273651
+          ],
+          "maximum": 0.6970773323074537
+        },
+        "small_horizon_relative_prediction_error": {
+          "median": 0.03788125126933138,
+          "iqr": [
+            0.03555453477981735,
+            0.04192680452565423
+          ],
+          "maximum": 0.054891372773289815
+        },
+        "unit_gap_over_increment": {
+          "median": 0.15368603246874324,
+          "iqr": [
+            0.13071131069390785,
+            0.17066700546100574
+          ],
+          "maximum": 0.20477498527866492
+        },
+        "unit_cosine_median": 0.9172552868302822,
+        "small_remainder_order_median": 2.9768800881237443,
+        "unit_prediction_error_at_least_one": 0
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "contrast_operator_midpoint4",
+      "field_mse": 0.0204766777796869,
+      "interventions": [
+        {
+          "mode": "reverse",
+          "field_mse": 1.333463665975267,
+          "prediction_shift_rms": 1.1362151884934215
+        },
+        {
+          "mode": "mean",
+          "field_mse": 0.44924970250360813,
+          "prediction_shift_rms": 0.6451411466102379
+        },
+        {
+          "mode": "base",
+          "field_mse": 0.4492496998000201,
+          "prediction_shift_rms": 0.6451411450096214
+        }
+      ],
+      "statistics": {
+        "unit_relative_prediction_error": {
+          "median": 0.44110854285084977,
+          "iqr": [
+            0.3810293656507321,
+            0.5390033661686722
+          ],
+          "maximum": 0.7979491452559593
+        },
+        "small_horizon_relative_prediction_error": {
+          "median": 0.039388207605406754,
+          "iqr": [
+            0.03089485485444563,
+            0.048469343042292314
+          ],
+          "maximum": 0.07270677154211283
+        },
+        "unit_gap_over_increment": {
+          "median": 0.22187126563312498,
+          "iqr": [
+            0.18026569113322918,
+            0.2610010426379198
+          ],
+          "maximum": 0.4084797192538796
+        },
+        "unit_cosine_median": 0.9097727673032704,
+        "small_remainder_order_median": 2.995726422660719,
+        "unit_prediction_error_at_least_one": 0
+      }
+    }
+  ],
+  "verification_sha256": "2000ab20b6d1ec7bfcac72e73d7ce0d239f6f2a9b95069106f459ee91604d4a2",
+  "probe_sha256": "f378df18488b237cf59e9cd845147dfb36c7a50e0d28cc792c6edceeae0e68c5",
+  "analysis_source_sha256": "3f0bd182b8fe5ac7d1ee4a9954011c2c992416ed868c797e9b97fe3c3eb4f9b8"
+}

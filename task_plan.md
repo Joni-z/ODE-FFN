@@ -64,23 +64,26 @@ Never stop or share a foreign task.
     and freeze source before monitored1024/2048 observations.
   - [ ] Independently collect all32new formal rows and refine unresolved
     sources under the original unchanged gates, with no point removal.
-  - [ ] Run outer128/256/512 and inner4/8/16checks on the original sharing
+  - [x] Run outer128/256/512 and inner4/8/16checks on the original sharing
     evaluation arrays, independently recompute scores and compare the same banks.
 
 ## While the fixed observation queues run
 
-- [ ] Extend the existing registered frozen-stage diagnostic to the new
+- [x] Extend the existing registered frozen-stage diagnostic to the new
   mean-preserving checkpoints. Keep the five clocks,16common pairs and20k
   weights; do not add training or sampling-quality selection.
-- [ ] Derive the four-stage minus mean-generator expansion. Verify its
+- [x] Derive the four-stage minus mean-generator expansion. Verify its
   1/32coefficient independently with linear matrix exponentials and nonlinear
   JVP checks. Test the scalar-clock and shared-Pnulls.
-- [ ] Measure the predicted and observed local-map change across fixed
+- [x] Measure the predicted and observed local-map change across fixed
   internal horizons. Report unit-horizon approximation failures explicitly;
   a small-horizon identity alone is not a generation mechanism.
-- [ ] Reuse the native full-field reverse/mean/base probes, and confirm
+- [x] Reuse the native full-field reverse/mean/base probes, and confirm
   original/new parameter coordinates yield the same effective-stage results.
   Freeze/publish the diagnostic and obtain a fresh documented execution.
+- [ ] If145physical5-7remain idle, prepare new-model CUDAreadiness for
+  future unresolved-source refinement only. Do not duplicate or restart the
+  live CPUformal observations. Reuse their actual completed parents.
 
 The Product16 oracle-window branch is rejected by its signed density result;
 do not select a favorable time bin. Keep confirmation time profiles unopened.
@@ -135,3 +138,11 @@ Protocol: coordinate-control/observation-protocol.md. No current blocker.
 
 Execution note: a publication-only Python helper had an unmatched brace and
 failed before executing. Corrected it once; no observation job was restarted.
+
+Current continuation is progress: six-model fixed-mean diagnostic at2f8dd60
+passed its fresh native command (PID44983exit0) and independent NumPyaudit,
+max vector7.11e-15/scalar1.34e-15. Both figures inspected. Numericalqueue43096
+is now terminal, all four tasks exit0; twelve pooled/96bank scores reproduce.
+Densityqueue43084and workers43093/43094remain live. New-model adaptive CPU
+witnesses45112/45157exit0and independent reconstruction passes within1.78e-14.
+The fresh145snapshot finds5-7idle; noGPUallocation or CPUjob restart occurs.

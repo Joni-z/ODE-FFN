@@ -2,6 +2,26 @@
 
 ## Current priority: identify the ODE contribution
 
+**The stage-flow decomposition is complete and independently reconstructed.**
+The mean-preserving models actively use different stage directions: mean
+collapse changes oracle field MSE Ring8 0.011->0.186, Product16 0.020->0.449
+on the fixed selection field bank. Local mean-map changes are median
+0.154/0.222 of the native feature increment. The four-stage bracket expansion
+has cubic small-horizon remainder; unit-horizon relative errors remain
+0.408/0.441. These explain feature computation, not a generation advantage.
+[Analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/schedule-decomposition/analysis-report.md).
+
+All four new numerical tasks also completed, and twelve pooled/96bank scores
+independently reproduce within2.78e-17. New-release Ring8 SW2is0.104at4steps
+and0.105at16; anchored changes0.111->0.103. The coarse point improvement over
+anchored is not invariant to inner refinement. Shared remains lower in the
+pooled score. [Complete numerical table](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/numerical-resolution/analysis.md).
+The two full-density workers remain live. Fresh adaptive CPUentry witnesses
+and their independent reconstruction pass; no population refinement has
+started. A new145inventory finds5-7free; recheck before any CUDApreflight.
+Keep existing CPUjobs intact and use any future CUDAwork only for distinct
+pending observations. No foreign job is stopped or shared.
+
 **New-control numerical/density observations are running on Mac mini.** Both portable
 checkpoints reproduce their complete native field and bank0samples exactly.
 P2density arrays are copied byte-for-byte. Two new-model derivative/formal

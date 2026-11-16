@@ -1,5 +1,21 @@
 # ODE mechanism: current evidence
 
+## Latest: the stage-order computation is measurable
+
+Fresh six-model native diagnostic at2f8dd60and independent NumPyreconstruction
+pass, vector error<=7.11e-15. New-coordinate local mean-map changes are median
+.154Ring8/.222Product16of the original increment; mean collapse raises fixed
+selection field MSE.011->.186and.020->.449. The scheduled computation is used.
+The four-stage bracket predicts its small-horizon limit, cubic remainder
+orders2.977/2.996; unit-horizon relative errors.408/.441remain substantial.
+This is a feature-level explanation, not proof of sampling benefit.
+All new full-bank numerical tasks now complete and independently reproduce.
+Ring8anchored improves.111->.103under inner4->16while new changes.104->.105;
+their coarse point ranking reverses. Keep this distinct from the same-function
+optimizer-coordinate effect. Densityqualification is still running.
+Canonical: coordinate-control/schedule-decomposition/analysis-report.md and
+coordinate-control/numerical-resolution/analysis.md.
+
 ## Latest: mean-preserving coordinate control complete
 
 New-control follow-up: two portable checkpoints preserve native

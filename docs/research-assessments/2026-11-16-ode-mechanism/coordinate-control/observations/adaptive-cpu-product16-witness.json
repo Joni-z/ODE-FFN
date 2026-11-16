@@ -1,0 +1,124 @@
+{
+  "passed": true,
+  "witness": true,
+  "adaptive": true,
+  "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+  "dataset": "rotated_product_bimodal_16d",
+  "family": "contrast_operator_midpoint4",
+  "device": "cpu",
+  "derivative_backend": "coordinate",
+  "gpu_uuid": null,
+  "parameters_unchanged": true,
+  "parent_completion_sha256": "6b4afcb16130fd17234abb1bb5863f66e36c25c47ba1b7c11e4af67a00e3647c",
+  "parent_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/doc-witness/formal-entry-1",
+  "parent_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "density_data_sha256": "af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577",
+  "checkpoint_sha256": "fc5e9dcdb5c6c6baaf9e93ae003926e2a3c53b7548e281792cb8a9358c3f7a32",
+  "source_sha256": {
+    "adaptive_density.py": "5eadaa54cdfc404c87e6c4fa9341b578ad5bf25ee633ba6ac2bc298d0ff5ed45",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728",
+    "jacobian_backend.py": "ba9334ed9a2110f9d7f6b7ad0f7ac041a1679e61b87874227828339885511014"
+  },
+  "readiness_sha256": null,
+  "rows": [
+    {
+      "mode": "original",
+      "steps": 16,
+      "samples": 4,
+      "file": "original-subset-heun16.npz",
+      "sha256": "db819461446c926f8270b2611245b557a370a16c9e6639ed15eb6c6bd56a20e4",
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "seconds": 1.270532709080726
+    },
+    {
+      "mode": "original",
+      "steps": 32,
+      "samples": 4,
+      "file": "original-subset-heun32.npz",
+      "sha256": "bbbcda4b831d437ae2ded1ae2f1d59d9daeadfb6ad17fbcaec79243c7e71d277",
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "seconds": 2.444766541942954
+    },
+    {
+      "mode": "projected",
+      "steps": 16,
+      "samples": 4,
+      "file": "projected-subset-heun16.npz",
+      "sha256": "f73875e01dff7e5476bd575e4576f9c93c3714feeb3fd5f357c49264c3988e16",
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "seconds": 1.6773065002635121
+    },
+    {
+      "mode": "projected",
+      "steps": 32,
+      "samples": 4,
+      "file": "projected-subset-heun32.npz",
+      "sha256": "984366f69ff05136bdd150e287ca631e784173c832bd3e11ef9194e2e0070882",
+      "native_endpoints_exact": true,
+      "nonpositive_steps": 0,
+      "seconds": 3.330727083608508
+    }
+  ],
+  "cells": [
+    {
+      "mode": "original",
+      "samples": 4,
+      "file": "original-all-sources.npz",
+      "sha256": "78e4c492d530fb5659295240df0c544d5a1bf98fd52a5652d099ebc1cb7ac706",
+      "initial_unresolved_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unresolved_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "numerical_qualified": false,
+      "resolution_counts": {
+        "32": 4
+      },
+      "max_errors": [
+        0.002396372494113841,
+        0.002859602112092352,
+        0.008528809557447947,
+        0.0022673022214862765
+      ]
+    },
+    {
+      "mode": "projected",
+      "samples": 4,
+      "file": "projected-all-sources.npz",
+      "sha256": "83a326445eaac2fb4286b384dba6556a61b3619b14ddafa410a8add6eb4ec33b",
+      "initial_unresolved_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unresolved_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "numerical_qualified": false,
+      "resolution_counts": {
+        "32": 4
+      },
+      "max_errors": [
+        0.002188755499206524,
+        0.0036253377703753253,
+        0.056181954531816736,
+        0.010542378679950946
+      ]
+    }
+  ],
+  "seconds": 8.731408583931625
+}
