@@ -1,0 +1,17 @@
+{
+  "topic": "Whole-model denoiser geometry versus hidden ODE feature depth",
+  "canonical_paper_ids": ["2412.18730", "2511.13720", "2609.36210", "2610.05538"],
+  "shards": [
+    {"shard_id": 1, "assigned": ["2412.18730", "2511.13720"], "covered": ["2412.18730", "2511.13720"], "status": "complete_with_evidence_limits"},
+    {"shard_id": 2, "assigned": ["2609.36210", "2610.05538"], "covered": ["2609.36210", "2610.05538"], "status": "complete"}
+  ],
+  "unprocessed": [],
+  "failed": [],
+  "replacement_workers": 0,
+  "executor_sequential_fallbacks": 0,
+  "scope": "Read-only extraction from primary-text excerpts and verified retrieval notes; LiFT also had a readable prior local review. Coverage means extraction of those materials, not independent proof replication or full-paper review.",
+  "root_primary_check": "Wan arXiv v2 Section3.1 Proposition3.2 inspected directly; same covariance identity as the published AppendixC statement. Native JiT loss inspected at denoiser.py lines52-66.",
+  "source_availability": {"zotero": "unavailable optional connector", "obsidian": "unavailable optional connector", "local_pdf_library": "absent", "arxiv_helper": "unresolved; primary web fallback", "web": "primary records and full-text HTML"},
+  "worker_policy": {"max_turns": 8, "recursion": false, "read_only": true, "enforcement": "prompt-only"},
+  "unresolved_names": ["TiedFlow: no verified paper identity; no claim relies on it"]
+}

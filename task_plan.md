@@ -57,3 +57,48 @@ Canonical: docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/
   numerical-results/{analysis-report.md,stats-appendix.md,figure-catalog.md}.
 All earlier execution journals are archived under docs/history/.
 Current goal turn: progress, completed full numerical inference and audit.
+
+## Target-geometry continuation
+
+Previous goal turn: progress, full numerical sweep/statistics published.
+P0now: derive the Bayes clean-data predictor and full velocity Jacobians for
+Gaussian-source independent FM, then validate against the unchanged native
+Ring8/Product16oracles and the author JiTloss conversion. Target derivation:
+docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/derivation.md.
+The invariant object is the full Bayes image predictor, not hidden P.
+
+Use four identified primary papers only: Wan et al. ICML2025; Li/He JiTv2;
+Graikos et al. September2026denoiser Jacobians; LiFT October2026. Local
+papers/literature PDFfolders and optional Zotero/Obsidian tools are absent.
+The arXiv helper is unresolved, so use the primary web records/full texts.
+TiedFlow remains an unresolved name in prior notes; no claim relies on it.
+
+Then register a frozen twelve-model diagnostic on existing selection pairs,
+128points at five fixed times(.1,.3,.5,.7,.9). Primary explanatory metric:
+full output-Jacobian error against oracle. Symmetry/PSDare secondary; include
+analytic rotation and additive-bias controls to test their insufficiency.
+No new architecture, training trajectory, image or density run is part of
+this diagnostic. Preserve all scientific source freezes and finalized reports.
+
+## Executable target-geometry phase
+
+The preceding explanation turn was no progress on the research objective:
+it verified and explained existing files but produced no new scientific evidence.
+Resume with the next available safe action rather than another plan-only turn.
+
+1. [x] Write the exact posterior/Jacobian derivation and native oracle check.
+   Check both tasks, five interior times, nonunit-noise Gaussian and counterexamples.
+2. [x] Complete two bounded read-only paper shards and record four-paper coverage.
+3. [x] Register the twelve-checkpoint output-Jacobian diagnostic before execution;
+   verify restoration, precision conversion and finite-difference derivatives.
+4. [ ] Run the bounded frozen observation on the warm Mac CPU environment,
+   independently recompute its summaries and publish the evidence to GitHub.
+5. [ ] Decide whether full-Jacobian error explains both matched schedule effects;
+   use the result to choose the next falsifiable mechanism test. No new training
+   or image promotion is included in this phase. The full goal remains active.
+
+Author checks: ten native oracle cells pass (velocity2.66e-14, Jacobian1.99e-13);
+nonunit-noise posterior/control examples pass. Twelve real checkpoint derivative
+witnesses pass; independent NumPy reconstruction1.11e-16. These four-point
+witnesses cannot decide the128-point/five-time registered question. Freeze and
+run the fresh exact documented pass before the formal observation.

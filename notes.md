@@ -41,3 +41,10 @@ architecture. Avoid interpreting hidden solver order as a proof of better
 physical transport. No new training, image or density job is queued now.
 
 Earlier detailed notes are archived verbatim under docs/history/.
+
+Target-geometry implementation is now written: independent posterior moments,
+whole-output derivative probe and a separate NumPy summary verifier. The exact
+formula, registered population/primary direction, four-paper coverage and CPU
+commands are in .../target-geometry/. Author oracle and twelve checkpoint
+witnesses pass; the formal128-point/five-time observation has not started.
+The next required check is the fresh documented invocation at a published freeze.
