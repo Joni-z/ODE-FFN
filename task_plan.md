@@ -63,9 +63,13 @@ PIDs/handles before any action; state/progress files alone do not prove liveness
 
 - [x] Register CPU/CUDAFP64parity, full-model derivative checks and fixed
   B256/B4096throughput probes before observations. Existing observer unchanged.
-- [ ] Run on one freshly empty physical145GPU4-7, guarded by the existing
+- [x] Run on one freshly empty physical145GPU4-7, guarded by the existing
   exclusivity checker. No models/data/checkpoints from the learned cohort.
 - [ ] Publish/freeze and obtain fresh documented invocation before CUDAreadiness.
+  Author75311actual0onphysical4, all1218source hashes unchanged. First fresh
+  wrapper89039exit1after passing numerics; child status lost, readiness=false.
+  Preserve it; register a new exclusive recovery invocation with unchanged
+  mathematics and direct terminal capture before separate receipt writing.
 - [ ] Select CPUor CUDAfrom actual correctness and end-to-end timings.
 
 ## Invariants
