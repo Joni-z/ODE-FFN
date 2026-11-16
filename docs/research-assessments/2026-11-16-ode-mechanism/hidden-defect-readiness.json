@@ -1,0 +1,362 @@
+{
+  "schema": "hidden-defect-transport-agent-follows-doc-v1",
+  "role": "fresh agent-follows-doc witness",
+  "scope": "untrained deterministic implementation validation only",
+  "started_at_utc": "2026-11-16T20:31:31.308Z",
+  "terminal_exit_observed_at_utc": "2026-11-16T20:31:44.318Z",
+  "invocation": {
+    "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/repo",
+    "shell": "/bin/bash",
+    "login_shell": false,
+    "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/check_hidden_defect_transport.py --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/controls-readiness.json",
+    "executions": 1,
+    "verbatim": true,
+    "repairs": 0,
+    "package_installs": 0,
+    "tool_session_id": 73860,
+    "terminal_exit": 0,
+    "stdout": "HIDDEN_DEFECT_FIXTURE_PASS 2\nHIDDEN_DEFECT_FIXTURE_PASS 16\nHIDDEN_DEFECT_FULL_MODEL_CONTROLS_PASS\n",
+    "stderr": "",
+    "terminal_stream_note": "Tool returned combined stdout/stderr; only the three expected PASS sentinel lines were emitted."
+  },
+  "documentation": {
+    "frozen_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/repo/docs/research-assessments/2026-11-16-ode-mechanism/hidden-defect-transport.md",
+    "sha256": "8b3e9bd32d6c13a769f0bfdeeb3a55482d4aeb4534ef6c29279c96ffee58eea7",
+    "required_read_paths": [
+      "/Users/mr.z/.agents/skills/run-experiment/SKILL.md",
+      "/Users/mr.z/.agents/skills/shared-references/compute-env-contract.md",
+      "/Users/mr.z/ODE-FFN-upstream/.aris/compute/macmini.md"
+    ]
+  },
+  "environment": {
+    "ledger_entry": "response-screen-cpu@04f11f75",
+    "mode": "CPU",
+    "threads": 1,
+    "package_changes": 0,
+    "gpu_jobs_launched": 0,
+    "spec_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/repo/docs/research-assessments/2026-11-15-response-screen/environment.json",
+    "spec_content_hash8": "04f11f75",
+    "spec_hash_matches_ledger": true
+  },
+  "source_freeze": {
+    "path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/source-freeze.json",
+    "commit": "4a409d977bdac254834f95c5711fcca999aaaf5b",
+    "before": {
+      "checked_at_utc": "2026-11-16T20:31:16.417014+00:00",
+      "manifest_sha256": "0826ec99b9dadaec4e3fde2f22c9bd9de896bd149c2f86ca1eaa8d6fb7291671",
+      "manifest_commit": "4a409d977bdac254834f95c5711fcca999aaaf5b",
+      "source_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/repo",
+      "expected_regular_files": 5041,
+      "checked_regular_files": 5041,
+      "mismatches": [],
+      "non_regular": [],
+      "extra_regular_files": [],
+      "missing_regular_files": [],
+      "original_repo_head": "4a409d977bdac254834f95c5711fcca999aaaf5b",
+      "original_repo_head_exit": 0,
+      "commit_resolves": "4a409d977bdac254834f95c5711fcca999aaaf5b",
+      "commit_resolves_exit": 0,
+      "original_head_agrees_with_freeze": true,
+      "key_git_file_agreement": [
+        {
+          "path": "docs/research-assessments/2026-11-16-ode-mechanism/hidden-defect-transport.md",
+          "git_exit": 0,
+          "archive_sha256": "8b3e9bd32d6c13a769f0bfdeeb3a55482d4aeb4534ef6c29279c96ffee58eea7",
+          "git_commit_blob_sha256": "8b3e9bd32d6c13a769f0bfdeeb3a55482d4aeb4534ef6c29279c96ffee58eea7",
+          "agrees": true,
+          "stderr": ""
+        },
+        {
+          "path": "studies/muon_pd_20261102/target_transport_20261117/check_hidden_defect_transport.py",
+          "git_exit": 0,
+          "archive_sha256": "7241c7def6c083d5f6e372ab8b3c88eb01e2247b261d70b70207fadef3a156a1",
+          "git_commit_blob_sha256": "7241c7def6c083d5f6e372ab8b3c88eb01e2247b261d70b70207fadef3a156a1",
+          "agrees": true,
+          "stderr": ""
+        },
+        {
+          "path": "studies/muon_pd_20261102/target_transport_20261117/hidden_defect_transport.py",
+          "git_exit": 0,
+          "archive_sha256": "07e7ab04633a46ec4c230e054561c961fb6ab87e5755709e782ce2bde3b3a3d1",
+          "git_commit_blob_sha256": "07e7ab04633a46ec4c230e054561c961fb6ab87e5755709e782ce2bde3b3a3d1",
+          "agrees": true,
+          "stderr": ""
+        }
+      ]
+    },
+    "after": {
+      "checked_at_utc": "2026-11-16T20:32:00.532688+00:00",
+      "manifest_sha256": "0826ec99b9dadaec4e3fde2f22c9bd9de896bd149c2f86ca1eaa8d6fb7291671",
+      "expected_regular_files": 5041,
+      "checked_regular_files": 5041,
+      "mismatches": [],
+      "non_regular": [],
+      "extra_regular_files": [
+        "studies/muon_pd_20261102/__pycache__/run.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/__pycache__/trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/ordinary.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/trial13.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle2/__pycache__/trial2.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle3/__pycache__/trial3.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle4/__pycache__/trial4.cpython-312.pyc",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/coefficient_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_step.cpython-312.pyc",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/state_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/followup_20261115/__pycache__/train.cpython-312.pyc",
+        "studies/muon_pd_20261102/order_response_20261115/__pycache__/order_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/augmented.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/covariance.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/data.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagnostics.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagonal.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/forced_gate.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/models.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/state_clock.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/train.cpython-312.pyc",
+        "studies/muon_pd_20261102/response_screen_20261115/__pycache__/screen_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/target_transport_20261117/__pycache__/hidden_defect_transport.cpython-312.pyc",
+        "studies/muon_pd_20261102/target_transport_20261117/__pycache__/rk4_defect.cpython-312.pyc",
+        "studies/muon_pd_20261102/vendor/__pycache__/muon.cpython-312.pyc"
+      ],
+      "missing_regular_files": [],
+      "original_repo_head": "4a409d977bdac254834f95c5711fcca999aaaf5b",
+      "head_agrees_with_freeze": true,
+      "result_sha256": "884c9726ee23aee79a142436aee8c8baf5f2055b145f6fe9e279053e11533a7b",
+      "extra_regular_file_sha256": {
+        "studies/muon_pd_20261102/__pycache__/run.cpython-312.pyc": "c1029429e867a71fc1dce958ab7ce2235dfd06bc242ea045c4fb506d129d50dc",
+        "studies/muon_pd_20261102/autoresearch_20261103/__pycache__/trial.cpython-312.pyc": "a68e842590c8a8a3de4137f43cbcbd850f7663e57926338dff5c56acf20eabad",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/ordinary.cpython-312.pyc": "013d130a029e0372e42267f2bbbab98145b1f55b8f5381318fc69956060819f3",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/trial13.cpython-312.pyc": "22d534beada67ddd7a663e1efb7840dbf0193112cf615915a259fb56a067d5d6",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle2/__pycache__/trial2.cpython-312.pyc": "60b8a845b6bcc38da72db16010b00e75ebcaaff6ad372c82863820be94291dca",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle3/__pycache__/trial3.cpython-312.pyc": "6fa7037060bd3fa39b309871a74a387ffc48b71ea9c277f33d7ad2b12caec832",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle4/__pycache__/trial4.cpython-312.pyc": "ae520bd6fabee0a84ee3e823219ccb260a3a7d8282dd0d7a21bf242e555d5eb9",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/coefficient_trial.cpython-312.pyc": "94a50f2756fc4422c87832db535f7a8f1cfc6875a851d82d97258df32f0b5313",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_step.cpython-312.pyc": "ef2d0489e5ba8e89e250070b01266a1116dac774996cc05ef69cb77eedc111a3",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/state_trial.cpython-312.pyc": "b043053ad3ce50598d1c845af35b7a4bfb75eddade94b189dd8c12b9ab9bf343",
+        "studies/muon_pd_20261102/followup_20261115/__pycache__/train.cpython-312.pyc": "506e8d51896a77f61cf5d5d2588590a2798bf23dfa321387d56f473bd51c371d",
+        "studies/muon_pd_20261102/order_response_20261115/__pycache__/order_trial.cpython-312.pyc": "aef907af8286233e4d99f6ab2cce983bb331dd9ff11b8bb3553961adff123e0a",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/augmented.cpython-312.pyc": "0f80d14a50ecbfbe52ef5c9574bb8fc5d235c26fd6d7da5a1f97076caf4b6e5e",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/covariance.cpython-312.pyc": "d6f2814ab57c45d53cad4a62e6d5089294175c6e2b23b5ffa2fb0c44c67e1ad6",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/data.cpython-312.pyc": "4250aedd469e608aa4ebe9177f70f0cd0307f183de9cc774a3db9234f238856d",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagnostics.cpython-312.pyc": "e27218d59646c84405f7ec57808ef50422e6b41e0be0f75d7f985fe3caa18e5f",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagonal.cpython-312.pyc": "0b61a1de682abdc7ba88ef577c0b9acc5a568690daf6c10bbc288eb0b452cb17",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/forced_gate.cpython-312.pyc": "e07f2d49c6e5675fdb698dd1e91555e1f9bda74e3fefde3b31d577bc7bd16376",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/models.cpython-312.pyc": "b22cd2bbe6a64cbf8ee25943d559e1a0bc84464292757e7071d09189b02ccc97",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/state_clock.cpython-312.pyc": "996b723fea7db296bb81557538745a98555a6ff9c22c3c2a823519e9bb9ac7cc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/train.cpython-312.pyc": "60deaf57f29fe6ccbf17d08696d8c02a0f4f89c0af9d65c2062774cde8415b7c",
+        "studies/muon_pd_20261102/response_screen_20261115/__pycache__/screen_trial.cpython-312.pyc": "e7079756dbfa3cab57d11691216b9431e65dd14951f28f471b6ade1ec7bbd55f",
+        "studies/muon_pd_20261102/target_transport_20261117/__pycache__/hidden_defect_transport.cpython-312.pyc": "0228fdb7b761fc4be7077067a301b5fd59e9fcadc8551897eba6140c9b16e912",
+        "studies/muon_pd_20261102/target_transport_20261117/__pycache__/rk4_defect.cpython-312.pyc": "d7d5bbcf4d0b179c4bda98182e7ffca6843131274fd16ee8ed99316a04aaf28a",
+        "studies/muon_pd_20261102/vendor/__pycache__/muon.cpython-312.pyc": "51ae0695f6431e38349c9dfece28decad2840e1f9886c27a48462afc29a7cf4a"
+      }
+    },
+    "all_manifested_regular_files_match_before": true,
+    "all_manifested_regular_files_match_after": true,
+    "all_manifested_regular_file_hashes_unchanged": true,
+    "manifest_unchanged": true,
+    "original_head_matches_freeze_before_and_after": true,
+    "key_git_commit_blob_hashes_match": true,
+    "archive_regular_file_set_unchanged": false
+  },
+  "result": {
+    "path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/hidden-defect-preparation/controls-readiness.json",
+    "sha256": "884c9726ee23aee79a142436aee8c8baf5f2055b145f6fe9e279053e11533a7b",
+    "passed": true,
+    "source_sha256": "7241c7def6c083d5f6e372ab8b3c88eb01e2247b261d70b70207fadef3a156a1",
+    "observer_sha256": "07e7ab04633a46ec4c230e054561c961fb6ab87e5755709e782ce2bde3b3a3d1",
+    "result_source_hash_matches_manifest": true,
+    "result_observer_hash_matches_manifest": true,
+    "controls": [
+      {
+        "dim": 2,
+        "width": 64,
+        "depth": 3,
+        "local_flows": 6,
+        "points": 8,
+        "seed": 0,
+        "fixture_head": "0.02*sin(arange(numel)); original bias retained",
+        "polynomial_jet_errors": {
+          "midpoint": 2.6020852139652106e-17,
+          "rk4": 3.781155076543197e-18
+        },
+        "whole_model_jvp_errors": {
+          "primal": 0,
+          "tangent": 2.0328790734103208e-20
+        },
+        "finite_differences": [
+          {
+            "epsilon": 0.0001,
+            "max_error": 5.990700692676612e-13
+          },
+          {
+            "epsilon": 1e-05,
+            "max_error": 7.615905759636226e-12
+          }
+        ],
+        "nonzero_tangent_norm": 0.00015987756700332,
+        "zero_forcing_exact": true,
+        "zero_primal_error": 0,
+        "sign_reversal_errors": {
+          "primal": 0,
+          "tangent": 0
+        },
+        "refinements": [
+          {
+            "old": 16,
+            "new": 32,
+            "primal": 4.726058155934965e-10,
+            "tangent": 6.074486603286321e-12
+          },
+          {
+            "old": 32,
+            "new": 64,
+            "primal": 2.9736574314043196e-11,
+            "tangent": 3.8114427385700297e-13
+          }
+        ],
+        "tensors_methods_rng_unchanged": true,
+        "native_replay_exact": true
+      },
+      {
+        "dim": 16,
+        "width": 64,
+        "depth": 3,
+        "local_flows": 6,
+        "points": 8,
+        "seed": 0,
+        "fixture_head": "0.02*sin(arange(numel)); original bias retained",
+        "polynomial_jet_errors": {
+          "midpoint": 2.42861286636753e-17,
+          "rk4": 3.3881317890172014e-18
+        },
+        "whole_model_jvp_errors": {
+          "primal": 0,
+          "tangent": 8.131516293641283e-20
+        },
+        "finite_differences": [
+          {
+            "epsilon": 0.0001,
+            "max_error": 6.804455146918972e-13
+          },
+          {
+            "epsilon": 1e-05,
+            "max_error": 8.949658817313487e-12
+          }
+        ],
+        "nonzero_tangent_norm": 0.0008797683909402925,
+        "zero_forcing_exact": true,
+        "zero_primal_error": 0,
+        "sign_reversal_errors": {
+          "primal": 0,
+          "tangent": 0
+        },
+        "refinements": [
+          {
+            "old": 16,
+            "new": 32,
+            "primal": 7.06016384244279e-10,
+            "tangent": 1.093289587821792e-11
+          },
+          {
+            "old": 32,
+            "new": 64,
+            "primal": 4.428860056471251e-11,
+            "tangent": 6.787817378485494e-13
+          }
+        ],
+        "tensors_methods_rng_unchanged": true,
+        "native_replay_exact": true
+      }
+    ],
+    "maxima": {
+      "polynomial_jet_error_midpoint": 2.6020852139652106e-17,
+      "polynomial_jet_error_rk4": 3.781155076543197e-18,
+      "whole_model_jvp_primal_error": 0,
+      "whole_model_jvp_tangent_error": 8.131516293641283e-20,
+      "central_finite_difference_error": 8.949658817313487e-12,
+      "central_finite_difference_errors_by_epsilon": [
+        {
+          "epsilon": 0.0001,
+          "max_error": 6.804455146918972e-13
+        },
+        {
+          "epsilon": 1e-05,
+          "max_error": 8.949658817313487e-12
+        }
+      ],
+      "final_32_to_64_primal_change": 4.428860056471251e-11,
+      "final_32_to_64_tangent_change": 6.787817378485494e-13,
+      "sign_reversal_primal_error": 0,
+      "sign_reversal_tangent_error": 0,
+      "zero_forcing_primal_error": 0,
+      "nonzero_tangent_norms": [
+        {
+          "dim": 2,
+          "norm": 0.00015987756700332
+        },
+        {
+          "dim": 16,
+          "norm": 0.0008797683909402925
+        }
+      ],
+      "all_nonzero_tangent_norms_above_1e_10": true,
+      "zero_forcing_exact": true,
+      "tensors_methods_rng_unchanged": true,
+      "native_replay_exact": true,
+      "refinements_decrease": true
+    }
+  },
+  "invocation_divergences": [],
+  "document_vs_reality_divergences": [
+    {
+      "kind": "unmentioned_runtime_side_effect",
+      "description": "The exact documented Python invocation generated 25 new __pycache__/*.pyc regular files inside the frozen source archive. None of the 5,041 manifested files changed and source-freeze.json is unchanged. Generated files were preserved; no repair, deletion or rerun was performed.",
+      "new_regular_file_count": 25,
+      "paths": [
+        "studies/muon_pd_20261102/__pycache__/run.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/__pycache__/trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/ordinary.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle13/__pycache__/trial13.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle2/__pycache__/trial2.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle3/__pycache__/trial3.cpython-312.pyc",
+        "studies/muon_pd_20261102/autoresearch_20261103/cycle4/__pycache__/trial4.cpython-312.pyc",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/coefficient_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/rk4_step.cpython-312.pyc",
+        "studies/muon_pd_20261102/coefficient_20261116/__pycache__/state_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/followup_20261115/__pycache__/train.cpython-312.pyc",
+        "studies/muon_pd_20261102/order_response_20261115/__pycache__/order_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/augmented.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/covariance.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/data.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagnostics.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/diagonal.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/forced_gate.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/models.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/state_clock.cpython-312.pyc",
+        "studies/muon_pd_20261102/reference/synthetic/__pycache__/train.cpython-312.pyc",
+        "studies/muon_pd_20261102/response_screen_20261115/__pycache__/screen_trial.cpython-312.pyc",
+        "studies/muon_pd_20261102/target_transport_20261117/__pycache__/hidden_defect_transport.cpython-312.pyc",
+        "studies/muon_pd_20261102/target_transport_20261117/__pycache__/rk4_defect.cpython-312.pyc",
+        "studies/muon_pd_20261102/vendor/__pycache__/muon.cpython-312.pyc"
+      ]
+    }
+  ],
+  "numerical_control_divergences": [],
+  "boundaries": {
+    "learned_checkpoints_used": 0,
+    "data_banks_used": 0,
+    "training_runs": 0,
+    "other_studies_launched": 0,
+    "supervisor98117_touched": false,
+    "original_collectors98379_332_touched": false,
+    "cached_diagnosis_actor3315_touched": false,
+    "source_reports_original_runs_manually_modified": false
+  },
+  "disposition": {
+    "documented_command_passed": true,
+    "all_nonvacuous_whole_model_controls_passed": true,
+    "implementation_validation_only": true,
+    "learned_state_prediction_or_generation_claim": false
+  },
+  "written_at_utc": "2026-11-16T20:33:09.231756+00:00"
+}
