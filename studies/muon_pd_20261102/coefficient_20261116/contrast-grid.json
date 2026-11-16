@@ -1,0 +1,37 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "macmini",
+      "family": "contrast_operator_midpoint4",
+      "response": "mean_preserving_stage_operator",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "mechanism_optimizer_coordinates",
+      "integration_method": "explicit_midpoint",
+      "substeps": 4,
+      "P_applications": 8
+    },
+    {
+      "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "macmini",
+      "family": "contrast_operator_midpoint4",
+      "response": "mean_preserving_stage_operator",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "mechanism_optimizer_coordinates",
+      "integration_method": "explicit_midpoint",
+      "substeps": 4,
+      "P_applications": 8
+    }
+  ]
+}

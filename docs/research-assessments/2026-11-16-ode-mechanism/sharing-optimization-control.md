@@ -53,8 +53,12 @@ gradient_Bk = sum_j C[j,k] * Gj
 
 Initialize all Bk to zero without consuming random draws. The initial network,
 input gradients and common parameter gradients then match the shared model.
-The actual first update of P matches under the same optimizer state. Later
-gradients need not match because the networks have learned different functions.
+The first update of P matches when the same common gradient reaches an
+identical optimizer state. The native global clipping norm also includes
+the new contrasts, so it can change the gradient scale before that step.
+Measure both models' native clip factors and their actual first updates;
+do not claim that clipping or whole optimization trajectories are identical.
+Later gradients also change as the networks learn different functions.
 
 This release has exactly the same effective function class and parameter count
 as the current anchored release. Any four matrices are represented uniquely by
@@ -81,6 +85,11 @@ Primary question: does the shared model retain its SW2 advantage over this
 same-class, mean-preserving release? Retain both ordinary controls. Secondary
 checks are oracle field MSE, actual stage drift, computation and solver
 sensitivity. Keep the full density comparison as a separate mechanism probe.
+For the two new checkpoints, also reuse the existing density-source banks
+and numerical qualification rules to measure joint KL and Product16 component
+widths. Reuse the sixteen completed reference cells; do not rerun them. This
+secondary measurement is specified before training because the completed
+reference study already showed opposite SW2 and KL rankings.
 
 If the new release closes the gap, revise the explanation toward optimizer
 coordinates rather than attributing the old gap to sharing alone. If sharing

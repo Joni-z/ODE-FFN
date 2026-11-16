@@ -41,6 +41,12 @@ Never stop or share a foreign task.
 - [ ] Implement the registered mean-update-preserving stage release. Verify
   its full-model/native-continuation identities before the two matched20k
   training controls. This tests sharing versus optimizer coordinates.
+  - [ ] Add only the stage-coordinate adapter, grid and native evaluator wrapper.
+  - [ ] Check zero-contrast function/input/common-gradient pairing, arbitrary
+    matrix reconstruction, real optimizer mean invariance and clipping factors.
+  - [ ] Pass native8-to16 continuation and a fresh documented CPU witness.
+  - [ ] Freeze/publish, run two20k CPU trajectories with the existing monitor,
+    and evaluate on the already bound common eight-bank arrays.
 
 The Product16 oracle-window branch is rejected by its signed density result;
 do not select a favorable time bin. Keep confirmation time profiles unopened.
@@ -67,8 +73,8 @@ Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport.
 Current registration: density-adaptive-followup.md; execution: density-adaptive-execution.md.
 Previous plan: docs/history/2026-11-16-density-pre-adaptive-task-plan.md.
 
-Previous goal turn: progress, exposing full-source numerical failures.
-Current goal turn: progress, completing128-row reconstruction, qualifying
-allCPUcontrol sources, and launching the remaining bounded refinement.
+Previous goal turn: progress, completing all-source density qualification and
+rejecting the proposed Product16 explanation. Current turn implements the
+registered coordinate control and tests it before the two bounded trainings.
 Goal remains active. The density explanation is rejected; the registered
 mean-update control remains to isolate sharing from optimizer coordinates.
