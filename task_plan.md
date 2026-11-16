@@ -36,7 +36,7 @@ unconnected by a demonstrated useful constraint.
 
 ## Next concrete actions
 
-1. [ ] Implement read-only oracle-path field-error sensitivity, following
+1. [x] Implement read-only oracle-path field-error sensitivity, following
    target-geometry/trajectory-protocol.md. Keep all twelve existing checkpoints.
 2. [ ] Check independent exact Gaussian examples, native endpoint identity and
    Heun128/256qualification. Fix executable numerical tolerances before pilot;
@@ -47,6 +47,28 @@ unconnected by a demonstrated useful constraint.
 4. [ ] Only if the approximation is useful at learned error scale, register
    its all-source distribution-level test. Otherwise reject that approximation
    as an architecture guide. Keep the broader research goal active.
+
+## Current trajectory calibration
+
+Previous goal turn: progress. Its all-bank response comparison changed the
+authoritative evidence and the next test. Rechecked the clean current tree.
+Implement only a read-only observer of the unchanged native Heun sampler.
+Use existing mixture-oracle velocities plus an independently checked analytic
+Jacobian-vector product. Keep all twelve checkpoints and all eight selection
+banks. Freeze numerical gates before the pilot; failed numerical qualification
+must not become a model conclusion. The 145 restrictions remain unchanged.
+
+Readiness error retained: the first exact-Gaussian check used an unjustified
+finite-mesh ratio upper bound4.5; the bias example gives4.547at128/256and4.293
+at256/512while its absolute error decreases. Corrected that check to require
+convergence/absolute accuracy, allowing finite-mesh higher-order terms. The
+observer equations and registered pilot qualification tolerances are unchanged.
+The failed author-check directory remains preserved; no formal pilot ran.
+
+Author check-v2passes all twelve native checkpoints, three exact Gaussian
+examples and14oracle task/time cells. Analytic JVPvsAD2.84e-14; discrete
+tangent finite-difference max2.00e-8. Formal numerical gates and exact paired
+bank ratio-bootstrap are registered. Freeze the new CLIand run the fresh pass.
 
 ## Authoritative state
 
