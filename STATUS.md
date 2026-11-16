@@ -41,13 +41,21 @@ banks are bound before outcomes. Full transport is now running on four Mac CPU
 workers: queue98117, native98125-98128, original tool session15465. No result is
 claimed from the64-source witnesses. All four frozen cases, both splits, eight
 4096-source banks and four fixed interpolation strengths remain in the queue.
-The first four full4096-source banks have completed and passed all numerical
-gates (4/64banks, not4/8complete cases). Initial throughput is about9minutes/bank
+The first eight full4096-source banks have completed and passed all numerical
+gates (8/64banks, not complete cases). Initial throughput is about9minutes/bank
 with four concurrent workers, suggesting roughly2-3hours for the complete queue.
 Collector98379/session82357 watches this specific queue identity and will run
 the source-bound complete-cohort analysis once the queue actually exits.
 [Mathematical plan](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md).
 [Registered numerical protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-protocol.md).
+
+An analytic Gaussian FM control now proves how temporal cancellation can give
+better final distribution matching at larger field MSE. Native Heun endpoints
+and tangents verify it within1.07e-6. It also separates endpoint-linearization
+error from the squared-distance functional's own nonlinear remainder. The
+original primary transport gate remains unchanged.
+[Derivation, Section5](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md),
+[deterministic control](docs/research-assessments/2026-11-16-ode-mechanism/gaussian-metric-control.json).
 
 ## Execution and preserved benchmark
 

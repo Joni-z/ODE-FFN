@@ -60,3 +60,11 @@ Collector98379/session82357 binds PID98117/start identity and source-hashed
 analysis0be62ae. It waits for actual exit and all16zero child exits, then runs
 complete analysis automatically. Caffeinate29502 is scoped to98117. Independent
 recursive multinomial-bootstrap control passes, full-statistics audit pending.
+
+Analytic Gaussian control31946actual0: modelAfield MSE.010 with endpoint mean
+.1*sqrt(2)*asinh(1); modelBfield MSE.04/3 with exact target distribution through
+odd-in-time cancellation. Native Heun endpoint1.06e-6 and tangent4.54e-7 errors
+qualify. This is a general flow counterexample, not an ODE-FFN gain. An exact
+linear endpoint path can still produce nonlinear squared SW2; Section5 of the
+target-aware derivation separates both remainder sources without changing the
+original primary gate. Full first8/64banks qualify; no complete result yet.

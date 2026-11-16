@@ -92,3 +92,46 @@ Each arrow needs its own numerical check and unfitted held-out comparison.
 If this chain fails, keep the measured discretization effect and reject that
 mechanistic explanation rather than add another activation. No image candidate
 is promoted while ordinary controls remain stronger.
+
+## 5. Keep endpoint transport and target-functional curvature separate
+
+Added during full execution, from the following analytic control; the original
+primary linear-L test and its gates remain unchanged. This is a secondary error
+accounting of the already fixed endpoints, not another fitted predictor.
+
+Even an exact endpoint tangent need not give an accurate first-order loss change
+at lambda1. Let X(lambda)=X0+lambda*u exactly. The squared distance is generally
+nonlinear in lambda; for a pure translation toward an identical target cloud,
+L(lambda)=(1-lambda)^2*L0. Its tangent predicts -2*lambda*L0, while the actual
+change is (-2*lambda+lambda^2)*L0. At lambda1 the tangent has the correct sign
+but only ties the zero-change predictor in squared error, although endpoint
+transport is exact. Thus failure of the registered linear-L test alone does
+not identify failure of the endpoint tangent.
+
+For every fixed case/split/lambda, the following exact decomposition is available
+without new model evaluation:
+
+    Lhat(lambda)=SW2_squared(X0+lambda*u,Y)
+    Lactual-L0-lambda*Lprime = (Lactual-Lhat)
+                             +(Lhat-L0-lambda*Lprime)
+
+The first term is target-functional error from endpoint linearization. The
+second is the exact functional remainder along the linearized endpoints,
+including any projection sorting changes. Do not fit either term or relabel the
+original primary test as passed. Report all four cases and both splits if this
+secondary decomposition is used.
+
+An analytic FM counterexample also separates field fitting from generation.
+For independent standard-Gaussian source/target, the interpolation variance is
+c(t)=(1-t)^2+t^2 and the oracle velocity is a(t)*x, a=(2t-1)/c. Consider
+
+    vA=a(t)*x+.1
+    vB=a(t)*x+.2*(2t-1)
+
+Their uniform-time field MSEs are .010 and .013333..., respectively. The final
+variance is1 for both. Their means are mA=.1*sqrt(2)*asinh(1) and mB=0, since
+the endpoint forcing weight1/sqrt(c(t)) is symmetric and B's forcing odd around
+t=.5. Population W2 is |mA| for A and0 for B. Larger field MSE can therefore
+give exact distribution matching through temporal cancellation. This is a
+general flow property, not an ODE-FFN advantage. A native Heun128 deterministic
+check must agree with these endpoints/tangents to1e-4 before using the example.

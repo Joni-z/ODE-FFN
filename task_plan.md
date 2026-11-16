@@ -103,3 +103,16 @@ actual figures and recheck all protected hashes before publishing conclusions.
 This continuation is progress (implementation, independent controls and formal
 observations), not goal completion. Full transport and ODE-specific novelty
 remain unresolved; no new image architecture is promoted.
+
+While the fixed full queue runs, check an analytic Gaussian FM control:
+temporal cancellation can improve final W2 while increasing field MSE. Also
+separate exact target-functional curvature from endpoint-tangent error using
+the already registered outputs. Keep the original primary linear-L decision
+unchanged; this deterministic control does not replace any full-cohort test.
+That control now passes actual native execution31946exit0: Gaussian endpoint
+error1.06e-6,tangent4.54e-7, affine endpoint transport exact to floating precision.
+It proves why squared-loss linearization can fail at lambda1 despite exact
+endpoint transport. Preserve the original primary result; before interpreting
+any failure, calculate the exact functional-remainder decomposition on all
+cases from the already saved endpoints. No new samples or fitted coefficients.
+Current full progress:8/64banks qualify; queue98117 remains live, not completed.

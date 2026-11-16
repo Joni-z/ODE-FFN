@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "field_mse_A": 0.01,
+  "field_mse_B": 0.013333333333333334,
+  "population_w2_A": 0.12464504802804613,
+  "population_w2_B": 0.0,
+  "native_heun_endpoint_max_error": 1.0611771259216862e-06,
+  "native_tangent_max_error": 4.542147060276891e-07,
+  "all_native_primal_exact": true,
+  "rows": [
+    {
+      "coefficient": 0.125,
+      "actual_loss": 0.011895126878282303,
+      "linear_endpoint_loss": 0.011895126878282277,
+      "linear_loss_change": -0.0038841243251114895,
+      "transport_remainder": 2.6020852139652106e-17,
+      "functional_remainder": 0.000242757831708565,
+      "closure": 0.0
+    },
+    {
+      "coefficient": 0.25,
+      "actual_loss": 0.008739276048296458,
+      "linear_endpoint_loss": 0.008739276048296461,
+      "linear_loss_change": -0.007768248650222979,
+      "transport_remainder": -3.469446951953614e-18,
+      "functional_remainder": 0.0009710313268342383,
+      "closure": 0.0
+    },
+    {
+      "coefficient": 0.5,
+      "actual_loss": 0.003884121378576231,
+      "linear_endpoint_loss": 0.0038841213785762246,
+      "linear_loss_change": -0.015536497300445958,
+      "transport_remainder": 6.5052130349130266e-18,
+      "functional_remainder": 0.003884125307336981,
+      "closure": -1.3010426069826053e-18
+    },
+    {
+      "coefficient": 1.0,
+      "actual_loss": 1.411942763665692e-13,
+      "linear_endpoint_loss": 1.411942765132225e-13,
+      "linear_loss_change": -0.031072994600891916,
+      "transport_remainder": -1.466533064919698e-22,
+      "functional_remainder": 0.015536501229347908,
+      "closure": 0.0
+    }
+  ],
+  "original_primary_gate_unchanged": true,
+  "learned_checkpoints_used": 0,
+  "source_sha256": {
+    "studies/muon_pd_20261102/target_transport_20261117/check_metric_curvature.py": "95cf762889ef9b3dc7c6bf6109de095cf7516e390b3718a44f577846c99f64f1"
+  },
+  "actual_terminal_exit": 0
+}
