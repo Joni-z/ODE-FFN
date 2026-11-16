@@ -39,8 +39,30 @@ fields. Do not restart a live worker after an observation timeout.
 
 Wait for successful full-parent worker completion before refining its sources.
 Use the unchanged GPU4-7 selector and exclusive UUID guard if a card becomes
-idle; otherwise use Mac CPU with its matching witness. Add and witness the exact
-CUDA invocation before deployment. Never modify the running formal producer.
+idle; otherwise use Mac CPU with its matching witness. Never modify the running
+formal producer. The separate frozen refinement worktree is
+`/data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/adaptive-repo`, source
+405a201. The original 3a7d5fe worktree remains unchanged.
+
+After Product16 shared-generator parent index 1 has exited successfully and
+a permitted GPU is idle, a fresh agent runs this witness once verbatim:
+
+```sh
+ssh -o BatchMode=yes -o ConnectTimeout=10 145 'cd /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/adaptive-repo && /data2/zz5070/miniconda3/envs/py312/bin/python -u studies/muon_pd_20261102/density_transport_20261116/adaptive_dispatch.py --root /data2/zz5070/ODE_FFN/mechanism-sharing-symmetry-20261116/portable --data /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/portable --runtimes /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/formal-runs-cuda-batched --indices 1 --device cuda --derivative-backend batched --witness --output /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/adaptive-doc-cuda'
+```
+
+Exit 75 means no permitted idle card. Do not reclaim or share a card. Require
+the same four-subset/two-merge/unchanged-parameter checks and independent
+native-law reconstruction as on CPU. This exercises the real 16-dimensional
+entry and both fields on the validated batched Jacobian backend.
+
+When all six GPU parent workers have exited successfully, launch the bounded
+refinement once using the successful CUDA witness. The stdlib dispatcher may
+wait for newly idle cards, using one worker per permitted GPU.
+
+```sh
+ssh -o BatchMode=yes -o ConnectTimeout=10 145 'cd /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/adaptive-repo && /data2/zz5070/miniconda3/envs/py312/bin/python -u studies/muon_pd_20261102/density_transport_20261116/adaptive_dispatch.py --root /data2/zz5070/ODE_FFN/mechanism-sharing-symmetry-20261116/portable --data /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/portable --runtimes /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/formal-runs-cuda-batched --indices 1,7,0,6,5,4 --device cuda --derivative-backend batched --workers 4 --readiness /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/adaptive-doc-cuda/COMPLETE.json --output /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/adaptive-runs-cuda --detach'
+```
 
 ## Independent audit
 
