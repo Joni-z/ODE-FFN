@@ -1,0 +1,195 @@
+{
+  "passed": true,
+  "cases": 2,
+  "max_independent_error": 2.4868995751603507e-14,
+  "timings": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "seconds32": {
+        "original": 1.19412412494421,
+        "projected": 7.272935125045478
+      },
+      "observer_projected_formal_seconds_estimate": 3251.3507519960403
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "seconds32": {
+        "original": 4.895417208317667,
+        "projected": 31.066928333137184
+      },
+      "observer_projected_formal_seconds_estimate": 13809.540687918663
+    }
+  ],
+  "checks": [
+    {
+      "passed": true,
+      "phase": "benchmark",
+      "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+      "device": "cpu",
+      "derivative_backend": "coordinate",
+      "rows": [
+        {
+          "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "dataset": "gmm_ring8_2d",
+          "family": "contrast_operator_midpoint4",
+          "mode": "original",
+          "bank": 0,
+          "steps": 32,
+          "n": 256,
+          "file": "original-bank0-heun32.npz",
+          "sha256": "100ef4216c6fc1ac70d3bd6f222c8b404a7da916a2e7f159d367f49527230fd6",
+          "mean_log_ratio": 0.05664304379431241,
+          "sd_log_ratio": 0.39752846491643523,
+          "mc_se": 0.024845529057277202,
+          "quantiles": [
+            -0.5588934240129371,
+            -0.4915276598898768,
+            0.009401141632507527,
+            1.4077310567941033,
+            4.1335556261898025
+          ],
+          "chain_max_per_dim": 0.016470625354053636,
+          "local_logdet_max_per_dim": 0.05847793843412008,
+          "time_bin_mean": [
+            0.0011095314423771709,
+            -0.0002633744231513191,
+            0.0022758260177548344,
+            0.0031525831784664183,
+            0.008273122832138666,
+            0.011673118750438978,
+            0.025816732279605743,
+            0.004605503716681913
+          ],
+          "seconds": 1.19412412494421
+        },
+        {
+          "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "dataset": "gmm_ring8_2d",
+          "family": "contrast_operator_midpoint4",
+          "mode": "projected",
+          "bank": 0,
+          "steps": 32,
+          "n": 256,
+          "file": "projected-bank0-heun32.npz",
+          "sha256": "e855abb5f04c0cfeaf713e6ff9abc084cfdd3baf3271096f192e00b2b95ba8a6",
+          "mean_log_ratio": 0.03331311959202176,
+          "sd_log_ratio": 0.3442669158936379,
+          "mc_se": 0.02151668224335237,
+          "quantiles": [
+            -0.34760671002336546,
+            -0.31082513717601556,
+            -0.007064831115005114,
+            0.9564267733839402,
+            3.7211051870858305
+          ],
+          "chain_max_per_dim": 0.014950750804713864,
+          "local_logdet_max_per_dim": 0.14241054628163763,
+          "time_bin_mean": [
+            -0.000349939263356753,
+            -0.000789468623504601,
+            0.001297362176249602,
+            0.0004617707955696323,
+            -0.0008072252824732028,
+            0.0033793602429234753,
+            0.019861391188223703,
+            0.0102598683583899
+          ],
+          "seconds": 7.272935125045478
+        }
+      ],
+      "numerical_gates": [],
+      "source_sha256": {
+        "formal_density.py": "63e68bb80aed5b0d4a725f466bf02fbb4724294cd5af02c01289e7245fb22ffa",
+        "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728",
+        "jacobian_backend.py": "ba9334ed9a2110f9d7f6b7ad0f7ac041a1679e61b87874227828339885511014"
+      },
+      "completion_sha256": "415dca417e67c2cc063462315a5a82e331152db2018052e476bdb035167e0ab8",
+      "max_independent_error": 4.440892098500626e-16
+    },
+    {
+      "passed": true,
+      "phase": "benchmark",
+      "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+      "device": "cpu",
+      "derivative_backend": "coordinate",
+      "rows": [
+        {
+          "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+          "dataset": "rotated_product_bimodal_16d",
+          "family": "contrast_operator_midpoint4",
+          "mode": "original",
+          "bank": 0,
+          "steps": 32,
+          "n": 256,
+          "file": "original-bank0-heun32.npz",
+          "sha256": "3c2b2dd750726ba978f299c757eb57de7993a663cfbf29b34a0edc6c60004ba1",
+          "mean_log_ratio": 0.6397651153230878,
+          "sd_log_ratio": 1.895742553047928,
+          "mc_se": 0.1184839095654955,
+          "quantiles": [
+            -2.200884215504042,
+            -1.8785037385165277,
+            0.23208747114101833,
+            8.274689676104687,
+            14.000824424031356
+          ],
+          "chain_max_per_dim": 0.007176925344395291,
+          "local_logdet_max_per_dim": 0.01885684628722728,
+          "time_bin_mean": [
+            -0.003973640627906333,
+            0.0032615414936218194,
+            0.016614672815628867,
+            0.027684447370827953,
+            0.09127228951088813,
+            0.1290284411138092,
+            0.26090812612036,
+            0.1149692375258581
+          ],
+          "seconds": 4.895417208317667
+        },
+        {
+          "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+          "dataset": "rotated_product_bimodal_16d",
+          "family": "contrast_operator_midpoint4",
+          "mode": "projected",
+          "bank": 0,
+          "steps": 32,
+          "n": 256,
+          "file": "projected-bank0-heun32.npz",
+          "sha256": "e9aa79bb26ac14f8835184aa21d13c9a84586adb8140b04ad088ef68bea97ab1",
+          "mean_log_ratio": 0.7378791714019275,
+          "sd_log_ratio": 2.3063043084931505,
+          "mc_se": 0.1441440192808219,
+          "quantiles": [
+            -2.171904292008683,
+            -1.8541171453602292,
+            0.25334634600497513,
+            9.854913466790968,
+            20.39780158955168
+          ],
+          "chain_max_per_dim": 0.010878688082388455,
+          "local_logdet_max_per_dim": 0.030643605605493507,
+          "time_bin_mean": [
+            -0.0038313525751100977,
+            0.0013347012298700334,
+            0.015568227157407468,
+            0.028217612674363977,
+            0.07430151881752588,
+            0.17491712747433819,
+            0.3125483568786088,
+            0.13482297974492327
+          ],
+          "seconds": 31.066928333137184
+        }
+      ],
+      "numerical_gates": [],
+      "source_sha256": {
+        "formal_density.py": "63e68bb80aed5b0d4a725f466bf02fbb4724294cd5af02c01289e7245fb22ffa",
+        "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728",
+        "jacobian_backend.py": "ba9334ed9a2110f9d7f6b7ad0f7ac041a1679e61b87874227828339885511014"
+      },
+      "completion_sha256": "0e5344be0a4a4998de35f5292afaa18d655110c9dffcc0adc34df9c413245695",
+      "max_independent_error": 2.4868995751603507e-14
+    }
+  ]
+}

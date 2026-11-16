@@ -58,10 +58,11 @@ Never stop or share a foreign task.
     two registered contrast checkpoints; bind the model-builder source hashes.
   - [x] Copy the existing P2source arrays byte-for-byte and generate only the
     two new native CPU anchors. Preserve all earlier portable/evidence roots.
-  - [ ] Verify derivatives, native endpoints and real CLI entries; obtain a
+  - [x] Verify derivatives, native endpoints and real CLI entries; obtain a
     fresh documented witness before the bounded observation queue.
-  - [ ] Use Mac CPUwhile145physical4-7are occupied; benchmark the new cells
-    and freeze source before monitored1024/2048 observations. Refine unresolved
+  - [x] Use Mac CPUwhile145physical4-7are occupied; benchmark the new cells
+    and freeze source before monitored1024/2048 observations.
+  - [ ] Independently collect all32new formal rows and refine unresolved
     sources under the original unchanged gates, with no point removal.
   - [ ] Run outer128/256/512 and inner4/8/16checks on the original sharing
     evaluation arrays, independently recompute scores and compare the same banks.
@@ -80,7 +81,7 @@ contexts are released; only idle GPUs4-7were used.
 Initial workers3584335/3584336/3584337/3584338; Product16ordinary controls
 follow in the same monitored queue. Re-poll live handles after timeouts.
 
-The running405a201adaptive engine and3a7d5feformal producer remain frozen.
+The completed405a201adaptive engine and3a7d5feformal producer remain frozen.
 New statistics are separate files; no training or image experiment is added.
 Timing-only small-subset probes show that future tiny Ring8refinements should
 use Mac CPU; Product16projected subsets still favor GPU. Do not change a
@@ -107,6 +108,15 @@ native loss/sampler and all finalized report files unchanged.
 
 Author preparation is complete: two new checkpoints replay the full native
 field and bank0exactly; two new and all eight original model entries pass.
-Eight full-native-map logdet checks pass within3.68e-8. No population-density
-or full-bank numerical job is launched before the fresh documented witness.
+Eight full-native-map logdet checks pass within3.68e-8at the finest stencil.
+The fresh documented witness passes four commands, all exits0. Independent
+native-law/NumPyentry audits pass, max1.78e-14; eight bounded numerical scores
+reproduce within2.78e-17. Sequential256-source benchmarks pass independently.
+At frozenfd7f09b, densityqueue43084(workers43093/43094) and numericalqueue43096
+(initial workers43098/43099) are live with advancing integration and actual
+CPUutilization. Four numerical tasks use all32768sources; two new density
+cases retain all1024sources each, two fields and1024/2048steps.
 Protocol: coordinate-control/observation-protocol.md. No current blocker.
+
+Execution note: a publication-only Python helper had an unmatched brace and
+failed before executing. Corrected it once; no observation job was restarted.

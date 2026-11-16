@@ -2,13 +2,17 @@
 
 ## Latest: mean-preserving coordinate control complete
 
-New-control follow-up preparation: two portable checkpoints preserve native
+New-control follow-up: two portable checkpoints preserve native
 field/bank0outputs exactly and copy the original P2arrays byte-for-byte.
 The existing entries accept manifest-sized two/eight-case populations;
 both new and original derivative/formal regressions pass. Eight complete
-native-sampler-map finite differences agree within3.68e-8. The augmented
-observer and its math remain unchanged. Fresh documented CPUwitness is next;
-no new population or full32768-source sweep is launched yet.1454-7occupied.
+native-sampler-map finite differences agree within3.68e-8at the finest stencil.
+The augmented observer and its math remain unchanged. Fresh documented CPU
+witness passes, exits0/0/0/0. Independent entries reproduce within1.78e-14;
+eight bounded numerical scores reproduce within2.78e-17. Frozenfd7f09b
+densityqueue43084and numericalqueue43096are running with live monitored
+workers.1454-7occupied; noGPUallocated. Full32new density rows and four
+32768-source numerical tasks remain to finish and be independently collected.
 
 Two20kCPUtrajectories at frozen cdd79e5and all common-bank evaluations
 finished. All10model/task rows independently reproduce within2.78e-17.

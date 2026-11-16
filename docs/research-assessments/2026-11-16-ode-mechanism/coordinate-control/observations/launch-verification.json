@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "unix_time": 1794800720.321861,
+  "frozen_source": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "formal_density_rows_expected": 32,
+  "numerical_tasks_expected": 4,
+  "no_gpu_allocated": true,
+  "queues": {
+    "formal": {
+      "queue_pid": 43084,
+      "actual_processes": [
+        "43084 03:46   0.0 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/formal_dispatch.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal --phase formal --indices 0,1 --device cpu --workers 2 --derivative-backend coordinate --readiness /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/doc-witness/COMPLETE.json",
+        "43093 03:46 100.0 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/formal_density.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003 --index 0 --phase formal --device cpu --readiness /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/doc-witness/COMPLETE.json --derivative-backend coordinate",
+        "43094 03:46  99.9 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/formal_density.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003 --index 1 --phase formal --device cpu --readiness /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/doc-witness/COMPLETE.json --derivative-backend coordinate"
+      ],
+      "running": [
+        {
+          "pid": 43093,
+          "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "mode": null,
+          "progress": {
+            "pid": 43093,
+            "phase": "formal",
+            "rows_completed": 1,
+            "rows_total": 16,
+            "seconds": 210.02519912505522,
+            "action": "density_sampling",
+            "mode": "original",
+            "bank": 0,
+            "steps": 2048,
+            "completed_steps": 2048
+          }
+        },
+        {
+          "pid": 43094,
+          "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+          "mode": null,
+          "progress": {
+            "pid": 43094,
+            "phase": "formal",
+            "rows_completed": 0,
+            "rows_total": 16,
+            "seconds": 223.9587737089023,
+            "action": "density_sampling",
+            "mode": "original",
+            "bank": 0,
+            "steps": 1024,
+            "completed_steps": 896
+          }
+        }
+      ],
+      "completed": 0,
+      "pending": []
+    },
+    "numerical": {
+      "queue_pid": 43096,
+      "actual_processes": [
+        "43096 03:46   0.0 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/coefficient_20261116/resolution_queue.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/sampling-models --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/numerical --only numerical --full-outer --inner-substeps 4 8 16",
+        "43098 03:45 100.0 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/sampling-models --case gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/numerical/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003/full-outer --mode full-outer --inner-substeps 4 8 16",
+        "43099 03:45  99.6 /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/sampling-models --case gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/numerical/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003/full-internal --mode full-internal --inner-substeps 4 8 16"
+      ],
+      "running": [
+        {
+          "pid": 43098,
+          "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "mode": "full-outer",
+          "progress": {
+            "rows": [
+              {
+                "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+                "dataset": "gmm_ring8_2d",
+                "family": "contrast_operator_midpoint4",
+                "mode": "full-outer",
+                "inner_substeps": 4,
+                "heun_steps": 128,
+                "nfe": 256,
+                "samples": 32768,
+                "pooled_sw2": 0.10427604061492296,
+                "seconds": 165.83598237484694,
+                "generated_file": "inner4-heun128.npy",
+                "generated_sha256": "61024e8de6049725571e30461e1d7cbee507a114f4ad5b7428d8ece06c880fd2",
+                "checkpoint_sha256": "84bee4e81cb78d1719e4e83e24f29c89f56ee9c8c0e47ef664da664c59cdbcc9",
+                "assets_sha256": "b0ff421f36e36a195b25051535a175381b19e8fea393c572f15a8c5e52c96ae3",
+                "original_score_difference": 0.0,
+                "original_sample_max_error": 0.0,
+                "bank_sw2": [
+                  0.14528635872267437,
+                  0.0877947155296993,
+                  0.0987849191382224,
+                  0.08023505843152472,
+                  0.142682610331511,
+                  0.08150686830244572,
+                  0.21128355004648644,
+                  0.14876011724763505
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "pid": 43099,
+          "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "mode": "full-internal",
+          "progress": {
+            "rows": [
+              {
+                "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+                "dataset": "gmm_ring8_2d",
+                "family": "contrast_operator_midpoint4",
+                "mode": "full-internal",
+                "inner_substeps": 4,
+                "heun_steps": 128,
+                "nfe": 256,
+                "samples": 32768,
+                "pooled_sw2": 0.10427604061492296,
+                "seconds": 166.22205770760775,
+                "generated_file": "inner4-heun128.npy",
+                "generated_sha256": "61024e8de6049725571e30461e1d7cbee507a114f4ad5b7428d8ece06c880fd2",
+                "checkpoint_sha256": "84bee4e81cb78d1719e4e83e24f29c89f56ee9c8c0e47ef664da664c59cdbcc9",
+                "assets_sha256": "b0ff421f36e36a195b25051535a175381b19e8fea393c572f15a8c5e52c96ae3",
+                "original_score_difference": 0.0,
+                "original_sample_max_error": 0.0,
+                "bank_sw2": [
+                  0.14528635872267437,
+                  0.0877947155296993,
+                  0.0987849191382224,
+                  0.08023505843152472,
+                  0.142682610331511,
+                  0.08150686830244572,
+                  0.21128355004648644,
+                  0.14876011724763505
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "completed": 0,
+      "pending": [
+        [
+          "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+          "full-outer"
+        ],
+        [
+          "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+          "full-internal"
+        ]
+      ]
+    }
+  },
+  "raw_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations",
+  "witness_exits": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "witness_first_pid_from_formal_progress": 42785,
+  "input_binding": {
+    "density_portable": "1801752ee18502dc792ebcb413720e58c65de33c89584a2c9c590ab4a222de1b",
+    "sampling_portable": "6134711838b2a2bfb8f55233c57d2083811576578bfd4b921304cd3aa2563082",
+    "density_data": "af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577"
+  }
+}

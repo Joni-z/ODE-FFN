@@ -2,14 +2,21 @@
 
 ## Current priority: identify the ODE contribution
 
-**New-control numerical/density observations are prepared.** Both portable
+**New-control numerical/density observations are running on Mac mini.** Both portable
 checkpoints reproduce their complete native field and bank0samples exactly.
 P2density arrays are copied byte-for-byte. Two new-model derivative/formal
 entries and the original eight-model regression pass; eight full-native-map
-finite-difference checks agree within3.68e-8. The density observer is unchanged.
-Next: frozen-source documented witness, sequential timing, then monitored
-Mac CPUobservations.145physical4-7are occupied; noGPUis allocated.
+finite-difference checks agree within3.68e-8at the finest stencil. The density observer is unchanged.
+The fresh four-command documented witness exits0/0/0/0. NumPy independently
+reconstructs both formal-entry witnesses within1.78e-14and all eight bounded
+numerical scores within2.78e-17. Sequential256-source timing is complete.
+Frozenfd7f09b: densityqueue43084, workers43093/43094; numericalqueue43096,
+workers43098/43099initially. ActualPIDs and advancing integration steps are
+verified. These are observations, not additional training. Raw row/bank
+outputs are not final comparisons until independent collection/refinement.
+145physical4-7are occupied; noGPUis allocated.
 [Exact scope and invocation](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observation-protocol.md).
+[Readiness, timing and actual launch](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/launch-verification.json).
 
 **The mean-preserving stage control is complete.** It represents the same
 function class as anchored stage release while keeping the effective mean

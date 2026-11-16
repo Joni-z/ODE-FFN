@@ -1,0 +1,25 @@
+{
+  "queue_pid": 43096,
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/coefficient_20261116/resolution_queue.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/sampling-models",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/numerical",
+    "--only",
+    "numerical",
+    "--full-outer",
+    "--inner-substeps",
+    "4",
+    "8",
+    "16"
+  ],
+  "started": 1794800494.909533,
+  "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "device": "cpu",
+  "workers": 2,
+  "source": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo",
+  "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/numerical"
+}
