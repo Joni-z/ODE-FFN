@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "same_full_batch_portable": true,
+  "source_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "comparisons": [
+    {
+      "mode": "original",
+      "cpu_seconds": 4.895417208317667,
+      "cuda_seconds": 2.36066916026175,
+      "speedup": 2.073741331790375,
+      "max_relative_endpoint_error": 5.086688012360817e-15,
+      "max_logratio_error_per_dim": 5.651035195342047e-14
+    },
+    {
+      "mode": "projected",
+      "cpu_seconds": 31.066928333137184,
+      "cuda_seconds": 2.152743326500058,
+      "speedup": 14.431320237162675,
+      "max_relative_endpoint_error": 1.8608827558776015e-14,
+      "max_logratio_error_per_dim": 2.97983859809392e-13
+    }
+  ],
+  "total_speedup": 7.967883646118147,
+  "cpu_completion_sha256": "0e5344be0a4a4998de35f5292afaa18d655110c9dffcc0adc34df9c413245695",
+  "gpu_completion_sha256": "4163221354bc2d7ccb4c255ea14a3ffb4cd4cea8ba754c942c85619b647508f1",
+  "independent_reconstruction_error": 2.4868995751603507e-14,
+  "handoff_threshold": 3.0,
+  "handoff_warranted": true
+}

@@ -64,6 +64,11 @@ Never stop or share a foreign task.
     and freeze source before monitored1024/2048 observations.
   - [ ] Independently collect all32new formal rows and refine unresolved
     sources under the original unchanged gates, with no point removal.
+  - [ ] Extend the existing population-statistics reader to compare the two
+    new qualified cases with all eight preserved references. Verify identical
+    dataset bytes and retain the eight registered99.375%paired intervals.
+    Replay the completed original analysis unchanged as the regression check;
+    do not export confirmation time profiles or invent new training repeats.
   - [x] Run outer128/256/512 and inner4/8/16checks on the original sharing
     evaluation arrays, independently recompute scores and compare the same banks.
 
@@ -81,9 +86,44 @@ Never stop or share a foreign task.
 - [x] Reuse the native full-field reverse/mean/base probes, and confirm
   original/new parameter coordinates yield the same effective-stage results.
   Freeze/publish the diagnostic and obtain a fresh documented execution.
-- [ ] If145physical5-7remain idle, prepare new-model CUDAreadiness for
-  future unresolved-source refinement only. Do not duplicate or restart the
-  live CPUformal observations. Reuse their actual completed parents.
+- [x] Prepare and independently verify new-model CUDAreadiness. Initial
+  routing was future refinement only; the measured amendment below now
+  replaces our slow Product16CPUobservation while preserving its state.
+  - [x] Fetch pinned fd7f09b through GitHub into an isolated145worktree;
+    transfer42,373,120bytes and independently verify all14input files.
+  - [x] Pass the new two-model CUDAderivative/native/backend entry. First
+    witnessed attempt exited75before a child; source and data stayed intact.
+    Author rechecks the exact selector:5/7eligible, matching raw driver output.
+    No parser fault reproduced; second fresh documented entry exits0on5,
+    both models and all four backend cells pass. Its CUDAcontext is released.
+  - [x] Pass a fresh Product16CUDAadaptive entry; independently reconstruct
+    four native witness rows within1.25e-13. It does not qualify a population.
+
+## Measured routing amendment
+
+The second CUDAentry has now passed on physical5and released its context.
+Newly available permitted GPUs change the earlier CPU-only routing premise.
+Measure the exact Product16B256/32step benchmark against its already saved
+CPU counterpart. If CUDAis at least3xfaster and full-batch arrays agree
+(relative endpoints/log ratios per dimension<1e-7), an intentional handoff
+may replace only our Product16CPUworker. Preserve all completed CPUrows.
+Suspend our exact Product16PID43094while securing the GPU; retain that
+in-memory state until the entire GPUcase has completed and passed independent
+and matched-completed-row audits. Resume it if the replacement fails. Rerun
+the entire unchanged16-row case on the GPUrather than splice hosts. Only
+after successful replacement audit terminate our suspended CPUworker and
+record its intentional supersession; never suppress another queue failure.
+Measured B256CUDA/CPU ratios are2.074original and14.431projected,7.968combined;
+endpoint/log-ratio differences are below3e-13. This is a measured resource change, not
+a timeout-driven retry or outcome-selected run. Ring8continues CPU.
+
+Handoff is live: 145queue641894/worker641939on freshly idlephysical7at
+fd7f09b. CPU43094is suspended, with nine complete rows and the exact process
+identity saved. Keep that fallback until the full16-row replacement passes
+independent and cross-host audits. Ring8PID43093continues. Source, weights,
+arrays and numerical gates are unchanged. Readiness, adaptive-entry audit,
+measured portability/speed and the actual allocation are preserved under
+coordinate-control/observations/. No foreign task is stopped or shared.
 
 The Product16 oracle-window branch is rejected by its signed density result;
 do not select a favorable time bin. Keep confirmation time profiles unopened.

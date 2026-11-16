@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "state": "gpu_live_cpu_fallback_held",
+  "observed_at": 1794806046.0442681,
+  "remote_status": {
+    "queue_pid": 641894,
+    "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+    "device": "cuda",
+    "phase": "formal",
+    "unix_time": 1794806039.7530494,
+    "completed": [],
+    "running": [
+      {
+        "index": 1,
+        "id": "rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+        "pid": 641939,
+        "physical_gpu": 7,
+        "gpu_uuid": "GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b",
+        "output": "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/formal-product16/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+        "command": [
+          "/data2/zz5070/miniconda3/envs/py312/bin/python",
+          "-u",
+          "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/repo/studies/muon_pd_20261102/density_transport_20261116/formal_density.py",
+          "--root",
+          "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/input/density-models",
+          "--data",
+          "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/density-data",
+          "--output",
+          "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/formal-product16/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003",
+          "--index",
+          "1",
+          "--phase",
+          "formal",
+          "--device",
+          "cuda",
+          "--readiness",
+          "/data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/doc-cuda-2/COMPLETE.json",
+          "--derivative-backend",
+          "batched",
+          "--gpu-uuid",
+          "GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b"
+        ],
+        "started": 1794805848.915636,
+        "progress": {
+          "pid": 641939,
+          "phase": "formal",
+          "rows_completed": 1,
+          "rows_total": 16,
+          "seconds": 182.88374566845596,
+          "action": "density_sampling",
+          "mode": "original",
+          "bank": 0,
+          "steps": 2048,
+          "completed_steps": 2048
+        }
+      }
+    ],
+    "pending": [],
+    "failed": false,
+    "gpus4to7": [
+      [
+        "4",
+        " GPU-6c644192-ce4a-5d10-b912-07a6fc24f352",
+        " 37508"
+      ],
+      [
+        "5",
+        " GPU-ce799976-7805-c539-9913-3bbadcdbadbf",
+        " 37508"
+      ],
+      [
+        "6",
+        " GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023",
+        " 2252"
+      ],
+      [
+        "7",
+        " GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b",
+        " 580"
+      ]
+    ],
+    "inventory_error": null
+  },
+  "remote_ps": "    PID    PPID S     ELAPSED %CPU COMMAND\n 641894       1 S       03:17  0.0 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/repo/studies/muon_pd_20261102/density_transport_20261116/formal_dispatch.py --root /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/input/density-models --data /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/density-data --output /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/formal-product16 --phase formal --indices 1 --device cuda --workers 1 --derivative-backend batched --readiness /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/doc-cuda-2/COMPLETE.json\n 641939  641894 R       03:16 97.2 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/repo/studies/muon_pd_20261102/density_transport_20261116/formal_density.py --root /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/input/density-models --data /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/density-data --output /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/formal-product16/cases/rotated_product_bimodal_16d__contrast_operator_midpoint4__adamw_0.0003 --index 1 --phase formal --device cuda --readiness /data2/zz5070/ODE_FFN/mean-preserving-observations-20261116/doc-cuda-2/COMPLETE.json --derivative-backend batched --gpu-uuid GPU-6bb30f73-bd71-ebef-4d8b-8dc9e075449b\n",
+  "local_ps": "  PID  PPID STAT  ELAPSED  %CPU\n43093 43084 R    01:32:32  97.8\n43094 43084 T    01:32:32   0.0\n",
+  "cpu_start_sha256": "1de1b61bc450567a786aa8bc7676f644616accf32a1f62c8b8b0d79073f58c2d",
+  "independent_cuda_adaptive_witness_sha256": "45172385cd2cdba55d5128e2f4a85bbf95b891eb43d245a167995c88b766225d",
+  "replacement_pid": 641939,
+  "replacement_queue_pid": 641894,
+  "physical_gpu": 7
+}

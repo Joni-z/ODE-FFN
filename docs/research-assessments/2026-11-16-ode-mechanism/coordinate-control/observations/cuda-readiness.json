@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "device": "cuda",
+  "model_cases": 2,
+  "density_data_sha256": "af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577",
+  "derivative_backend": "batched",
+  "backend_completion_sha256": "5ca0de41bf3894a6860189aa90f46f8e7878190ddba77430bba9ad00eee5bfde",
+  "device_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_uuid": "GPU-ce799976-7805-c539-9913-3bbadcdbadbf",
+  "formal_witnesses": [
+    {
+      "index": 0,
+      "completion_sha256": "41df4d289f51ee8ad0c2e32ea68f43943abcbd17136bbf7a1e2079e4fa7d2bea"
+    },
+    {
+      "index": 1,
+      "completion_sha256": "ca02499bb4735de58da6d467ab17343d109b0ee92aeefc8a899f05c1a4cf05ba"
+    }
+  ],
+  "derivative_completion_sha256": "e5f2f43d69ac4bec7a99188768b084abf2643b7a05af20bf8100119a7c91b8d7",
+  "source_sha256": {
+    "check_formal.py": "5d04c10df595fabce88f5f7d049c48d4fc935535f5f8cf0f0ad8383b46b350c7",
+    "formal_density.py": "63e68bb80aed5b0d4a725f466bf02fbb4724294cd5af02c01289e7245fb22ffa",
+    "density_ops.py": "052ce1fd5a2e66b30c77ba860229a9876752e29d82385c155554d0c8018cf728",
+    "jacobian_backend.py": "ba9334ed9a2110f9d7f6b7ad0f7ac041a1679e61b87874227828339885511014"
+  }
+}

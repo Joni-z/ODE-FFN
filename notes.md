@@ -171,3 +171,28 @@ Full statistics and three inspected scientific figures are published in the
 canonical density-transport folder. All workers exit0and our GPUcontexts
 are released. Next: implement/check the registered mean-preserving release
 before the two matched training controls. No finalized report is changed.
+
+
+## Measured new-control observation handoff
+
+Product16 B256 timing at unchanged fd7f09b gives CUDA speedups 2.074x
+original / 14.431x projected / 7.968x combined. Full-batch endpoint and
+log-ratio portability errors stay below 3e-13. Formal and adaptive CUDA
+native entries passed; the adaptive witness independently reconstructs
+within 1.25e-13 but does not qualify a population. Idle physical GPU7 now
+runs queue641894/worker641939. CPU43094 is suspended as a reversible
+fallback, with all nine complete rows and their hashes retained. Ring8
+CPU43093 continues. Never stop the fallback until all16 replacement rows
+pass independent and cross-host audits. No foreign job is stopped/shared.
+
+The combined density reader preserves the completed original analysis;
+paired-bootstrap constant differences survive to 1.56e-14 and real
+four-source witnesses are rejected as full populations. The original
+Product16 geometry replays exactly by case ID and field, including its
+calibration. A first list-position comparison failed because the preserved
+verification roots enumerate cases differently; bind by identity instead.
+The new-model geometry/statistics branches await qualified population data.
+Three edited reader files parse; all96 report files and eleven finalized
+Report2 hash bindings remain unchanged. Root model/trainer/observer and
+running source snapshots are unchanged. The routing record is
+coordinate-control/observations/resource-handoff.md in the mechanism folder.

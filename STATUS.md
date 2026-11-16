@@ -16,13 +16,18 @@ independently reproduce within2.78e-17. New-release Ring8 SW2is0.104at4steps
 and0.105at16; anchored changes0.111->0.103. The coarse point improvement over
 anchored is not invariant to inner refinement. Shared remains lower in the
 pooled score. [Complete numerical table](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/numerical-resolution/analysis.md).
-The two full-density workers remain live. Fresh adaptive CPUentry witnesses
-and their independent reconstruction pass; no population refinement has
-started. A new145inventory finds5-7free; recheck before any CUDApreflight.
-Keep existing CPUjobs intact and use any future CUDAwork only for distinct
-pending observations. No foreign job is stopped or shared.
+Ring8 full-density observation continues on Mac CPU. Product16 is deliberately
+rerouted to idle145physicalGPU7 after the actual256-source benchmark measured
+7.968xcombined speedup (14.431xprojected). Queue641894/worker641939are live
+with advancing integration. CPUworker43094is suspended as an in-memory
+fallback; its nine complete rows are retained for cross-host comparison.
+Keep it until the entire replacement passes an independent audit. No foreign
+task is stopped or shared. [Measured routing and receipts](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/resource-handoff.md).
+CUDAformal and adaptive native-entry witnesses pass independently, maximum
+adaptive reconstruction error1.25e-13. These bounded witnesses do not qualify
+the full population. No population refinement has started.
 
-**New-control numerical/density observations are running on Mac mini.** Both portable
+**New-control observations were initially launched on Mac mini.** Both portable
 checkpoints reproduce their complete native field and bank0samples exactly.
 P2density arrays are copied byte-for-byte. Two new-model derivative/formal
 entries and the original eight-model regression pass; eight full-native-map
@@ -31,10 +36,10 @@ The fresh four-command documented witness exits0/0/0/0. NumPy independently
 reconstructs both formal-entry witnesses within1.78e-14and all eight bounded
 numerical scores within2.78e-17. Sequential256-source timing is complete.
 Frozenfd7f09b: densityqueue43084, workers43093/43094; numericalqueue43096,
-workers43098/43099initially. ActualPIDs and advancing integration steps are
-verified. These are observations, not additional training. Raw row/bank
+workers43098/43099initially. ActualPIDs and advancing integration steps were
+verified at launch. These are observations, not additional training. Raw row/bank
 outputs are not final comparisons until independent collection/refinement.
-145physical4-7are occupied; noGPUis allocated.
+145physical4-7were occupied at that launch; current routing is above.
 [Exact scope and invocation](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observation-protocol.md).
 [Readiness, timing and actual launch](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/launch-verification.json).
 

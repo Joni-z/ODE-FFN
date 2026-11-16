@@ -74,9 +74,13 @@ def main():
     root, data, verification, output = map(Path, [a.root, a.data, a.verification, a.output])
     assert not output.exists()
     checked = read(verification/'COMPLETE.json')
-    assert checked['passed']
+    assert checked['passed'] and not checked['witness']
     cases = [c for c in read(verification/'verified-cases.json') if c['dataset'] == 'rotated_product_bimodal_16d']
-    assert len(cases) == 4 and len({c['family'] for c in cases}) == 4
+    coordinate = len(cases) == 1
+    if coordinate:
+        assert checked['cases'] == 2 and cases[0]['family'] == 'contrast_operator_midpoint4'
+    else:
+        assert checked['cases'] == 8 and len(cases) == 4 and len({c['family'] for c in cases}) == 4
     manifest, meta = read(root/'portable.json'), read(data/'density-data.json')
     case = next(c for c in manifest['cases'] if c['id'] == cases[0]['id'])
     law = law_for(root, case)
@@ -115,6 +119,8 @@ def main():
         native_target_calibration=calibration, rows=rows,
         verification_sha256=sha(verification/'COMPLETE.json'), data_sha256=sha(data/'density-data.json'),
         source_sha256=sha(__file__), confirmation_time_profiles_exported=False)
+    if coordinate:
+        result['coordinate_control'] = True
     output.write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')
 
 
