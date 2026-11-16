@@ -75,20 +75,26 @@ CPUcompletion; it never started a population child. All raw attempt/identity,
 source and recovery records are preserved. Never suspend CPUfor a pending
 GPUallocation. No foreign job was stopped/shared; physical0-3were not used.
 
-## Next concrete actions
+## Matched order-control execution
 
-1. Implement only the two same-P/B schedule adapters in the isolated study.
-2. Verify the bracket coefficient/nulls, identical full-model initialization,
-   common gradients, native continuation and actual evaluator before training.
-3. Obtain a fresh documented native witness and freeze/publish source.
-4. Run four seed0trajectories (two arms x Ring8/Product16), same20k recipe,
-   monitored on Mac CPUor freshly idle145physical4-7. Keep ordinary controls.
-5. Evaluate all common banks and registered refinements; accept or reject
-   the composition hypothesis using the prespecified rules. No response search.
+1. [x] Implement the two same-P/B schedules, one new zero64x64 B per local solve.
+   Parameters are81,282/83,088, with the same eight matrix applications per solve.
+2. [x] Native math/common-initialization/gradient, matrix-call and exact native
+   continuation/evaluator checks pass. Independent NumPy error2.22e-16.
+3. [x] Fresh documented agent exits0/0/0; all four initial checkpoints match
+   shared references and data RNG. Eight old references and arrays are bound.
+4. [ ] Publish/freeze source, then launch four20k seed0trajectories on Mac CPU,
+   two workers. Preserve the registered midpoint2, AdamW0.0003, batch512 recipe.
+5. [ ] Native final-test replay;15k/20k selection and20k confirmation on all
+   eight common4096-source banks. Independently reconstruct twelve rows.
+6. [ ] Frozen inner4/8/16 and outer128/256/512 checks, B/bracket activity and
+   cost; accept or reject the registered composition-benefit claim.
 
-The [proposal](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order-control.md)
-is not implemented or launched. Current evidence identifies the coordinate
-confound and active ordering, but has not established an ODE-exclusive gain.
+The previous explanation turn made no experimental progress. This turn
+implements and verifies the registered control. B gradients differ by design;
+no normalization or extra learning rate is introduced. The proposal is now
+implemented and validated, but no formal trajectory has started yet.
+[Exact invocation and scope](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/execution.md).
 
 ## Execution bindings
 
@@ -107,5 +113,5 @@ Previous detailed execution journal is preserved verbatim at
 [history](docs/history/2026-11-16-before-coordinate-density-completion-task-plan.md).
 Current goal turn: progress. All observation jobs are terminal; twenty-cell
 analysis, independent statistics and three inspected figures are complete.
-Publication at f145682 is verified on GitHubmain. The matched order-control
-proposal is next; no training from that proposal has started.
+Publication at f145682 is verified on GitHubmain. The matched order control is implemented and independently validated;
+source publication and formal training are next.

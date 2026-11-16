@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dim": 2,
+      "unchanged_initialization_rng": true,
+      "extra_parameters": 24576,
+      "arms": [
+        {
+          "family": "palindrome_operator_midpoint4",
+          "parameters": 81282,
+          "initial_output_exact": true,
+          "common_gradient_max_error": 6.505213034913027e-19,
+          "input_gradient_max_error": 0.0,
+          "offset_gradient_norms": [
+            0.00033129219637126605,
+            0.0003426799752202983,
+            0.00016048745880452682,
+            0.00028417103709797015,
+            0.00012101673969618455,
+            0.0002484138590998693
+          ],
+          "full_gradient_norm": 0.9137741518055911,
+          "offset_optimizer": "native auxiliary AdamW lr0.0003 wd0",
+          "P_applications_per_local_solve": 8
+        },
+        {
+          "family": "alternating_operator_midpoint4",
+          "parameters": 81282,
+          "initial_output_exact": true,
+          "common_gradient_max_error": 6.505213034913027e-19,
+          "input_gradient_max_error": 0.0,
+          "offset_gradient_norms": [
+            0.0017257066835157193,
+            0.0017993074862324124,
+            0.0009851962860650684,
+            0.0013781330445825574,
+            0.0007283159280756226,
+            0.0011758466727206384
+          ],
+          "full_gradient_norm": 0.9137799455847837,
+          "offset_optimizer": "native auxiliary AdamW lr0.0003 wd0",
+          "P_applications_per_local_solve": 8
+        }
+      ]
+    },
+    {
+      "dim": 16,
+      "unchanged_initialization_rng": true,
+      "extra_parameters": 24576,
+      "arms": [
+        {
+          "family": "palindrome_operator_midpoint4",
+          "parameters": 83088,
+          "initial_output_exact": true,
+          "common_gradient_max_error": 1.6940658945086007e-21,
+          "input_gradient_max_error": 0.0,
+          "offset_gradient_norms": [
+            1.0930077823599338e-06,
+            1.4715064607648605e-06,
+            8.170812684864176e-07,
+            1.130474774998574e-06,
+            6.007566575472117e-07,
+            1.0399103946729368e-06
+          ],
+          "full_gradient_norm": 0.010805513800448105,
+          "offset_optimizer": "native auxiliary AdamW lr0.0003 wd0",
+          "P_applications_per_local_solve": 8
+        },
+        {
+          "family": "alternating_operator_midpoint4",
+          "parameters": 83088,
+          "initial_output_exact": true,
+          "common_gradient_max_error": 1.6940658945086007e-21,
+          "input_gradient_max_error": 0.0,
+          "offset_gradient_norms": [
+            5.883650890385998e-06,
+            7.3087023837074824e-06,
+            4.171188791855396e-06,
+            5.396791529018159e-06,
+            3.1513913380175176e-06,
+            4.763845182131425e-06
+          ],
+          "full_gradient_norm": 0.010805521224258518,
+          "offset_optimizer": "native auxiliary AdamW lr0.0003 wd0",
+          "P_applications_per_local_solve": 8
+        }
+      ]
+    }
+  ],
+  "native_continuations": 4,
+  "real_evaluator_witnesses": 4,
+  "source_sha256": {
+    "schedule_check.py": "a777dd0efdd3e4edc88892ca0582cc9af4ec7d0642983c3b7d917af0f526a63a",
+    "schedule_trial.py": "3328da366df9359097a6c5d9b3066d180d6adf3914d0782ca9026e2bbf46ced8",
+    "schedule-grid.json": "6e74b7c9b11f715a9b6b0d4950aae01bf5cac5e0eb6945f3805a76426e381aa0",
+    "schedule_evaluate.py": "0607b22d4b36527ea3e6ec034ec4cfcb11f4c84f972f5c40797708a00321f36c",
+    "schedule_verify.py": "14954d1a42f4d922e00488b5c26f97fb9ff31543d87f4b579fc467f2808e5394"
+  }
+}

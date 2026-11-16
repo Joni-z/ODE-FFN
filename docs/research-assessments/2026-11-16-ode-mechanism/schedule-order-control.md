@@ -1,8 +1,10 @@
 # Next mechanism control: cancel stage drift without removing parameters
 
-Status: proposed, not implemented or trained. Finish publication of the
-completed density analysis before execution. No response search, spectrum
+Status: adapters implemented; fresh native and independent validation pass, not trained.
+The completed density analysis is published at f145682/c023ef5. No response search, spectrum
 penalty, optimizer change or image run is part of this proposal.
+
+Exact readiness invocation: [execution](schedule-order/execution.md).
 
 ## Question from the completed evidence
 

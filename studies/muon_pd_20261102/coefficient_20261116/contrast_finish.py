@@ -1,4 +1,4 @@
-"""Monitor two native runs; reuse and audit the eight completed evaluations."""
+"""Monitor registered native runs; reuse and audit eight completed evaluations."""
 import argparse
 import concurrent.futures
 import json
@@ -12,12 +12,15 @@ from contrast_trial import HERE, TAG, base, torch
 
 def pairing(anchors: dict, output: Path) -> None:
     rows = []
+    schedule = anchors.get('protocol') == 'schedule_order'
+    families = ['state_midpoint4'] if schedule else ['state_midpoint4', 'stage_operator_midpoint4']
+    extra_name = anchors.get('extra_parameter', 'stage_delta')
     for cell in anchors['new_cases']:
         folder = Path(cell['folder'])
         new_cfg = json.loads((folder/'config.json').read_text())
         references = [r for r in anchors['references'] if r['dataset'] == cell['dataset']
-                      and r['family'] in ['state_midpoint4', 'stage_operator_midpoint4']]
-        assert len(references) == 2
+                      and r['family'] in families]
+        assert len(references) == len(families)
         compared = []
         for ref in references:
             parent = Path(ref['folder'])
@@ -38,7 +41,7 @@ def pairing(anchors: dict, output: Path) -> None:
                     for name, value in old['model'].items():
                         assert torch.equal(value, new['model'][name]), name
                     extra = set(new['model'])-set(old['model'])
-                    assert all(n.endswith('stage_delta') and torch.count_nonzero(new['model'][n]) == 0 for n in extra)
+                    assert all(n.endswith(extra_name) and torch.count_nonzero(new['model'][n]) == 0 for n in extra)
                 steps.append(dict(step=step, exact_data_rng=True,
                     new_checkpoint_sha256=base.digest(new_file), reference_checkpoint_sha256=base.digest(old_file)))
             compared.append(dict(family=ref['family'], recipe_paired=True, checkpoints=steps))
@@ -55,7 +58,10 @@ def main() -> None:
     study = Path(a.study)
     anchors_file = study/'anchors.json'
     anchors = json.loads(anchors_file.read_text())
-    assert len(anchors['references']) == 8 and len(anchors['new_cases']) == 2
+    schedule = anchors.get('protocol') == 'schedule_order'
+    count = 4 if schedule else 2
+    assert len(anchors['references']) == 8 and len(anchors['new_cases']) == count
+    evaluator = 'schedule_evaluate.py' if schedule else 'contrast_evaluate.py'
     assets = Path(anchors['assets'])
     assert base.digest(assets/'manifest.json') == anchors['assets_manifest_sha256']
     out = study/'analysis'
@@ -69,7 +75,7 @@ def main() -> None:
             phase('waiting_for_training', queue_pid=a.queue_pid)
             time.sleep(15)
         done = json.loads(terminal.read_text())
-        assert not done['failed'] and not done['unstarted'] and len(done['completed']) == 2
+        assert not done['failed'] and not done['unstarted'] and len(done['completed']) == count
         assert all(r['exit_code'] == 0 and r['complete'] for r in done['completed'])
         for ref in anchors['references']:
             folder = Path(ref['folder'])
@@ -88,7 +94,7 @@ def main() -> None:
                  for row in anchors['new_cases']]
         def evaluate(task: tuple) -> dict:
             split, steps, row = task
-            cmd = [sys.executable, str(HERE/'contrast_evaluate.py'), '--folder', row['folder'],
+            cmd = [sys.executable, str(HERE/evaluator), '--folder', row['folder'],
                 '--data-root', a.data_root, '--assets', str(assets), '--output', str(out/split/row['id']),
                 '--device', 'cpu', '--split', split, '--steps', *steps]
             with (out/(split+'-'+row['id']+'.log')).open('x') as log:
@@ -99,22 +105,23 @@ def main() -> None:
             return dict(id=row['id'], split=split, exit_code=0,
                 completion_sha256=base.digest(complete), command=cmd)
         receipts = []
-        phase('evaluating', completed=0, total=4)
+        phase('evaluating', completed=0, total=2*count)
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
             futures = [pool.submit(evaluate, task) for task in tasks]
             for future in concurrent.futures.as_completed(futures):
                 receipts.append(future.result())
                 base.dump(out/'receipts.json', receipts)
-                phase('evaluating', completed=len(receipts), total=4)
+                phase('evaluating', completed=len(receipts), total=2*count)
         phase('independent_recomputation')
         code = ('import sys;from pathlib import Path;sys.path.insert(0,sys.argv[1]);from analyze_screen import collect;'
-                'r=Path(sys.argv[2]);collect(r,r,split="selection",expected_cases=10);'
-                'collect(r,r,split="confirmation",expected_cases=10)')
-        subprocess.run([a.numpy_python, '-c', code, str(HERE.parent/'response_screen_20261115'), str(out)], check=True)
-        base.dump(out/'COMPLETE.json', dict(passed=True, training_cases=2, reused_reference_cases=8,
-            selection_cases=10, confirmation_cases=10, anchors_sha256=base.digest(anchors_file),
+                'r=Path(sys.argv[2]);n=int(sys.argv[3]);collect(r,r,split="selection",expected_cases=n);'
+                'collect(r,r,split="confirmation",expected_cases=n)')
+        subprocess.run([a.numpy_python, '-c', code, str(HERE.parent/'response_screen_20261115'),
+                        str(out), str(8+count)], check=True)
+        base.dump(out/'COMPLETE.json', dict(passed=True, training_cases=count, reused_reference_cases=8,
+            selection_cases=8+count, confirmation_cases=8+count, anchors_sha256=base.digest(anchors_file),
             source_sha256=base.digest(__file__)))
-        phase('complete', completed=4, total=4)
+        phase('complete', completed=2*count, total=2*count)
     except Exception as exc:
         phase('failed', error=repr(exc))
         raise

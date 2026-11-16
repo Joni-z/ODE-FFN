@@ -1,5 +1,26 @@
 # ODE mechanism: current evidence
 
+## Current: matched order control implemented and validated
+
+The registered palindrome(+--+) and alternating(+-+-) models share identical
+P/B coordinates, common tensors, zero-B initial functions and data RNG.
+Parameters:81,282Ring8/83,088Product16; eight P applications per local solve.
+Fresh documented native checks exit0/0/0: four8->16continuations, four actual
+evaluators and independent NumPy reconstruction of ten maps, error2.22e-16.
+Linear/nonlinear remainder orders2.999/2.999 support the predicted -1/8
+bracket coefficient; B=0 is exact. B proportional to P cancels the leading
+bracket, not all discrete-map differences. Initial B gradients are active
+and different, with no rescaling. Source publication/formal runs are next.
+Canonical: schedule-order-control.md and schedule-order/execution.md under
+2026-11-16-ode-mechanism. No response search or image-training change.
+
+The full twenty-cell density analysis is already complete/published at
+f145682/c023ef5. All new-minus-shared KL intervals include zero; Product16
+new-minus-anchored intervals are positive. Earlier running statements below
+are historical observations, superseded by STATUS.md and the canonical
+coordinate-control/density-results/analysis-report.md.
+
+
 ## Latest: the stage-order computation is measurable
 
 Fresh six-model native diagnostic at2f8dd60and independent NumPyreconstruction

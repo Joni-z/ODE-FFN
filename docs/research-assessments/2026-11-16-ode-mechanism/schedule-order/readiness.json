@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "linear_remainder_order": 2.999075368398127,
+  "nonlinear_remainder_order": 2.9991904542340215,
+  "analytic_vs_jvp_max_error": 1.474514954580286e-17,
+  "actual_matrix_calls": [
+    {
+      "schedule": [
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "substeps": 4,
+      "matrix_calls": 8
+    },
+    {
+      "schedule": [
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "substeps": 4,
+      "matrix_calls": 8
+    },
+    {
+      "schedule": [
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "substeps": 8,
+      "matrix_calls": 16
+    },
+    {
+      "schedule": [
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "substeps": 8,
+      "matrix_calls": 16
+    },
+    {
+      "schedule": [
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "substeps": 16,
+      "matrix_calls": 32
+    },
+    {
+      "schedule": [
+        1,
+        -1,
+        1,
+        -1
+      ],
+      "substeps": 16,
+      "matrix_calls": 32
+    }
+  ],
+  "nulls": [
+    {
+      "B_multiple_of_P": 0.0,
+      "difference_norms": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "B_multiple_of_P": 0.4,
+      "difference_norms": [
+        7.376471192433668e-08,
+        4.605678786852087e-09,
+        2.86105874713873e-10,
+        1.780174049896905e-11,
+        1.1098131196227956e-12
+      ]
+    }
+  ],
+  "fresh_documented_exits": [
+    0,
+    0,
+    0
+  ],
+  "native_continuations": 4,
+  "evaluator_witnesses": 4,
+  "initial_reference_pairing_exact": true,
+  "reference_cases": 8,
+  "new_cases": 4,
+  "anchors_sha256": "a14c4d7246177f7317a9fdbe08aba7277d8c8e88d7e2ee6ded4975d1bb59fcf7",
+  "math_sha256": "2c89573189d17163dac4c6ab711f10ed4de19ba3b1e390c6de47a6b7c4cf6a88",
+  "raw_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order",
+  "formal_training_started": false
+}
