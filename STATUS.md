@@ -30,7 +30,10 @@ orthonormal-frame controls before promoting this as special ODE sensitivity.
 
 Also register a512/1024 numerical extension before resolving the three remaining
 pilot gates. Preserve the original256 failures and all fixed samplers/sources.
-No larger sampling run or architecture/training change is queued.
+The dimension-matched control is registered and all36 complete frames are
+bound before new outputs. Both first-layer author witnesses and independent
+verifiers exit0, retaining all64 directions and80 inputs in all six models.
+Fresh frozen execution is next. No larger sampling run or architecture change.
 
 ## Earlier evidence and image benchmark
 

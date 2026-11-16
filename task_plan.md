@@ -48,6 +48,16 @@ warm environment04f11f75 are preserved. Raw evidence under
 This goal turn is progress: it completed reference qualification, the sampling
 pilot, independent verification and dimension analysis, changing the next test.
 
+## Current continuation
+
+The preceding goal turn was progress, with completed sampling evidence and an
+exact dimensional audit. Now register and execute the finite equal-dimension
+control on the complete six-model/six-layer/80-input cohort. Bind all36seed0
+orthonormal frames before any new outputs, compare both actual components with
+their64-direction null means, and preserve every direction. Use the unchanged
+two-worker CPUenvironment. Separately register the fixed512/1024 numerical
+extension before new sampling; old256failures remain part of the evidence.
+
 ## Retained errors
 
 A post-completion ps query returned1 because its worker was already terminal;

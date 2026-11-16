@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "evaluation_rng": 0,
+  "dimension": 64,
+  "cases": 6,
+  "frames": 36,
+  "directions_per_frame": 64,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "alternating_operator_midpoint4",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-null/frames/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003.npz",
+      "sha256": "de694c007662c61e843e2a41365e2c448d15bd5c0d1668223bd83054c5529f3a",
+      "layers": [
+        "blocks.0.ffn.ode1",
+        "blocks.0.ffn.ode2",
+        "blocks.1.ffn.ode1",
+        "blocks.1.ffn.ode2",
+        "blocks.2.ffn.ode1",
+        "blocks.2.ffn.ode2"
+      ],
+      "source_readout": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-readout/formal/ring",
+      "source_rows_sha256": "c52be1aa389c02c90e5af822ebac21bf55dc4e732f81cbcfe1fb44425bdebebd",
+      "source_complete_sha256": "178ffdd5e6dd685f4ca69f2c9553a0627e12ac8580cf6b20adffeccf4b1a809d"
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "palindrome_operator_midpoint4",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-null/frames/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003.npz",
+      "sha256": "213ea223039a4256e55d603d90b5d9c863fa4a7220e46bbaef05d468cc421c4e",
+      "layers": [
+        "blocks.0.ffn.ode1",
+        "blocks.0.ffn.ode2",
+        "blocks.1.ffn.ode1",
+        "blocks.1.ffn.ode2",
+        "blocks.2.ffn.ode1",
+        "blocks.2.ffn.ode2"
+      ],
+      "source_readout": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-readout/formal/ring",
+      "source_rows_sha256": "c52be1aa389c02c90e5af822ebac21bf55dc4e732f81cbcfe1fb44425bdebebd",
+      "source_complete_sha256": "178ffdd5e6dd685f4ca69f2c9553a0627e12ac8580cf6b20adffeccf4b1a809d"
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-null/frames/gmm_ring8_2d__state_midpoint4__adamw_0.0003.npz",
+      "sha256": "7a5c3cfebfad1a73a48367b0f8f405c5cd794b054715d76cedfb5becfc1927e6",
+      "layers": [
+        "blocks.0.ffn.ode1",
+        "blocks.0.ffn.ode2",
+        "blocks.1.ffn.ode1",
+        "blocks.1.ffn.ode2",
+        "blocks.2.ffn.ode1",
+        "blocks.2.ffn.ode2"
+      ],
+      "source_readout": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-readout/formal/ring",
+      "source_rows_sha256": "c52be1aa389c02c90e5af822ebac21bf55dc4e732f81cbcfe1fb44425bdebebd",
+      "source_complete_sha256": "178ffdd5e6dd685f4ca69f2c9553a0627e12ac8580cf6b20adffeccf4b1a809d"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "alternating_operator_midpoint4",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-null/frames/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003.npz",
+      "sha256": "803e26f92d12a757561094c0952884ce6387381166b08bdd3b5f3981d75bb6ce",
+      "layers": [
+        "blocks.0.ffn.ode1",
+        "blocks.0.ffn.ode2",
+        "blocks.1.ffn.ode1",
+        "blocks.1.ffn.ode2",
+        "blocks.2.ffn.ode1",
+        "blocks.2.ffn.ode2"
+      ],
+      "source_readout": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-readout/formal/product",
+      "source_rows_sha256": "89015db3cb56bcf6dc519372b798aba0df7dd6cee470420403c1ca8473828a9a",
+      "source_complete_sha256": "2b735e475b332bdf549de62efdbb26c381c6018f1bf65b9d720f3ad4b504427a"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "palindrome_operator_midpoint4",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-null/frames/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003.npz",
+      "sha256": "fba194091620ae90a558653965bd3d034c0766322f32d7b48913d50c7db11b5c",
+      "layers": [
+        "blocks.0.ffn.ode1",
+        "blocks.0.ffn.ode2",
+        "blocks.1.ffn.ode1",
+        "blocks.1.ffn.ode2",
+        "blocks.2.ffn.ode1",
+        "blocks.2.ffn.ode2"
+      ],
+      "source_readout": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-readout/formal/product",
+      "source_rows_sha256": "89015db3cb56bcf6dc519372b798aba0df7dd6cee470420403c1ca8473828a9a",
+      "source_complete_sha256": "2b735e475b332bdf549de62efdbb26c381c6018f1bf65b9d720f3ad4b504427a"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-null/frames/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003.npz",
+      "sha256": "b6dce7a90602fb44c2c9d7a8dfdccf7003cda4b3a8fe6f79b1ae6dc75018ccc5",
+      "layers": [
+        "blocks.0.ffn.ode1",
+        "blocks.0.ffn.ode2",
+        "blocks.1.ffn.ode1",
+        "blocks.1.ffn.ode2",
+        "blocks.2.ffn.ode1",
+        "blocks.2.ffn.ode2"
+      ],
+      "source_readout": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-readout/formal/product",
+      "source_rows_sha256": "89015db3cb56bcf6dc519372b798aba0df7dd6cee470420403c1ca8473828a9a",
+      "source_complete_sha256": "2b735e475b332bdf549de62efdbb26c381c6018f1bf65b9d720f3ad4b504427a"
+    }
+  ],
+  "source_terminal_sha256": "30ec098251732d9583ddfdbd4a4fd2baadb331261a2eef7922ebb37e0aeb514d",
+  "source_sha256": "61a896b558d0eb60f4b8be33c8869f835cea4eb88b495829cd09f579a530878a"
+}

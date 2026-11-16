@@ -40,3 +40,12 @@ scripts under studies/muon_pd_20261102/target_geometry_20261116/.
 Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.
 Native image trainer and Reports1/2 stay fixed. No GPU or package changes.
 Next: dimension null and unchanged-gate512/1024 extension, before larger sampling.
+
+## Current equal-dimension control
+
+hidden-null-protocol.md fixes both hypotheses and12-contrast-adjusted bank
+intervals. All36 frames were prepared with evaluation RNG0 and bound in
+hidden-null-frames.json before any downstream observation. Both first-layer
+author native and independent verifier exits0; candidate reconstruction is
+exact. Full all-layer results remain pending; no hypothesis outcome is promoted
+from the author witness. Same warm04f11f75, noGPU or package changes.
