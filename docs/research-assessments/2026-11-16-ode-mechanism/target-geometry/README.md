@@ -10,6 +10,7 @@ failure. [Derivation](product-quantile-derivation.md),
 [complete oracle/control evidence and figures](product-oracle-control-results/analysis-report.md).
 The registered twelve-model calibration continues; its outcomes concern
 approximation usefulness, separately from distribution quality.
+[Targeted primary-source scope/novelty check](control-literature-check.md).
 
 ## Later precision audit
 
