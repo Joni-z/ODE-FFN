@@ -22,22 +22,26 @@ foreign task. Mac mini is available freely.
 - [x] Qualify all 16 pilot cells: six at 512 steps, ten at 1024. No 2048 pilot needed.
 - [x] Inspect two diagnostic plots and preserve all frozen evidence.
 
-## Next: population-density comparison (not launched)
+## Current: population-density comparison (running)
 
 - [x] Implement formal entry with unchanged density_ops.py, all eight models
   and both fields, four 256-source banks, common 1024/2048 steps: 128 rows.
-- [ ] Pass actual CPU entries, fresh documented CUDA readiness and a timing-only
+- [x] Pass actual CPU entries, fresh documented CUDA readiness and a timing-only
   256-source benchmark before choosing host routing.
-- [ ] Use only idle 145 physical GPUs 4-7 for CUDA, with exclusive UUID guards
+- [x] Launch on idle 145 physical GPUs 4-7, with exclusive UUID guards
   and live progress/PID/resource records. Retain gates on all full-source points.
 - [ ] Independently reconstruct per-point ratios, time bins and resolution
   changes; compare paired density contrasts with Monte Carlo uncertainty.
+- [ ] Prepare the fixed-weight statistics reader while integrations run: paired
+  path bootstrap stratified by the four common source banks; retain failed
+  numerical cells; expose time-bin discovery on bank 0 only.
 - [ ] Only if the contrast supports it, register one time-local oracle
   intervention, select on bank 0 and confirm on banks 1-3. No response search.
 
 Current finding: local field MSE and density-source RMS do not give the known
-Product16 sampling ordering. Signed along-path density remains unmeasured
-at population scale. No architecture or image run is promoted.
+Product16 sampling ordering. The two completed Ring8 ordinary controls have independently reproducible
+density observations, but all four model/field cells include resolution-sensitive
+paths. Population density contrasts remain unqualified. No architecture or image run is promoted.
 
 Canonical study: docs/research-assessments/2026-11-16-ode-mechanism/
 Current: density-transport/analysis-report.md; density-formal-next.md.
@@ -66,3 +70,17 @@ architecture unchanged. An adapter is allowed only after all-model Jacobians,
 complete observer arrays and native endpoints agree. Record both backend
 speeds; retain the original if batching does not help. This is not a stochastic
 trace approximation or a new model intervention.
+
+Launch verified: Mac queue35441 / workers35443,35444; GPUqueue3447050 /
+workers3447077-3447080on physical4-7. CPUcases2/3and GPUcases1,7,0,6,5,4
+are disjoint and coverall8models. Routing is published beforelaunch. Mac
+sourcef79f027; GPUsource3a7d5fe; producer file hashes match. Full rows need
+independent numerical validation before interpretation. Do not edit the
+running formal_density.py,density_ops.py,jacobian_backend.pyor dispatch core.
+
+Latest numerical checkpoint: both Mac cases completed, queue35441 exit0.
+All32rows independently reconstruct within5.33e-15. At the unchanged gates,
+FreeISRU original/projected has58/23of1024failing source observations;
+SwiGLU has25/11. Retain all points. Wait for the remaining GPUcases, then
+register bounded refinement of unresolved paths before density ranking.
+Do not treat pilot readiness as full-source numerical convergence.

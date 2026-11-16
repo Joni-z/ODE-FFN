@@ -2,17 +2,32 @@
 
 ## Current priority: identify the ODE contribution
 
-P2 density observer is verified on all eight frozen models. Its 48-row pilot
-and 10 targeted refinement rows are complete on Mac mini CPU; both queues are
-terminal. All 16 original/projected cells meet the numerical gates: six at
-512 steps, ten at 1024. Native Heun endpoints are unchanged, and independent
-NumPy checks recompute within 2.94e-14. The local density-source norm does not
-reproduce the known Product16 sharing ordering. The next measurement is the
-actual signed along-path density ratio on four common 256-source banks, at
-common 1024/2048 resolutions; it is prepared, not launched.
-[Derivation/protocol](docs/research-assessments/2026-11-16-ode-mechanism/density-protocol.md),
-[qualified pilot and figures](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/analysis-report.md),
-[next execution specification](docs/research-assessments/2026-11-16-ode-mechanism/density-formal-next.md).
+The full 128-row density comparison is running on frozen checkpoints.
+Mac mini has completed its Ring8 Free ISRU and SwiGLU controls (32 rows;
+queue 35441 exited successfully). Independent NumPy reconstruction agrees
+within 5.33e-15. However, every model/field cell has some sources that fail
+the unchanged 1024-to-2048 resolution gates. Free ISRU has 58/1024 original
+and 23/1024 projected failing source observations; SwiGLU has 25/1024 and
+11/1024. No point is discarded and no population-density ranking is qualified.
+[Completed CPU numerical check](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/formal-mac-numerical-check.json).
+
+145 queue 3447050 continues on permitted physical GPUs 4-7. Its four shared/
+stage-generator cases had each completed 9/16 rows at the recorded snapshot;
+Product16 SwiGLU/Free ISRU were pending. The running engine is unchanged.
+The next check is the full per-source resolution audit, followed by a bounded
+refinement of unresolved paths before interpreting density contrasts.
+
+The four 256-source banks, original/projected fields and common 1024/2048
+steps stay fixed. Coordinate CPU and exact batched CUDA outputs agree within
+4.57e-10 at the benchmark batch size. No new training or image run was added.
+[Routing](docs/research-assessments/2026-11-16-ode-mechanism/density-routing.json),
+[execution](docs/research-assessments/2026-11-16-ode-mechanism/density-formal-execution.md),
+[CPU launch](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/formal-mac-launch.json),
+[CUDA launch](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/formal-cuda-launch.json).
+
+P2numerical qualification is complete:16/16pilot cells pass, six at512and
+ten at1024, with independent errors<=2.94e-14. Native Heun endpoints stay
+unchanged. [Diagnostic figures](docs/research-assessments/2026-11-16-ode-mechanism/density-transport/analysis-report.md).
 
 **Eight new 20k trajectories and their independent evaluations are complete.**
 Free Taylor coefficients (8c10a8d), state-evolving midpoint (1ff0d02), and

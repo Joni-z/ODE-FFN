@@ -1,0 +1,30 @@
+{
+  "queue_pid": 35441,
+  "frozen_commit": "f79f02737595591db7920482e89dcb04863b87ef",
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/density_transport_20261116/formal_dispatch.py",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-symmetry/portable-v2",
+    "--data",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/portable",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/formal-runs-mac-ring-controls",
+    "--phase",
+    "formal",
+    "--device",
+    "cpu",
+    "--readiness",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/formal-doc-cpu-coordinate/COMPLETE.json",
+    "--derivative-backend",
+    "coordinate",
+    "--indices",
+    "2,3",
+    "--workers",
+    "2"
+  ],
+  "started": 1794789574.625189,
+  "phase": "formal",
+  "device": "cpu"
+}

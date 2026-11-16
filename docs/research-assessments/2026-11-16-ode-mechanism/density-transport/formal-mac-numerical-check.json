@@ -1,0 +1,50 @@
+{
+  "observed_unix_time": 1794790534.7706828,
+  "scope": "Completed Mac Ring8 controls only; not the full eight-case comparison",
+  "rows": 32,
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "max_independent_error": 4.6629367034256575e-15,
+      "numerical_by_mode": [
+        {
+          "mode": "original",
+          "points": 1024,
+          "failed_point_observations": 58,
+          "qualified_banks": 0,
+          "banks": 4
+        },
+        {
+          "mode": "projected",
+          "points": 1024,
+          "failed_point_observations": 23,
+          "qualified_banks": 0,
+          "banks": 4
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "max_independent_error": 5.329070518200751e-15,
+      "numerical_by_mode": [
+        {
+          "mode": "original",
+          "points": 1024,
+          "failed_point_observations": 25,
+          "qualified_banks": 0,
+          "banks": 4
+        },
+        {
+          "mode": "projected",
+          "points": 1024,
+          "failed_point_observations": 11,
+          "qualified_banks": 0,
+          "banks": 4
+        }
+      ]
+    }
+  ],
+  "raw_independent_receipt": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/formal-mac-independent.json",
+  "raw_independent_sha256": "43971e51092865d5ebca8395fc0a025175d94116a2c87b5d084abc342e8b184e",
+  "density_ranking_qualified": false
+}

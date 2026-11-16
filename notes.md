@@ -58,3 +58,22 @@ per32steps, batched62.291s. ExactbatchedJacobian errors0and observer errors
 <=3.56e-15, but batching is rejected for MacCPUbecause it is slower at the
 actual batch. Keep coordinateCPU; benchmark145CPUas a no-GPUfallback,
 and CUDAonly when a permitted card becomes idle. Full128-row scope stays fixed.
+
+Formal measurement live: CPUqueue35441(two Ring8ordinary refs), GPUqueue
+3447050(four active workers on4-7, two Product16ordinary cases pending).
+All128rows retained, no training, source/data fixed. Throughput profile
+chooses Maccoordinate and145batchedCUDA; the145CPUfallback is much slower
+and notselected. ActualCPU/CUDAB256observer error max4.57e-10. Models and
+budgets are unchanged. Next: monitor, independentfullcollector, paired
+density/time-bin analysis.
+
+## Full-density CPU checkpoint
+
+Mac Ring8 Free ISRU and SwiGLU finished all32formal rows, queue35441 terminal
+with exit0. Independent density reconstruction agrees within5.33e-15.
+Full banks expose rare resolution-sensitive paths not seen in the eight-point
+pilot: failing source observations are FreeISRU58/23and SwiGLU25/11for
+original/projected fields, each outof1024. Every bank contains at least one
+unresolved source. No point is removed and no full density ranking is made.
+Continue the frozen GPUqueue and audit all cases before registering refinement.
+Existing SW2comparisons are separate completed evidence.
