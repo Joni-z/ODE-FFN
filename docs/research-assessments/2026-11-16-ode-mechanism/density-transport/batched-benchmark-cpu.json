@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "phase": "benchmark",
+  "samples": 256,
+  "steps": 32,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "device": "cpu",
+      "backend": "batched",
+      "mode": "original",
+      "seconds": 1.405425834003836,
+      "source_commit": "3a7d5fe3177ff75285a5d2ae04000835cda38ebe"
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "device": "cpu",
+      "backend": "batched",
+      "mode": "projected",
+      "seconds": 7.261089874897152,
+      "source_commit": "3a7d5fe3177ff75285a5d2ae04000835cda38ebe"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "device": "cpu",
+      "backend": "batched",
+      "mode": "original",
+      "seconds": 5.087129042018205,
+      "source_commit": "3a7d5fe3177ff75285a5d2ae04000835cda38ebe"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "device": "cpu",
+      "backend": "batched",
+      "mode": "projected",
+      "seconds": 62.2911934168078,
+      "source_commit": "3a7d5fe3177ff75285a5d2ae04000835cda38ebe"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "device": "cpu",
+      "backend": "batched",
+      "mode": "original",
+      "seconds": 1.7249573334120214,
+      "source_commit": "3a7d5fe3177ff75285a5d2ae04000835cda38ebe"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "device": "cpu",
+      "backend": "batched",
+      "mode": "projected",
+      "seconds": 11.886507333721966,
+      "source_commit": "3a7d5fe3177ff75285a5d2ae04000835cda38ebe"
+    }
+  ]
+}

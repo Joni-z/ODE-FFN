@@ -102,3 +102,33 @@ new batched-readiness file. Measure actual256-source speed; if it is worse,
 retain the coordinate backend with a separately matching readiness. Hardware
 and derivative routing may differ by task only after documented equivalence.
 No formal population-density row has started yet.
+
+## Measured CPU decision and CPU fallback
+
+The batched adapter is numerically equivalent, but at the actual256-source
+batch it is slower on Mac mini: projected Product16state timing is62.291s
+versus29.520sfor32steps. Therefore do not use it for CPUformal evaluation.
+Keep the coordinate implementation for CPU; CUDA's batched speed remains to
+be measured.145has64logical CPUs, load around22and about239GiBavailable
+memory at this read-only inventory; at most four one-thread CPUworkers is a
+bounded fallback that allocates no GPU. This is not a claim that exactly
+42individual cores are idle. The idle-GPU policy remains unchanged.
+
+A fresh agent runs each applicable CPUcoordinate invocation below once
+verbatim before its host is declared ready for the full measurement.
+
+Mac mini:
+
+```sh
+cd /Users/mr.z/ODE-FFN-upstream && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python -u studies/muon_pd_20261102/density_transport_20261116/formal_dispatch.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-symmetry/portable-v2 --data /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/portable --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/density-transport/formal-doc-cpu-coordinate --device cpu --phase witness --derivative-backend coordinate
+```
+
+145 CPU, with CUDAdevices disabled by the dispatcher:
+
+```sh
+ssh -o BatchMode=yes -o ConnectTimeout=8 145 'cd /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/repo && /data2/zz5070/miniconda3/envs/py312/bin/python -u studies/muon_pd_20261102/density_transport_20261116/formal_dispatch.py --root /data2/zz5070/ODE_FFN/mechanism-sharing-symmetry-20261116/portable --data /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/portable --output /data2/zz5070/ODE_FFN/mechanism-density-formal-20261116/formal-doc-host-cpu-coordinate --device cpu --phase witness --derivative-backend coordinate'
+```
+
+Then benchmark indices0,1,5on145CPUsequentially with coordinate readiness,
+and choose disjoint full-run case allocations from measured throughput.
+No source, bank, step count or model may be omitted because a backend is slow.

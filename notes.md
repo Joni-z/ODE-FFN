@@ -52,3 +52,9 @@ Warm CPU: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python
 145: /data2/zz5070/miniconda3/envs/py312/bin/python, Torch 2.8.0+cu128
 Physical 0-3 forbidden; 4-7 only when idle. Never reclaim/share foreign tasks.
 Final reports immutable; all new work goes outside reports/.
+
+Full-entry benchmark evidence: coordinateCPUprojectedProduct16state29.520s
+per32steps, batched62.291s. ExactbatchedJacobian errors0and observer errors
+<=3.56e-15, but batching is rejected for MacCPUbecause it is slower at the
+actual batch. Keep coordinateCPU; benchmark145CPUas a no-GPUfallback,
+and CUDAonly when a permitted card becomes idle. Full128-row scope stays fixed.
