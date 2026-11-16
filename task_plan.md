@@ -51,6 +51,26 @@ architecture or image promotion follows this phase.
    full-scale explained fraction. Then decide which mechanism is supported.
    Keep this phase read only; a failed numerical gate is not evidence for a new architecture.
 
+## Native-time qualification in progress
+
+Previous goal turn: progress. It completed the twelve-case calibration and
+verified temporal-alias construction. Rechecked its terminal process handles
+and clean current source tree; no previous job is restarted.
+
+Implement a native-only case runner and monitored two-worker queue. Reuse the
+bound Heun128/1024 endpoints from the completed pilot after exact source and
+checkpoint checks; newly evaluate 1000/1032/2048/4096, then 8192 only if needed.
+Check a batched four-blend path against every previous full256-source Heun128
+trace, retaining the original separate solver as fallback. The batch check is
+an execution optimization, not another model. Fresh documented CPU commands
+must pass before the twelve native cases are dispatched. No new training.
+
+Author native/packed checks pass on all twelve full256-source traces: all
+native and packed endpoint/path differences are exactly zero against the bound
+prior arrays. Aggregate32-step throughput is1.308x for packed versus separate
+blends in this check. Gaussian/native non-dyadic controls pass. Fresh documented
+two-case CLIand NumPyverifier checks are still required before formal dispatch.
+
 ## Authoritative state
 
 Source: /Users/mr.z/ODE-FFN-upstream. Runtime freezes 4eeec25 (calibration) and
