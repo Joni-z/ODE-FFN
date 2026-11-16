@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "recorded_at_utc": "2026-11-16T19:21:26.476Z",
+  "source_commit": "427697981b11ca49767f9f6abfaf57b50bde4729",
+  "source_commit_provenance": "parent freeze manifest; snapshot has no Git metadata",
+  "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-repo",
+  "invocation_document": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-repo/docs/research-assessments/2026-11-16-ode-mechanism/metric-remainder-execution.md",
+  "environment": "unchanged response-screen-cpu@04f11f75; existing system analysis Python; no packages installed",
+  "commands": [
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 studies/muon_pd_20261102/target_transport_20261117/verify_transport_statistics.py --check-only --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/statistics-controls.json",
+      "actual_terminal_exit": 0,
+      "original_session_id": null,
+      "started_at_utc": "2026-11-16T19:19:46.941Z",
+      "completed_at_utc": null,
+      "initial_result": {
+        "chunk_id": "20fa10",
+        "wall_time_seconds": 0.178057542,
+        "exit_code": 0,
+        "original_token_count": 8,
+        "output": "TARGET_STATISTICS_CONTROLS_PASS\n"
+      },
+      "polls": [],
+      "terminal_result": {
+        "chunk_id": "20fa10",
+        "wall_time_seconds": 0.178057542,
+        "exit_code": 0,
+        "original_token_count": 8,
+        "output": "TARGET_STATISTICS_CONTROLS_PASS\n"
+      },
+      "restarted": false
+    },
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 studies/muon_pd_20261102/target_transport_20261117/metric_remainder.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/decomposition --witness",
+      "actual_terminal_exit": 0,
+      "original_session_id": 47321,
+      "started_at_utc": "2026-11-16T19:19:53.453Z",
+      "completed_at_utc": "2026-11-16T19:19:58.078Z",
+      "initial_result": {
+        "chunk_id": "a9eafd",
+        "wall_time_seconds": 1.003300584,
+        "session_id": 47321,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "polls": [
+        {
+          "chunk_id": "374f63",
+          "wall_time_seconds": 3.3125e-05,
+          "exit_code": 0,
+          "original_token_count": 43,
+          "output": "{\"passed\": true, \"witness\": true, \"cases\": 8, \"output\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/decomposition\"}\n"
+        }
+      ],
+      "terminal_result": {
+        "chunk_id": "374f63",
+        "wall_time_seconds": 3.3125e-05,
+        "exit_code": 0,
+        "original_token_count": 43,
+        "output": "{\"passed\": true, \"witness\": true, \"cases\": 8, \"output\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/decomposition\"}\n"
+      },
+      "restarted": false
+    },
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/verify_metric_remainder.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/decomposition --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/native-verification.json",
+      "actual_terminal_exit": 0,
+      "original_session_id": 90003,
+      "started_at_utc": "2026-11-16T19:20:03.919Z",
+      "completed_at_utc": "2026-11-16T19:20:08.117Z",
+      "initial_result": {
+        "chunk_id": "1dc5cb",
+        "wall_time_seconds": 1.003031917,
+        "session_id": 90003,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "polls": [
+        {
+          "chunk_id": "bb701e",
+          "wall_time_seconds": 2.1875e-05,
+          "exit_code": 0,
+          "original_token_count": 17,
+          "output": "METRIC_REMAINDER_NATIVE_VERIFICATION_PASS 64 8.881784197001252e-16\n"
+        }
+      ],
+      "terminal_result": {
+        "chunk_id": "bb701e",
+        "wall_time_seconds": 2.1875e-05,
+        "exit_code": 0,
+        "original_token_count": 17,
+        "output": "METRIC_REMAINDER_NATIVE_VERIFICATION_PASS 64 8.881784197001252e-16\n"
+      },
+      "restarted": false
+    }
+  ],
+  "commands_match_document_verbatim": true,
+  "divergences": [],
+  "ancillary_provenance_observations": [
+    {
+      "operation": "git rev-parse HEAD in postprocess-repo",
+      "exit_code": 128,
+      "wrapper_exit_code": 1,
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git",
+      "interpretation": "Snapshot lacks Git metadata; commit provenance is recorded from parent source-freeze-postprocess.json and regular-file hashes are checked directly. No documented invocation was altered."
+    }
+  ],
+  "hash_checks": {
+    "before": {
+      "checked_at_utc": "2026-11-16T19:19:39.183214+00:00",
+      "commit_provenance": "parent freeze manifest; snapshot has no Git metadata",
+      "manifest": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/source-freeze-postprocess.json",
+      "manifest_entries": 5026,
+      "manifest_sha256": "101bc8d545acd6e383e4252146c254c2ebc55dfa331f704e1a595b55fb647940",
+      "mismatches": [],
+      "missing": [],
+      "nonregular_entries": [],
+      "passed": true,
+      "postprocess_readiness_absent_before_first_command": true,
+      "regular_files_checked": 5026,
+      "source_commit": "427697981b11ca49767f9f6abfaf57b50bde4729"
+    },
+    "after": {
+      "checked": 5026,
+      "mismatches": [],
+      "missing": [],
+      "nonregular": [],
+      "passed": true
+    },
+    "freeze_manifest_sha256_unchanged": true
+  },
+  "observed_scope": {
+    "input": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual",
+    "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness",
+    "witness": true,
+    "cases": 8,
+    "metric_rows": 64,
+    "documented_sources_per_case": 64,
+    "splits": [
+      "confirmation",
+      "selection"
+    ],
+    "fixed_lambdas": [
+      0.125,
+      0.25,
+      0.5,
+      1
+    ],
+    "retained_scope": [
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "ring_midpoint_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "selection"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "ring_midpoint_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "confirmation"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "ring_rk4_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "selection"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "ring_rk4_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "confirmation"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "product_midpoint_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "selection"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "product_midpoint_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "confirmation"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "product_rk4_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "selection"
+      },
+      {
+        "all_four_lambdas_retained": true,
+        "bank_lambdas": [
+          [
+            0.125,
+            0.25,
+            0.5,
+            1
+          ]
+        ],
+        "case": "product_rk4_trained",
+        "pooled_lambdas": [
+          0.125,
+          0.25,
+          0.5,
+          1
+        ],
+        "split": "confirmation"
+      }
+    ],
+    "native_metric_max_error": 8.881784197001252e-16,
+    "controls": {
+      "controls": [
+        {
+          "max_error": 1.0408340855860843e-17,
+          "name": "translation"
+        },
+        {
+          "max_error": 4.440892098500626e-16,
+          "name": "rank_crossing"
+        },
+        {
+          "max_error": 0,
+          "name": "zero"
+        }
+      ],
+      "passed": true
+    },
+    "training_runs": 0,
+    "new_model_evaluations": 0,
+    "new_sampling_started": false,
+    "full_postprocessing_executed": false,
+    "native_queue_or_collector_modified": false,
+    "scientific_quality_inference": "none; the 64-source witness establishes documented execution only",
+    "manual_files_written": [
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/postprocess-readiness/command-exits.json"
+    ]
+  },
+  "verification": {
+    "cases": 8,
+    "controls": {
+      "controls": [
+        {
+          "max_error": 1.0408340855860843e-17,
+          "name": "translation"
+        },
+        {
+          "max_error": 4.440892098500626e-16,
+          "name": "rank_crossing"
+        },
+        {
+          "max_error": 0,
+          "name": "zero"
+        }
+      ],
+      "passed": true
+    },
+    "independent_native_metric_max_error": 8.881784197001252e-16,
+    "metric_rows": 64,
+    "original_primary_gate_unchanged": true,
+    "passed": true,
+    "source_sha256": "cec3b8bf378533922b4fca06bf3a3600369964eb899f0259882b9d4c77fbae9d",
+    "summary_sha256": "50a848f7bf4ab1df6d64cdc11c714b8f74813d689995fd2e569f3c58f2af9e45",
+    "witness": true
+  },
+  "statistics_controls": {
+    "check_only": true,
+    "ordered_resamples": 16777216,
+    "passed": true,
+    "recursive_count_vectors": 6435,
+    "symmetric_interval": [
+      1.875,
+      5.125
+    ]
+  },
+  "source_bindings": {
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_midpoint_trained/summary.json": "f7f7c72e527e5b72d47bf4e9e23e7c5dadcf8ba1dbb56b2447502db95534ac92",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_rk4_trained/summary.json": "82bdb50051652912f6c98278e5e425d78e7215b9ccfeb32568f87d29618b3db4",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_midpoint_trained/summary.json": "9066b9a8ec0ae0b4938f9a9062ae91d6177182c4633b7674b4cb00f180886aa0",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_rk4_trained/summary.json": "acb03ef3bc8da8097ef6aa2631e1b4323b679c6a96ec05dae2df998c76402af3",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_midpoint_trained/summary.json": "4d9a3bf343a9e556ac7bac8e8204cf52cdbc7c682bb173f2944b3623cbb31e6b",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_rk4_trained/summary.json": "442bafa7e91eb70a3f5e7473e1e96842c3149f196ada459cd2abec401f6edb23",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_midpoint_trained/summary.json": "80e80fe201582167f8beddfe65a34297e9da2d209252a17b1a46263c2032c210",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_rk4_trained/summary.json": "4526a41e8d35d501980b550893865c571ccd577e9ba013c2f29d70f5ac979562"
+  },
+  "requirements_passed": true
+}

@@ -77,3 +77,12 @@ PNGs inspected; plots remain execution-only. A duplicate keyword in the initial
 control receipt caused61878exit1, fixed only serialization;54474exit0. Raw inputs,
 primary gate, formal sourcea6f4d42 and all running jobs remain unchanged.
 Formal actual check:12/64banks qualify, four CPUworkers near100%,1454-7occupied.
+
+Frozen4276979fresh documented postprocessing passes0/0/0,5026sourcehashes match
+before/after; independent native metric error8.88e-16. Ancillary Git lookup in
+the no.gitarchive is recorded; commit identity comes from the freeze manifest.
+Full queue now16/64qualified model/bank evaluations, no complete case. New
+postprocessor332/session64468 waits for existing collector98379 to actually exit,
+then owns the three documented full cached checks. No sampling/training restart.
+Native15465 and collector82357 remain the same original handles. Review the
+four actual PNGs and independent statistics/metric receipts before conclusions.

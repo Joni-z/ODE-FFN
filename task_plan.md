@@ -128,7 +128,7 @@ they remain live; no restart. Worktree starts clean at7e1146e.
   =(Lactual-Lhat)+(Lhat-L0-lambda*Lprime), keeping original primary decision.
 - [x] Check translation/rank-crossing/zero controls and all eight cached64-source witnesses;
   independently compare the new Lhat values with the native Torch SW2 metric.
-- [ ] Bind code/inputs and publish the verified diagnostic; use every case,
+- [x] Bind code/inputs and publish the verified diagnostic; use every case,
   split, bank and fixed lambda when the formal queue becomes terminal.
 - [ ] Audit complete formal outputs/statistics/figures, then determine whether
   ODE-derived hidden defects may be propagated to the full field and sampling.
@@ -145,3 +145,20 @@ updated witness PNGs inspected with shared legends; no witness quality claim.
 Exact frozen postprocessing commands are in metric-remainder-execution.md;
 fresh documented cached execution is next. Original native queue remains live:
 12/64full banks qualified at the latest actual check; none resubmitted.
+
+Fresh cached execution is now complete: source4276979,5026hashes match before/
+after, exact three commands0/0/0, native64metric rows8.88e-16, no invocation
+divergence. Ancillary Git lookup fails as expected in an archive without.git;
+freeze manifest supplies provenance. Receipt retained without rewriting it.
+
+After the frozen cached witness passes, attach one postprocessor to the existing
+collector98379/start identity. It will run the THREE documented full checks once
+after that collector actually exits. Do not run those commands manually while
+the postprocessor is live. Native queue15465 and original collector82357 remain
+the original owners of sampling and the first analysis. No new model calls.
+Postprocessor332/original session64468 is now verified live, waiting on the
+exact collector98379/start identity. It owns statistics-verified.json,
+metric-remainder-formal/ and metric-remainder-verified.json. Poll its original
+handle; do not run these commands separately. Current full progress16/64model/
+bank evaluations, all qualified. Full results, figure review and ODE-specific
+defect-to-field testing remain incomplete; the research goal stays active.

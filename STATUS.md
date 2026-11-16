@@ -41,8 +41,8 @@ banks are bound before outcomes. Full transport is now running on four Mac CPU
 workers: queue98117, native98125-98128, original tool session15465. No result is
 claimed from the64-source witnesses. All four frozen cases, both splits, eight
 4096-source banks and four fixed interpolation strengths remain in the queue.
-The first twelve full4096-source banks have completed and passed all numerical
-gates (12/64banks, not complete cases). Initial throughput is about9minutes/bank
+Completed16/64full4096-source model/bank evaluations, all numerical gates passed;
+no complete case yet. Initial throughput is about9minutes/bank
 with four concurrent workers, suggesting roughly2-3hours for the complete queue.
 Collector98379/session82357 watches this specific queue identity and will run
 the source-bound complete-cohort analysis once the queue actually exits.
@@ -59,6 +59,10 @@ original primary transport gate remains unchanged.
 The cached-output decomposition is implemented; all64witness metric rows agree
 with native Torch SW2 within8.88e-16. The original primary gate remains unchanged.
 [Exact postprocessing protocol](docs/research-assessments/2026-11-16-ode-mechanism/metric-remainder-execution.md).
+That protocol now passes a fresh exact three-command witness (0/0/0,5026source
+hashes unchanged). Postprocessor332/session64468 watches the existing collector
+and will run the three full cached checks once, after actual completion. Do not
+duplicate its commands while it is live. No new sampling or training is added.
 
 ## Execution and preserved benchmark
 
