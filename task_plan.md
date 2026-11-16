@@ -118,3 +118,14 @@ Current goal turn: progress. All observation jobs are terminal; twenty-cell
 analysis, independent statistics and three inspected figures are complete.
 Publication at f145682 is verified on GitHubmain. The matched order control is implemented and independently validated;
 source is published and four formal trajectories are active/queued.
+
+Observer support: portable sampling-only export, six-model native stage-action
+probe, generic cost control and numerical loader now accept the two schedules.
+All four actual step16checkpoints restore exactly through that loader. Full
+export/native-observer validation remains pending the final common-bank eval.
+See schedule-order/observer-execution.md; no density run is launched.
+
+Observed training progress: Ring8both20kcomplete, exit0; Product16both17k
+and live. The native watcher waits for all four trajectories before common-bank
+evaluation. Actual dense MACs match within each task. No final sampling
+comparison has been collected yet.

@@ -107,7 +107,7 @@ def gradients(model,fixed):
         for (name,_),g in zip(params,grads):
             if g is None:continue
             amount=float(g.double().square().sum())
-            if name.endswith('stage_delta'):new+=amount
+            if name.endswith(('stage_delta', 'stage_offset')):new+=amount
             else:common+=amount
         norm=(common+new)**.5
         rows.append(dict(batch=offset//512,pair_mse=float(loss.detach()),common_gradient_norm=common**.5,
@@ -115,14 +115,15 @@ def gradients(model,fixed):
     return rows
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--root');p.add_argument('--data-root');p.add_argument('--output');p.add_argument('--contrast-study');p.add_argument('--arrays-output');p.add_argument('--self-test',action='store_true');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root');p.add_argument('--data-root');p.add_argument('--output');p.add_argument('--contrast-study');p.add_argument('--schedule-study');p.add_argument('--arrays-output');p.add_argument('--self-test',action='store_true');a=p.parse_args()
+    assert not (a.contrast_study and a.schedule_study)
     torch.set_num_threads(1);check=self_test()
     if a.self_test:print(json.dumps(check));return
     base.verify_sources()
     assert a.root and a.data_root and a.output
     root=Path(a.root);out=Path(a.output);assert not out.exists();rows=[]
     raw=Path(a.arrays_output) if a.arrays_output else None
-    if a.contrast_study:assert raw is not None,'Retain the actual entrances and matrices for independent reconstruction'
+    if a.contrast_study or a.schedule_study:assert raw is not None,'Retain the actual entrances and matrices for independent reconstruction'
     if raw:raw.mkdir(parents=True,exist_ok=False)
     cases=json.loads((root/'sharing-anchors.json').read_text())['cases']
     if a.contrast_study:
@@ -131,9 +132,17 @@ def main():
         registered=json.loads((Path(a.contrast_study)/'anchors.json').read_text())
         assert registered['passed'] and len(registered['new_cases'])==2
         cases=cases+registered['new_cases']
+    families = ['state_midpoint4','stage_operator_midpoint4','contrast_operator_midpoint4']
+    if a.schedule_study:
+        from gpu_resolution import builder
+        ev.build_model=builder
+        registered=json.loads((Path(a.schedule_study)/'anchors.json').read_text())
+        assert registered['passed'] and registered['protocol']=='schedule_order' and len(registered['new_cases'])==4
+        cases=cases+registered['new_cases']
+        families=['state_midpoint4','palindrome_operator_midpoint4','alternating_operator_midpoint4']
     for case in cases:
         folder=Path(case['folder']);cfg=json.loads((folder/'config.json').read_text());cell=cfg['cell']
-        if cell['family'] not in ['state_midpoint4','stage_operator_midpoint4','contrast_operator_midpoint4']:continue
+        if cell['family'] not in families:continue
         assert (folder/'ADAPTER_COMPLETE').exists() and cfg['steps']==20000
         cache=base.verify_data(a.data_root,cell);model,identity=ev.restore(folder,cfg,cache/'manifest.json',20000,'cpu')
         arrays,fixed,binding=evaluation.evaluator.assets(root/'sharing-assets',cell['dataset'],'selection','cpu')
@@ -182,7 +191,7 @@ def main():
             file=raw/(case['id']+'.npz');np.savez_compressed(file,**captured_arrays)
             rows[-1]['arrays']=dict(file=str(file),sha256=base.digest(file))
             base.dump(raw/'progress.json',dict(completed=len(rows),last=case['id']))
-    assert len(rows)==(6 if a.contrast_study else 4)
+    assert len(rows)==(6 if a.contrast_study or a.schedule_study else 4)
     base.dump(out,dict(passed=True,self_test=check,scope='frozen-weight action/ordering sensitivity, not a retrained benefit',rows=rows,source_sha256=base.digest(__file__)))
     print(json.dumps(dict(passed=True,cases=len(rows),output=str(out))))
 

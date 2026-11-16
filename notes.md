@@ -12,6 +12,9 @@ bracket coefficient; B=0 is exact. B proportional to P cancels the leading
 bracket, not all discrete-map differences. Initial B gradients are active
 and different, with no rescaling. Published/frozen67b4664; queue52859and watcher52860are live. Ring8workers
 52862/52863advance; Product16will follow. All241source bindings match.
+Dense work is measured at227,648MACs/Ring8example and229,440MACs/Product16example
+for shared P and both schedules. Observer routing restores all four real step16
+checkpoints exactly. Full native observer-entry validation remains pending.
 Canonical: schedule-order-control.md and schedule-order/execution.md under
 2026-11-16-ode-mechanism. No response search or image-training change.
 

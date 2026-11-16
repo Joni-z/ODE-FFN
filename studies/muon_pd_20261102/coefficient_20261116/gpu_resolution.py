@@ -7,13 +7,16 @@ from state_trial import build_model as state_builder
 from stage_trial import build_model as stage_builder
 
 STATE_FAMILIES = ('state_midpoint4', 'free_stage_midpoint4',
-                  'stage_operator_midpoint4', 'contrast_operator_midpoint4')
+                  'stage_operator_midpoint4', 'contrast_operator_midpoint4',
+                  'palindrome_operator_midpoint4', 'alternating_operator_midpoint4')
 
 def verify_builder_sources(case):
     """New portable families bind their complete imported local model source."""
     files = case.get('builder_sources_sha256', {})
     if case['family'] == 'contrast_operator_midpoint4':
         assert files and any(p.endswith('/contrast_trial.py') for p in files)
+    if case['family'] in ('palindrome_operator_midpoint4', 'alternating_operator_midpoint4'):
+        assert files and any(p.endswith('/schedule_trial.py') for p in files)
     repo = Path(__file__).resolve().parents[3]
     for relative, digest in files.items():
         path = (repo/relative).resolve()
@@ -29,6 +32,9 @@ def exclusive_gpu(selected):
     assert not foreign,('Selected GPU occupied; stop only our own work',foreign)
 
 def builder(dim,family):
+    if family in ('palindrome_operator_midpoint4', 'alternating_operator_midpoint4'):
+        from schedule_trial import build_model as schedule_builder
+        return schedule_builder(dim,family)
     if family=='contrast_operator_midpoint4':
         from contrast_trial import build_model as contrast_builder
         return contrast_builder(dim,family)

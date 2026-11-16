@@ -1,4 +1,4 @@
-"""Export two trained controls for the existing sampling/density observers."""
+"""Export registered controls for the existing bound checkpoint observers."""
 import argparse
 import json
 from pathlib import Path
@@ -22,14 +22,29 @@ def copy_bound(source: Path, root: Path, relative: str) -> tuple[str, str]:
 
 def main() -> None:
     p = argparse.ArgumentParser()
-    for name in ['study', 'density-reference', 'data-root', 'output']:
+    for name in ['study', 'data-root', 'output']:
         p.add_argument('--'+name, required=True)
+    p.add_argument('--density-reference')
+    p.add_argument('--schedule-order', action='store_true')
+    p.add_argument('--sampling-only', action='store_true')
     a = p.parse_args()
-    study, previous, out = map(Path, [a.study, a.density_reference, a.output])
+    study, out = map(Path, [a.study, a.output])
+    previous = Path(a.density_reference) if a.density_reference else None
+    selected_evaluation, families, count = evaluation, {FAMILY}, 2
+    if a.schedule_order:
+        assert a.sampling_only, 'Density follow-up requires a separate registered decision'
+        from schedule_trial import SCHEDULES
+        import schedule_evaluate
+        selected_evaluation, families, count = schedule_evaluate, set(SCHEDULES), 4
     assert json.loads((study/'analysis/COMPLETE.json').read_text())['passed']
     anchors = json.loads((study/'anchors.json').read_text())
-    old_manifest = json.loads((previous/'portable.json').read_text())
-    assert anchors['passed'] and old_manifest['passed'] and len(anchors['new_cases']) == 2
+    old_manifest = None
+    if not a.sampling_only:
+        assert previous is not None
+        old_manifest = json.loads((previous/'portable.json').read_text())
+        assert old_manifest['passed']
+    assert anchors['passed'] and len(anchors['new_cases']) == count
+    assert (anchors.get('protocol') == 'schedule_order') == a.schedule_order
     out.mkdir(parents=True, exist_ok=False)
     torch.set_num_threads(1)
     base.verify_sources()
@@ -42,26 +57,29 @@ def main() -> None:
             path = Path(filename).resolve()
             if path.suffix == '.py' and path.is_relative_to(REPO/'studies/muon_pd_20261102'):
                 sources[str(path.relative_to(REPO))] = base.digest(path)
-    for name in ['gpu_resolution.py', 'contrast_trial.py']:
+    for name in ['gpu_resolution.py', 'schedule_trial.py' if a.schedule_order else 'contrast_trial.py']:
         assert str((HERE/name).relative_to(REPO)) in sources
-    manifests = {'sampling-models': [], 'density-models': []}
+    manifests = {'sampling-models': []}
+    if not a.sampling_only:
+        manifests['density-models'] = []
     checks = []
     for item in anchors['new_cases']:
         folder, id = Path(item['folder']), item['id']
         cfg = json.loads((folder/'config.json').read_text())
-        assert cfg['cell']['family'] == FAMILY
+        family = cfg['cell']['family']
+        assert family in families
         cache = base.verify_data(a.data_root, cfg['cell'])
-        native, identity = evaluation.evaluator.ev.restore(folder, cfg, cache/'manifest.json', 20000, 'cpu')
+        native, identity = selected_evaluation.evaluator.ev.restore(folder, cfg, cache/'manifest.json', 20000, 'cpu')
         assert len(list(native.ode_layers())) == 6
-        arrays, fixed, binding = evaluation.evaluator.assets(anchors['assets'], item['dataset'], 'confirmation', 'cpu')
+        arrays, fixed, binding = selected_evaluation.evaluator.assets(anchors['assets'], item['dataset'], 'confirmation', 'cpu')
         evaluated = study/'analysis/confirmation'/id
-        pred, _ = evaluation.evaluator.ev.field(native, fixed)
+        pred, _ = selected_evaluation.evaluator.ev.field(native, fixed)
         assert np.array_equal(pred, np.load(evaluated/'field-20000.npy'))
         value = base.train.generated_samples(native, torch.from_numpy(arrays['source_0']), 128).numpy()
         assert np.array_equal(value, np.load(evaluated/'20000-b0.npy'))
         for mode, cases in manifests.items():
             root = out/mode
-            case = dict(id=id, dataset=item['dataset'], family=FAMILY, builder_sources_sha256=sources.copy())
+            case = dict(id=id, dataset=item['dataset'], family=family, builder_sources_sha256=sources.copy())
             for key, file in [('config', folder/'config.json'), ('checkpoint', folder/'checkpoints/step_0020000.pt'),
                               ('dataset_manifest', cache/'manifest.json')]:
                 case[key], case[key+'_sha256'] = copy_bound(file, root, f'cases/{id}/{file.name}')
@@ -90,9 +108,9 @@ def main() -> None:
         base.dump(out/mode/'portable.json', dict(passed=True, cases=cases,
             source_sha256=base.digest(__file__), source_study_completion_sha256=base.digest(study/'analysis/COMPLETE.json'),
             original_density_portable_sha256=base.digest(previous/'portable.json') if mode == 'density-models' else None))
-    base.dump(out/'COMPLETE.json', dict(passed=True, cases=2, modes=list(manifests), checks=checks,
+    base.dump(out/'COMPLETE.json', dict(passed=True, cases=count, modes=list(manifests), checks=checks,
         source_sha256=base.digest(__file__), builder_source_files=len(sources)))
-    print(json.dumps(dict(passed=True, cases=2, output=str(out))))
+    print(json.dumps(dict(passed=True, cases=count, output=str(out))))
 
 
 if __name__ == '__main__':
