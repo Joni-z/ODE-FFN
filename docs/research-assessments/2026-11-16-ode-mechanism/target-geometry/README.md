@@ -2,6 +2,13 @@
 
 ## Later precision audit
 
+The next native-only qualification is complete: all twelve fixed models pass,
+ten at4096steps and two at8192. All original256sources/model are retained;
+the independent reconstruction error is<=4.17e-17.
+[Native grid evidence and figures](native-time-results/analysis-report.md).
+This clears native endpoint precision, not the oracle/tangent/blend test.
+[Registered refined calibration](refined-trajectory-protocol.md).
+
 The256-source/twelve-checkpoint transported-error calibration is complete,
 but none meets every endpoint/tangent precision gate by the registered1024cap.
 Its approximation outcome remains unresolved. A separate verified construction

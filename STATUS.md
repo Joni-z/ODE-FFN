@@ -2,6 +2,19 @@
 
 ## Current precision question
 
+**Native endpoint precision now qualifies for all twelve frozen models.**
+Ten pass at4096steps; Ring8released-stage and Product16SwiGLU require8192.
+Every case retains256sources across all eight banks. All twelve native tasks
+and all twelve independent verifiers exit0; reconstruction error<=4.17e-17.
+Nearby1000/1024/1032grids still give different endpoints at fixed weights.
+[Complete native precision analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-results/analysis-report.md).
+
+Next refine the full oracle/tangent/four-blend calculation under the same
+component tolerances. Native qualification does not yet validate its
+first-order mechanism. [Registered extension](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/refined-trajectory-protocol.md).
+No new training or image architecture is launched.145physical4-7remain
+occupied; MacCPUis used without sharing or stopping another job.
+
 All twelve256-source error-transport calibrations finished. None passes every
 registered endpoint/tangent component gate by1024steps, so the first-order
 mechanism remains unresolved. No sources or models were removed.
@@ -79,7 +92,7 @@ Raw evidence: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
 
 ## Current research priority
 
-Qualify native fields on non-dyadic/above-bandwidth grids, then resolve the
+Native fields now meet the registered precision test. Resolve the
 transported-error approximation before another architecture. The hidden ODE time/global
 FM time connection remains open. No additional training or image promotion is
 queued. The broader ODE-mechanism research goal remains active.

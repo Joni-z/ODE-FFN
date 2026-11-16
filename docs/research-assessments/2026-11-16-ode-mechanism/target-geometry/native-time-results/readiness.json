@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "native_kernel_cases": 12,
+  "native_cli_witnesses": 2,
+  "fresh_agent": "/root/native_time_doc_witness",
+  "actual_command_exits": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "source_freeze": {
+    "commit": "41df8ee16b6a214a222505f9c3306d2ed6fbf4bc",
+    "archive_sha256": "c90f486be2cde8c380756761f0fee83981909925fe2fb65e1b40bded3099b2da",
+    "frozen": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/repo"
+  },
+  "bound_artifacts": {
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/readiness/check/PASS.json": "8030bb44ea0debda6687c532ca385e54e1a320e8d92bd1216df783dadbf72121",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/readiness/ring/COMPLETE.json": "a5a0c14284ee75e0db0b7dbe5a61111d0d49369bb047e80181edd3ead383b806",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/readiness/ring-verified/COMPLETE.json": "082a350155cbb16498de109eb7b5adf406ef56c5256bca4169b31af33a3e8a23",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/readiness/product/COMPLETE.json": "57cc0c5046ebb46c034e15634e556b1ae1e72c7500226f5ef8f085c33b729420",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/native-time-resolution/readiness/product-verified/COMPLETE.json": "6f0e13318a3046ecfb6eb27f26f89d8c71d58d79d7564563f9129b8676661cf5"
+  },
+  "runtime_source_sha256": {
+    "native_time.py": "ab9ffb1432626c1b3f8d67a31fd7c6cf3f4cc04b91db3d796372cb108be058c7",
+    "native_time_probe.py": "9f779f38deb07895d27e4d579ae6470d41663bba44cea6e70a345c354b215cdc",
+    "native_time_queue.py": "3185aeac569ac3132f24da75be45195f128c2e5207baaabf242ba341c83899d6",
+    "trajectory.py": "4a79bf3674d88e2193d4d83dfa371db74bc0776224f04127d8ec2ba359d068bf",
+    "frozen_probe.py": "7a667c3fa6425c6a8983c7a2507085b8212f62d40911e75e240954801631903e",
+    "geometry.py": "79483652d9278f98e71a50a3155ceada5e493e2a9201bf8c808dae8cb2a48239"
+  },
+  "packed_throughput_measurement": 1.3307805258273981,
+  "native_and_packed_cached_traces_exact": true,
+  "qualification_scope": "two eight-source witnesses; formal256-source qualification remains pending"
+}

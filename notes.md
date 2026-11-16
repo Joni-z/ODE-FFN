@@ -1,40 +1,30 @@
-# ODE mechanism: evidence and current decision
+# Current ODE evidence and next decision
 
-The latest error-transport calibration is complete but numerically unresolved.
-All twelve 20k checkpoints retain 256 sources (32 from each existing selection
-bank), four error multipliers and every registered resolution through 1024.
-Both native processes and both independent verifiers exit 0. No case passes
-all endpoint/tangent component gates; do not interpret the linear approximation
-as either useful or disproved yet. Independent summaries agree within 2.66e-14.
+All twelve native endpoint checks are qualified, ten at4096and two at8192.
+Ring8released-stage and Product16SwiGLUrequire8192.12native+12independent actual
+exits0; independent maximum4.17e-17.256sources/model, all eight original banks,
+no new weights, training, packages orGPU. Native grid figures inspected.
 
-A direct time-alias construction now supplies an actual-model counterexample.
-The native embedding's highest frequency is 1000.000122 cycles/unit t. Replacing
-it by -23.999878 leaves sine/cosine values identical at dyadic Heun grids whose
-step count divides 1024. Across all twelve checkpoints, FP64 endpoint changes
-are <=1.65e-13 and FP32 <=3.02e-5 on the sixteen-source witness. Continuous-time
-field predictions change by 0.059-0.154 of oracle-fitting RMS error. Selection
-Jacobian metrics also change; Ring8 Free ISRU shifts 0.306 -> 0.344. The focal
-PAL/ALT ordering does not reverse. This is an identifiability audit, not a new
-candidate or proof that one feature causes every numerical failure.
+Nearby1000/1024/1032grids differ at fixed weights. Original Heun128large-bank
+SW2scores remain unchanged. Endpoint difference is coupling dependent and is
+not a distribution distance. Native qualification does not qualify the tangent.
 
-The earlier independent spatial comparison remains: PAL/ALT full-J error is
-Ring8 0.156/0.191 and Product16 0.261/0.236, with all eight banks supporting each
-focal direction. Their fixed-grid SW2 remains 0.086/0.108 and 0.072/0.066.
-Ordinary Product16 SwiGLU samples better despite greater average J error.
-No general ODE-specific advantage has been established.
+Next run the separately registered refined oracle/tangent/four-blend test.
+Both eight-source author witnesses qualify4096; no full256-source conclusion
+yet. Initial wrong old-pilot path failed before solving and remains preserved.
+Packed execution exactly reproduces the original twelve full256-source traces.
 
-Next qualify unchanged native fields on non-dyadic and higher-resolution grids;
-then resolve oracle-tangent/blended-flow precision before the mechanism decision.
-Preserve all native metrics, raw arrays, source freezes and finalized reports.
-145 GPUs 4-7 were occupied at the latest read-only check; 0-3 remain prohibited.
-This phase used two one-thread Mac CPU workers and no package/GPU changes.
+Earlier spatial PAL/ALTassociation is confirmed independently on32768pairs
+per task, but ordinary Product16SwiGLUis a counterexample to a general derivative
+ranking. Task-dependent order effects and coefficient-release controls still
+provide no general ODE-specific generation advantage.
 
-Canonical evidence:
-- .../target-geometry/trajectory-results/analysis-report.md
-- .../target-geometry/time-alias-results/analysis-report.md
-- .../target-geometry/native-time-resolution-protocol.md
-- .../target-geometry/confirmation-results/analysis-report.md (earlier spatial result)
-Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response.
-Warm CPU: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
-Runtime source freezes: 4eeec25 and 130a5ed. All phase processes are terminal.
-The goal remains active; no new training or image candidate is queued.
+Canonical: docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/
+- native-time-results/analysis-report.md (complete new evidence)
+- refined-trajectory-protocol.md and refined-trajectory-execution.md (next)
+- trajectory-results/, time-alias-results/ (unchanged earlier evidence)
+- confirmation-results/ (unchanged spatial association)
+
+Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.
+Native source freeze41df8ee; original calibration4eeec25and alias130a5edpreserved.
+145physical4-7occupied,0-3prohibited; no foreign task touched. Goal active.

@@ -1,4 +1,4 @@
-"""Two monitored native-only CPU workers; preserve failures, never retry."""
+"""Two monitored precision-probe CPU workers; preserve failures, never retry."""
 import argparse
 import hashlib
 import json
@@ -29,10 +29,12 @@ def main() -> None:
     p = argparse.ArgumentParser()
     for key in ['study', 'pilot', 'data-root', 'output', 'readiness']:
         p.add_argument('--'+key, required=True)
+    p.add_argument('--refined-native', help='Verified native-qualification directory for sensitivity refinement')
     p.add_argument('--detach', action='store_true')
     a = p.parse_args()
     out, study = Path(a.output), Path(a.study)
     ready = read(Path(a.readiness))
+    assert ready.get('mode', 'native') == ('refined' if a.refined_native else 'native')
     assert ready['passed'] and ready['native_kernel_cases'] == 12 and ready['native_cli_witnesses'] == 2
     for file, digest in ready['bound_artifacts'].items():
         assert sha(Path(file)) == digest
@@ -70,8 +72,11 @@ def main() -> None:
         while pending and len(active) < 2 and not failed:
             case = pending.pop(0)
             target = out/'cases'/case
-            command = [sys.executable, '-u', str(HERE/'native_time_probe.py'), '--study', a.study,
+            probe = 'refined_trajectory_probe.py' if a.refined_native else 'native_time_probe.py'
+            command = [sys.executable, '-u', str(HERE/probe), '--study', a.study,
                 '--pilot', a.pilot, '--data-root', a.data_root, '--case', case, '--output', str(target)]
+            if a.refined_native:
+                command += ['--native', a.refined_native]
             log = (out/(case+'.log')).open('x')
             proc = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=log, stderr=log, env=env)
             active[proc.pid] = (proc, log, dict(id=case, pid=proc.pid, output=str(target), command=command, started=time.time()))
