@@ -12,6 +12,7 @@ the model extension replaces only each Transformer block's FFN.
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |
 | Current mechanism result and next action | [Complete calibration and architecture decision](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/decision-after-calibration.md) |
+| Which hidden change reaches the output? | [Completed single-layer directional intervention](docs/research-assessments/2026-11-16-ode-mechanism/hidden-readout-results/analysis-report.md) |
 | Does endpoint linearization measure generation quality? | [Exact actual-law counterexample](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/product-oracle-control-results/analysis-report.md) |
 | Baseline/K1/K8 at matching epochs | [Matched FID comparison](docs/celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Candidate FFN implementation | [ffn.py](ffn.py) |
