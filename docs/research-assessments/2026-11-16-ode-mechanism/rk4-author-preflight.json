@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "kernels": [
+    {
+      "dimension": 2,
+      "parameters": 56706,
+      "initialized_tensors_buffers_rng_exact": true,
+      "numpy_rk4_formula": true,
+      "full_input_gradient": true,
+      "projection_directional_gradient_error": 3.795492566072145e-13,
+      "matrix_applications": [
+        8,
+        8
+      ],
+      "refinement_errors": [
+        8.262345961144174e-05,
+        4.852041911215822e-06,
+        2.976957807310681e-07
+      ],
+      "initial_local_map_difference": 0.005105807505231126
+    },
+    {
+      "dimension": 16,
+      "parameters": 58512,
+      "initialized_tensors_buffers_rng_exact": true,
+      "numpy_rk4_formula": true,
+      "full_input_gradient": true,
+      "projection_directional_gradient_error": 2.694153168787683e-12,
+      "matrix_applications": [
+        8,
+        8
+      ],
+      "refinement_errors": [
+        5.406005541851666e-05,
+        3.2591523256338015e-06,
+        2.0206213671507627e-07
+      ],
+      "initial_local_map_difference": 0.003931615037523829
+    }
+  ],
+  "continuations": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "native_resume_matches": true,
+      "training_data_rng_matches_midpoint": true,
+      "native_evaluator_passed": true
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "native_resume_matches": true,
+      "training_data_rng_matches_midpoint": true,
+      "native_evaluator_passed": true
+    }
+  ],
+  "native_continuations": 2,
+  "real_evaluator_witnesses": 2,
+  "source_sha256": "1019c0c6a34e38340bbecb4a551fbe6aebfc6ec5a2ea732f69a24afb8b3eddbc",
+  "original_midpoint_step0_exact_both_tasks": true
+}

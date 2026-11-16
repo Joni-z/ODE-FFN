@@ -1,66 +1,44 @@
 # Current project status
 
-## Hidden changes reach the terminal distribution in a bounded pilot
+## The next test isolates continuous-solver accuracy during training
 
-The fixed-first-layer pilot is complete: six shared/PAL/ALT models and four
-ordinary controls,64 common sources per checkpoint, inner256/512 and native
-Heun128/129. Of12 focal model/grid comparisons,9 pass every numerical gate;
-all9 support the registered directional prediction. Their tangential
-reproduction fractions G range from0.926 to0.996. This measures reproduction
-of the full refinement's empirical distribution change, not a target-quality
-improvement. Three Ring8 comparisons retain failed256-step snapshot gates;
-all512-step snapshots pass. No case or arm is removed.
+The midpoint hidden bias is now quantitatively predictable from its learned
+field: all 2,880 states qualify, and its parameter-free trained 4-step prediction
+fractionB=.831--.971 across six models. Total/normal adjusted intervals resolve
+positivity in all cases. This predicts a numerical effect; its task value is
+still an open question.
+[Derivation](docs/research-assessments/2026-11-16-ode-mechanism/solver-bias-derivation.md)
+and [complete results](docs/research-assessments/2026-11-16-ode-mechanism/solver-bias-results/analysis-report.md).
 
-[Complete analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-results/analysis-report.md),
-[all numerical data](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-results/summary.json),
-[source and protected-file audit](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-audit.json).
+Registered next: two new seed 0,20k-update Ring8/Product16 trajectories. Keep
+f=PISRU(y), parameter count, initialization, optimizer and8 P applications per
+local solve; replace midpoint4with classical RK4 two steps. Author algebra,
+gradient/order/continuation/evaluator checks pass. Publication, source freeze
+and a fresh exact documented readiness pass precede formal dispatch.
+[Protocol](docs/research-assessments/2026-11-16-ode-mechanism/rk4-control-protocol.md).
+No formalRK4training has started at this status update.
 
-Target SW2 changes are small and do not all improve. The64-source pilot cannot
-rank methods against earlier32768-source studies. It does not select a new FFN.
+## Completed controls and their interpretation
 
-## The next mechanism control
+All six dimension-matched tangent-minus-null contrasts are negative, including
+adjusted intervals. Ring8 normal-specific effects resolve; Product16 does not.
+The earlier63D-versus1Ddominance cannot establish special ODE sensitivity.
+[Equal-dimension control](docs/research-assessments/2026-11-16-ode-mechanism/hidden-null-results/analysis-report.md).
 
-The complete equal-dimension control is now finished. Potential-tangential F
-is lower than the generic63D-complement mean in all six models, with every
-adjusted paired interval below zero. Tangential dominance alone therefore
-does not establish special ODE sensitivity. Ring8 potential-normal F exceeds
-its1D null with positive adjusted intervals; Product16 remains inconclusive.
-[Complete null comparison](docs/research-assessments/2026-11-16-ode-mechanism/hidden-null-results/analysis-report.md).
+The uniform512/1024fixed-first-layer sampling extension completes numerical
+qualification in12/12model/grid comparisons. It reproduces the direction of
+refinement-induced distribution changes, but target SW2 changes are small and
+mixed. Original256 pilot failures remain unchanged. This does not select an FFN.
+[Complete extension](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-extension-results/analysis-report.md).
 
-Normal and tangential spaces have dimensions1 and63. Directional dominance
-alone may reflect that difference. An exact audit of all2880 old local states
-shows normal error is enriched2.158--16.489 times relative to the1/64 isotropic
-reference. Thus energy-only is insufficient, but the potential normal is not
-unimportant. Compare actual corrections with complete, equal-dimension
-orthonormal-frame controls before promoting this as special ODE sensitivity.
-[Derivation, measured enrichment and falsification](docs/research-assessments/2026-11-16-ode-mechanism/direction-dimension-audit.md).
+## Preserved benchmark and execution boundaries
 
-Also register a512/1024 numerical extension before resolving the three remaining
-pilot gates. Preserve the original256 failures and all fixed samplers/sources.
-All36 bound frames,64 directions,80 inputs and six layers are retained.
-Native and independent full-frame entries exit0; candidate reconstruction is
-exact. The unchanged-gate512/1024 extension is registered; both author native
-witnesses and independent verifiers exit0. Reused arrays are exact and bound.
-Fresh frozen extension execution is next. No new architecture or training.
+CelebA128 at 160 epochs: native24.304/K1 27.789/K8 28.083 FID50k.
+[Matched table](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
+Final Reports1/2 and native image code stay unchanged. Current experiment code
+is isolated under studies/muon_pd_20261102/.
 
-## Earlier evidence and image benchmark
-
-The complete one-layer output study supports a directional local response on
-all six models. [Results](docs/research-assessments/2026-11-16-ode-mechanism/hidden-readout-results/analysis-report.md).
-The all-layer native reference qualifies256 on Product16 but fails late layers
-on Ring8; the restricted first-layer pilot does not overturn that result.
-[Reference qualification](docs/research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-results/analysis-report.md).
-
-CelebA128 at160 epochs remains native24.304/K1 27.789/K8 28.083 FID50k.
-[Matched image table](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
-Reports1/2 are final; all97 protected report files,11 Report2 bindings and five
-native image source files remain unchanged.
-
-## Execution and resources
-
-All pilot workers, independent verifiers and monitor have actual terminal
-exit0. Runtime freeze9d46b2d, original sessions2572/38657; Elapsed time per task
-approximately312--317 seconds using two one-thread Mac workers. Warm environment
-04f11f75 is unchanged. Raw outputs and monitoring:
-`/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-sampling/`.
-145 physical4-7 were occupied;0-3 prohibited. No remote job was stopped/shared.
+Mac mini uses the unchanged one-thread-per-workerCPU environment04f11f75.
+145 physical 4-7are occupied;0-3prohibited. No job is stopped or shared.
+All earlier null/precision/bias native/verifier handles have actual terminal0.
+Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.

@@ -1,0 +1,281 @@
+{
+  "passed": true,
+  "source_anchors": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/anchors.json",
+  "source_anchors_sha256": "a14c4d7246177f7317a9fdbe08aba7277d8c8e88d7e2ee6ded4975d1bb59fcf7",
+  "assets_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+  "assets_manifest_sha256": "4ae16695aab2ec596aea36b048184d53ea004c9702831b56bf168a8015b71e92",
+  "training_seed": 0,
+  "steps": 20000,
+  "references": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output/state_flow_20261116/gmm_ring8_2d/gmm_ring8_2d__state_midpoint4__adamw_0.0003/seed000",
+      "config_sha256": "53f0e1a0eb36413342d2d4de508cf5e6b97bd87e69730d31347fd03b88bf063a",
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "initial_checkpoint_exists": true,
+      "evaluations": {
+        "selection": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/gmm_ring8_2d__state_midpoint4__adamw_0.0003/summary.json",
+          "sha256": "eef1ff26441ca444d364a55b70d0c6f1f719daa3d5151bc506b5db9b9dcfd8b2",
+          "field_mse": 0.010217505741145043,
+          "pooled_sw2": 0.09658636002810862,
+          "bank_sw2": [
+            0.09786720771251572,
+            0.12299100992171974,
+            0.13642746957379331,
+            0.1685441239253955,
+            0.10527754517730419,
+            0.10984418840333415,
+            0.11291054698864575,
+            0.1271608256569064
+          ]
+        },
+        "confirmation": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/confirmation/gmm_ring8_2d__state_midpoint4__adamw_0.0003/summary.json",
+          "sha256": "69e85c5ff6bae48a3f6693f0948425552a4e2e08916ead03ce0d6b6c31185c91",
+          "field_mse": 0.009764538797156296,
+          "pooled_sw2": 0.0908579132952625,
+          "bank_sw2": [
+            0.12639754287054417,
+            0.09199444233107622,
+            0.08182096927569836,
+            0.08198746300735989,
+            0.13712680495061919,
+            0.09147993832575187,
+            0.1977962555442393,
+            0.13393137689144669
+          ]
+        }
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output/state_flow_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/seed000",
+      "config_sha256": "3e070775b2c7a990d8c72ec7681ca5e8e21e6e0d351dec133ea0a75070b317a6",
+      "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+      "initial_checkpoint_exists": true,
+      "evaluations": {
+        "selection": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/summary.json",
+          "sha256": "9d851f02ea4310ff90b4b819ef5577d4acbfe218cd1a89ca8f38291bebb58677",
+          "field_mse": 0.01926662506050201,
+          "pooled_sw2": 0.0571473392883445,
+          "bank_sw2": [
+            0.07861812558736653,
+            0.07175261477883443,
+            0.07529903116600224,
+            0.08053700848745766,
+            0.06670686192771239,
+            0.07991544276491973,
+            0.07794464705467508,
+            0.07119926258701414
+          ]
+        },
+        "confirmation": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/confirmation/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/summary.json",
+          "sha256": "3111e623976fbd337bf8a43be819a19b56856e78de240be4366e59e037d53ec6",
+          "field_mse": 0.019220158977717363,
+          "pooled_sw2": 0.06439463666120163,
+          "bank_sw2": [
+            0.0759504372399008,
+            0.07988445853228865,
+            0.08253090367613776,
+            0.0887038454349664,
+            0.08264226246076521,
+            0.08912182947624385,
+            0.07751876174163298,
+            0.0706598109390827
+          ]
+        }
+      }
+    },
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "folder": "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output/response_screen_20261115/gmm_ring8_2d/gmm_ring8_2d__free_isru__adamw_0.0003/seed000",
+      "config_sha256": "eeb76952e676f71d360d67590134cdfb01efb354408f9ac0d7afc2d9c66e8875",
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+      "initial_checkpoint_exists": true,
+      "evaluations": {
+        "selection": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/gmm_ring8_2d__free_isru__adamw_0.0003/summary.json",
+          "sha256": "ac9381269bce0dbb1497f15be5d70e43679f2508efb7de8a02c7eea3666694cf",
+          "field_mse": 0.011917586894829886,
+          "pooled_sw2": 0.10447688375600368,
+          "bank_sw2": [
+            0.10239599248537154,
+            0.1182889612081362,
+            0.14260339198397629,
+            0.17283650011858906,
+            0.11787070350352179,
+            0.0959399842490144,
+            0.12693444847112104,
+            0.1398140933953019
+          ]
+        },
+        "confirmation": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/confirmation/gmm_ring8_2d__free_isru__adamw_0.0003/summary.json",
+          "sha256": "10b14be39b3bdc4535a8dd8189d277cd2724376f3dcd1b9aba088416902f43bb",
+          "field_mse": 0.011050711979495085,
+          "pooled_sw2": 0.11606938401827041,
+          "bank_sw2": [
+            0.14739028104732438,
+            0.09842472809797441,
+            0.10973218273587611,
+            0.0927696249145268,
+            0.15297747890597607,
+            0.07780359475738499,
+            0.22214213881737097,
+            0.1575802868534115
+          ]
+        }
+      }
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "optimizer": "muon",
+      "projection_lr": 0.02,
+      "folder": "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output/response_screen_20261115/gmm_ring8_2d/gmm_ring8_2d__swiglu64__muon_0.02/seed000",
+      "config_sha256": "72ccfbc5f6e16bafc68185a01f5a236f883ad0a14284d4de4a9f2dbc5422f7b8",
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+      "initial_checkpoint_exists": true,
+      "evaluations": {
+        "selection": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/gmm_ring8_2d__swiglu64__muon_0.02/summary.json",
+          "sha256": "9e8c39d456c675b4f31357d3c69fca4d6d2d2f15584b2f743d768eb2420a9bf0",
+          "field_mse": 0.012763024561653048,
+          "pooled_sw2": 0.10741368981371091,
+          "bank_sw2": [
+            0.1111547810053716,
+            0.10534893007803617,
+            0.14962057879973836,
+            0.17051593278005933,
+            0.12148738941785678,
+            0.0869486290280216,
+            0.12196018614769348,
+            0.14162448044066653
+          ]
+        },
+        "confirmation": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/confirmation/gmm_ring8_2d__swiglu64__muon_0.02/summary.json",
+          "sha256": "4b2bfc90fc904e2aeca683eff88b8b9cadbede150589667e9876c7d00d50196e",
+          "field_mse": 0.01149144045570484,
+          "pooled_sw2": 0.11962502739738719,
+          "bank_sw2": [
+            0.1594567224323618,
+            0.09376926997243222,
+            0.11323193382724815,
+            0.08010139543632604,
+            0.15982866150495773,
+            0.08106035242502474,
+            0.22103879960081807,
+            0.1563747612972665
+          ]
+        }
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "folder": "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output/response_screen_20261115/rotated_product_bimodal_16d/rotated_product_bimodal_16d__free_isru__adamw_0.0003/seed000",
+      "config_sha256": "88e6a14efe1915e68424148b21c91174c2b9139b5c78c09920a8bb6906610a12",
+      "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a",
+      "initial_checkpoint_exists": true,
+      "evaluations": {
+        "selection": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/rotated_product_bimodal_16d__free_isru__adamw_0.0003/summary.json",
+          "sha256": "3b9e543e82754f1f7c3091ab31a1b1f6659ee35d0394c7ca68e84d6fcb060f67",
+          "field_mse": 0.014397318154473496,
+          "pooled_sw2": 0.052651661367849,
+          "bank_sw2": [
+            0.07759748079248213,
+            0.06372252586325178,
+            0.06810181628128716,
+            0.07363434388722746,
+            0.06888632965428587,
+            0.08143938780059591,
+            0.07391330248248879,
+            0.06744535909272535
+          ]
+        },
+        "confirmation": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/confirmation/rotated_product_bimodal_16d__free_isru__adamw_0.0003/summary.json",
+          "sha256": "fb3439c45c77649a4dbb966076822fdee256891157a12c1fc35fa36b0250d897",
+          "field_mse": 0.014634430162647545,
+          "pooled_sw2": 0.054813764078843245,
+          "bank_sw2": [
+            0.07589961230935836,
+            0.07833559317146262,
+            0.07225784602247483,
+            0.07092955936788814,
+            0.07296997629029311,
+            0.08286333467082274,
+            0.06439679828070162,
+            0.06973245333517895
+          ]
+        }
+      }
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "folder": "/Users/mr.z/ode-workspace-prep/response-screen-20261115/output/response_screen_20261115/rotated_product_bimodal_16d/rotated_product_bimodal_16d__swiglu192__adamw_0.0003/seed000",
+      "config_sha256": "e04152c77d6a125f1902767fc298f890717b90a612fce8b425dc5094b039919a",
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c",
+      "initial_checkpoint_exists": true,
+      "evaluations": {
+        "selection": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/rotated_product_bimodal_16d__swiglu192__adamw_0.0003/summary.json",
+          "sha256": "0287c8df4fd600c72c5adb61b7672a5906976ed47d7dae3e9fc5101817eb108b",
+          "field_mse": 0.015251711251846756,
+          "pooled_sw2": 0.03880576621709826,
+          "bank_sw2": [
+            0.06340988084916604,
+            0.060489776748133564,
+            0.06049783953889906,
+            0.06703229582117869,
+            0.06262012745644505,
+            0.06389507196071076,
+            0.06145926117075409,
+            0.06090234984517038
+          ]
+        },
+        "confirmation": {
+          "summary_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/confirmation/rotated_product_bimodal_16d__swiglu192__adamw_0.0003/summary.json",
+          "sha256": "796c3e15add670e5ef8b04b4dc2ff9176dc642058dad61ac56249da5df183d75",
+          "field_mse": 0.015233064390242582,
+          "pooled_sw2": 0.044341956809907504,
+          "bank_sw2": [
+            0.06655565188812892,
+            0.06701613400870847,
+            0.06438640116810432,
+            0.06936003268063165,
+            0.06716906865415134,
+            0.07581505845197382,
+            0.06122592014342661,
+            0.05532928953460539
+          ]
+        }
+      }
+    }
+  ]
+}

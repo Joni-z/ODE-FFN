@@ -1,89 +1,62 @@
 # ODE mechanism investigation
 
-Goal remains active: identify what ODE structure contributes to generative
-modeling, with mathematical predictions, falsifiable controls and ordinary
-baselines. Seed0 only; scores three decimals. Preserve final Reports1/2 and
-native image code. Mac mini freely available;145 physical0-3 prohibited,
-4-7 only when<500MiB and no foreign compute PID. Never reclaim/share a job.
-Publish verified work promptly to GitHub main as Zhizhe Zhang.
+Goal remains active: determine what continuous ODE structure contributes to
+flow-matching models, using mathematical predictions and falsifiable training
+controls. Seed0 only. Scores use three decimals. Preserve final Reports1/2 and
+native image code. Mac mini freely available;145 physical 0-3 prohibited,
+4-7 only when<500 MiB and no compute PID. Never reclaim/share a job.
+Publish verified code and evidence promptly to GitHub main as Zhizhe Zhang.
 
-## Completed
+## Completed evidence
 
-- [x] Coefficient, state-flow, sharing, coordinate, symmetry, density and
-  stage-order controls; no general cross-task architecture advantage established.
-- [x] Target-Jacobian and fully refined12-case transport checks; exact actual-law
-  counterexample separates source-coupled endpoint prediction from generation.
-- [x] Hidden potential/geometry on all2880 local states and exact one-layer
-  output interventions on all six models,80inputs and all six layers.
-- [x] Native reference qualification at16/32/64/128/256. Product16 qualifies256;
-  Ring8 late layers fail. First layer qualifies256 in every model.
-- [x] Fixed-first-layer sampling pilot: all10 cases and116 arms retained, with
-  original banks, ordinary controls, inner256/512, Heun128/129 and DOP snapshots.
-- [x] Both pilot native/verifier exits0;9/12 comparisons qualify and support the
-  directional prediction;3 retain numerical failures at256. All512 snapshots pass.
-- [x] Strict analysis/figures and exact dimension audit: normal error enriched
- 2.158--16.489 versus1/64. Protected97/11/five native files unchanged.
+- [x] Fixed/free Taylor coefficients, state feedback, shared/released operators,
+  coordinate and matched stage-order controls. No general cross-task advantage.
+- [x] Full refined transport calibration and exact actual-law counterexample:
+  source-coupled endpoint error does not establish distribution quality.
+- [x] Hidden energy/readout/reference studies on all 2,880 states. All-layer256
+  references fail late Ring8 layers; this failure remains recorded.
+- [x] Complete equal-dimension null: all six tangent-minus-null adjusted
+  intervals negative. Potential-normal specificity resolves only on Ring8.
+- [x] Uniform512/1024 first-layer sampling extension: all 12comparisons qualify;
+  changes to target SW2 are small and not consistently beneficial. Preserve the
+  original256 pilot failures. Do not turn reproduction G into a quality score.
+- [x] Parameter-free midpoint bias prediction: all 2,880 states qualify;
+  trained 4-step total prediction B=.831--.971, both total/normal adjusted
+  intervals positive in6/6. Fine64->128->256 residuals decrease in6/6.
 
-## P0 next actions
+## P0: causal test of solver faithfulness
 
-1. Implement dimension-matched one-dimensional/complement interventions under
-   direction-dimension-audit.md. Bind every orthonormal frame before observing
-   outputs. Retain all64 directions, six models, six layers and80 original inputs.
-   COMPLETE: both native and independent full entries exit0. All six tangent
-   contrasts and adjusted intervals are negative; normal contrasts resolve
-   positively on Ring8 only. Preserve the rejected tangential-specificity claim.
-2. Test the strong tangential-specificity claim against frame-mean complement
-   effects; separately test potential-normal specificity. A nonpositive paired
-   difference rejects the corresponding six-case claim. Do not equate63-versus1
-   dominance with special ODE behavior.
-3. Register an unchanged-gate512/1024 sampling extension before running it.
-   Retain all six original models, both fixed grids and the same64sources;
-   preserve all original256 failures. No result-dependent source/layer selection.
-   REGISTERED and author actual-sampler/verifier witnesses exit0. Reuse exact
-   original512/native arrays; only1024arms are new. Fresh frozen pass pending.
-4. After these controls, decide whether a larger distribution comparison adds
-   evidence. Do not select an image architecture or a new activation from G.
+1. [x] Register rk4-control-protocol.md/execution.md. Same f=PISRU(y), width 64,
+   depth 3, interval [0,1], tensors/RNG, seed 0 and 20k updates. Change midpoint4 to
+   classical RK4 two steps; both use8 P applications. Official numerical step copied.
+2. [x] Author checks: independent algebra/gradients/order/Pcalls, native
+  8->16resume, real evaluator entries and exact original-midpoint step0 tensors,
+   buffers/data_rng. No quality conclusion from short checks.
+3. [ ] Publish/freeze source; fresh agent executes documented readiness command
+   verbatim. Preserve original exit status and all divergences.
+4. [ ] Launch two one-thread Mac CPU 20k training trajectories with a persistent
+   monitor; verify live command identity. Poll same handles, never restart on timeout.
+5. [ ] Require actual native exits 0,20k checkpoint, standard final test and
+   ADAPTER_COMPLETE. Run both fixed common-bank splits using native evaluator.
+6. [ ] Measure same-input/all-six-layer native-to-continuous error for trained
+   midpoint/RK4, using independent qualified references; compare to sampleSW2.
+7. [ ] Evaluate registered outcomes, ordinary controls and measured cost.
+   No image promotion from hidden accuracy alone. Do not add another activation.
 
-## Current state
+## Current state and turn classification
 
-No study worker remains live. Sampling actual sessions2572/38657 exit0;
-independent sessions19921/24943 exit0; monitor20346 exit0. Freeze9d46b2d and
-warm environment04f11f75 are preserved. Raw evidence under
-/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-sampling/.
-This goal turn is progress: it completed reference qualification, the sampling
-pilot, independent verification and dimension analysis, changing the next test.
+Last user-facing explanation was informational and changed no authoritative
+artifact: no progress toward the goal by itself. The next available action is
+publication/fresh invocation validation followed by the registered two trainings.
+No study worker is live at the current prelaunch check.145 cards 4-7 each use 1359 MiB
+with two compute PIDs; none used. MacCPU environment04f11f75is unchanged.
+Author readiness: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/author-check/PASS.json.
+Historical journals retained under docs/history/2026-11-16-before-rk4-control/.
 
-## Current continuation
+## Retained execution issues
 
-The preceding goal turn was progress, with completed sampling evidence and an
-exact dimensional audit. Now register and execute the finite equal-dimension
-control on the complete six-model/six-layer/80-input cohort. Bind all36seed0
-orthonormal frames before any new outputs, compare both actual components with
-their64-direction null means, and preserve every direction. Use the unchanged
-two-worker CPUenvironment. Separately register the fixed512/1024 numerical
-extension before new sampling; old256failures remain part of the evidence.
-
-Equal-dimension control complete: all six tangent-minus-null intervals are
-negative. Ring8 normal specificity resolves; Product16 does not. Uniform
-sampling extension native sessions64713/23175exit0, monitor23282exit0;
-independent sessions96719/83354exit0. Collect its complete numerical outcome.
-
-Next mathematical object: the midpoint forward modified field
-g=-H[f,f]/24-J(Jf)/6. Derivation and deterministic controls pass without trained
-observations. The complete solver-bias protocol is registered; first-layer
-author native witnesses and stable-source independent perturbation checks exit0.
-Prepare frozen four-command pass, then all six layers. Do not substitute fine
-asymptotic accuracy for actual trained4-step explanatory success.
-
-An unused zero-denominator guard was edited while initial author verifiers ran.
-Their outputs are preserved and not used for source readiness. Both stable-source
-v2 verifiers passed at new paths before freezing; native arrays were unchanged.
-
-## Retained errors
-
-A post-completion ps query returned1 because its worker was already terminal;
-original handles then confirmed0 and no job restarted. Two analysis patch
-contexts failed atomically; corrected with smaller verified edits. Figure drafts
-with crowded labels/legend are preserved outside Git; final four PNGs inspected.
-Prior detailed journals are archived under
- docs/history/2026-11-16-before-sampling-pilot-completion/.
+An unused guard was edited while initial solver-bias author verifiers ran;
+those outputs are retained but not used for readiness. Stable-source v2checks,
+then the separate frozen documented pass, passed before formal observations.
+The full solver-bias native/verifier commands subsequently all exited0.
+No study process is restarted due to a tool observation timeout.
