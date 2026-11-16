@@ -28,7 +28,7 @@ output mechanism, not improved generation or a unique skew-Padvantage.
 
 1. [x] Register an affordable native fixed-resolution approximation to the
    local continuous reference before any generation-level intervention.
-2. [ ] Compare its feature and one-layer output effects against the existing
+2. [x] Compare its feature and one-layer output effects against the existing
    qualified DOP853references on every registered state; preserve all cases.
 3. [ ] Only if that surrogate is qualified, specify a fixed-layer sampling
    intervention with original banks/sampler and ordinary controls. Do not
@@ -71,3 +71,19 @@ The smallest level passing every model/layer/mode is eligible for a later
 sampling intervention; no generation job is authorized by a local score alone.
 145physical4-7currently each have two compute PIDs and1191MiBoccupied;
 use the unchanged MacCPUenvironment. No remote process is modified.
+
+Complete qualification: formal native sessions81490/4364and both independent
+verifiers exit0. Product16passes256globally; Ring8has four late-layer failures
+at256despite small aggregate Ferrors, so no all-layer common surrogate passes.
+The first chronological layer passes256in all six models. Preserve the failed
+global gate. The next separately registered study may test only that fixed
+first layer, with new on-trajectory resolution checks; no other layer is chosen.
+A post-completion ps check exited1because the worker had already finished;
+both original tool handles subsequently returned actual0. No restart occurred.
+
+Fixed-first-layer pilot registered separately in hidden-sampling-protocol.md.
+All six candidate/output replays are exact. Both author actual-sampler witnesses
+(shared-Pplus two ordinary controls/task, one source per bank) and independent
+verifiers exit0. These do not replace the registered full64source/five-case
+pilot. Next publish/freeze, obtain fresh documented execution, then dispatch
+two one-thread workers and independently analyze the complete pilot.

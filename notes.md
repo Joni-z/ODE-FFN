@@ -43,3 +43,13 @@ Author first-layer witnesses exit0on both tasks; independently reconstructed
 endpoints/candidates agree within3.56e-15. Only256passes each task's bounded
 witness. This does not yet qualify all layers or generated trajectories.
 Fresh frozen documented pass and full six-layer execution follow.
+
+Completed at frozen30a005e: fresh documented exits0/0/0/0, both formal native
+and independent exits0. All2880states/five levels retained; independent
+5.33e-15. Product16passes256; Ring8fails four late layers in the pointwise
+output gate(maximum2.327times limit), while all Faggregate errors are small.
+No common all-layer surrogate qualifies. First chronological layer qualifies
+256in all six cases; a later sampling study must state that restricted scope
+and qualify new trajectory states. The work formula(2L+40)/48is ideal direct
+endpoint substitution; normal/tangent/ray corrections require the coarse
+endpoint too, giving(2L+48)/48plus overhead. Do not call either a speed benchmark.

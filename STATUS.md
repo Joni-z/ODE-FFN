@@ -31,10 +31,16 @@ model's predictions on the registered inputs. They do not establish a sampling
 mechanism or a new winning FFN. The next step is to qualify an affordable native
 reference for a generation-level intervention before any sample jobs.
 
-That qualification is now registered at16/32/64/128/256native substeps.
-Both first-layer author witnesses and independent verifiers exit0; only256
-passes the fixed approximation gates there. The fresh frozen documented pass
-and all-layer qualification remain pending. [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-protocol.md).
+The complete16/32/64/128/256qualification passes256on Product16but fails
+late-layer pointwise output gates on Ring8. No all-layer common surrogate is
+qualified. The first chronological layer passes256on every model.
+[Complete numerical comparison](docs/research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-results/analysis-report.md).
+A separate fixed-first-layer sampling pilot is registered, with new trajectory
+checks, inner256/512, outer128/129and ordinary controls. It compares empirical
+terminal distributions rather than source-coupled endpoint distances.
+[Sampling protocol](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-protocol.md).
+Author six-model candidate replay and both actual-sampler witnesses/independent
+verifiers exit0. Fresh frozen documented pass is next; formal pilot has not launched.
 
 The earlier twelve-case first-order oracle-path calibration is numerically
 resolved but not a general trained-scale explanation. An exact actual-law

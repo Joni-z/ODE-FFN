@@ -1,0 +1,4114 @@
+{
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "levels": [
+        {
+          "steps": 16,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 70.42427439631415,
+              "output_max_limit_ratio": 88.60596785482774,
+              "local_violations_by_mode": [
+                80,
+                75,
+                80,
+                75
+              ],
+              "output_violations_by_mode": [
+                80,
+                62,
+                80,
+                59
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00017773522414343823,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 72.06463043373786,
+              "output_max_limit_ratio": 115.88852163031093,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0013611416995800152,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 66.3356439042441,
+              "output_max_limit_ratio": 103.3493789988102,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                68,
+                80,
+                72
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00017150025779399947,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 81.52413325866314,
+              "output_max_limit_ratio": 136.82573460263734,
+              "local_violations_by_mode": [
+                80,
+                78,
+                80,
+                78
+              ],
+              "output_violations_by_mode": [
+                80,
+                77,
+                80,
+                72
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0006080429870143345,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 75.31584082709465,
+              "output_max_limit_ratio": 257.323174765388,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                68,
+                80,
+                71
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00035790661684698133,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 86.34396033991466,
+              "output_max_limit_ratio": 560.7218903424776,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                76,
+                80,
+                76
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.005873202986174886,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.0018915419971434755,
+          "model_fraction_max_error": 0.0012011043346804584,
+          "fractions": [
+            0.2045032906558305,
+            0.9230693443423306,
+            0.12226800314149833
+          ],
+          "seconds": 0.1492712083272636,
+          "one_layer_matrix_work_multiplier": 1.5
+        },
+        {
+          "steps": 32,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 17.967988312775955,
+              "output_max_limit_ratio": 22.02602536401192,
+              "local_violations_by_mode": [
+                80,
+                61,
+                80,
+                68
+              ],
+              "output_violations_by_mode": [
+                80,
+                31,
+                80,
+                22
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.885842322877032e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 18.469193273669127,
+              "output_max_limit_ratio": 29.944446461273575,
+              "local_violations_by_mode": [
+                80,
+                75,
+                80,
+                75
+              ],
+              "output_violations_by_mode": [
+                80,
+                72,
+                80,
+                59
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00039233209220845833,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 16.753274357824278,
+              "output_max_limit_ratio": 27.26391805086493,
+              "local_violations_by_mode": [
+                80,
+                69,
+                80,
+                69
+              ],
+              "output_violations_by_mode": [
+                80,
+                47,
+                80,
+                49
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.718362697575529e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 20.63354715686513,
+              "output_max_limit_ratio": 34.53748223281156,
+              "local_violations_by_mode": [
+                80,
+                74,
+                80,
+                74
+              ],
+              "output_violations_by_mode": [
+                80,
+                68,
+                78,
+                64
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00017325996413464217,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 18.91820000553015,
+              "output_max_limit_ratio": 64.48920403780147,
+              "local_violations_by_mode": [
+                80,
+                70,
+                80,
+                71
+              ],
+              "output_violations_by_mode": [
+                80,
+                54,
+                80,
+                53
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00010161873723146808,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 21.801036662664036,
+              "output_max_limit_ratio": 144.79808659222303,
+              "local_violations_by_mode": [
+                80,
+                76,
+                80,
+                76
+              ],
+              "output_violations_by_mode": [
+                80,
+                68,
+                80,
+                69
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.001669017255717442,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.0005470550552143516,
+          "model_fraction_max_error": 0.00034676792042942495,
+          "fractions": [
+            0.20364895424157947,
+            0.9230385483344291,
+            0.12162169360776676
+          ],
+          "seconds": 0.14882225031033158,
+          "one_layer_matrix_work_multiplier": 2.1666666666666665
+        },
+        {
+          "steps": 64,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 4.538158920850792,
+              "output_max_limit_ratio": 5.489517462168969,
+              "local_violations_by_mode": [
+                80,
+                18,
+                80,
+                25
+              ],
+              "output_violations_by_mode": [
+                80,
+                9,
+                80,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.2869381414537528e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 4.675577829153155,
+              "output_max_limit_ratio": 7.609692079945153,
+              "local_violations_by_mode": [
+                80,
+                58,
+                80,
+                59
+              ],
+              "output_violations_by_mode": [
+                80,
+                31,
+                80,
+                7
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00010591807555127009,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 4.209723884846814,
+              "output_max_limit_ratio": 7.03240450336048,
+              "local_violations_by_mode": [
+                80,
+                27,
+                80,
+                34
+              ],
+              "output_violations_by_mode": [
+                80,
+                11,
+                80,
+                9
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.2409558557413547e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 5.1902285531735535,
+              "output_max_limit_ratio": 8.67500619133423,
+              "local_violations_by_mode": [
+                80,
+                59,
+                80,
+                62
+              ],
+              "output_violations_by_mode": [
+                80,
+                53,
+                77,
+                37
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.644468590631057e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 4.740760797727697,
+              "output_max_limit_ratio": 16.14087388959479,
+              "local_violations_by_mode": [
+                80,
+                39,
+                80,
+                50
+              ],
+              "output_violations_by_mode": [
+                80,
+                25,
+                80,
+                23
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.7216203178248577e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 5.476090575369948,
+              "output_max_limit_ratio": 36.78981121071129,
+              "local_violations_by_mode": [
+                80,
+                72,
+                80,
+                73
+              ],
+              "output_violations_by_mode": [
+                80,
+                45,
+                78,
+                43
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0004472420591908888,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00014800003764459113,
+          "model_fraction_max_error": 9.366250013698174e-05,
+          "fractions": [
+            0.20339584882128703,
+            0.9230307279864702,
+            0.12143558480671734
+          ],
+          "seconds": 0.1649088328704238,
+          "one_layer_matrix_work_multiplier": 3.5
+        },
+        {
+          "steps": 128,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 1.140368491455779,
+              "output_max_limit_ratio": 1.370176514565806,
+              "local_violations_by_mode": [
+                30,
+                0,
+                23,
+                0
+              ],
+              "output_violations_by_mode": [
+                37,
+                0,
+                32,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.306687641702055e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 1.176285984088643,
+              "output_max_limit_ratio": 1.917993082758085,
+              "local_violations_by_mode": [
+                80,
+                0,
+                38,
+                0
+              ],
+              "output_violations_by_mode": [
+                65,
+                0,
+                27,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.7562291936455985e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 1.0551209684145029,
+              "output_max_limit_ratio": 1.7873276262045876,
+              "local_violations_by_mode": [
+                21,
+                0,
+                10,
+                0
+              ],
+              "output_violations_by_mode": [
+                30,
+                0,
+                36,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.1845919143957957e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 1.301554529293668,
+              "output_max_limit_ratio": 2.173779894351327,
+              "local_violations_by_mode": [
+                79,
+                0,
+                36,
+                16
+              ],
+              "output_violations_by_mode": [
+                67,
+                14,
+                42,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.2038229192046224e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 1.1865942282659863,
+              "output_max_limit_ratio": 4.037462251108696,
+              "local_violations_by_mode": [
+                50,
+                0,
+                30,
+                13
+              ],
+              "output_violations_by_mode": [
+                40,
+                6,
+                39,
+                5
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.053123076139478e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 1.3721809994520306,
+              "output_max_limit_ratio": 9.27204356362164,
+              "local_violations_by_mode": [
+                76,
+                0,
+                28,
+                20
+              ],
+              "output_violations_by_mode": [
+                72,
+                24,
+                46,
+                11
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00011593837565659904,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 3.855827733012518e-05,
+          "model_fraction_max_error": 2.437650832665117e-05,
+          "fractions": [
+            0.2033265628294767,
+            0.923028766440387,
+            0.12138536345082229
+          ],
+          "seconds": 0.20075670769438148,
+          "one_layer_matrix_work_multiplier": 6.166666666666667
+        },
+        {
+          "steps": 256,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.28582440609124576,
+              "output_max_limit_ratio": 0.3422638955017279,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.38351673415616e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 0.2950022132766163,
+              "output_max_limit_ratio": 0.4814520170528577,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.033183972660062e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 0.2641173777523784,
+              "output_max_limit_ratio": 0.45061441896111587,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.067953147783413e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 0.3258893741026608,
+              "output_max_limit_ratio": 0.544070176739444,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.065419886594256e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 0.29682420707584356,
+              "output_max_limit_ratio": 1.0096411646360224,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.7959960051383561e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 0.3434354680045547,
+              "output_max_limit_ratio": 2.327384494901218,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                5,
+                5,
+                4
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.952716976167835e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 9.845190762525213e-06,
+          "model_fraction_max_error": 6.220508177556816e-06,
+          "fractions": [
+            0.2033084068293276,
+            0.9230282760236665,
+            0.12137229756820234
+          ],
+          "seconds": 0.275476582814008,
+          "one_layer_matrix_work_multiplier": 11.5
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "palindrome_operator_midpoint4",
+      "levels": [
+        {
+          "steps": 16,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 79.73117660053633,
+              "output_max_limit_ratio": 118.57514073789625,
+              "local_violations_by_mode": [
+                80,
+                73,
+                80,
+                74
+              ],
+              "output_violations_by_mode": [
+                79,
+                57,
+                80,
+                45
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0004056487664956254,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 81.35784802096121,
+              "output_max_limit_ratio": 92.35529635932244,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                73,
+                80,
+                74
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0003654508060574324,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 71.3522916859321,
+              "output_max_limit_ratio": 169.20523108155206,
+              "local_violations_by_mode": [
+                80,
+                73,
+                80,
+                73
+              ],
+              "output_violations_by_mode": [
+                80,
+                55,
+                80,
+                58
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00044129859320807263,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 75.91461569691397,
+              "output_max_limit_ratio": 93.75109851146014,
+              "local_violations_by_mode": [
+                80,
+                76,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                74,
+                80,
+                61
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0010080279256814428,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 82.01599983407472,
+              "output_max_limit_ratio": 497.3452590767169,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                58,
+                80,
+                62
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.002311056861912575,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 86.35262446318492,
+              "output_max_limit_ratio": 127.78247718158768,
+              "local_violations_by_mode": [
+                80,
+                75,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                63,
+                80,
+                68
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.004088001952607279,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.003987804221640245,
+          "model_fraction_max_error": 0.00266359234278446,
+          "fractions": [
+            0.14109949104758857,
+            0.9620577351530747,
+            0.09625211004007306
+          ],
+          "seconds": 0.1502986247651279,
+          "one_layer_matrix_work_multiplier": 1.5
+        },
+        {
+          "steps": 32,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 19.882512981780838,
+              "output_max_limit_ratio": 30.955705590710657,
+              "local_violations_by_mode": [
+                80,
+                57,
+                80,
+                61
+              ],
+              "output_violations_by_mode": [
+                79,
+                32,
+                79,
+                17
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00011000101624714098,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 21.293760637837867,
+              "output_max_limit_ratio": 24.247879305929352,
+              "local_violations_by_mode": [
+                80,
+                73,
+                80,
+                73
+              ],
+              "output_violations_by_mode": [
+                80,
+                64,
+                80,
+                63
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00010418705535819583,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 18.192883658775518,
+              "output_max_limit_ratio": 45.62022505339086,
+              "local_violations_by_mode": [
+                80,
+                63,
+                80,
+                65
+              ],
+              "output_violations_by_mode": [
+                80,
+                23,
+                80,
+                25
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00011276137965965383,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 19.632336085216288,
+              "output_max_limit_ratio": 24.7607656601577,
+              "local_violations_by_mode": [
+                80,
+                64,
+                80,
+                69
+              ],
+              "output_violations_by_mode": [
+                80,
+                47,
+                80,
+                34
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0002822531627347802,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 20.59813452797081,
+              "output_max_limit_ratio": 131.4856459077086,
+              "local_violations_by_mode": [
+                80,
+                57,
+                80,
+                65
+              ],
+              "output_violations_by_mode": [
+                80,
+                39,
+                80,
+                39
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0006036674031405509,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 22.891695976568204,
+              "output_max_limit_ratio": 33.26909516464583,
+              "local_violations_by_mode": [
+                80,
+                69,
+                80,
+                69
+              ],
+              "output_violations_by_mode": [
+                80,
+                54,
+                80,
+                52
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0011582376174066322,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.0010218409993918431,
+          "model_fraction_max_error": 0.0007028274767398868,
+          "fractions": [
+            0.14306025591363314,
+            0.9616265802956444,
+            0.09743217734821219
+          ],
+          "seconds": 0.15264745894819498,
+          "one_layer_matrix_work_multiplier": 2.1666666666666665
+        },
+        {
+          "steps": 64,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 4.964100537479217,
+              "output_max_limit_ratio": 7.92986793534197,
+              "local_violations_by_mode": [
+                80,
+                20,
+                80,
+                25
+              ],
+              "output_violations_by_mode": [
+                79,
+                3,
+                79,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.8781262121357898e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 5.447958881803841,
+              "output_max_limit_ratio": 6.210404476469132,
+              "local_violations_by_mode": [
+                80,
+                57,
+                80,
+                63
+              ],
+              "output_violations_by_mode": [
+                80,
+                38,
+                79,
+                8
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.800693596649584e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 4.592032065319505,
+              "output_max_limit_ratio": 11.805815071868606,
+              "local_violations_by_mode": [
+                80,
+                20,
+                80,
+                32
+              ],
+              "output_violations_by_mode": [
+                79,
+                4,
+                79,
+                5
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.8822168731124087e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 4.99254547832456,
+              "output_max_limit_ratio": 6.354680249650468,
+              "local_violations_by_mode": [
+                80,
+                18,
+                80,
+                27
+              ],
+              "output_violations_by_mode": [
+                80,
+                14,
+                80,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.532417626499033e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 5.160916388241176,
+              "output_max_limit_ratio": 33.503757916734955,
+              "local_violations_by_mode": [
+                80,
+                32,
+                80,
+                44
+              ],
+              "output_violations_by_mode": [
+                78,
+                5,
+                78,
+                5
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00015493378227482424,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 5.8940071858904615,
+              "output_max_limit_ratio": 8.48978397851701,
+              "local_violations_by_mode": [
+                80,
+                50,
+                80,
+                55
+              ],
+              "output_violations_by_mode": [
+                80,
+                41,
+                80,
+                28
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00030996906814373393,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00026056025552811946,
+          "model_fraction_max_error": 0.00018204810696265117,
+          "fractions": [
+            0.14358103528341037,
+            0.961513991787895,
+            0.09774573213505489
+          ],
+          "seconds": 0.1722366251051426,
+          "one_layer_matrix_work_multiplier": 3.5
+        },
+        {
+          "steps": 128,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 1.2402156956993384,
+              "output_max_limit_ratio": 2.0078474882765303,
+              "local_violations_by_mode": [
+                12,
+                0,
+                10,
+                0
+              ],
+              "output_violations_by_mode": [
+                35,
+                0,
+                28,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.3692907300859645e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 1.377893123878162,
+              "output_max_limit_ratio": 1.5713757917475146,
+              "local_violations_by_mode": [
+                79,
+                0,
+                61,
+                0
+              ],
+              "output_violations_by_mode": [
+                79,
+                0,
+                54,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.274939178847362e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 1.1534422203487016,
+              "output_max_limit_ratio": 3.0006942528587635,
+              "local_violations_by_mode": [
+                23,
+                0,
+                9,
+                0
+              ],
+              "output_violations_by_mode": [
+                32,
+                1,
+                29,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.304607407720987e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 1.2588692478512609,
+              "output_max_limit_ratio": 1.6091539141868483,
+              "local_violations_by_mode": [
+                68,
+                0,
+                54,
+                0
+              ],
+              "output_violations_by_mode": [
+                55,
+                0,
+                59,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.950643184234213e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 1.2915424878804898,
+              "output_max_limit_ratio": 8.439331972633639,
+              "local_violations_by_mode": [
+                46,
+                0,
+                40,
+                0
+              ],
+              "output_violations_by_mode": [
+                36,
+                1,
+                32,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.929585363082744e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 1.495389549002968,
+              "output_max_limit_ratio": 2.161157737185376,
+              "local_violations_by_mode": [
+                46,
+                0,
+                31,
+                1
+              ],
+              "output_violations_by_mode": [
+                48,
+                5,
+                31,
+                4
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.0301418667994e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 6.61294266949275e-05,
+          "model_fraction_max_error": 4.642425430900765e-05,
+          "fractions": [
+            0.14371665913606402,
+            0.9614848696836655,
+            0.09782761769388282
+          ],
+          "seconds": 0.20848754094913602,
+          "one_layer_matrix_work_multiplier": 6.166666666666667
+        },
+        {
+          "steps": 256,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.3099536409134105,
+              "output_max_limit_ratio": 0.5052308952750745,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.8649936126546862e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 0.3464827417517988,
+              "output_max_limit_ratio": 0.39520442173830744,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.8548838534027112e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 0.28903686248732413,
+              "output_max_limit_ratio": 0.7562761047411632,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.8398019084875372e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 0.31606997867997394,
+              "output_max_limit_ratio": 0.404843407494082,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.966838131781337e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 0.3230433978250917,
+              "output_max_limit_ratio": 2.1167916740235277,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 9.898381194139994e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 0.3766144479485416,
+              "output_max_limit_ratio": 0.5451234383239193,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.0444432626276487e-05,
+              "qualified": true
+            }
+          ],
+          "bank_fraction_max_error": 1.6706506781205555e-05,
+          "model_fraction_max_error": 1.1728203281657912e-05,
+          "fractions": [
+            0.14375135518709137,
+            0.9614774418024155,
+            0.09784860819191066
+          ],
+          "seconds": 0.28432483272626996,
+          "one_layer_matrix_work_multiplier": 11.5
+        }
+      ]
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "alternating_operator_midpoint4",
+      "levels": [
+        {
+          "steps": 16,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 68.89054432523301,
+              "output_max_limit_ratio": 98.5797833944121,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                59,
+                80,
+                58
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0005148074750453979,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 75.83409071590063,
+              "output_max_limit_ratio": 91.64184301669957,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                78,
+                80,
+                77
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.001410779255381689,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 70.65373359862312,
+              "output_max_limit_ratio": 122.20376988731321,
+              "local_violations_by_mode": [
+                80,
+                76,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                62,
+                80,
+                67
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00013369391830242439,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 73.51145582392995,
+              "output_max_limit_ratio": 120.24634790212488,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                78,
+                80,
+                70
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0008669910193079833,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 69.83117798743558,
+              "output_max_limit_ratio": 181.87020773744734,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                70,
+                80,
+                66
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00014260016041411916,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 77.93553033359909,
+              "output_max_limit_ratio": 335.2018080386889,
+              "local_violations_by_mode": [
+                80,
+                75,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                75,
+                80,
+                66
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0028952480786672563,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.002281498087340017,
+          "model_fraction_max_error": 0.0004074251322359057,
+          "fractions": [
+            0.23634136676838746,
+            0.9161309247588456,
+            0.17893246849888322
+          ],
+          "seconds": 0.1534251249395311,
+          "one_layer_matrix_work_multiplier": 1.5
+        },
+        {
+          "steps": 32,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 17.52632140889971,
+              "output_max_limit_ratio": 26.292771750908884,
+              "local_violations_by_mode": [
+                80,
+                63,
+                80,
+                66
+              ],
+              "output_violations_by_mode": [
+                80,
+                41,
+                80,
+                29
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00012966752174026208,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 19.594987414618483,
+              "output_max_limit_ratio": 23.304779353623886,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                66,
+                80,
+                63
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00040483347267894487,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 18.062717278767654,
+              "output_max_limit_ratio": 31.311743682999023,
+              "local_violations_by_mode": [
+                80,
+                64,
+                80,
+                65
+              ],
+              "output_violations_by_mode": [
+                80,
+                39,
+                80,
+                38
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.244742053165606e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 18.902341145680133,
+              "output_max_limit_ratio": 30.978101779994475,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                78
+              ],
+              "output_violations_by_mode": [
+                80,
+                68,
+                80,
+                50
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0002581736285833802,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 17.81238901390082,
+              "output_max_limit_ratio": 45.746596235838766,
+              "local_violations_by_mode": [
+                80,
+                70,
+                80,
+                74
+              ],
+              "output_violations_by_mode": [
+                80,
+                50,
+                80,
+                47
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.466240971179314e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 20.210239657812842,
+              "output_max_limit_ratio": 86.65181073984152,
+              "local_violations_by_mode": [
+                80,
+                68,
+                80,
+                72
+              ],
+              "output_violations_by_mode": [
+                80,
+                52,
+                80,
+                41
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0008097940689286709,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.0006136675292285343,
+          "model_fraction_max_error": 0.00012971866359356987,
+          "fractions": [
+            0.23648884848713014,
+            0.9163275349237799,
+            0.1786547620302409
+          ],
+          "seconds": 0.15683612506836653,
+          "one_layer_matrix_work_multiplier": 2.1666666666666665
+        },
+        {
+          "steps": 64,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 4.430314343398312,
+              "output_max_limit_ratio": 6.812437629790092,
+              "local_violations_by_mode": [
+                80,
+                22,
+                80,
+                29
+              ],
+              "output_violations_by_mode": [
+                80,
+                8,
+                80,
+                2
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.259052945081553e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 4.980729090021008,
+              "output_max_limit_ratio": 5.874415120423431,
+              "local_violations_by_mode": [
+                80,
+                59,
+                80,
+                62
+              ],
+              "output_violations_by_mode": [
+                80,
+                36,
+                79,
+                21
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00010899886850457285,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 4.56701031988478,
+              "output_max_limit_ratio": 7.928388916775546,
+              "local_violations_by_mode": [
+                80,
+                21,
+                80,
+                30
+              ],
+              "output_violations_by_mode": [
+                80,
+                8,
+                80,
+                5
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.434742268192963e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 4.793059385888479,
+              "output_max_limit_ratio": 7.85282849265243,
+              "local_violations_by_mode": [
+                80,
+                58,
+                80,
+                65
+              ],
+              "output_violations_by_mode": [
+                80,
+                43,
+                79,
+                27
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.084802143109137e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 4.498777604327289,
+              "output_max_limit_ratio": 11.471013028095214,
+              "local_violations_by_mode": [
+                80,
+                40,
+                80,
+                48
+              ],
+              "output_violations_by_mode": [
+                80,
+                11,
+                80,
+                9
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.24521168705094e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 5.145153359599844,
+              "output_max_limit_ratio": 22.03029014608063,
+              "local_violations_by_mode": [
+                80,
+                42,
+                80,
+                47
+              ],
+              "output_violations_by_mode": [
+                80,
+                30,
+                80,
+                25
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0002154936347129599,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.0001604666888752604,
+          "model_fraction_max_error": 3.638464687460985e-05,
+          "fractions": [
+            0.23650021469526294,
+            0.9163918032734112,
+            0.17856142801352193
+          ],
+          "seconds": 0.17725883377715945,
+          "one_layer_matrix_work_multiplier": 3.5
+        },
+        {
+          "steps": 128,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 1.114869128274544,
+              "output_max_limit_ratio": 1.7350716472018572,
+              "local_violations_by_mode": [
+                33,
+                0,
+                23,
+                0
+              ],
+              "output_violations_by_mode": [
+                22,
+                0,
+                31,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.172679639595337e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 1.2555868151219853,
+              "output_max_limit_ratio": 1.474546341797954,
+              "local_violations_by_mode": [
+                79,
+                0,
+                52,
+                0
+              ],
+              "output_violations_by_mode": [
+                78,
+                1,
+                48,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.83238059599622e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 1.1482563038550495,
+              "output_max_limit_ratio": 1.9949698604652208,
+              "local_violations_by_mode": [
+                27,
+                0,
+                20,
+                0
+              ],
+              "output_violations_by_mode": [
+                48,
+                0,
+                36,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.172540592537686e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 1.2068208628162955,
+              "output_max_limit_ratio": 1.9763117670599941,
+              "local_violations_by_mode": [
+                69,
+                0,
+                47,
+                1
+              ],
+              "output_violations_by_mode": [
+                75,
+                1,
+                56,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.858952274691461e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 1.1304906393550316,
+              "output_max_limit_ratio": 2.872012339775758,
+              "local_violations_by_mode": [
+                53,
+                0,
+                31,
+                0
+              ],
+              "output_violations_by_mode": [
+                39,
+                2,
+                45,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.2862244749853886e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 1.2979643422559695,
+              "output_max_limit_ratio": 5.554186178771966,
+              "local_violations_by_mode": [
+                74,
+                0,
+                52,
+                1
+              ],
+              "output_violations_by_mode": [
+                55,
+                15,
+                56,
+                9
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 5.5683738700351704e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 4.11240644565547e-05,
+          "model_fraction_max_error": 9.627276449819533e-06,
+          "fractions": [
+            0.23649937351782602,
+            0.9164101222158814,
+            0.17853467064309714
+          ],
+          "seconds": 0.226285417098552,
+          "one_layer_matrix_work_multiplier": 6.166666666666667
+        },
+        {
+          "steps": 256,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.2796458030771501,
+              "output_max_limit_ratio": 0.43789229064345997,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.0465121520762963e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 0.3152072439241648,
+              "output_max_limit_ratio": 0.369373480898808,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.2223051649222825e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 0.2878824630448864,
+              "output_max_limit_ratio": 0.5003706811466584,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 5.511912515299144e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 0.3027823906923189,
+              "output_max_limit_ratio": 0.49568758503965815,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.763427788656571e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 0.28335263016803397,
+              "output_max_limit_ratio": 0.7185330059775956,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.440689570621274e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 0.3259565765575105,
+              "output_max_limit_ratio": 1.3944172249730526,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                2,
+                2,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.4159905056709832e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 1.041579077365462e-05,
+          "model_fraction_max_error": 2.4757870896729983e-06,
+          "fractions": [
+            0.23649866362625271,
+            0.9164150121421414,
+            0.178527519153737
+          ],
+          "seconds": 0.2982335831038654,
+          "one_layer_matrix_work_multiplier": 11.5
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "levels": [
+        {
+          "steps": 16,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 65.69114311383628,
+              "output_max_limit_ratio": 78.56281224320924,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                78,
+                80,
+                78
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00017934696234311875,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 69.13707887274676,
+              "output_max_limit_ratio": 70.5871097574835,
+              "local_violations_by_mode": [
+                80,
+                76,
+                80,
+                75
+              ],
+              "output_violations_by_mode": [
+                80,
+                72,
+                80,
+                72
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0002876340013889811,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 68.37249752222061,
+              "output_max_limit_ratio": 69.23219343434118,
+              "local_violations_by_mode": [
+                80,
+                73,
+                80,
+                74
+              ],
+              "output_violations_by_mode": [
+                80,
+                57,
+                80,
+                58
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.849165613389331e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 74.28520897380851,
+              "output_max_limit_ratio": 75.21781822034302,
+              "local_violations_by_mode": [
+                80,
+                78,
+                80,
+                78
+              ],
+              "output_violations_by_mode": [
+                80,
+                77,
+                80,
+                76
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00016470535394785824,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 69.87743427102667,
+              "output_max_limit_ratio": 73.6953127522039,
+              "local_violations_by_mode": [
+                80,
+                76,
+                80,
+                76
+              ],
+              "output_violations_by_mode": [
+                80,
+                71,
+                80,
+                70
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00011524113955529991,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 73.97361267301423,
+              "output_max_limit_ratio": 84.45351542077296,
+              "local_violations_by_mode": [
+                80,
+                75,
+                80,
+                75
+              ],
+              "output_violations_by_mode": [
+                80,
+                74,
+                80,
+                74
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00022228746105901198,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00041772741863665974,
+          "model_fraction_max_error": 8.021576473915548e-05,
+          "fractions": [
+            0.04171304229890982,
+            0.9812731002546018,
+            0.025387883597046135
+          ],
+          "seconds": 0.16451170900836587,
+          "one_layer_matrix_work_multiplier": 1.5
+        },
+        {
+          "steps": 32,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 16.566493465954157,
+              "output_max_limit_ratio": 19.793799401325654,
+              "local_violations_by_mode": [
+                80,
+                76,
+                80,
+                76
+              ],
+              "output_violations_by_mode": [
+                80,
+                74,
+                80,
+                73
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.9960086957900884e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 17.5858628409708,
+              "output_max_limit_ratio": 17.83309903755619,
+              "local_violations_by_mode": [
+                80,
+                68,
+                80,
+                70
+              ],
+              "output_violations_by_mode": [
+                80,
+                59,
+                80,
+                59
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.99799821372682e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 17.36120432591466,
+              "output_max_limit_ratio": 17.61053729568489,
+              "local_violations_by_mode": [
+                80,
+                45,
+                80,
+                48
+              ],
+              "output_violations_by_mode": [
+                80,
+                17,
+                80,
+                20
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.4118064196887445e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 19.127713460276112,
+              "output_max_limit_ratio": 19.397758221641926,
+              "local_violations_by_mode": [
+                80,
+                68,
+                80,
+                71
+              ],
+              "output_violations_by_mode": [
+                80,
+                60,
+                80,
+                56
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.6549798984552027e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 17.82634891526743,
+              "output_max_limit_ratio": 18.79891299972102,
+              "local_violations_by_mode": [
+                80,
+                68,
+                80,
+                68
+              ],
+              "output_violations_by_mode": [
+                80,
+                57,
+                80,
+                53
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.0289532467420166e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 19.026545080326255,
+              "output_max_limit_ratio": 22.125972168927564,
+              "local_violations_by_mode": [
+                80,
+                57,
+                80,
+                59
+              ],
+              "output_violations_by_mode": [
+                80,
+                43,
+                80,
+                43
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 6.604505263796412e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00011431053130162017,
+          "model_fraction_max_error": 2.0814144272351953e-05,
+          "fractions": [
+            0.04169214708444102,
+            0.9812857041399548,
+            0.02532848197657933
+          ],
+          "seconds": 0.16210741689428687,
+          "one_layer_matrix_work_multiplier": 2.1666666666666665
+        },
+        {
+          "steps": 64,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 4.159865204930556,
+              "output_max_limit_ratio": 4.967428467756765,
+              "local_violations_by_mode": [
+                80,
+                53,
+                80,
+                61
+              ],
+              "output_violations_by_mode": [
+                80,
+                21,
+                80,
+                23
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.3272474679970614e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 4.43502247589749,
+              "output_max_limit_ratio": 4.481995119686822,
+              "local_violations_by_mode": [
+                80,
+                42,
+                80,
+                47
+              ],
+              "output_violations_by_mode": [
+                80,
+                15,
+                80,
+                6
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.1183292533533127e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 4.374484523773507,
+              "output_max_limit_ratio": 4.441055967316963,
+              "local_violations_by_mode": [
+                80,
+                10,
+                80,
+                11
+              ],
+              "output_violations_by_mode": [
+                80,
+                0,
+                80,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 6.568999860734337e-07,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 4.853108446918477,
+              "output_max_limit_ratio": 4.925142062282991,
+              "local_violations_by_mode": [
+                80,
+                25,
+                80,
+                40
+              ],
+              "output_violations_by_mode": [
+                80,
+                17,
+                80,
+                15
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.241787610872791e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 4.50243036797004,
+              "output_max_limit_ratio": 4.745905341113121,
+              "local_violations_by_mode": [
+                80,
+                30,
+                80,
+                42
+              ],
+              "output_violations_by_mode": [
+                80,
+                1,
+                80,
+                5
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.793674969613917e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 4.824733832269067,
+              "output_max_limit_ratio": 5.660637957288914,
+              "local_violations_by_mode": [
+                80,
+                7,
+                80,
+                17
+              ],
+              "output_violations_by_mode": [
+                80,
+                4,
+                80,
+                5
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.81218619313972e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 3.0047933656351944e-05,
+          "model_fraction_max_error": 5.301394828460815e-06,
+          "fractions": [
+            0.04168559941204897,
+            0.9812895656811643,
+            0.02531296922713544
+          ],
+          "seconds": 0.18194354185834527,
+          "one_layer_matrix_work_multiplier": 3.5
+        },
+        {
+          "steps": 128,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 1.042263925715051,
+              "output_max_limit_ratio": 1.2442187596632417,
+              "local_violations_by_mode": [
+                16,
+                0,
+                3,
+                0
+              ],
+              "output_violations_by_mode": [
+                26,
+                0,
+                32,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.4270440997241636e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 1.1136273744622671,
+              "output_max_limit_ratio": 1.1234917983618584,
+              "local_violations_by_mode": [
+                67,
+                0,
+                50,
+                0
+              ],
+              "output_violations_by_mode": [
+                60,
+                0,
+                52,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 5.457955759569089e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 1.0979369063576252,
+              "output_max_limit_ratio": 1.1151050580978155,
+              "local_violations_by_mode": [
+                50,
+                0,
+                42,
+                0
+              ],
+              "output_violations_by_mode": [
+                51,
+                0,
+                51,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.776910372175422e-07,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 1.2222726441800684,
+              "output_max_limit_ratio": 1.240839752616955,
+              "local_violations_by_mode": [
+                75,
+                0,
+                66,
+                0
+              ],
+              "output_violations_by_mode": [
+                68,
+                0,
+                54,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.210138271092511e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 1.1314147985532144,
+              "output_max_limit_ratio": 1.195389604940919,
+              "local_violations_by_mode": [
+                45,
+                0,
+                40,
+                0
+              ],
+              "output_violations_by_mode": [
+                57,
+                0,
+                60,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.9790513747786065e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 1.2147863654210738,
+              "output_max_limit_ratio": 1.4314615547138452,
+              "local_violations_by_mode": [
+                71,
+                0,
+                68,
+                0
+              ],
+              "output_violations_by_mode": [
+                55,
+                0,
+                48,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.754560923525553e-06,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 7.714113218093566e-06,
+          "model_fraction_max_error": 1.3377884708898335e-06,
+          "fractions": [
+            0.041683775055607275,
+            0.9812906338937559,
+            0.02530900562077787
+          ],
+          "seconds": 0.21304245898500085,
+          "one_layer_matrix_work_multiplier": 6.166666666666667
+        },
+        {
+          "steps": 256,
+          "qualified": true,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.26085427168512443,
+              "output_max_limit_ratio": 0.31134920304804187,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.711601996447271e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 0.27901902745571067,
+              "output_max_limit_ratio": 0.28126190895341313,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.3856971652348449e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 0.27502639947721935,
+              "output_max_limit_ratio": 0.27938380008646385,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.619170501651837e-08,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 0.30669860505988844,
+              "output_max_limit_ratio": 0.3114097762744399,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.162968491154388e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 0.2835844106946199,
+              "output_max_limit_ratio": 0.2999882506613373,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.988051569565499e-07,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 0.30477761837275597,
+              "output_max_limit_ratio": 0.359913063126378,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.2182332088661596e-06,
+              "qualified": true
+            }
+          ],
+          "bank_fraction_max_error": 1.9550854918337635e-06,
+          "model_fraction_max_error": 3.3601498128366103e-07,
+          "fractions": [
+            0.04168329390996128,
+            0.9812909148857161,
+            0.025308003847288263
+          ],
+          "seconds": 0.2887574997730553,
+          "one_layer_matrix_work_multiplier": 11.5
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "palindrome_operator_midpoint4",
+      "levels": [
+        {
+          "steps": 16,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 63.26967918172567,
+              "output_max_limit_ratio": 76.72287574900781,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.000597822351709798,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 81.92623028770431,
+              "output_max_limit_ratio": 86.59715452384059,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0005311962866135778,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 74.79198596645831,
+              "output_max_limit_ratio": 86.59336623575199,
+              "local_violations_by_mode": [
+                80,
+                71,
+                80,
+                73
+              ],
+              "output_violations_by_mode": [
+                80,
+                63,
+                80,
+                63
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0003114384367000067,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 82.84753479331067,
+              "output_max_limit_ratio": 90.44328551061845,
+              "local_violations_by_mode": [
+                80,
+                78,
+                80,
+                78
+              ],
+              "output_violations_by_mode": [
+                80,
+                78,
+                80,
+                78
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.000968952348502583,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 73.01819592222117,
+              "output_max_limit_ratio": 80.58630507228992,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                79,
+                80,
+                80
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0015441140216969629,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 99.09722778426301,
+              "output_max_limit_ratio": 131.81168967732134,
+              "local_violations_by_mode": [
+                80,
+                69,
+                80,
+                75
+              ],
+              "output_violations_by_mode": [
+                80,
+                69,
+                80,
+                68
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0021572245144426683,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00159909552540638,
+          "model_fraction_max_error": 0.000940094115620127,
+          "fractions": [
+            0.032899559802609835,
+            0.9795172600792665,
+            0.013990815783443855
+          ],
+          "seconds": 0.1668468341231346,
+          "one_layer_matrix_work_multiplier": 1.5
+        },
+        {
+          "steps": 32,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 15.878277637459407,
+              "output_max_limit_ratio": 19.730405301674118,
+              "local_violations_by_mode": [
+                80,
+                74,
+                80,
+                76
+              ],
+              "output_violations_by_mode": [
+                80,
+                69,
+                80,
+                69
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00017300728311364644,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 21.438768432916508,
+              "output_max_limit_ratio": 22.82082652791847,
+              "local_violations_by_mode": [
+                80,
+                80,
+                80,
+                80
+              ],
+              "output_violations_by_mode": [
+                80,
+                79,
+                80,
+                78
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00015277573678851297,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 19.22869980273177,
+              "output_max_limit_ratio": 22.870319453513414,
+              "local_violations_by_mode": [
+                80,
+                56,
+                80,
+                56
+              ],
+              "output_violations_by_mode": [
+                80,
+                22,
+                80,
+                14
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.358808320552136e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 21.709199847866827,
+              "output_max_limit_ratio": 23.99959035666569,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                78
+              ],
+              "output_violations_by_mode": [
+                80,
+                70,
+                80,
+                58
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0002507708114084517,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 18.71141744787918,
+              "output_max_limit_ratio": 21.057586346669954,
+              "local_violations_by_mode": [
+                80,
+                77,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                74,
+                80,
+                76
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0004063327510848147,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 27.10400215874885,
+              "output_max_limit_ratio": 37.18853238023315,
+              "local_violations_by_mode": [
+                80,
+                65,
+                80,
+                64
+              ],
+              "output_violations_by_mode": [
+                80,
+                50,
+                80,
+                47
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0005977225945156261,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00042679696872427453,
+          "model_fraction_max_error": 0.000263270800394233,
+          "fractions": [
+            0.03357638311783573,
+            0.9793475399491492,
+            0.014255196002148418
+          ],
+          "seconds": 0.16154950018972158,
+          "one_layer_matrix_work_multiplier": 2.1666666666666665
+        },
+        {
+          "steps": 64,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 3.9778653176968817,
+              "output_max_limit_ratio": 5.002095033826755,
+              "local_violations_by_mode": [
+                80,
+                48,
+                80,
+                49
+              ],
+              "output_violations_by_mode": [
+                80,
+                26,
+                80,
+                18
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.6685271106294834e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 5.4838320548308745,
+              "output_max_limit_ratio": 5.8567386864337285,
+              "local_violations_by_mode": [
+                80,
+                50,
+                80,
+                60
+              ],
+              "output_violations_by_mode": [
+                80,
+                30,
+                80,
+                22
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.133078171120186e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 4.872673720357221,
+              "output_max_limit_ratio": 5.8802537010247695,
+              "local_violations_by_mode": [
+                80,
+                7,
+                80,
+                7
+              ],
+              "output_violations_by_mode": [
+                80,
+                0,
+                80,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.1680361427689476e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 5.555219418034348,
+              "output_max_limit_ratio": 6.184127200275103,
+              "local_violations_by_mode": [
+                80,
+                25,
+                80,
+                34
+              ],
+              "output_violations_by_mode": [
+                80,
+                16,
+                80,
+                15
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 6.357154802949516e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 4.735776741807676,
+              "output_max_limit_ratio": 5.375658376144933,
+              "local_violations_by_mode": [
+                80,
+                57,
+                80,
+                68
+              ],
+              "output_violations_by_mode": [
+                80,
+                18,
+                80,
+                20
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00010514958695595489,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 7.102770019236094,
+              "output_max_limit_ratio": 9.856298940384308,
+              "local_violations_by_mode": [
+                80,
+                22,
+                80,
+                24
+              ],
+              "output_violations_by_mode": [
+                80,
+                17,
+                80,
+                14
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00015831824828038688,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00011060572539889346,
+          "model_fraction_max_error": 6.991490428798208e-05,
+          "fractions": [
+            0.03376973901394198,
+            0.9792994087807216,
+            0.014338007304287026
+          ],
+          "seconds": 0.1860682088881731,
+          "one_layer_matrix_work_multiplier": 3.5
+        },
+        {
+          "steps": 128,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.9955457665932455,
+              "output_max_limit_ratio": 1.2592456879010137,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                9,
+                0,
+                10,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.2134574871591752e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 1.3867616581825266,
+              "output_max_limit_ratio": 1.483448287573415,
+              "local_violations_by_mode": [
+                72,
+                0,
+                46,
+                0
+              ],
+              "output_violations_by_mode": [
+                40,
+                0,
+                47,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.0774676201474875e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 1.226268561151186,
+              "output_max_limit_ratio": 1.4910091679195285,
+              "local_violations_by_mode": [
+                36,
+                0,
+                33,
+                0
+              ],
+              "output_violations_by_mode": [
+                37,
+                0,
+                39,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 5.523818008779102e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 1.4050090943017828,
+              "output_max_limit_ratio": 1.5697032852110369,
+              "local_violations_by_mode": [
+                78,
+                0,
+                77,
+                0
+              ],
+              "output_violations_by_mode": [
+                78,
+                0,
+                75,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.5992706564826875e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 1.1912084868203743,
+              "output_max_limit_ratio": 1.3575961554345763,
+              "local_violations_by_mode": [
+                32,
+                0,
+                16,
+                0
+              ],
+              "output_violations_by_mode": [
+                30,
+                0,
+                36,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.679931077320674e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 1.8180686075221548,
+              "output_max_limit_ratio": 2.535876228655839,
+              "local_violations_by_mode": [
+                67,
+                0,
+                67,
+                0
+              ],
+              "output_violations_by_mode": [
+                67,
+                0,
+                67,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.0812973936543706e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 2.817920683850783e-05,
+          "model_fraction_max_error": 1.8035227264623366e-05,
+          "fractions": [
+            0.03382161869096534,
+            0.979286510057832,
+            0.014361125157530408
+          ],
+          "seconds": 0.219178874976933,
+          "one_layer_matrix_work_multiplier": 6.166666666666667
+        },
+        {
+          "steps": 256,
+          "qualified": true,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.24902397520883576,
+              "output_max_limit_ratio": 0.3159034503721701,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.093835677869805e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 0.3486838965453963,
+              "output_max_limit_ratio": 0.3732902061319557,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.7524265459044628e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 0.3075730665785182,
+              "output_max_limit_ratio": 0.37540990847666406,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.3943427115137297e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 0.3532913434451102,
+              "output_max_limit_ratio": 0.3954246663940508,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.0100521618846585e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 0.29871076673612224,
+              "output_max_limit_ratio": 0.34109278353393596,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 6.7681434157140785e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 0.45990721153020336,
+              "output_max_limit_ratio": 0.6430598985517595,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.0365916608190417e-05,
+              "qualified": true
+            }
+          ],
+          "bank_fraction_max_error": 7.113516598988845e-06,
+          "model_fraction_max_error": 4.581467891284774e-06,
+          "fractions": [
+            0.03383507245033868,
+            0.9792831653418131,
+            0.014367234392233641
+          ],
+          "seconds": 0.2900966671295464,
+          "one_layer_matrix_work_multiplier": 11.5
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "alternating_operator_midpoint4",
+      "levels": [
+        {
+          "steps": 16,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 66.14219861168979,
+              "output_max_limit_ratio": 75.62847805499244,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                77,
+                80,
+                75
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00033000545995021113,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 70.86697389774105,
+              "output_max_limit_ratio": 79.5760303810557,
+              "local_violations_by_mode": [
+                80,
+                79,
+                80,
+                78
+              ],
+              "output_violations_by_mode": [
+                80,
+                76,
+                80,
+                73
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0005837708922588059,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 68.89446351544886,
+              "output_max_limit_ratio": 75.01539308932134,
+              "local_violations_by_mode": [
+                80,
+                74,
+                80,
+                76
+              ],
+              "output_violations_by_mode": [
+                80,
+                65,
+                80,
+                61
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0006186388807752907,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 80.44179024039352,
+              "output_max_limit_ratio": 84.98076615432205,
+              "local_violations_by_mode": [
+                80,
+                78,
+                80,
+                79
+              ],
+              "output_violations_by_mode": [
+                80,
+                76,
+                80,
+                67
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00037469108013821195,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 80.06803181049129,
+              "output_max_limit_ratio": 87.78919455414369,
+              "local_violations_by_mode": [
+                80,
+                75,
+                80,
+                77
+              ],
+              "output_violations_by_mode": [
+                80,
+                66,
+                80,
+                67
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0004218333065371116,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 85.7986050373808,
+              "output_max_limit_ratio": 89.81017638516914,
+              "local_violations_by_mode": [
+                80,
+                70,
+                80,
+                71
+              ],
+              "output_violations_by_mode": [
+                80,
+                70,
+                80,
+                68
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00030464461341250804,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.001222143491426686,
+          "model_fraction_max_error": 0.00047008529346870276,
+          "fractions": [
+            0.037419440226001854,
+            0.9870700437835059,
+            0.027540760376582374
+          ],
+          "seconds": 0.16491891723126173,
+          "one_layer_matrix_work_multiplier": 1.5
+        },
+        {
+          "steps": 32,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 16.700257649827275,
+              "output_max_limit_ratio": 19.423550482808853,
+              "local_violations_by_mode": [
+                80,
+                69,
+                80,
+                72
+              ],
+              "output_violations_by_mode": [
+                80,
+                48,
+                80,
+                40
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.946322006109231e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 18.099633797422193,
+              "output_max_limit_ratio": 20.409643448465204,
+              "local_violations_by_mode": [
+                80,
+                60,
+                80,
+                62
+              ],
+              "output_violations_by_mode": [
+                80,
+                54,
+                80,
+                43
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0001587235679255672,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 17.56337317572314,
+              "output_max_limit_ratio": 19.300157592725927,
+              "local_violations_by_mode": [
+                80,
+                63,
+                80,
+                64
+              ],
+              "output_violations_by_mode": [
+                80,
+                27,
+                80,
+                26
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.0001698379989349963,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 21.017877364985885,
+              "output_max_limit_ratio": 22.389384075898793,
+              "local_violations_by_mode": [
+                80,
+                59,
+                80,
+                70
+              ],
+              "output_violations_by_mode": [
+                80,
+                50,
+                80,
+                48
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00011813228386925445,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 20.386847008885738,
+              "output_max_limit_ratio": 23.291996813163085,
+              "local_violations_by_mode": [
+                80,
+                55,
+                80,
+                61
+              ],
+              "output_violations_by_mode": [
+                80,
+                28,
+                80,
+                26
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 0.00011948782120430046,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 22.684073973618734,
+              "output_max_limit_ratio": 24.002756926519517,
+              "local_violations_by_mode": [
+                80,
+                61,
+                80,
+                61
+              ],
+              "output_violations_by_mode": [
+                80,
+                55,
+                80,
+                56
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 7.474307796839774e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 0.00030247925387849595,
+          "model_fraction_max_error": 0.00011543907642641571,
+          "fractions": [
+            0.03777408644304414,
+            0.9869709868869072,
+            0.027794173793846855
+          ],
+          "seconds": 0.1764069590717554,
+          "one_layer_matrix_work_multiplier": 2.1666666666666665
+        },
+        {
+          "steps": 64,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 4.195900355143897,
+              "output_max_limit_ratio": 4.920985823837188,
+              "local_violations_by_mode": [
+                80,
+                15,
+                80,
+                27
+              ],
+              "output_violations_by_mode": [
+                80,
+                0,
+                80,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.3385184694801886e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 4.573454853431774,
+              "output_max_limit_ratio": 5.1685709871968895,
+              "local_violations_by_mode": [
+                80,
+                10,
+                80,
+                20
+              ],
+              "output_violations_by_mode": [
+                80,
+                9,
+                80,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.152945697621924e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 4.434794508693861,
+              "output_max_limit_ratio": 4.8942544483340935,
+              "local_violations_by_mode": [
+                80,
+                13,
+                80,
+                20
+              ],
+              "output_violations_by_mode": [
+                80,
+                0,
+                80,
+                1
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.475601491915615e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 5.37253026815707,
+              "output_max_limit_ratio": 5.746199070880626,
+              "local_violations_by_mode": [
+                80,
+                26,
+                80,
+                29
+              ],
+              "output_violations_by_mode": [
+                80,
+                15,
+                80,
+                8
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.341649397137214e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 5.202480993841695,
+              "output_max_limit_ratio": 6.001733794146698,
+              "local_violations_by_mode": [
+                80,
+                2,
+                80,
+                10
+              ],
+              "output_violations_by_mode": [
+                80,
+                0,
+                80,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 3.192455800626881e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 5.832691305294115,
+              "output_max_limit_ratio": 6.205223570139345,
+              "local_violations_by_mode": [
+                80,
+                35,
+                80,
+                37
+              ],
+              "output_violations_by_mode": [
+                80,
+                5,
+                80,
+                4
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.8225029843610407e-05,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 7.526435393567787e-05,
+          "model_fraction_max_error": 2.8475534500249644e-05,
+          "fractions": [
+            0.03786104998497031,
+            0.9869469540161243,
+            0.02785797303022064
+          ],
+          "seconds": 0.18272950034588575,
+          "one_layer_matrix_work_multiplier": 3.5
+        },
+        {
+          "steps": 128,
+          "qualified": false,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 1.051593573604269,
+              "output_max_limit_ratio": 1.2384176685144392,
+              "local_violations_by_mode": [
+                16,
+                0,
+                5,
+                0
+              ],
+              "output_violations_by_mode": [
+                16,
+                0,
+                14,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 5.984714018913984e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 1.1494701286938032,
+              "output_max_limit_ratio": 1.3005066758821169,
+              "local_violations_by_mode": [
+                77,
+                0,
+                74,
+                0
+              ],
+              "output_violations_by_mode": [
+                68,
+                0,
+                62,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.0632827296297442e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 1.114274121026842,
+              "output_max_limit_ratio": 1.232266660368598,
+              "local_violations_by_mode": [
+                38,
+                0,
+                30,
+                0
+              ],
+              "output_violations_by_mode": [
+                38,
+                0,
+                38,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.150578240938227e-05,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 1.3581775660906406,
+              "output_max_limit_ratio": 1.4555174458329836,
+              "local_violations_by_mode": [
+                74,
+                0,
+                62,
+                0
+              ],
+              "output_violations_by_mode": [
+                63,
+                0,
+                53,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.898889287678458e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 1.3141215445762842,
+              "output_max_limit_ratio": 1.5234406323461076,
+              "local_violations_by_mode": [
+                49,
+                0,
+                47,
+                0
+              ],
+              "output_violations_by_mode": [
+                47,
+                0,
+                46,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 8.259599945104057e-06,
+              "qualified": false
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 1.4788432130299665,
+              "output_max_limit_ratio": 1.5775367473398707,
+              "local_violations_by_mode": [
+                61,
+                0,
+                54,
+                0
+              ],
+              "output_violations_by_mode": [
+                63,
+                0,
+                52,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 4.480461913147771e-06,
+              "qualified": false
+            }
+          ],
+          "bank_fraction_max_error": 1.8768993208628793e-05,
+          "model_fraction_max_error": 7.062689761028196e-06,
+          "fractions": [
+            0.03788246282970953,
+            0.9869410773060827,
+            0.02787397828908178
+          ],
+          "seconds": 0.22379008308053017,
+          "one_layer_matrix_work_multiplier": 6.166666666666667
+        },
+        {
+          "steps": 256,
+          "qualified": true,
+          "layers": [
+            {
+              "layer": "blocks.0.ffn.ode1",
+              "local_max_limit_ratio": 0.26322653170743276,
+              "output_max_limit_ratio": 0.31062794692855367,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.5142317010274908e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.0.ffn.ode2",
+              "local_max_limit_ratio": 0.28813306029741714,
+              "output_max_limit_ratio": 0.3261776661963529,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.6908707333461734e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode1",
+              "local_max_limit_ratio": 0.27927026076640554,
+              "output_max_limit_ratio": 0.30915749010090837,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.9180844793863514e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.1.ffn.ode2",
+              "local_max_limit_ratio": 0.34144284911611034,
+              "output_max_limit_ratio": 0.3662727168777338,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.296861682626883e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode1",
+              "local_max_limit_ratio": 0.3302353085079502,
+              "output_max_limit_ratio": 0.38377757118327127,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 2.1012143405219064e-06,
+              "qualified": true
+            },
+            {
+              "layer": "blocks.2.ffn.ode2",
+              "local_max_limit_ratio": 0.37232342658233325,
+              "output_max_limit_ratio": 0.39770433651385867,
+              "local_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "output_violations_by_mode": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "fraction_resolved": true,
+              "fraction_max_error": 1.1093948344420568e-06,
+              "qualified": true
+            }
+          ],
+          "bank_fraction_max_error": 4.686080378735191e-06,
+          "model_fraction_max_error": 1.7580850590892538e-06,
+          "fractions": [
+            0.03788776743441147,
+            0.986939627173939,
+            0.027877986620609918
+          ],
+          "seconds": 0.3555652918294072,
+          "one_layer_matrix_work_multiplier": 11.5
+        }
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "task": "ring",
+      "native_complete_sha256": "c87eea0ec29ca52ca1a1bfd53593a24e95f5b6cc6f0d4328b28a0e48e64308c9",
+      "verified_complete_sha256": "a54ba4d406a376b20b6d9d23caa84516be7b46c760c5dc581287745946b184b8",
+      "verified_summary_sha256": "77c48d54f8208f87a8e13bf1bbc9fa3ad44126e868eb2ebf543549394a9b81c8"
+    },
+    {
+      "task": "product",
+      "native_complete_sha256": "745b11bd14ddb447f1f2b05f61c1aa0489f4e481f5f878a8ae1d09806a7b880d",
+      "verified_complete_sha256": "8707d2887685c7a272be4cafcf84d55b08daaab62e62e3a8218f4e707b2c56c6",
+      "verified_summary_sha256": "3015abcb83601fa476c4c39607295752b5d7a9085d2d6f40e1caef166aaa4c37"
+    }
+  ],
+  "common_qualified_levels": [],
+  "selected_resolution": null,
+  "max_reconstruction_error": 5.329070518200751e-15,
+  "decision": "No common surrogate qualifies through256; do not launch sampling under this protocol."
+}
