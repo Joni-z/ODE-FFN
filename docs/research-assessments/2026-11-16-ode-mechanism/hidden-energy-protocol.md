@@ -18,6 +18,10 @@ y'=P q(y)  =>  dE/ds=q(y)^T S q(y).
 
 The skew part contributes zero instantaneously because q^T K q=0, but it
 can redirect the state and thereby change later symmetric-part action.
+The symmetric part can also redirect features: the instantaneous normal
+component is q*(q^T S q)/||q||², while the tangential component contains both
+S q minus that normal component and K q. Do not identify all directional
+error with K or all normal error with S.
 For scheduled matrices, use the same identity with each stage's symmetric
 part. This is a feature-space balance; it is not a conservation law for images.
 Positive energy change is allowed and does not justify shrinking P.

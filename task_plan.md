@@ -38,16 +38,22 @@ only one adjusted conditional input interval is wholly positive. Exact law
 preservation can coexist with failed endpoint prediction. Do not turn this
 proxy into a penalty or a new architectural claim.
 
-1. [ ] Implement hidden-energy-protocol.md: existing shared/PAL/ALTcheckpoints,
+1. [x] Implement hidden-energy-protocol.md: existing shared/PAL/ALTcheckpoints,
    fixed80interpolation inputs each, every local-solve entrance retained.
-2. [ ] Mathematical controls pass: potential-gradient max error1.98e-9,
-   skew-work identity7.50e-18and exact linear midpoint defects. Still verify native
+2. [x] Mathematical controls pass: potential-gradient max error1.98e-9,
+   skew-work identity7.50e-18and exact linear midpoint defects. Verified native
    Torch-versus-NumPy map and scheduled boundaries before any learned-state audit.
-3. [ ] Measure4/8/16/32/reference energy work, balance defect and normal/tangential
+3. [x] Measure4/8/16/32/reference energy work, balance defect and normal/tangential
    feature error; qualify the adaptive reference and preserve unresolved points.
-4. [ ] Decide whether numerical energy distortion explains a resolved part of
+4. [x] Decide whether numerical energy distortion explains a resolved part of
    the known coarse-versus-continuous feature change. Reject an energy-only
    account if directional changes remain without energy differences.
+
+All2880states qualify; independent reconstruction1.57e-13. Tangential local
+error accounts for most feature change, but output sensitivity is not known.
+The next separately registered step is hidden-readout-protocol.md: exact
+single-layer full/normal/tangential/ray replacements, all six models and80inputs.
+Implement and verify native-hook identity before formal dispatch. No new training.
 
 This is a frozen-weight diagnosis, not another activation search, new training,
 energy penalty or image promotion. Formal instructions/readiness still pending.

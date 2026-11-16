@@ -1,0 +1,2381 @@
+{
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "alternating_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 3.8689051962137455e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.041293939991402455,
+              "feature_error_max_norm": 0.08028328083999782,
+              "normal_squared_error_share": 0.046020813948226956,
+              "energy_gap_rms": 0.04799703234726948,
+              "balance_defect_rms": 0.1432701037584153,
+              "work_change_rms": 0.15720451718360862,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.010179148416992167,
+              "feature_error_max_norm": 0.021195345893111124,
+              "normal_squared_error_share": 0.053781507418211194,
+              "energy_gap_rms": 0.01281674378401343,
+              "balance_defect_rms": 0.03450048329754169,
+              "work_change_rms": 0.03850131772873912,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0025604332757966997,
+              "feature_error_max_norm": 0.005451034385760447,
+              "normal_squared_error_share": 0.056643302276906116,
+              "energy_gap_rms": 0.0033105459048457272,
+              "balance_defect_rms": 0.008522382719556342,
+              "work_change_rms": 0.009576439908130502,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.000643001188548736,
+              "feature_error_max_norm": 0.001381574470785521,
+              "normal_squared_error_share": 0.05799284638865554,
+              "energy_gap_rms": 0.0008414362786324561,
+              "balance_defect_rms": 0.00212022071310912,
+              "work_change_rms": 0.0023913529019324803,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "83ef5779ea6a313be95cf4c0e94c973566b9a57f3f6ee1a303228ab6bf19c7d0"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 3.666400516522117e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.07127763976744292,
+              "feature_error_max_norm": 0.13893830311614136,
+              "normal_squared_error_share": 0.232399395194582,
+              "energy_gap_rms": 0.17320725641322748,
+              "balance_defect_rms": 0.2549374033364308,
+              "work_change_rms": 0.40385524514108667,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.019455644157416508,
+              "feature_error_max_norm": 0.039477494005739217,
+              "normal_squared_error_share": 0.22728204468449323,
+              "energy_gap_rms": 0.046914035413896056,
+              "balance_defect_rms": 0.06311430973319017,
+              "work_change_rms": 0.10352993050316056,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0050869649411275485,
+              "feature_error_max_norm": 0.010536335716513488,
+              "normal_squared_error_share": 0.22423681560501366,
+              "energy_gap_rms": 0.012191739110651176,
+              "balance_defect_rms": 0.01568302910707924,
+              "work_change_rms": 0.02618217211173058,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.001300712067278046,
+              "feature_error_max_norm": 0.002722513895956852,
+              "normal_squared_error_share": 0.22268980533873456,
+              "energy_gap_rms": 0.0031066597992943025,
+              "balance_defect_rms": 0.003907134714675212,
+              "work_change_rms": 0.0065812718525817965,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "f43c73164e6ab58721bff28e5653c13dc47a5ee837f090ce5ed785f18bd8cf04"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 8.958167541095463e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.022572276153721184,
+              "feature_error_max_norm": 0.03594500746875476,
+              "normal_squared_error_share": 0.043676833254982776,
+              "energy_gap_rms": 0.0277640479303013,
+              "balance_defect_rms": 0.06404052386414943,
+              "work_change_rms": 0.06856083490864781,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.00565927177595946,
+              "feature_error_max_norm": 0.008987384703356699,
+              "normal_squared_error_share": 0.04822369350416391,
+              "energy_gap_rms": 0.007326573833380579,
+              "balance_defect_rms": 0.015022214274485543,
+              "work_change_rms": 0.016705514904775575,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0014233410462994804,
+              "feature_error_max_norm": 0.0023198412170041334,
+              "normal_squared_error_share": 0.05083824225375749,
+              "energy_gap_rms": 0.0018940968331133895,
+              "balance_defect_rms": 0.003614828034727138,
+              "work_change_rms": 0.004105907662667524,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0003575973080447646,
+              "feature_error_max_norm": 0.0005897331681188683,
+              "normal_squared_error_share": 0.052212462675905076,
+              "energy_gap_rms": 0.00048261197122801997,
+              "balance_defect_rms": 0.0008903514255688174,
+              "work_change_rms": 0.0010236271270044387,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "ac3b86d811f3e70139a209de11d75597ef71c3cc1f2b9b6f408825a66a9731ff"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 5.048406137575512e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.04235067094821323,
+              "feature_error_max_norm": 0.09361145827101343,
+              "normal_squared_error_share": 0.18796057028709048,
+              "energy_gap_rms": 0.09395367638413131,
+              "balance_defect_rms": 0.14311799778653117,
+              "work_change_rms": 0.2256754169402542,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.011322578186869166,
+              "feature_error_max_norm": 0.02560598806374394,
+              "normal_squared_error_share": 0.18551404469290514,
+              "energy_gap_rms": 0.024937862843355325,
+              "balance_defect_rms": 0.03540533844773542,
+              "work_change_rms": 0.05745882557369929,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.002930594069942344,
+              "feature_error_max_norm": 0.006709267419796169,
+              "normal_squared_error_share": 0.18334399623893607,
+              "energy_gap_rms": 0.00640811215263492,
+              "balance_defect_rms": 0.008784075667855655,
+              "work_change_rms": 0.014459480945618292,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0007456058066265721,
+              "feature_error_max_norm": 0.0017176155158312896,
+              "normal_squared_error_share": 0.18206960585169651,
+              "energy_gap_rms": 0.0016231280969131751,
+              "balance_defect_rms": 0.002186102408154716,
+              "work_change_rms": 0.0036241287982875466,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "90d01b645d8996b4cf808cc4d78488f63180110b61f89161ef0d093d3447a22e"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 8.618883384770015e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.023445641830700706,
+              "feature_error_max_norm": 0.03858186967284102,
+              "normal_squared_error_share": 0.10734101358386935,
+              "energy_gap_rms": 0.04498715060700193,
+              "balance_defect_rms": 0.0457586202772866,
+              "work_change_rms": 0.05606593556576641,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.0059431020756818154,
+              "feature_error_max_norm": 0.009766424487788852,
+              "normal_squared_error_share": 0.10915732332261265,
+              "energy_gap_rms": 0.01148500152918496,
+              "balance_defect_rms": 0.01091839808047686,
+              "work_change_rms": 0.01435843744816165,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0015070903441933646,
+              "feature_error_max_norm": 0.0024601374198221556,
+              "normal_squared_error_share": 0.11047514937376846,
+              "energy_gap_rms": 0.0029298773976392843,
+              "balance_defect_rms": 0.0026682346355485515,
+              "work_change_rms": 0.0036728343123072008,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0003799840392806931,
+              "feature_error_max_norm": 0.0006221089200104103,
+              "normal_squared_error_share": 0.1113403684773935,
+              "energy_gap_rms": 0.0007416928422927154,
+              "balance_defect_rms": 0.0006595553388968676,
+              "work_change_rms": 0.0009314026980233226,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "68b645cdc407e8038d78aeadedc6e0a8164a57f25a7698be3dcf0fe6c0d14265"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 2.8208546609675977e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.05736912291086591,
+              "feature_error_max_norm": 0.10568133537694395,
+              "normal_squared_error_share": 0.15012942663791556,
+              "energy_gap_rms": 0.11874082565050693,
+              "balance_defect_rms": 0.1516872456977284,
+              "work_change_rms": 0.25286881951212486,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.0157640740621963,
+              "feature_error_max_norm": 0.028989744558396764,
+              "normal_squared_error_share": 0.15465634407804357,
+              "energy_gap_rms": 0.03315949290644816,
+              "balance_defect_rms": 0.03786997605768628,
+              "work_change_rms": 0.0668609416451746,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004139026626856291,
+              "feature_error_max_norm": 0.007611572869286092,
+              "normal_squared_error_share": 0.15628578513915065,
+              "energy_gap_rms": 0.008751661031963554,
+              "balance_defect_rms": 0.009395236354324403,
+              "work_change_rms": 0.0171343719515435,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.001060670965354508,
+              "feature_error_max_norm": 0.001961032407204172,
+              "normal_squared_error_share": 0.15699683457789518,
+              "energy_gap_rms": 0.002247284127313555,
+              "balance_defect_rms": 0.0023368992434895726,
+              "work_change_rms": 0.004334529719678118,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "31b45a668e709e1906c56ce992c665b4f930544ff15c4165573c10973a78a1da"
+        }
+      ],
+      "aggregate": [
+        {
+          "steps": 4,
+          "feature_error_rms": 0.04642142604403368,
+          "normal_squared_error_share": 0.1679598471444056,
+          "energy_gap_rms": 0.09834110012927255,
+          "balance_defect_rms": 0.15011452521055008,
+          "work_change_rms": 0.2274966410586273
+        },
+        {
+          "steps": 8,
+          "feature_error_rms": 0.012424383145167205,
+          "normal_squared_error_share": 0.17190812502338132,
+          "energy_gap_rms": 0.026684041914314897,
+          "balance_defect_rms": 0.03698254285565411,
+          "work_change_rms": 0.05839226416374757
+        },
+        {
+          "steps": 16,
+          "feature_error_rms": 0.0032261993876261533,
+          "normal_squared_error_share": 0.17261647796909343,
+          "energy_gap_rms": 0.00694532784548741,
+          "balance_defect_rms": 0.009167018040010884,
+          "work_change_rms": 0.014777380343015635
+        },
+        {
+          "steps": 32,
+          "feature_error_rms": 0.0008224472658766714,
+          "normal_squared_error_share": 0.17280471504989198,
+          "energy_gap_rms": 0.001771402621017943,
+          "balance_defect_rms": 0.0022814073971329945,
+          "work_change_rms": 0.0037163936106917057
+        }
+      ],
+      "points_per_layer": 80,
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "palindrome_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 5.808686864838819e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.09418562793401761,
+              "feature_error_max_norm": 0.1740843251681568,
+              "normal_squared_error_share": 0.03944764269904002,
+              "energy_gap_rms": 0.10724192687987134,
+              "balance_defect_rms": 0.21153010578672812,
+              "work_change_rms": 0.2583643042553011,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.02201147700894742,
+              "feature_error_max_norm": 0.03964741374493257,
+              "normal_squared_error_share": 0.04169273572118542,
+              "energy_gap_rms": 0.025633044152401856,
+              "balance_defect_rms": 0.04735332051710199,
+              "work_change_rms": 0.05785880722704428,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0054189026877960525,
+              "feature_error_max_norm": 0.009410625216266491,
+              "normal_squared_error_share": 0.04312262337917178,
+              "energy_gap_rms": 0.006412306493303579,
+              "balance_defect_rms": 0.011977937884321546,
+              "work_change_rms": 0.014717453143679794,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0013476632391192492,
+              "feature_error_max_norm": 0.0023108455954566885,
+              "normal_squared_error_share": 0.043822219448757034,
+              "energy_gap_rms": 0.0016072407774491571,
+              "balance_defect_rms": 0.003031465935763417,
+              "work_change_rms": 0.0037329551264122375,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "793e76ffde518e24800c0e6ea91cb12a2ef6073dd3156fc51aaf54322b994f7b"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 8.423484132435988e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.09341778024012257,
+              "feature_error_max_norm": 0.13679857473308715,
+              "normal_squared_error_share": 0.21421598222121907,
+              "energy_gap_rms": 0.22492087287361218,
+              "balance_defect_rms": 0.2670293946449324,
+              "work_change_rms": 0.4704030699450955,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.02575444063178229,
+              "feature_error_max_norm": 0.03767612967000364,
+              "normal_squared_error_share": 0.21037622819901505,
+              "energy_gap_rms": 0.06179755726306903,
+              "balance_defect_rms": 0.06759127084726542,
+              "work_change_rms": 0.12396962193362031,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.006776659803534134,
+              "feature_error_max_norm": 0.009909243987534762,
+              "normal_squared_error_share": 0.2083694970284247,
+              "energy_gap_rms": 0.016206052253270754,
+              "balance_defect_rms": 0.017009170755742806,
+              "work_change_rms": 0.03184356042281576,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0017389308233665285,
+              "feature_error_max_norm": 0.002542077582503184,
+              "normal_squared_error_share": 0.20739708368062792,
+              "energy_gap_rms": 0.004150117720682568,
+              "balance_defect_rms": 0.0042656148255709216,
+              "work_change_rms": 0.008069925680259845,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "50c398b5774048c18518e2e1eb68ae093f2313fc702fe114f043690add5ef5b2"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 8.810729923425242e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.07010721700786117,
+              "feature_error_max_norm": 0.14013958375285476,
+              "normal_squared_error_share": 0.048206528783953755,
+              "energy_gap_rms": 0.0880182804559517,
+              "balance_defect_rms": 0.11373134494690988,
+              "work_change_rms": 0.11179696328392805,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.016329827325613153,
+              "feature_error_max_norm": 0.027722872099279875,
+              "normal_squared_error_share": 0.055148229588405734,
+              "energy_gap_rms": 0.021824285169887315,
+              "balance_defect_rms": 0.01770614949969236,
+              "work_change_rms": 0.02562669863678996,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004055554632384889,
+              "feature_error_max_norm": 0.006971479603720874,
+              "normal_squared_error_share": 0.05617507296100623,
+              "energy_gap_rms": 0.005466356102699252,
+              "balance_defect_rms": 0.0038950818854919605,
+              "work_change_rms": 0.0067751867988121205,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0010113310435460785,
+              "feature_error_max_norm": 0.0017509160169075022,
+              "normal_squared_error_share": 0.05655539653386102,
+              "energy_gap_rms": 0.0013675879703504514,
+              "balance_defect_rms": 0.0009435186436813409,
+              "work_change_rms": 0.001763712894717505,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "472400d8515b96e24df572805f9cc7d8c920d0d7e7d1d78ccf8b0e4669a23810"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 9.329426120530115e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.04387065863938789,
+              "feature_error_max_norm": 0.06857583263501937,
+              "normal_squared_error_share": 0.054325608501883664,
+              "energy_gap_rms": 0.049476402605109826,
+              "balance_defect_rms": 0.18061588139576623,
+              "work_change_rms": 0.19842151791381546,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.011764286399200267,
+              "feature_error_max_norm": 0.019482689598046506,
+              "normal_squared_error_share": 0.05355918191667759,
+              "energy_gap_rms": 0.013205556605228125,
+              "balance_defect_rms": 0.0453081933432779,
+              "work_change_rms": 0.049222038900980085,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.003048542090768447,
+              "feature_error_max_norm": 0.005205983895198846,
+              "normal_squared_error_share": 0.053650605492445276,
+              "energy_gap_rms": 0.0034281607003539506,
+              "balance_defect_rms": 0.01130733839219658,
+              "work_change_rms": 0.012194792314461946,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.000776053421492768,
+              "feature_error_max_norm": 0.0013463234259503782,
+              "normal_squared_error_share": 0.05385082992307298,
+              "energy_gap_rms": 0.0008747149314613199,
+              "balance_defect_rms": 0.002821385562574234,
+              "work_change_rms": 0.0030306359436799318,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "c5f364316502b78e08ddd39a081e64c6471a0f75e41c17119d5259be4be43c28"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 1.6768808563938364e-11,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.07960068449350009,
+              "feature_error_max_norm": 0.17688251817685766,
+              "normal_squared_error_share": 0.07824376729107313,
+              "energy_gap_rms": 0.1318986758695352,
+              "balance_defect_rms": 0.14050983375720016,
+              "work_change_rms": 0.16448527159966078,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.019689333377025935,
+              "feature_error_max_norm": 0.03717642242403227,
+              "normal_squared_error_share": 0.07221464077895114,
+              "energy_gap_rms": 0.031263018194596974,
+              "balance_defect_rms": 0.029206764907227054,
+              "work_change_rms": 0.04176484078136725,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004960274210971502,
+              "feature_error_max_norm": 0.009526640580207085,
+              "normal_squared_error_share": 0.07117129886584987,
+              "energy_gap_rms": 0.007806335748721212,
+              "balance_defect_rms": 0.00711082569586903,
+              "work_change_rms": 0.010840775642837024,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0012466487263427199,
+              "feature_error_max_norm": 0.0024111857476270485,
+              "normal_squared_error_share": 0.07073788310006578,
+              "energy_gap_rms": 0.001954936504309996,
+              "balance_defect_rms": 0.0017802998838373297,
+              "work_change_rms": 0.0027725462423554633,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "a08b411525fa972a1de4bb9b3f43d7b0a4e671e8143183c583f39506740816ce"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 5.265121671982342e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.06261618892256915,
+              "feature_error_max_norm": 0.11906864429912237,
+              "normal_squared_error_share": 0.18189381448724512,
+              "energy_gap_rms": 0.13990512895784138,
+              "balance_defect_rms": 0.13893529985476522,
+              "work_change_rms": 0.25138575962944015,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.017173991540905178,
+              "feature_error_max_norm": 0.0341520421087571,
+              "normal_squared_error_share": 0.1908209599138516,
+              "energy_gap_rms": 0.03922222814439127,
+              "balance_defect_rms": 0.03617814782241856,
+              "work_change_rms": 0.06885508305818087,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004526540401435958,
+              "feature_error_max_norm": 0.009181659755866114,
+              "normal_squared_error_share": 0.19467659575009222,
+              "energy_gap_rms": 0.010431094961459138,
+              "balance_defect_rms": 0.009207791162274099,
+              "work_change_rms": 0.01804392140222504,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0011636579039228034,
+              "feature_error_max_norm": 0.002382764542823586,
+              "normal_squared_error_share": 0.19648749449082445,
+              "energy_gap_rms": 0.0026923655346287284,
+              "balance_defect_rms": 0.002322002658860404,
+              "work_change_rms": 0.004620998770479318,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "e750d0ef94ef4dd1e5fabc61329779a9cb0f65a8cc6c8ac27fcf1a22805239c4"
+        }
+      ],
+      "aggregate": [
+        {
+          "steps": 4,
+          "feature_error_rms": 0.07604223259410818,
+          "normal_squared_error_share": 0.108657152054609,
+          "energy_gap_rms": 0.13494200473360626,
+          "balance_defect_rms": 0.1828718265263932,
+          "work_change_rms": 0.2677533150792322
+        },
+        {
+          "steps": 8,
+          "feature_error_rms": 0.019302304964334008,
+          "normal_squared_error_share": 0.11905166081851391,
+          "energy_gap_rms": 0.03568948648149785,
+          "balance_defect_rms": 0.04347250178578004,
+          "work_change_rms": 0.06865489776305525
+        },
+        {
+          "steps": 16,
+          "feature_error_rms": 0.004934954321672169,
+          "normal_squared_error_share": 0.12316886900408017,
+          "energy_gap_rms": 0.009265831127908557,
+          "balance_defect_rms": 0.010886977774188882,
+          "work_change_rms": 0.01764623377805016
+        },
+        {
+          "steps": 32,
+          "feature_error_rms": 0.0012498905799730464,
+          "normal_squared_error_share": 0.12514296757545149,
+          "energy_gap_rms": 0.00236335679307096,
+          "balance_defect_rms": 0.0027324245493592623,
+          "work_change_rms": 0.004479485352910031
+        }
+      ],
+      "points_per_layer": 80,
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true
+    },
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 4.0394354527961696e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.023250418201683113,
+              "feature_error_max_norm": 0.04916697540793375,
+              "normal_squared_error_share": 0.04860856729288823,
+              "energy_gap_rms": 0.028105992443947004,
+              "balance_defect_rms": 0.05180878673595611,
+              "work_change_rms": 0.07024932204203649,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.005923129751828542,
+              "feature_error_max_norm": 0.01278044071344759,
+              "normal_squared_error_share": 0.05069425454027278,
+              "energy_gap_rms": 0.0073216825436166815,
+              "balance_defect_rms": 0.012803118838569006,
+              "work_change_rms": 0.017710489652758007,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0014950929175060776,
+              "feature_error_max_norm": 0.003260380250870588,
+              "normal_squared_error_share": 0.052032216012834726,
+              "energy_gap_rms": 0.001873073138756973,
+              "balance_defect_rms": 0.0031842714150907368,
+              "work_change_rms": 0.004455243716533516,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.00037560028936386644,
+              "feature_error_max_norm": 0.0008235723474998543,
+              "normal_squared_error_share": 0.052762147068557266,
+              "energy_gap_rms": 0.00047389799686280154,
+              "balance_defect_rms": 0.0007940553744864998,
+              "work_change_rms": 0.001117486580165968,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "10a44cf851005e6d203b5d185be55487ce4c20fd2f8c1f6b926a8afe2dfdb217"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 3.4710012641880894e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.05174983576298875,
+              "feature_error_max_norm": 0.08029617089246065,
+              "normal_squared_error_share": 0.20788368494521026,
+              "energy_gap_rms": 0.12045210012455373,
+              "balance_defect_rms": 0.14072082812568962,
+              "work_change_rms": 0.2482545266347109,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.013809050853429875,
+              "feature_error_max_norm": 0.021626898272928928,
+              "normal_squared_error_share": 0.19903913052057579,
+              "energy_gap_rms": 0.031533956220987036,
+              "balance_defect_rms": 0.035331912758132696,
+              "work_change_rms": 0.06331944674394674,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.003569266421565222,
+              "feature_error_max_norm": 0.00567657843439322,
+              "normal_squared_error_share": 0.19468896666734303,
+              "energy_gap_rms": 0.008065779634487905,
+              "balance_defect_rms": 0.008848328325956077,
+              "work_change_rms": 0.01598068945083036,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0009074513480240763,
+              "feature_error_max_norm": 0.00145483052652753,
+              "normal_squared_error_share": 0.19256377722016385,
+              "energy_gap_rms": 0.0020395626327492935,
+              "balance_defect_rms": 0.002213716984841823,
+              "work_change_rms": 0.0040135884360923465,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "5331627f207168a6ce0977711615b6952343fae5f6785ac6e278979d735ec4fd"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 3.6006753134643077e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.011049726385537832,
+              "feature_error_max_norm": 0.01897293414074513,
+              "normal_squared_error_share": 0.06944137080742288,
+              "energy_gap_rms": 0.017124710253139133,
+              "balance_defect_rms": 0.015563843658268782,
+              "work_change_rms": 0.02670827864757165,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.002787767173213927,
+              "feature_error_max_norm": 0.004859400524360937,
+              "normal_squared_error_share": 0.07055204343247716,
+              "energy_gap_rms": 0.004357007524616069,
+              "balance_defect_rms": 0.004055752256128955,
+              "work_change_rms": 0.006956355504252136,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.000700867237975374,
+              "feature_error_max_norm": 0.0012311426485945218,
+              "normal_squared_error_share": 0.07098219301616945,
+              "energy_gap_rms": 0.0010989808895598453,
+              "balance_defect_rms": 0.0010377699719179333,
+              "work_change_rms": 0.0017772567229451188,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.00017575233000171383,
+              "feature_error_max_norm": 0.0003099329168018707,
+              "normal_squared_error_share": 0.07116734266491659,
+              "energy_gap_rms": 0.00027597583326946366,
+              "balance_defect_rms": 0.0002626290387596381,
+              "work_change_rms": 0.0004492916204775995,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "c9f630ef7f2c803d9ff933fe89c461642b63aa82f4292d44ca9b9bcd62947d94"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 1.70174985214544e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.033596115896640924,
+              "feature_error_max_norm": 0.05917730212310618,
+              "normal_squared_error_share": 0.27920438466786535,
+              "energy_gap_rms": 0.08971195849358922,
+              "balance_defect_rms": 0.08221751995567272,
+              "work_change_rms": 0.16904613199944413,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.008941046804751449,
+              "feature_error_max_norm": 0.016301785931352106,
+              "normal_squared_error_share": 0.2779844501098061,
+              "energy_gap_rms": 0.02385474729722738,
+              "balance_defect_rms": 0.020777358379182848,
+              "work_change_rms": 0.043891816928509075,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0023075610630103357,
+              "feature_error_max_norm": 0.004281764304259374,
+              "normal_squared_error_share": 0.2772095559725173,
+              "energy_gap_rms": 0.0061493533134726035,
+              "balance_defect_rms": 0.005221219984172568,
+              "work_change_rms": 0.011182535797515639,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0005862049617066302,
+              "feature_error_max_norm": 0.0010974116342918271,
+              "normal_squared_error_share": 0.27679234717047047,
+              "energy_gap_rms": 0.001560957049840814,
+              "balance_defect_rms": 0.0013085641134518086,
+              "work_change_rms": 0.0028221029558531496,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "4bcf5d3eab8823b490b999963e5898655c903687db2de3e890d7dfbdf73757de"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 3.872457909892546e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.013131632021328336,
+              "feature_error_max_norm": 0.03160564537681802,
+              "normal_squared_error_share": 0.07901977683572982,
+              "energy_gap_rms": 0.021583934756865035,
+              "balance_defect_rms": 0.02527513065296118,
+              "work_change_rms": 0.037667892999934734,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.0034064602055542213,
+              "feature_error_max_norm": 0.008374291763179558,
+              "normal_squared_error_share": 0.08103556333488611,
+              "energy_gap_rms": 0.005648356714231384,
+              "balance_defect_rms": 0.006322971328286688,
+              "work_change_rms": 0.00963985451090277,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0008682239520294842,
+              "feature_error_max_norm": 0.0021556873787338,
+              "normal_squared_error_share": 0.08214980759721695,
+              "energy_gap_rms": 0.0014468039200814689,
+              "balance_defect_rms": 0.0015831261035693575,
+              "work_change_rms": 0.002442997650276784,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.00021920371805998393,
+              "feature_error_max_norm": 0.0005468785507935765,
+              "normal_squared_error_share": 0.08274101916415588,
+              "energy_gap_rms": 0.00036626167099004586,
+              "balance_defect_rms": 0.00039619327083904626,
+              "work_change_rms": 0.0006152246350165391,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "f40eaddc45ff74dae869b3afdc6ba83aa4bebc161eb7374a4552f1541f935de6"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 5.204725539442734e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.05870378468160426,
+              "feature_error_max_norm": 0.12638111643902136,
+              "normal_squared_error_share": 0.3376426099305628,
+              "energy_gap_rms": 0.18369389829335026,
+              "balance_defect_rms": 0.13339564560128678,
+              "work_change_rms": 0.3110859378632924,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.016220721052630612,
+              "feature_error_max_norm": 0.03535417530326903,
+              "normal_squared_error_share": 0.3363849653676354,
+              "energy_gap_rms": 0.05064412693722193,
+              "balance_defect_rms": 0.0341649755882075,
+              "work_change_rms": 0.08328471163963512,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004268813574799469,
+              "feature_error_max_norm": 0.00941901266839328,
+              "normal_squared_error_share": 0.33551258953179747,
+              "energy_gap_rms": 0.013298295766599261,
+              "balance_defect_rms": 0.008642962217092253,
+              "work_change_rms": 0.021554061100989626,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.001095239945244083,
+              "feature_error_max_norm": 0.002431608100715102,
+              "normal_squared_error_share": 0.3350439830764234,
+              "energy_gap_rms": 0.0034071952074132966,
+              "balance_defect_rms": 0.0021732289662757765,
+              "work_change_rms": 0.005482660794025567,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "d4293f6545212e6fd8764d4d4960ed0b25fcdfe219e7026ab39cbf1735643528"
+        }
+      ],
+      "aggregate": [
+        {
+          "steps": 4,
+          "feature_error_rms": 0.03671511269235276,
+          "normal_squared_error_share": 0.2576414258894166,
+          "energy_gap_rms": 0.09819153132482157,
+          "balance_defect_rms": 0.08936972470531292,
+          "work_change_rms": 0.17983721112607123
+        },
+        {
+          "steps": 8,
+          "feature_error_rms": 0.009901204286227783,
+          "normal_squared_error_share": 0.25833168315601973,
+          "energy_gap_rms": 0.02656050150193396,
+          "balance_defect_rms": 0.022611343694718313,
+          "work_change_rms": 0.047129548839300026
+        },
+        {
+          "steps": 16,
+          "feature_error_rms": 0.0025744773169243626,
+          "normal_squared_error_share": 0.2585883222977767,
+          "energy_gap_rms": 0.006910444041978561,
+          "balance_defect_rms": 0.0056859136966205814,
+          "work_change_rms": 0.012069142248478257
+        },
+        {
+          "steps": 32,
+          "feature_error_rms": 0.0006565908762566711,
+          "normal_squared_error_share": 0.2587132373336033,
+          "energy_gap_rms": 0.0017625867075310496,
+          "balance_defect_rms": 0.0014254983997103153,
+          "work_change_rms": 0.003054010128195605
+        }
+      ],
+      "points_per_layer": 80,
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "alternating_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 4.487077376325033e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.02774279475926825,
+              "feature_error_max_norm": 0.049579570265834504,
+              "normal_squared_error_share": 0.04525279200388421,
+              "energy_gap_rms": 0.027832338245489665,
+              "balance_defect_rms": 0.02267638174431293,
+              "work_change_rms": 0.027370486042130097,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.006879037141981556,
+              "feature_error_max_norm": 0.011948929343262237,
+              "normal_squared_error_share": 0.04394154289668908,
+              "energy_gap_rms": 0.006728113015016746,
+              "balance_defect_rms": 0.005061061330857509,
+              "work_change_rms": 0.007392031656819951,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0017220721326155766,
+              "feature_error_max_norm": 0.003000940320842949,
+              "normal_squared_error_share": 0.043586176924202455,
+              "energy_gap_rms": 0.0016731852571849038,
+              "balance_defect_rms": 0.0012217248791377329,
+              "work_change_rms": 0.00192687272972398,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.00043132347271760345,
+              "feature_error_max_norm": 0.0007549241362242405,
+              "normal_squared_error_share": 0.04341665077305807,
+              "energy_gap_rms": 0.0004179101288362926,
+              "balance_defect_rms": 0.00030173417174238015,
+              "work_change_rms": 0.000492904605440346,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "ba19809b539fe99d5e843e9eb1ff8ada9960ecdc354b238cb13927f99f4e4239"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 5.554667836804583e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.06674739211089808,
+              "feature_error_max_norm": 0.09210261163221643,
+              "normal_squared_error_share": 0.02708000554632289,
+              "energy_gap_rms": 0.05448022201986099,
+              "balance_defect_rms": 0.18490513769001277,
+              "work_change_rms": 0.17705294747566536,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.017457850772284764,
+              "feature_error_max_norm": 0.025045364357525888,
+              "normal_squared_error_share": 0.025736890030786955,
+              "energy_gap_rms": 0.013781754547594153,
+              "balance_defect_rms": 0.04479630977936016,
+              "work_change_rms": 0.044003053797329425,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004475299918362486,
+              "feature_error_max_norm": 0.006524223843935942,
+              "normal_squared_error_share": 0.025138546934953876,
+              "energy_gap_rms": 0.003482950196332269,
+              "balance_defect_rms": 0.010982609341635535,
+              "work_change_rms": 0.01094917551241903,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.00113339855636328,
+              "feature_error_max_norm": 0.0016642430244298138,
+              "normal_squared_error_share": 0.024872360356242306,
+              "energy_gap_rms": 0.0008765931615442074,
+              "balance_defect_rms": 0.0027163330248140883,
+              "work_change_rms": 0.002729308566672026,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "ba566f0959ed8ad008bfeee6abeed37d5672585f5d9d9155a1e0c84328815777"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 5.5351279115711804e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.05522150168865343,
+              "feature_error_max_norm": 0.100235027016186,
+              "normal_squared_error_share": 0.024487044417534697,
+              "energy_gap_rms": 0.04208677973091535,
+              "balance_defect_rms": 0.20277167128081297,
+              "work_change_rms": 0.2102201872514424,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.013875371296842616,
+              "feature_error_max_norm": 0.02575273571878094,
+              "normal_squared_error_share": 0.026835960188980927,
+              "energy_gap_rms": 0.011025350915994422,
+              "balance_defect_rms": 0.05118202439448012,
+              "work_change_rms": 0.051066718451155825,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.003487332023436849,
+              "feature_error_max_norm": 0.006422766545896547,
+              "normal_squared_error_share": 0.028716984820830613,
+              "energy_gap_rms": 0.0028570940024122814,
+              "balance_defect_rms": 0.01270411792198359,
+              "work_change_rms": 0.012463152909141665,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0008749056914371417,
+              "feature_error_max_norm": 0.0016028504409755441,
+              "normal_squared_error_share": 0.02982193424332164,
+              "energy_gap_rms": 0.0007293760161735094,
+              "balance_defect_rms": 0.003157227656931707,
+              "work_change_rms": 0.003071664350982914,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "1006885fd84b2466724239a5102f013edbd53023d29d62d4bb9c8b5e5f71985f"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 4.158451361035986e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.09880931695617404,
+              "feature_error_max_norm": 0.164893841349801,
+              "normal_squared_error_share": 0.05079636857718643,
+              "energy_gap_rms": 0.10848244064148577,
+              "balance_defect_rms": 0.2734562078147582,
+              "work_change_rms": 0.3531609201069648,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.026050033721285584,
+              "feature_error_max_norm": 0.04254433238323334,
+              "normal_squared_error_share": 0.05092095007491081,
+              "energy_gap_rms": 0.028957478366793743,
+              "balance_defect_rms": 0.06540715526980548,
+              "work_change_rms": 0.08667897049235512,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0067185562837814815,
+              "feature_error_max_norm": 0.010744499935296995,
+              "normal_squared_error_share": 0.05049394759222314,
+              "energy_gap_rms": 0.007458847992170925,
+              "balance_defect_rms": 0.015982858229069207,
+              "work_change_rms": 0.02142934134762213,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0017080851556907028,
+              "feature_error_max_norm": 0.0027044881589112254,
+              "normal_squared_error_share": 0.04999197948434216,
+              "energy_gap_rms": 0.0018882281239109633,
+              "balance_defect_rms": 0.003940746544613826,
+              "work_change_rms": 0.005311294280522187,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "b8d44ad78a321bda8d6d86c25a80ad334b254925a60ff7f1d114378b19e7f1f5"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 9.659828492658562e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.10510079804459588,
+              "feature_error_max_norm": 0.24179730470779168,
+              "normal_squared_error_share": 0.021675165602571635,
+              "energy_gap_rms": 0.07985810667931056,
+              "balance_defect_rms": 0.7765572561219688,
+              "work_change_rms": 0.8183174819404216,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.025388819262900816,
+              "feature_error_max_norm": 0.055983942219922186,
+              "normal_squared_error_share": 0.019281869399271605,
+              "energy_gap_rms": 0.01853322911008005,
+              "balance_defect_rms": 0.1911872114593364,
+              "work_change_rms": 0.19754580299487112,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.006389299637877816,
+              "feature_error_max_norm": 0.01390924952416371,
+              "normal_squared_error_share": 0.01848853287347373,
+              "energy_gap_rms": 0.004581791911253291,
+              "balance_defect_rms": 0.04718565355469769,
+              "work_change_rms": 0.04839786020902687,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0016109002278106791,
+              "feature_error_max_norm": 0.00350688823978645,
+              "normal_squared_error_share": 0.018236213805060124,
+              "energy_gap_rms": 0.001148675512772802,
+              "balance_defect_rms": 0.011724452744925763,
+              "work_change_rms": 0.011980792700927452,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "19f8e708f68069ef877479fd13ace3572f95f499f5c6fcfdd49520821c30505f"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 6.249223361010081e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.1553268448183913,
+              "feature_error_max_norm": 0.28234233039061996,
+              "normal_squared_error_share": 0.03432983542190466,
+              "energy_gap_rms": 0.14353898001696822,
+              "balance_defect_rms": 0.4623929449886888,
+              "work_change_rms": 0.5736040910174878,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.04028166794913632,
+              "feature_error_max_norm": 0.06906629544441789,
+              "normal_squared_error_share": 0.03596826780693587,
+              "energy_gap_rms": 0.03846019420230449,
+              "balance_defect_rms": 0.11927363592681096,
+              "work_change_rms": 0.14893642245749195,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.010379003139410975,
+              "feature_error_max_norm": 0.017765429190961926,
+              "normal_squared_error_share": 0.03618510120705084,
+              "energy_gap_rms": 0.009960142084114375,
+              "balance_defect_rms": 0.029220558836230315,
+              "work_change_rms": 0.03691572046239485,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.002647322920168968,
+              "feature_error_max_norm": 0.004529957642906472,
+              "normal_squared_error_share": 0.03618970327754063,
+              "energy_gap_rms": 0.002542210502945665,
+              "balance_defect_rms": 0.007257381292598024,
+              "work_change_rms": 0.009222615843791228,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "7e7031bdca38e709f59c118ef0e5bf7f0e4cf64a2053297012f5d851103c0ebc"
+        }
+      ],
+      "aggregate": [
+        {
+          "steps": 4,
+          "feature_error_rms": 0.09417198703401136,
+          "normal_squared_error_share": 0.033711050781369635,
+          "energy_gap_rms": 0.08589065392104905,
+          "balance_defect_rms": 0.4015484993768109,
+          "work_change_rms": 0.4471534424960004
+        },
+        {
+          "steps": 8,
+          "feature_error_rms": 0.024119262037571424,
+          "normal_squared_error_share": 0.034504795148899155,
+          "energy_gap_rms": 0.02242753255362261,
+          "balance_defect_rms": 0.0997570125739265,
+          "work_change_rms": 0.11054287761604487
+        },
+        {
+          "steps": 16,
+          "feature_error_rms": 0.006175774998596569,
+          "normal_squared_error_share": 0.03458284709150566,
+          "energy_gap_rms": 0.005757967493506956,
+          "balance_defect_rms": 0.02456041411520792,
+          "work_change_rms": 0.02721294858462924
+        },
+        {
+          "steps": 32,
+          "feature_error_rms": 0.0015682774670157502,
+          "normal_squared_error_share": 0.034537036837151765,
+          "energy_gap_rms": 0.0014618908385192221,
+          "balance_defect_rms": 0.006097806351642941,
+          "work_change_rms": 0.006756886434918651
+        }
+      ],
+      "points_per_layer": 80,
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "palindrome_operator_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 7.045031225061393e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.08591195560379603,
+              "feature_error_max_norm": 0.12595128655086835,
+              "normal_squared_error_share": 0.11806196294443075,
+              "energy_gap_rms": 0.14275163559225781,
+              "balance_defect_rms": 0.08770065317215718,
+              "work_change_rms": 0.16346717327668686,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.019888544747284034,
+              "feature_error_max_norm": 0.030641170737264096,
+              "normal_squared_error_share": 0.14606134163992943,
+              "energy_gap_rms": 0.03676764297187676,
+              "balance_defect_rms": 0.029980851173993187,
+              "work_change_rms": 0.05572248077010889,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.004897053484060824,
+              "feature_error_max_norm": 0.007615143433578906,
+              "normal_squared_error_share": 0.15025657664646888,
+              "energy_gap_rms": 0.009148990022529753,
+              "balance_defect_rms": 0.006659082593085669,
+              "work_change_rms": 0.01330536772263036,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0012172723418677448,
+              "feature_error_max_norm": 0.0018990981668307123,
+              "normal_squared_error_share": 0.15265520062364418,
+              "energy_gap_rms": 0.0022907172432751603,
+              "balance_defect_rms": 0.0016558470933974378,
+              "work_change_rms": 0.0033595796296108627,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "d25cba25d415648d998937f21eff7a4031807020cff6c1c42a561d81be9223f9"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 6.078693104427657e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.09040813295596674,
+              "feature_error_max_norm": 0.14200387307836992,
+              "normal_squared_error_share": 0.0987531095336898,
+              "energy_gap_rms": 0.14027092727556503,
+              "balance_defect_rms": 0.21629500880880034,
+              "work_change_rms": 0.1642975387572688,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.023908812407573587,
+              "feature_error_max_norm": 0.038158509474677,
+              "normal_squared_error_share": 0.09586950265310494,
+              "energy_gap_rms": 0.03618992373507952,
+              "balance_defect_rms": 0.04828128618402301,
+              "work_change_rms": 0.03839040932220607,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.006177520615714831,
+              "feature_error_max_norm": 0.010134887231521913,
+              "normal_squared_error_share": 0.0941533958893786,
+              "energy_gap_rms": 0.009239412127560962,
+              "balance_defect_rms": 0.011324962083082046,
+              "work_change_rms": 0.009383383977732045,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0015711315560328304,
+              "feature_error_max_norm": 0.002609648444785584,
+              "normal_squared_error_share": 0.09323613191348226,
+              "energy_gap_rms": 0.002336139424445325,
+              "balance_defect_rms": 0.0027337522003340674,
+              "work_change_rms": 0.0023252149449675937,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "a47f5e0e7ad0394caae4dd9fbadb95938b016d56da86d489aceca012b77cd20e"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 1.4594547792512458e-11,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.1067424853767332,
+              "feature_error_max_norm": 0.21095489011065843,
+              "normal_squared_error_share": 0.021340761011465797,
+              "energy_gap_rms": 0.07982117325653919,
+              "balance_defect_rms": 0.33890796364500325,
+              "work_change_rms": 0.35284415184198953,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.026533161687298527,
+              "feature_error_max_norm": 0.050921073922406114,
+              "normal_squared_error_share": 0.020668305107010034,
+              "energy_gap_rms": 0.019518079893595792,
+              "balance_defect_rms": 0.07602538675214461,
+              "work_change_rms": 0.08300844568077598,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.006731385575194872,
+              "feature_error_max_norm": 0.012912849549228275,
+              "normal_squared_error_share": 0.021559469096545412,
+              "energy_gap_rms": 0.005056579309039067,
+              "balance_defect_rms": 0.01799700831941553,
+              "work_change_rms": 0.02013762436712856,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0016980917496003016,
+              "feature_error_max_norm": 0.003252918400438622,
+              "normal_squared_error_share": 0.02216528542022706,
+              "energy_gap_rms": 0.0012935260793281497,
+              "balance_defect_rms": 0.00439947539144882,
+              "work_change_rms": 0.00498743478610322,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "dab5c075a7eb1d9860eda4f58d48fdc024abf10d42f96df3b51d0ba7dcfdab44"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 2.8368418725222e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.17347757913355616,
+              "feature_error_max_norm": 0.29117193356393,
+              "normal_squared_error_share": 0.033298626142926356,
+              "energy_gap_rms": 0.1520753755656575,
+              "balance_defect_rms": 0.20156280315858438,
+              "work_change_rms": 0.2963870151885865,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.04792086261415764,
+              "feature_error_max_norm": 0.08117837453547744,
+              "normal_squared_error_share": 0.033979678019672534,
+              "energy_gap_rms": 0.043882928961344665,
+              "balance_defect_rms": 0.0382341095566575,
+              "work_change_rms": 0.06905649155740097,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.012530232309536201,
+              "feature_error_max_norm": 0.021372021045903692,
+              "normal_squared_error_share": 0.03455550501276535,
+              "energy_gap_rms": 0.01167693994593401,
+              "balance_defect_rms": 0.008703050533920972,
+              "work_change_rms": 0.01720973905629395,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.003206134899894323,
+              "feature_error_max_norm": 0.005481547328209271,
+              "normal_squared_error_share": 0.034796918317783865,
+              "energy_gap_rms": 0.003005377104148156,
+              "balance_defect_rms": 0.0020956437947421205,
+              "work_change_rms": 0.004293236501852311,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "408c8dff9dd2ddd41357f9dc71137c7a370272f3cc2d16529adfcddbf9286f5c"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 9.389822253069724e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.18305941236749973,
+              "feature_error_max_norm": 0.28160176413669297,
+              "normal_squared_error_share": 0.13860775216884497,
+              "energy_gap_rms": 0.3646553042151316,
+              "balance_defect_rms": 0.9709793126296701,
+              "work_change_rms": 0.6927087615636393,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.04556465676681271,
+              "feature_error_max_norm": 0.07499922403390498,
+              "normal_squared_error_share": 0.16195545781800724,
+              "energy_gap_rms": 0.09683676894244991,
+              "balance_defect_rms": 0.20508793376763865,
+              "work_change_rms": 0.13643859454613677,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.011685213717570432,
+              "feature_error_max_norm": 0.019625448294412314,
+              "normal_squared_error_share": 0.16926704303187612,
+              "energy_gap_rms": 0.025320119732236846,
+              "balance_defect_rms": 0.04615067978924049,
+              "work_change_rms": 0.02950775236402687,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0029636163148844797,
+              "feature_error_max_norm": 0.00501709446754141,
+              "normal_squared_error_share": 0.1729001431813007,
+              "energy_gap_rms": 0.006485659799058574,
+              "balance_defect_rms": 0.010888611901572764,
+              "work_change_rms": 0.0068846694223599425,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "691a7e29be5cc374f859be5d6953822f7f98877cd661573bfbf92f41d39c2ed5"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 2.716404878810863e-11,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.22198722912399432,
+              "feature_error_max_norm": 0.353500912936458,
+              "normal_squared_error_share": 0.024759811554689117,
+              "energy_gap_rms": 0.17913470650661012,
+              "balance_defect_rms": 0.7928202031564203,
+              "work_change_rms": 0.9084685103767683,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.06157852214210966,
+              "feature_error_max_norm": 0.09824708992926291,
+              "normal_squared_error_share": 0.03128156636325989,
+              "energy_gap_rms": 0.057505619533264066,
+              "balance_defect_rms": 0.17988772949527396,
+              "work_change_rms": 0.21786378103278972,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.01666576043853766,
+              "feature_error_max_norm": 0.026673354426267976,
+              "normal_squared_error_share": 0.03403924978010699,
+              "energy_gap_rms": 0.01633346240074378,
+              "balance_defect_rms": 0.04311694975987896,
+              "work_change_rms": 0.05479798809366465,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.004354236736104851,
+              "feature_error_max_norm": 0.006955767132613332,
+              "normal_squared_error_share": 0.035640505788220866,
+              "energy_gap_rms": 0.0043743000630711544,
+              "balance_defect_rms": 0.01065126399802668,
+              "work_change_rms": 0.013836540817426461,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "639f3af706b7a5c087c96d5c98c847ce903ebd0cf2d02d211d3c74ca530fa005"
+        }
+      ],
+      "aggregate": [
+        {
+          "steps": 4,
+          "feature_error_rms": 0.1526608450221038,
+          "normal_squared_error_share": 0.0628525843225802,
+          "energy_gap_rms": 0.19774353593477983,
+          "balance_defect_rms": 0.5448739620207816,
+          "work_change_rms": 0.5117323387174645
+        },
+        {
+          "steps": 8,
+          "feature_error_rms": 0.04048797270218714,
+          "normal_squared_error_share": 0.0671046257852401,
+          "energy_gap_rms": 0.05424096413802554,
+          "balance_defect_rms": 0.11894837563494265,
+          "work_change_rms": 0.11713107802748585
+        },
+        {
+          "steps": 16,
+          "feature_error_rms": 0.010636046868207533,
+          "normal_squared_error_share": 0.06801513949431644,
+          "energy_gap_rms": 0.014369418527763174,
+          "balance_defect_rms": 0.027571694863315937,
+          "work_change_rms": 0.028402777702586934
+        },
+        {
+          "steps": 32,
+          "feature_error_rms": 0.0027342098835225325,
+          "normal_squared_error_share": 0.06849240481819309,
+          "energy_gap_rms": 0.0037105416995823017,
+          "balance_defect_rms": 0.006657998087797367,
+          "work_change_rms": 0.007057482082654702
+        }
+      ],
+      "points_per_layer": 80,
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "layers": [
+        {
+          "layer": "blocks.0.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 2.389199948993337e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.01134514445721412,
+              "feature_error_max_norm": 0.01601603301148474,
+              "normal_squared_error_share": 0.11306767802942577,
+              "energy_gap_rms": 0.017964049399861508,
+              "balance_defect_rms": 0.008055109151024593,
+              "work_change_rms": 0.01842433150284661,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.002810438813989662,
+              "feature_error_max_norm": 0.003993010566865196,
+              "normal_squared_error_share": 0.11247185638401963,
+              "energy_gap_rms": 0.004437682812580875,
+              "balance_defect_rms": 0.0020075154399754307,
+              "work_change_rms": 0.00482590691695579,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.000699755714881102,
+              "feature_error_max_norm": 0.0009969284486187238,
+              "normal_squared_error_share": 0.1121567650359402,
+              "energy_gap_rms": 0.0011036255141007704,
+              "balance_defect_rms": 0.0005070142399642556,
+              "work_change_rms": 0.0012348402250048972,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0001746047648085902,
+              "feature_error_max_norm": 0.00024906563468619333,
+              "normal_squared_error_share": 0.11199821663843032,
+              "energy_gap_rms": 0.0002752374854898925,
+              "balance_defect_rms": 0.00012774219338047035,
+              "work_change_rms": 0.00031231110232904065,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "7a9b512a8546c93ff4636cbf2cb9b58d380763f9e86cf44387ab738bc48a7557"
+        },
+        {
+          "layer": "blocks.0.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 9.627854069549358e-13,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.03887437127267277,
+              "feature_error_max_norm": 0.05412225927446076,
+              "normal_squared_error_share": 0.07031945511947686,
+              "energy_gap_rms": 0.05223115174698986,
+              "balance_defect_rms": 0.0638246138774196,
+              "work_change_rms": 0.07109706836758607,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.010115080459783092,
+              "feature_error_max_norm": 0.014465787140642176,
+              "normal_squared_error_share": 0.07183056180915501,
+              "energy_gap_rms": 0.013682680850263912,
+              "balance_defect_rms": 0.015203150981137762,
+              "work_change_rms": 0.017876175745273046,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0025789975618123366,
+              "feature_error_max_norm": 0.003737801174695444,
+              "normal_squared_error_share": 0.072718504343088,
+              "energy_gap_rms": 0.0035063673436434325,
+              "balance_defect_rms": 0.0036991835213352722,
+              "work_change_rms": 0.004498900382836426,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0006510337918517276,
+              "feature_error_max_norm": 0.0009500036156270822,
+              "normal_squared_error_share": 0.07319055103166985,
+              "energy_gap_rms": 0.0008877410942623552,
+              "balance_defect_rms": 0.0009116644759745616,
+              "work_change_rms": 0.0011297382997584354,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "8846bb52b33302ac7b989f9b61f4cffc0b2e561565952b1a6fa1a1828e7b5117"
+        },
+        {
+          "layer": "blocks.1.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 2.4442670110147446e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.013664225548878556,
+              "feature_error_max_norm": 0.025248187768217255,
+              "normal_squared_error_share": 0.016573697223134013,
+              "energy_gap_rms": 0.008990163366528275,
+              "balance_defect_rms": 0.01948016965143695,
+              "work_change_rms": 0.023760641462225025,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.003495588465362672,
+              "feature_error_max_norm": 0.006618123537532152,
+              "normal_squared_error_share": 0.017665901842034964,
+              "energy_gap_rms": 0.00237477073443714,
+              "balance_defect_rms": 0.004655365929331958,
+              "work_change_rms": 0.005801488467047546,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0008848440085162068,
+              "feature_error_max_norm": 0.0016957520267821937,
+              "normal_squared_error_share": 0.018187215530271673,
+              "energy_gap_rms": 0.0006099138448323392,
+              "balance_defect_rms": 0.0011369219476905195,
+              "work_change_rms": 0.0014316329723034341,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.00022264048380133113,
+              "feature_error_max_norm": 0.0004292721893537132,
+              "normal_squared_error_share": 0.018442563603440022,
+              "energy_gap_rms": 0.00015452985705271453,
+              "balance_defect_rms": 0.0002808698172947513,
+              "work_change_rms": 0.0003554974846149099,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "bdf4b868726bc6dfe6cea35a9359b3e2e266b91d8326dc8298ba4c993a6f107c"
+        },
+        {
+          "layer": "blocks.1.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 1.5374368445009168e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.042504458995646324,
+              "feature_error_max_norm": 0.06343559805230276,
+              "normal_squared_error_share": 0.05448603081428477,
+              "energy_gap_rms": 0.050467991245170506,
+              "balance_defect_rms": 0.059253397756828946,
+              "work_change_rms": 0.10343727481738356,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.011166683437538025,
+              "feature_error_max_norm": 0.01680508476490046,
+              "normal_squared_error_share": 0.053829760429321236,
+              "energy_gap_rms": 0.013194732251832568,
+              "balance_defect_rms": 0.01468911193053289,
+              "work_change_rms": 0.026159190291499233,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0028606793125325455,
+              "feature_error_max_norm": 0.004325040675229381,
+              "normal_squared_error_share": 0.053551505501735985,
+              "energy_gap_rms": 0.003369957082483802,
+              "balance_defect_rms": 0.0036393092557750147,
+              "work_change_rms": 0.006555950344455983,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0007236927054100283,
+              "feature_error_max_norm": 0.001096358914122249,
+              "normal_squared_error_share": 0.05345251488651051,
+              "energy_gap_rms": 0.0008513094741666237,
+              "balance_defect_rms": 0.0009046612790314766,
+              "work_change_rms": 0.0016396831275026992,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "7a127311552aa572c7855b37545654fbbcc5e07d1840feccbd053216d6cfec37"
+        },
+        {
+          "layer": "blocks.2.ffn.ode1",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 4.586553359331447e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.031058266882866798,
+              "feature_error_max_norm": 0.07001807964740232,
+              "normal_squared_error_share": 0.04994958941815897,
+              "energy_gap_rms": 0.036538484854261886,
+              "balance_defect_rms": 0.08133642867698332,
+              "work_change_rms": 0.11113768335929064,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.008151185486411819,
+              "feature_error_max_norm": 0.01874990340869706,
+              "normal_squared_error_share": 0.05161440736025641,
+              "energy_gap_rms": 0.009777642008039244,
+              "balance_defect_rms": 0.020292641532344828,
+              "work_change_rms": 0.028384427315965122,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0020911220172478403,
+              "feature_error_max_norm": 0.004855960630422651,
+              "normal_squared_error_share": 0.05242763168216459,
+              "energy_gap_rms": 0.0025295608697725965,
+              "balance_defect_rms": 0.005066905434955222,
+              "work_change_rms": 0.007174864029161477,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.0005297723952361186,
+              "feature_error_max_norm": 0.0012360282933939455,
+              "normal_squared_error_share": 0.05282570256597854,
+              "energy_gap_rms": 0.000643294144398122,
+              "balance_defect_rms": 0.0012659075495476692,
+              "work_change_rms": 0.0018037801121542703,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "f07bac6f8c15274942a9897abca87800780069ddffe68d010221fa5154174148"
+        },
+        {
+          "layer": "blocks.2.ffn.ode2",
+          "points": 80,
+          "qualified_points": 80,
+          "zero_reference_gradient_points": 0,
+          "reference_closure_max": 3.991473818132363e-12,
+          "levels": [
+            {
+              "steps": 4,
+              "feature_error_rms": 0.03899353532155026,
+              "feature_error_max_norm": 0.0739693730358949,
+              "normal_squared_error_share": 0.013107380387649683,
+              "energy_gap_rms": 0.023193153101285263,
+              "balance_defect_rms": 0.052816358316041895,
+              "work_change_rms": 0.06430051543780825,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 8,
+              "feature_error_rms": 0.010157457953253658,
+              "feature_error_max_norm": 0.019022325327087232,
+              "normal_squared_error_share": 0.014095753495407108,
+              "energy_gap_rms": 0.006231155049820586,
+              "balance_defect_rms": 0.013470876117780176,
+              "work_change_rms": 0.016192245970948652,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 16,
+              "feature_error_rms": 0.0026045349061600857,
+              "feature_error_max_norm": 0.004889460548650697,
+              "normal_squared_error_share": 0.014729072329547765,
+              "energy_gap_rms": 0.0016303212146140116,
+              "balance_defect_rms": 0.0034782946824570256,
+              "work_change_rms": 0.004165587039434669,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            },
+            {
+              "steps": 32,
+              "feature_error_rms": 0.000660027675229426,
+              "feature_error_max_norm": 0.0012447454003494422,
+              "normal_squared_error_share": 0.015081363512880567,
+              "energy_gap_rms": 0.0004178119714154835,
+              "balance_defect_rms": 0.0008853422031926697,
+              "work_change_rms": 0.001059275252145802,
+              "resolved_feature_points": 80,
+              "energy_at_floor_points": 0,
+              "directional_only_points": 0
+            }
+          ],
+          "input_sha256": "ffc316382dfce5dc4c1210ab5b876e74fe51ad6fb8da61125243095bf4f3867c"
+        }
+      ],
+      "aggregate": [
+        {
+          "steps": 4,
+          "feature_error_rms": 0.031933213841819505,
+          "normal_squared_error_share": 0.047473926470825066,
+          "energy_gap_rms": 0.03547681094170765,
+          "balance_defect_rms": 0.053904376153686706,
+          "work_change_rms": 0.07432387231364844
+        },
+        {
+          "steps": 8,
+          "feature_error_rms": 0.008334098168112678,
+          "normal_squared_error_share": 0.04811002637940455,
+          "energy_gap_rms": 0.009319145666549612,
+          "balance_defect_rms": 0.013328316741569087,
+          "work_change_rms": 0.018835569567647682
+        },
+        {
+          "steps": 16,
+          "feature_error_rms": 0.0021316548697090736,
+          "normal_squared_error_share": 0.04842461021693826,
+          "energy_gap_rms": 0.0023908796260145694,
+          "balance_defect_rms": 0.0033229066122684075,
+          "work_change_rms": 0.004754397650989312
+        },
+        {
+          "steps": 32,
+          "feature_error_rms": 0.0005391238357651319,
+          "normal_squared_error_share": 0.048591958360616895,
+          "energy_gap_rms": 0.0006056458565122185,
+          "balance_defect_rms": 0.0008297693263316734,
+          "work_change_rms": 0.0011947435445578162
+        }
+      ],
+      "points_per_layer": 80,
+      "qualified_points": 480,
+      "total_points": 480,
+      "all_qualified": true
+    }
+  ],
+  "bindings": [
+    {
+      "dataset": "ring",
+      "native_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-energy/formal/ring",
+      "native_complete_sha256": "14304e6483c254d739629703dc6b6177af6de406826a3955bc92ee35c552e832",
+      "verified_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-energy/formal/ring-verified",
+      "verified_complete_sha256": "6267ca3b3d4d57cd1d28111aa66afe16a9e6332f3d101be65d36121aa68bc47c",
+      "verified_summary_sha256": "7eea641a247b113a959b28bdf89eeb19078989afea83cea7359890b37a0ede92"
+    },
+    {
+      "dataset": "product",
+      "native_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-energy/formal/product",
+      "native_complete_sha256": "1376f1a701068dde0992ebd8e289bece4e81ddcd4b73627ccc527577efb74af6",
+      "verified_folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-energy/formal/product-verified",
+      "verified_complete_sha256": "22de97d62176f3b82ab20b7e7660e5d162ef26ddabc517d19248b03b3e90acfd",
+      "verified_summary_sha256": "086ac4da291defbb40719aff39c01a55f591b9c9031222bc8a7f15044b01b1f3"
+    }
+  ],
+  "max_reconstruction_error": 1.5631940186722204e-13
+}

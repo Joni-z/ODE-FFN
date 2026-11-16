@@ -1,5 +1,19 @@
 # Current project status
 
+## Hidden feature audit complete
+
+All2880local states in the six shared/PAL/ALTmodels qualify. Native maps replay
+within7.11e-15; independent energy/work/geometry reconstruction<=1.57e-13.
+Normal four-step feature-error share is0.034--0.063on Product16and
+0.109--0.258on Ring8. Most of the feature difference is tangential; symmetric
+work changes and balance defects can cancel in the resulting potential gap.
+[Complete results and three figures](docs/research-assessments/2026-11-16-ode-mechanism/hidden-energy-results/analysis-report.md).
+
+Next test which component reaches the full output using one-layer-at-a-time
+replacements, including an exact-potential ray control. This is registered,
+not launched. It does not add an energy penalty, training or image architecture.
+[Registered intervention](docs/research-assessments/2026-11-16-ode-mechanism/hidden-readout-protocol.md).
+
 ## Complete mechanism calibration and decision
 
 **All twelve refined cases now qualify numerically and independently.**
