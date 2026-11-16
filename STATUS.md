@@ -1,48 +1,44 @@
 # Current project status
 
-## The next test isolates continuous-solver accuracy during training
+## More accurate hidden ODE solves did not improve generation
 
-The midpoint hidden bias is now quantitatively predictable from its learned
-field: all 2,880 states qualify, and its parameter-free trained 4-step prediction
-fractionB=.831--.971 across six models. Total/normal adjusted intervals resolve
-positivity in all cases. This predicts a numerical effect; its task value is
-still an open question.
-[Derivation](docs/research-assessments/2026-11-16-ode-mechanism/solver-bias-derivation.md)
-and [complete results](docs/research-assessments/2026-11-16-ode-mechanism/solver-bias-results/analysis-report.md).
+The matched-solver training comparison is complete. With the same parameters,
+initialization, training stream and eight P applications per local solve,
+RK4 reduces normalized hidden solver error by 45.580x on Ring8 and 22.245x on
+Product16. Confirmation pooled SW2 is 0.091 vs 0.091 on Ring8 and 0.065 vs 0.064 on
+Product16 (RK4 vs midpoint, three decimals). The two-task generation-gain
+prediction fails while the hidden-fidelity prediction succeeds.
 
-Registered next: two new seed 0,20k-update Ring8/Product16 trajectories. Keep
-f=PISRU(y), parameter count, initialization, optimizer and 8 P applications per
-local solve; replace midpoint4 with classical RK4 two steps. Author algebra,
-gradient/order/continuation/evaluator checks pass. Publication, source freeze
-and the fresh documented pass are complete (actual exit 0, no divergences).
-[Protocol](docs/research-assessments/2026-11-16-ode-mechanism/rk4-control-protocol.md).
-Both formal 20k trajectories and both fixed evaluation splits are terminal:
-all six native commands and supervisor session 40324 exit 0. Complete checkpoints,
-standard final tests, update spectra and adapter markers are retained. Independent
-metric reconstruction and trained hidden-fidelity measurements are next.
-[Completion receipts](docs/research-assessments/2026-11-16-ode-mechanism/rk4-training-completion.json).
+[Complete analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/rk4-results/analysis-report.md),
+[exact numeric data](docs/research-assessments/2026-11-16-ode-mechanism/rk4-results/summary.json),
+[source/execution/protected-file audit](docs/research-assessments/2026-11-16-ode-mechanism/rk4-audit.json).
 
-## Completed controls and their interpretation
+Both 20k training trajectories, four common-bank evaluations and eight hidden
+observer/verifier commands have actual exit 0. All 1,920 hidden states qualify.
+NumPy independently reconstructs all 16 model/split metric rows (max 2.78e-17);
+separate integer-CDF statistics agree within 2.71e-20. Cost checks confirm equal
+parameters and dense MACs, with descriptive same-process CPU timings retained.
+All original checkpoints, samples, update spectra and logs remain outside Git.
 
-All six dimension-matched tangent-minus-null contrasts are negative, including
-adjusted intervals. Ring8 normal-specific effects resolve; Product16 does not.
-The earlier 63D-versus-1D dominance cannot establish special ODE sensitivity.
-[Equal-dimension control](docs/research-assessments/2026-11-16-ode-mechanism/hidden-null-results/analysis-report.md).
+## Next mathematical question
 
-The uniform 512/1024 fixed-first-layer sampling extension completes numerical
-qualification in 12/12 model/grid comparisons. It reproduces the direction of
-refinement-induced distribution changes, but target SW2 changes are small and
-mixed. Original256 pilot failures remain unchanged. This does not select an FFN.
-[Complete extension](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-extension-results/analysis-report.md).
+A more faithful internal solution is not sufficient by itself. Next distinguish
+weak exposure of hidden bias at the complete field from solver-specific learned
+compensation, using a crossed weight/solver comparison and the exact risk identity
+R_cont-R_num=2 mean<error,delta>+mean||delta||². This is a frozen-weight diagnostic,
+not a new response or image architecture. It is registered but not yet executed.
+[Protocol and falsifiable predictions](docs/research-assessments/2026-11-16-ode-mechanism/rk4-followup-protocol.md).
 
-## Preserved benchmark and execution boundaries
+## Earlier controls and preserved image benchmark
 
-CelebA128 at 160 epochs: native24.304/K1 27.789/K8 28.083 FID50k.
-[Matched table](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
-Final Reports1/2 and native image code stay unchanged. Current experiment code
-is isolated under studies/muon_pd_20261102/.
+The parameter-free modified-equation calculation predicts the trained midpoint
+bias (B=.831--.971). The equal-dimension null rejects special tangential sensitivity
+in all six models. Uniform 512/1024 sampling qualifies all 12 pilot comparisons,
+but target-quality shifts are small and mixed. All earlier failed gates remain.
 
-Mac mini uses the unchanged one-thread-per-workerCPU environment04f11f75.
-145 physical 4-7are occupied;0-3prohibited. No job is stopped or shared.
-All earlier null/precision/bias native/verifier handles have actual terminal0.
-Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.
+CelebA128 at 160 epochs remains native 24.304/K1 27.789/K8 28.083 FID50k.
+[Matched image table](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
+Reports1/2, 97 protected files, 11 Report2 bindings and five native image source files
+are unchanged. Mac CPU environment 04f11f75 has no package changes. No current study
+worker remains live. 145 physical 0-3 are prohibited;4-7 were occupied and unused.
+Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/.

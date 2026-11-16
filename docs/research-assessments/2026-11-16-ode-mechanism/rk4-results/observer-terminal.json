@@ -1,0 +1,191 @@
+{
+  "passed": true,
+  "commands": [
+    {
+      "name": "ring-midpoint",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/rk4_fidelity.py",
+        "--folder",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output/state_flow_20261116/gmm_ring8_2d/gmm_ring8_2d__state_midpoint4__adamw_0.0003/seed000",
+        "--evaluation",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--assets",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-midpoint"
+      ],
+      "verify": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-midpoint",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-midpoint-verified"
+      ],
+      "phase": "native",
+      "pid": 92163,
+      "started_unix": 1794848255.154114,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848257.1663501
+    },
+    {
+      "name": "ring-rk4",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/rk4_fidelity.py",
+        "--folder",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/gmm_ring8_2d/gmm_ring8_2d__state_rk4_2__adamw_0.0003/seed000",
+        "--evaluation",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/analysis/selection/gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--assets",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-rk4"
+      ],
+      "verify": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-rk4",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-rk4-verified"
+      ],
+      "phase": "native",
+      "pid": 92164,
+      "started_unix": 1794848255.1553931,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848257.16644
+    },
+    {
+      "name": "product-midpoint",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/rk4_fidelity.py",
+        "--folder",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output/state_flow_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/seed000",
+        "--evaluation",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/selection/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--assets",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-midpoint"
+      ],
+      "verify": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-midpoint",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-midpoint-verified"
+      ],
+      "phase": "native",
+      "pid": 92175,
+      "started_unix": 1794848257.175096,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848259.1874602
+    },
+    {
+      "name": "product-rk4",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/rk4_fidelity.py",
+        "--folder",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003/seed000",
+        "--evaluation",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/analysis/selection/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--assets",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-rk4"
+      ],
+      "verify": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-rk4",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-rk4-verified"
+      ],
+      "phase": "native",
+      "pid": 92176,
+      "started_unix": 1794848257.1806579,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848259.1875908
+    },
+    {
+      "name": "ring-midpoint",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-midpoint",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-midpoint-verified"
+      ],
+      "phase": "independent",
+      "pid": 92179,
+      "started_unix": 1794848259.1955252,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848261.205309
+    },
+    {
+      "name": "ring-rk4",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-rk4",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/ring-rk4-verified"
+      ],
+      "phase": "independent",
+      "pid": 92180,
+      "started_unix": 1794848259.201026,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848261.205436
+    },
+    {
+      "name": "product-midpoint",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-midpoint",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-midpoint-verified"
+      ],
+      "phase": "independent",
+      "pid": 92181,
+      "started_unix": 1794848261.213623,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848263.2239912
+    },
+    {
+      "name": "product-rk4",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-repo/studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-rk4",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/fidelity-formal/product-rk4-verified"
+      ],
+      "phase": "independent",
+      "pid": 92182,
+      "started_unix": 1794848261.2194781,
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794848263.224115
+    }
+  ],
+  "unstarted": [],
+  "source_commit": "4efce2c0fc86f513b1b5175426b7848fa1f63ad3"
+}

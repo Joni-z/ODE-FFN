@@ -1,0 +1,77 @@
+{
+  "passed": true,
+  "training_and_evaluation_child_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "training_supervisor_actual_exit": 0,
+  "observer_child_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "observer_supervisor_actual_exit": 0,
+  "metric_verifier_actual_exit": 0,
+  "statistics_verifier_actual_exit": 0,
+  "qualified_hidden_states": 1920,
+  "models": 8,
+  "metric_rows": 16,
+  "max_numpy_metric_difference": 2.7755575615628914e-17,
+  "max_independent_statistics_difference": 2.710505431213761e-20,
+  "protected_report_files": 97,
+  "report2_bindings": 11,
+  "native_image_files_unchanged": [
+    "main_jit.py",
+    "engine_jit.py",
+    "model_jit.py",
+    "denoiser.py",
+    "ffn.py"
+  ],
+  "source_training": "9452a4fd15e639ffdc58fc602d4cddf2373e5fb4",
+  "source_observer": "4efce2c0fc86f513b1b5175426b7848fa1f63ad3",
+  "raw_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control",
+  "first_launch_error_preserved": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/observer-launch-attempt1.json",
+  "figures_visually_inspected": [
+    "fidelity-and-generation.png",
+    "training-and-paired-sampling.png"
+  ],
+  "native_reference_commit": "ae560b9",
+  "artifacts": {
+    "rk4-results/summary.json": "3cbcf1e66d111ae52db88e18b9570da9042809b36f5371a156d0138e5f677cb4",
+    "rk4-results/training-terminal.json": "af2ab0fc5cd83a2bb6cfcd7eaf95b291a48aa041efef206299ae59bdce5d2575",
+    "rk4-results/observer-readiness.json": "735bbb04b0739a3761dab4938830d5aaac6d3d391ec9c64da3f70c8d9230f2fc",
+    "rk4-results/table.md": "99a687a8a3cc38fc8e8142f176ece3e7e9662034aab82d30f6a35584844e489e",
+    "rk4-results/figure-catalog.md": "6913d2ba4ceb8d9c28e88b20a16414ddde72a0e19a3cc5d3b814fe62149b1b61",
+    "rk4-results/analysis-report.md": "db5ae77ebe1e41d32962593b316171696facc8408194533e133b213b410deba7",
+    "rk4-results/stats-appendix.md": "c0f46b27e43132494afacd5beb38cbee86546fb0045c021684b6800c97aa7e73",
+    "rk4-results/statistics-verification.json": "4efb80b6ed8d9a32c388fba590c243df60e3a6121ff02c3729668a734b490884",
+    "rk4-results/metrics-verification.json": "855f2cda68795a10a981182430e94354fe10dfd8ced3a766bad6d35afd90f2aa",
+    "rk4-results/observer-terminal.json": "4962951a0713d87e1d6e7e85c0aeec2b9d5999c99e2d27c6f3a81e891d41fe85",
+    "rk4-results/figures/training-and-paired-sampling.pdf": "acc573ad42f47130287e9a7417f4c680c6c5f3c84d930098e494df5554bc024e",
+    "rk4-results/figures/training-and-paired-sampling.png": "cffd3ee5b97e9069b1667e0cd69639e2627c0acf10893507a259e1a9d38d5beb",
+    "rk4-results/figures/fidelity-and-generation.png": "2fa347d83e86084192ab51eb5900248f027403dd532981fcd546b797cabb5026",
+    "rk4-results/figures/fidelity-and-generation.pdf": "303e8b6fb15b02e8b3f52cd513d9b0e671e77e5e047717dcaef6b0a5283cd88a"
+  },
+  "new_python_sources": {
+    "studies/muon_pd_20261102/coefficient_20261116/verify_rk4_analysis.py": "da8aae3a27f076089a4ea5920e62678c47458dadfb4f6f5c473815812407f7f9",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_evaluate.py": "b1db3a064e26228b18b2c7f5345e902ef752883ec6a022e57d077eb76f8cc68d",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_fidelity_check.py": "6ba0bc5972f209d7be1ed788f9202b90fd14f3aded26f38d1c9c56ab900fd19c",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_check.py": "1019c0c6a34e38340bbecb4a551fbe6aebfc6ec5a2ea732f69a24afb8b3eddbc",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_trial.py": "7cd59d78a5b011fe826dd8a5ba911765950c6494535311c47efaa5ff7a5eb967",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_step.py": "3a59a95a3f7b46e50781cb682738c75684f8bbca51cebb8f09481b69ddda1a15",
+    "studies/muon_pd_20261102/coefficient_20261116/verify_rk4_samples.py": "73a66c874a96d11c12edc841b02a52b4e22ae5ef3fdc1f73aae543d7a8c7ab66",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_fidelity.py": "819a78428d29ab3da6218ca838f854cd92a8cc7a410f5025a9fb1b98d7f2a793",
+    "studies/muon_pd_20261102/coefficient_20261116/rk4_cost.py": "c7ad291c8c88623eaa89bfea639b0654f70d3609a185b17896be84dd45b4ef2d",
+    "studies/muon_pd_20261102/coefficient_20261116/verify_rk4_fidelity.py": "3df9f5e26125d87b0c6bd09a87d3077811a254ea5091533f01dfacb57c5c0b9e",
+    "studies/muon_pd_20261102/coefficient_20261116/analyze_rk4.py": "eedefe542f5f95af4c321895b6dd84a16707fa044954e1cde655f51baa202f54"
+  }
+}

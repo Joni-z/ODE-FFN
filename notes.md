@@ -1,43 +1,34 @@
 # Current ODE mechanism evidence
 
-## What changed the research decision
+## Matched solver result
 
-The equal-dimension null rejects special potential-tangential sensitivity:
-63D actual complements explain less output refinement than generic 63D complements
-in all six models. Ring8 potential-normal effects remain distinguishable;
-Product16 does not resolve them. All36frames/64directions/80inputs retained.
+Same f=PISRU(y), parameters, initialized tensors/RNG, data stream and eight
+P applications. Midpoint4 vs classical RK4 two-step, seed 0/20k. Both complete
+training/evaluation pipelines exit 0. Normalized hidden squared error drops by
+45.580x (Ring8) and 22.245x (Product16), all 1,920 points qualified. Confirmation
+pooled SW2 does not improve on either task; both paired adjusted intervals include
+zero. Product16 ordinary SwiGLU remains stronger than both focal ODE models.
+All selection/confirmation banks and raw precision are retained.
 
-The uniform512/1024sampling extension resolves all 12model/grid comparisons
-without deleting the earlier256failures. Directional interventions reproduce
-the refined distribution change, but target SW2 changes are small and mixed.
-This does not supply an architecture advantage or establish direction-only novelty.
+Canonical result: docs/research-assessments/2026-11-16-ode-mechanism/rk4-results/.
+Audit: same parent/rk4-audit.json. Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/.
+Metrics reconstructed independently in NumPy (2.78e-17 max), separate exact
+conditional-bank statistics (2.71e-20 max). Parameters/MACs match; 100-repeat
+same-process forward/backward costs are descriptive. Final Reports1/2 unchanged.
 
-The next mathematical calculation is more informative: for f=PISRU(y), explicit
-midpoint's leading forward modified field is g=-H[f,f]/24-J(Jf)/6. Integrate
-z'=Jz+g along the continuous path to predict endpoint bias z(1)/N²without fitting.
-All2880states pass two-tolerance and independent finite-perturbation gates.
-At actual trained N4, B=1-||actual-predicted||²/||actual||²is.831--.971;
-all 12adjusted total/normal intervals are positive. This is established numerical
-analysis tested on trained features, not a new theorem or generation gain.
+## What the result changes
 
-## Canonical evidence
+The established midpoint modified-equation prediction explains numerical bias,
+but reducing that bias during training does not produce a useful generation
+gain here. Continuous accuracy is not a sufficient architecture rationale.
+The complete-dimension null also rejects a special tangential-output explanation.
+Do not reopen activation search or promote a new image FFN from either result.
 
-Under docs/research-assessments/2026-11-16-ode-mechanism/:
-- hidden-null-results/: complete dimension-matched result and figures.
-- hidden-sampling-extension-results/:12/12qualified fixed first-layer pilot.
-- solver-bias-derivation.md/results/: mathematical prediction and complete evidence.
-- rk4-control-protocol.md/execution.md/bindings.json: next causal training test.
+## Next registered diagnosis
 
-## Next decision
-
-Train only Ring8/Product16 RK4 two-step models using the pinned trainer.
-Compare against midpoint4 at equal8 P applications, same parameters/data/optimizer.
-Do not call a solver swap at frozen weights a training comparison. Reuse
-existing strong ordinary controls and exact source-bound selection/confirmation
-banks. Primary quality and hidden-fidelity hypotheses must be assessed separately.
-RK4improving hidden fidelity without SW2 would reject fidelity as a sufficient
-explanation; quality without fidelity would need another explanation.
-
-Raw evidence: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.
-WarmCPU environment04f11f75unchanged; no package changes or remote GPUs used.
-Native image code,97 protected report files and11 Report2 bindings stay fixed.
+rk4-followup-protocol.md fixes four learned weights, full 4,096 selection-field
+inputs and every hidden solve. Cross solver/weight combinations to test the
+strong diagonal compensation prediction; compute exact complete-field risk
+change 2<e,delta>+||delta||² and its numerical qualification. Distinguish small
+output exposure from learned compensation before another training architecture.
+This follow-up is registered, not yet implemented or observed.

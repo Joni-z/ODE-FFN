@@ -40,24 +40,29 @@ Publish verified code and evidence promptly to GitHub main as Zhizhe Zhang.
    monitor; verify live command identity. Poll same handles, never restart on timeout.
 5. [x] Require actual native exits 0,20k checkpoint, standard final test and
    ADAPTER_COMPLETE. Run both fixed common-bank splits using native evaluator.
-6. [ ] Measure same-input/all-six-layer native-to-continuous error for trained
+6. [x] Measure same-input/all-six-layer native-to-continuous error for trained
    midpoint/RK4, using independent qualified references; compare to sampleSW2.
-7. [ ] Evaluate registered outcomes, ordinary controls and measured cost.
+7. [x] Evaluate registered outcomes, ordinary controls and measured cost.
    No image promotion from hidden accuracy alone. Do not add another activation.
+
+## P0 next action: complete-field exposure and compensation
+
+8. [ ] Implement the registered crossed-weight/solver and exact-risk accounting
+   in rk4-followup-protocol.md. Use all 4,096 fixed field inputs, four retained
+   checkpoints, all six hidden solves and independently qualified references.
+   No new training or response change. Freeze and verify the actual observer
+   before full observations; report every unresolved numerical point.
 
 ## Current state and turn classification
 
-This goal turn is progress: published the matched-solver study, passed fresh
-frozen readiness, and completed both 20k trajectories plus all four common-bank
-evaluations. Supervisor session 40324 and six native commands have actual exit 0.
-Independent metric verification and full trained-fidelity observations remain.
-The observer author check passes four cases/six layers/eight inputs; all references
-qualify and independent reconstruction is below 6.2e-12. Freeze a fresh documented
-observer pass before formal 80-input measurements.145 cards 4-7 remain occupied;
-none used. Mac CPU environment 04f11f75 is unchanged.
-
-Author readiness: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/author-check/PASS.json.
-Historical journals retained under docs/history/2026-11-16-before-rk4-control/.
+This goal turn is progress: completed both matched-solver trainings and fixed
+common-bank evaluations, full 1,920-state fidelity observations, separate numerical
+and metric verification, exact statistics, cost measurement and two inspected
+scientific figures. Better hidden fidelity does not supply better generation.
+The broader ODE-contribution goal remains active: full-field exposure versus
+learned compensation is registered and untested. No study worker is live.
+145 physical4-7 remain occupied and unused;0-3prohibited. Same warm CPU environment,
+no packages or finalized reports changed. Prior full journals remain archived.
 
 ## Retained execution issues
 
@@ -66,3 +71,8 @@ those outputs are retained but not used for readiness. Stable-source v2checks,
 then the separate frozen documented pass, passed before formal observations.
 The full solver-bias native/verifier commands subsequently all exited0.
 No study process is restarted due to a tool observation timeout.
+
+A first observer launch wrapper exited1 before any native dispatch because it
+expected divergences while the fresh receipt uses doc_reality_divergences.
+The failed receipt is retained. Correct key read then dispatched the registered
+commands once; all eight actual observer/verifier exits are0.
