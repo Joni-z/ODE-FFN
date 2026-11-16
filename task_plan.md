@@ -2,10 +2,9 @@
 
 Goal active: obtain a mathematically predicted, falsifiable account of ODE-FFN
 behavior, then decide what architecture merits another image test. Training
-seed0only. Previous goal turn made progress: cached sorting diagnosis published
-at e60d318; complete-model defect observer4a409d9passed fresh execution and
-readiness/resource evidence is public at7f3a5f0. This turn checks CUDAportability
-and throughput without learned observations.
+seed0only. Previous goal turn made progress: full target transport/independent
+audits/six figures and rare-tail findings published atc86640b, plus validated
+CUDAobserver throughput. All former owners are terminal.
 
 ## Completed evidence
 
@@ -19,6 +18,17 @@ and throughput without learned observations.
 - Parameter-free hidden bias prediction and midpoint/RK4local defect algebra
   verified. Literature audit distinguishes established solver bias from the
   unresolved quantitative target-effect account. See notes.md for evidence.
+
+## Current P0: execute the prebound rare-source probe
+
+- [x] Implement the unchanged-native-sampler probe on8cases/24fixed roles,
+  deduplicating source identities and retaining every epsilon/resolution.
+- [x] Validate non-dyadic Heun/JVPwith an independent time-varying affine
+  recurrence; test the hard ProductRK4confirmation replay without changing gates.
+- [ ] Publish/freeze, obtain fresh exact documented execution, then launch the
+  monitored four-worker CPUcohort and independent saved-array verification.
+- [ ] Analyze small-epsilon convergence and resolution dependence, preserve
+  failures and decide the next analytic hidden-defect experiment.
 
 ## P0: finish the existing target-transport cohort
 
