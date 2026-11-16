@@ -1,0 +1,127 @@
+{
+  "export_actual_terminal_exit": 0,
+  "replay_actual_terminal_exit": 0,
+  "numpy_actual_terminal_exit": 0,
+  "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+  "complete": {
+    "passed": true,
+    "witness": true,
+    "rows": 2,
+    "physical_gpu": null,
+    "gpu_uuid": null,
+    "device": "cpu",
+    "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+    "source_sha256": "644da8f6236805e795efd49db2e6554a68cad8515f4e3ca932c1a5a17992da54",
+    "parameters_buffers_rng_unchanged": true,
+    "seconds": 12.665821709204465
+  },
+  "independent": {
+    "passed": true,
+    "witness": true,
+    "cases": 2,
+    "rows": 2,
+    "independently_reconstructed_metrics": 36,
+    "max_metric_error": 5.551115123125783e-17,
+    "original128endpoint_and_metric_replays": 4,
+    "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+    "complete_sha256": "9ec948a798203428935c3073aa4b5877bc4f7d9902931e71522744cd48e1ebb2",
+    "rows_sha256": "2262410110f406d2e724ff2ed564e6be7a3860ecacafd632d28b3197184a5df3",
+    "source_sha256": "638acb7d2dce5b79f4c4a776e65985e3944edabb8c88eac8db0265e5dfc876d3"
+  },
+  "replay_rows": [
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "steps": 128,
+      "points_per_bank": 64,
+      "native": {
+        "pooled_sw2": 0.17074472328834825,
+        "bank_sw2": [
+          0.36464839647838904,
+          0.44808330956844317,
+          0.4874177608986257,
+          0.42284580635096175,
+          0.37834284427776094,
+          0.36392921505949694,
+          0.3972954488751191,
+          0.37975042286150024
+        ]
+      },
+      "crossed": {
+        "pooled_sw2": 0.16774899124740922,
+        "bank_sw2": [
+          0.36427312102437176,
+          0.4489559984314505,
+          0.4862644082746738,
+          0.4196378818186643,
+          0.3758226630211919,
+          0.3619811753721924,
+          0.3999780718404723,
+          0.3794632147424969
+        ]
+      },
+      "file": "product_rk4_trained-selection-heun128.npz",
+      "sha256": "94ba56b575adaaf641a1cc54df44094b4ac8a9fe854ee87911b115b7005dbcd6",
+      "seconds": 6.210389249958098,
+      "replay": {
+        "native": {
+          "qualified": true,
+          "max_component_error": 0.0,
+          "max_metric_error": 0.0
+        },
+        "crossed": {
+          "qualified": true,
+          "max_component_error": 0.0,
+          "max_metric_error": 0.0
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "steps": 128,
+      "points_per_bank": 64,
+      "native": {
+        "pooled_sw2": 0.18352030191566288,
+        "bank_sw2": [
+          0.45246055790797923,
+          0.44321648271952613,
+          0.4051913789611785,
+          0.4007128585756914,
+          0.41497268806807647,
+          0.43852261286923366,
+          0.4551385851211809,
+          0.4322166242255021
+        ]
+      },
+      "crossed": {
+        "pooled_sw2": 0.18437617961754463,
+        "bank_sw2": [
+          0.4612486305219836,
+          0.4433911175727424,
+          0.40589282947687116,
+          0.39886412056165693,
+          0.4135858587723548,
+          0.43698805187525364,
+          0.4555163259689546,
+          0.4376790242965012
+        ]
+      },
+      "file": "product_rk4_trained-confirmation-heun128.npz",
+      "sha256": "a5957dda1fc72f1048c651ef4478257745c85d9768a0bd4c4f23fe8de6e2564f",
+      "seconds": 6.347352457698435,
+      "replay": {
+        "native": {
+          "qualified": true,
+          "max_component_error": 0.0,
+          "max_metric_error": 0.0
+        },
+        "crossed": {
+          "qualified": true,
+          "max_component_error": 0.0,
+          "max_metric_error": 0.0
+        }
+      }
+    }
+  ]
+}

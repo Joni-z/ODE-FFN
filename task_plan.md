@@ -33,10 +33,10 @@ CUDAobserver throughput. All former owners are terminal.
   selected extreme sensitivities depend strongly on the outer time mesh.
 - [x] Publish the complete two-figure rare-source analysis and source/protection
   audit. Retain the128-conditioned source-selection limitation.
-- [ ] Register a full-bank native/crossed comparison at Heun127/129/512/2048,
+- [x] Register a full-bank native/crossed comparison at Heun127/129/512/2048,
   with128cached as anchor; same four weights/two splits/eight4096banks.
-- [ ] Export actual FP32-restored parameters AND all runtime buffers to FP64;
-  validate full-bank CPU/CUDA128replay before observing new resolutions.
+- [x] Export actual FP32-restored parameters AND all runtime buffers to FP64;
+  CPUhard-case prefix replay exact. Full-bank CUDA128remains a formal gate.
 - [ ] Run the documented fresh witness, then monitored evaluations on idle
   physical145GPUs4-7; independently reconstruct all metrics and paired effects.
 - [ ] Decide whether the ProductRK4->midpoint generation benefit survives
