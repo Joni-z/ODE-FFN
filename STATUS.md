@@ -35,9 +35,12 @@ its native Heun computation and the sorted-projection target metric, then test
 whether the ODE-derived hidden bias predicts the observed sampling effect.
 This avoids treating source-paired endpoint error or field MSE as distribution
 quality. The derivation and calibration/confirmation sequence are registered;
-its implementation now passes deterministic controls and all eight author
-checkpoint/split witnesses. Fresh banks are bound before outcomes. Full transport
-evaluation has not run; a fresh documented execution pass is next.
+its implementation passes deterministic controls and all eight checkpoint/split
+witnesses, including a fresh documented execution at a6f4d42. Fresh evaluation
+banks are bound before outcomes. Full transport is now running on four Mac CPU
+workers: queue98117, native98125-98128, original tool session15465. No result is
+claimed from the64-source witnesses. All four frozen cases, both splits, eight
+4096-source banks and four fixed interpolation strengths remain in the queue.
 [Mathematical plan](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md).
 [Registered numerical protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-protocol.md).
 
@@ -50,8 +53,12 @@ samples without resampling. A fresh full-cache pass and 16 children exit 0;
 independent metric error 5.55e-17 and independent statistics error 2.17e-19.
 [Repair record](docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-verification-repair.md).
 
-All study workers are terminal. Four one-thread Mac CPU workers were used;
-145 physical 4-7 were occupied and unused, 0-3 prohibited. No packages changed.
+Earlier field/crossed-sampling workers are terminal. Target-transport workers
+are live and near100% of one CPU core each; stages and actual child exits are
+recorded by the queue.145 physical4-7 were freshly checked: each uses about14GB,
+so none is used;0-3 are prohibited. No packages changed.
 Reports1/2 and their 97 protected files/11 bindings, plus five native image source
 files, remain unchanged. CelebA128 at 160 epochs stays native 24.304/K1 27.789/K8
-28.083 FID50k. Raw current study: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/.
+28.083 FID50k. Current raw study:
+/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/.
+Completed field/crossed results remain under coefficient-20261116/rk4-control/.

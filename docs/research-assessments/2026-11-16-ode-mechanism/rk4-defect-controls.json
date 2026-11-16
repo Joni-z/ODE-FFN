@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "seed": 0,
+  "linear_rk4_error": 1.6263032587282567e-19,
+  "midpoint_formula_error": 1.734723475976807e-18,
+  "explicit_formula_errors": {
+    "midpoint": 1.734723475976807e-18,
+    "rk4": 2.913793338554793e-19
+  },
+  "scalar": {
+    "passed": true,
+    "decimal_precision": 80,
+    "rows": [
+      {
+        "method": "midpoint",
+        "step": 0.1,
+        "actual_scaled_defect": 0.0008634464573100394,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.04393530130929968
+      },
+      {
+        "method": "rk4",
+        "step": 0.1,
+        "actual_scaled_defect": 1.2503275358160896e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.03544463858239154
+      },
+      {
+        "method": "midpoint",
+        "step": 0.05,
+        "actual_scaled_defect": 0.0008451830814062005,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.021854276289524684
+      },
+      {
+        "method": "rk4",
+        "step": 0.05,
+        "actual_scaled_defect": 1.228866230316049e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.01767170062778471
+      },
+      {
+        "method": "midpoint",
+        "step": 0.025,
+        "actual_scaled_defect": 0.000836121387318271,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.010898388674296907
+      },
+      {
+        "method": "rk4",
+        "step": 0.025,
+        "actual_scaled_defect": 1.2181807759655236e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.008822662194949671
+      },
+      {
+        "method": "midpoint",
+        "step": 0.0125,
+        "actual_scaled_defect": 0.0008316083334024997,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.005441957346680581
+      },
+      {
+        "method": "rk4",
+        "step": 0.0125,
+        "actual_scaled_defect": 1.212849912734406e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.0044079679699888874
+      },
+      {
+        "method": "midpoint",
+        "step": 0.00625,
+        "actual_scaled_defect": 0.0008293562906975836,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.0027191632929042596
+      },
+      {
+        "method": "rk4",
+        "step": 0.00625,
+        "actual_scaled_defect": 1.2101875169889307e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.0022031349790577505
+      },
+      {
+        "method": "midpoint",
+        "step": 0.003125,
+        "actual_scaled_defect": 0.0008282313948504383,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.0013591270391339334
+      },
+      {
+        "method": "rk4",
+        "step": 0.003125,
+        "actual_scaled_defect": 1.20885708677609e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.001101354212472641
+      },
+      {
+        "method": "midpoint",
+        "step": 0.0015625,
+        "actual_scaled_defect": 0.0008276692288550465,
+        "predicted": 0.0008271072510213115,
+        "relative_error": 0.0006794497727363787
+      },
+      {
+        "method": "rk4",
+        "step": 0.0015625,
+        "actual_scaled_defect": 1.2081920646684351e-05,
+        "predicted": 1.2075271716389303e-05,
+        "relative_error": 0.0005506236589296636
+      }
+    ]
+  },
+  "learned_checkpoints_used": 0,
+  "source_sha256": {
+    "studies/muon_pd_20261102/target_transport_20261117/rk4_defect.py": "a584feac4d501e879aaab39b3daec6d0248ad69405f166582125dca3b07ff17f",
+    "studies/muon_pd_20261102/target_transport_20261117/check_rk4_defect.py": "ac08fb7acf02299c2f0b35284deaf0a0cef0dc37bce6a2f54dc95c6d8308b84f"
+  },
+  "actual_terminal_exit": 0
+}

@@ -1,0 +1,566 @@
+{
+  "kind": "fresh-agent-follows-doc",
+  "recorded_utc": "2026-11-16T18:40:17.028958+00:00",
+  "source_commit": "a6f4d422f2b51ebdbf8fd747000470f2b86d6714",
+  "source_freeze": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/source-freeze.json",
+  "source_preflight": {
+    "manifest_file_count": 5011,
+    "regular_files_matched": 5011,
+    "missing": [],
+    "nonregular": [],
+    "mismatches": [],
+    "readiness_absent_before_first_command": true
+  },
+  "source_postflight": {
+    "regular_files_matched": 5011,
+    "mismatches": []
+  },
+  "invocation_document": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/docs/research-assessments/2026-11-16-ode-mechanism/target-transport-execution.md",
+  "working_directory": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo",
+  "provider_environment": "response-screen-cpu@04f11f75",
+  "commands": [
+    {
+      "exact_command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/check_math.py --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/math.json",
+      "original_tool_session": 92428,
+      "actual_terminal_exit": 0,
+      "terminal_stdout": "TARGET_TRANSPORT_MATH_PASS\n",
+      "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/math.json"
+    },
+    {
+      "exact_command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/run_study.py --cases docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --assets /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual --workers 4 --witness",
+      "original_tool_session": 20621,
+      "supervisor_pid": 98031,
+      "actual_terminal_exit": 0,
+      "terminal_stdout": "{\"passed\": true, \"all_numerically_qualified\": true, \"output\": \"/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual\"}\n",
+      "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/TERMINAL.json"
+    }
+  ],
+  "verbatim_documented_commands_match": true,
+  "math_passed": true,
+  "math_independent_heun_max_error": 2.220446049250313e-16,
+  "math_metric_autograd_error": 3.469446951953614e-18,
+  "terminal_passed": true,
+  "all_numerically_qualified": true,
+  "native_actual_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "independent_actual_exits": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "study_seconds": 40.076269041746855,
+  "cases": [
+    {
+      "id": "ring_midpoint_trained",
+      "split": "selection",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "ring_midpoint_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "selection",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_midpoint_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_midpoint_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_midpoint_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "ring_midpoint_trained",
+        "split": "selection",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "80e80fe201582167f8beddfe65a34297e9da2d209252a17b1a46263c2032c210",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 5.9358218340577196e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 2.169857436090661e-11,
+      "target_functional_fd_max_error": 2.497106688092998e-12,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "ring_midpoint_trained",
+      "split": "confirmation",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "ring_midpoint_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "confirmation",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_midpoint_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_midpoint_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_midpoint_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "ring_midpoint_trained",
+        "split": "confirmation",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "9066b9a8ec0ae0b4938f9a9062ae91d6177182c4633b7674b4cb00f180886aa0",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 8.044318100530745e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 1.1588593366168576e-11,
+      "target_functional_fd_max_error": 5.166281248289439e-12,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "ring_rk4_trained",
+      "split": "selection",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "ring_rk4_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "selection",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_rk4_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_rk4_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/ring_rk4_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "ring_rk4_trained",
+        "split": "selection",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "4526a41e8d35d501980b550893865c571ccd577e9ba013c2f29d70f5ac979562",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 5.393061108804886e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 1.0197541162187962e-11,
+      "target_functional_fd_max_error": 4.557824603845795e-12,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "ring_rk4_trained",
+      "split": "confirmation",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "ring_rk4_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "confirmation",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_rk4_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_rk4_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/ring_rk4_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "ring_rk4_trained",
+        "split": "confirmation",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "acb03ef3bc8da8097ef6aa2631e1b4323b679c6a96ec05dae2df998c76402af3",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 7.042236127574597e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 1.2917881174467905e-11,
+      "target_functional_fd_max_error": 2.905284953585996e-12,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "product_midpoint_trained",
+      "split": "selection",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "product_midpoint_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "selection",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_midpoint_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_midpoint_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_midpoint_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "product_midpoint_trained",
+        "split": "selection",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "4d9a3bf343a9e556ac7bac8e8204cf52cdbc7c682bb173f2944b3623cbb31e6b",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 6.899147031447228e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 2.897309570037976e-08,
+      "target_functional_fd_max_error": 5.58181430763971e-12,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "product_midpoint_trained",
+      "split": "confirmation",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "product_midpoint_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "confirmation",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_midpoint_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_midpoint_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_midpoint_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "product_midpoint_trained",
+        "split": "confirmation",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "f7f7c72e527e5b72d47bf4e9e23e7c5dadcf8ba1dbb56b2447502db95534ac92",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 7.77483410985269e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 1.1680923326373716e-05,
+      "target_functional_fd_max_error": 1.526642592550309e-08,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "product_rk4_trained",
+      "split": "selection",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "product_rk4_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "selection",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_rk4_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_rk4_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/selection/product_rk4_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "product_rk4_trained",
+        "split": "selection",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "442bafa7e91eb70a3f5e7473e1e96842c3149f196ada459cd2abec401f6edb23",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 6.9844523498119315e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 2.5819923865633143e-08,
+      "target_functional_fd_max_error": 3.6172188291536123e-13,
+      "all_four_lambdas_retained": true
+    },
+    {
+      "id": "product_rk4_trained",
+      "split": "confirmation",
+      "passed": true,
+      "numerically_qualified": true,
+      "commands": [
+        {
+          "kind": "native",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+            "--cases",
+            "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+            "--case",
+            "product_rk4_trained",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+            "--split",
+            "confirmation",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_rk4_trained",
+            "--witness"
+          ],
+          "actual_terminal_exit": 0
+        },
+        {
+          "kind": "verifier",
+          "command": [
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+            "--input",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_rk4_trained",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/readiness/actual/confirmation/product_rk4_trained/independent.json"
+          ],
+          "actual_terminal_exit": 0
+        }
+      ],
+      "independent": {
+        "passed": true,
+        "case": "product_rk4_trained",
+        "split": "confirmation",
+        "witness": true,
+        "banks": 1,
+        "samples_per_bank": 64,
+        "independent_max_error": 0.0,
+        "every_augmented_primal_exact": true,
+        "every_endpoint_fd_qualified": true,
+        "numerically_qualified": true,
+        "summary_sha256": "82bdb50051652912f6c98278e5e425d78e7215b9ccfeb32568f87d29618b3db4",
+        "source_sha256": "27603445e88199b72bc10c4618c3bb29c65d476c349207188b737b1aa050ad1c"
+      },
+      "field_jvp_qualified": true,
+      "field_jvp_max_error": 4.274617992905405e-09,
+      "all_primal_exact": true,
+      "all_path_exact": true,
+      "endpoint_fd_max_error": 1.0746531164951278e-09,
+      "target_functional_fd_max_error": 6.632040821946423e-07,
+      "all_four_lambdas_retained": true
+    }
+  ],
+  "divergences": [],
+  "full_study_started": false,
+  "scope_limit": "Execution and numerical readiness only; each witness retains one bank of 64 sources. No full-quality conclusion."
+}

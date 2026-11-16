@@ -36,3 +36,19 @@ ODE defect prediction. No response/architecture/training change yet.
 Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/.
 Warm CPU environment 04f11f75 unchanged. Mac used four one-thread workers;145 GPUs
 4-7 occupied and unused, 0-3 prohibited. Final Reports1/2 and image source unchanged.
+
+Target-transport sourcea6f4d42: fresh documented CPUreadiness passes both exact
+commands and all16children; no divergence. Independent witness reconstruction
+error0, JVP8.04e-9, endpoint tangent FD1.17e-5 and target FD6.63e-7 satisfy fixed
+component gates. Full queue98117/session15465 runs all8cases with4workers;
+native98125-98128 verified live near100%CPU. No full target-transport outcome yet.
+Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/.
+
+RK4 deterministic preparation: rk4-defect-derivation.md gives both recursive
+Taylor jets and the explicit nine-tree fifth-degree local defect. Linear
+-A^5y/120error1.63e-19; midpoint identity1.73e-18; explicit RK4vsjet2.91e-19.
+Independent80-digit scalar implicit endpoints verify all seven fixed steps;
+final relative errors6.79e-4midpoint and5.51e-4RK4. No learned checkpoint used.
+This is preparation for the conditional mechanism link, not a new quality result.
+The full-cohort analysis entry also rejects witness-only input before writing
+an output. Its scientific analysis still awaits the complete formal cohort.

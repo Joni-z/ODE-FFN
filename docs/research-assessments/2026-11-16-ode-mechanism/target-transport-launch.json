@@ -1,0 +1,35 @@
+{
+  "source": "a6f4d422f2b51ebdbf8fd747000470f2b86d6714",
+  "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/repo",
+  "command": [
+    "env",
+    "OMP_NUM_THREADS=1",
+    "OPENBLAS_NUM_THREADS=1",
+    "MKL_NUM_THREADS=1",
+    "CUDA_VISIBLE_DEVICES=-1",
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "studies/muon_pd_20261102/target_transport_20261117/run_study.py",
+    "--cases",
+    "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+    "--data-root",
+    "/Users/mr.z/ode-workspace-prep/data/synthetic",
+    "--assets",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/formal",
+    "--workers",
+    "4"
+  ],
+  "readiness_sha256": "e97ea7dae198d0bdd1b284d9ffb8e24cb1d69e0a2d495a88ec8c35f7b2388c0f",
+  "training_runs": 0,
+  "queue_pid": 98117,
+  "initial_native_pids": [
+    98125,
+    98126,
+    98127,
+    98128
+  ],
+  "original_tool_session": 15465,
+  "state": "running",
+  "completion_proven": false
+}
