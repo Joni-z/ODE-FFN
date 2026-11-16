@@ -1,0 +1,147 @@
+{
+  "readiness": {
+    "witness": "fresh agent follows frozen documentation",
+    "recorded_utc": "2026-11-16T20:20:11.473899+00:00",
+    "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport",
+    "document": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/metric-rank-diagnosis/source/target-derivative-diagnosis.md",
+    "command_count": 3,
+    "sequential": true,
+    "executed_each_once": true,
+    "actual_terminal_exits": [
+      0,
+      0,
+      0
+    ],
+    "documented_vs_actual_divergences": [],
+    "freeze_expected": {
+      "diagnose_metric_rank.py": "ad3bbc9afb9c6073276060caa0f924250ac535c1b9be9f020df03385ac691b78",
+      "target-derivative-diagnosis.md": "e9388c46df626b77246a9398e46d01799c4775c1491426f627c1756b23b831ad",
+      "environment.json": "edb2dc1d29a647592cf91db06cde59edc48be0b901a9f8be6cd8700df3d558e5"
+    },
+    "source_hashes_before": {
+      "diagnose_metric_rank.py": "ad3bbc9afb9c6073276060caa0f924250ac535c1b9be9f020df03385ac691b78",
+      "target-derivative-diagnosis.md": "e9388c46df626b77246a9398e46d01799c4775c1491426f627c1756b23b831ad",
+      "environment.json": "edb2dc1d29a647592cf91db06cde59edc48be0b901a9f8be6cd8700df3d558e5"
+    },
+    "source_hashes_after": {
+      "diagnose_metric_rank.py": "ad3bbc9afb9c6073276060caa0f924250ac535c1b9be9f020df03385ac691b78",
+      "target-derivative-diagnosis.md": "e9388c46df626b77246a9398e46d01799c4775c1491426f627c1756b23b831ad",
+      "environment.json": "edb2dc1d29a647592cf91db06cde59edc48be0b901a9f8be6cd8700df3d558e5"
+    },
+    "all_three_hashes_match_before": true,
+    "all_three_hashes_match_after": true,
+    "source_hashes_unchanged": true,
+    "original_banks": [
+      {
+        "path": "formal/confirmation/product_rk4_trained",
+        "bank": 0,
+        "sha256_before": "ba05ffe005e9e6207df3601a9b5b529e61f6a806350b77b9fa81ee5e652fc64f",
+        "sha256_after": "ba05ffe005e9e6207df3601a9b5b529e61f6a806350b77b9fa81ee5e652fc64f",
+        "hash_unchanged": true,
+        "original_record_unchanged": true,
+        "original_numerically_qualified_before": false,
+        "original_numerically_qualified_after": false,
+        "original_target_qualified_before": false,
+        "original_target_qualified_after": false,
+        "original_target_checks_before": [
+          {
+            "epsilon": 0.0001,
+            "finite_difference": -0.0008294183907915642,
+            "absolute_error": 2.672388552361839e-06,
+            "qualified": false
+          },
+          {
+            "epsilon": 1e-05,
+            "finite_difference": -0.0008256412407925405,
+            "absolute_error": 1.1047614466618352e-06,
+            "qualified": true
+          }
+        ],
+        "original_target_checks_after": [
+          {
+            "epsilon": 0.0001,
+            "finite_difference": -0.0008294183907915642,
+            "absolute_error": 2.672388552361839e-06,
+            "qualified": false
+          },
+          {
+            "epsilon": 1e-05,
+            "finite_difference": -0.0008256412407925405,
+            "absolute_error": 1.1047614466618352e-06,
+            "qualified": true
+          }
+        ]
+      },
+      {
+        "path": "formal/selection/product_midpoint_trained",
+        "bank": 1,
+        "sha256_before": "41fa6d18eb57bfa81508ad28fd6348ba68f1a32469fb733071310932de9caa7c",
+        "sha256_after": "41fa6d18eb57bfa81508ad28fd6348ba68f1a32469fb733071310932de9caa7c",
+        "hash_unchanged": true,
+        "original_record_unchanged": true,
+        "original_numerically_qualified_before": false,
+        "original_numerically_qualified_after": false,
+        "original_target_qualified_before": false,
+        "original_target_qualified_after": false,
+        "original_target_checks_before": [
+          {
+            "epsilon": 0.0001,
+            "finite_difference": 0.0009224038852867489,
+            "absolute_error": 1.957347163087037e-06,
+            "qualified": false
+          },
+          {
+            "epsilon": 1e-05,
+            "finite_difference": 0.0009239798975414769,
+            "absolute_error": 3.8133490835900227e-07,
+            "qualified": true
+          }
+        ],
+        "original_target_checks_after": [
+          {
+            "epsilon": 0.0001,
+            "finite_difference": 0.0009224038852867489,
+            "absolute_error": 1.957347163087037e-06,
+            "qualified": false
+          },
+          {
+            "epsilon": 1e-05,
+            "finite_difference": 0.0009239798975414769,
+            "absolute_error": 3.8133490835900227e-07,
+            "qualified": true
+          }
+        ]
+      }
+    ],
+    "original_qualification_preserved": true,
+    "all_outputs_passed": true,
+    "new_model_calls": 0,
+    "max_debugging_subset_autograd_error": 2.168404344971009e-19,
+    "max_debugging_subset_correction_identity_error": 5.293955920339377e-23,
+    "max_debugging_subset_unadjusted_correction_identity_error": 1.362483873553616e-10,
+    "max_debugging_subset_fixed_quadratic_error": 4.336808689942018e-18,
+    "max_controls_correction_identity_error": 1.1102230246251565e-16,
+    "scope": "Two completed failed banks are debugging-subset evidence only; no full-cohort diagnosis or changed original qualification.",
+    "full_cohort_command_executed": false,
+    "packages_installed": false,
+    "sampling_or_training_started": false,
+    "supervisor_or_collectors_signaled": false,
+    "original_supervisor_and_collectors": "No commands, signals, writes, or other changes directed at supervisor98117 or either collector.",
+    "outputs": {
+      "controls.json": "ca35166dd49042a263603a3268638c2e14ec845b386e5bec3961ab9ca8e82c04",
+      "confirmation-product-rk4-bank0.json": "7970908062e283c8fe0ee78f5eba96c633cd20b3aa94832ab5a8c439405aa3bf",
+      "selection-product-midpoint-bank1.json": "a56f1da749ac3954079dde1042b84b57da7b43feb725c58e2e35a26ce0b0b7f1"
+    }
+  },
+  "full_cached_actor": {
+    "pid": 3315,
+    "original_tool_session": 10554,
+    "identity": "501 Tue Nov 17 04:21:29 2026     /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/metric-rank-diagnosis/finish_full.py",
+    "observed_original_postprocessor": 332,
+    "stage": "waiting-for-original-postprocessor",
+    "owned_output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/metric-rank-diagnosis/full.json",
+    "registration_sha256": "8eff7c4d158d7d24b3b3c2d38238c721bb82f6eec9c38afe3db8fb6997fbf4d0",
+    "source_sha256": "073bee04d864330d61c27f6c3895dddd95de37e8f87a9b3391c5cb1594ff3530"
+  },
+  "full_result_complete": false
+}

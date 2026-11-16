@@ -191,3 +191,38 @@ continues under the same queue98117/session15465 with actual native
 1713/1715/1737/1741verified live near100%CPU. Original Ring workers finished as
 expected; their missing PIDs are not a stopped queue. Do not restart any case.
 Collector98379/82357and postprocessor332/64468remain waiting for the full cohort.
+
+## Current continuation: diagnose the target-derivative gate
+
+The previous user-facing turn was a verified wait: original supervisor98117,
+its four Product16 workers, collector98379 and postprocessor332 were live.
+No model was restarted. At40/64model-bank evaluations,38qualify; two Product16
+banks fail the original empirical-target finite-difference gate. Their primal
+replay and whole-sampler tangent checks pass. Do not infer a sorting cause
+before inspecting the cached arrays.
+
+- [x] Bind the two failed cached banks and reproduce each original derivative
+  residual; distinguish field/JVP, endpoint and target-functional checks.
+- [x] Independently compare the infinitesimal sorted derivative with Torch
+  autograd and a fixed-order quadratic expansion. Measure changed projection
+  ranks at the ORIGINAL epsilons, then an explicitly secondary resolution scan.
+- [x] Preserve original qualification and all arrays; publish a separate
+  numerical diagnosis without changing the frozen running evaluator or gates.
+- [ ] Re-poll original queue/collectors and continue full-cohort verification.
+
+No learned ODE-defect-to-field application until its stated prerequisite is
+resolved. No new architecture or training. Final Reports1/2 remain protected.
+
+Diagnostic deterministic run84537 exited1 before learned-bank observations:
+the fixed-order fixture exposed central loss-subtraction rounding at epsilon1e-8.
+Account separately for projection, fixed-quadratic reduction and correction-
+subtraction rounding; keep the identity threshold and all original gates fixed.
+
+Fresh standalone diagnostic witness completes exact commands56649/17756/26703
+with actual0/0/0, all3source hashes unchanged and no invocation divergence.
+Both original bank records/hashes/false qualification flags remain unchanged.
+Single actor10554waits for original postprocessor332to exit, then owns full.json
+(all64banks+8pooled cases). Current source/collector/postprocessor owners remain
+unchanged. Do not duplicate that full cached command. Original source5011and
+postprocess source5026hashes, all97protected files/11Report2bindings/five native
+image files pass recheck.

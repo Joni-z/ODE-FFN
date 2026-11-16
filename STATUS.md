@@ -42,12 +42,19 @@ workers: queue98117, original tool session15465. No result is
 claimed from the64-source witnesses. All four frozen cases, both splits, eight
 4096-source banks and four fixed interpolation strengths remain in the queue.
 Ring8 is complete: four full cases, all eight native/independent exits0 and all
-numerical gates pass.32/64model/bank evaluations are complete; the four Product16
-cases now run on native PIDs1713/1715/1737/1741. Initial throughput is about9minutes/bank
-with four concurrent workers, suggesting roughly2-3hours for the complete queue.
+numerical gates pass. Latest recorded progress is44/64model-bank evaluations,
+42qualified. Two Product16 banks fail the original target finite-difference
+check at epsilon1e-4 while primal/endpoint-tangent checks pass. Independent
+Torch autograd agrees with each infinitesimal metric derivative within2.17e-19;
+projection-rank changes explain the finite-difference discrepancies within
+1.93e-14. The original failures remain failures; this debugging subset does not
+qualify the full cohort or full-scale prediction. Product16 continues under
+native PIDs1713/1715/1737/1741, about9minutes/bank with four CPUworkers.
 Collector98379/session82357 watches this specific queue identity and will run
 the source-bound complete-cohort analysis once the queue actually exits.
 [Completed Ring8 execution/verification](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-ring-completion.json).
+[Target-derivative diagnosis and unchanged original gates](docs/research-assessments/2026-11-16-ode-mechanism/target-derivative-diagnosis.md).
+[Fresh diagnostic readiness](docs/research-assessments/2026-11-16-ode-mechanism/metric-rank-readiness.json): exact commands0/0/0, three source hashes unchanged. A single cached-only actor waits for the original postprocessor332, then checks all64banks and8pooled cases; no new model evaluation.
 [Mathematical plan](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md).
 [Registered numerical protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-protocol.md).
 

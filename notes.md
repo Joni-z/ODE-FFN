@@ -104,3 +104,25 @@ reconstruction error0. Product16four-case second wave is live under the same
 supervisor/session, actual PIDs1713/1715/1737/1741near100%CPU.32/64model-bank
 evaluations completed; full target-transport interpretation remains pending.
 Canonical partial execution receipt: target-transport-ring-completion.json.
+
+Target-derivative diagnosis17November: two failed Product16banks have correct
+infinitesimal derivatives (independent Torch ADmax2.17e-19). The original
+epsilon1e-4 crosses3984/4103 and2675/2667 projection-rank slots; the exact
+assignment correction explains FDerrors2.672e-6/1.957e-6 within1.93e-14.
+Nearest symmetric assignment regions end at3.399e-9/2.504e-8. Original numeric
+flags remain false. This is two-bank debugging, not the full cohort or a
+full-scale transport result. Canonical protocol and values: target-derivative-
+diagnosis.md and metric-rank-debugging.json. Source standalone, cached-only;
+control35007and diagnoses43228/87183actual0. Initial control84537actual1 exposed
+finite central-loss subtraction rounding, now explicitly recorded without
+changing thresholds. Fresh documented validation pending. Current44/64banks,
+42originally qualified; supervisor98117, workers1713/1715/1737/1741, collector
+98379and postprocessor332live. No model restarted; original source unchanged.
+
+Fresh rank-diagnostic witness now passes exact commands0/0/0, three source
+hashes unchanged, original two bank records/flags preserved. Independent
+autograd2.17e-19; corrected identity5.29e-23. Diagnostic sourcead3bbc9a is
+frozen separately from the active evaluator. Single finish_full actor10554
+waits for original postprocessor332then owns metric-rank-diagnosis/full.json.
+Its actual PID/identity and receipts are in metric-rank-readiness.json. This
+adds cached audit only; original primary gate, samples and thresholds unchanged.
