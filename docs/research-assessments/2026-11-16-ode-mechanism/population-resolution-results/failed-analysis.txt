@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/analysis-repo/studies/muon_pd_20261102/target_transport_20261117/analyze_population_resolution.py", line 112, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/analysis-repo/studies/muon_pd_20261102/target_transport_20261117/analyze_population_resolution.py", line 46, in main
+    training_seed=0,paired_banks=8,points_per_bank=4096,source_sha256=sha(__file__))
+                                                                      ^^^^^^^^^^^^^
+  File "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/analysis-repo/studies/muon_pd_20261102/target_transport_20261117/analyze_transport.py", line 20, in sha
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+                          ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read_bytes'
