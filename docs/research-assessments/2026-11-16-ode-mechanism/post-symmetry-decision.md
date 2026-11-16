@@ -63,8 +63,10 @@ No image architecture or training is promoted from these measurements.
 ## Derivation package: along-trajectory density ratio
 
 Status: **COHERENT AS STATED**, for the exact continuous flow under the
-assumptions below. The estimator is validated on the registered numerical pilot; larger-bank
-measurement remains pending.
+assumptions below. The estimator is validated on the registered numerical pilot
+and completed all-source population comparison. Product16 rejects the proposed
+sharing density explanation; Ring8 intervals include zero. The derivation
+below is unchanged. [Completed analysis](density-transport/population-analysis.md).
 
 **Target and invariant object.** Follow the log density ratio
 L(t)=log(rho_t(X_t)/p_t(X_t)) on a model trajectory X'=v(X,t). This keeps
@@ -118,4 +120,9 @@ The oracle derivatives, actual native sampler observer and independent full-
 map finite differences pass. All sixteen original/projected numerical cells
 qualify: six at 512steps, ten at 1024. Local source RMSdoes not supply the
 existing across-model sampling ordering. [Measured results and figures](density-transport/analysis-report.md).
-The four-bank population-density comparison is [prepared, not launched](density-formal-next.md).
+The four-bank population-density comparison is [complete](density-transport/population-analysis.md):
+all sixteen original model/field cells qualify independently. The subsequent
+mean-preserving control has completed training and solver evaluation; its
+population-density measurements are running.
+[Current control](coordinate-control/analysis-report.md),
+[observation and routing](coordinate-control/observations/resource-handoff.md).

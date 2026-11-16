@@ -196,3 +196,16 @@ Three edited reader files parse; all96 report files and eleven finalized
 Report2 hash bindings remain unchanged. Root model/trainer/observer and
 running source snapshots are unchanged. The routing record is
 coordinate-control/observations/resource-handoff.md in the mechanism folder.
+
+
+Ring8 initial population observation finished successfully; all16rows
+independently reconstruct within7.99e-15. Original/projected unresolved counts
+33/11 are retained for the registered refinement. CPUadaptive queue48821,
+worker48824, is advancing; no point is removed. Product16 remains on145GPU7.
+Its first eight complete formal rows (all original-field banks/levels) match
+retained CPUrows: relative endpoint<=7.09e-14, logratio/per-dim<=1.31e-12,
+other observer/per-dim<=1.39e-12. This is prefix portability, not population
+qualification; keep CPU43094suspended until the full replacement audit.
+Canonical findings now include the completed coordinate, numerical,
+population-density and stage-composition controls, with obsolete status
+statements removed. Reports1/2 and the native image trainer remain unchanged.

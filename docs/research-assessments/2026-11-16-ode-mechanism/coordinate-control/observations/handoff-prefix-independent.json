@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "prefix_only": true,
+  "compared_complete_rows": 8,
+  "preserved_cpu_rows": 9,
+  "source_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+  "checkpoint_sha256": "fc5e9dcdb5c6c6baaf9e93ae003926e2a3c53b7548e281792cb8a9358c3f7a32",
+  "density_data_sha256": "af2e0bd2ae01c76aef97e8ce5812d8234602f140123d0547575686f194e02577",
+  "cpu_identity_receipt_sha256": "1de1b61bc450567a786aa8bc7676f644616accf32a1f62c8b8b0d79073f58c2d",
+  "max_relative_endpoint_error": 7.083222010377755e-14,
+  "max_logratio_error_per_dim": 1.3036238755148588e-12,
+  "max_other_observer_error_per_dim": 1.3860024239420454e-12,
+  "rows": [
+    {
+      "file": "original-bank0-heun1024.npz",
+      "cpu_sha256": "12410f208aec78134e2d829a361dc029532fccb313feb9728f675450276c7d76",
+      "cuda_sha256": "d54043ed36d8070077e8348da02709d12cbcbec8ed9ea455813802c282fd79e1",
+      "max_relative_endpoint_error": 2.651380041681987e-14,
+      "max_logratio_error_per_dim": 1.6064927166326015e-13,
+      "max_other_observer_error_per_dim": 2.4646951146678475e-13
+    },
+    {
+      "file": "original-bank0-heun2048.npz",
+      "cpu_sha256": "efb1d00b4919ff4e75d07edbeedd6be5a230b54d8aab2917ad1a1b21ac586237",
+      "cuda_sha256": "6913d629df2486e003e3cdfaadb9ef740d60b00cb71a7fe6d9c91c23a1ce3376",
+      "max_relative_endpoint_error": 1.2023546685930159e-14,
+      "max_logratio_error_per_dim": 1.290079154614432e-13,
+      "max_other_observer_error_per_dim": 1.4277468096679513e-13
+    },
+    {
+      "file": "original-bank1-heun1024.npz",
+      "cpu_sha256": "ac321928df8c0889304978f9acd09576a2c97ff02ec3a1e41d583ce509fbed5b",
+      "cuda_sha256": "c22c5882e5a0695d4881ccaf9a26769e92523ba15c582bfa815bd36e7b387491",
+      "max_relative_endpoint_error": 1.542269339504399e-14,
+      "max_logratio_error_per_dim": 1.1646239528317892e-13,
+      "max_other_observer_error_per_dim": 1.5165646516379638e-13
+    },
+    {
+      "file": "original-bank1-heun2048.npz",
+      "cpu_sha256": "2d7011660a59238772aee5b683450b6ec28409758a00f2c651ca16042ce204e5",
+      "cuda_sha256": "d0231819e507f636743d9a5739e19e79c7f269f83142774c159bf592d4e46ba8",
+      "max_relative_endpoint_error": 1.3990797630210232e-14,
+      "max_logratio_error_per_dim": 1.7186252421197423e-13,
+      "max_other_observer_error_per_dim": 5.42343947529389e-13
+    },
+    {
+      "file": "original-bank2-heun1024.npz",
+      "cpu_sha256": "f4e997d1646b3d538aa595add06929ef8bdf831250642fcb1db8c97e4f7aa822",
+      "cuda_sha256": "fb844c07d26ee904f9d45cf1a19244da9b5d5b486c6a682981a2808a27ce37ae",
+      "max_relative_endpoint_error": 1.2071367969327513e-14,
+      "max_logratio_error_per_dim": 1.582067810090848e-13,
+      "max_other_observer_error_per_dim": 1.7763568394002505e-13
+    },
+    {
+      "file": "original-bank2-heun2048.npz",
+      "cpu_sha256": "da4da7eb4c7aa36b0cd9c02706b4660b96b8d9cd6a635eb76ace594a36754b9b",
+      "cuda_sha256": "9b8a4eb153eb5ecee6ad6b483a6af5bde48ccff2f69bbd5f4b98f1b958d606c2",
+      "max_relative_endpoint_error": 1.657371671911459e-14,
+      "max_logratio_error_per_dim": 2.1516122217235534e-13,
+      "max_other_observer_error_per_dim": 2.433608869978343e-13
+    },
+    {
+      "file": "original-bank3-heun1024.npz",
+      "cpu_sha256": "b6871171b1cc9cb32fd34ebe3950543c2e99826f8e54faae2ddf24b8e3bce738",
+      "cuda_sha256": "3365ce4c2ee77b214c8c7876314ed6a114f05f0f7cce2c64e551526da9d7a52b",
+      "max_relative_endpoint_error": 7.083222010377755e-14,
+      "max_logratio_error_per_dim": 1.3036238755148588e-12,
+      "max_other_observer_error_per_dim": 1.3860024239420454e-12
+    },
+    {
+      "file": "original-bank3-heun2048.npz",
+      "cpu_sha256": "a6f2bd445a06a92e2d784a575e1c322e23a006ac76e28b83f9df595059c63454",
+      "cuda_sha256": "dc11408cf791fc8cf58252c98c927eb314cb3f5c207fab24758dc44860da32ef",
+      "max_relative_endpoint_error": 3.149176940621227e-14,
+      "max_logratio_error_per_dim": 2.708944180085382e-13,
+      "max_other_observer_error_per_dim": 3.206324095117452e-13
+    }
+  ],
+  "population_qualified": false,
+  "cpu_fallback_retained": true,
+  "confirmation_time_profiles_exported": false
+}

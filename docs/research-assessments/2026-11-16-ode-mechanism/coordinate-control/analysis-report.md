@@ -101,10 +101,19 @@ preconditioner. The latter requires its actual state.
 - Do not infer: a general advantage over ordinary FFNs. Product16's ordinary
   SwiGLU reference still generates better samples at lower dense work.
 
-The new control's solver sensitivity and joint-density/width measurements
-remain pending. Reuse the already fixed density sources and completed
-reference observations. Until those measurements finish, the original
+The solver sweep is complete. On Ring8, inner4->16 changes anchored/new
+SW2 from 0.111/0.104 to 0.103/0.105, reversing their coarse point ordering;
+shared remains 0.091. Product16 shared/anchored/new change from
+0.064/0.073/0.072 to 0.069/0.082/0.080. Outer refinement leaves the coarse
+ordering. [All independently reconstructed scores](numerical-resolution/analysis.md).
+
+Joint-density and width measurements reuse the fixed sources and sixteen
+completed reference cells. Ring8's sixteen initial rows independently verify;
+33 original-field and 11 projected-field paths require the registered
+refinement. Product16 runs on idle145GPU7 after a measured speedup, retaining
+its suspended CPUfallback. Until these new measurements qualify, the original
 shared-versus-anchored KL result must not be attributed to the new control.
+[Observation routing](observations/resource-handoff.md).
 No image run or finalized report is changed.
 
 ## Verification and artifacts

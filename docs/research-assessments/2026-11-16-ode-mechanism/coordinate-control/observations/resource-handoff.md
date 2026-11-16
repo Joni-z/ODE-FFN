@@ -61,3 +61,10 @@ Physical0-3remain prohibited. No foreign task is stopped or shared.
 [verified replacement process](migration-live.json).
 
 This record establishes a live handoff, not final population qualification.
+
+The first eight complete formal GPUrows now match the corresponding retained
+CPUrows: relative endpoint error7.09e-14, log-ratio error per dimension1.31e-12,
+other observer errors per dimension1.39e-12. This covers all original-field
+banks at1024/2048steps. The ninth retained CPUrow is projected and remains
+to be checked after its GPUcounterpart completes. The CPUfallback is held.
+[Prefix-only cross-host audit](handoff-prefix-independent.json).

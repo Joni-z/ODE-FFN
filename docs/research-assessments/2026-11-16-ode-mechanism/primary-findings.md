@@ -1,9 +1,10 @@
 # What the completed controls establish
 
-**State feedback and sharing a single generator are the positive within-family
-interventions. Prescribing exponential or midpoint coefficients has not improved
-fixed-budget sampling consistently. Fixed midpoint retains its expected numerical
-order. Ordinary controls remain stronger on Product16.**
+**The strongest remaining structural signal is a task-dependent sampling benefit
+from sharing P. It is not a joint-density benefit in the completed comparison.
+Prescribed exponential coefficients show no consistent sampling advantage.
+State feedback helps the within-family Ring8 comparison; ordinary Product16
+controls remain stronger.**
 
 The six new 20k trajectories and all28selection/14confirmation metric rows
 are complete and independently recomputed. Training remains seed0. All18
@@ -113,7 +114,7 @@ is preserved. All seven symmetry cases subsequently completed in float64,
 with independent verification of all25cases and 78 scores. No mixed-precision
 symmetry ranking is reported.
 
-## What is unresolved
+## Single-generator sharing and the optimizer control
 
 The completed sharing control now tests a single P against a larger stage-dependent
 class at equal matrix work and identical initial function. On its separate fresh
@@ -137,6 +138,27 @@ or a coupling of hidden time with physical FM time. The P+Delta parameterization
 changes optimization geometry, and Free ISRU/SwiGLU still beat the ODE family on
 Product16. Their CPU cost is also much lower. No image promotion follows.
 
+The mean-preserving release is now trained and evaluated. It represents the
+same four-stage function class as P+Delta while keeping the mean effective
+matrix equal to P. On the same sharing banks, its pooled SW2 is 0.104 on
+Ring8 and 0.072 on Product16. Shared P has 0.091/0.064. Sharing wins five of
+eight Ring8 banks, with an unresolved interval, and all eight Product16 banks.
+New-versus-anchored point improvements have unresolved intervals on both tasks.
+[Completed coordinate control](coordinate-control/analysis-report.md).
+
+At the identical frozen functions and effective gradients, fresh native AdamW
+probes give mean-update amplification 1.636--1.648 in anchored coordinates
+versus 1.000 in zero-mean coordinates. Thus the original release changed
+optimization as well as stationarity. The probe establishes that effect;
+it does not reconstruct the historical optimizer state or assign a causal
+percentage of the final gap.
+
+The new full-bank numerical sweep also matters: inner4->16 changes Ring8
+anchored/new SW2 from 0.111/0.104 to 0.103/0.105. The small new-versus-anchored
+point improvement therefore reverses. Shared remains 0.091. Product16 shared,
+anchored and new change 0.064/0.073/0.072 to 0.069/0.082/0.080. Outer128->512
+leaves the coarse ordering. [Independent sweep](coordinate-control/numerical-resolution/analysis.md).
+
 The completed Ring8 C8 intervention removes the state-flow lead over ordinary
 controls on its paired stratified bank: state flow0.067->0.023, Free ISRU
 0.088->0.019 and SwiGLU0.094->0.022. This points to symmetry/mode allocation
@@ -155,12 +177,53 @@ across tasks. [New analysis and examples](sharing-symmetry/analysis-report.md).
 [single-generator control](operator-sharing-control.md),
 [mathematical derivation](mathematical-basis.md).
 
-## Density-transport diagnostic is numerically qualified
+## Joint density rejects one proposed explanation
 
 The exact observer preserves native sampling and passes oracle derivatives,
 complete-map determinant checks and all sixteen original/projected pilot cells.
 Six qualify at512steps; ten require1024under unchanged tolerances. On the
 new field banks, instantaneous density-source RMSdoes not reproduce the
 known Product16sampling order. [Measured diagnostics and figures](density-transport/analysis-report.md).
-The next object is signed along-path accumulation on four prebound256-source
-banks at common1024/2048steps. That comparison is [prepared, not launched](density-formal-next.md).
+The full original eight-model population comparison has completed, including
+all-source refinement: all sixteen model/field cells qualify independently.
+After the selected Product16 reflection projection, estimated joint KL is
+0.668 for shared P, 0.464 for anchored stages, 0.289 for Free ISRU and 0.894
+for SwiGLU. The paired anchored-minus-shared difference is -0.204, with
+adjusted interval [-0.320,-0.092]. Ring8's paired intervals include zero.
+
+This rejects lower joint density error as the explanation of the Product16
+sharing SW2 lead. Shared components are broader than anchored ones, with
+projected conditional variance ratios 1.190 versus 1.146 (target 1). Pairwise
+dependence does not separate the models clearly. Width is a measured
+discrepancy, not a complete causal account. The 1,024-source SW2 comparison
+has a substantial finite-sample floor and does not replace the large-bank
+primary score. [Full density analysis and calibration](density-transport/population-analysis.md).
+
+## What stage variation actually computes
+
+Frozen-weight mean collapse and order reversal show that the mean-preserving
+models actively use stage-dependent directions. Collapsing to the mean
+changes selection-field MSE from 0.011 to 0.186 on Ring8, and from 0.020 to
+0.449 on Product16. This is a within-checkpoint computation test, not a
+retrained generation comparison.
+
+At small internal horizon tau, scheduled-minus-mean flow equals tau squared
+times a sum of pairwise Lie brackets, divided by 32, plus a cubic remainder.
+The coefficient, sign and cubic limit independently verify. At trained
+horizon 1, relative approximation errors remain 0.408/0.441; higher orders
+are substantial. Stage ordering is active, while the leading term alone is
+not a sufficient generation explanation.
+[Derivation and native measurements](coordinate-control/schedule-decomposition/analysis-report.md).
+
+## Remaining decision
+
+Finish the two new mean-preserving density/width measurements before selecting
+another structure. Ring8 observation continues on Mac CPU; Product16 is
+rerouted to idle145GPU7 after a measured 7.968x combined speedup. Its suspended
+CPU state is retained until the full GPU result passes independent and
+cross-host audits. [Resource handoff](coordinate-control/observations/resource-handoff.md).
+
+The registered comparison adds the new four qualified cells to the sixteen
+completed reference cells, retaining every source and eight prespecified
+paired contrasts. It can distinguish a density/width effect from a sliced
+distance benefit. It cannot by itself establish an ODE-exclusive advantage.

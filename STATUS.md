@@ -16,7 +16,10 @@ independently reproduce within2.78e-17. New-release Ring8 SW2is0.104at4steps
 and0.105at16; anchored changes0.111->0.103. The coarse point improvement over
 anchored is not invariant to inner refinement. Shared remains lower in the
 pooled score. [Complete numerical table](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/numerical-resolution/analysis.md).
-Ring8 full-density observation continues on Mac CPU. Product16 is deliberately
+Ring8 has completed all sixteen initial density rows on Mac CPU, worker43093
+exit0. Independent reconstruction error is7.99e-15. Original/projected fields
+retain33/11resolution-sensitive paths for registered4096/8192/16384refinement;
+queue48821/worker48824is live on CPU. Product16 is deliberately
 rerouted to idle145physicalGPU7 after the actual256-source benchmark measured
 7.968xcombined speedup (14.431xprojected). Queue641894/worker641939are live
 with advancing integration. CPUworker43094is suspended as an in-memory
@@ -25,7 +28,8 @@ Keep it until the entire replacement passes an independent audit. No foreign
 task is stopped or shared. [Measured routing and receipts](docs/research-assessments/2026-11-16-ode-mechanism/coordinate-control/observations/resource-handoff.md).
 CUDAformal and adaptive native-entry witnesses pass independently, maximum
 adaptive reconstruction error1.25e-13. These bounded witnesses do not qualify
-the full population. No population refinement has started.
+the full population. Ring8 population refinement has started; Product16 waits
+for its successful completed formal parent.
 
 **New-control observations were initially launched on Mac mini.** Both portable
 checkpoints reproduce their complete native field and bank0samples exactly.

@@ -186,3 +186,22 @@ is now terminal, all four tasks exit0; twelve pooled/96bank scores reproduce.
 Densityqueue43084and workers43093/43094remain live. New-model adaptive CPU
 witnesses45112/45157exit0and independent reconstruction passes within1.78e-14.
 The fresh145snapshot finds5-7idle; noGPUallocation or CPUjob restart occurs.
+
+
+Canonical findings are refreshed with the completed mean-coordinate,
+numerical, full-density and stage-composition results. Removed obsolete
+"not launched/not trained" statements from the three current findings
+pages, retaining their original scientific values and historical receipts.
+Reader changes were published at b5adc32. New-model statistics/geometry and
+coordinate plotting still await the qualified full population. Completed
+original eight-model analysis and geometry replay exactly by case identity.
+Some targeted Markdown patches initially missed wrapped text; reread and
+applied only the intended paragraphs. No runtime/source producer changed.
+
+
+Ring8formal worker43093 finished exit0; all16rows independently reconstruct
+within7.99e-15. The original/projected fields retain33/11unresolved paths;
+registered CPUadaptive queue48821/worker48824started at unchanged fd7f09b.
+ActualPID and increasing4096integration steps verified. Curated formal audit
+omits all per-bank time profiles; raw complete diagnostics remain outside Git.
+Product16CUDA641939 continues, with CPU43094held as fallback. No source removed.

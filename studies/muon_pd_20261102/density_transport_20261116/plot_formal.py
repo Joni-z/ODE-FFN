@@ -18,7 +18,10 @@ def main():
     stats = read(a.statistics)
     coordinate = stats.get('coordinate_control', False)
     count, contrasts = (20, 8) if coordinate else (16, 4)
-    assert stats['passed'] and stats['qualified_cells'] == count and stats['qualified_contrasts'] == contrasts
+    assert stats['passed'] and stats['qualified_cells'] == count
+    assert 0 <= stats['qualified_contrasts'] <= contrasts
+    if not coordinate:
+        assert stats['qualified_contrasts'] == contrasts
     assert len(stats['summaries']) == count and len(stats['contrasts']) == contrasts
     if coordinate:
         assert stats['discovery'] is None and not stats['confirmation_time_profiles_exported']
@@ -66,15 +69,17 @@ def main():
             for i, r in enumerate(comparisons):
                 lo, hi = r['bonferroni_eight_contrasts_99_375']
                 assert r['candidate'] == 'contrast_operator_midpoint4'
-                ax.hlines(i, lo, hi, color='#4d9221', lw=2)
-                ax.scatter(r['mean'], i, color='#4d9221', s=36)
+                valid = r['valid_for_density_ranking']
+                color = '#4d9221' if valid else '#888888'
+                ax.hlines(i, lo, hi, color=color, lw=2)
+                ax.scatter(r['mean'], i, color=color, s=36)
                 reference = 'shared' if r['reference'] == 'state_midpoint4' else 'anchored'
-                labels.append('vs '+reference+' / '+r['mode'])
+                labels.append('vs '+reference+' / '+r['mode']+('' if valid else ' *'))
             ax.axvline(0, color='.5', lw=.8)
             ax.set_yticks(range(4), labels)
             ax.set_xlabel('Mean-preserving minus reference (nats)\nPositive favors reference; intervals: 99.375%')
             ax.set_title(title)
-        fig.suptitle('Eight registered paired contrasts at fixed trained weights')
+        fig.suptitle('Eight registered paired contrasts at fixed trained weights\n* Gray: resolution-sensitive contrast, no density ranking')
         save(fig, 'paired-coordinate-density')
     else:
         ax = axes[0]

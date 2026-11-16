@@ -51,6 +51,14 @@ numerical qualification; it is not an exact finite-Heun-map likelihood.
 
 ## Source, inputs and compute
 
+Routing update: the initial CPU launch described below is preserved. After
+fresh CUDA readiness and an actual 7.968x combined speed measurement,
+Product16 moved to physical GPU7 with its exact CPU state suspended as a
+fallback. Ring8 stays on CPU. This is the explicitly recorded exception to
+the initial no-duplication route; the entire GPU case must pass independent
+and matched-row audits before superseding the CPU observation.
+[Measured handoff](observations/resource-handoff.md).
+
 Frozen worktree, created after verified publication:
 `/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo`.
 Inputs: `contrast-observations/input/{sampling-models,density-models}`;

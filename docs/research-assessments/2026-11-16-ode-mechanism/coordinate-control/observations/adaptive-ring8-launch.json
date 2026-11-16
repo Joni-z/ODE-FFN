@@ -1,0 +1,91 @@
+{
+  "queue_start": {
+    "queue_pid": 48821,
+    "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+    "command": [
+      "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+      "-u",
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_dispatch.py",
+      "--root",
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models",
+      "--data",
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data",
+      "--output",
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8",
+      "--runtimes",
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal",
+      "--indices",
+      "0",
+      "--device",
+      "cpu",
+      "--derivative-backend",
+      "coordinate",
+      "--workers",
+      "1",
+      "--readiness",
+      "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-ring8/COMPLETE.json"
+    ],
+    "started": 1794806572.211963,
+    "device": "cpu",
+    "indices": [
+      0
+    ],
+    "adaptive": true
+  },
+  "observed_status": {
+    "queue_pid": 48821,
+    "frozen_commit": "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+    "device": "cpu",
+    "unix_time": 1794806647.4189901,
+    "completed": [],
+    "running": [
+      {
+        "index": 0,
+        "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+        "pid": 48824,
+        "physical_gpu": null,
+        "gpu_uuid": null,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "-u",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/repo/studies/muon_pd_20261102/density_transport_20261116/adaptive_density.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/input/density-models",
+          "--data",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/density-data",
+          "--case-output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/formal/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "--parent-commit",
+          "fd7f09b0064ceab36a13f7757fd2716d002cbba6",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-ring8/cases/gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "--device",
+          "cpu",
+          "--derivative-backend",
+          "coordinate",
+          "--readiness",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/contrast-observations/adaptive-doc-ring8/COMPLETE.json"
+        ],
+        "started": 1794806572.260919,
+        "progress": {
+          "pid": 48824,
+          "id": "gmm_ring8_2d__contrast_operator_midpoint4__adamw_0.0003",
+          "mode": "original",
+          "witness": false,
+          "steps": 8192,
+          "selected_sources": 1,
+          "completed_steps": 1120,
+          "total_steps": 8192,
+          "rows_completed": 1,
+          "seconds": 73.74173216614872
+        }
+      }
+    ],
+    "pending": [],
+    "failed": false,
+    "gpus4to7": [],
+    "inventory_error": null
+  },
+  "full_population_qualified": false
+}
