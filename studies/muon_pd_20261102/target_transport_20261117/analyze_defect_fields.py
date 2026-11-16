@@ -49,6 +49,7 @@ def main():
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
     cases=['ring_midpoint_trained','ring_rk4_trained','product_midpoint_trained','product_rk4_trained']
     names=['Ring8 / midpoint weights','Ring8 / RK4 weights','Product16 / midpoint weights','Product16 / RK4 weights']
     colors=['#0072B2','#D55E00'];splits=['selection','confirmation']
@@ -56,24 +57,31 @@ def main():
     for kind in ('field-change-norms','prediction-by-time'):
         fig,axes=plt.subplots(2,2,figsize=(10,7))
         for axis,case,name in zip(axes.flat,cases,names,strict=True):
-            largest=0.
+            largest=0.;smallest=float('inf');has_zero=False
             for split,color in zip(splits,colors,strict=True):
                 if kind=='field-change-norms':
                     x,y=points[(case,split)];axis.scatter(x,y,color=color,s=4,alpha=.2,label=split,rasterized=True)
                     largest=max(largest,float(x.max()),float(y.max()))
+                    positive=np.concatenate((x[x>0],y[y>0]));smallest=min(smallest,float(positive.min()))
+                    has_zero|=bool(np.any(x==0) or np.any(y==0))
                 else:
                     row=next(r for r in results if (r['case'],r['split'])==(case,split))
-                    axis.plot(np.arange(.1,1,.2),[np.nan if b['score'] is None else b['score'] for b in row['time_bins']],
+                    axis.plot(np.arange(.1,1,.2),[np.nan if b['score'] is None else np.sqrt(1-b['score']) for b in row['time_bins']],
                         '-o',color=color,label=split,markersize=4)
             axis.set_title(name)
             if kind=='field-change-norms':
-                axis.plot([0,largest],[0,largest],'--',color='.4',linewidth=.8)
-                axis.set_xscale('symlog',linthresh=1e-7);axis.set_yscale('symlog',linthresh=1e-7)
+                lower=0 if has_zero else smallest*.8
+                axis.plot([lower,largest],[lower,largest],'--',color='.4',linewidth=.8)
+                if has_zero:
+                    axis.set_xscale('symlog',linthresh=smallest/2);axis.set_yscale('symlog',linthresh=smallest/2)
+                else:axis.set_xscale('log');axis.set_yscale('log')
+                axis.set_xlim(lower,largest*1.2);axis.set_ylim(lower,largest*1.2)
                 axis.set_xlabel('Actual complete-field change norm');axis.set_ylabel('Unfitted analytic prediction norm')
             else:
                 axis.axhline(0,color='.5',linewidth=.8);axis.set_xlabel('Noise-time bin center')
-                axis.set_ylabel('Prediction score vs zero change')
-        fig.legend(*axes.flat[0].get_legend_handles_labels(),loc='lower center',ncol=2,fontsize=8)
+                axis.set_ylabel('Relative RMS prediction error')
+        fig.legend(handles=[Line2D([0],[0],marker='o',color=c,label=s,markersize=4) for s,c in zip(splits,colors,strict=True)],
+            loc='lower center',ncol=2,fontsize=8)
         fig.tight_layout(rect=(0,.06,1,1))
         for ext in ('png','pdf'):fig.savefig(figures/(kind+'.'+ext),dpi=180)
         plt.close(fig)
@@ -83,10 +91,10 @@ def main():
         'The correction is derived from BOTH solvers and passed through all six local flows and the original network, without fitting its amplitude.\n\n'+
         '\n'.join(table)+'\n\n![Complete field change](figures/field-change-norms.png)\n\n'
         'Every input is shown. The diagonal compares vector norms; alignment and relative error in the table assess direction as well. '
-        'Both axes use a symmetric log scale with a1e-7linear region, retaining zero responses. Norm agreement alone is insufficient.\n\n'
+        'Axes use log scales over the observed positive range, with a symmetric-log fallback if a zero occurs. No source is omitted. Norm agreement alone is insufficient.\n\n'
         '![Prediction by time](figures/prediction-by-time.png)\n\n'
         'The five prespecified equal time bins reveal whether aggregate prediction conceals a weak time range. '
-        'Each score compares squared vector prediction error with predicting zero change; it is not fitted explained variance. '
+        'Relative RMS error is zero for a perfect prediction and one for predicting zero change. The table score is one minus its square. '
         'No time bin or source is selected after evaluation.\n\n'
         '## Next causal link\n\nThe earlier full-bank study establishes a same-weight sampling benefit across the prescribed outer meshes. '
         'This field experiment tests its analytic precursor. Next propagate the analytic correction through the actual learned sampler and target functional; '

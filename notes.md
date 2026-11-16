@@ -20,23 +20,28 @@ improve. Adjusted squared-loss intervals[-5.279e-4,-3.162e-4]and
 intervals cross0. Same-weight effect; ordinary architecture ranking requires
 matched fresh banks. Both figures inspected, all original failures preserved.
 
-## Next mathematical prediction
+## Analytic field prediction now complete
 
-learned-defect-field-protocol.md fixes BOTHmodified-field defects and the
-unchanged full-network observer. Compare its unfitted output variation with
-actual crossed-minus-native field output. Primary: positive score versus zero
-on both4096-input ProductRK4streams, with numerical qualification.
+learned-defect-field-results/: four frozen models/two full4,096-input streams.
+BOTH modified-field defects pass through all six local flows and unchanged
+network. No fitted scale or observed field change enters the predictor.
+ProductRK4 scores0.962/0.962,relativeRMS0.196,alignment0.987; all8case scores
+0.957-0.983. All5time bins have positive scores; low-noise-time errors larger.
+All8oracle-risk signs predicted. ProductRK4field risk increases+2.335e-5/
++2.601e-5(actual),+2.418e-5/+2.356e-5(predicted), while generation improves.
 
-CPU54925actual0: all JVP/FD/DOP853/tensor/method/RNGcontrols pass, but all4
-Product16prefixes fail32->64tangent refinement. Original flags preserved.
-learned-defect-reference-refinement.md then binds uniform128AND256for ALLcases.
-CPU11984actual0: all8refined16-input cells qualify, final tangent differences
-<=6.09e-10. Independent saved-array/risk reconstruction error<=3.88e-18.
-These are CLI/numerical witnesses, not full4096-input prediction evidence.
-Exact authored source SHAis preserved outsideGit before a formal-only assertion
-edit. Fresh3852/20969actual0/0on source055a860/5175hashes; all8refined cells
-qualify,104independent gates/error2.63e-18. Formal session52369now evaluates
-all8x4096field inputs on one empty permitted145GPU4. No new training/draws.
+Producer52369actual0in186.177s; NumPy7963actual0,error2.17e-18. All refined
+numerical cases qualify. Only1/8original64-reference cases qualifies on the
+full sets; all old flags remain recorded. Source055a860/5175hashes unchanged,
+GPU4released. Both actual figures inspected; original/layout-only analyses
+90318/56920actual0and numeric summaries identical. Final reports unchanged.
+
+The remaining ODE-specific link predicts target quality from this analytic
+forcing through the ACTUAL learned sampler. Median eager256observer7.232s/
+B4096projects primary full Heun2048transport to131.653GPUhours. Runtime
+protocol fixes compilation of the same coupled RK4step before any such long
+run; FP64,256steps,both defects,all banks and gates stay fixed. No target
+transport from the analytic forcing has run yet.
 
 ## Runtime and audit
 

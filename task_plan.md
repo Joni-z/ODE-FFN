@@ -35,16 +35,20 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 - [x] Source055a860/5175files: fresh CUDA/NumPy3852/20969actual0/0,
   all8refined cells/104reconstructed gates pass; no source changes.
   fieldsSHAa6c55e28, no invocation divergence. Receipt retained.
-- [ ] Full8x4096-input field predictions now run in original session52369,
-  only the freshly empty permitted physicalGPU4. Retain
-  all five reference counts, both original/refined flags and every input.
-- [ ] Reconstruct prediction errors/risk accounting independently, inspect
-  figures and apply the registered two-stream primary criterion without fitting.
+- [x] Full8x4096-input field predictions52369actual0on physicalGPU4;
+  all refined numerical cells qualify, all original/refined flags retained.
+  Independent7963actual0,error2.17e-18;5175source hashes unchanged.
+- [x] Reconstruct field errors/risk accounting on all32768inputs; ProductRK4
+  scores0.962/0.962,relativeRMS0.196/0.196. Both primary streams pass.
+- [x] Publish the complete field evidence; both actual figures reviewed.
+  learned-defect-field-results/ preserves all numerical flags and source audit.
+- [ ] Profile/compile the SAME256-step FP64observer per the registered runtime
+  protocol before paying the projected132GPUhours for primary target transport.
 
 ## Subsequent causal link
 
-If analytic field prediction qualifies AND the observed sampling benefit
-persists (now established at prescribed meshes), propagate that analytic forcing
+Analytic field prediction now qualifies and the observed sampling benefit
+persists at the prescribed meshes. Propagate that analytic forcing
 through the actual learned sampler and target functional. The current measured-
 delta transport is not this ODE-specific prediction. Do not skip that link or
 claim ordinary-FFN superiority from a same-weight intervention.
@@ -58,6 +62,9 @@ instead of Path; frozen source and failed output/log preserved. Cached repair
 Read-only collector1SSHquoting failure/actual143also preserved; no computation
 restarted. Canonical evidence: population-resolution-results/audit.json.
 Mac authored learned prefixes54925/11984and NumPyverifier are terminal0.
+All field actors are now terminal0; physicalGPU4 released. Actual256observer
+median7.232s/B4096projects primary transport to131.653GPUhours. Preserve
+reference/data/sampler fidelity while compiling the same coupled step first.
 Current raw roots: coefficient-20261116/target-aware-transport/
   population-resolution/ and learned-defect-fields/.
 

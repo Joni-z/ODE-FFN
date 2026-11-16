@@ -1,57 +1,60 @@
 # Current project status
 
-## Same-weight generation benefit survives the outer sampler check
+## The analytic ODE correction predicts the complete field change
 
-All four frozen20kmodels, both streams, eight4096-source banks and all five
-Heun127/128/129/512/2048meshes complete. Every original128endpoint replays
-before new meshes. All4producers/4independent exits0;720metrics reproduce
-within1.12e-16and all32adjusted contrasts independently agree exactly.
+All four frozen models and both 4,096-input field streams are complete. Both
+primary Product16 RK4 streams pass the unfitted prediction criterion. The
+correction uses both solver defects and the unchanged full network.
 
-| Product16RK4weights,2048steps | Native SW2 | Midpoint SW2 | Banks improving |
+| Weights | Selection score | Confirmation score |
+|---|---:|---:|
+| Ring8 midpoint |0.982|0.982|
+| Ring8 RK4 |0.983|0.982|
+| Product16 midpoint |0.957|0.957|
+| Product16 RK4 |0.962|0.962|
+
+Score compares squared prediction error with predicting zero change. Product16
+RK4 relative RMS error is 0.196 and alignment 0.987 on both streams. Its
+oracle-field MSE increase is also predicted, although generation improves.
+All eight refined numerical cells qualify; original coarser-reference flags
+remain unchanged. Producer/NumPy exits 0/0, independent error <=2.17e-18.
+[Full results and two figures](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-results/analysis-report.md),
+[source/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-results/audit.json).
+
+## The generation benefit survives outer-resolution changes
+
+Four weights, two streams and all Heun127/128/129/512/2048 meshes complete.
+All 720 metrics and 32 adjusted contrasts independently reproduce. Product16
+RK4 weights improve with midpoint inference on every prescribed mesh.
+
+| At Heun2048 | Native SW2 | Midpoint SW2 | Banks improving |
 |---|---:|---:|---:|
 | Selection |0.053|0.049|8/8|
 | Confirmation |0.048|0.045|8/8|
 
-The registered finer-mesh criterion passes on both streams. Every prescribed
-mesh retains the effect. Ring8pooled directions persist, while adjusted bank
-intervals cross zero. The extreme-source sensitivity therefore does not imply
-a128-only population benefit. This remains a same-weight solver intervention.
-[Complete results/two figures](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/analysis-report.md),
-[execution/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/audit.json).
+The registered finer-mesh criterion passes. This is a same-weight solver effect;
+ordinary architecture rankings require controls on these same banks.
+[Complete generation results](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/analysis-report.md).
 
-## Next: predict the field change from the ODE equations
+## Next: analytic correction through the sampler and target loss
 
-The BOTH-solver analytic correction and full-network observer are now bound to
-actual trained tensors and existing field inputs. Eight refined16-input CPU
-witnesses pass numerical/independent checks; original Product16coarser-reference
-failures remain preserved. Full4096-input predictions are not yet evaluated.
-[Fixed hypothesis](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-protocol.md),
-[registered numerical refinement](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-reference-refinement.md).
-Fresh learned CUDA/NumPy3852/20969actual0/0passes on all8prefixes,
-104independent array gates,5175source hashes unchanged. Formal all4096-input
-diagnostics now run on a single freshly empty145GPU4, original session52369.
-[Fresh receipt](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-fresh-receipt.json).
+The remaining link is the distributional response predicted from the analytic
+correction, rather than the already measured field difference. The eager
+256-step observer takes median7.232s per4,096 inputs. Primary full Heun2048
+transport projects to about132 GPUhours at that rate; it is not queued.
+First validate compilation of the SAME coupled step, preserving FP64,256steps,
+all original banks and numerical gates. Then select execution by measured
+identity/throughput, not by changing the scientific test.
+[Registered runtime preparation](docs/research-assessments/2026-11-16-ode-mechanism/analytic-transport-runtime-protocol.md).
 
-## Execution and resources
+## Runtime and preserved artifacts
 
-The original Mac queue98117/15465, collector98379/82357, postprocessor332/64468
-and cached-rank actor3315/10554are terminal. Full raw evidence remains under
-/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/.
-Population queue940668/tool29874and all8children are terminal0; all GPUcontexts
-released. Collector86573analysis failure preserved; cached41648/50553actual0.
-Warm CPU04f11f75unchanged; the24-role probe queue34920is terminal, actual0.
-Source146c158/5090hashes and all original inputs remain unchanged.
+Full field52369/NumPy7963 and analyses90318/56920 terminate0. Source055a860,
+5,175 hashes unchanged; physicalGPU4 released after186.177s. Population29874
+and all eight children terminate0; its failed collector analysis and cached
+repair remain preserved. No original evaluation restarted on a timeout.
 
-The complete-network ODE-defect observer passes independent algebra/JVP/FD
-checks. CUDArecovery14772has actual direct exit0,5050source hashes unchanged
-and GPU4context released; the prior receipt-wrapper failure/unknown child exit
-is retained. CPU/CUDAparity2.23e-16primal/2.17e-19tangent. A4096-input reference
-probe takes23.814sCPU/0.485sCUDAon145,48.694xincluding transfers. Use CUDAfor
-large batches only after fresh availability checks.
-[Observer derivation](docs/research-assessments/2026-11-16-ode-mechanism/hidden-defect-transport.md),
-[complete CUDAreceipts](docs/research-assessments/2026-11-16-ode-mechanism/hidden-defect-cuda-readiness.json).
-
-145physical0-3remain prohibited;4-7only<500MiBand no compute PID. Never
-stop/share foreign jobs. No packages changed. Reports1/2,97protected files/
-11final bindings and five native image files remain unchanged. Image benchmark
-at160epochs stays native24.304/K1 27.789/K8 28.083FID50k.
+Mac04f11f75 and14541450454 environments unchanged. Only empty physical145
+GPUs4-7;0-3prohibited, no foreign job touched. Reports1/2(97protected files,
+11final bindings) and five native image files unchanged. CelebA160 FID50k
+remains native24.304/K1 27.789/K8 28.083. No new image architecture promoted.

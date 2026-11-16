@@ -1,0 +1,3 @@
+# Empirical field-prediction quantities
+
+Each row contains all4096original field inputs for one frozen model/stream. There is no fitted coefficient or sample selection. Score=1-sum||prediction-change||^2/sum||change||^2; relative RMS error is the square root of its normalized residual. Global alignment is their vectorized cosine. Five fixed time bins retain counts and undefined zero-signal values. These are deterministic full-cohort descriptive quantities; no training-replicate significance is inferred. All original32->64and refined128->256flags remain available. Formal prediction uses the prebound256reference.
