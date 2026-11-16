@@ -67,6 +67,21 @@ Never stop or share a foreign task.
   - [ ] Run outer128/256/512 and inner4/8/16checks on the original sharing
     evaluation arrays, independently recompute scores and compare the same banks.
 
+## While the fixed observation queues run
+
+- [ ] Extend the existing registered frozen-stage diagnostic to the new
+  mean-preserving checkpoints. Keep the five clocks,16common pairs and20k
+  weights; do not add training or sampling-quality selection.
+- [ ] Derive the four-stage minus mean-generator expansion. Verify its
+  1/32coefficient independently with linear matrix exponentials and nonlinear
+  JVP checks. Test the scalar-clock and shared-Pnulls.
+- [ ] Measure the predicted and observed local-map change across fixed
+  internal horizons. Report unit-horizon approximation failures explicitly;
+  a small-horizon identity alone is not a generation mechanism.
+- [ ] Reuse the native full-field reverse/mean/base probes, and confirm
+  original/new parameter coordinates yield the same effective-stage results.
+  Freeze/publish the diagnostic and obtain a fresh documented execution.
+
 The Product16 oracle-window branch is rejected by its signed density result;
 do not select a favorable time bin. Keep confirmation time profiles unopened.
 
