@@ -41,6 +41,7 @@ CUDAobserver throughput. All former owners are terminal.
 - [ ] Complete monitored evaluations on physical145GPUs4-7; queue940668/
   original session29874and workers941462-941465are live. Independently
   reconstruct all metrics and paired effects before interpreting the primary.
+  Collector9883/original86573waits, copies once and analyzes frozen6afb685.
 - [ ] Decide whether the ProductRK4->midpoint generation benefit survives
   finer sampling before assigning it an intrinsic hidden-ODE interpretation.
 
@@ -123,3 +124,9 @@ mechanism test. Full preceding findings/audit in target-transport-results/.
 
 Full preceding journal and all retained errors:
 docs/history/2026-11-17-before-full-transport-result/.
+
+## Execution note
+
+Read-only collector1had an SSHquoting error; its log and actual143termination
+are preserved outsideGit. Only that confirmed monitor was stopped. Collector2
+uses shlexquoting and successfully reads queue940668; no evaluation restarted.

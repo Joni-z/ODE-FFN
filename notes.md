@@ -75,6 +75,12 @@ registered new count. Every5smonitor records process/GPUstate; foreign contexts
 stop only our child. No new training/draws or source edits. Do not restart on
 an observation timeout. Raw145:/data2/zz5070/ODE_FFN/population-resolution-20261117/.
 
+Collector9883/tool86573now reads the original queue every30s, then copies and
+analyzes all40rows from frozen6afb685. Original collector1SSHquoting error and
+its actual143termination are preserved; no evaluations restarted. Mac held
+awake only for this collector. Automatic output still requires figure/statistics
+review before publication or scientific conclusions.
+
 ## Runtime preparation
 
 Hidden-defect-transport.md: unchanged full model, six local variational solves.

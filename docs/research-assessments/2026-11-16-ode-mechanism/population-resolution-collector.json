@@ -1,0 +1,24 @@
+{
+  "pid": 9883,
+  "original_tool_session": 86573,
+  "verified_identity": "mr.z  9883 Tue Nov 17 06:21:45 2026     /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u studies/muon_pd_20261102/target_transport_20261117/collect_population_resolution.py --host 145 --remote /data2/zz5070/ODE_FFN/population-resolution-20261117/formal --local /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution --analysis-python /Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+  "remote_queue_pid": 940668,
+  "remote_original_tool_session": 29874,
+  "analysis_source_commit": "6afb685357c6c92c903433e777f65ca73036227d",
+  "source_sha256": "7da8384fa10103dabe9e0b9d2f38501422d957ea7f1c4dab031d23291879f741",
+  "progress_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/collector2-progress.json",
+  "history_path": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/collector2-history.jsonl",
+  "caffeinate_tool_session": 80100,
+  "behavior": "wait for original TERMINAL; copy once; analyze all40rows with frozen source; never restart computation",
+  "prior_read_only_collector_failure": {
+    "cause": "SSH remote Python command lacked shell quoting",
+    "monitor_only_pid": 9790,
+    "observed_identity": "mr.z  9790 Tue Nov 17 06:20:21 2026     /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u -\n",
+    "termination": "SIGTERM of our confirmed collector only",
+    "remote_queue_untouched": 940668,
+    "original_tool_session": 41946,
+    "unix_time": 1794867694.6018429
+  },
+  "prior_collector_actual_exit": 143,
+  "observed_unix": 1794867756.795786
+}

@@ -52,6 +52,8 @@ per-stream gates still check every32768cached128endpoints before new counts.
 Queue940668/original session29874, four live workers941462-941465on physical
 145GPUs4/5/6/7, sourcea525eb2unchanged. Monitor saves progress/GPUhistory every5s,
 retains actual exits and runs an independent verifier after each producer.
+Mac collector9883/original86573waits for that same queue, copies completed
+evidence once and analyzes all40rows from frozen6afb685.
 [Fixed protocol](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-protocol.md),
 [fresh receipt](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-fresh-receipt.json),
 [verified launch](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-launch.json).
