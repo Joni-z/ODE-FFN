@@ -1,6 +1,20 @@
 # ODE mechanism: current evidence
 
-## Current: matched order control implemented and validated
+## Current: matched stage-order comparison complete
+
+Four20k seed0trajectories and all native/common-bank evaluations pass.
+Pooled SW2palindrome/alternating: Ring8.086/.108; Product16.072/.066.
+The leading bracket cancels exactly in trained palindrome features, yet
+sampling effects have opposite signs. Palindrome's Ring8point gain against
+shared P(.091) has an unresolved paired-bank interval. Ordinary Product16
+SwiGLU(.044) remains stronger. No image promotion or response search follows.
+Fresh geometry/cost/portable commands pass; six-model180record NumPyerror
+7.11e-15. All four bounded CPUresolution entries pass and sixteen independent
+scores agree within5.55e-17. Full inner/outer refinement is next on Mac CPU;
+1454-7have foreign contexts. Canonical: schedule-order/analysis-report.md.
+
+
+## Earlier: matched order implementation and validation
 
 The registered palindrome(+--+) and alternating(+-+-) models share identical
 P/B coordinates, common tensors, zero-B initial functions and data RNG.

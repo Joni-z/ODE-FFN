@@ -2,14 +2,19 @@
 
 ## Current priority: identify the ODE contribution
 
-The matched stage-order adapters and fresh documented native validation now
-pass: four continuations/evaluators, exact common initialization and data RNG,
-NumPy map error2.22e-16. The small-horizon predicted remainder is cubic.
-Four formal20k seed0CPU trajectories are launched at frozen67b4664.
-Queue52859and watcher52860are live; Ring8workers52862/52863advance,
-with Product16queued next. Two one-thread CPUworkers, no GPU allocation.
-[Exact code, validation and invocation](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/execution.md).
+The matched order-control four20k trajectories and their complete common-bank
+evaluations are finished, all exits0. Pooled SW2palindrome/alternating is
+**0.086/0.108on Ring8**, **0.072/0.066on Product16**. The predicted cancellation
+holds in trained features; the sampling effect has opposite signs across tasks.
+Ring8palindrome-versus-shared(0.091) paired uncertainty includes zero;
+Product16ordinary SwiGLU remains stronger at0.044.
+[Analysis, paired banks and two inspected figures](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/analysis-report.md).
 
+Fresh native activity/cost/portable entries pass. Six-model180record geometry
+reconstructs within7.11e-15; all twelve common-bank rows independently pass.
+Four actual CPUresolution witnesses and all sixteen independent scores pass,
+error5.55e-17. Full internal/outer refinement is next.1454-7nowhave resident
+foreign contexts; Mac CPUcan proceed. No new image run or density run.
 
 **The new coordinate-control density comparison is complete.** All source
 paths qualify in both datasets and both fields. Product16 mean-preserving KL
@@ -27,11 +32,9 @@ is retained. CPU refinements finished successfully; both unused GPU waiting
 queues were cancelled without starting population workers. Our observation
 workload is terminal. Reports 1/2 and the native image baseline remain fixed.
 
-The next falsification test keeps P/B, optimizer coordinates, initial function
-and eight matrix applications fixed, while changing only the stage order.
-The palindrome cancels the leading bracket term; alternating retains it.
-[Exact proposal and rejection rules](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order-control.md).
-The adapters are verified and formal training is active; final comparisons are pending. Goal remains active.
+The stage-order experiment above has now executed. Its registered numerical
+follow-up remains necessary before interpreting a within-task composition
+benefit. The full ODE-mechanism goal remains active.
 
 ## Preceding observations and execution history
 

@@ -14,6 +14,17 @@ evaluations are also complete. Each cohort retains its own bound arrays.
 These are width64/depth3 synthetic velocity MLPs with replaceable FFNs,
 not JiT image-prediction models; no image-transfer improvement is claimed.
 
+## Matched composition control
+
+The two P/Bschedules now have completed20k native training and common-bank
+evaluation, equal parameters/work, identical initial functions and data RNG.
+Palindrome(+--+) versus alternating(+-+-) gives pooled SW2Ring8.086/.108,
+Product16.072/.066. Leading cancellation holds exactly in the trained
+palindrome, but the sampling direction reverses across tasks. Ring8's small
+palindrome-versus-shared point lead has an unresolved paired interval.
+[Complete comparison and feature dependence](schedule-order/analysis-report.md).
+Full registered inner/outer refinement is next; no image promotion follows.
+
 ## Main comparison
 
 Confirmation pooled SW2, lower is better:

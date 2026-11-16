@@ -1,31 +1,22 @@
 # Frozen-weight measurements for the matched order control
 
-Status: observer routing is implemented and step16native checkpoint restoration
-passes for all four new families/tasks. Full export and observer-entry validation
-wait for all four20k trajectories and their independent common-bank evaluation.
-Do not treat the step16builder check as a completed population observation.
+Status: observer routing is implemented and all four20k trajectories are
+complete. Native activity/cost validation can now run. Portable export waits
+for the independent common-bank evaluation; numerical sampling remains pending.
 
 Use the unchanged Mac CPU environment and one-thread settings from
 [the training invocation](execution.md). The training runtime stays frozen at
 67b4664. A separate published observer snapshot will bind the following code.
 No additional training, response search or density run is authorized here.
 
-## Prerequisite
+## Native activity and cost: fresh documented validation
 
-`/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/COMPLETE.json`
-must exist and pass for four new trajectories plus eight fixed references.
-All following output paths must be absent. From
-`/Users/mr.z/ODE-FFN-upstream`, run these commands verbatim in sequence:
-
-```bash
-OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/coefficient_20261116/contrast_portable.py --study /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable --schedule-order --sampling-only
-```
-
-Require four portable cases and only `sampling-models`, never a density bundle.
-The exporter must replay the complete CPU field and bank0exactly, preserve
-nonpersistent buffers, copy/checksum all eight bank outputs and bind every
-imported local model source. Its actual portable checkpoint restore must match
-the native restore. Source mismatch must fail rather than rewrite a binding.
+Require all four formal trajectories to have `ADAPTER_COMPLETE` and final20k
+checkpoints. The native training queue has finished successfully. The first
+three commands below measure the trained feature maps and cost; they do not
+require the separate sampling evaluation to finish. All following output paths
+must be absent. From `/Users/mr.z/ODE-FFN-upstream`, run the three commands
+verbatim in sequence:
 
 ```bash
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/coefficient_20261116/sharing_probe.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116 --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --schedule-study /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order --arrays-output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/activity-arrays --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/activity.json
@@ -53,6 +44,24 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=
 Require twelve same-process cases. Shared P and both schedules must have equal
 dense MACs; the two schedules must have equal parameter counts. Report actual
 training/evaluation time alongside these CPU timings, which are not GPU speed.
+
+## Portable export after common-bank evaluation
+
+This fourth command has a separate prerequisite:
+`/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/analysis/COMPLETE.json`
+must pass for four new trajectories plus eight fixed references. Do not run
+this command during the earlier activity/cost validation.
+
+```bash
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/coefficient_20261116/contrast_portable.py --study /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order --data-root /Users/mr.z/ode-workspace-prep/data/synthetic --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable --schedule-order --sampling-only
+```
+
+Require four portable cases and only `sampling-models`, never a density bundle.
+The exporter must replay the complete CPU field and bank0exactly, preserve
+nonpersistent buffers, copy/checksum all eight bank outputs and bind every
+imported local model source. Its actual portable checkpoint restore must match
+the native restore. Source mismatch must fail rather than rewrite a binding.
+
 
 ## Subsequent numerical observations
 

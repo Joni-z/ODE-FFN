@@ -16,10 +16,12 @@ def main():
     root=Path(a.portable);res=Path(a.resolution);out=Path(a.output);out.mkdir(parents=True,exist_ok=False)
     portable=read(root/'portable.json');cases=portable['cases'];assert cases
     terminal=read(res/'queue-finished.json')
+    assert terminal['passed'] and not terminal['unstarted']
     bykey={(r['id'],r['mode']):r for r in terminal['completed']}
     assert len(bykey)==len(terminal['completed'])
     rows=[];banks=[];bindings=[];maximum=0.
-    state_families=('state_midpoint4','free_stage_midpoint4','stage_operator_midpoint4','contrast_operator_midpoint4')
+    state_families=('state_midpoint4','free_stage_midpoint4','stage_operator_midpoint4','contrast_operator_midpoint4',
+                    'palindrome_operator_midpoint4','alternating_operator_midpoint4')
     for case in cases:
         for key in ['checkpoint','config','dataset_manifest','assets']:
             assert sha(root/case[key])==case[key+'_sha256'],(case['id'],key)

@@ -85,16 +85,16 @@ GPUallocation. No foreign job was stopped/shared; physical0-3were not used.
    shared references and data RNG. Eight old references and arrays are bound.
 4. [x] Publish/freeze67b4664, then launch four20k seed0trajectories on Mac CPU,
    two workers. Preserve the registered midpoint2, AdamW0.0003, batch512 recipe.
-5. [ ] Native final-test replay;15k/20k selection and20k confirmation on all
+5. [x] Native final-test replay;15k/20k selection and20k confirmation on all
    eight common4096-source banks. Independently reconstruct twelve rows.
-6. [ ] Frozen inner4/8/16 and outer128/256/512 checks, B/bracket activity and
+6. [in progress] Frozen inner4/8/16 and outer128/256/512 checks, B/bracket activity and
    cost; accept or reject the registered composition-benefit claim.
 
 The previous explanation turn made no experimental progress. This turn
 implements and verifies the registered control. B gradients differ by design;
 no normalization or extra learning rate is introduced. The proposal is now
-implemented and validated. Queue52859and watcher52860are live; two Ring8
-workers advance, with two Product16cells pending. All241frozen study source
+implemented and validated. Queue52859and watcher52860are live; all four20k
+trajectories and all common-bank evaluations finished, exit0. All241frozen study source
 files match actual invocation hashes. Frozen source and all97report files
 remain unchanged.
 [Exact invocation and scope](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/execution.md).
@@ -121,11 +121,13 @@ source is published and four formal trajectories are active/queued.
 
 Observer support: portable sampling-only export, six-model native stage-action
 probe, generic cost control and numerical loader now accept the two schedules.
-All four actual step16checkpoints restore exactly through that loader. Full
-export/native-observer validation remains pending the final common-bank eval.
+All four actual step16checkpoints restore exactly through that loader. Fresh
+full-field/bank0portable export, native geometry and cost entries all pass.
 See schedule-order/observer-execution.md; no density run is launched.
 
-Observed training progress: Ring8both20kcomplete, exit0; Product16both17k
-and live. The native watcher waits for all four trajectories before common-bank
-evaluation. Actual dense MACs match within each task. No final sampling
-comparison has been collected yet.
+All four20k trajectories and all twelve common-bank rows are complete.
+Ring8palindrome/alternatingSW2.086/.108; Product16.072/.066. Opposite primary
+effects reject a task-general coarse-resolution benefit. Both tasks and both
+schedules remain in the registered numerical sweep. Fresh four-case actual
+CPUentry witnesses pass, with sixteen NumPyscores within5.55e-17.
+Freeze/publish this observer, then launch eight full-bank numerical tasks.

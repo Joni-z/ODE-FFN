@@ -1,0 +1,176 @@
+{
+  "passed": true,
+  "fresh_activity_documented_exits": [
+    0,
+    0,
+    0
+  ],
+  "fresh_portable_exit": 0,
+  "models": 6,
+  "layer_time_records": 180,
+  "source_probe_sha256": "cff6776c0073e97633efaafb8abfce9b72f1a46d9a897de2eee95d4e1036a6ba",
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "field_mse": 0.010217505741145043,
+      "frozen_interventions": {
+        "reverse": {
+          "mode": "reverse",
+          "field_mse": 0.010217505741145043,
+          "prediction_shift_rms": 0.0
+        },
+        "mean": {
+          "mode": "mean",
+          "field_mse": 0.010217505741145043,
+          "prediction_shift_rms": 0.0
+        },
+        "base": {
+          "mode": "base",
+          "field_mse": 0.010217505741145043,
+          "prediction_shift_rms": 0.0
+        }
+      },
+      "leading_coefficient_rms_median": 0.0,
+      "mean_map_change_over_increment_median": 0.0,
+      "stage_drift_variation_median": 0.0,
+      "new_gradient_norm_mean": 0.0
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "field_mse": 0.01926662506050201,
+      "frozen_interventions": {
+        "reverse": {
+          "mode": "reverse",
+          "field_mse": 0.01926662506050201,
+          "prediction_shift_rms": 0.0
+        },
+        "mean": {
+          "mode": "mean",
+          "field_mse": 0.01926662506050201,
+          "prediction_shift_rms": 0.0
+        },
+        "base": {
+          "mode": "base",
+          "field_mse": 0.01926662506050201,
+          "prediction_shift_rms": 0.0
+        }
+      },
+      "leading_coefficient_rms_median": 0.0,
+      "mean_map_change_over_increment_median": 0.0,
+      "stage_drift_variation_median": 0.0,
+      "new_gradient_norm_mean": 0.0
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "palindrome_operator_midpoint4",
+      "field_mse": 0.010656369046668232,
+      "frozen_interventions": {
+        "reverse": {
+          "mode": "reverse",
+          "field_mse": 0.010656369046668232,
+          "prediction_shift_rms": 0.0
+        },
+        "mean": {
+          "mode": "mean",
+          "field_mse": 0.027503220537213484,
+          "prediction_shift_rms": 0.14036717292300815
+        },
+        "base": {
+          "mode": "base",
+          "field_mse": 0.02750321968231407,
+          "prediction_shift_rms": 0.14036716948383848
+        }
+      },
+      "leading_coefficient_rms_median": 0.0,
+      "mean_map_change_over_increment_median": 0.04782565847697737,
+      "stage_drift_variation_median": 1.1015511420317021,
+      "new_gradient_norm_mean": 0.030299435992808245
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "alternating_operator_midpoint4",
+      "field_mse": 0.011173192993396017,
+      "frozen_interventions": {
+        "reverse": {
+          "mode": "reverse",
+          "field_mse": 0.22722951458465895,
+          "prediction_shift_rms": 0.48718289225579803
+        },
+        "mean": {
+          "mode": "mean",
+          "field_mse": 0.05585694485598258,
+          "prediction_shift_rms": 0.23360850909065406
+        },
+        "base": {
+          "mode": "base",
+          "field_mse": 0.055856947759719576,
+          "prediction_shift_rms": 0.23360851577325767
+        }
+      },
+      "leading_coefficient_rms_median": 0.08106071843221194,
+      "mean_map_change_over_increment_median": 0.07915918544114948,
+      "stage_drift_variation_median": 0.8692090729175719,
+      "new_gradient_norm_mean": 0.05551410661339962
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "palindrome_operator_midpoint4",
+      "field_mse": 0.0204162745515359,
+      "frozen_interventions": {
+        "reverse": {
+          "mode": "reverse",
+          "field_mse": 0.0204162745515359,
+          "prediction_shift_rms": 0.0
+        },
+        "mean": {
+          "mode": "mean",
+          "field_mse": 0.17945700383224514,
+          "prediction_shift_rms": 0.38852139646431727
+        },
+        "base": {
+          "mode": "base",
+          "field_mse": 0.17945700815861892,
+          "prediction_shift_rms": 0.38852140166611066
+        }
+      },
+      "leading_coefficient_rms_median": 0.0,
+      "mean_map_change_over_increment_median": 0.08615989366074248,
+      "stage_drift_variation_median": 1.926333357454681,
+      "new_gradient_norm_mean": 0.028785271251034167
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "alternating_operator_midpoint4",
+      "field_mse": 0.019207960033198305,
+      "frozen_interventions": {
+        "reverse": {
+          "mode": "reverse",
+          "field_mse": 0.8180918191048239,
+          "prediction_shift_rms": 0.8900999681717428
+        },
+        "mean": {
+          "mode": "mean",
+          "field_mse": 0.2420604193035476,
+          "prediction_shift_rms": 0.4717158160850547
+        },
+        "base": {
+          "mode": "base",
+          "field_mse": 0.2420604180243947,
+          "prediction_shift_rms": 0.47171581667828183
+        }
+      },
+      "leading_coefficient_rms_median": 0.10194028967157018,
+      "mean_map_change_over_increment_median": 0.12595848122393585,
+      "stage_drift_variation_median": 1.3255839241246963,
+      "new_gradient_norm_mean": 0.048512029876486236
+    }
+  ]
+}
