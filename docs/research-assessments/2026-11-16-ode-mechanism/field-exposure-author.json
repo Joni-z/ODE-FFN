@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "witness": true,
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "points": 8,
+      "qualified_points": 8,
+      "risk_reconstruction_max_error": 1.734723475976807e-18,
+      "max_local_reconstruction_error": 2.964872791721973e-11
+    },
+    {
+      "id": "gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+      "points": 8,
+      "qualified_points": 8,
+      "risk_reconstruction_max_error": 1.8611431433545114e-18,
+      "max_local_reconstruction_error": 2.0840884573658514e-11
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "points": 8,
+      "qualified_points": 8,
+      "risk_reconstruction_max_error": 1.4224732503009818e-16,
+      "max_local_reconstruction_error": 8.624567726656096e-11
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+      "points": 8,
+      "qualified_points": 8,
+      "risk_reconstruction_max_error": 1.4747860051234074e-16,
+      "max_local_reconstruction_error": 8.608580515101494e-11
+    }
+  ],
+  "native_actual_exits": [
+    0,
+    0
+  ],
+  "independent_actual_exits": [
+    0,
+    0
+  ]
+}

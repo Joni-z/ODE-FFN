@@ -76,3 +76,19 @@ A first observer launch wrapper exited1 before any native dispatch because it
 expected divergences while the fresh receipt uses doc_reality_divergences.
 The failed receipt is retained. Correct key read then dispatched the registered
 commands once; all eight actual observer/verifier exits are0.
+
+## Current continuation: complete-field diagnostic
+
+Previous goal turn was progress: the full equal-work solver training comparison
+and independent evidence changed the next question. This continuation implements
+and executes the already registered field-exposure/compensation test:
+- [x] Bind all four20kweights and4096selection-field inputs per task.
+- [x] Implement original/identity, midpoint4, RK4two-step, and two-tolerance
+  complete continuous-forward modes, capturing all six actual sequential inputs.
+- [x] Verify native replay, unchanged tensors/RNG, independent local maps and
+  continuous endpoints, plus exact risk accounting on bounded first8witnesses.
+- [ ] Publish/freeze, fresh documented pass, then two monitored CPUworkers.
+- [ ] Independently verify every full point; analyze numerical resolution,
+  crossed risks, exposure/alignment and paired conditional differences.
+- [ ] Publish the evidence and update the next decision; keep the goal active
+  while the underlying ODE contribution remains unresolved.
