@@ -143,3 +143,22 @@ and refinement semantics before routing work. Keep live55052/55054/55055
 until any replacement actually advances and retained completed prefixes
 are audited; never stop merely for a waiting alternative. Do not restart
 the existing queue on timeout. All twenty unique cells still required.
+
+Current continuation: previous turn made progress (four completed trajectories,
+paired analysis and live numerical launch). Implement an optional4096-source
+CPUbatch path in the existing observer/queue; original full-batch defaults
+and frozen55052runtime remain intact. Check actual checkpoint/bank outputs,
+source/array bindings and every available completed prefix before any handoff.
+Publish and freeze the validated observer; never restart for a timeout.
+
+Execution note: the first invocation-document generation command failed during
+shell parsing because its outer heredoc delimiter also appeared in the intended
+document. No file or scientific process changed. The document was created via
+apply_patch; native CPUwork and endpoint preflight continued unchanged.
+
+Bankwise adapter validated: all four32768-source outputs match every native
+reference element exactly. Fresh five-command actual-entry witness passes,
+sixteen score reconstructions within5.55e-17. Generation-only timing64-68s;
+compare complete native-entry timing after launch. Source publication/freeze
+precedes the new eight-task queue. Old55052/55054/55055continue unchanged
+until replacement advancement and all retained-prefix audits.

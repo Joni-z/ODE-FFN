@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "cases": 4,
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "samples": 32768,
+      "exact_native_all_eight_banks": true,
+      "max_sample_error": 0.0,
+      "seconds": 64.19996287487447,
+      "checkpoint_sha256": "30b59ade5c100882b3213353cf2399cb333ae5d49ee6fe1cef2f777b2924547a"
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "samples": 32768,
+      "exact_native_all_eight_banks": true,
+      "max_sample_error": 0.0,
+      "seconds": 64.0105654168874,
+      "checkpoint_sha256": "24194fa328719bbc089ba951f36f2984921b2cadf42afcfe33afa24317feb0f4"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "samples": 32768,
+      "exact_native_all_eight_banks": true,
+      "max_sample_error": 0.0,
+      "seconds": 63.60476016672328,
+      "checkpoint_sha256": "d87a45d93a327e5487a1b123c8f1ed7694d8b40126bba948577cb26894226a67"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "samples": 32768,
+      "exact_native_all_eight_banks": true,
+      "max_sample_error": 0.0,
+      "seconds": 68.04404299985617,
+      "checkpoint_sha256": "0fbd0e81b8b49ff98e185830441a6d9b4f0467218da221622bb6956423c7ecd0"
+    }
+  ],
+  "cpu_source_sha256": "17e276b3e0837df4517d7bd00d6d9864308a3f6332b06a04fa8c62a53364accc",
+  "scope": "full common-bank endpoint invariance; formal inner/outer sweeps remain pending"
+}
