@@ -55,6 +55,11 @@ The next separately registered step is hidden-readout-protocol.md: exact
 single-layer full/normal/tangential/ray replacements, all six models and80inputs.
 Implement and verify native-hook identity before formal dispatch. No new training.
 
+Readout implementation is in progress. All six-model/full80-input identity
+and candidate checks pass; the Ring8first-layer author witness and independent
+candidate/metric reconstruction pass(1.78e-15). Productauthor witness pending.
+Freeze and run the exact fresh documented pass before full intervention.
+
 This is a frozen-weight diagnosis, not another activation search, new training,
 energy penalty or image promotion. Formal instructions/readiness still pending.
 
