@@ -1,0 +1,180 @@
+{
+  "passed": true,
+  "source_commit": "9452a4fd15e639ffdc58fc602d4cddf2373e5fb4",
+  "supervisor_tool_session": 40324,
+  "supervisor_actual_terminal_exit": 0,
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/gmm_ring8_2d/gmm_ring8_2d__state_rk4_2__adamw_0.0003/seed000",
+      "phases": [
+        {
+          "phase": "training",
+          "actual_terminal_exit": 0,
+          "seconds": 310.6998178958893,
+          "command": [
+            "env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "CUDA_VISIBLE_DEVICES=-1",
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "studies/muon_pd_20261102/coefficient_20261116/rk4_trial.py",
+            "--cell",
+            "gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training",
+            "--device",
+            "cpu"
+          ]
+        },
+        {
+          "phase": "selection",
+          "actual_terminal_exit": 0,
+          "seconds": 70.17887592315674,
+          "command": [
+            "env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "CUDA_VISIBLE_DEVICES=-1",
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "studies/muon_pd_20261102/coefficient_20261116/rk4_evaluate.py",
+            "--folder",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/gmm_ring8_2d/gmm_ring8_2d__state_rk4_2__adamw_0.0003/seed000",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/analysis/selection/gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+            "--device",
+            "cpu",
+            "--split",
+            "selection",
+            "--steps",
+            "20000"
+          ]
+        },
+        {
+          "phase": "confirmation",
+          "actual_terminal_exit": 0,
+          "seconds": 70.20947194099426,
+          "command": [
+            "env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "CUDA_VISIBLE_DEVICES=-1",
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "studies/muon_pd_20261102/coefficient_20261116/rk4_evaluate.py",
+            "--folder",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/gmm_ring8_2d/gmm_ring8_2d__state_rk4_2__adamw_0.0003/seed000",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/analysis/confirmation/gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+            "--device",
+            "cpu",
+            "--split",
+            "confirmation",
+            "--steps",
+            "20000"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003/seed000",
+      "phases": [
+        {
+          "phase": "training",
+          "actual_terminal_exit": 0,
+          "seconds": 310.69861102104187,
+          "command": [
+            "env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "CUDA_VISIBLE_DEVICES=-1",
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "studies/muon_pd_20261102/coefficient_20261116/rk4_trial.py",
+            "--cell",
+            "rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training",
+            "--device",
+            "cpu"
+          ]
+        },
+        {
+          "phase": "selection",
+          "actual_terminal_exit": 0,
+          "seconds": 70.1783218383789,
+          "command": [
+            "env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "CUDA_VISIBLE_DEVICES=-1",
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "studies/muon_pd_20261102/coefficient_20261116/rk4_evaluate.py",
+            "--folder",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003/seed000",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/analysis/selection/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+            "--device",
+            "cpu",
+            "--split",
+            "selection",
+            "--steps",
+            "20000"
+          ]
+        },
+        {
+          "phase": "confirmation",
+          "actual_terminal_exit": 0,
+          "seconds": 70.20379400253296,
+          "command": [
+            "env",
+            "OMP_NUM_THREADS=1",
+            "OPENBLAS_NUM_THREADS=1",
+            "MKL_NUM_THREADS=1",
+            "CUDA_VISIBLE_DEVICES=-1",
+            "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+            "studies/muon_pd_20261102/coefficient_20261116/rk4_evaluate.py",
+            "--folder",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003/seed000",
+            "--data-root",
+            "/Users/mr.z/ode-workspace-prep/data/synthetic",
+            "--assets",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+            "--output",
+            "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/analysis/confirmation/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+            "--device",
+            "cpu",
+            "--split",
+            "confirmation",
+            "--steps",
+            "20000"
+          ]
+        }
+      ]
+    }
+  ],
+  "terminal_sha256": "af2ab0fc5cd83a2bb6cfcd7eaf95b291a48aa041efef206299ae59bdce5d2575",
+  "metrics_independently_verified": false
+}

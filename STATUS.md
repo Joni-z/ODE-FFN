@@ -11,22 +11,26 @@ still an open question.
 and [complete results](docs/research-assessments/2026-11-16-ode-mechanism/solver-bias-results/analysis-report.md).
 
 Registered next: two new seed 0,20k-update Ring8/Product16 trajectories. Keep
-f=PISRU(y), parameter count, initialization, optimizer and8 P applications per
-local solve; replace midpoint4with classical RK4 two steps. Author algebra,
+f=PISRU(y), parameter count, initialization, optimizer and 8 P applications per
+local solve; replace midpoint4 with classical RK4 two steps. Author algebra,
 gradient/order/continuation/evaluator checks pass. Publication, source freeze
-and a fresh exact documented readiness pass precede formal dispatch.
+and the fresh documented pass are complete (actual exit 0, no divergences).
 [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/rk4-control-protocol.md).
-No formalRK4training has started at this status update.
+Both formal 20k trajectories and both fixed evaluation splits are terminal:
+all six native commands and supervisor session 40324 exit 0. Complete checkpoints,
+standard final tests, update spectra and adapter markers are retained. Independent
+metric reconstruction and trained hidden-fidelity measurements are next.
+[Completion receipts](docs/research-assessments/2026-11-16-ode-mechanism/rk4-training-completion.json).
 
 ## Completed controls and their interpretation
 
 All six dimension-matched tangent-minus-null contrasts are negative, including
 adjusted intervals. Ring8 normal-specific effects resolve; Product16 does not.
-The earlier63D-versus1Ddominance cannot establish special ODE sensitivity.
+The earlier 63D-versus-1D dominance cannot establish special ODE sensitivity.
 [Equal-dimension control](docs/research-assessments/2026-11-16-ode-mechanism/hidden-null-results/analysis-report.md).
 
-The uniform512/1024fixed-first-layer sampling extension completes numerical
-qualification in12/12model/grid comparisons. It reproduces the direction of
+The uniform 512/1024 fixed-first-layer sampling extension completes numerical
+qualification in 12/12 model/grid comparisons. It reproduces the direction of
 refinement-induced distribution changes, but target SW2 changes are small and
 mixed. Original256 pilot failures remain unchanged. This does not select an FFN.
 [Complete extension](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-extension-results/analysis-report.md).

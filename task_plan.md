@@ -32,13 +32,13 @@ Publish verified code and evidence promptly to GitHub main as Zhizhe Zhang.
 2. [x] Author checks: independent algebra/gradients/order/Pcalls, native
   8->16resume, real evaluator entries and exact original-midpoint step0 tensors,
    buffers/data_rng. No quality conclusion from short checks.
-3. [ ] First frozen documented pass exits 0, all native checks pass. It flags
+3. [x] First frozen documented pass exits 0, all native checks pass. It flags
    gradient-check wording broader than the actual directional test. Preserve the
    receipt, correct only wording, and repeat from a new frozen doc/output path.
-   Publish/freeze source; fresh agent executes the corrected command verbatim.
-4. [ ] Launch two one-thread Mac CPU 20k training trajectories with a persistent
+   Corrected frozen9452a4f invocation exits 0 with no divergences.
+4. [x] Launch two one-thread Mac CPU 20k training trajectories with a persistent
    monitor; verify live command identity. Poll same handles, never restart on timeout.
-5. [ ] Require actual native exits 0,20k checkpoint, standard final test and
+5. [x] Require actual native exits 0,20k checkpoint, standard final test and
    ADAPTER_COMPLETE. Run both fixed common-bank splits using native evaluator.
 6. [ ] Measure same-input/all-six-layer native-to-continuous error for trained
    midpoint/RK4, using independent qualified references; compare to sampleSW2.
@@ -47,11 +47,15 @@ Publish verified code and evidence promptly to GitHub main as Zhizhe Zhang.
 
 ## Current state and turn classification
 
-Last user-facing explanation was informational and changed no authoritative
-artifact: no progress toward the goal by itself. The next available action is
-publication/fresh invocation validation followed by the registered two trainings.
-No study worker is live at the current prelaunch check.145 cards 4-7 each use 1359 MiB
-with two compute PIDs; none used. MacCPU environment04f11f75is unchanged.
+This goal turn is progress: published the matched-solver study, passed fresh
+frozen readiness, and completed both 20k trajectories plus all four common-bank
+evaluations. Supervisor session 40324 and six native commands have actual exit 0.
+Independent metric verification and full trained-fidelity observations remain.
+The observer author check passes four cases/six layers/eight inputs; all references
+qualify and independent reconstruction is below 6.2e-12. Freeze a fresh documented
+observer pass before formal 80-input measurements.145 cards 4-7 remain occupied;
+none used. Mac CPU environment 04f11f75 is unchanged.
+
 Author readiness: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/author-check/PASS.json.
 Historical journals retained under docs/history/2026-11-16-before-rk4-control/.
 
