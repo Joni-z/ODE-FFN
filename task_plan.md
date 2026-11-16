@@ -35,8 +35,8 @@ trainer/loss/sampler/baseline remain fixed. Push verified changes to main.
 
 ## Next concrete actions
 
-1. Publish the completed numerical analysis and source, then verify GitHubmain,
-   protected report hashes and absence of our ended observation processes.
+1. [x] Published numerical analysis/source at2ffd09c to GitHubmain. All97
+   protected reports,11Report2bindings and ended-process checks pass.
 2. Derive exact Gaussian-source FMvelocity/image-predictor Jacobian identities
    and check them against the existing Gaussian-mixture oracle. Distinguish
    full output-field constraints from a constraint on a hidden P matrix.
