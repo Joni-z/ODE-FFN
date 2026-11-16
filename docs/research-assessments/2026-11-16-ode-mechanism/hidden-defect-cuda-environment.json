@@ -1,0 +1,13 @@
+{
+  "python": "3.12.11",
+  "torch": "2.8.0+cu128",
+  "numpy": "1.26.4",
+  "device": "cuda",
+  "dtype": "float64",
+  "env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "package_changes": false
+}

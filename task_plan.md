@@ -3,7 +3,9 @@
 Goal active: obtain a mathematically predicted, falsifiable account of ODE-FFN
 behavior, then decide what architecture merits another image test. Training
 seed0only. Previous goal turn made progress: cached sorting diagnosis published
-at e60d318; this turn prepares the complete-model defect observer at4a409d9.
+at e60d318; complete-model defect observer4a409d9passed fresh execution and
+readiness/resource evidence is public at7f3a5f0. This turn checks CUDAportability
+and throughput without learned observations.
 
 ## Completed evidence
 
@@ -56,6 +58,15 @@ PIDs/handles before any action; state/progress files alone do not prove liveness
   zero/sign tests, nonzero fixture head,16/32/64reference and unchanged tensors.
 - [x] Publish/freeze4a409d9/5041files and document exact CPUinvocation.
 - [x] Fresh documented73860actual0, all5041source hashes unchanged; no learned application.
+
+## P1 runtime: prepare the measured next computation
+
+- [x] Register CPU/CUDAFP64parity, full-model derivative checks and fixed
+  B256/B4096throughput probes before observations. Existing observer unchanged.
+- [ ] Run on one freshly empty physical145GPU4-7, guarded by the existing
+  exclusivity checker. No models/data/checkpoints from the learned cohort.
+- [ ] Publish/freeze and obtain fresh documented invocation before CUDAreadiness.
+- [ ] Select CPUor CUDAfrom actual correctness and end-to-end timings.
 
 ## Invariants
 
