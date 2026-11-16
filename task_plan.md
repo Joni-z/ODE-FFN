@@ -70,6 +70,24 @@ examples and14oracle task/time cells. Analytic JVPvsAD2.84e-14; discrete
 tangent finite-difference max2.00e-8. Formal numerical gates and exact paired
 bank ratio-bootstrap are registered. Freeze the new CLIand run the fresh pass.
 
+The frozen4eeec25fresh pass exits0/0/0/0/0. Both formal256-source tasks and
+both independent verifiers exit0, retaining all twelve cases. All twelve reach
+the1024cap with componentwise endpoint/tangent precision still unresolved;
+do not interpret their linear approximation as passed or failed yet.
+
+Source audit found native time features up to1000.000122cycles/unit t. Shifting
+the highest one by-1024is indistinguishable on the previously used dyadic
+stage grids. Author FP64counterexamples pass on all twelve models while their
+off-grid fields change by6-15%of oracle-fit RMSerror. This is a numerical
+identifiability check, not proof that aliasing causes all unresolved errors.
+Publish/freeze the complete FP32/FP64and Jacobian audit and execute its fresh
+two-command pass. Next priority is non-dyadic/high-resolution qualification,
+not another architecture. Original scoring artifacts remain preserved.
+
+Editing errors: two malformed/stale patch contexts were rejected atomically;
+re-read the affected files and applied a scoped corrected patch. No scientific
+runtime or result was changed by the rejected attempts.
+
 ## Authoritative state
 
 Source: /Users/mr.z/ODE-FFN-upstream. Published selection freeze49f6e19and
