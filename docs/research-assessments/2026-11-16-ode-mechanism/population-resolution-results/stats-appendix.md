@@ -1,0 +1,3 @@
+# Statistical scope
+
+Eight paired4096-source/target banks per fixed weight/stream. Summary records every bank effect, mean, sampleSD,95%CIand adjustedCI. Loss changes use squared SW2; pooled SW2and bank-mean effects have different units. Enumerate all6435multinomial vectors, multiplicity8^8. The32new-mesh contrasts use tail.05/64. Cached-reference128is outside this family. Percentile intervals are conditional on the trained weights; coverage is not guaranteed and the banks are not independent training replicates. Primary2048requires both pooled effects and adjusted upper bounds negative. No ordinary architecture ranking or continuous-convergence claim.

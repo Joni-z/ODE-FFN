@@ -43,7 +43,7 @@ def main():
     summary=dict(primary_finer_mesh_benefit_survives=survives,primary_case='product_rk4_trained',
         primary_steps=2048,rows=rows,source_bindings=bindings,bootstrap_multisets=6435,
         bootstrap_ordered_samples=8**8,contrast_family=32,adjusted_two_sided_tail=.05/64,
-        training_seed=0,paired_banks=8,points_per_bank=4096,source_sha256=sha(__file__))
+        training_seed=0,paired_banks=8,points_per_bank=4096,source_sha256=sha(Path(__file__)))
     (a.output/'summary.json').write_text(json.dumps(summary,indent=2,allow_nan=False)+'\n')
     table=['| Weights | Split | Heun steps | Native SW2 | Crossed SW2 | Banks improving |',
            '|---|---|---:|---:|---:|---:|']
@@ -57,17 +57,19 @@ def main():
     cases=['ring_midpoint_trained','ring_rk4_trained','product_midpoint_trained','product_rk4_trained']
     names=['Ring8 / midpoint weights','Ring8 / RK4 weights','Product16 / midpoint weights','Product16 / RK4 weights']
     splits=['selection','confirmation'];colors=['#0072B2','#D55E00'];steps=[127,128,129,512,2048]
-    fig,axes=plt.subplots(2,2,figsize=(10,7),layout='constrained')
+    fig,axes=plt.subplots(2,2,figsize=(10,7))
     for axis,case,name in zip(axes.flat,cases,names,strict=True):
         for split,color in zip(splits,colors,strict=True):
             data=[next(r for r in rows if (r['case'],r['split'],r['steps'])==(case,split,n)) for n in steps]
             for kind,style in [('native','-o'),('crossed','--s')]:
                 axis.plot(range(5),[r[kind]['pooled_sw2'] for r in data],style,color=color,label=split+' '+kind,markersize=4)
         axis.set_title(name);axis.set_xticks(range(5),[str(n) for n in steps]);axis.set_xlabel('Outer Heun steps (categorical)')
-        axis.set_ylabel('Pooled SW2');axis.legend(fontsize=7)
+        axis.set_ylabel('Pooled SW2')
+    fig.legend(*axes.flat[0].get_legend_handles_labels(),loc='lower center',ncol=2,fontsize=8)
+    fig.tight_layout(rect=(0,.08,1,1))
     for ext in ('png','pdf'):fig.savefig(figures/('pooled-resolution.'+ext),dpi=180)
     plt.close(fig)
-    fig,axes=plt.subplots(2,2,figsize=(10,7),layout='constrained')
+    fig,axes=plt.subplots(2,2,figsize=(10,7))
     for axis,case,name in zip(axes.flat,cases,names,strict=True):
         for s,(split,color) in enumerate(zip(splits,colors,strict=True)):
             for i,n in enumerate([127,129,512,2048]):
@@ -78,7 +80,9 @@ def main():
                 axis.scatter([x],[r['bank_change_mean']],color=color,marker='D',s=25,label=split if i==0 else None)
         axis.axhline(0,color='.5',linewidth=.8);axis.set_title(name);axis.set_xticks(range(4),['127','129','512','2048'])
         axis.set_xlabel('Outer Heun steps (categorical)');axis.set_ylabel('Crossed - native bank squared SW2')
-        axis.ticklabel_format(axis='y',style='sci',scilimits=(0,0));axis.legend(fontsize=8)
+        axis.ticklabel_format(axis='y',style='sci',scilimits=(0,0))
+    fig.legend(*axes.flat[0].get_legend_handles_labels(),loc='lower center',ncol=2,fontsize=8)
+    fig.tight_layout(rect=(0,.06,1,1))
     for ext in ('png','pdf'):fig.savefig(figures/('paired-effects.'+ext),dpi=180)
     plt.close(fig)
     decision=('The registered ProductRK4benefit survives the2048-step test on both streams.' if survives else

@@ -1,97 +1,50 @@
 # Current ODE mechanism evidence
 
 Canonical directory: docs/research-assessments/2026-11-16-ode-mechanism/.
-Final Reports1/2and native image source remain protected. The original image
-frozen-DTaylorK8and state-updated synthetic local ODEare different computations.
+Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations.
 
-## Completed causal observations
+## What is established
 
-1. rk4-results/: same initialization/data/AdamW3e-4/20k/seed0,8Papplications
-   per local solve. RK4improves hidden continuous accuracy45.580x/22.245x,
-   without confirmation-generation improvement.
-2. field-exposure-results/: all4096inputs/four weights/six sequential solves.
-   Removing midpoint bias worsens its field MSE6.121%Ring8/1.762%Product16.
-3. cross-solver-results/: on the old banks, ProductRK4weights improve pooled
-   SW2confirmation0.065->0.060with midpoint inference, contrary to field-MSE
-   forecast. Ordinary ProductFree ISRU0.055/SwiGLU0.044remain stronger there.
-   The old wrong-split verifier failure and matched-split repair are preserved.
+Better internal ODEaccuracy alone does not improve generation. Hidden numerical
+bias reaches the complete field. At fixed weights, midpoint inference can
+improve generation even where its field MSEis worse. The measured full-field
+perturbation predicts all8pooled target-effect directions without fitting.
+Rare particle sensitivities do not imply population sampler fragility.
 
-## New complete fresh-bank result
+Population-resolution-results/: all4weights/2streams/8x4096banks/5meshes,
+40rows/720metrics/32new contrasts; all4producer+4NumPyexits0. Metric error
+<=1.12e-16; recursive exact statistics agree0. Sourcea525eb2/5127files unchanged.
+At2048ProductRK4selection SW2.053->.049,confirmation.048->.045,all16banks
+improve. Adjusted squared-loss intervals[-5.279e-4,-3.162e-4]and
+[-3.396e-4,-1.915e-4]. All40pooled comparisons favor midpoint; Ring8bank
+intervals cross0. Same-weight effect; ordinary architecture ranking requires
+matched fresh banks. Both figures inspected, all original failures preserved.
 
-Target-transport-results/analysis-report.md and audit.json bind all four models/
-both new streams/eight shared banks per case, unchanged native Heun128and four
-interpolation strengths. Full64model-banks/32pooled-lambda outcomes retained;
-all8native+8independent exits0. Analysis82357, postprocess64468and rank10554
-actual0; all original owners are terminal. No model retrained.
+## Next mathematical prediction
 
-The unfitted distributional derivative predicts all8pooled effect signs and
-beats zero-change prediction in each. ProductRK4fresh selection0.053->0.048
-and confirmation0.047->0.044; scalar scores0.994/0.870. Paired-bank prediction
-scores0.922/0.425. Do not rank these fresh scores against old ordinary banks.
-Particle endpoint scores are negative in7/8cases; they are not the scalar gate.
+learned-defect-field-protocol.md fixes BOTHmodified-field defects and the
+unchanged full-network observer. Compare its unfitted output variation with
+actual crossed-minus-native field output. Primary: positive score versus zero
+on both4096-input ProductRK4streams, with numerical qualification.
 
-Original primary Boolean staysfalse due4target finite-difference failures
-at epsilon1e-4;60/64banks originally qualified. All72bank/pooled derivatives
-agree with independent Torch AD<=1.09e-18. Exact assignment corrections explain
-the finite-step failures; no flags/thresholds/samples are changed. Native Torch
-reconstructs288secondary metric rows<=4.45e-16, exact statistics<=2.72e-20.
+CPU54925actual0: all JVP/FD/DOP853/tensor/method/RNGcontrols pass, but all4
+Product16prefixes fail32->64tangent refinement. Original flags preserved.
+learned-defect-reference-refinement.md then binds uniform128AND256for ALLcases.
+CPU11984actual0: all8refined16-input cells qualify, final tangent differences
+<=6.09e-10. Independent saved-array/risk reconstruction error<=3.88e-18.
+These are CLI/numerical witnesses, not full4096-input prediction evidence.
+Exact authored source SHAis preserved outsideGit before a formal-only assertion
+edit. Fresh documented learned CUDA/NumPyexecution remains next.
 
-ProductRK4confirmation: one source(bank0,index1481)has tangent norm381.359
-but actual finite displacement1.801; it contributes82.385%of tangent energy.
-The largest10contribute97.072%. The median norms are both0.028. All sources
-retained. Large signed functional/transport remainders cancel. Scalar agreement
-does not imply particle accuracy; particle failure also is not a new rejection
-gate for the original scalar test. Six full figures inspected.
+## Runtime and audit
 
-## Rare-source diagnosis complete; full-bank decision next
-
-Extreme-transport-results/: four frozen weights/two streams/24prebound roles,
-all five Heun127/128/129/256/512counts and four perturbation scales retained.
-Formal34920actual0in140.223s, all16child exits0;5090source hashes unchanged.
-All24roles pass component derivative gates at1e-5/1e-6/1e-7;22/24at1e-4.
-Two figures inspected. ProductRK4confirmation max tangent381.359at128,
-1.390at129,2.025at512; median0.028throughout. Original-probe max peaks32.678
-at256. Maxima selected at128cannot establish population mesh fragility.
-
-Registered full-bank native/crossed generation at127/129/512/2048and cached
-128anchor. Same4weights/2streams/8x4096banks, zero new random draws/training.
-Port actual FP32restored tensors AND nonpersistent buffers to FP64CUDA; keep
-all-source128replay as a gate before new-mesh observations.2048is a finer
-check, not a certified continuous reference. Then apply analytic BOTH-solver
-defects to the full model and target metric. Their learned link remains untested.
-
-## Active full-bank resolution cohort
-
-Population-resolution-protocol.md fixes the2048ProductRK4two-stream primary
-and32new-mesh contrasts. All four models export actual nonpersistent buffers;
-Mac ProductRK4prefix128replay exact. Author26582/58369and fresh73800/83863
-actual0/0, endpoint replay<=2.43e-13/metric<=2.23e-16. Fresh source5127hashes
-unchanged. Minor doc-scope/progress discrepancies retained in the literal receipt.
-
-145queue940668/original tool29874uses sourcea525eb2and public monitor2e6397e.
-Live workers941462/941463/941464/941465on physical4/5/6/7respectively. Each
-stream first gates full32768-source native/crossed128replay, then runs every
-registered new count. Every5smonitor records process/GPUstate; foreign contexts
-stop only our child. No new training/draws or source edits. Do not restart on
-an observation timeout. Raw145:/data2/zz5070/ODE_FFN/population-resolution-20261117/.
-
-Collector9883/tool86573now reads the original queue every30s, then copies and
-analyzes all40rows from frozen6afb685. Original collector1SSHquoting error and
-its actual143termination are preserved; no evaluations restarted. Mac held
-awake only for this collector. Automatic output still requires figure/statistics
-review before publication or scientific conclusions.
-
-## Runtime preparation
-
-Hidden-defect-transport.md: unchanged full model, six local variational solves.
-CPUfresh73860actual0,5041source hashes unchanged; JVP8.14e-20/FD8.95e-12.
-CUDAhelper unchanged from4a409d9; sourcec3529aaauthor75311actual0on145GPU4.
-First fresh receipt wrapper89039exit1lost child status despite passing output;
-that status remainsunknown. Separate recovery14772direct actual0with5050hashes
-unchanged, context released. All receipts: hidden-defect-cuda-readiness.json.
-FP64CPU/CUDAerror<=2.23e-16primal/2.17e-19tangent. B4096takes23.814sCPU/
-0.485sCUDA,48.694xwith transfer; B2562.311x. No package or model changes.
+Mac warm04f11f75and145warm41450454unchanged. Only empty physical1454-7;
+0-3prohibited, no foreign task touched. Population queue940668/tool29874terminal0;
+collector86573terminal1from source-hash Path type, cached analysis41648and50553
+terminal0. All failed logs/frozen sources retained, no sampling rerun. Resource
+polls show mean utilization56.733-60.420%on4cards; all contexts now released.
+Final reports97files/11bindings and five native image files unchanged.
 
 Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/.
-Warm Mac04f11f75/145CUDA41450454unchanged.1450-3prohibited,4-7onlyif empty.
-Full earlier journal: docs/history/2026-11-17-before-full-transport-result/.
+145: /data2/zz5070/ODE_FFN/population-resolution-20261117/.
+Earlier journal: docs/history/2026-11-17-after-population-resolution/.

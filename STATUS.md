@@ -1,70 +1,41 @@
 # Current project status
 
-## Target-loss response is predictable; individual trajectories can be highly sensitive
+## Same-weight generation benefit survives the outer sampler check
 
-The complete fresh-bank study retains four frozen20kmodels, both splits and all
-64model-bank evaluations. The unfitted target-loss derivative predicts all8pooled
-effect directions and beats zero-change prediction in each. Its particle endpoint
-prediction is worse than zero displacement in7/8cases. A small tail of very large
-sensitivities drives that difference. No new model was trained.
+All four frozen20kmodels, both streams, eight4096-source banks and all five
+Heun127/128/129/512/2048meshes complete. Every original128endpoint replays
+before new meshes. All4producers/4independent exits0;720metrics reproduce
+within1.12e-16and all32adjusted contrasts independently agree exactly.
 
-[Complete findings and six figures](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-results/analysis-report.md),
-[original numbers](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-results/summary.json),
-[execution/source/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-results/audit.json).
+| Product16RK4weights,2048steps | Native SW2 | Midpoint SW2 | Banks improving |
+|---|---:|---:|---:|
+| Selection |0.053|0.049|8/8|
+| Confirmation |0.048|0.045|8/8|
 
-| Product16RK4weights, midpoint inference | Native SW2 | Crossed SW2 | Scalar score | Endpoint score |
-|---|---:|---:|---:|---:|
-| Fresh selection |0.053|0.048|0.994|-2.481|
-| Fresh confirmation |0.047|0.044|0.870|-49.172|
+The registered finer-mesh criterion passes on both streams. Every prescribed
+mesh retains the effect. Ring8pooled directions persist, while adjusted bank
+intervals cross zero. The extreme-source sensitivity therefore does not imply
+a128-only population benefit. This remains a same-weight solver intervention.
+[Complete results/two figures](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/analysis-report.md),
+[execution/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/audit.json).
 
-These are within-model effects on new banks, not a comparison with ordinary
-models measured on the older bank streams. Scalar score compares squared
-prediction error with zero-change prediction; it is not explained variance.
+## Next: predict the field change from the ODE equations
 
-All8native/eight independent evaluators, primary analysis and cached checks
-terminate0. The original primary Boolean remainsfalse: four finite-difference
-flags fail at epsilon1e-4. Complete72case/bank derivative checks agree with
-independent Torch ADwithin1.09e-18; sorting changes explain those finite-step
-discrepancies. The flags and original thresholds remain unchanged.
-
-The exact remainder accounting reconstructs all288metric rows within4.45e-16.
-For ProductRK4confirmation, one of32768sources contributes82.385%of tangent
-squared norm: predicted displacement381.359versus actual1.801. All sources
-remain in the analysis. Accurate aggregate response does not imply accurate
-finite particle displacements.
-
-## Rare-source check complete; full-bank resolution is next
-
-All8cases/24prebound roles complete in140.223s, native/independent exits0/0.
-All24pass endpoint derivative checks at epsilon1e-5and1e-6. ProductRK4
-confirmation maximum tangent changes381.359at128to1.390at129and2.025at512;
-its median control stays0.028. The exact sources were selected at128, so this
-is source-local mesh dependence, not a population quality/sensitivity ranking.
-[Complete findings and two figures](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-results/analysis-report.md),
-[source/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-results/audit.json).
-
-Full-bank native/crossed generation is running at Heun127/128/129/512/2048,
-on the same four frozen weights/two streams. All actual parameters AND the
-nonpersistent time buffer were exported. Author/fresh CUDAchecks and NumPy
-verification pass; maximum endpoint replay2.43e-13, metric2.23e-16. Formal
-per-stream gates still check every32768cached128endpoints before new counts.
-
-Queue940668/original session29874, four live workers941462-941465on physical
-145GPUs4/5/6/7, sourcea525eb2unchanged. Monitor saves progress/GPUhistory every5s,
-retains actual exits and runs an independent verifier after each producer.
-Mac collector9883/original86573waits for that same queue, copies completed
-evidence once and analyzes all40rows from frozen6afb685.
-[Fixed protocol](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-protocol.md),
-[fresh receipt](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-fresh-receipt.json),
-[verified launch](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-launch.json).
-The analytic ODE-defect-to-target prediction remains untested. No new image
-architecture is promoted; the original target-derivative gate stays unchanged.
+The BOTH-solver analytic correction and full-network observer are now bound to
+actual trained tensors and existing field inputs. Eight refined16-input CPU
+witnesses pass numerical/independent checks; original Product16coarser-reference
+failures remain preserved. Full4096-input predictions are not yet evaluated.
+[Fixed hypothesis](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-field-protocol.md),
+[registered numerical refinement](docs/research-assessments/2026-11-16-ode-mechanism/learned-defect-reference-refinement.md).
+Fresh documented learned CUDA/NumPyreadiness precedes the full-field test.
 
 ## Execution and resources
 
 The original Mac queue98117/15465, collector98379/82357, postprocessor332/64468
 and cached-rank actor3315/10554are terminal. Full raw evidence remains under
 /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/.
+Population queue940668/tool29874and all8children are terminal0; all GPUcontexts
+released. Collector86573analysis failure preserved; cached41648/50553actual0.
 Warm CPU04f11f75unchanged; the24-role probe queue34920is terminal, actual0.
 Source146c158/5090hashes and all original inputs remain unchanged.
 

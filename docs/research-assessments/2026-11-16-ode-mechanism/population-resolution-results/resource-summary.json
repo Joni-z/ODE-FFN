@@ -1,0 +1,34 @@
+{
+  "monitor_interval_seconds": 5,
+  "scope": "all queue polls with an active evaluating child; arithmetic means",
+  "by_case": {
+    "ring_midpoint_trained": {
+      "physical_gpu": 4,
+      "polls": 202,
+      "mean_gpu_utilization_percent": 56.73267326732673,
+      "peak_memory_mib": 1330.0,
+      "mean_power_w": 119.20460396039604
+    },
+    "ring_rk4_trained": {
+      "physical_gpu": 5,
+      "polls": 189,
+      "mean_gpu_utilization_percent": 60.407407407407405,
+      "peak_memory_mib": 1330.0,
+      "mean_power_w": 128.28037037037038
+    },
+    "product_midpoint_trained": {
+      "physical_gpu": 6,
+      "polls": 190,
+      "mean_gpu_utilization_percent": 56.82631578947368,
+      "peak_memory_mib": 1334.0,
+      "mean_power_w": 129.08273684210528
+    },
+    "product_rk4_trained": {
+      "physical_gpu": 7,
+      "polls": 188,
+      "mean_gpu_utilization_percent": 60.420212765957444,
+      "peak_memory_mib": 1334.0,
+      "mean_power_w": 124.3804255319149
+    }
+  }
+}
