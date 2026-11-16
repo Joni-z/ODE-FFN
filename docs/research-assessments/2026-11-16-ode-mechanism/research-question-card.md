@@ -1,5 +1,12 @@
 # Does an ODE constraint improve the learned generative field?
 
+Latest continuation, 17 November: matched RK4 training, complete-field substitutions
+and crossed sampling are now complete. The solver bias affects the output;
+field-MSE rankings do not reliably predict its generative benefit. See the
+[current causal comparison](cross-solver-results/analysis-report.md) and
+[next missing mathematical link](target-aware-bias-transport.md). The earlier
+cohort/protocol below keeps its original numbers and scope.
+
 Current disposition: the coefficient/state/sharing/schedule controls and
 full refined transport calibration are complete. The general first-order
 endpoint explanation is not supported at the trained scale.

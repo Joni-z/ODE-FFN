@@ -115,11 +115,11 @@ def main() -> None:
         group = [r for r in contrasts if r['dataset']==task]
         for i,row in enumerate(group):
             lo,hi = row['four_comparison_adjusted']
-            color = '#1b9e77' if row['forecast_point_support'] else '#d95f02'
+            color = '#1b9e77' if row['mean_difference']<0 else '#d95f02'
             ax.hlines(i,lo*1000,hi*1000,color=color,lw=2)
             ax.scatter(row['mean_difference']*1000,i,color=color,s=35,zorder=3)
         ax.axvline(0,color='.4',lw=1)
-        ax.set(yticks=range(4),yticklabels=[r['trained_solver']+' / '+r['split'] for r in group],
+        ax.set(yticks=range(4),yticklabels=[('M' if r['trained_solver']=='midpoint' else 'R')+' / '+('sel' if r['split']=='selection' else 'conf')+'; forecast '+('↓' if r['predicted']=='improve' else '↑') for r in group],
                xlabel='Crossed minus native bank SW2 × 1000',title=title+' / paired differences')
     for ext in ['png','pdf']:
         fig.savefig(out/'figures'/('paired-sampling-forecasts.'+ext),dpi=180)
@@ -128,24 +128,30 @@ def main() -> None:
     shutil.copyfile(root/'verification-v2/PASS.json',out/'verification-terminal.json')
     (out/'analysis-report.md').write_text(f'''# Do field-based solver rankings predict generation?
 
-The prebound field-based ranking is supported in{result['point_supported']}/8model/split
-comparisons by both pooledSW2and mean paired-bank direction; adjusted intervals
-support{result['adjusted_supported']}/8. Every case, split and bank is retained.
-These are frozen-weight inference interventions; no model was retrained.
+On Product16, RK4-trained weights sampled with midpoint improve confirmation
+pooled SW2 from 0.065 to 0.060; both source bank splits support the improvement.
+The field-MSE-based forecast had predicted the opposite direction. On Ring8,
+a clear field-fitting benefit does not yield a consistent sampling benefit.
+Thus directed hidden numerical bias affects generation, but average field MSE
+is insufficient to explain its useful direction. No model was retrained.
+
+The complete prebound ranking has {result['point_supported']}/8 point-supported
+cases and {result['adjusted_supported']}/8 adjusted-supported cases. Every case,
+split and bank is retained.
 
 ## Controlled substitution
 
 Each of four20kweight sets is evaluated with the other hidden discrete solver.
-Both methods use eight Papplications per local solve. The original native
-Heun32final samples replay exactly before substitution; then the copied native
-evaluator uses unchanged Heun128, eight4096-source banks and256directions.
+Both methods use eight P applications per local solve. The original native
+Heun32 final samples replay exactly before substitution; then the copied native
+evaluator uses unchanged Heun128, eight 4096-source banks and 256 directions.
 Independent NumPy reconstructs every field, sample and mode/gap metric.
 
 ![Sampling and controls](figures/crossed-sampling-and-controls.png)
 
 Rows fix trained weights, columns select the inference solver. Bottom labels
-mean training→inference(M=midpoint,R=RK4). Ordinary SwiGLUand FreeISRUcontrols
-remain unchanged; Ring8SwiGLU64uses Muon, Product16SwiGLU192uses AdamW.
+mean training→inference (M=midpoint, R=RK4). Ordinary SwiGLU and Free ISRU controls
+remain unchanged; Ring8 SwiGLU64 uses Muon, Product16 SwiGLU192 uses AdamW.
 The field diagnostic and sampling test answer different questions: a field-risk
 benefit is not counted as a generation gain without the target comparison.
 
@@ -153,9 +159,9 @@ benefit is not counted as a generation gain without the target comparison.
 ![All paired forecasts](figures/paired-sampling-forecasts.png)
 
 Intervals concern paired-bank mean differences; pooled scores are reported
-separately. Negative favors the crossed solver. Green means the pooled/mean
-point directions follow the prebound prediction; orange means at least one
-does not. All original common sources and checkpoint identities are preserved.
+separately. Negative favors the crossed solver. Green points have lower bank
+SW2; orange points have higher bank SW2. Label arrows record the prebound
+field-based forecast. M/R denote midpoint/RK4 training. All original common sources and checkpoint identities are preserved.
 
 ## Claim candidates
 
@@ -163,40 +169,40 @@ does not. All original common sources and checkpoint identities are preserved.
   in the listed cases and fails in the others.
   - Evidence: complete selection/confirmation banks and independent reconstruction.
   - Allowed wording: retain the per-case dispositions in summary.json.
-  - Forbidden stronger wording: universal field-MSEor ODEsolver advantage.
+  - Forbidden stronger wording: universal field-MSE or ODE-solver advantage.
   - Uncertainty: fixed learned weights and conditional sampling-bank variation.
   - Next check: choose the next mechanism from the complete result, not one bank.
   - Decision: keep case-specific evidence and revise any broader claim.
 ''')
     (out/'stats-appendix.md').write_text('''# Comparison units and exact paired statistics
 
-Four retained20kweight sets, training seed0. Eight new full evaluations:
+Four retained 20k weight sets, training seed 0. Eight new full evaluations:
 four crossed solvers by selection/confirmation. Each uses eight common4096-source
-banks,256directions,Heun128and32768pooled samples. Native original-solver and
+banks, 256 directions, Heun128 and 32,768 pooled samples. Native original-solver and
 ordinary control metrics are reused only with matching asset/checkpoint hashes.
-All eight new metric reconstructions have actual terminal0, as do all evaluations.
+All eight new metric reconstructions have actual terminal 0, as do all evaluations.
 
-Paired bank difference is crossed minus nativeSW2, keeping source/target and
-directions identical. Enumerate6435multisets with exact multinomial weights for
-all8^8ordered bank resamples. Report marginal95%, four-comparison-adjusted
-intervals per split, and8-comparison sensitivity over both splits. These describe
-conditional evaluation-bank variation of the retained weights. PooledSW2and
-the mean of bankSW2are distinct statistics; both directions must satisfy the
+Paired bank difference is crossed minus native SW2, keeping source/target and
+directions identical. Enumerate 6,435 multisets with exact multinomial weights for
+all 8^8 ordered bank resamples. Report marginal 95%, four-comparison-adjusted
+intervals per split, and 8-comparison sensitivity over both splits. These describe
+conditional evaluation-bank variation of the retained weights. Pooled SW2 and
+the mean of bank SW2 are distinct statistics; both directions must satisfy the
 prebound prediction. No arbitrary performance margin or best-arm selection.
 ''')
     (out/'figure-catalog.md').write_text('''# Figure interpretation
 
 ## crossed-sampling-and-controls
 Purpose: distinguish fixed weights from inference solver and retain strong
-ordinary baselines. Confirmation pooledSW2has no error bars. All heatmap/bar
+ordinary baselines. Confirmation pooled SW2 has no error bars. All heatmap/bar
 values come from independently verified raw samples; three decimals are display
 precision only. Compare complete rows rather than selecting a single cell.
 
 ## paired-sampling-forecasts
 Purpose: test the prospective field-based directions on both reserved splits.
-Points are mean paired-bankSW2differences; intervals are exact conditional
-four-comparison-adjusted bootstrap intervals. Green follows both pooled/mean
-point forecasts, orange does not. This tests a concrete mechanism bridge;
+Points are mean paired-bank SW2 differences; intervals are exact conditional
+four-comparison-adjusted bootstrap intervals. Green means lower bank SW2 and
+orange higher; forecast arrows in the labels preserve the registered directions. This tests a concrete mechanism bridge;
 field improvement alone is not a sample-quality result.
 ''')
     print('crossed-sampling analysis complete',result['point_supported'],result['adjusted_supported'],flush=True)

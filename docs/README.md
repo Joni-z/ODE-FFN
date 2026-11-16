@@ -9,6 +9,7 @@ continue to resolve.
 | Topic | Entry |
 |---|---|
 | Current run and actual job snapshot | [Project status](../STATUS.md) |
+| Does hidden numerical bias help the field and the generated distribution? | [Full field intervention](research-assessments/2026-11-16-ode-mechanism/field-exposure-results/analysis-report.md), [crossed sampling and ordinary controls](research-assessments/2026-11-16-ode-mechanism/cross-solver-results/analysis-report.md), [next target-aware derivation](research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md) |
 | Does a more accurate hidden solver help generation? | [Completed equal-work RK4 comparison and figures](research-assessments/2026-11-16-ode-mechanism/rk4-results/analysis-report.md), [audit](research-assessments/2026-11-16-ode-mechanism/rk4-audit.json), [next full-field test](research-assessments/2026-11-16-ode-mechanism/rk4-followup-protocol.md) |
 | What does the ODE structure contribute? | [Falsifiable mechanism plan](research-assessments/2026-11-16-ode-mechanism/research-question-card.md), [mathematics](research-assessments/2026-11-16-ode-mechanism/mathematical-basis.md), [primary literature checks](research-assessments/2026-11-16-ode-mechanism/literature-notes.md) |
 | Which hidden feature change reaches the output? | [Complete single-layer intervention](research-assessments/2026-11-16-ode-mechanism/hidden-readout-results/analysis-report.md), [energy/direction geometry](research-assessments/2026-11-16-ode-mechanism/hidden-energy-results/analysis-report.md) |

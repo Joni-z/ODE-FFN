@@ -1,5 +1,12 @@
 # What the completed controls establish
 
+Latest continuation, 17 November: matched RK4 training, complete-field substitutions
+and crossed sampling are now complete. The solver bias affects the output;
+field-MSE rankings do not reliably predict its generative benefit. See the
+[current causal comparison](cross-solver-results/analysis-report.md) and
+[next missing mathematical link](target-aware-bias-transport.md). The earlier
+cohort/protocol below keeps its original numbers and scope.
+
 **The strongest remaining structural signal is a task-dependent sampling benefit
 from sharing P. It is not a joint-density benefit in the completed comparison.
 Prescribed exponential coefficients show no consistent sampling advantage.

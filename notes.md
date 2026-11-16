@@ -1,34 +1,31 @@
-# Current ODE mechanism evidence
+# Current mechanism findings
 
-## Matched solver result
+Equal-parameter/equal-matrix-work RK4 improves hidden accuracy 45.580x/22.245x,
+but not native generation. Full sequential-field interventions show the
+midpoint bias is exposed and can reduce field error. Both Ring8 weight sets
+prefer midpoint, so an own-solver adaptation story is insufficient.
 
-Same f=PISRU(y), parameters, initialized tensors/RNG, data stream and eight
-P applications. Midpoint4 vs classical RK4 two-step, seed 0/20k. Both complete
-training/evaluation pipelines exit 0. Normalized hidden squared error drops by
-45.580x (Ring8) and 22.245x (Product16), all 1,920 points qualified. Confirmation
-pooled SW2 does not improve on either task; both paired adjusted intervals include
-zero. Product16 ordinary SwiGLU remains stronger than both focal ODE models.
-All selection/confirmation banks and raw precision are retained.
+Actual crossed sampling provides the next distinction. Product16 RK4 weights
+improve pooled SW2 when sampled with midpoint: confirmation 0.065->0.060 and
+selection 0.058->0.054. Both paired adjusted intervals favor the substitution,
+although its field MSE slightly increases. Ring8's clear field gain does not
+transfer consistently. Four of eight field-based point forecasts and two
+adjusted forecasts hold. Free ISRU and SwiGLU remain stronger on Product16.
+No general ODE-specific performance advantage is established.
 
-Canonical result: docs/research-assessments/2026-11-16-ode-mechanism/rk4-results/.
-Audit: same parent/rk4-audit.json. Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/.
-Metrics reconstructed independently in NumPy (2.78e-17 max), separate exact
-conditional-bank statistics (2.71e-20 max). Parameters/MACs match; 100-repeat
-same-process forward/backward costs are descriptive. Final Reports1/2 unchanged.
+Canonical evidence under docs/research-assessments/2026-11-16-ode-mechanism/:
+- rk4-results/: matched training, hidden fidelity, samples and costs.
+- field-exposure-results/: full 4,096-input risk accounting and compensation test.
+- cross-solver-results/: all four weights/two splits, ordinary controls, paired
+  statistics and independent verification. Original eight samples unchanged;
+  verification input-binding bug and rejected wrong-split test retained.
 
-## What the result changes
+Next: target-aware-bias-transport.md. Work around the actual learned field and
+measure the derivative of the real target distance; do not revive the rejected
+large oracle-field linearization or substitute paired endpoint error for quality.
+Only after calibration, replace measured solver differences with the unfitted
+ODE defect prediction. No response/architecture/training change yet.
 
-The established midpoint modified-equation prediction explains numerical bias,
-but reducing that bias during training does not produce a useful generation
-gain here. Continuous accuracy is not a sufficient architecture rationale.
-The complete-dimension null also rejects a special tangential-output explanation.
-Do not reopen activation search or promote a new image FFN from either result.
-
-## Next registered diagnosis
-
-rk4-followup-protocol.md fixes four learned weights, full 4,096 selection-field
-inputs and every hidden solve. Cross solver/weight combinations to test the
-strong diagonal compensation prediction; compute exact complete-field risk
-change 2<e,delta>+||delta||² and its numerical qualification. Distinguish small
-output exposure from learned compensation before another training architecture.
-This follow-up is registered, not yet implemented or observed.
+Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/.
+Warm CPU environment 04f11f75 unchanged. Mac used four one-thread workers;145 GPUs
+4-7 occupied and unused, 0-3 prohibited. Final Reports1/2 and image source unchanged.
