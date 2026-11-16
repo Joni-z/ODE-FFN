@@ -47,7 +47,7 @@ Publish verified code and evidence promptly to GitHub main as Zhizhe Zhang.
 
 ## P0 next action: complete-field exposure and compensation
 
-8. [ ] Implement the registered crossed-weight/solver and exact-risk accounting
+8. [x] Implement the registered crossed-weight/solver and exact-risk accounting
    in rk4-followup-protocol.md. Use all 4,096 fixed field inputs, four retained
    checkpoints, all six hidden solves and independently qualified references.
    No new training or response change. Freeze and verify the actual observer
@@ -87,8 +87,18 @@ and executes the already registered field-exposure/compensation test:
   complete continuous-forward modes, capturing all six actual sequential inputs.
 - [x] Verify native replay, unchanged tensors/RNG, independent local maps and
   continuous endpoints, plus exact risk accounting on bounded first8witnesses.
-- [ ] Publish/freeze, fresh documented pass, then two monitored CPUworkers.
-- [ ] Independently verify every full point; analyze numerical resolution,
+- [x] Publish/freeze f2bd19f; fresh four-command pass exits0/0/0/0. Two
+  monitored CPUworkers started, original tool70124, PIDs93601/93602.
+- [x] Independently verify every full point; analyze numerical resolution,
   crossed risks, exposure/alignment and paired conditional differences.
 - [ ] Publish the evidence and update the next decision; keep the goal active
   while the underlying ODE contribution remains unresolved.
+
+
+Full-field outcome: both full native and independent task commands and original
+supervisor70124exit0; every4096-input case qualifies. The strong diagonal
+compensation hypothesis fails on Ring8, where both learned weights prefer midpoint.
+Next execute the prebound four-case crossed-solver sampling forecasts on both
+selection/confirmation banks. Use the copied native evaluator, preserve native
+Heun32anchor before substitution, and independently reconstruct every metric.
+No new training or image architecture is selected.

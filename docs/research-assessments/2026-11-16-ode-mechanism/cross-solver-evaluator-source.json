@@ -1,0 +1,15 @@
+{
+  "parent": "studies/muon_pd_20261102/response_screen_20261115/evaluate_screen.py",
+  "parent_sha256": "3e17c3c3df903d0576cef4c90c2679af699c11d93a8bb4ee9764925e25837465",
+  "copied_functions_unchanged": [
+    "assets",
+    "cases"
+  ],
+  "preserved": "Native restore and Heun32 anchor before solver substitution; native field, sampler, SW2, common banks and cases unchanged.",
+  "changes": [
+    "Native builder callback",
+    "Explicit --solver",
+    "Parameter-preserving class/substep substitution after native anchor",
+    "Inference solver recorded in bindings/summaries"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "source_commit": "f2bd19f0305532cb15c8ef48c33cfdbf825f8db5",
+  "supervisor_pid": 93592,
+  "tool_session": 70124,
+  "started_unix": 1794849742.694568,
+  "threads_per_worker": 1,
+  "device": "cpu",
+  "workers": 2,
+  "monitor": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/ops/monitor.jsonl",
+  "status_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/ops/status.json",
+  "commands": [
+    {
+      "task": "ring",
+      "dataset": "gmm_ring8_2d",
+      "phase": "native",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/field_exposure.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--dataset",
+        "gmm_ring8_2d",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/ring"
+      ],
+      "pid": 93601
+    },
+    {
+      "task": "product",
+      "dataset": "rotated_product_bimodal_16d",
+      "phase": "native",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/field_exposure.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--dataset",
+        "rotated_product_bimodal_16d",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/product"
+      ],
+      "pid": 93602
+    }
+  ],
+  "source_operations_sha256": "87e139c3fb625aabb72cf228058eda534868dd17fec9bd0d3ddd62119affc003",
+  "actual_terminal_exit": 0
+}

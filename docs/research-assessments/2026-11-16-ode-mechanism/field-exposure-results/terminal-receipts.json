@@ -1,0 +1,113 @@
+{
+  "supervisor_pid": 93592,
+  "started_unix": 1794849742.694568,
+  "observed_unix": 1794849787.896694,
+  "source_commit": "f2bd19f0305532cb15c8ef48c33cfdbf825f8db5",
+  "running": [],
+  "completed": [
+    {
+      "task": "ring",
+      "dataset": "gmm_ring8_2d",
+      "phase": "native",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/field_exposure.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--dataset",
+        "gmm_ring8_2d",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/ring"
+      ],
+      "independent": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/verify_field_exposure.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/ring",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/ring-verified"
+      ],
+      "pid": 93601,
+      "started_unix": 1794849742.696086,
+      "log": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/ops/ring-native.log",
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794849767.79206
+    },
+    {
+      "task": "product",
+      "dataset": "rotated_product_bimodal_16d",
+      "phase": "native",
+      "command": [
+        "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/field_exposure.py",
+        "--root",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control",
+        "--data-root",
+        "/Users/mr.z/ode-workspace-prep/data/synthetic",
+        "--dataset",
+        "rotated_product_bimodal_16d",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/product"
+      ],
+      "independent": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/verify_field_exposure.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/product",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/product-verified"
+      ],
+      "pid": 93602,
+      "started_unix": 1794849742.697493,
+      "log": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/ops/product-native.log",
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794849767.793355
+    },
+    {
+      "task": "ring",
+      "dataset": "gmm_ring8_2d",
+      "phase": "independent",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/verify_field_exposure.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/ring",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/ring-verified"
+      ],
+      "pid": 93669,
+      "started_unix": 1794849767.80251,
+      "log": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/ops/ring-independent.log",
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794849787.896527
+    },
+    {
+      "task": "product",
+      "dataset": "rotated_product_bimodal_16d",
+      "phase": "independent",
+      "command": [
+        "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/repo/studies/muon_pd_20261102/coefficient_20261116/verify_field_exposure.py",
+        "--input",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/product",
+        "--output",
+        "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/formal/product-verified"
+      ],
+      "pid": 93670,
+      "started_unix": 1794849767.8082108,
+      "log": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/ops/product-independent.log",
+      "actual_terminal_exit": 0,
+      "ended_unix": 1794849787.8966458
+    }
+  ],
+  "pending": [],
+  "failed": false,
+  "cpu_load": [
+    2.7080078125,
+    2.87841796875,
+    2.521484375
+  ],
+  "passed": true
+}

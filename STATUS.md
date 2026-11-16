@@ -26,7 +26,15 @@ A more faithful internal solution is not sufficient by itself. Next distinguish
 weak exposure of hidden bias at the complete field from solver-specific learned
 compensation, using a crossed weight/solver comparison and the exact risk identity
 R_cont-R_num=2 mean<error,delta>+mean||delta||². This is a frozen-weight diagnostic,
-not a new response or image architecture. It is registered but not yet executed.
+not a new response or image architecture. The full4096-input diagnosis is complete: all four native/independent commands
+and their supervisor exit0. Both Ring8weight sets prefer midpoint, contradicting
+the strong own-solver compensation prediction. Native midpoint-to-continuous
+replacement raises fieldMSE6.121%on Ring8 and1.762%on Product16for midpoint-trained
+weights. Every point is numerically qualified; field bootstrap is independently
+verified. The next step tests whether these field-risk rankings survive actual
+common-bank sampling, using the same retained weights and ordinary controls.
+[Field result and figures](docs/research-assessments/2026-11-16-ode-mechanism/field-exposure-results/analysis-report.md).
+
 [Protocol and falsifiable predictions](docs/research-assessments/2026-11-16-ode-mechanism/rk4-followup-protocol.md).
 
 ## Earlier controls and preserved image benchmark

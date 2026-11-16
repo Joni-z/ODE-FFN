@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "id": "ring_midpoint_trained",
+      "dataset": "gmm_ring8_2d",
+      "source_id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output/state_flow_20261116/gmm_ring8_2d/gmm_ring8_2d__state_midpoint4__adamw_0.0003/seed000",
+      "trained_solver": "midpoint",
+      "inference_solver": "rk4",
+      "predicted_crossed_sw2_change": "worsen"
+    },
+    {
+      "id": "ring_rk4_trained",
+      "dataset": "gmm_ring8_2d",
+      "source_id": "gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/gmm_ring8_2d/gmm_ring8_2d__state_rk4_2__adamw_0.0003/seed000",
+      "trained_solver": "rk4",
+      "inference_solver": "midpoint",
+      "predicted_crossed_sw2_change": "improve"
+    },
+    {
+      "id": "product_midpoint_trained",
+      "dataset": "rotated_product_bimodal_16d",
+      "source_id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/state-output/state_flow_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/seed000",
+      "trained_solver": "midpoint",
+      "inference_solver": "rk4",
+      "predicted_crossed_sw2_change": "worsen"
+    },
+    {
+      "id": "product_rk4_trained",
+      "dataset": "rotated_product_bimodal_16d",
+      "source_id": "rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+      "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/training/state_rk4_control_20261116/rotated_product_bimodal_16d/rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003/seed000",
+      "trained_solver": "rk4",
+      "inference_solver": "midpoint",
+      "predicted_crossed_sw2_change": "worsen"
+    }
+  ],
+  "assets_root": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets",
+  "training_seed": 0,
+  "training_steps": 20000,
+  "new_training_runs": 0
+}

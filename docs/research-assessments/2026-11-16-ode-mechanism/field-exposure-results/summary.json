@@ -1,0 +1,339 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "id": "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+      "task": "ring",
+      "title": "Ring8",
+      "dimension": 2,
+      "trained_solver": "midpoint",
+      "risks": {
+        "midpoint": 0.02043499409597905,
+        "rk4": 0.021568826582453855,
+        "continuous_tight": 0.021685839702090884
+      },
+      "mse": {
+        "midpoint": 0.010217497047989525,
+        "rk4": 0.010784413291226928,
+        "continuous_tight": 0.010842919851045442
+      },
+      "own_accounting": {
+        "R": 0.02043499409597905,
+        "S": 0.00020762671975998537,
+        "C": 0.0005216094431759257,
+        "continuous_R": 0.021685839702090884,
+        "risk_change": 0.0012508456061118367,
+        "exposure": 0.01016035134557928,
+        "alignment": 0.2532308224974425,
+        "absolute_change_bound": 0.004327263010726846,
+        "identity_max_error": 1.1796119636642288e-16
+      },
+      "all_accounting": {
+        "midpoint": {
+          "R": 0.02043499409597905,
+          "S": 0.00020762671975998537,
+          "C": 0.0005216094431759257,
+          "continuous_R": 0.021685839702090884,
+          "risk_change": 0.0012508456061118367,
+          "exposure": 0.01016035134557928,
+          "alignment": 0.2532308224974425,
+          "absolute_change_bound": 0.004327263010726846,
+          "identity_max_error": 1.1796119636642288e-16
+        },
+        "rk4": {
+          "R": 0.021568826582453855,
+          "S": 2.957540892448274e-06,
+          "C": 5.702778937229098e-05,
+          "continuous_R": 0.021685839702090884,
+          "risk_change": 0.00011701311963703028,
+          "exposure": 0.0001371210845032349,
+          "alignment": 0.22579166106143944,
+          "absolute_change_bound": 0.0005080939051337594,
+          "identity_max_error": 1.0232158002831948e-16
+        }
+      },
+      "continuous_tolerance_risk_resolution": 2.9559109303443253e-12,
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "qualified_points": 4096
+    },
+    {
+      "id": "gmm_ring8_2d__state_rk4_2__adamw_0.0003",
+      "task": "ring",
+      "title": "Ring8",
+      "dimension": 2,
+      "trained_solver": "rk4",
+      "risks": {
+        "midpoint": 0.01947576970270721,
+        "rk4": 0.020343843263991773,
+        "continuous_tight": 0.020443050322248843
+      },
+      "mse": {
+        "midpoint": 0.009737884851353604,
+        "rk4": 0.010171921631995887,
+        "continuous_tight": 0.010221525161124421
+      },
+      "own_accounting": {
+        "R": 0.020343843263991773,
+        "S": 3.313255303004016e-06,
+        "C": 4.7946901477031076e-05,
+        "continuous_R": 0.020443050322248843,
+        "risk_change": 9.92070582570661e-05,
+        "exposure": 0.00016286280129125928,
+        "alignment": 0.18467860911679285,
+        "absolute_change_bound": 0.0005225601968554922,
+        "identity_max_error": 7.979727989493313e-17
+      },
+      "all_accounting": {
+        "midpoint": {
+          "R": 0.01947576970270721,
+          "S": 0.00022984148388114029,
+          "C": 0.00036871956783024744,
+          "continuous_R": 0.020443050322248843,
+          "risk_change": 0.0009672806195416351,
+          "exposure": 0.011801406947690052,
+          "alignment": 0.1742748278616976,
+          "absolute_change_bound": 0.004461313950149865,
+          "identity_max_error": 8.326672684688674e-17
+        },
+        "rk4": {
+          "R": 0.020343843263991773,
+          "S": 3.313255303004016e-06,
+          "C": 4.7946901477031076e-05,
+          "continuous_R": 0.020443050322248843,
+          "risk_change": 9.92070582570661e-05,
+          "exposure": 0.00016286280129125928,
+          "alignment": 0.18467860911679285,
+          "absolute_change_bound": 0.0005225601968554922,
+          "identity_max_error": 7.979727989493313e-17
+        }
+      },
+      "continuous_tolerance_risk_resolution": 2.7042969798853424e-12,
+      "checkpoint_sha256": "2e70820797b218101e743c55b5d9d5a1680c8638e528605ddbea506f84de1f56",
+      "qualified_points": 4096
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "task": "product",
+      "title": "Product16",
+      "dimension": 16,
+      "trained_solver": "midpoint",
+      "risks": {
+        "midpoint": 0.3082659649216825,
+        "rk4": 0.31305512192955753,
+        "continuous_tight": 0.31369771137727387
+      },
+      "mse": {
+        "midpoint": 0.019266622807605157,
+        "rk4": 0.019565945120597346,
+        "continuous_tight": 0.019606106961079617
+      },
+      "own_accounting": {
+        "R": 0.3082659649216825,
+        "S": 0.002892570110492365,
+        "C": 0.0012695881725495214,
+        "continuous_R": 0.31369771137727387,
+        "risk_change": 0.005431746455591406,
+        "exposure": 0.009383358656630309,
+        "alignment": 0.042516561297486787,
+        "absolute_change_bound": 0.06261462353180555,
+        "identity_max_error": 9.08995101411847e-16
+      },
+      "all_accounting": {
+        "midpoint": {
+          "R": 0.3082659649216825,
+          "S": 0.002892570110492365,
+          "C": 0.0012695881725495214,
+          "continuous_R": 0.31369771137727387,
+          "risk_change": 0.005431746455591406,
+          "exposure": 0.009383358656630309,
+          "alignment": 0.042516561297486787,
+          "absolute_change_bound": 0.06261462353180555,
+          "identity_max_error": 9.08995101411847e-16
+        },
+        "rk4": {
+          "R": 0.31305512192955753,
+          "S": 9.226541067133706e-05,
+          "C": 0.00027516201852249183,
+          "continuous_R": 0.31369771137727387,
+          "risk_change": 0.0006425894477163201,
+          "exposure": 0.00029472576619301655,
+          "alignment": 0.05119866303256644,
+          "absolute_change_bound": 0.01084106243872915,
+          "identity_max_error": 1.3357370765021415e-15
+        }
+      },
+      "continuous_tolerance_risk_resolution": 6.549876365050277e-11,
+      "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+      "qualified_points": 4096
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_rk4_2__adamw_0.0003",
+      "task": "product",
+      "title": "Product16",
+      "dimension": 16,
+      "trained_solver": "rk4",
+      "risks": {
+        "midpoint": 0.31071514321360316,
+        "rk4": 0.3104398528961433,
+        "continuous_tight": 0.3105986024082047
+      },
+      "mse": {
+        "midpoint": 0.019419696450850198,
+        "rk4": 0.019402490806008955,
+        "continuous_tight": 0.019412412650512793
+      },
+      "own_accounting": {
+        "R": 0.3104398528961433,
+        "S": 8.895413903959744e-05,
+        "C": 3.489768651094355e-05,
+        "continuous_R": 0.3105986024082047,
+        "risk_change": 0.0001587495120614851,
+        "exposure": 0.00028654226643174183,
+        "alignment": 0.006640867607519885,
+        "absolute_change_bound": 0.010598932224260463,
+        "identity_max_error": 5.30825383648903e-16
+      },
+      "all_accounting": {
+        "midpoint": {
+          "R": 0.31071514321360316,
+          "S": 0.0030089890396518253,
+          "C": -0.0015627649225251183,
+          "continuous_R": 0.3105986024082047,
+          "risk_change": -0.00011654080539841055,
+          "exposure": 0.009684075930548632,
+          "alignment": -0.051109559954959215,
+          "absolute_change_bound": 0.06416251585155627,
+          "identity_max_error": 6.661338147750939e-16
+        },
+        "rk4": {
+          "R": 0.3104398528961433,
+          "S": 8.895413903959744e-05,
+          "C": 3.489768651094355e-05,
+          "continuous_R": 0.3105986024082047,
+          "risk_change": 0.0001587495120614851,
+          "exposure": 0.00028654226643174183,
+          "alignment": 0.006640867607519885,
+          "absolute_change_bound": 0.010598932224260463,
+          "identity_max_error": 5.30825383648903e-16
+        }
+      },
+      "continuous_tolerance_risk_resolution": 5.953098126364281e-11,
+      "checkpoint_sha256": "b3980a82c16ca190e9e89dad7a4b336261c9e385fcac15fc5f87e954395fcbd5",
+      "qualified_points": 4096
+    }
+  ],
+  "contrasts": [
+    {
+      "task": "ring",
+      "title": "Ring8",
+      "trained_solver": "midpoint",
+      "dimension": 2,
+      "own_minus_other_vector_risk": -0.0011338324864748066,
+      "per_state_sd": 0.003205034988035328,
+      "marginal95": [
+        -0.0012345951650522197,
+        -0.001035449148551889
+      ],
+      "four_comparison_adjusted": [
+        -0.0012623012356006121,
+        -0.0010061089456845818
+      ],
+      "own_solver_point_advantage": true,
+      "own_solver_adjusted_advantage": true,
+      "own_to_continuous_shift95": [
+        0.001141728537438905,
+        0.0013626781332454168
+      ]
+    },
+    {
+      "task": "ring",
+      "title": "Ring8",
+      "trained_solver": "rk4",
+      "dimension": 2,
+      "own_minus_other_vector_risk": 0.000868073561284569,
+      "per_state_sd": 0.0032210685632872564,
+      "marginal95": [
+        0.000768103509623189,
+        0.0009703062433461473
+      ],
+      "four_comparison_adjusted": [
+        0.0007385259728703405,
+        0.0009983318803193212
+      ],
+      "own_solver_point_advantage": false,
+      "own_solver_adjusted_advantage": false,
+      "own_to_continuous_shift95": [
+        8.549568121617849e-05,
+        0.00011299309926364774
+      ]
+    },
+    {
+      "task": "product",
+      "title": "Product16",
+      "trained_solver": "midpoint",
+      "dimension": 16,
+      "own_minus_other_vector_risk": -0.0047891570078750865,
+      "per_state_sd": 0.018198874595890355,
+      "marginal95": [
+        -0.005346076859374483,
+        -0.004236946834725023
+      ],
+      "four_comparison_adjusted": [
+        -0.005478282561614316,
+        -0.004080485650049938
+      ],
+      "own_solver_point_advantage": true,
+      "own_solver_adjusted_advantage": true,
+      "own_to_continuous_shift95": [
+        0.004828767852272333,
+        0.0060405017385276386
+      ]
+    },
+    {
+      "task": "product",
+      "title": "Product16",
+      "trained_solver": "rk4",
+      "dimension": 16,
+      "own_minus_other_vector_risk": -0.0002752903174598957,
+      "per_state_sd": 0.019072690404194563,
+      "marginal95": [
+        -0.0008493530611334903,
+        0.00030460664744617525
+      ],
+      "four_comparison_adjusted": [
+        -0.0010219828985118433,
+        0.00044022884814630923
+      ],
+      "own_solver_point_advantage": true,
+      "own_solver_adjusted_advantage": false,
+      "own_to_continuous_shift95": [
+        5.6944072270206796e-05,
+        0.0002635361762245181
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "task": "ring",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/analysis-statistics/ring.npz",
+      "sha256": "26465a8b65972abd0fe26ed3e9965c15acb83a84f8b976b5ef5e8092f43a14ca",
+      "native_complete_sha256": "0079f070773ae6e16b9715b2aaf497c1d83ada19659caf70b7dd86d48966ee9f",
+      "independent_sha256": "af13233c0118f1c67a67240e197cd327013994f7d3bfeb9d25f1a0107f979d15"
+    },
+    {
+      "task": "product",
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/rk4-control/field-exposure/analysis-statistics/product.npz",
+      "sha256": "ee570c84b8214348c629f21eb71f40db05dd369832093fcc54e40364c6d6680b",
+      "native_complete_sha256": "e82fe3bd5a8c35aa85ea2ddb6f513a6f1bc6c9425aec38e48a0f321f1d77d0bd",
+      "independent_sha256": "8a9dba04eb40ff51cde34792a629dc3be86f35496b00ed864d9cf2e44c2e8370"
+    }
+  ],
+  "compensation_point_support_all": false,
+  "compensation_adjusted_support_all": false,
+  "points_per_case": 4096,
+  "training_seed": 0,
+  "new_training_runs": 0,
+  "evaluation_bootstrap_seed": 0,
+  "evaluation_bootstrap_resamples": 10000,
+  "source_sha256": "a45ab4706508844f8f6fe5d30f6974da761d10f90e6df05cf2be4695d3358b32"
+}
