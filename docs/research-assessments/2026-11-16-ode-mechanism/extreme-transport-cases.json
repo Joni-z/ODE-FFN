@@ -1,0 +1,276 @@
+{
+  "scope": "prebound extreme/median/original-probe controls selected from complete cached tangents, no model calls",
+  "source_cases_sha256": "97fe6f6b84de0b12c0843b7813e70a71888fbff90ea8f21018227a58a9f170ba",
+  "protocol_sha256": "ba78ff281c59e0a11489c89c2bcd1a9ce58883343edb4208dedc4d432f61c57b",
+  "cases": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "dataset": "gmm_ring8_2d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 0,
+          "index": 989,
+          "tangent_norm": 4.757180801538673,
+          "original_bank_file_sha256": "e1d1b7f2a6d25b4ba7998ec4c3f8f009cd19f5db410408087e256149f4f98199"
+        },
+        {
+          "role": "lower_median",
+          "bank": 3,
+          "index": 3241,
+          "tangent_norm": 0.005180743804469648,
+          "original_bank_file_sha256": "6af0ac97bdcd25c44f692dcc909082b58b97dd04638d1144e4ec0888309ac40c"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 1,
+          "index": 62,
+          "tangent_norm": 2.6798607181063208,
+          "original_bank_file_sha256": "fcd6aa95f5acd2fb3c00cbeb6437b5b354d7e83b133dd4d93720e8c4951b1bcf"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/ring_midpoint_trained-selection.npz",
+      "sha256": "e75793ee8515620b52beadc0d82900e941ab76e3563921d6da4a469b313bb8df",
+      "original_summary_sha256": "f308b6362ddf8f6a8c187094a42f94285f9e3bcd4cb69fff1a1f854e531d33a8",
+      "original_binding_sha256": "db8155846a1a6f58d4124029165b804acdc8cc14a4e30051b6bf6797b14018d8",
+      "original_assets_sha256": "eb750444da995047bd86d35fafce47c7e82b6a2e3c9b463e0f45e5a97d270e29"
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "dataset": "gmm_ring8_2d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 5,
+          "index": 1280,
+          "tangent_norm": 3.3656392896770675,
+          "original_bank_file_sha256": "94b2f093ca55399615876d9317afa6b7aba089b2351970c1fd9b579f302f9c86"
+        },
+        {
+          "role": "lower_median",
+          "bank": 4,
+          "index": 3707,
+          "tangent_norm": 0.0051863529992304406,
+          "original_bank_file_sha256": "e23a3d1d0d112a5f689fa88caf9793bb23b98fee03145a9a87dadbc03476edf3"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 5,
+          "index": 29,
+          "tangent_norm": 0.8740874424881137,
+          "original_bank_file_sha256": "94b2f093ca55399615876d9317afa6b7aba089b2351970c1fd9b579f302f9c86"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/ring_midpoint_trained-confirmation.npz",
+      "sha256": "17c31fa041c68844607e089c7000a4f4406a5907fbb17d2708545a0fe07e4894",
+      "original_summary_sha256": "a18d119023c882271ce789441ffa8f60c21091bad07e8de1b8282ff24157cf4e",
+      "original_binding_sha256": "1c62429504d4ef88f2947593c6916fa18acdba2b7238c2999b858d0d9e29d28b",
+      "original_assets_sha256": "8dd109bfe7b7eeed4ff085f23c37e0af3abcba05225e36eb7cd7dd72aa452bcc"
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "dataset": "gmm_ring8_2d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 4,
+          "index": 3198,
+          "tangent_norm": 4.739308554959376,
+          "original_bank_file_sha256": "51d682645526bc6337f87561614301692b194ba5487048e2d6c6b03c877eaa32"
+        },
+        {
+          "role": "lower_median",
+          "bank": 7,
+          "index": 913,
+          "tangent_norm": 0.005671436193187977,
+          "original_bank_file_sha256": "a896881a5c4bc6b59704502ddb537232814fa22b44f25f6681dd004c404fc9fa"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 1,
+          "index": 62,
+          "tangent_norm": 0.24845412461928457,
+          "original_bank_file_sha256": "74826e82368f9fb359d3f9a33faedb51c4500d6c84738c4506718d24b892fc4c"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/ring_rk4_trained-selection.npz",
+      "sha256": "461ff4475a5abdbe991603e40bbac3005e8582881a20f19bc71a32260d6248a0",
+      "original_summary_sha256": "c9f13a5151c275589ddf2a85c1360253dd19296c94962f27fe810e188d0c3262",
+      "original_binding_sha256": "fd1ac092df336fb485e7349fc739df09b5edecd995631d4e2c856b7e8b98157f",
+      "original_assets_sha256": "eb750444da995047bd86d35fafce47c7e82b6a2e3c9b463e0f45e5a97d270e29"
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "dataset": "gmm_ring8_2d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 5,
+          "index": 725,
+          "tangent_norm": 4.173286538781161,
+          "original_bank_file_sha256": "6a2175fb16f44bcbeddb64bd5397c88a20087c3b59fd613303a41b23f64ae412"
+        },
+        {
+          "role": "lower_median",
+          "bank": 3,
+          "index": 1263,
+          "tangent_norm": 0.005675186410037663,
+          "original_bank_file_sha256": "9caf339fa0a83b99acdfad1fa0e456056ed17c64385f77376a7e805722c6ad18"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 5,
+          "index": 29,
+          "tangent_norm": 0.984799516311535,
+          "original_bank_file_sha256": "6a2175fb16f44bcbeddb64bd5397c88a20087c3b59fd613303a41b23f64ae412"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/ring_rk4_trained-confirmation.npz",
+      "sha256": "60b3c37d581e24f8cca370497120a501f88db1c5e7147df4a2bc3310a45a342a",
+      "original_summary_sha256": "449b4f40592fcef675811fb8c349ba6037cc7c598c08374d65600b420a18bedb",
+      "original_binding_sha256": "d7e78b11304e5d3a3d831708108c48b27e93126eacf82bbc0c2a77cfdda588f8",
+      "original_assets_sha256": "8dd109bfe7b7eeed4ff085f23c37e0af3abcba05225e36eb7cd7dd72aa452bcc"
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "dataset": "rotated_product_bimodal_16d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 1,
+          "index": 2236,
+          "tangent_norm": 85.65936695576735,
+          "original_bank_file_sha256": "41fa6d18eb57bfa81508ad28fd6348ba68f1a32469fb733071310932de9caa7c"
+        },
+        {
+          "role": "lower_median",
+          "bank": 7,
+          "index": 803,
+          "tangent_norm": 0.02735247933837696,
+          "original_bank_file_sha256": "31be2a77aedfb1d54dd9a7f0701672f5860e92d16b1c3b3d34510b09e3419002"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 4,
+          "index": 56,
+          "tangent_norm": 1.36727390916974,
+          "original_bank_file_sha256": "8f7450ca73bb4d92950aa82730146a400607d2a6369223e1fdf64fd8b854c48a"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/product_midpoint_trained-selection.npz",
+      "sha256": "b5b4b2ff409ca13ac59c8eed0efecc886a6206784bd8c63154727d44112cb487",
+      "original_summary_sha256": "cb50a9c2388ca6336265c031377100fc46b5a6a34a6c8bedb07b9798fecb169c",
+      "original_binding_sha256": "3541b94dff0e0d8185a84b71585b97cd97744a749bfe43d13b3158fa6c0e60bf",
+      "original_assets_sha256": "df6c14da66c5bb4d52bed9835b871bf91df694bf21ebaab70eeb97319ac46a24"
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "dataset": "rotated_product_bimodal_16d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 6,
+          "index": 1500,
+          "tangent_norm": 298.81224965747197,
+          "original_bank_file_sha256": "58592e23c5f24519a82d836a85c14b31f22ab0ca2e5653833ec7020d5ed6ab2c"
+        },
+        {
+          "role": "lower_median",
+          "bank": 0,
+          "index": 3350,
+          "tangent_norm": 0.02739762548900119,
+          "original_bank_file_sha256": "f9f7517c22e03883cccab214e75f3360e4b0412214bb2a21622105f6583701aa"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 0,
+          "index": 41,
+          "tangent_norm": 5.894212059924349,
+          "original_bank_file_sha256": "f9f7517c22e03883cccab214e75f3360e4b0412214bb2a21622105f6583701aa"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/product_midpoint_trained-confirmation.npz",
+      "sha256": "40fa2d09c5c9d927d451130892be6496575578c942806bd35e08737a11e7a259",
+      "original_summary_sha256": "94da852ae97a8b61e47196eeaefaafc5bd5e73b6c76f61b60dbcfaa6cb7c606f",
+      "original_binding_sha256": "bc9d87332c64f196058e20c4af2778af4ab460f863acdd43b3864fe7194f4292",
+      "original_assets_sha256": "544a555d7119e3be6c009ff8042d0ff67effca68c7d4485c5d4ec4900dd52998"
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "dataset": "rotated_product_bimodal_16d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 2,
+          "index": 119,
+          "tangent_norm": 67.33118332094843,
+          "original_bank_file_sha256": "a37ba9a6d4a2c113b2c78b7d7dd08f8b5f616e2430f80a964a033e5852b2d11e"
+        },
+        {
+          "role": "lower_median",
+          "bank": 2,
+          "index": 4016,
+          "tangent_norm": 0.02777286720972191,
+          "original_bank_file_sha256": "a37ba9a6d4a2c113b2c78b7d7dd08f8b5f616e2430f80a964a033e5852b2d11e"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 1,
+          "index": 25,
+          "tangent_norm": 2.7349220204745794,
+          "original_bank_file_sha256": "e90e494f338e63ed8568a498b61ec50ead19eaa669c2e22ae95cb6b3469088a0"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/product_rk4_trained-selection.npz",
+      "sha256": "640534d8b0740c39e5fabb0e29f892231f9cf432f110eefa8df76407b1fd91e0",
+      "original_summary_sha256": "8dc55c0c3778769fdf1a8a3b9eec9f2af6306d54025ef7036e933434a3d59316",
+      "original_binding_sha256": "85a1a0c452822d298d29ee44caf8e71d5b75f394db51e037c9a7117484cdccc7",
+      "original_assets_sha256": "df6c14da66c5bb4d52bed9835b871bf91df694bf21ebaab70eeb97319ac46a24"
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "dataset": "rotated_product_bimodal_16d",
+      "roles": [
+        {
+          "role": "maximum",
+          "bank": 0,
+          "index": 1481,
+          "tangent_norm": 381.3589312598022,
+          "original_bank_file_sha256": "ba05ffe005e9e6207df3601a9b5b529e61f6a806350b77b9fa81ee5e652fc64f"
+        },
+        {
+          "role": "lower_median",
+          "bank": 0,
+          "index": 3462,
+          "tangent_norm": 0.027837611379583158,
+          "original_bank_file_sha256": "ba05ffe005e9e6207df3601a9b5b529e61f6a806350b77b9fa81ee5e652fc64f"
+        },
+        {
+          "role": "probe_maximum",
+          "bank": 5,
+          "index": 7,
+          "tangent_norm": 6.996841461812123,
+          "original_bank_file_sha256": "b279a871d402ad3a5ae1d02b0d0fd25fa9b6f55fb286fb88775f7e51379c3a12"
+        }
+      ],
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/extreme-transport-assets/product_rk4_trained-confirmation.npz",
+      "sha256": "1622be383fc306e605310fcb785474120253cce8f91f490713b548fc580a90d8",
+      "original_summary_sha256": "8924e9d3213f16d748f4476c21c23b386fb8325072fb32b013cab3970b5d88b2",
+      "original_binding_sha256": "b34cba6547ab0d0d31cbf9398ffad1b576f8a92cc4e6d82062ac8081c6d1ac00",
+      "original_assets_sha256": "544a555d7119e3be6c009ff8042d0ff67effca68c7d4485c5d4ec4900dd52998"
+    }
+  ],
+  "case_count": 8,
+  "roles": 24,
+  "training_seed": 0,
+  "new_random_draws": 0,
+  "new_model_calls": 0
+}

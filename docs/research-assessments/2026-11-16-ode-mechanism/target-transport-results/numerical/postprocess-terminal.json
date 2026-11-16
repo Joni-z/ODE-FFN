@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "commands": [
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 studies/muon_pd_20261102/target_transport_20261117/verify_transport_statistics.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/analysis --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/statistics-verified.json",
+      "actual_terminal_exit": 0
+    },
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 studies/muon_pd_20261102/target_transport_20261117/metric_remainder.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/formal --primary-summary /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/analysis/summary.json --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/metric-remainder-formal",
+      "actual_terminal_exit": 0
+    },
+    {
+      "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=-1 /Users/mr.z/ode-workspace-prep/.venv-test/bin/python studies/muon_pd_20261102/target_transport_20261117/verify_metric_remainder.py --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/metric-remainder-formal --primary-summary /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/analysis/summary.json --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/metric-remainder-verified.json",
+      "actual_terminal_exit": 0
+    }
+  ],
+  "source_commit": "427697981b11ca49767f9f6abfaf57b50bde4729",
+  "metrics_sha256": "815bcfa9bb14b6afd8982c5ce5db434831cbb507b3ee3e3f243e6109b07a7762",
+  "statistics_sha256": "f16609acaae6c605d442b3469169b7e128c076f5cd490329e51e438e5ea6acd0",
+  "original_primary_gate_unchanged": true,
+  "seconds": 5892.615173292
+}

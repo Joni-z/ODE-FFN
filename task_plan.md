@@ -24,13 +24,13 @@ and throughput without learned observations.
 
 - [x] Bind four frozen20kcheckpoints/two splits/eight4096banks/four lambdas.
 - [x] Calibrate actual learned-field Heun128JVPand sorted target derivative.
-- [ ] Obtain all8native/independent case completions and actual terminal exits.
-- [ ] Audit original primary decision, all32pooled lambda rows and exact paired
+- [x] All8native/independent cases complete; queue15465and collector82357actual0.
+- [x] Audit original primary decision, all32pooled lambda rows and exact paired
   statistics. Preserve every numerical failure and FP32/FP64precision effect.
-- [ ] Review the four actual full-result figures, including the exact cached
+- [x] Review all six actual full-result figures, including the exact cached
   endpoint-transport versus target-functional remainder decomposition.
-- [ ] Review cached rank diagnosis on all64banks+8pooled cases. Two debugging
-  banks have correct derivatives; do not extend that result to untested banks.
+- [x] Complete rank diagnosis on all64banks+8pooled cases: ADmax1.09e-18,
+  original4failed bank flags retained; all source/metric/statistics checks pass.
 - [ ] Decide whether the next learned ODE-defect-to-field test is supported;
   state any failed prerequisite rather than relabel the original gate.
 
@@ -45,10 +45,17 @@ Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-trans
 | Statistics+metric remainder, source4276979 |332/64468|statistics-verified.json, metric-remainder-formal/, metric-remainder-verified.json|
 | Full cached rank diagnosis |3315/10554|metric-rank-diagnosis/full.json|
 
-Latest observed52/64banks,49originally qualified; Ring8all32complete/pass.
-Three Product16target finite-difference failures retained. Primal/endpoint
-checks pass. Native Product16workers1713/1715/1737/1741remain live. Query actual
-PIDs/handles before any action; state/progress files alone do not prove liveness.
+All64banks complete,60originally qualified. Four Product16target finite-
+difference failures retained. Primal/endpoint derivative checks pass. All native/collector/postprocessor/rank owners are terminal, actual0; no
+resubmission or duplicate command. Source5011/5026hashes unchanged.
+
+## P0 post-completion interpretation
+
+- [x] Finish independent native metric/rank audits and inspect all full figures.
+- [x] Run the predeclared Section6cached tail/recorded-path diagnosis on all
+  cases; scalar functional agreement is not particle endpoint accuracy.
+- [ ] Preserve original false primary gate, explain numerical versus predictive
+  conditions separately, and decide the next ODE-specific learned test.
 
 ## P1: deterministic preparation only
 
@@ -65,12 +72,13 @@ PIDs/handles before any action; state/progress files alone do not prove liveness
   B256/B4096throughput probes before observations. Existing observer unchanged.
 - [x] Run on one freshly empty physical145GPU4-7, guarded by the existing
   exclusivity checker. No models/data/checkpoints from the learned cohort.
-- [ ] Publish/freeze and obtain fresh documented invocation before CUDAreadiness.
+- [x] Publish/freeze and obtain fresh documented invocation before CUDAreadiness.
   Author75311actual0onphysical4, all1218source hashes unchanged. First fresh
   wrapper89039exit1after passing numerics; child status lost, readiness=false.
-  Preserve it; register a new exclusive recovery invocation with unchanged
-  mathematics and direct terminal capture before separate receipt writing.
-- [ ] Select CPUor CUDAfrom actual correctness and end-to-end timings.
+  Preserved; separate recovery14772direct actual0,5050source hashes unchanged,
+  GPU4context released. No observer/mathematics changes.
+- [x] Select CUDAfor large batches: B4096transfer-inclusive48.694xvs145CPU;
+  use Mac CPUfor the next tiny-source probe after its own validation.
 
 ## Invariants
 
@@ -82,7 +90,11 @@ Publish verified code/evidence to GitHubmain as Zhizhe Zhang; no force push.
 No response search or new training while this mechanism test is unresolved.
 1454-7were freshly empty at2MiB/no compute PID. Clean source4a409d9is staged
 in /data2/zz5070/ODE_FFN/hidden-defect-preparation-20261117/repo. Existing
-py312/Torch2.8.0+cu128unchanged; observer CUDAvalidation is still pending.
+py312/Torch2.8.0+cu128unchanged; observer CUDAvalidation now passes.
+
+Next: implement/validate extreme-transport-protocol.md on its prebound8cases/
+24roles, then observe small-epsilon/outer-resolution behavior before the learned
+ODE-defect stage. Full findings/audit in target-transport-results/.
 
 Full preceding journal and all retained errors:
 docs/history/2026-11-17-before-full-transport-result/.

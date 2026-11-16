@@ -135,3 +135,37 @@ t=.5. Population W2 is |mA| for A and0 for B. Larger field MSE can therefore
 give exact distribution matching through temporal cancellation. This is a
 general flow property, not an ODE-FFN advantage. A native Heun128 deterministic
 check must agree with these endpoints/tangents to1e-4 before using the example.
+
+## 6. Post-completion diagnosis of individual and distributional responses
+
+The full cohort has now completed. The pooled functional prediction has the
+correct sign in all eight cases and beats zero-change prediction in each.
+The original primary decision is false because of its numerical qualification;
+the four failed bank checks remain preserved. Independently, Product16 has
+large negative endpoint-prediction fractions, and applying the exact metric to
+the linearized endpoints gives very large errors. Thus functional agreement
+and faithful finite sample trajectories must not be conflated.
+
+Do not add an endpoint-accuracy requirement to the original functional gate
+after observing this result. A distributional first variation can be useful
+without accurately predicting each finite-intervention particle displacement.
+Conversely, pooled scalar agreement alone does not prove why it occurs. The
+exact secondary decomposition shows large signed terms that can cancel.
+
+Before opening source-level sensitivity tails, prescribe this cached diagnosis
+on all64banks and8pooled cases: compare norms of u, actual crossed-minus-native
+displacements and their residual; record quantiles50/90/99/99.9/100percent,
+energy shares of the largest1/10/ceil(.01*N) sources ranked by tangent energy,
+and the actual/residual energy at those same indices. Reconstruct every original
+endpoint fraction. Record whether the largest tangent lay in the registered
+first64-per-bank finite-difference probe, without changing that probe or removing
+any source. This is descriptive, post-completion analysis, not a new hypothesis
+test or a reason to change the original gate.
+
+For each of the eight case/split combinations, plot the original nine recorded
+time snapshots for the single largest endpoint-tangent source, chosen by this
+explicit criterion. Compare tangent and actual displacement norms. Preserve
+bank/source identities and all raw zeros; logarithmic figures omit only the
+zero-valued initial display point. These are extreme-case illustrations, not
+typical trajectories. No model call, new sampling, fitted coefficient, selected
+projection or selected time window is allowed.
