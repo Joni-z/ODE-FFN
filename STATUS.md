@@ -35,8 +35,11 @@ its native Heun computation and the sorted-projection target metric, then test
 whether the ODE-derived hidden bias predicts the observed sampling effect.
 This avoids treating source-paired endpoint error or field MSE as distribution
 quality. The derivation and calibration/confirmation sequence are registered;
-this next transport study has not run.
+its implementation now passes deterministic controls and all eight author
+checkpoint/split witnesses. Fresh banks are bound before outcomes. Full transport
+evaluation has not run; a fresh documented execution pass is next.
 [Mathematical plan](docs/research-assessments/2026-11-16-ode-mechanism/target-aware-bias-transport.md).
+[Registered numerical protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-transport-protocol.md).
 
 ## Execution and preserved benchmark
 

@@ -1,5 +1,12 @@
 # Current mechanism findings
 
+17November execution: target-transport-protocol.md registers fresh evaluation
+streams2026112700/2026112800, full four-case/two-split/eight-bank scope and
+numerical gates before new learned outcomes. Implement the actual learned-field
+tangent, not the rejected oracle-path approximation. Root reports/image source
+remain protected. Source lookups corrected: the historical bank generator lives
+under autoresearch_20261103/cycle14/audit.py, not a top-level cycle14 directory.
+
 Equal-parameter/equal-matrix-work RK4 improves hidden accuracy 45.580x/22.245x,
 but not native generation. Full sequential-field interventions show the
 midpoint bias is exposed and can reduce field error. Both Ring8 weight sets

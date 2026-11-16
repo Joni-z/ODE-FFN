@@ -1,0 +1,412 @@
+{
+  "passed": true,
+  "protected_files": 97,
+  "native_image_files": 5,
+  "author_math": {
+    "passed": true,
+    "seed": 0,
+    "native_primal_exact": true,
+    "independent_heun_max_error": 2.220446049250313e-16,
+    "endpoint_finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 7.534539658848871e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 1.0090972502041495e-10
+      }
+    ],
+    "metric_autograd_error": 3.469446951953614e-18,
+    "tie_right_derivative": {
+      "loss": 1.0,
+      "sw2": 1.0,
+      "loss_derivative": -2.0,
+      "sw2_derivative": -1.0,
+      "projection_ties": 1,
+      "finite_differences": [
+        {
+          "epsilon": 0.0001,
+          "finite_difference": -1.9998999999992773,
+          "absolute_error": 0.00010000000072274418,
+          "qualified": true
+        },
+        {
+          "epsilon": 1e-05,
+          "finite_difference": -1.9999899999900703,
+          "absolute_error": 1.00000099296782e-05,
+          "qualified": true
+        }
+      ],
+      "qualified": true
+    },
+    "zero_distance": {
+      "loss": 0.0,
+      "sw2": 0.0,
+      "loss_derivative": 0.0,
+      "sw2_derivative": 0.3028719045982523,
+      "projection_ties": 0,
+      "finite_differences": [
+        {
+          "epsilon": 0.0001,
+          "finite_difference": 2.3264454728053903e-19,
+          "absolute_error": 2.3264454728053903e-19,
+          "qualified": true
+        },
+        {
+          "epsilon": 1e-05,
+          "finite_difference": 6.535049956595696e-19,
+          "absolute_error": 6.535049956595696e-19,
+          "qualified": true
+        }
+      ],
+      "qualified": true
+    },
+    "source_sha256": "cc60bf29b358596df928e0af3c2a94209940f47f0147d6baf4d1e41a8573bbf9"
+  },
+  "author_witnesses": {
+    "passed": true,
+    "all_numerically_qualified": true,
+    "witness": true,
+    "cases": [
+      {
+        "id": "ring_midpoint_trained",
+        "split": "selection",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_midpoint_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "ring_midpoint_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "selection",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_midpoint_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_midpoint_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_midpoint_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "ring_midpoint_trained",
+        "split": "confirmation",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_midpoint_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "ring_midpoint_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "confirmation",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_midpoint_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_midpoint_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_midpoint_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "ring_rk4_trained",
+        "split": "selection",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_rk4_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "ring_rk4_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "selection",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_rk4_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_rk4_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/ring_rk4_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "ring_rk4_trained",
+        "split": "confirmation",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_rk4_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "ring_rk4_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "confirmation",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_rk4_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_rk4_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/ring_rk4_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "product_midpoint_trained",
+        "split": "selection",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_midpoint_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "product_midpoint_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "selection",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_midpoint_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_midpoint_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_midpoint_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "product_midpoint_trained",
+        "split": "confirmation",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_midpoint_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "product_midpoint_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "confirmation",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_midpoint_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_midpoint_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_midpoint_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "product_rk4_trained",
+        "split": "selection",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_rk4_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "product_rk4_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "selection",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_rk4_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_rk4_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/selection/product_rk4_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      },
+      {
+        "id": "product_rk4_trained",
+        "split": "confirmation",
+        "folder": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_rk4_trained",
+        "commands": [
+          {
+            "kind": "native",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/evaluate_transport.py",
+              "--cases",
+              "docs/research-assessments/2026-11-16-ode-mechanism/cross-solver-cases.json",
+              "--case",
+              "product_rk4_trained",
+              "--data-root",
+              "/Users/mr.z/ode-workspace-prep/data/synthetic",
+              "--assets",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/assets",
+              "--split",
+              "confirmation",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_rk4_trained",
+              "--witness"
+            ],
+            "actual_terminal_exit": 0
+          },
+          {
+            "kind": "verifier",
+            "command": [
+              "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+              "/Users/mr.z/ODE-FFN-upstream/studies/muon_pd_20261102/target_transport_20261117/verify_transport.py",
+              "--input",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_rk4_trained",
+              "--output",
+              "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/author-all/confirmation/product_rk4_trained/independent.json"
+            ],
+            "actual_terminal_exit": 0
+          }
+        ],
+        "passed": true,
+        "numerically_qualified": true
+      }
+    ],
+    "seconds": 40.047547459136695,
+    "workers": 4
+  }
+}

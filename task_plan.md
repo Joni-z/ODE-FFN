@@ -22,6 +22,32 @@ work promptly to GitHub main as Zhizhe Zhang. Mac mini freely usable;145 physica
 
 ## P0 next: predict the target effect of the hidden ODE bias
 
+### Execution, 17 November
+
+The preceding explanation-only turn made no new experimental progress. Rechecked
+the clean worktree at5f22419, terminal study status and registered derivation.
+The next executable artifact is target_transport_20261117, not another model.
+
+Author check20097 exited1 before observations: historical imports had already
+loaded a different module named transport. The new kernel uses the unique name
+learned_transport; retain the failure and rerun the unchanged mathematical gates.
+
+- [x] Register floating-point/derivative checks and fresh evaluation streams.
+- [x] Implement learned-field Heun tangent and exact empirical SW2 derivative;
+  pass independent deterministic controls including projection ties.
+
+Math72931 actual0; independent affine Heun/rotation/central-FD, target autograd,
+translation/tie/zero-distance controls pass. Asset59812 actual0, four fixed
+task/split banks bound by manifest91ad12a7 before learned outputs. First real
+Product RK4 confirmation witness83295 actual0, all derivative gates pass.
+Add saved augmented primal arrays for independent exact replay verification
+before frozen documented readiness; do not use this first witness as full study.
+- [ ] Bind fresh banks, validate actual checkpoint/native replay/JVPs, freeze
+  source and obtain the required fresh documented execution witness.
+- [ ] Run all four frozen cases on both splits/eight banks, with monitoring;
+  independently reconstruct target changes and preserve every failed gate.
+- [ ] Publish results and decide whether the ODE-defect transport stage qualifies.
+
 1. [ ] Implement the exact tangent of the native Heun sampler around the ACTUAL
    learned field, forcing it with the same-weight crossed-solver perturbation.
    Kernel/JVP/endpoint replay checks first; no new training or response search.
