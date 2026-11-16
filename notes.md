@@ -1,43 +1,40 @@
-# ODE mechanism: current evidence and decisions
+# ODE mechanism: evidence and current decision
 
-The matched stage-order comparison now has an independently confirmed
-whole-output response correlate. All8x4096preexisting confirmation pairs at
-five times give full velocity-Jacobian errors PAL/ALT Ring8.156/.191 and
-Product16.261/.236. Their SW2values remain.086/.108 and.072/.066.
-All eight input banks support each task direction. Exact adjusted input
-intervals for PALminusALTare[-.038,-.030]and[.024,.026]. These are fixed-weight
-input resampling intervals, not independent trainings.
+The latest error-transport calibration is complete but numerically unresolved.
+All twelve 20k checkpoints retain 256 sources (32 from each existing selection
+bank), four error multipliers and every registered resolution through 1024.
+Both native processes and both independent verifiers exit 0. No case passes
+all endpoint/tangent component gates; do not interpret the linear approximation
+as either useful or disproved yet. Independent summaries agree within 2.66e-14.
 
-The derivative identity is about the Bayes clean-data predictor:
-J_m=alpha/beta²*posteriorCovariance. For unit-source straightFM,
-J_v=(J_m-I)/(1-t). Native oracles and independent moments agree within1.99e-13.
-A hidden P does not inherit this condition. A biased field can have the same
-Jacobian and a wrong final law; a rotational field can alter Jacobians while
-preserving an isotropic law. Output response is a measurable hypothesis,
-not a complete sampling certificate.
+A direct time-alias construction now supplies an actual-model counterexample.
+The native embedding's highest frequency is 1000.000122 cycles/unit t. Replacing
+it by -23.999878 leaves sine/cosine values identical at dyadic Heun grids whose
+step count divides 1024. Across all twelve checkpoints, FP64 endpoint changes
+are <=1.65e-13 and FP32 <=3.02e-5 on the sixteen-source witness. Continuous-time
+field predictions change by 0.059-0.154 of oracle-fitting RMS error. Selection
+Jacobian metrics also change; Ring8 Free ISRU shifts 0.306 -> 0.344. The focal
+PAL/ALT ordering does not reverse. This is an identifiability audit, not a new
+candidate or proof that one feature causes every numerical failure.
 
-Product16ordinary SwiGLU has betterSW2despite greater averageJerror. Thus
-local response alone does not rank all models. Next: calibrate transported
-field-error predictions along common oracle paths before another architecture.
-The exact sensitivity identity is known; its usefulness at trained error
-scale must be measured rather than assumed. Endpoint coupling error is notSW2.
+The earlier independent spatial comparison remains: PAL/ALT full-J error is
+Ring8 0.156/0.191 and Product16 0.261/0.236, with all eight banks supporting each
+focal direction. Their fixed-grid SW2 remains 0.086/0.108 and 0.072/0.066.
+Ordinary Product16 SwiGLU samples better despite greater average J error.
+No general ODE-specific advantage has been established.
 
-All12selection checkpoints/60time rows and4confirmation checkpoints/20time
-rows are retained. Formal source49f6e19; confirmation4e96911. Independent
-NumPy summaries agree within1.11e-16; two exact bootstrap enumerations agree
-exactly. Four actual scientific PNGs inspected. Original arrays, source freezes,
-97report files and11Report2final bindings are preserved. Both CPUconfirmation
-processes and both verifiers exit0; noGPU, package change or foreign task.
-Raw confirmation occupies1.6GiB; rawarrays remain outsideGit.
+Next qualify unchanged native fields on non-dyadic and higher-resolution grids;
+then resolve oracle-tangent/blended-flow precision before the mechanism decision.
+Preserve all native metrics, raw arrays, source freezes and finalized reports.
+145 GPUs 4-7 were occupied at the latest read-only check; 0-3 remain prohibited.
+This phase used two one-thread Mac CPU workers and no package/GPU changes.
 
-Canonical:
-- docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md
-- .../derivation.md and literature.md (four identified primary papers)
-- .../results/analysis-report.md (initial selection and uncertainty)
-- .../confirmation-results/analysis-report.md (all independent inputs)
-- .../trajectory-protocol.md (next bounded calibration; not yet implemented)
-Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-geometry.
+Canonical evidence:
+- .../target-geometry/trajectory-results/analysis-report.md
+- .../target-geometry/time-alias-results/analysis-report.md
+- .../target-geometry/native-time-resolution-protocol.md
+- .../target-geometry/confirmation-results/analysis-report.md (earlier spatial result)
+Raw: /Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response.
 Warm CPU: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
-Earlier controls: .../primary-findings.md and schedule-order/numerical-results/.
-Previous detailed notes/plans are archived verbatim under docs/history/.
-The goal remains active. No new training or image candidate follows this phase.
+Runtime source freezes: 4eeec25 and 130a5ed. All phase processes are terminal.
+The goal remains active; no new training or image candidate is queued.

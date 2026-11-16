@@ -6,6 +6,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.ticker import NullLocator
 from geometry import read, dump, sha
 from analyze import LABEL, COLORS
 
@@ -51,6 +52,8 @@ def main() -> None:
     (out/'table.md').write_text(table)
     plt.rcParams.update({'font.size': 10, 'axes.spines.top': False, 'axes.spines.right': False, 'pdf.fonttype': 42})
     fig, axes = plt.subplots(1, 2, figsize=(11, 5), constrained_layout=True)
+    if len(qualified) < 12:
+        fig.suptitle('Numerically unqualified rows are grey crosses')
     for axis, dataset, title in zip(axes, ['gmm_ring8_2d', 'rotated_product_bimodal_16d'], ['Ring8', 'Product16']):
         group = [r for r in rows if r['dataset'] == dataset]
         for i, row in enumerate(group):
@@ -72,8 +75,10 @@ def main() -> None:
             axis.plot([.125, .25, .5, 1.], ratio, 'o-' if row['qualified'] else 'o--',
                       color=COLORS[LABEL[row['family']]], label=LABEL[row['family']], markersize=4)
         axis.axhline(1, color='.4', lw=1)
-        axis.set(xscale='log', yscale='log', xticks=[.125, .25, .5, 1.], xticklabels=['.125', '.25', '.5', '1'],
+        axis.set_xscale('log', base=2)
+        axis.set(yscale='log', xticks=[.125, .25, .5, 1.], xticklabels=['.125', '.25', '.5', '1'],
                  xlabel='Field-error multiplier lambda', ylabel='Residual / displacement MSE', title=title)
+        axis.xaxis.set_minor_locator(NullLocator())
         axis.legend(fontsize=8)
     for ext in ['png', 'pdf']:
         fig.savefig(out/'figures'/('error-scale-calibration.'+ext), dpi=180)

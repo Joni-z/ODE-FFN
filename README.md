@@ -11,6 +11,7 @@ the model extension replaces only each Transformer block's FFN.
 | Current experiment, budget and jobs | [STATUS.md](STATUS.md) |
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |
+| Current continuous-flow precision question | [Calibration and temporal-alias audit](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/time-alias-results/analysis-report.md) |
 | Baseline/K1/K8 at matching epochs | [Matched FID comparison](docs/celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Candidate FFN implementation | [ffn.py](ffn.py) |
 | Training parameters and GPU request | [slurm/celeba.slurm](slurm/celeba.slurm) |
@@ -40,12 +41,16 @@ For the candidate, `block.mlp` is replaced by the implementation in `ffn.py`.
 A matched synthetic control keeps P/B parameters, initialization and matrix
 work fixed while changing the order of four hidden ODE stages. The symmetric
 schedule improves Ring8 relative to alternating stages and worsens Product16;
-both effects survive the complete internal/outer numerical sweeps.
+both effects survive the registered internal refinements and dyadic outer grids.
 [Analysis, figures and statistics](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md).
 The same focal ordering appears in whole-output Jacobian error on every
 independent input bank. This is a confirmed association; ordinary Product16
 SwiGLU still samples better despite greater average Jacobian error.
 [Derivation and complete confirmation](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md).
+Later trajectory calibration remains numerically unresolved at its1024step cap.
+An actual-model temporal-alias construction shows why dyadic-grid agreement
+alone does not establish a continuous-field explanation.
+[Precision audit](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/time-alias-results/analysis-report.md).
 These mechanism tests use velocity MLPs; the image code below remains the
 author-derived JiT trainer.
 

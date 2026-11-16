@@ -1,106 +1,68 @@
 # ODE mechanism investigation
 
-Goal active: identify which ODE constraints help generative modeling and why.
-Seed0only. Mac mini is available. On145, physical0-3are prohibited and4-7may
-be used only without compute PIDs and below500MiB. Never stop/share foreign
-jobs. Reports1/2and native image model/trainer/loss/sampler remain fixed.
-Publish verified changes to GitHubmain under Zhizhe Zhang.
+Goal active: identify what ODE structure contributes to generative modeling.
+Seed 0 only. Mac mini may be used freely. On 145, physical GPUs 0-3 are
+prohibited; 4-7 require <500 MiB and no compute PID. Never stop or share another
+job. Preserve Reports 1/2 and native image model/trainer/loss/sampler. Publish
+verified code and evidence to GitHub main as Zhizhe Zhang.
 
 ## Completed evidence
 
-- [x] Coefficient release, evolving state flow, operator sharing, optimizer
-  coordinates, qualified symmetry/density and their independent numerical checks.
-- [x] Four20kmatched P/Bschedule trajectories and complete common-bank sampling.
-  All registered inner/outer refinements preserve Ring8PALlead/Product16ALTlead.
-- [x] Exact Gaussian-source target Jacobians and wrong-object/sampling controls;
-  ten native oracle task/time cells pass. Four-paper targeted primary review.
-- [x] Twelve frozen checkpoints/60time slices on128selection pairs; restored
-  FP32anchors, FP64JVPs/batch separation and independent NumPy checks pass.
-- [x] Independent confirmation on all8x4096pairs/five times/four focal models:
-  655360evaluated interpolation states; both native and both verifier exits0.
-  Every source/target array equals its original bound NPZ. NumPy error1.11e-16.
-  Exhaustive bootstrap intervals agree with a second enumeration exactly.
+- [x] Coefficient/state-flow/sharing/optimizer-coordinate/symmetry/density controls.
+- [x] Four matched P/B schedule trajectories and full registered numerical sweeps.
+- [x] Exact Bayes target Jacobians; native oracle checks; targeted four-paper review.
+- [x] Twelve-checkpoint spatial response observation and complete independent
+  confirmation on 32,768 pairs per task/five times. The focal response ordering
+  matches sampling in all eight input banks per task.
+- [x] Native error-sensitivity observer: three exact Gaussian controls, fourteen
+  oracle JVP cells and twelve real discrete-tangent/checkpoint witnesses pass.
+- [x] Full 256-source/twelve-checkpoint calibration at four error scales and all
+  registered 128/256/512/1024 levels. Both tasks and verifiers exit 0. None meets
+  every endpoint/tangent precision gate; the scientific explanation is unresolved.
+- [x] Temporal-alias construction on all twelve models, fresh exits 0/0 and
+  independent NumPy reconstruction. Native grid/endpoints nearly unchanged;
+  off-grid velocities and instantaneous Jacobian scores change. All tensors restored.
 
 ## Findings that decide the next action
 
-| All independent pairs | PAL J error | ALT J error | PAL SW2 | ALT SW2 |
-|---|---:|---:|---:|---:|
-| Ring8 |0.156|0.191|0.086|0.108|
-| Product16 |0.261|0.236|0.072|0.066|
+The synthetic time embedding reaches 1000.000122 cycles/unit t. Shifting its
+highest feature by -1024 leaves exact Heun stage values unchanged whenever
+N divides 1024. Measured FP64 endpoint differences <=1.65e-13; FP32 <=3.02e-5.
+Off-grid changes are 0.059-0.154 of oracle-fitting RMS error. This exposes a
+blind spot in the old dyadic checks; it does not show that aliasing causes every
+precision failure. The focal Jacobian ordering does not reverse.
 
-Eight/eight banks support each focal direction. Adjusted conditional input
-intervals exclude zero. This confirms an output-space association. It does
-not establish its cause or ODE-specific value. Ordinary Product16SwiGLU
-samples better despite greater averageJerror. Hidden time/globalFMtime remain
-unconnected by a demonstrated useful constraint.
+Keep original fixed-grid SW2 values and the independent spatial association.
+Do not claim that continuous error transport explains generation before its
+numerics qualify. The ordinary Product16 SwiGLU remains stronger, so no new
+architecture or image promotion follows this phase.
 
 ## Next concrete actions
 
-1. [x] Implement read-only oracle-path field-error sensitivity, following
-   target-geometry/trajectory-protocol.md. Keep all twelve existing checkpoints.
-2. [ ] Check independent exact Gaussian examples, native endpoint identity and
-   Heun128/256qualification. Fix executable numerical tolerances before pilot;
-   freeze/publish and obtain a fresh documented witness. Reuse warm CPUenv.
-3. [ ] Run the bounded256-source/eight-bank calibration at lambda.125/.25/.5/1.
-   Report the full-scale explained fraction for every model; no favorable-time
-   or model selection. No new training/image run is included.
-4. [ ] Only if the approximation is useful at learned error scale, register
-   its all-source distribution-level test. Otherwise reject that approximation
-   as an architecture guide. Keep the broader research goal active.
-
-## Current trajectory calibration
-
-Previous goal turn: progress. Its all-bank response comparison changed the
-authoritative evidence and the next test. Rechecked the clean current tree.
-Implement only a read-only observer of the unchanged native Heun sampler.
-Use existing mixture-oracle velocities plus an independently checked analytic
-Jacobian-vector product. Keep all twelve checkpoints and all eight selection
-banks. Freeze numerical gates before the pilot; failed numerical qualification
-must not become a model conclusion. The 145 restrictions remain unchanged.
-
-Readiness error retained: the first exact-Gaussian check used an unjustified
-finite-mesh ratio upper bound4.5; the bias example gives4.547at128/256and4.293
-at256/512while its absolute error decreases. Corrected that check to require
-convergence/absolute accuracy, allowing finite-mesh higher-order terms. The
-observer equations and registered pilot qualification tolerances are unchanged.
-The failed author-check directory remains preserved; no formal pilot ran.
-
-Author check-v2passes all twelve native checkpoints, three exact Gaussian
-examples and14oracle task/time cells. Analytic JVPvsAD2.84e-14; discrete
-tangent finite-difference max2.00e-8. Formal numerical gates and exact paired
-bank ratio-bootstrap are registered. Freeze the new CLIand run the fresh pass.
-
-The frozen4eeec25fresh pass exits0/0/0/0/0. Both formal256-source tasks and
-both independent verifiers exit0, retaining all twelve cases. All twelve reach
-the1024cap with componentwise endpoint/tangent precision still unresolved;
-do not interpret their linear approximation as passed or failed yet.
-
-Source audit found native time features up to1000.000122cycles/unit t. Shifting
-the highest one by-1024is indistinguishable on the previously used dyadic
-stage grids. Author FP64counterexamples pass on all twelve models while their
-off-grid fields change by6-15%of oracle-fit RMSerror. This is a numerical
-identifiability check, not proof that aliasing causes all unresolved errors.
-Publish/freeze the complete FP32/FP64and Jacobian audit and execute its fresh
-two-command pass. Next priority is non-dyadic/high-resolution qualification,
-not another architecture. Original scoring artifacts remain preserved.
-
-Editing errors: two malformed/stale patch contexts were rejected atomically;
-re-read the affected files and applied a scoped corrected patch. No scientific
-runtime or result was changed by the rejected attempts.
+1. [ ] Implement native-time-resolution-protocol.md: all twelve checkpoints,
+   same 256 sources, native Heun 1000/1024/1032 for grid sensitivity, then
+   2048/4096 and only if needed 8192 for componentwise qualification.
+2. [ ] Validate any batched four-blend execution against every existing separate
+   native evaluation before using it. Preserve the original unresolved pilot.
+3. [ ] Freeze/publish source, run a fresh documented witness, measure throughput
+   and dispatch with explicit progress/PIDs. Recheck 145 before GPU use; latest
+   check found 4-7 occupied. Warm Mac CPU remains available.
+4. [ ] Resolve oracle-tangent/blended-flow precision and return to the registered
+   full-scale explained fraction. Then decide which mechanism is supported.
+   Keep this phase read only; a failed numerical gate is not evidence for a new architecture.
 
 ## Authoritative state
 
-Source: /Users/mr.z/ODE-FFN-upstream. Published selection freeze49f6e19and
-confirmation freeze4e96911remain unchanged. Raw:
-/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-geometry.
-Both confirmation PIDs60825/60826ended. The selection PID59854ended.
-No scientific observation or new training remains live from this phase.
-Warm Python: /Users/mr.z/ode-workspace-prep/.venv-test/bin/python.
-No packages changed and noGPUwas needed. Report checks97files/11final bindings pass.
+Source: /Users/mr.z/ODE-FFN-upstream. Runtime freezes 4eeec25 (calibration) and
+130a5ed (alias audit) remain unchanged. Raw:
+/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response.
+Both pilot PIDs 63336/63337 and all documented check/verification commands are
+terminal; no scientific job from this phase remains running. Warm Python:
+/Users/mr.z/ode-workspace-prep/.venv-test/bin/python. No packages or GPUs used.
 
-Canonical results: docs/research-assessments/2026-11-16-ode-mechanism/
-  target-geometry/{README.md,derivation.md,results/,confirmation-results/}.
-Earlier complete mechanism findings: .../primary-findings.md.
-Current goal turn: progress, completed theory/native checks and independent
-all-bank output-response evidence. The broader objective is not complete.
-Prior execution journals are archived under docs/history/.
+Canonical docs: docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/
+  {trajectory-results/,time-alias-results/,native-time-resolution-protocol.md}.
+Earlier independent response evidence remains in results/ and confirmation-results/.
+Current goal turn: progress, completed calibration and a verified source-level
+sampling counterexample. The broader objective remains active and incomplete.
+Prior execution plans/errors are archived verbatim under docs/history/.

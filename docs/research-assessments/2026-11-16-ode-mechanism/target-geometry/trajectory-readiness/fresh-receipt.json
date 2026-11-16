@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "fresh_agent": "/root/trajectory_doc_witness",
+  "exits": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "output_paths_prechecked_absent": true,
+  "divergences": [],
+  "source_freeze": {
+    "commit": "4eeec25c76888101a5cd55b92da1e3b01210e3ee",
+    "archive_sha256": "e2e4b0032ed5966518fe10f84c498ec560a3e328096c68f4744c1f63807ecb1a",
+    "frozen": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/repo"
+  },
+  "bound_artifacts": {
+    "check/PASS.json": "a626b21566272272fa76ffd9b879223ffc9f478d6d71f667283d38388b722f3a",
+    "ring/COMPLETE.json": "a9d9bc706d02a0fd93a7fe7aaa8ba1e02eedd19bcecedf09e06a2f5bdc493412",
+    "ring-verified/COMPLETE.json": "1cf06be1ffc0c637963d4e27b58f48ffb5c2ec7d7861824b3a8d08148126c5a0",
+    "product/COMPLETE.json": "a4be70792f93384246973c5079657b3f4afb29524b6bd031a4900f1bf855a382",
+    "product-verified/COMPLETE.json": "15e606d3d25fa910108fd54adf10697c3fad13b24e7f5b3685de9913b0021b7a"
+  },
+  "witness_numerical_qualification": {
+    "Ring8": 6,
+    "Product16": 2
+  },
+  "qualification_limitation": "Four Product16 witness cases reach the registered1024step cap with endpoint gate unresolved; retained rather than treated as approximation failure."
+}

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "witness": false,
+  "cases": 6,
+  "sources_per_case": 256,
+  "banks": 8,
+  "dataset": "gmm_ring8_2d",
+  "all_qualified": false,
+  "unqualified": [
+    "gmm_ring8_2d__state_midpoint4__adamw_0.0003",
+    "gmm_ring8_2d__free_isru__adamw_0.0003",
+    "gmm_ring8_2d__swiglu64__muon_0.02",
+    "gmm_ring8_2d__stage_operator_midpoint4__adamw_0.0003",
+    "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+    "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003"
+  ],
+  "rows_sha256": "ba826e9c4d817bc49e52eaf92f06349c85d885ddaab25ae036d24127f705b895",
+  "anchors_sha256": "a14c4d7246177f7317a9fdbe08aba7277d8c8e88d7e2ee6ded4975d1bb59fcf7",
+  "source_sha256": {
+    "trajectory_probe.py": "bb62afbdd128621eb6739b9a2b6c7bdccb9936179eeb110a05d72061a196dbdf",
+    "trajectory.py": "4a79bf3674d88e2193d4d83dfa371db74bc0776224f04127d8ec2ba359d068bf"
+  },
+  "seconds": 343.31882862513885,
+  "torch": "2.10.0",
+  "numpy": "2.2.6"
+}

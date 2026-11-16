@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "control": "bias",
+      "errors": [
+        {
+          "steps": 128,
+          "endpoint_max_error": 1.164629711558618e-06,
+          "tangent_max_error": 8.453881968906174e-07
+        },
+        {
+          "steps": 256,
+          "endpoint_max_error": 2.5613347576225465e-07,
+          "tangent_max_error": 2.1622710871804784e-07
+        }
+      ],
+      "endpoint_error_ratio": 4.546964070559982,
+      "oracle_recording_exact": true
+    },
+    {
+      "control": "coefficient",
+      "errors": [
+        {
+          "steps": 128,
+          "endpoint_max_error": 7.828318763003494e-06,
+          "tangent_max_error": 5.320070793790599e-06
+        },
+        {
+          "steps": 256,
+          "endpoint_max_error": 1.906770868309593e-06,
+          "tangent_max_error": 1.3183274395478506e-06
+        }
+      ],
+      "endpoint_error_ratio": 4.10553721640583,
+      "oracle_recording_exact": true
+    },
+    {
+      "control": "rotation",
+      "errors": [
+        {
+          "steps": 128,
+          "endpoint_max_error": 7.804061180172184e-06,
+          "tangent_max_error": 7.093427724980117e-06
+        },
+        {
+          "steps": 256,
+          "endpoint_max_error": 1.9694085520716165e-06,
+          "tangent_max_error": 1.7577699195636676e-06
+        }
+      ],
+      "endpoint_error_ratio": 3.9626420693477282,
+      "oracle_recording_exact": true
+    }
+  ],
+  "bias_integral": 1.2464504802804612,
+  "rotation_preserves_exact_isotropic_law": true,
+  "interpretation": "Endpoint displacement is coupling dependent, not a law discrepancy"
+}

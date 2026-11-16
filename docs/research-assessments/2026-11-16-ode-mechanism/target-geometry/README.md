@@ -1,5 +1,21 @@
 # From hidden dynamics to the learned target response
 
+## Later precision audit
+
+The256-source/twelve-checkpoint transported-error calibration is complete,
+but none meets every endpoint/tangent precision gate by the registered1024cap.
+Its approximation outcome remains unresolved. A separate verified construction
+finds that the native dyadic grids cannot distinguish two continuous fields
+using different time frequencies. Original fixed-grid sampling values and the
+focal response association remain preserved; a continuous causal explanation
+requires the next precision check.
+
+- [Complete calibration and all unresolved rows](trajectory-results/analysis-report.md).
+- [Actual-model temporal-alias counterexample](time-alias-results/analysis-report.md).
+- [Next non-dyadic/high-resolution qualification](native-time-resolution-protocol.md).
+
+## Confirmed spatial response comparison
+
 **The matched stage-order effect now has a confirmed output-space correlate.**
 Palindrome lowers full velocity-Jacobian error on Ring8 and raises it on
 Product16, matching their opposite sampling effects. The direction holds in

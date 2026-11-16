@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "witness": true,
+  "cases": 6,
+  "sources_per_case": 8,
+  "banks": 8,
+  "dataset": "rotated_product_bimodal_16d",
+  "all_qualified": false,
+  "unqualified": [
+    "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+    "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+    "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+    "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003"
+  ],
+  "rows_sha256": "5292f8a6ad8f32c5578c859fb7af49c62442a8be1f4f0922aa0e5778d0e4ac9c",
+  "anchors_sha256": "a14c4d7246177f7317a9fdbe08aba7277d8c8e88d7e2ee6ded4975d1bb59fcf7",
+  "source_sha256": {
+    "trajectory_probe.py": "bb62afbdd128621eb6739b9a2b6c7bdccb9936179eeb110a05d72061a196dbdf",
+    "trajectory.py": "4a79bf3674d88e2193d4d83dfa371db74bc0776224f04127d8ec2ba359d068bf"
+  },
+  "seconds": 86.22766083385795,
+  "torch": "2.10.0",
+  "numpy": "2.2.6"
+}

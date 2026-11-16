@@ -1,5 +1,25 @@
 # Current project status
 
+## Current precision question
+
+All twelve256-source error-transport calibrations finished. None passes every
+registered endpoint/tangent component gate by1024steps, so the first-order
+mechanism remains unresolved. No sources or models were removed.
+
+An actual-model time-alias construction passes on all twelve checkpoints:
+the highest frequency1000.000122can be shifted by-1024without changing the
+dyadic-grid function in exact arithmetic. Measured FP64Heun128endpoint change
+is at most1.65e-13; FP32at most3.02e-5. Off-grid fields and selection Jacobian
+metrics change. The focal ordering does not reverse. This exposes a blind spot
+in the earlier step checks; it does not invalidate fixed-gridSW2or prove the
+cause of every precision failure.
+
+[Calibration](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/trajectory-results/analysis-report.md),
+[alias construction and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/time-alias-results/analysis-report.md),
+[next precision protocol](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-resolution-protocol.md).
+Both native CPUtasks, both independent verifiers and the source audit exited0.
+145physical4-7were occupied, and no foreign job was touched. No new training.
+
 ## Target-response observation
 
 The Bayes clean-data predictor has a posterior-covariance Jacobian; this is
@@ -59,8 +79,8 @@ Raw evidence: /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order
 
 ## Current research priority
 
-Calibrate transported field-error predictions along common oracle trajectories
-before using them to guide another architecture. The hidden ODE time/global
+Qualify native fields on non-dyadic/above-bandwidth grids, then resolve the
+transported-error approximation before another architecture. The hidden ODE time/global
 FM time connection remains open. No additional training or image promotion is
 queued. The broader ODE-mechanism research goal remains active.
 [Registered bounded calibration](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/trajectory-protocol.md).
