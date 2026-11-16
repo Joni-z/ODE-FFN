@@ -48,8 +48,10 @@ execution; active flags live in [the Slurm wrapper](../slurm/celeba.slurm).
 
 The newest hidden-flow evidence includes the [complete native-reference
 qualification](research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-results/analysis-report.md).
-The next [fixed-first-layer distribution intervention](research-assessments/2026-11-16-ode-mechanism/hidden-sampling-protocol.md)
+The [completed fixed-first-layer distribution pilot](research-assessments/2026-11-16-ode-mechanism/hidden-sampling-results/analysis-report.md)
 retains the global qualification failure and separately checks generated states.
+The [dimension audit and next control](research-assessments/2026-11-16-ode-mechanism/direction-dimension-audit.md)
+separates a63-versus1dimensional effect from a potentially special response.
 
 | Question or deliverable | Entry |
 |---|---|

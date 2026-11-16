@@ -1,67 +1,55 @@
 # Current project status
 
-## Hidden direction changes reach the full output
+## Hidden changes reach the terminal distribution in a bounded pilot
 
-The complete single-layer intervention supports a directional local-output
-mechanism in all six fixed shared/PAL/ALTmodels. Every80input per checkpoint
-and all six separate layer interventions are retained. Fractions measure how
-closely a component correction reproduces the full one-layer continuous-reference
-output change; they are notFIDorSW2improvements.
+The fixed-first-layer pilot is complete: six shared/PAL/ALT models and four
+ordinary controls,64 common sources per checkpoint, inner256/512 and native
+Heun128/129. Of12 focal model/grid comparisons,9 pass every numerical gate;
+all9 support the registered directional prediction. Their tangential
+reproduction fractions G range from0.926 to0.996. This measures reproduction
+of the full refinement's empirical distribution change, not a target-quality
+improvement. Three Ring8 comparisons retain failed256-step snapshot gates;
+all512-step snapshots pass. No case or arm is removed.
 
-| Model | Ring8 tangential | Product16 tangential | Ring8 exact-energy ray | Product16 exact-energy ray |
-|---|---:|---:|---:|---:|
-| Shared P |0.923|0.981|0.121|0.025|
-| Palindrome |0.961|0.979|0.098|0.014|
-| Alternating |0.916|0.987|0.179|0.028|
+[Complete analysis and figures](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-results/analysis-report.md),
+[all numerical data](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-results/summary.json),
+[source and protected-file audit](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-audit.json).
 
-Every registered paired contrast has a positive lower nominal18-comparison-
-adjusted conditional bank interval. All2880ray points qualify. Identity hooks,
-upstream states and native roundtrips are exact; candidate reconstruction<=1.78e-15.
-[Complete output intervention and figures](docs/research-assessments/2026-11-16-ode-mechanism/hidden-readout-results/analysis-report.md).
+Target SW2 changes are small and do not all improve. The64-source pilot cannot
+rank methods against earlier32768-source studies. It does not select a new FFN.
 
-The preceding energy audit qualifies all2880local states. Normal feature-error
-share is0.034--0.063on Product16and0.109--0.258on Ring8; most difference is
-along potential surfaces. Symmetric work and balance-defect terms can cancel.
-[Complete feature geometry and three figures](docs/research-assessments/2026-11-16-ode-mechanism/hidden-energy-results/analysis-report.md).
+## The next mechanism control
 
-## What this does and does not establish
+Normal and tangential spaces have dimensions1 and63. Directional dominance
+alone may reflect that difference. An exact audit of all2880 old local states
+shows normal error is enriched2.158--16.489 times relative to the1/64 isotropic
+reference. Thus energy-only is insufficient, but the potential normal is not
+unimportant. Compare actual corrections with complete, equal-dimension
+orthonormal-frame controls before promoting this as special ODE sensitivity.
+[Derivation, measured enrichment and falsification](docs/research-assessments/2026-11-16-ode-mechanism/direction-dimension-audit.md).
 
-The direct local interventions identify which hidden difference changes the
-model's predictions on the registered inputs. They do not establish a sampling
-mechanism or a new winning FFN. The next step is to qualify an affordable native
-reference for a generation-level intervention before any sample jobs.
+Also register a512/1024 numerical extension before resolving the three remaining
+pilot gates. Preserve the original256 failures and all fixed samplers/sources.
+No larger sampling run or architecture/training change is queued.
 
-The complete16/32/64/128/256qualification passes256on Product16but fails
-late-layer pointwise output gates on Ring8. No all-layer common surrogate is
-qualified. The first chronological layer passes256on every model.
-[Complete numerical comparison](docs/research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-results/analysis-report.md).
-A separate fixed-first-layer sampling pilot is registered, with new trajectory
-checks, inner256/512, outer128/129and ordinary controls. It compares empirical
-terminal distributions rather than source-coupled endpoint distances.
-[Sampling protocol](docs/research-assessments/2026-11-16-ode-mechanism/hidden-sampling-protocol.md).
-Author checks and the fresh frozen five-command documented pass exit0.
-Two MacCPUworkers now run the complete64source pilot, one task each, with
-three focal models and two ordinary controls per task. Runtime freeze9d46b2d;
-actual tool sessions2572/38657. Raw progress/logs:
-`/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-sampling/formal/`.
-Formal numerical qualification and the six-model hypothesis remain pending.
+## Earlier evidence and image benchmark
 
-The earlier twelve-case first-order oracle-path calibration is numerically
-resolved but not a general trained-scale explanation. An exact actual-law
-Product16control preserves every marginal despite failed endpoint linearization.
-[Calibration decision](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/decision-after-calibration.md),
-[actual-law control](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/product-oracle-control-results/analysis-report.md).
-Coefficient, sharing and stage-order results retain their task-dependent scope.
+The complete one-layer output study supports a directional local response on
+all six models. [Results](docs/research-assessments/2026-11-16-ode-mechanism/hidden-readout-results/analysis-report.md).
+The all-layer native reference qualifies256 on Product16 but fails late layers
+on Ring8; the restricted first-layer pilot does not overturn that result.
+[Reference qualification](docs/research-assessments/2026-11-16-ode-mechanism/hidden-surrogate-results/analysis-report.md).
 
-## Image benchmark and resources
+CelebA128 at160 epochs remains native24.304/K1 27.789/K8 28.083 FID50k.
+[Matched image table](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
+Reports1/2 are final; all97 protected report files,11 Report2 bindings and five
+native image source files remain unchanged.
 
-The completed160epoch CelebA128FIDcomparison remains native24.304/K1 27.789/
-K8 28.083. [Original matched table](docs/celeba128-wide-20261114/continuation-160/matched-results.md).
-No image architecture or new training was launched. Reports1/2are final and
-all97protected report files/11Report2bindings remain unchanged.
+## Execution and resources
 
-Both new native datasets and their verifiers exit0for each study. MacCPUwarm
-environment04f11f75is unchanged; noGPUor package changes. Latest145check:
-physical4-7each occupied by one compute PID;0-3prohibited. All study jobs are
-terminal. Runtime freezes b0a61af(energy)and4135f5d(readout)are preserved.
-[Combined source/protected-file audit](docs/research-assessments/2026-11-16-ode-mechanism/hidden-flow-audit.json).
+All pilot workers, independent verifiers and monitor have actual terminal
+exit0. Runtime freeze9d46b2d, original sessions2572/38657; Elapsed time per task
+approximately312--317 seconds using two one-thread Mac workers. Warm environment
+04f11f75 is unchanged. Raw outputs and monitoring:
+`/Users/mr.z/ode-workspace-prep/coefficient-20261116/hidden-sampling/`.
+145 physical4-7 were occupied;0-3 prohibited. No remote job was stopped/shared.

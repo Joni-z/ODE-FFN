@@ -66,37 +66,48 @@ def main() -> None:
             quality += f"| {'Ring8' if row['dataset']==TASKS[0] else 'Product16'} | {LABELS[row['family']]} | {outer} | {' | '.join(scores)} |\n"
     (out/'target-quality-table.md').write_text(quality)
     plt.rcParams.update({'font.size':10, 'axes.spines.top':False, 'axes.spines.right':False, 'pdf.fonttype':42})
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.4), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.7))
     for ax, task, title in zip(axes, TASKS, ['Ring8','Product16']):
         group = [row for row in focal if row['dataset'] == task]
         for m, (mode, label) in enumerate([('normal','Normal'),('tangential','Tangential'),('ray','Exact-energy ray')]):
             x = np.arange(len(group))+(m-1)*.24
             coarse = [row['comparisons'][0]['fractions_by_level']['512'][0][m] for row in group]
             other = [row['comparisons'][1]['fractions_by_level']['512'][0][m] for row in group]
-            ax.bar(x, coarse, width=.23, color=COLORS[mode], label=label)
-            ax.scatter(x, other, marker='o', facecolors='none', edgecolors='black', s=32, zorder=3,
-                       label='Heun129 (circles)' if m == 0 else None)
+            bars = ax.bar(x, coarse, width=.23, color=COLORS[mode], label=label)
+            for i, row in enumerate(group):
+                if not row['comparisons'][0]['numerically_qualified']:
+                    bars[i].set_hatch('///')
+                    bars[i].set_alpha(.45)
+                if row['comparisons'][1]['numerically_qualified']:
+                    ax.scatter(x[i], other[i], marker='o', facecolors='none', edgecolors='black', s=32, zorder=3,
+                               label='Heun129' if m == 0 and i == 0 else None)
+                else:
+                    ax.scatter(x[i], other[i], marker='x', color='black', s=32, zorder=3)
         ax.axhline(0, color='.4', lw=1)
         ax.set(xticks=range(len(group)), xticklabels=[LABELS[row['family']] for row in group], title=title,
                ylabel='Generated-distribution change reproduced (G)')
-        ax.legend(fontsize=8)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', bbox_to_anchor=(.5, .005), ncol=4, fontsize=9)
+    fig.tight_layout(rect=(0, .09, 1, 1))
     for ext in ['png','pdf']:
         fig.savefig(out/'figures'/('terminal-distribution-response.'+ext), dpi=180)
     plt.close(fig)
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), constrained_layout=True)
     for ax, task, title in zip(axes, TASKS, ['Ring8','Product16']):
-        group = [row for row in rows if row['dataset'] == task]
-        for index, (mode, color) in enumerate(COLORS.items()):
+        group = [row for row in focal if row['dataset'] == task]
+        for index, (mode, color) in enumerate([(key, color) for key, color in COLORS.items() if key != 'identity']):
             x, values = [], []
             for i, row in enumerate(group):
                 arm = next((arm for arm in row['arms'] if arm['heun_steps'] == 128 and arm['mode'] == mode
                             and arm['inner_steps'] == (0 if mode == 'identity' else 512)), None)
                 if arm:
-                    x.append(i+(index-2)*.15)
-                    values.append(arm['target_sw2'])
-            ax.bar(x, values, width=.145, color=color, label=mode.title())
+                    baseline = next(arm for arm in row['arms'] if arm['heun_steps'] == 128 and arm['mode'] == 'identity')
+                    x.append(i+(index-1.5)*.20)
+                    values.append(arm['target_sw2']-baseline['target_sw2'])
+            ax.bar(x, values, width=.195, color=color, label=mode.title())
+        ax.axhline(0, color='.4', lw=1)
         ax.set(xticks=range(len(group)), xticklabels=[LABELS[row['family']] for row in group], title=title,
-               ylabel='SW2 to common target (64 samples; lower is better)')
+               ylabel='Target SW2 change from native (64 samples)')
         ax.tick_params(axis='x', labelrotation=18)
         ax.legend(fontsize=7, ncol=2)
     for ext in ['png','pdf']:
@@ -127,6 +138,7 @@ It is not source-paired endpoint error or target-quality improvement.
 
 Filled bars use Heun128; open circles use129, both with inner512. These are
 two distinct finite sampling grids, not proof of continuous outer convergence.
+Hatched bars and crosses mark unresolved numerical gates.
 Inspect the complete numerical gates before interpreting any direction contrast.
 
 {table}
@@ -135,6 +147,9 @@ Inspect the complete numerical gates before interpreting any direction contrast.
 
 ![Target quality and ordinary controls](figures/target-quality-controls.png)
 
+Negative bars mean improved targetSW2relative to the same checkpoint's native
+sampler; positive bars mean worse. The figure shows within-checkpoint changes,
+and the full table retains ordinary SwiGLU/FreeISRUcontrols on the same samples.
 TargetSW2answers whether refinement or its component improves the target fit.
 Ganswers which component reproduces the refinement's distribution change.
 They must not be substituted for each other. The64sample values below cannot
@@ -152,6 +167,16 @@ in the protocol. Identity trajectories and final native roundtrips are exact.
 Both native entries and independent verifiers exit0; candidate reconstruction
 error is at most{maximum:.3e}. Raw arrays bind all original banks and checkpoints.
 
+## Remaining geometry control
+
+Potential-normal error occupies one of64feature dimensions, while its tangent
+complement occupies63. A large tangential share alone does not establish
+unusual directional sensitivity. For a uniformly random unit normal r,
+E[||rr^T delta||²]=||delta||²/64. The next mechanism control must compare the
+actual potential normal with equally dimensioned random normals, keeping all
+trained states and corrections fixed. No full-bank or architecture promotion
+is justified solely by a highGagainst this dimensional imbalance.
+
 ## Claim candidates and next decision
 
 - Claim: the listed fixed-first-layer interventions do or do not support the
@@ -163,8 +188,8 @@ error is at most{maximum:.3e}. Raw arrays bind all original banks and checkpoint
     outer-flow convergence, or an advantage exclusive to ODEparameter sharing.
   - Uncertainty: finite-direction empirical distributions, fixed weights and
     a bounded source pilot. Retain unresolved comparisons explicitly.
-  - Next check: decide a full original-bank comparison from all numerical and
-    target-quality outcomes; do not choose an arm by the best pilotSW2alone.
+  - Next check: resolve the remaining precision failures and dimension-matched
+    null before deciding a larger distribution comparison.
   - Decision: keep the measured outcome and its exact scope.
 ''')
     stats = '# Conditional pilot statistics\n\n'
@@ -194,9 +219,9 @@ Inspect all unresolved gates and both grids before supporting a mechanism.
 
 ## target-quality-controls
 Purpose: separate reproduction of a change from improvement in actual target
-quality. Data:64source targetSW2at Heun128/inner512, plus unmodified ordinary
-models on the same banks. No inferential error bars. Caption must state64
-samples and fixed weights; full two-grid values remain in the numeric table.
+quality. Data:64source targetSW2change from the same checkpoint's native sampler
+at Heun128/inner512. Unmodified ordinary scores remain in the complete numeric
+table. No inferential error bars. Caption must state64samples and fixed weights.
 Notice whether full refinement improves or harms target matching and whether
 tangential correction follows it. Do not rank against historical larger banks.
 ''')

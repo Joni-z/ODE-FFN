@@ -1,55 +1,42 @@
 # Current ODE mechanism evidence
 
-Six fixed20kshared/PAL/ALTmodels on Ring8/Product16,80common interpolation
-inputs/model and six local layers. All2880reference states qualify. Normal
-feature-error shares: Ring8.109--.258, Product16.034--.063. Most coarse-versus-
-continuous feature difference is tangential to the ISRU potential.
+## Completed distribution pilot
 
-Direct one-layer interventions confirm that tangential correction carries
-most full-output refinement response: fractions.916--.987versus.014--.179
-for exact-potential ray matching. All18registered adjusted conditional bank
-intervals have positive lower bounds. Every input/layer/ray point retained;
-identity hooks and native roundtrips exact. These are controlled local output
-effects, not generation scores, new architectures or an exclusive skew-Peffect.
+Only blocks.0.ffn.ode1 is changed dynamically; other five local layers and the
+native sampler stay fixed. Six focal shared/PAL/ALT checkpoints plus four
+ordinary controls use64 common sources each. Inner256/512 and Heun128/129,
+all116 arms, five captured batches per focal arm and two DOP references retained.
+Both native and independent exits0; all reference checks pass.9/12 focal/grid
+comparisons qualify and support tangential reproduction G=.926--.996. Three
+Ring8 comparisons fail256 snapshot output gates; all512 snapshots pass.
+Target SW2 changes are small, sometimes worse. This is not architecture selection.
 
-Mathematics: E=sum(sqrt(1+1.2*y²)-1)/1.2has gradientISRU. Its derivative under
-PISRUis q^T sym(P)q. Skew parts redirect without instantaneous Ework, while
-sym(P)can also redirect. Feature error normal/tangential projection therefore
-does not identify symmetric/skew parameter roles by itself.
+The metric compares sorted projected terminal samples with the full-refinement
+arm, not corresponding-source endpoint vectors. It measures reproduction of a
+change, not target-quality improvement. Ordinary controls use identical sources
+and targets; no comparison with earlier32768-source values is made.
 
-Earlier endpoint-linearization analysis is complete and numerically qualified,
-but not a general explanation at trained error. Exact Product16gauge controls
-preserve every marginal while their finite-scale endpoint prediction fails.
-Current direct local-output finding avoids substituting that proxy for quality.
+## Dimension changes the interpretation
 
-Next qualify an affordable native reference for the same local interventions
-before sampling. Retain exactDOPreferences, original input banks, fixed layer
-choice and ordinary baselines. No new sample/training job is launched yet.
+The potential normal is1D and tangent space63D. For an independent uniform
+unit normal r, E[||rr^T delta||²]=||delta||²/64. A complete orthonormal frame
+has that average exactly. Audit on all2880 original local states reconstructs
+normal shares and the frame identity(max error4.34e-19). Normal error is
+2.158--16.489 times the geometric reference, despite its smaller absolute share.
+Energy-only does not explain the whole effect; energy-normal structure is not
+therefore irrelevant. The next finite equal-dimension controls are defined in
+ direction-dimension-audit.md and have not run.
 
-Code: studies/muon_pd_20261102/target_geometry_20261116/
-  hidden_energy.py,hidden_energy_probe.py,hidden_readout_probe.py,
-  verify_hidden_readout.py,analyze_hidden_readout.py.
-Evidence: docs/research-assessments/2026-11-16-ode-mechanism/
-  hidden-energy-results/,hidden-readout-results/,hidden-flow-audit.json.
-Raw freezesb0a61af/4135f5dpreserved; all jobs terminal. Reports/imagecode unchanged.
+## Canonical evidence
 
-## Native-reference qualification in progress
+- hidden-sampling-results/: complete pilot, strict statistics, figures, raw bindings.
+- hidden-sampling-audit.json: source/runtime/97report/11final/five native-file checks.
+- direction-dimension-audit.md/json and audit_hidden_dimension.py: exact geometry.
+- hidden-surrogate-results/: preserved failed all-layer256 qualification.
+- hidden-readout-results/ and hidden-energy-results/: complete earlier interventions.
 
-Registered levels16/32/64/128/256before observing outcomes. Per-point local
-and full-output approximation error must be <=one part in1000of the original
-refinement response plus fixed floors; layer/bank/model fraction errors must
-be <=0.0005. All six models/all80inputs/all six layers remain the formal cohort.
-Author first-layer witnesses exit0on both tasks; independently reconstructed
-endpoints/candidates agree within3.56e-15. Only256passes each task's bounded
-witness. This does not yet qualify all layers or generated trajectories.
-Fresh frozen documented pass and full six-layer execution follow.
-
-Completed at frozen30a005e: fresh documented exits0/0/0/0, both formal native
-and independent exits0. All2880states/five levels retained; independent
-5.33e-15. Product16passes256; Ring8fails four late layers in the pointwise
-output gate(maximum2.327times limit), while all Faggregate errors are small.
-No common all-layer surrogate qualifies. First chronological layer qualifies
-256in all six cases; a later sampling study must state that restricted scope
-and qualify new trajectory states. The work formula(2L+40)/48is ideal direct
-endpoint substitution; normal/tangent/ray corrections require the coarse
-endpoint too, giving(2L+48)/48plus overhead. Do not call either a speed benchmark.
+All above are under docs/research-assessments/2026-11-16-ode-mechanism/ except
+scripts under studies/muon_pd_20261102/target_geometry_20261116/.
+Raw root: /Users/mr.z/ode-workspace-prep/coefficient-20261116/.
+Native image trainer and Reports1/2 stay fixed. No GPU or package changes.
+Next: dimension null and unchanged-gate512/1024 extension, before larger sampling.
