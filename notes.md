@@ -86,3 +86,14 @@ postprocessor332/session64468 waits for existing collector98379 to actually exit
 then owns the three documented full cached checks. No sampling/training restart.
 Native15465 and collector82357 remain the same original handles. Review the
 four actual PNGs and independent statistics/metric receipts before conclusions.
+
+Primary-source scope audit17November: six papers, publisher/arXiv identities and
+relevant theorem/method sections checked. Ott's biased numerical features and
+Zhu's inverse modified equations are established; the latter's hypotheses do not
+describe our unsupervised hidden-feature maps. Tong is verified as ICLR2025.
+Zhou/Liu's bounded-target-support theorem does not directly cover our Gaussian
+mixtures or rank finite-checkpoint scores. Tao/Choi's displayed finite Euler
+norm step fails the exact rotation control; its continuous bound remains valid.
+CFMMconcerns physical-time maps and stated absolute-continuity conditions.
+Canonical links, coverage and the counterexample are in literature-scope-audit.md.
+No new model family or sampling run follows from this audit.

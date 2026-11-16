@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "matrix": [
+    [
+      0.0,
+      -1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "continuous_logarithmic_norm": 0.0,
+  "rows": [
+    {
+      "h": 0.125,
+      "euler": 1.0077822185373186,
+      "heun": 1.000030517112478,
+      "exact": 1.0,
+      "claimed_one_step_bound": 1.0
+    },
+    {
+      "h": 0.5,
+      "euler": 1.118033988749895,
+      "heun": 1.0077822185373186,
+      "exact": 1.0,
+      "claimed_one_step_bound": 1.0
+    },
+    {
+      "h": 1.0,
+      "euler": 1.4142135623730954,
+      "heun": 1.118033988749895,
+      "exact": 1.0,
+      "claimed_one_step_bound": 1.0
+    }
+  ],
+  "scope": "Counterexample to the stated finite Euler matrix inequality and its naive Heun extension; not a disproof of every asymptotic bound",
+  "training_runs": 0
+}

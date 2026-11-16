@@ -1,6 +1,7 @@
 # Primary-source checks for the mechanism plan
 
-Checked16 November2026. This is a targeted methodological review, not an
+Checked16 November2026; primary-source scope rechecked17November in
+[the solver-bias audit](literature-scope-audit.md). This is a targeted methodological review, not an
 exhaustive novelty search. No paper's reported performance is substituted
 for evidence about our FFN.
 
@@ -62,12 +63,18 @@ The continuous exponential bound is valid; the discrete Euler expression
 needs higher-order terms. We therefore do not rely on that paper's stated
 finite-step bound or transfer it to Heun. This local objection does not audit
 all its experiments or exclude an asymptotic bound with corrected terms.
+The17November check also confirms the invalid `1+h*mu_+` replacement in
+AppendixA.5; the main text uses the exponential version. Both fail for the
+same pure rotation. The new audit includes an independent Heun comparison.
 
 ## Additional checks: what autonomy and composition do not guarantee
 
 Tong et al., *Neural ODE Transformers: Analyzing Internal Dynamics and
 Adaptive Fine-tuning*, arXiv2503.01329v1 (March2025).
 [Primary full text](https://arxiv.org/html/2503.01329v1), sections4--6.
+The17November audit verifies the
+[official ICLR2025 publication](https://proceedings.iclr.cc/paper_files/paper/2025/hash/82e3509393670d9d478c359b4ce6f950-Abstract-Conference.html)
+and rechecks the corresponding sections in arXivv2.
 The model generates attention and FFN weights as functions of continuous
 depth, deliberately relaxing shared weights. Its spectral observations and
 language-model evaluations challenge treating shared-weight dynamics as a

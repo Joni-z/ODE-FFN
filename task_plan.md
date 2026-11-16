@@ -162,3 +162,24 @@ metric-remainder-formal/ and metric-remainder-verified.json. Poll its original
 handle; do not run these commands separately. Current full progress16/64model/
 bank evaluations, all qualified. Full results, figure review and ODE-specific
 defect-to-field testing remain incomplete; the research goal stays active.
+
+## Current continuation: source audit while the fixed cohort runs
+
+Previous goal turn was progress: implemented and independently verified the
+secondary metric decomposition, froze4276979and attached postprocessor332.
+Revalidated original15465/64468handles and actual PIDs;20/64model/bank
+evaluations now qualify. Do not restart, change source or open a new model family.
+
+- [x] Recheck the primary papers underpinning solver dependence/modified
+  equations and the recent transformer/flow-map comparison; distinguish
+  established numerical effects from an unproven ODE-FFN contribution.
+- [x] Record exact source scope and corrections outside final Reports1/2.
+- [ ] Continue the existing cohort to completion, inspect its automatic checks
+  and actual figures, then decide the conditional hidden-defect test.
+
+Six canonical sources covered: relevant sections, not a complete theorem audit.
+Publisher-linked PDFs were streamed in memory after browser MIME failures;
+OpenReview's browser challenge was not bypassed. Independent rotation check
+rejects the quoted finite Euler inequality and its naive Heun extension while
+preserving the valid continuous bound. Known solver bias is not a new claim;
+our conditional full-field/target prediction and ordinary controls remain gates.
