@@ -1,5 +1,18 @@
 # Current ODE evidence and next decision
 
+New actual-law mathematical control: Product16oracle equals its quantile
+flow in the known rotated basis. The transition derivative is the marginal
+density ratio. All256sources and9times checked; saved4096oracle endpoint
+max error2.49e-6. The largest source-to-endpoint derivative is626.415.
+
+Paths Psi_t(exp(lambda*t*Omega)z0)have exactly the same Product16marginals
+for everyt, using a fixed cyclic skewOmega=.2(C-C^T). Their finite-scale
+linear endpoint fractions are-1.529/-3.285/-7.051/-12.579. Quantile/gauge/
+independent actual exits0/0/0, reconstruction3.56e-15. This rejects the
+implication from failed endpoint linearization to poor generation. It does
+not establish the same special error in learned models. All12formal cases
+continue unchanged; require distribution-level evidence before ODE attribution.
+
 All twelve native endpoint checks are qualified, ten at4096and two at8192.
 Ring8released-stage and Product16SwiGLUrequire8192.12native+12independent actual
 exits0; independent maximum4.17e-17.256sources/model, all eight original banks,

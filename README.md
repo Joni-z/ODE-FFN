@@ -12,6 +12,7 @@ the model extension replaces only each Transformer block's FFN.
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |
 | Current continuous-flow precision question | [Completed native-grid qualification](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/native-time-results/analysis-report.md) |
+| Does endpoint linearization measure generation quality? | [Exact actual-law counterexample](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/product-oracle-control-results/analysis-report.md) |
 | Baseline/K1/K8 at matching epochs | [Matched FID comparison](docs/celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Candidate FFN implementation | [ffn.py](ffn.py) |
 | Training parameters and GPU request | [slurm/celeba.slurm](slurm/celeba.slurm) |

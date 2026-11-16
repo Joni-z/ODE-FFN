@@ -1,0 +1,147 @@
+{
+  "passed": true,
+  "sources": 256,
+  "dimensions": 16,
+  "rows": [
+    {
+      "coefficient": 0.125,
+      "displacement_mse": 0.0640266561351465,
+      "remainder_mse": 0.16189983718713682,
+      "explained_fraction": -1.528631775574865,
+      "exact_population_marginals": "equal to native law at every time by Gaussian rotation pushforward"
+    },
+    {
+      "coefficient": 0.25,
+      "displacement_mse": 0.13475150346710005,
+      "remainder_mse": 0.5773862959287135,
+      "explained_fraction": -3.284822662996736,
+      "exact_population_marginals": "equal to native law at every time by Gaussian rotation pushforward"
+    },
+    {
+      "coefficient": 0.5,
+      "displacement_mse": 0.26809738265379235,
+      "remainder_mse": 2.1585006929633197,
+      "explained_fraction": -7.051181520674151,
+      "exact_population_marginals": "equal to native law at every time by Gaussian rotation pushforward"
+    },
+    {
+      "coefficient": 1.0,
+      "displacement_mse": 0.6222834932791705,
+      "remainder_mse": 8.450105072479158,
+      "explained_fraction": -12.579188848398793,
+      "exact_population_marginals": "equal to native law at every time by Gaussian rotation pushforward"
+    }
+  ],
+  "controls": [
+    {
+      "time": 0.1,
+      "weighted_divergence_relative_max": 4.1442073260612477e-16,
+      "divergence_finite_differences": [
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 3.6629415067036204e-09,
+          "rms_relative_error": 2.649398016464633e-10
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 2.35147302234328e-08,
+          "rms_relative_error": 1.917046225193991e-09
+        }
+      ],
+      "flow_velocity_relative_max": 2.1695440266150362e-09,
+      "nonzero_velocity_error_mse": 0.06627066103158197
+    },
+    {
+      "time": 0.3,
+      "weighted_divergence_relative_max": 4.278214858734632e-16,
+      "divergence_finite_differences": [
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 1.8230558870408397e-09,
+          "rms_relative_error": 2.0089145533093067e-10
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 1.6092234511615144e-08,
+          "rms_relative_error": 1.3897466940504409e-09
+        }
+      ],
+      "flow_velocity_relative_max": 1.396707284850492e-09,
+      "nonzero_velocity_error_mse": 0.05643442614952998
+    },
+    {
+      "time": 0.5,
+      "weighted_divergence_relative_max": 3.8058394149546945e-16,
+      "divergence_finite_differences": [
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 3.288059840954543e-09,
+          "rms_relative_error": 3.440895634121876e-10
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 1.584325193889339e-08,
+          "rms_relative_error": 1.0715893044376288e-09
+        }
+      ],
+      "flow_velocity_relative_max": 3.266533316386909e-08,
+      "nonzero_velocity_error_mse": 0.08294334544702714
+    },
+    {
+      "time": 0.7,
+      "weighted_divergence_relative_max": 6.665675332123106e-16,
+      "divergence_finite_differences": [
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 5.509941792708364e-09,
+          "rms_relative_error": 8.351537012366401e-10
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 6.46671577861585e-09,
+          "rms_relative_error": 4.5804559998270797e-10
+        }
+      ],
+      "flow_velocity_relative_max": 3.3223765114951e-06,
+      "nonzero_velocity_error_mse": 0.509386005882952
+    },
+    {
+      "time": 0.9,
+      "weighted_divergence_relative_max": 4.954660892993003e-16,
+      "divergence_finite_differences": [
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 4.927295998699666e-09,
+          "rms_relative_error": 2.1735992000528996e-09
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 1.3843685989813097e-09,
+          "rms_relative_error": 1.1585157036199227e-10
+        }
+      ],
+      "flow_velocity_relative_max": 1.4163103514148277e-06,
+      "nonzero_velocity_error_mse": 0.237369213322023
+    }
+  ],
+  "endpoint_derivative_checks": [
+    {
+      "epsilon": 1e-05,
+      "maximum_relative_error": 0.00041508922394223476,
+      "rms_relative_error": 6.485962377439829e-06
+    },
+    {
+      "epsilon": 1e-06,
+      "maximum_relative_error": 1.42124732545139e-05,
+      "rms_relative_error": 2.398066246007807e-07
+    }
+  ],
+  "matrix_norm": 0.4,
+  "input_complete_sha256": "fe84bc0059c3434a37ee4fc71508648913b907c7de74b09e32fbef2dbf6907d9",
+  "raw_sha256": "1589944f489faccf43c22f5f4afa98f06a3990230fc09633231d57041bc1c64a",
+  "source_sha256": {
+    "product_gauge.py": "89a83b051ce174f9c52cff662e1302ca165ac9aae84d03e943d55dd038de78a4",
+    "product_quantile.py": "a2031dd0513eecc361b0a72f72731f6ff50e11c424c8678efd037664a41f704b"
+  },
+  "interpretation": "Exact population marginals; finite-source paired displacement and residual only, no SW2 ranking"
+}

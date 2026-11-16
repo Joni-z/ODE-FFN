@@ -1,5 +1,16 @@
 # From hidden dynamics to the learned target response
 
+## Actual-law counterexample
+
+The Product16 oracle is exactly a coordinatewise quantile flow in its known
+latent basis. An analytically marginal-preserving perturbation has full-scale
+linear endpoint fraction-12.579despite every population marginal remaining
+correct. This rules out treating first-order prediction failure as generation
+failure. [Derivation](product-quantile-derivation.md),
+[complete oracle/control evidence and figures](product-oracle-control-results/analysis-report.md).
+The registered twelve-model calibration continues; its outcomes concern
+approximation usefulness, separately from distribution quality.
+
 ## Later precision audit
 
 The next native-only qualification is complete: all twelve fixed models pass,

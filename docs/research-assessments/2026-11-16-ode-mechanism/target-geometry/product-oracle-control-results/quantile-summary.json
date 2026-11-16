@@ -1,0 +1,466 @@
+{
+  "passed": true,
+  "sources": 256,
+  "coordinates": 16,
+  "times": 9,
+  "analytic_identity_checks": [
+    {
+      "time": 0.0,
+      "velocity_identity_max": 7.105427357601002e-15,
+      "cdf_conservation_max": 2.220446049250313e-16,
+      "log_density_max": 1.4210854715202004e-14
+    },
+    {
+      "time": 0.125,
+      "velocity_identity_max": 4.440892098500626e-15,
+      "cdf_conservation_max": 2.220446049250313e-16,
+      "log_density_max": 1.4210854715202004e-14
+    },
+    {
+      "time": 0.25,
+      "velocity_identity_max": 3.1086244689504383e-15,
+      "cdf_conservation_max": 2.220446049250313e-16,
+      "log_density_max": 1.4210854715202004e-14
+    },
+    {
+      "time": 0.375,
+      "velocity_identity_max": 7.327471962526033e-15,
+      "cdf_conservation_max": 2.220446049250313e-16,
+      "log_density_max": 1.4210854715202004e-14
+    },
+    {
+      "time": 0.5,
+      "velocity_identity_max": 1.530026105811544e-14,
+      "cdf_conservation_max": 2.220446049250313e-16,
+      "log_density_max": 2.1316282072803006e-14
+    },
+    {
+      "time": 0.625,
+      "velocity_identity_max": 4.929390229335695e-14,
+      "cdf_conservation_max": 2.220446049250313e-16,
+      "log_density_max": 2.842170943040401e-14
+    },
+    {
+      "time": 0.75,
+      "velocity_identity_max": 2.1316282072803006e-14,
+      "cdf_conservation_max": 3.3306690738754696e-16,
+      "log_density_max": 4.618527782440651e-14
+    },
+    {
+      "time": 0.875,
+      "velocity_identity_max": 5.329070518200751e-15,
+      "cdf_conservation_max": 4.440892098500626e-16,
+      "log_density_max": 9.769962616701378e-14
+    },
+    {
+      "time": 1.0,
+      "velocity_identity_max": 8.881784197001252e-15,
+      "cdf_conservation_max": 4.440892098500626e-16,
+      "log_density_max": 1.2079226507921703e-13
+    }
+  ],
+  "source_derivative_checks": [
+    {
+      "time": 0.25,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum_relative_error": 6.407032420929997e-10,
+          "rms_relative_error": 1.1621417513019026e-10
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 4.945856852667304e-09,
+          "rms_relative_error": 9.985204897776194e-11
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 1.6193101580148182e-08,
+          "rms_relative_error": 5.456996301935549e-10
+        }
+      ]
+    },
+    {
+      "time": 0.5,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum_relative_error": 2.146200939063102e-06,
+          "rms_relative_error": 7.800602505147135e-08
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 2.1464679434828785e-08,
+          "rms_relative_error": 7.836144863344179e-10
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 1.3403473948604157e-08,
+          "rms_relative_error": 5.229365692032836e-10
+        }
+      ]
+    },
+    {
+      "time": 0.75,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum_relative_error": 0.002268160622851133,
+          "rms_relative_error": 4.5321867848282484e-05
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 2.258241847707603e-05,
+          "rms_relative_error": 4.5257403719739554e-07
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 2.2581711891017586e-07,
+          "rms_relative_error": 4.5576646944614096e-09
+        }
+      ]
+    },
+    {
+      "time": 1.0,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum_relative_error": 7.593754792994043,
+          "rms_relative_error": 0.11865242488274459
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum_relative_error": 0.005022160049011476,
+          "rms_relative_error": 7.847218746244341e-05
+        },
+        {
+          "epsilon": 1e-06,
+          "maximum_relative_error": 4.9749509621447765e-05,
+          "rms_relative_error": 7.773457961277508e-07
+        }
+      ]
+    }
+  ],
+  "inverse_cdf_time_derivative_checks": [
+    {
+      "time": 0.125,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum": 2.7222112120028896e-07,
+          "rms": 2.3512631355934324e-08
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum": 2.721143310679963e-09,
+          "rms": 2.353305721087607e-10
+        }
+      ]
+    },
+    {
+      "time": 0.25,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum": 1.436551566591504e-07,
+          "rms": 4.433580483537722e-08
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum": 1.4760836997140814e-09,
+          "rms": 4.438052299524877e-10
+        }
+      ]
+    },
+    {
+      "time": 0.5,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum": 1.6788977785786585e-06,
+          "rms": 1.4394282346036238e-07
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum": 1.6785108636341306e-08,
+          "rms": 1.4396226546201136e-09
+        }
+      ]
+    },
+    {
+      "time": 0.75,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum": 2.650550356531056e-06,
+          "rms": 1.147542277594624e-07
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum": 2.642610574810078e-08,
+          "rms": 1.1503312715738972e-09
+        }
+      ]
+    },
+    {
+      "time": 0.875,
+      "errors": [
+        {
+          "epsilon": 0.0001,
+          "maximum": 1.340422478790515e-06,
+          "rms": 5.507556068876106e-08
+        },
+        {
+          "epsilon": 1e-05,
+          "maximum": 1.337345278962232e-08,
+          "rms": 5.51215369675588e-10
+        }
+      ]
+    }
+  ],
+  "all_six_archived_oracle_paths_identical_at_same_resolution": true,
+  "archived_native_checks": [
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "steps": 128,
+      "endpoint_max": 0.0020736459530915838,
+      "path_max": 0.0022137035749429657,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003__heun128.npz",
+      "sha256": "4d5b0160281e6cdcd7d76bd27abecfb35f9f312636400c141b351c74398e27d8"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "steps": 256,
+      "endpoint_max": 0.0005735024270482197,
+      "path_max": 0.0006124899122932764,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003__heun256.npz",
+      "sha256": "b0abf7eaa6fb176c6729b4d6209a4d5cc783d6da6e4bf08fb890feca1c4a3ee0"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "steps": 512,
+      "endpoint_max": 0.00015140196414292761,
+      "path_max": 0.0001617304384085999,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003__heun512.npz",
+      "sha256": "52381af4c54deb2253ec142c2efeb25f4a6575f234dd14bafddde872f09b7bf9"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+      "steps": 1024,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003__heun1024.npz",
+      "sha256": "22d5d00566b8c03f7a994fe97c15b9de0ff6c975e6cef36cb0bc5a49478a58b2"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "steps": 128,
+      "endpoint_max": 0.0020736459530915838,
+      "path_max": 0.0022137035749429657,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__free_isru__adamw_0.0003__heun128.npz",
+      "sha256": "e4f59200ce1b485de70f9e1aa1f85169c573acd0b1d2b08db9697b766f736478"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "steps": 256,
+      "endpoint_max": 0.0005735024270482197,
+      "path_max": 0.0006124899122932764,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__free_isru__adamw_0.0003__heun256.npz",
+      "sha256": "7d5b55b4da5c8289fa500d60a77c5914ee57a9321b5d1e66f09c8a02ecbebe9d"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "steps": 512,
+      "endpoint_max": 0.00015140196414292761,
+      "path_max": 0.0001617304384085999,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__free_isru__adamw_0.0003__heun512.npz",
+      "sha256": "45f491dab47cf65860c5670357bab0ada8c88114529e9c928d0d2c872383f49c"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "steps": 1024,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__free_isru__adamw_0.0003__heun1024.npz",
+      "sha256": "de440456adbc6148f48973790f357ece2a81b599fdc05c7dafd636039e73d7b6"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "steps": 128,
+      "endpoint_max": 0.0020736459530915838,
+      "path_max": 0.0022137035749429657,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__heun128.npz",
+      "sha256": "84c0685a8f25b7b8cce231d4640ffc094eddfe5f8550bd846f6e0c90bd0ccbc0"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "steps": 256,
+      "endpoint_max": 0.0005735024270482197,
+      "path_max": 0.0006124899122932764,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__heun256.npz",
+      "sha256": "6d2b0ee0d19d6a918a5613afda50d679a962185e1ca3f63571f9088559f0cdba"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "steps": 512,
+      "endpoint_max": 0.00015140196414292761,
+      "path_max": 0.0001617304384085999,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__heun512.npz",
+      "sha256": "52f3a09e54475a7a699ef42bce2678dc1cbfd5d8ef22367fd06ffc648c548c1b"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "steps": 1024,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__swiglu192__adamw_0.0003__heun1024.npz",
+      "sha256": "03346787be76c7888c106887ca5224db4055ef465e9cd33198e7d0fb2b15ea59"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "steps": 128,
+      "endpoint_max": 0.0020736459530915838,
+      "path_max": 0.0022137035749429657,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003__heun128.npz",
+      "sha256": "da974e909ab7b5363b66e7abbe4c53414c6637e162dbac147d6cc28cc38cc012"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "steps": 256,
+      "endpoint_max": 0.0005735024270482197,
+      "path_max": 0.0006124899122932764,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003__heun256.npz",
+      "sha256": "458b5138f4bca5a7c3a3e81f41d2aea76a0d6fe4c1441d1c9f857320c63059f5"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "steps": 512,
+      "endpoint_max": 0.00015140196414292761,
+      "path_max": 0.0001617304384085999,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003__heun512.npz",
+      "sha256": "e2bed62c9b62ce805d5863a9ec9217c2d6fa146f350fbf3226acbce2db100e54"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003",
+      "steps": 1024,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__stage_operator_midpoint4__adamw_0.0003__heun1024.npz",
+      "sha256": "f89d0467b1545b1ef4e905f63b93007896c7efbe62556ee917c4f69276ef7842"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "steps": 128,
+      "endpoint_max": 0.0020736459530915838,
+      "path_max": 0.0022137035749429657,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003__heun128.npz",
+      "sha256": "9536606f49fd9b3c645dc90c5f02f1d3787450d51c7cbdea57ab14ae0098fa1d"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "steps": 256,
+      "endpoint_max": 0.0005735024270482197,
+      "path_max": 0.0006124899122932764,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003__heun256.npz",
+      "sha256": "94abbe28b0787fb00fadb3948cf74f3b8d2e3eb7635615f0939a3be218dbf833"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "steps": 512,
+      "endpoint_max": 0.00015140196414292761,
+      "path_max": 0.0001617304384085999,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003__heun512.npz",
+      "sha256": "31daf199d1910e32408e6f3d639e44b40149d72471d9f963457706f3cecaa3d8"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+      "steps": 1024,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003__heun1024.npz",
+      "sha256": "870e3847f75f670c9b43fb6174fd3ee88f38f527fb2b9e1ff148326bca6f9eed"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "steps": 128,
+      "endpoint_max": 0.0020736459530915838,
+      "path_max": 0.0022137035749429657,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003__heun128.npz",
+      "sha256": "4fcfdcc4c5696dcd7a9901cfe960d472fbfdfd6916643f2cb3514d93f9ba9ac2"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "steps": 256,
+      "endpoint_max": 0.0005735024270482197,
+      "path_max": 0.0006124899122932764,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003__heun256.npz",
+      "sha256": "4d762d79c1bd44c0dad2aac0f2c409d70b19436e9efabb0d523965cf8b27c35e"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "steps": 512,
+      "endpoint_max": 0.00015140196414292761,
+      "path_max": 0.0001617304384085999,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003__heun512.npz",
+      "sha256": "3e577842429e8199f0a72fd1566ef8386b7095796e70b860cd843342aae0a618"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+      "steps": 1024,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/trajectory-response/pilot/product/rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003__heun1024.npz",
+      "sha256": "4424175697bf0d7481cd62b96ff43e601bd18194cac18a495821acfafb1e9249"
+    }
+  ],
+  "refined_native_checks": [
+    {
+      "steps": 1024,
+      "endpoint_rms": 2.0850628554336192e-06,
+      "endpoint_max": 3.893971294451071e-05,
+      "path_max": 4.1600929273008513e-05,
+      "every_path_component_pass": true,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/formal/cases/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/heun1024.npz",
+      "sha256": "22d5d00566b8c03f7a994fe97c15b9de0ff6c975e6cef36cb0bc5a49478a58b2"
+    },
+    {
+      "steps": 2048,
+      "endpoint_rms": 5.252960281779671e-07,
+      "endpoint_max": 9.877017922876874e-06,
+      "path_max": 1.0552651007814107e-05,
+      "every_path_component_pass": true,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/formal/cases/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/heun2048.npz",
+      "sha256": "4fa5bc65d67793fdaac425b4cda7f0027375902e04aa2fe8f798aa92687850e2"
+    },
+    {
+      "steps": 4096,
+      "endpoint_rms": 1.3183647518244422e-07,
+      "endpoint_max": 2.4874058943483157e-06,
+      "path_max": 2.657634306291179e-06,
+      "every_path_component_pass": true,
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/formal/cases/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003/heun4096.npz",
+      "sha256": "7d4b001ce99f928e74e3ea1a03e8e25d115b83598caf815259f0f61a3ec593b5"
+    }
+  ],
+  "transition_to_endpoint_quantiles": [
+    0.20963686799397163,
+    0.5110038220638304,
+    1.0,
+    3.850554974777879,
+    757.3086042436303
+  ],
+  "maximum_source_to_endpoint_derivative": 626.4150603906163,
+  "maximum_time_to_endpoint_derivative": 757.3086042436303,
+  "data_manifest": "/Users/mr.z/ode-workspace-prep/data/synthetic/product16_v1/manifest.json",
+  "data_manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+  "assets_file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/sharing-assets/rotated_product_bimodal_16d/selection.npz",
+  "assets_sha256": "ded4529370b1edffc85864ab7c3f02a510b0f9e0bd0c48e3dd75c1fe85ef86b5",
+  "analytic_arrays_sha256": "e1e3bf8fb646fa3eb5546db67aff65a7b3b9b4f0fb42ab14a858b1d73aedcbe0",
+  "completed_reference_case": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/formal/cases/rotated_product_bimodal_16d__state_midpoint4__adamw_0.0003",
+  "completed_reference_case_sha256": "2dca26f1afd9f822e76a09bb0a25c1ebcb9a6905ec9e024e3b2d3d3a248b3787",
+  "source_sha256": {
+    "check_product_quantile.py": "c8fb4c49843506ef7224b7b293506f000130932ca3649d3b89c1b99dab164fe8",
+    "product_quantile.py": "a2031dd0513eecc361b0a72f72731f6ff50e11c424c8678efd037664a41f704b",
+    "data.py": "ae25130b539a987d4ad27e4cf98205dc5388b37432e857953d8c88f63698c3c5"
+  }
+}

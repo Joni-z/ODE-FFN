@@ -1,0 +1,25 @@
+{
+  "actual_exits": [
+    0,
+    0,
+    0
+  ],
+  "commands": [
+    {
+      "script": "check_product_quantile.py",
+      "session_id": 14723,
+      "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/product-quantile-v2"
+    },
+    {
+      "script": "product_gauge.py",
+      "session_id": 38494,
+      "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/product-gauge"
+    },
+    {
+      "script": "verify_product_control.py",
+      "session_id": null,
+      "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/refined-trajectory/product-control-verified"
+    }
+  ],
+  "scope": "pure exact-law controls and read-only saved-array checks; no model ranking"
+}

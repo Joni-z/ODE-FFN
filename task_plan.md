@@ -28,6 +28,18 @@ another job. Publish verified changes to main as Zhizhe Zhang.
    bank uncertainty. Compare full-scale explained fractions with zero and1024.
 4. [ ] Decide whether first-order transported error is useful at the trained
    scale; only qualified observations may motivate a later causal design.
+5. [x] Derive and independently check the Product16 oracle quantile flow and
+   its density-ratio transition derivative. Its factorized native marginals
+   allow an exact oracle-path reference without another numerical ODE solve.
+   This also checks the earlier endpoint-only interpretation of the CDF control.
+
+The exact actual-law control is complete: Omega=.2(C-C^T)was fixed before
+evaluation; all256sources retained; every population marginal stays exact,
+yet all four finite-scale endpoint fractions are negative(full-scale-12.579).
+Quantile, gauge and independent reconstruction actual exits0/0/0; largest
+metric discrepancy3.56e-15. Both scientific figures inspected after fixing
+overcrowded logarithmic tick labels; first draft preserved outside Git.
+This is a counterexample to a diagnostic implication, not a new architecture.
 
 ## Verification and execution
 
@@ -53,4 +65,10 @@ The failed output is preserved. No monitoring timeout caused a restart.
 
 Previous goal turn: progress; live native completion and all-source numerical
 qualification changed the next action. Full mechanism objective remains open.
+Current continuation: the first full Product16 shared-Pcase is terminal and
+independently verified (exit0, qualified4096). Its full-scale fraction is-3.128;
+the first-order approximation is worse than predicting zero for this model.
+Other cases remain live; no across-model conclusion is drawn from this prefix.
+The continuation is progress: the exact oracle and actual-law counterexample
+change how the remaining calibration can be interpreted. Full objective active.
 Prior plan/notes: docs/history/2026-11-16-before-native-time-completion/.

@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "sources": 256,
+  "coordinates": 16,
+  "rows": [
+    {
+      "coefficient": 0.125,
+      "displacement_mse": 0.0640266561351465,
+      "remainder_mse": 0.16189983718713682,
+      "explained_fraction": -1.528631775574865
+    },
+    {
+      "coefficient": 0.25,
+      "displacement_mse": 0.13475150346710005,
+      "remainder_mse": 0.5773862959287136,
+      "explained_fraction": -3.2848226629967368
+    },
+    {
+      "coefficient": 0.5,
+      "displacement_mse": 0.2680973826537924,
+      "remainder_mse": 2.1585006929633197,
+      "explained_fraction": -7.051181520674149
+    },
+    {
+      "coefficient": 1.0,
+      "displacement_mse": 0.6222834932791707,
+      "remainder_mse": 8.450105072479158,
+      "explained_fraction": -12.57918884839879
+    }
+  ],
+  "quantile_cdf_conservation_max": 4.440892098500626e-16,
+  "transition_reconstruction_max": 4.547473508864641e-13,
+  "tangent_reconstruction_max": 6.217248937900877e-15,
+  "metric_reconstruction_max": 3.552713678800501e-15,
+  "quantile_input_complete_sha256": "fe84bc0059c3434a37ee4fc71508648913b907c7de74b09e32fbef2dbf6907d9",
+  "gauge_input_complete_sha256": "e342b6ae11d44cfce046210e2974cf27f9357fb072b7b86012d1b82b56e9ddfd",
+  "source_sha256": "aabc30538e3e6aa15791d6a9b0d349069cf320879a6d282e6f898a142fdbdb88"
+}

@@ -1,5 +1,21 @@
 # Current project status
 
+## New mathematical control
+
+**First-order endpoint prediction can fail while the generated law is exactly
+correct, including for the actual Product16 target.** An exact quantile-flow
+derivation and a Gaussian-rotation pushforward construct this control without
+training. Its full-scale fraction is-12.579on all256selection sources, while
+every population marginal is unchanged. Independent metric error<=3.56e-15.
+[Derivation](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/product-quantile-derivation.md),
+[checked control and figures](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/product-oracle-control-results/analysis-report.md).
+
+The exact Product16 oracle path also independently checks saved numerical
+integration: at4096steps, endpoint max error2.49e-6. This extends the earlier
+Gaussian null to the actual non-Gaussian law. It does not attribute this
+special error structure to trained models. Complete the running twelve-model
+calibration, then require distribution-relevant evidence for a mechanism claim.
+
 ## Current precision question
 
 **Native endpoint precision now qualifies for all twelve frozen models.**
