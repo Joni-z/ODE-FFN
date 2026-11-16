@@ -43,9 +43,18 @@ is source-local mesh dependence, not a population quality/sensitivity ranking.
 [Complete findings and two figures](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-results/analysis-report.md),
 [source/protection audit](docs/research-assessments/2026-11-16-ode-mechanism/extreme-transport-results/audit.json).
 
-Next compare full-bank native/crossed generation at Heun127/129/512/2048,
-with cached128as replay anchor, on the same four frozen weights/two streams.
-Export actual parameters and nonpersistent buffers before CUDAportability checks.
+Full-bank native/crossed generation is running at Heun127/128/129/512/2048,
+on the same four frozen weights/two streams. All actual parameters AND the
+nonpersistent time buffer were exported. Author/fresh CUDAchecks and NumPy
+verification pass; maximum endpoint replay2.43e-13, metric2.23e-16. Formal
+per-stream gates still check every32768cached128endpoints before new counts.
+
+Queue940668/original session29874, four live workers941462-941465on physical
+145GPUs4/5/6/7, sourcea525eb2unchanged. Monitor saves progress/GPUhistory every5s,
+retains actual exits and runs an independent verifier after each producer.
+[Fixed protocol](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-protocol.md),
+[fresh receipt](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-fresh-receipt.json),
+[verified launch](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-launch.json).
 The analytic ODE-defect-to-target prediction remains untested. No new image
 architecture is promoted; the original target-derivative gate stays unchanged.
 

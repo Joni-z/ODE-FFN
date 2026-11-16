@@ -37,8 +37,10 @@ CUDAobserver throughput. All former owners are terminal.
   with128cached as anchor; same four weights/two splits/eight4096banks.
 - [x] Export actual FP32-restored parameters AND all runtime buffers to FP64;
   CPUhard-case prefix replay exact. Full-bank CUDA128remains a formal gate.
-- [ ] Run the documented fresh witness, then monitored evaluations on idle
-  physical145GPUs4-7; independently reconstruct all metrics and paired effects.
+- [x] Fresh documented CUDA/NumPy exits0/0,5127source hashes unchanged.
+- [ ] Complete monitored evaluations on physical145GPUs4-7; queue940668/
+  original session29874and workers941462-941465are live. Independently
+  reconstruct all metrics and paired effects before interpreting the primary.
 - [ ] Decide whether the ProductRK4->midpoint generation benefit survives
   finer sampling before assigning it an intrinsic hidden-ODE interpretation.
 

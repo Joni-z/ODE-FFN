@@ -53,12 +53,27 @@ Two figures inspected. ProductRK4confirmation max tangent381.359at128,
 1.390at129,2.025at512; median0.028throughout. Original-probe max peaks32.678
 at256. Maxima selected at128cannot establish population mesh fragility.
 
-Next register full-bank native/crossed generation at127/129/512/2048and cached
+Registered full-bank native/crossed generation at127/129/512/2048and cached
 128anchor. Same4weights/2streams/8x4096banks, zero new random draws/training.
 Port actual FP32restored tensors AND nonpersistent buffers to FP64CUDA; keep
 all-source128replay as a gate before new-mesh observations.2048is a finer
 check, not a certified continuous reference. Then apply analytic BOTH-solver
 defects to the full model and target metric. Their learned link remains untested.
+
+## Active full-bank resolution cohort
+
+Population-resolution-protocol.md fixes the2048ProductRK4two-stream primary
+and32new-mesh contrasts. All four models export actual nonpersistent buffers;
+Mac ProductRK4prefix128replay exact. Author26582/58369and fresh73800/83863
+actual0/0, endpoint replay<=2.43e-13/metric<=2.23e-16. Fresh source5127hashes
+unchanged. Minor doc-scope/progress discrepancies retained in the literal receipt.
+
+145queue940668/original tool29874uses sourcea525eb2and public monitor2e6397e.
+Live workers941462/941463/941464/941465on physical4/5/6/7respectively. Each
+stream first gates full32768-source native/crossed128replay, then runs every
+registered new count. Every5smonitor records process/GPUstate; foreign contexts
+stop only our child. No new training/draws or source edits. Do not restart on
+an observation timeout. Raw145:/data2/zz5070/ODE_FFN/population-resolution-20261117/.
 
 ## Runtime preparation
 

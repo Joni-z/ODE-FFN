@@ -18,7 +18,8 @@ def main():
     counts,weights=compositions();rows=[];bindings={}
     for entry in terminal['cases']:
         if entry['stage']!='evaluate':continue
-        root=Path(entry['output']);done=read(root/'COMPLETE.json');check=read(root/'independent.json')
+        assert Path(entry['output']).name==entry['case']
+        root=a.input/entry['case'];done=read(root/'COMPLETE.json');check=read(root/'independent.json')
         assert done['passed'] and not done['witness'] and done['rows']==10
         assert check['passed'] and check['complete_sha256']==sha(root/'COMPLETE.json')
         assert check['rows_sha256']==sha(root/'rows.json')
