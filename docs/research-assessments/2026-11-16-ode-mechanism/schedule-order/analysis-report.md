@@ -60,10 +60,9 @@ example. The two schedules have81,282/83,088parameters respectively.
 
 ![Paired common banks](results/figures/paired-order-effects.png)
 
-## Next decision
+## Numerical follow-up complete
 
-Keep both tasks and both trained schedules. Run the registered frozen internal
-4/8/16and outer128/256/512sweeps before accepting the Ring8within-pair effect.
-These one-axis sweeps test numerical dependence; they are not joint-limit
-proof. Current evidence does not support moving a new schedule to CelebA.
-No response replacement or favorable checkpoint is selected.
+The complete sweeps preserve the opposite task effects. At internal16,
+Ring8palindrome/alternating is0.084/0.107; Product16is0.087/0.075. External
+Heun128->512keeps the ordering. Full source/array verification and the
+research decision are in [the completed numerical analysis](numerical-results/analysis-report.md).

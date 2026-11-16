@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "scope": "retained-prefix comparison; not full sweep completion",
+  "unix_time": 1794816834.114466,
+  "old_queue_pid": 55052,
+  "old_queue_live": true,
+  "new_queue_pid": 56007,
+  "advancing_new_workers": [
+    56422,
+    56473
+  ],
+  "new_queue_failed": false,
+  "old_status_sha256": "2d348f8662cee359765e7372cea0c4244ff6ae5c5c9c47ce721e4809489e3059",
+  "old_snapshot_stable": true,
+  "compared_rows": 10,
+  "missing_rows": [],
+  "eligible_to_retire_old": true,
+  "comparisons": [
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "mode": "full-internal",
+      "inner": 4,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "fdcc0823058cbc846c32d69207e41a20a5f832ae4b2a4ef7624b23570ae9b889"
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "mode": "full-internal",
+      "inner": 8,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "4d54155598f1a4dccace03f0a3d9a9982e9a64d1d5da61bc5c65699c4b04c3a0"
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "mode": "full-internal",
+      "inner": 16,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "4be9ceae6b95c56a7aaa52a41ee98a4ada6498668b4a0cbe86c1bffd142fd27c"
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "mode": "full-outer",
+      "inner": 4,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "fdcc0823058cbc846c32d69207e41a20a5f832ae4b2a4ef7624b23570ae9b889"
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "mode": "full-outer",
+      "inner": 4,
+      "outer": 256,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "92f22aee7774adf472ac6c4f76758610b3dc4103475a618ce1a234d49e0e890a"
+    },
+    {
+      "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+      "mode": "full-outer",
+      "inner": 4,
+      "outer": 512,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "5ff8e8c57696cbcca14d3ca29656109d04df909320db55c02236b7b0262d36c7"
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "mode": "full-outer",
+      "inner": 4,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "af13066e4b30863f449452793e6dc18c69a4a513ed0bc1cb48ef616700406189"
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "mode": "full-outer",
+      "inner": 4,
+      "outer": 256,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "dd794a228d8b9276c9f38d59a84bf5a94c4c17c3a283ce2cc39276a1a18f6d30"
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "mode": "full-internal",
+      "inner": 4,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "af13066e4b30863f449452793e6dc18c69a4a513ed0bc1cb48ef616700406189"
+    },
+    {
+      "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+      "mode": "full-internal",
+      "inner": 8,
+      "outer": 128,
+      "exact_samples": true,
+      "score_max_error": 0.0,
+      "source_sample_sha256": "b309a3a43df01eeee89529813ad7efc7cd5c1a08f8347fcb407768b0126232bd"
+    }
+  ],
+  "old_prefix_bindings": [
+    {
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/full-internal/COMPLETE.json",
+      "sha256": "750dbf8eae48b9dcb1266f36bb37604eca8f9fc09928781a7892e030722a4ef5"
+    },
+    {
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/full-outer/COMPLETE.json",
+      "sha256": "db83c779016cc52a3bf08c8e5e047a5f40b0a139a193caa4561ee4626b11bbe1"
+    },
+    {
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-outer/progress.json",
+      "sha256": "6005519b989dde5490473a999f76c462cc4b6a4cc8c17df9a33a24f1cc703115"
+    },
+    {
+      "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-internal/progress.json",
+      "sha256": "812d4b6f6b3b34b5c7990e4bde2de6e77eca4bb764c15f4f463ac987d6daafa8"
+    }
+  ],
+  "source_sha256": "6ffddad3016abd0c13c6bd35964225962571541ed431cd921c14c4d4d834920f"
+}

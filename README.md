@@ -9,6 +9,7 @@ the model extension replaces only each Transformer block's FFN.
 | What you want | Open |
 |---|---|
 | Current experiment, budget and jobs | [STATUS.md](STATUS.md) |
+| What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Baseline/K1/K8 at matching epochs | [Matched FID comparison](docs/celeba128-wide-20261114/continuation-160/matched-results.md) |
 | Candidate FFN implementation | [ffn.py](ffn.py) |
 | Training parameters and GPU request | [slurm/celeba.slurm](slurm/celeba.slurm) |
@@ -33,19 +34,28 @@ Read the forward path in this order:
 `engine_jit.py -> denoiser.py -> model_jit.py -> block.mlp`.
 For the candidate, `block.mlp` is replaced by the implementation in `ffn.py`.
 
-## Current comparison
+## Mechanism study
 
-K1/K8 are [continuing from100to160epochs](docs/celeba128-wide-20261114/continuation-160/README.md),
-with standard FID at120/140/160. The original native SwiGLU also
-[continues to the same160epochs](docs/celeba128-wide-20261114/continuation-160/baseline/README.md). The completed100epoch results below remain
-the original fixed-budget comparison.
+A matched synthetic control keeps P/B parameters, initialization and matrix
+work fixed while changing the order of four hidden ODE stages. The symmetric
+schedule improves Ring8 relative to alternating stages and worsens Product16;
+both effects survive the complete internal/outer numerical sweeps.
+[Analysis, figures and statistics](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md).
+These mechanism tests use velocity MLPs; the image code below remains the
+author-derived JiT trainer.
 
-Native **SwiGLU** reached FID50k **35.91785** at 100 epochs; its architecture
-is unchanged while the baseline also continues to 160.
-The current [CelebA128 study](docs/celeba128-wide-20261114/README.md) completed
+## Image comparison
+
+The [100-to-160-epoch continuation](docs/celeba128-wide-20261114/continuation-160/README.md)
+records FID evaluation at 120/140/160, including the
+[native baseline](docs/celeba128-wide-20261114/continuation-160/baseline/README.md).
+The 100-epoch results below retain the original fixed training budget.
+
+Native **SwiGLU** reached FID50k **35.918** at 100 epochs.
+The [CelebA128 study](docs/celeba128-wide-20261114/README.md) completed
 **widened ISRU-D K8 and K1**, seed 0,100 epochs, with FID50k every20epochs.
 Both use internal width 1200 and 130,402,560parameters, versus native 130,405,632.
-Final FID50k is 37.92486 (K1) and 38.13574 (K8); see the
+Final FID50k is 37.925 (K1) and 38.136 (K8); see the
 [completed results](docs/celeba128-wide-20261114/results.md).
 Use `--ffn isru_d --ode_hidden_dim 1200 --ode_order 8` (or1).
 ISRU-D holds each entrance diagonal fixed during the Taylor series and uses

@@ -23,7 +23,11 @@ Product16.072/.066. Leading cancellation holds exactly in the trained
 palindrome, but the sampling direction reverses across tasks. Ring8's small
 palindrome-versus-shared point lead has an unresolved paired interval.
 [Complete comparison and feature dependence](schedule-order/analysis-report.md).
-Full registered inner/outer refinement is next; no image promotion follows.
+The full registered sweeps now preserve the task reversal: internal16
+Ring8.084/.107, Product16.087/.075(palindrome/alternating). Independent
+recomputation of all24native rows agrees within2.78e-17.
+[Complete numerical analysis](schedule-order/numerical-results/analysis-report.md).
+No image promotion follows.
 
 ## Main comparison
 

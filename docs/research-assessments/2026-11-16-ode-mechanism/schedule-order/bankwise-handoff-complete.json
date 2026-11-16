@@ -1,0 +1,216 @@
+{
+  "started": 1794816833.486987,
+  "reason": "validated4096-source CPU batching; retire duplicated full-batch inference only",
+  "old_queue_pid": 55052,
+  "new_queue_pid": 56007,
+  "identities": [
+    {
+      "uid": 501,
+      "pid": 55052,
+      "ppid": 1,
+      "start": "Mon Nov 16 15:39:04 2026",
+      "state": "Ss",
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/resolution_queue.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full --only numerical --full-outer --inner-substeps 4 8 16"
+    },
+    {
+      "uid": 501,
+      "pid": 55645,
+      "ppid": 55052,
+      "start": "Mon Nov 16 15:54:26 2026",
+      "state": "R",
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models --case gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-outer --mode full-outer --inner-substeps 4 8 16"
+    },
+    {
+      "uid": 501,
+      "pid": 55676,
+      "ppid": 55052,
+      "start": "Mon Nov 16 15:55:36 2026",
+      "state": "R",
+      "command": "/Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py --root /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models --case gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003 --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-internal --mode full-internal --inner-substeps 4 8 16"
+    }
+  ],
+  "signals": [
+    {
+      "pid": 55052,
+      "signal": "SIGSTOP",
+      "time": 1794816834.186734
+    },
+    {
+      "pid": 55645,
+      "signal": "SIGSTOP",
+      "time": 1794816834.199232
+    },
+    {
+      "pid": 55676,
+      "signal": "SIGSTOP",
+      "time": 1794816834.2061398
+    },
+    {
+      "pid": 55645,
+      "signal": "SIGTERM",
+      "time": 1794816834.447762
+    },
+    {
+      "pid": 55645,
+      "signal": "SIGCONT",
+      "time": 1794816834.447763
+    },
+    {
+      "pid": 55676,
+      "signal": "SIGTERM",
+      "time": 1794816834.453156
+    },
+    {
+      "pid": 55676,
+      "signal": "SIGCONT",
+      "time": 1794816834.453158
+    },
+    {
+      "pid": 55052,
+      "signal": "SIGCONT",
+      "time": 1794816834.590443
+    }
+  ],
+  "phase": "complete",
+  "preflight_audit": {
+    "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/handoff-audits/prefix-004-before-retire.json",
+    "sha256": "0f9aeff41fec9f85414fa21103995e45386ad190dceaec912733ad18b2d39a00",
+    "compared_rows": 10
+  },
+  "stable_audit": {
+    "file": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/handoff-audits/prefix-005-stable-before-retire.json",
+    "sha256": "85a5d4997a92cb3cfbbe331e475108b47746c49e4afc36a64203c73cca1f64fb",
+    "compared_rows": 10
+  },
+  "native_terminal": {
+    "passed": false,
+    "completed": [
+      {
+        "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+        "mode": "full-internal",
+        "pid": 55055,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/full-internal",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models",
+          "--case",
+          "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/full-internal",
+          "--mode",
+          "full-internal",
+          "--inner-substeps",
+          "4",
+          "8",
+          "16"
+        ],
+        "started": 1794814745.3132238,
+        "exit_code": 0,
+        "complete": true
+      },
+      {
+        "id": "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+        "mode": "full-outer",
+        "pid": 55054,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/full-outer",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models",
+          "--case",
+          "gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__palindrome_operator_midpoint4__adamw_0.0003/full-outer",
+          "--mode",
+          "full-outer",
+          "--inner-substeps",
+          "4",
+          "8",
+          "16"
+        ],
+        "started": 1794814745.308866,
+        "exit_code": 0,
+        "complete": true
+      },
+      {
+        "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+        "mode": "full-outer",
+        "pid": 55645,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-outer",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models",
+          "--case",
+          "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-outer",
+          "--mode",
+          "full-outer",
+          "--inner-substeps",
+          "4",
+          "8",
+          "16"
+        ],
+        "started": 1794815666.257396,
+        "exit_code": -15,
+        "complete": false
+      },
+      {
+        "id": "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+        "mode": "full-internal",
+        "pid": 55676,
+        "output": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-internal",
+        "command": [
+          "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/observer-repo/studies/muon_pd_20261102/coefficient_20261116/cpu_resolution.py",
+          "--root",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/portable/sampling-models",
+          "--case",
+          "gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003",
+          "--output",
+          "/Users/mr.z/ode-workspace-prep/coefficient-20261116/schedule-order/numerical-full/gmm_ring8_2d__alternating_operator_midpoint4__adamw_0.0003/full-internal",
+          "--mode",
+          "full-internal",
+          "--inner-substeps",
+          "4",
+          "8",
+          "16"
+        ],
+        "started": 1794815736.3362648,
+        "exit_code": -15,
+        "complete": false
+      }
+    ],
+    "unstarted": [
+      [
+        "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+        "full-outer"
+      ],
+      [
+        "rotated_product_bimodal_16d__palindrome_operator_midpoint4__adamw_0.0003",
+        "full-internal"
+      ],
+      [
+        "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+        "full-outer"
+      ],
+      [
+        "rotated_product_bimodal_16d__alternating_operator_midpoint4__adamw_0.0003",
+        "full-internal"
+      ]
+    ]
+  },
+  "native_terminal_sha256": "2dd733ffdd027eac84fbf3ee20c0ca8ee339183270a73bbfdbf5d818b5607dbc",
+  "new_live_worker_pids": [
+    56422,
+    56473
+  ],
+  "old_processes_absent": true,
+  "completed_at": 1794816837.671627,
+  "passed": true
+}

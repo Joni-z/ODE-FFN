@@ -1,6 +1,7 @@
 # Next mechanism control: cancel stage drift without removing parameters
 
-Status: validated and published at67b4664; four formal trajectories launched, results pending.
+Status: complete. Four20k trajectories, common-bank evaluations and all registered numerical checks are finished.
+[Completed analysis](schedule-order/numerical-results/analysis-report.md). The registered question and rules below are retained.
 The completed density analysis is published at f145682/c023ef5. No response search, spectrum
 penalty, optimizer change or image run is part of this proposal.
 
