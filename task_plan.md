@@ -94,6 +94,14 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 - [ ] Before final mechanism interpretation, run the pre-registered ALLsource
   reference control at the same16trajectory calls in every bank/mesh task.
   analytic-target-full-probe-control.md; main-prefix gates stay separate.
+  - [ ] Prepare identical CPU reference control while145cards run sampling:
+    actual-path reconstruction, both-count GPUarray parity on both saved
+    readiness cases, independent NumPy, memory/throughput and fresh doc pass.
+    Authored72105/44072and both independent verifiers actual0; GPUparity
+    <=6.67e-15. Full-batch timing72829actual0:12846.313s/25695.056s,
+    peak584.828MiB. Four single-thread workers fit the measured memory budget.
+  - [ ] Run a bounded CPUfollow-up queue from independently completed banks,
+    without touching the live frozen145runtime or restarting its tasks.
 
 Analytic field prediction now qualifies and the observed sampling benefit
 persists at the prescribed meshes. Propagate that analytic forcing

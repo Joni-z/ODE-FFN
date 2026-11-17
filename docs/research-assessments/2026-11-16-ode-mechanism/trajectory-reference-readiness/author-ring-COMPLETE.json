@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "witness": true,
+  "case": "ring_midpoint_trained",
+  "split": "selection",
+  "bank": 0,
+  "steps": 8,
+  "points_per_call": 2,
+  "calls": 16,
+  "total_inputs": 32,
+  "batch_size": 4096,
+  "checks": {
+    "probe_input": {
+      "qualified": true,
+      "max_error": 2.220446049250313e-16,
+      "failed_components": 0
+    },
+    "primal_refinement": {
+      "qualified": true,
+      "max_error": 3.8893155362984544e-10,
+      "failed_components": 0
+    },
+    "gpu_primal128": {
+      "qualified": true,
+      "max_error": 2.220446049250313e-15,
+      "failed_components": 0
+    },
+    "gpu_primal256": {
+      "qualified": true,
+      "max_error": 1.3322676295501878e-15,
+      "failed_components": 0
+    },
+    "tangent_refinement": {
+      "qualified": true,
+      "max_error": 2.6565027955172127e-11,
+      "failed_components": 0
+    },
+    "gpu_tangent128": {
+      "qualified": true,
+      "max_error": 1.691355389077387e-17,
+      "failed_components": 0
+    },
+    "gpu_tangent256": {
+      "qualified": true,
+      "max_error": 2.0816681711721685e-17,
+      "failed_components": 0
+    }
+  },
+  "numerically_qualified": true,
+  "source_main_complete_sha256": "737fa99d446622990e3385f122b05d233726d4d8869f0e04401dbf492008c48c",
+  "source_main_array_sha256": "96f8f91511499815e1a6f9ad815c68bc1ed164282d1bcad72a88c7801c4effc0",
+  "source_main_independent_sha256": "305eb4642a7f9430cdef46ae93a867a7bee93471531973c4423707aa8c22b42a",
+  "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+  "file": "probes.npz",
+  "sha256": "2163389fec3db7fc153998484b457351b202ba008f78cf61f26935a6286295ce",
+  "source_sha256": "8765adbae60eab54214622b40a1de2993fcf4a3df63b41973ede1ae1f7165d40",
+  "drift_source_sha256": "8a4a16f4c9b5470af3044c2dca9fc5dd987cb6ad05f6b3391b93206ad2eefd81",
+  "execution_proof_sha256": "c1cca9ff30c1bd1e010ef6f5cc4f32e7adc030df4336c581d2456a31a6a17ae6",
+  "tensors_methods_rng_unchanged": true,
+  "dtype": "float64",
+  "device": "cpu",
+  "timings": [
+    {
+      "reference": 128,
+      "points": 32,
+      "seconds": 1.0803872919641435
+    },
+    {
+      "reference": 256,
+      "points": 32,
+      "seconds": 1.1787226246669888
+    }
+  ],
+  "peak_rss_bytes": 284114944,
+  "seconds": 2.284374374896288
+}

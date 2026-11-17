@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "timing_only": true,
+  "device": "cpu",
+  "threads": 1,
+  "points": 4096,
+  "case": "product_rk4_trained",
+  "source_main_complete_sha256": "a109a542a0de760e89c7bd3dcefbe1f98efe16afac8b489735e50f18cfa4186c",
+  "source_sha256": "02ed158cb58bff4c9311060377b1a7fe37abda4cbd6299848c478a7cf240bbe1",
+  "timings": [
+    {
+      "reference": 128,
+      "points": 4096,
+      "seconds": 46.312513624783605
+    },
+    {
+      "reference": 256,
+      "points": 4096,
+      "seconds": 95.05565341701731
+    }
+  ],
+  "peak_rss_bytes": 613236736,
+  "output_checks": {
+    "128": {
+      "primal_max": 3.597845625687459,
+      "tangent_max": 0.012165614157705302
+    },
+    "256": {
+      "primal_max": 3.597845625695652,
+      "tangent_max": 0.012165614157847459
+    }
+  },
+  "tensors_rng_unchanged": true
+}

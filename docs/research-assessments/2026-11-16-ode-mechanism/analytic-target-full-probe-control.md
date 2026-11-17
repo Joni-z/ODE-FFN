@@ -29,3 +29,22 @@ Execute these fixed follow-ups with the same qualified power-reuse observer,
 only on freshly empty physical145GPUs4-7. They may follow the main cohort;
 they are required before a numerically qualified final mechanism claim. All
 source/field/case/bank/mesh identities bind to the completed main bank hash.
+
+## CPU execution amendment, before full-source probe outputs
+
+The user permits unrestricted Mac mini CPU work. While all four permitted
+145 cards run the main cohort, prepare the identical power-reuse equations
+in the unchanged Mac CPU environment. This is an additional execution route
+for the numerical control, preserving all 128 tasks, all sources, both
+reference counts and every component gate. The main GPU queue is unchanged.
+
+Before full CPU use, reconstruct both saved two-source readiness paths and
+compare CPU primal/tangent at both reference counts with the original GPU
+arrays, using the existing portability tolerance 1e-9+1e-8*abs(reference).
+Reconstructed probe inputs use 1e-10+1e-9*abs(reference); times must be exact.
+The original GPU witnesses are not new quality evidence. Use one thread per
+worker, batches of at most 4,096 points, and measure full-batch time and peak
+memory before selecting worker count. Publish/freeze and run the fresh exact
+documented CPU entry before a monitored follow-up queue. If CPU execution
+does not qualify, preserve it and use the originally registered GPU route
+after cards become available. No less accurate reference or omitted source.
