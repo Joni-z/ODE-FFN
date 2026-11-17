@@ -1,5 +1,29 @@
 # Determine what the ODE structure contributes
 
+## Current task: sharpen Report3 and bound the final research stage
+
+18 November: this is the penultimate report. State supported findings directly,
+make the remaining architectural hypothesis explicit, and avoid expanding the
+experiment search. This pass revises the draft only; no training is launched.
+
+- [x] Check the external commentary against the report, the sharing coordinate
+  control and the earlier recurrence study; render supporting pages again.
+- [x] Revise the opening conclusion and final two-week hypothesis, retaining
+  all measured results and the three-page main-text limit.
+- [x] Rebuild, verify source/protection bindings and inspect changed pages.
+- [ ] Push the revision and synchronize the source/PDF to MBP.
+
+Findings: sharing is the leading structural explanation, not an isolated unique
+cause; the frozen-D image result does not diagnose why it loses. No stray
+characters appear in rendered pages4-7. Figure4's caption mistakenly calls its
+horizontal score axis vertical; correct that wording. The older recurrence
+study used scalar K2 and a different training protocol, so it is not the direct
+control for the current state-flow model.
+
+Revision verified: three main pages/four supporting pages, all78numeric cells
+and26source bindings unchanged;97protected files and all finalized Report2
+bindings pass. Changed pages1/3/7visually inspected. PDF420236bytes.
+
 ## Current task: write a readable Report3, without further experiments
 
 User explicitly requests the complete Report3and highlights the professor's

@@ -1,5 +1,15 @@
 # Current ODE mechanism evidence
 
+18 November Report3 revision: the user wants a clear claim and a bounded final
+stage, with direct factual writing. Shared nonlinear iteration is the leading
+architectural hypothesis; unique causality and a cause of image failure are not
+established. The proposed comparison adds a direct eight-update tied residual
+control with unit horizon to the current midpoint/ordinary cohort, matching
+total training work on Ring8 and Product16. It tests midpoint staging beyond
+shared recurrence; both computations admit ODE interpretations. Proposal only.
+Re-rendered supporting pages show no stray characters. Correct the Figure4
+caption's horizontal-axis description. Preserve all result values and Reports1/2.
+
 Report3written17Novemberatuserrequest: complete EnglishLaTeX/PDFunder
 reports/report3/, authorZhizheZhang. Three main pages plus four supporting
 pages; tables/figures outside main narrative. Central sequence: Ring8symmetry

@@ -20,18 +20,19 @@
 {\large Separating operator sharing from ODE accuracy}\par
 \vspace{6pt}
 Zhizhe Zhang\quad\textbar\quad NYU Shanghai\par
-17 November 2026
+18 November 2026
 \end{center}
 \vspace{3pt}
 
 \section{Project and main progress}
-This project studies ODE-inspired feedforward networks (FFNs) for flow matching.
-The original design reused a learned matrix in a truncated matrix-exponential
-expansion. Since Report~2, we have separated three possible benefits: the
-nonlinear response, operator sharing, and ODE solution accuracy. Sharing helps
-the tested stage comparison; prescribed coefficients and greater accuracy do
-not consistently improve generation. We also explain a Ring8 fitting--sampling
-mismatch and predict how hidden numerical error changes the network output.
+This project develops ODE-inspired feedforward networks (FFNs) for flow
+matching, starting from a truncated matrix exponential with a shared learned
+operator. Our main finding is that sharing improves generation in the tested
+stage comparisons, whereas prescribed coefficients and greater ODE solution
+accuracy provide no consistent gain. This makes shared nonlinear iteration
+the leading architectural hypothesis. We also identify symmetry breaking in
+Ring8's fitting--sampling mismatch and analytically predict how changing the
+hidden solver changes the complete network output.
 
 Tests use a width-64, three-block velocity MLP. Ring8 has eight equal-weight 2D
 Gaussian modes; Product16 is a rotated product of sixteen bimodal factors.
@@ -156,31 +157,34 @@ steps: pooled SW2 decreases from 0.053 to 0.049 on selection and from 0.048 to
 field-response prediction is complete; a high-resolution analytic forecast
 of the final distribution remains unfinished.
 
-\textbf{Practical comparison.} The completed ordinary-control evaluation now
-uses exactly the same source, target and direction arrays. At Heun2048,
+\textbf{Practical comparison.} All models use the same source, target and
+direction arrays. At Heun2048,
 native midpoint state flow reaches confirmation SW2 0.068 on Ring8 versus
 0.091 for Free ISRU and 0.105 for SwiGLU. On Product16 it reaches 0.047 versus
 0.051 and 0.034. The Ring8 pooled ordering favors state flow, although most
 adjusted paired-bank intervals include zero. State flow uses about four times
 Free ISRU's dense forward matrix work (Table~\ref{tab:ordinary}).
 
-The completed image comparison is less favorable. At 160 CelebA128 epochs,
+On CelebA128 at 160 epochs,
 native SwiGLU achieves FID50k 24.304, versus 27.789 for parameter-matched
 ISRU-D K1 and 28.083 for K8. Native leads at every shared checkpoint
 (Table~\ref{tab:image}). These image blocks use frozen entrance diagonals;
 the refreshed state-flow model has not been tested in this image comparison.
 
 \section{Hypothesis for the next two weeks}
-The next hypothesis is that the shared state-flow model's Ring8 advantage
-survives matching cumulative training computation with ordinary FFNs. The
-proposed test retains the existing state-flow trajectory and continues the
-existing Free ISRU and SwiGLU controls with their original recipes. Budgets
-will account for forward, backward and optimizer work; evaluation will retain
-the same sample banks and mode-balance measurements. If ordinary models catch
-up, the current lead will not survive the equal-compute comparison.
-If state flow retains a quality--cost advantage, the next study will ask which
-target geometry makes the shared dynamics useful. This test is proposed,
-not yet run.
+Our final-stage hypothesis is that shared nonlinear iteration improves
+quality per training computation, with midpoint structure adding value beyond
+plain recurrence. On Ring8 and Product16, compare midpoint with a tied
+residual block, Free ISRU and SwiGLU. The residual block uses the same response
+$Pq(y)$ in eight updates $y\leftarrow y+Pq(y)/8$, without midpoint evaluations.
+Match cumulative forward, backward and optimizer work; retain seed~0,
+common sample banks and mode-balance measurements.
+
+If tied residual iteration matches midpoint, retain the simpler shared
+architecture. If midpoint leads at matched cost, its stage structure becomes
+the architectural contribution. If ordinary FFNs catch up, the current gain
+is a computation trade-off. Only a candidate with a demonstrated quality--cost
+advantage proceeds to CelebA. These comparisons are planned, not yet run.
 \label{main:end}
 
 \clearpage
@@ -230,7 +234,7 @@ accuracy improvements do not produce a generation gain.}
 \includegraphics[width=\textwidth]{figures/field-forecast.pdf}
 \caption{Unfitted prediction of the complete solver-induced field change.
 Both evaluation streams are shown for every trained model. A score of one is
-exact prediction; zero is the no-change predictor. The vertical scale is
+exact prediction; zero is the no-change predictor. The horizontal scale is
 restricted to show differences among the qualified results. These scores
 measure output-field prediction, not generated-distribution quality.}
 \label{fig:forecast}

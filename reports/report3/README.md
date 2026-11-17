@@ -1,6 +1,6 @@
 # ODE-FFN: Progress Report 3
 
-**Working draft, 17 November 2026. Author: Zhizhe Zhang.**
+**Working draft, revised 18 November 2026. Author: Zhizhe Zhang.**
 
 [Read the report](report3.pdf). The main report is **three pages**, followed
 by **four supporting pages** with tables, plots and a Ring8 case study.
@@ -11,6 +11,15 @@ operator sharing, the prescribed coefficients, or numerical solution accuracy.
 The report also addresses weight/update rank, Ring8 rotation symmetry, and
 the necessity of the ISRU response. It includes the completed common-bank
 ordinary controls and parameter-matched CelebA results.
+
+The main result favors shared nonlinear iteration as the leading architectural
+hypothesis: sharing helps the tested stage comparisons, while prescribed
+coefficients and increased internal solution accuracy give no consistent gain.
+The final-stage proposal compares midpoint, a direct tied residual block,
+Free ISRU and SwiGLU at matched training computation on both synthetic tasks.
+The result will determine whether to retain midpoint, simplify to recurrence,
+or conclude that the present gain requires more computation. It is a proposal,
+not a launched study.
 
 The layout follows the professor's readability feedback: connected main text,
 two short equations, and references to supporting material rather than tables

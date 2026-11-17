@@ -27,3 +27,28 @@ The professor's readability comment is addressed by separating three pages
 of explanation from four supporting pages, defining hidden/global time before
 using it, and stating the purpose and observation for each main experiment.
 This is a draft report; there is no finalization record.
+
+## Interpretation and final-stage decision, 18 November
+
+The external commentary motivates a sharper conclusion, not new numerical
+claims. Sharing is the leading structural explanation within the tested family;
+the mean-preserving control prevents calling it the unique isolated cause.
+The CelebA result establishes a loss for frozen-D blocks, not that freezing the
+diagonal caused the loss. Missing gating, gradient saturation and smoothing by
+numerical error remain hypotheses. The field-prediction score is the defined
+zero-change-relative squared-error score, not centered explained variance.
+
+The proposed direct recurrence uses eight updates of `y += P q(y) / 8`, sharing
+P and q across steps. This matches the midpoint model's eight P calls and unit
+internal duration. It is also explicit Euler: the experiment tests the value
+of midpoint staging beyond simple shared residual iteration, not whether the
+same computation can be called an ODE. Full training-cost matching must also
+include backward and optimizer work. Existing trained models remain references;
+the new control and ordinary continuation require a separately registered run
+decision. No activation search or immediate image launch is added.
+
+The [earlier recurrence study](../../docs/research-recurrent-depth-2026-10-26/results/analysis-report.md)
+used the original scalar K2 blocks and a different 5k training protocol. It
+cannot substitute for this direct control of the current state-flow family.
+All four supporting pages were rendered again: no stray axis fragments appear.
+The actual Figure4 caption error was corrected from vertical to horizontal.

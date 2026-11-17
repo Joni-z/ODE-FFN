@@ -11,6 +11,12 @@ readability feedback. [Source and evidence](reports/report3/README.md).
 No experiment was launched for this report; Reports1/2remain unchanged.
 Report3is not finalized.
 
+18 November revision: the penultimate report now leads with the shared-iteration
+hypothesis and ends with one decisive compute-matched comparison on Ring8 and
+Product16: midpoint, tied residual iteration, Free ISRU and SwiGLU. The proposed
+outcomes select midpoint, a simpler recurrence, or an ordinary FFN. No new run
+is launched; numerical evidence and finalized Reports1/2remain unchanged.
+
 ## User-requested pause and handoff
 
 17 November: the user requested closing the current code/evidence changes.
