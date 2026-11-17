@@ -9,7 +9,7 @@ comparison and retain the professor's three-page text/four-page support layout.
 - [x] Specify fixed-width ordinary continuation to the existing state-flow
   training budget; keep widening and new response designs out of this test.
 - [x] Rebuild, inspect all pages and verify unchanged evidence and Reports1/2.
-- [ ] Push and synchronize the revised report to MBP.
+- [x] Push and synchronize the revised report to MBP.
 
 No new experiment is part of this writing pass.
 Editing note: the initial patch had a stale line context and applied no changes;
@@ -18,6 +18,8 @@ Verification passes: three main pages plus four supporting pages, unchanged
 11pt font/margins,26source bindings and78table numeric cells. Changed pages
 1/2/3/5/7visually inspected; pages4/6render identically to the inspected version.
 No stray figure characters. Finalized reports and source data are unchanged.
+Revisione55523eis pushed and synchronized to MBP. PDFhashes match, and the
+remote checkout is clean. Report3remains a draft; no experiment was started.
 
 ## Completed: sharpen Report3 and bound the final research stage
 
