@@ -1,13 +1,17 @@
 # Determine what the ODE structure contributes
 
-## Current task: finalize Report3
+## Completed: finalize Report3
 
 The user finalized the current report on 18 November 2026. Preserve the exact
 PDF, TeX, figures and results. Only status metadata and a checksum record change.
 
 - [x] Record the finalization and move later work to Report4.
 - [x] Bind the final files and verify the PDF is unchanged, without rebuilding.
-- [ ] Push to GitHub and fast-forward MBP; check the delivered final PDF.
+- [x] Push to GitHub and fast-forward MBP; check the delivered final PDF.
+
+Finalization6d5fa46is on GitHub and MBP. The PDF and finalization-record
+SHA256values match across machines; both checkouts are clean. The20report
+files and26bound evidence sources are recorded without rebuilding the PDF.
 
 ## Completed: improve Report3 readability
 
