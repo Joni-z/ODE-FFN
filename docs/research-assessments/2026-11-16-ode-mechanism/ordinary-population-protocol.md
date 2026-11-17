@@ -70,6 +70,15 @@ separately; a pooled score is not the mean bank score. 128 is the prescribed
 coarse comparison and mesh check, not a second opportunity to choose a winner.
 Bank variation concerns these fixed weights, not independent training runs.
 
+The cached comparison retains all 48 model/stream/mesh rows. Alongside the
+registered conditional bootstrap intervals, report the paired-bank mean,
+median and sample SD of squared-distance differences. As a secondary check,
+use the two-sided exact binomial sign test on nonzero bank differences and
+Holm correction across the same 32 primary contrasts. This tests balanced
+sign probabilities over independent banks at fixed weights; it is not a
+randomized architecture assignment. Do not call a bootstrap interval a p-value.
+No partial cohort may produce a comparison report or figure.
+
 A useful image candidate must improve the practical quality/cost comparison
 with ordinary models on both tasks and avoid resolved mode/gap regression.
 No within-ODE win alone advances a model. If ordinary controls remain stronger,

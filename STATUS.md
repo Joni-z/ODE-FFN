@@ -35,8 +35,12 @@ epsilon 1e-4 metric check. Independent AD agrees with the derivative within
 error. Smaller four epsilons pass. The original flag remains unchanged.
 [Cached diagnosis](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-retained-metric-failure.json).
 
-145 controller 1477869 continues the complete 128-task cohort on physical 4-7;
-the current four workers run primary Heun2048. Mac CPU controller 15486 follows
+145 controller 1477869 continues the complete 128-task cohort on physical 4-7.
+The first four primary Heun2048banks and independent verifiers finish0and
+qualify numerically; the current four workers run selection banks4-7. These
+four completed banks are not a pooled quality decision.
+[First fine-mesh controls](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-first2048-banks.json).
+Mac CPU controller 15486 follows
 completed banks with four one-thread all-source reference workers. Both
 queues are monitored. The first four all-source banks and their independent
 verifiers have finished; all four qualify. The complete all-source cohort

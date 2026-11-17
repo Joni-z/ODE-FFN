@@ -30,6 +30,16 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 - [ ] Compare both native/crossed ODEsolves with ordinary controls at2048,
   keeping the registered32paired contrasts and full cost/configuration labels.
   Exact design: ordinary-population-protocol.md. No automatic image promotion.
+  - [x] Prepare a source-bound cached comparison that refuses incomplete
+    cohorts, joins every model on identical banks, and retains all48model/
+    stream/mesh rows and32primary contrasts. Reuse exhaustive bank-bootstrap
+    arithmetic; report secondary exact sign tests with Holm correction.
+    Actual statistics39905and incomplete-cohort audit58345exit0; the latter
+    creates no output. Full joins/figures remain untested until all four
+    ordinary cases complete. A separate recursive verifier covers all48source
+    row joins and32primary contrasts, including the adjusted sign tests.
+  - [ ] Run the postprocessor only after all ordinary producers/verifiers
+    finish; inspect both generated figures and independently check joins/stats.
 
 ## Completed causal chain
 
@@ -134,7 +144,10 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   confirmation bank0fails onlyepsilon1e-4target-metric FDfor BOTHforcings.
   Its hidden-reference/JVP/native gates pass; epsilon1e-5passes. Preserve the
   original failure and use the existing cached sorting/ADdiagnosis unchanged.
-  Primary2048four workers are live; no completed2048primary cohort yet.
+  First primary2048selection banks0-3and their independent checks now exit0;
+  all four numerical qualifications pass, actual bank times6996.343--7200.482s.
+  The next four workers continue selection banks4-7. No complete2048primary
+  cohort exists yet; do not pool these first four into a quality decision.
   Read-only complete128pool audit21826/12141actual0: analytic scores0.966/
   0.758, measured0.994/0.870. Original one-bank numeric failure staysfalse.
   Cached rank audit98558actual0: independent AD<=5.43e-19; exact sorting

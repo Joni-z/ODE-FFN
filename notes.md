@@ -5,6 +5,16 @@ Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations
 
 ## Current-bank ordinary comparison
 
+First ProductRK4selection2048banks0-3and all4independent children now exit0,
+every prefix numerical qualification true. Runtime6996.343--7200.482s/bank;
+next original workers continue banks4-7. Full primary pool is still pending.
+All first four copied array/COMPLETE/independent hashes bind and reproduce.
+The ordinary cached comparator now has a strict all-case terminal gate,
+48source rows/32primary contrasts, fixed paired-bootstrap enumeration and
+secondary exact sign/Holm checks. Statistics39905and partial audit58345exit0;
+partial audit writes no comparison artifact. Full data joins/plots await all
+four ordinary producers and verifiers; no partial quality report is issued.
+
 The old ordinary controls used earlier banks. The new ordinary-population
 study reuses all4original20kseed0checkpoints on current2026112700/2800streams,
 both128/2048meshes,8x4096banks. No retraining, tuning or new draws.
