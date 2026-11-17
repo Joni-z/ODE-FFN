@@ -1,0 +1,32 @@
+{
+  "pid": 20623,
+  "owner_pid": 20622,
+  "unix_time": 1794885415.6409101,
+  "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/comparison-runtime",
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/comparison-runtime/analyze_ordinary_population.py",
+    "--binding",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/inputs.json",
+    "--input",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/formal",
+    "--ode-input",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/formal",
+    "--costs",
+    "/Users/mr.z/ODE-FFN-upstream/docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-cost-bindings.json",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/comparison",
+    "--wait-for-pid",
+    "19767"
+  ],
+  "source_commit": "5181693dbe0264dcd54e5714ae6275114840c65b",
+  "source_freeze_sha256": "c8a8a43ef53c74ba87ff2f134d05bae49b8ca30f6d4db3af11c4f46f09253d95",
+  "binding_sha256": "ed6e487133f99bcb93cb2b3f4e1b6de8a9202adf375a07084ca2e00a8680cd66",
+  "waits_on_original_controller": 19767,
+  "creates_results_only_after_complete_cohort": true,
+  "observed_unix": 1794885508.4069068,
+  "actual_live_process": "  PID ELAPSED  %CPU STAT COMMAND\n20623   01:33   0.0 S    /Library/Frameworks/Python.framework/Versions/3.12/Resources/Python.app/Contents/MacOS/Python -u /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/comparison-runtime/analyze_ordinary_population.py --binding /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/inputs.json --input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/formal --ode-input /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/formal --costs /Users/mr.z/ODE-FFN-upstream/docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-cost-bindings.json --output /Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/comparison --wait-for-pid 19767\n",
+  "output_directory_absent_until_complete": true,
+  "original_tool_session": 67368
+}

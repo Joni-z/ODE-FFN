@@ -1,5 +1,10 @@
 # Current ODE mechanism evidence
 
+User requested closing the current work and stopping on17November. Goal is
+paused, not complete. Preserve existing compute/follower processes and resume
+agent work only when asked. The final cleanup publishes the cached-comparison
+launch/progress record; no new model, training or experimental family is added.
+
 Canonical directory: docs/research-assessments/2026-11-16-ode-mechanism/.
 Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations.
 
@@ -14,6 +19,11 @@ The ordinary cached comparator now has a strict all-case terminal gate,
 secondary exact sign/Holm checks. Statistics39905and partial audit58345exit0;
 partial audit writes no comparison artifact. Full data joins/plots await all
 four ordinary producers and verifiers; no partial quality report is issued.
+Four-file cached analysis runtime5181693now runs under owner20622/tool67368,
+child20623. It verifies original19767's live command while waiting; no output
+directory exists. Once complete it writes the comparison and invokes the
+separate recursive verifier, with actual terminal status retained. Frozen
+source hashes and both figures must be checked before public result claims.
 
 The old ordinary controls used earlier banks. The new ordinary-population
 study reuses all4original20kseed0checkpoints on current2026112700/2800streams,

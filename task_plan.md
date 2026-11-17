@@ -1,8 +1,12 @@
 # Determine what the ODE structure contributes
 
-Goal active: obtain a mathematically predicted, falsifiable account of ODE-FFN
-behavior, then decide which architecture merits another image test. Training
-seed0only. Preserve finalized Reports1/2and the native image baseline.
+Goal paused at the user's request on 17 November, after closing the current
+working changes. The objective remains to obtain a mathematically predicted,
+falsifiable account of ODE-FFN behavior and decide which architecture merits
+another image test. Resume autonomous work only on the user's instruction.
+Existing registered compute queues and the fixed cached-analysis follower
+remain running; no new experimental family is launched during the pause.
+Training seed0only. Preserve finalized Reports1/2and the native image baseline.
 
 ## P0 parallel: ordinary controls on the current target banks
 
@@ -40,6 +44,11 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
     row joins and32primary contrasts, including the adjusted sign tests.
   - [ ] Run the postprocessor only after all ordinary producers/verifiers
     finish; inspect both generated figures and independently check joins/stats.
+    Four-file analysis runtime5181693is frozen. Owner20622/tool67368tracks
+    actual child20623, waiting on the original19767controller with live-command
+    verification. No comparison output exists while the cohort is incomplete.
+    After completion it creates both figures/all48rows and runs the recursive
+    independent verifier, retaining the actual child exit in comparison-terminal.json.
 
 ## Completed causal chain
 

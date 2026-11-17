@@ -1,5 +1,16 @@
 # Current project status
 
+## User-requested pause and handoff
+
+17 November: the user requested closing the current code/evidence changes.
+Autonomous development and new experiment decisions are paused. Existing
+registered queues remain running:145controller1477869on physical4-7,
+Macall-source controller15486, ordinary-control controller19767and the fixed
+cached-comparison follower20623(owner20622/tool67368). Their progress/logs
+remain under the raw roots recorded below. The follower waits for the full
+ordinary cohort before generating its comparison; public conclusions still
+require independent checks and visual review. The investigation is unfinished.
+
 ## Analytic target forecast: complete Heun128 diagnostic, Heun2048 running
 
 Both primary Heun128 streams retain all eight original banks and independent
@@ -60,6 +71,14 @@ metric errors are<=4.45e-16. Controller19767runs two one-thread workers
 [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-protocol.md),
 [fresh check](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-fresh.json),
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-launch.json).
+
+A frozen cached postprocessor now follows the original ordinary controller.
+It waits for all four producers and independent verifiers, then joins the48
+complete model/stream/mesh rows and32primary paired contrasts. It creates no
+partial report or figure. The separate recursive verifier checks source joins,
+bootstrap intervals and exact sign/Holm arithmetic. Full analysis and visual
+review remain pending.
+[Analysis follower](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-comparison-launch.json).
 
 ## The analytic ODE correction predicts the complete field change
 
