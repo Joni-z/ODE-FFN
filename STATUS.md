@@ -1,5 +1,35 @@
 # Current project status
 
+## Analytic target forecast: complete Heun128 diagnostic, Heun2048 running
+
+Both primary Heun128 streams retain all eight original banks and independent
+reconstructions. The ODE-derived forecast has the correct sign and beats
+predicting zero change on both complete 32,768-sample pools.
+
+| Product16 RK4 weights | Actual squared-loss change | Analytic forecast | Forecast score |
+|---|---:|---:|---:|
+| Selection |-4.122e-4|-4.878e-4|0.966|
+| Confirmation |-2.789e-4|-4.161e-4|0.758|
+
+Score is one minus squared forecast error relative to predicting zero change.
+This is the Heun128 diagnostic; the registered Heun2048 decision remains pending.
+The old four-lambda caches also reproduce: analytic scores rise to 0.998/0.951
+at lambda 0.125, without a fitted amplitude or another sampling run.
+[Complete diagnostic data](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-128-diagnostic.json),
+[cached continuation](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-cached-continuation.json).
+
+Original bank numerical gates pass 15/16. Confirmation bank 0 retains its failed
+epsilon 1e-4 metric check. Independent AD agrees with the derivative within
+5.43e-19; the exact sorting correction reconstructs that finite-difference
+error. Smaller four epsilons pass. The original flag remains unchanged.
+[Cached diagnosis](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-retained-metric-failure.json).
+
+145 controller 1477869 continues the complete 128-task cohort on physical 4-7;
+the current four workers run primary Heun2048. Mac CPU controller 15486 follows
+completed banks with four one-thread all-source reference workers. Both
+queues are monitored; all-source qualification and the complete primary
+prediction remain open.
+
 ## The analytic ODE correction predicts the complete field change
 
 All four frozen models and both 4,096-input field streams are complete. Both
@@ -53,11 +83,11 @@ for the primary test, excluding the remaining native sampler overhead.
 The joint analytic/measured sampler kernel passes all eight learned CPUprefix
 checks and linear8/128/2048controls. Both fresh documented GPUentrypoints and
 independent reconstructions pass, all5,229frozen source hashes unchanged.
-The monitored full-bank queue is now active on145physical4-7, controller
-1477869, sourcefd04994. Initial workers1477920-1477923run Product16RK4
-selection banks0-3atHeun128. Primary128/2048banks precede all controls.
-All128bank/mesh tasks and independent outputs remain required. No complete
-analytic target-quality result yet.
+The monitored full-bank queue is active on145physical4-7, controller
+1477869, sourcefd04994. Primary128banks are complete;2048banks precede
+all other models. All128bank/mesh tasks and independent outputs remain
+required. The full-source CPUfollower is source46a9f7a/5244files, with a
+fresh five-command pass and unchanged packages. No final primary decision yet.
 [Launch](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-launch.json),
 [fresh readiness](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-fresh-summary.json),
 [registered all-source trajectory follow-up](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-full-probe-control.md).

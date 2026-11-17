@@ -1,0 +1,33 @@
+{
+  "controller_pid": 15486,
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/trajectory-reference/runtime/repo/studies/muon_pd_20261102/target_transport_20261117/collect_trajectory_reference.py",
+    "--repo",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/trajectory-reference/runtime/repo",
+    "--root",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/population-resolution/portable",
+    "--local-main",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/analytic-target/formal",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/trajectory-reference/live",
+    "--execution-proof",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/factored-analytic-observer/formal-power/COMPLETE.json",
+    "--python",
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "--readiness",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/trajectory-reference/fresh-readiness.json",
+    "--workers",
+    "4"
+  ],
+  "source_commit": "46a9f7a2b63df691a226983974817ca1ff18821d",
+  "source_files": 5244,
+  "all_source_hashes_match": true,
+  "readiness_sha256": "f8afbb58fc55b264b57e4edd19f8440de765a7a47ccf2feffd894b674c11eab0",
+  "workers": 4,
+  "threads_per_worker": 1,
+  "gpu_used": false,
+  "free_gib": 12.681350708007812,
+  "started_unix": 1794877736.707854
+}

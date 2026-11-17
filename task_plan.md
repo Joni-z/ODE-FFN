@@ -45,10 +45,10 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 - [x] Profile/compile the SAME256-step FP64observer per the registered runtime
   protocol before paying the projected132GPUhours for primary target transport.
   - [x] Installed Torch2.8.0+cu128/Triton3.4.0and gcc/g++present; no packages
-    changed. nvccabsent; actual TorchInductorkernel still needs validation.
+    changed. nvccabsent; actual TorchInductorkernels validated below.
   - [x] Factor one coupled RK4step without editing the canonical observer.
     CPU66114actual0:8full-model prefix outputs/48nonzero-tangent layer checks
-    match the original eagerly, bit for bit. GPUcompilation remains pending.
+    match the original eagerly, bit for bit. Subsequent GPUchecks pass below.
   - [x] Original compiled author7526and fresh42278actual0. All8prefix cells
     pass; frozenba0c426/5200source hashes unchanged.
   - [x] Original full63139actual0: all8x4096fields pass, p<=6.67e-15,
@@ -91,17 +91,37 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   primary selection banks0-3/Heun128. Actual live PID/CUDAcontexts verified.
 - [ ] Collect all128bank tasks and128independent checks, pooled primary
  128/2048predictions and both-forcing diagnosis. A launch is not completion.
+  Primary128all16banks+16independent checks now actual0. Prefix numerics15/16;
+  confirmation bank0fails onlyepsilon1e-4target-metric FDfor BOTHforcings.
+  Its hidden-reference/JVP/native gates pass; epsilon1e-5passes. Preserve the
+  original failure and use the existing cached sorting/ADdiagnosis unchanged.
+  Primary2048four workers are live; no completed2048primary cohort yet.
+  Read-only complete128pool audit21826/12141actual0: analytic scores0.966/
+  0.758, measured0.994/0.870. Original one-bank numeric failure staysfalse.
+  Cached rank audit98558actual0: independent AD<=5.43e-19; exact sorting
+  correction reconstructs the failure, smaller four epsilons pass. No gate edit.
+- [x] Use the registered OLDfour-lambda cached endpoints to separate analytic
+  approximation error from finite-intervention error; no new model evaluation.
+  29314actual0for both complete primary128groups: all endpoints/targets/directions
+  replay; allfour prescribed lambdas retained. Scores atlambda.125are.998/.951,
+  atlambda1.966/.758. Other model groups await their registered main outputs.
 - [ ] Before final mechanism interpretation, run the pre-registered ALLsource
   reference control at the same16trajectory calls in every bank/mesh task.
   analytic-target-full-probe-control.md; main-prefix gates stay separate.
-  - [ ] Prepare identical CPU reference control while145cards run sampling:
+  - [x] Prepare identical CPU reference control while145cards run sampling:
     actual-path reconstruction, both-count GPUarray parity on both saved
     readiness cases, independent NumPy, memory/throughput and fresh doc pass.
     Authored72105/44072and both independent verifiers actual0; GPUparity
     <=6.67e-15. Full-batch timing72829actual0:12846.313s/25695.056s,
     peak584.828MiB. Four single-thread workers fit the measured memory budget.
-  - [ ] Run a bounded CPUfollow-up queue from independently completed banks,
+    Fresh exact five commands actual0,5244hashes unchanged, no divergence;
+    readinessf8afbb58. Source46a9f7a, allCPU/GPUparity gates pass.
+  - [x] Run a bounded CPUfollow-up queue from independently completed banks,
     without touching the live frozen145runtime or restarting its tasks.
+    Controller15486, workers15559-15562actual live/97-99%CPU, source46a9f7a.
+    All16Heun128main banks cached; full128follow-up results remain pending.
+  - [ ] Collect every full-source reference array and independent gate,
+    preserve failures, and join both meshes/all models before final claims.
 
 Analytic field prediction now qualifies and the observed sampling benefit
 persists at the prescribed meshes. Propagate that analytic forcing

@@ -3,6 +3,29 @@
 Canonical directory: docs/research-assessments/2026-11-16-ode-mechanism/.
 Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations.
 
+## Current complete Heun128 diagnostic
+
+Both ProductRK4streams retain8x4096banks and independent outputs. Analytic
+unfitted target scores0.966/0.758; measured-forcing scores0.994/0.870.
+Actual squared-loss changes-4.122e-4/-2.789e-4, analytic-4.878e-4/-4.161e-4.
+Finite endpoint predictions remain inaccurate; scalar agreement is distinct.
+Original bank numerical gates15/16. Confirmation bank0epsilon1e-4metric
+failure remainsfalse; cached audit98558actual0finds AD<=5.43e-19and exact
+sorting-error reconstruction. Four smaller epsilons pass, no gate was edited.
+
+Cached continuation29314actual0reuses all old four-lambda arrays/targets/
+directions after all-source endpoint replay. Analytic scores.998/.951at.125,
+.966/.758at1. Confirmation finite-intervention error is1.006e-4and analytic
+field-approximation contribution3.662e-5; their exact sum is1.372e-4.
+These are retrospective128diagnostics; registered2048and full-source gates
+remain open. No report or final architecture claim is produced from them.
+
+Fresh CPUreference five commands actual0,46a9f7a/5244hashes unchanged;
+saved GPUparity<=6.67e-15. Full-batch128/256CPUtimings46.313/95.056s,
+RSS584.828MiB. Controller15486now follows completed banks with4one-thread
+workers15559-15562; all16coarse banks cached, four actual workers verified
+97-99%CPU. Original145controller1477869and four2048workers remain live.
+
 ## What is established
 
 Better internal ODEaccuracy alone does not improve generation. Hidden numerical
@@ -63,7 +86,8 @@ forcing through the ACTUAL learned sampler. Median eager256observer7.232s/
 B4096projects primary full Heun2048transport to131.653GPUhours. Runtime
 protocol fixes the same equations while reducing execution cost; FP64,256steps,
 both defects,all banks and gates stay fixed. Small target-entrypoint witnesses
-pass; full-bank trajectories are now running. No complete target-quality result yet.
+pass; coarse primary banks are complete and2048trajectories are running.
+The final registered target-quality decision remains pending.
 
 ## Runtime and audit
 
