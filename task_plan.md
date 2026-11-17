@@ -1,5 +1,20 @@
 # Determine what the ODE structure contributes
 
+## Current task: write a readable Report3, without further experiments
+
+User explicitly requests the complete Report3and highlights the professor's
+readability feedback. Write three pages of connected main text; put detailed
+tables, figures and cases on clearly separated supporting pages. English,
+Zhizhe Zhang, scores to three decimals. Reports1/2remain unchanged.
+
+- [x] Bind the completed numerical results and choose only the evidence needed
+  for the central sharing/coefficient/solver argument and professor responses.
+- [x] Write the complete LaTeXreport with plain explanations, experiment purposes
+  and observations, one Ring8case, and proposed next-two-week hypotheses.
+- [x] Build PDF, check all pages visually/textually, audit numeric claims and
+  verify protected report/native-source hashes. No new model evaluation.
+- [ ] Push the complete report/evidence and deliver PDF; copy to MBPif reachable.
+
 ## Current request: professor-response audit and Report3 preparation
 
 - [x] Check each professor question against direct existing evidence, including

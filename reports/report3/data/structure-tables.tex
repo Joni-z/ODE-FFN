@@ -1,0 +1,29 @@
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Operator design & Ring8 SW2 & Product16 SW2\\
+\midrule
+Shared P & 0.091 & 0.064\\
+Independent stages & 0.111 & 0.073\\
+Mean-preserving stage release & 0.104 & 0.072\\
+\bottomrule
+\end{tabular}
+\caption{20k, Heun128; all rows use the same banks and eight P applications per local solve. Shared models have 56,706/58,512 parameters on Ring8/Product16; released models have 130,434/132,240. The mean-preserving and original releases have the same function class. This is a fixed-matrix-work comparison.}
+\label{tab:sharing}
+\end{table}
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Coefficient design & Ring8 SW2 & Product16 SW2\\
+\midrule
+Fixed Taylor K8 & 0.088 & 0.056\\
+Free Taylor coefficients & 0.089 & 0.055\\
+Fixed midpoint stages & 0.071 & 0.052\\
+Free midpoint stages & 0.071 & 0.052\\
+\bottomrule
+\end{tabular}
+\caption{20k confirmation, Heun128. Each free-coefficient model starts with the same function as its fixed counterpart and retains its P applications. The free Taylor/stage variants add 42/24 scalar parameters. This cohort differs from Table~\ref{tab:sharing}; compare rows within this table.}
+\label{tab:coefficients}
+\end{table}

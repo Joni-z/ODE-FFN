@@ -1,5 +1,16 @@
 # Current project status
 
+## Report3 draft
+
+The [complete Report3 draft](reports/report3/report3.pdf) is written:
+three pages of main text and four supporting pages. It separates the
+sharing/coefficient/solver controls, includes the professor-response evidence
+and Ring8case examples, and retains the completed common-bank/image results.
+Detailed tables and figures are outside the main text, following the professor's
+readability feedback. [Source and evidence](reports/report3/README.md).
+No experiment was launched for this report; Reports1/2remain unchanged.
+Report3is not finalized.
+
 ## User-requested pause and handoff
 
 17 November: the user requested closing the current code/evidence changes.

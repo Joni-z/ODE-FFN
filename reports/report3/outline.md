@@ -1,5 +1,8 @@
 # Progress Report 3: What Does the ODE Constraint Contribute?
 
+The complete [report draft](report3.pdf) and [LaTeX source](report3.tex) now
+implement this plan. This file preserves the earlier planning outline.
+
 Author: Zhizhe Zhang. Status: working outline, 17 November 2026.
 This is preparation for a three-page report, not a finalized report or a new
 training authorization. Reports 1 and 2 remain unchanged.

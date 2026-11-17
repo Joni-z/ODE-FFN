@@ -1,0 +1,30 @@
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model / optimizer & \shortstack{Update\\stable rank} & \shortstack{Weight\\stable rank} & \shortstack{Weight\\entropy rank} & \shortstack{Weight\\condition no.}\\
+\midrule
+Free ISRU / AdamW & 4.567 & 13.018 & 55.547 & 109.267\\
+Free ISRU / Muon & 32.776 & 10.525 & 43.789 & 690.632\\
+ISRU-D / AdamW & 1.648 & 9.703 & 47.510 & 885.527\\
+ISRU-D / Muon & 32.905 & 12.379 & 46.674 & 1368.710\\
+\bottomrule
+\end{tabular}
+\caption{Product16 at 20k updates; means over six learned matrices. The matrix learning rates are 0.0003 for AdamW and 0.02 for Muon; other parameters use AdamW 0.0003.}
+\label{tab:ranks}
+\end{table}
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Task & Response & Field MSE ($\times10^{-3}$) & Pooled SW2\\
+\midrule
+Ring8 & ISRU & 9.773 & 0.133\\
+Ring8 & Scaled tanh & 9.611 & 0.140\\
+Product16 & ISRU & 16.059 & 0.072\\
+Product16 & Scaled tanh & 16.489 & 0.070\\
+\bottomrule
+\end{tabular}
+\caption{Matched K1 response comparison at 20k updates, AdamW 0.0003 and Heun128. Scaled tanh matches the slope at zero, odd symmetry and saturation of ISRU; parameters, initialization and data stream are held fixed. Lower is better.}
+\label{tab:response}
+\end{table}

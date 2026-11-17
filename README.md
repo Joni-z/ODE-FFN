@@ -9,7 +9,7 @@ the model extension replaces only each Transformer block's FFN.
 | What you want | Open |
 |---|---|
 | Whole-project findings and every recorded experiment | [17 November project review and full ledger](docs/research-assessments/2026-11-17-project-review/README.md) |
-| Report3 preparation and professor responses | [Working outline and next decision](reports/report3/outline.md) |
+| Report3 draft and professor responses | [PDF](reports/report3/report3.pdf), [source and evidence](reports/report3/README.md) |
 | Current experiment, budget and jobs | [STATUS.md](STATUS.md) |
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |

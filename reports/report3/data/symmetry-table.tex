@@ -1,0 +1,15 @@
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & \shortstack{Native\\SW2} & \shortstack{C8\\SW2} & \shortstack{Native\\sector L1} & \shortstack{C8\\sector L1}\\
+\midrule
+ISRU-D & 0.133 & 0.053 & 0.055 & 0.006\\
+Tanh-D & 0.140 & 0.052 & 0.055 & 0.007\\
+Free ISRU & 0.145 & 0.052 & 0.074 & 0.006\\
+SwiGLU64 / Muon & 0.157 & 0.053 & 0.063 & 0.007\\
+\bottomrule
+\end{tabular}
+\caption{Ring8 at 20k, Heun128, eight common 4,096-sample banks pooled. Sector L1 is deviation from equal mode frequencies. C8 uses eight rotated predictions per field evaluation. Its benefit occurs in ordinary and ODE-inspired models. Lower is better.}
+\label{tab:symmetry}
+\end{table}

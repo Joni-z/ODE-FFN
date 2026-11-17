@@ -1,0 +1,29 @@
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & \shortstack{Ring8\\selection} & \shortstack{Ring8\\confirmation} & \shortstack{Product16\\selection} & \shortstack{Product16\\confirmation}\\
+\midrule
+State flow / midpoint & 0.076 & 0.068 & 0.053 & 0.047\\
+Free ISRU / AdamW & 0.096 & 0.091 & 0.051 & 0.051\\
+SwiGLU reference & 0.105 & 0.105 & 0.035 & 0.034\\
+\bottomrule
+\end{tabular}
+\caption{Pooled SW2, Heun2048, eight 4,096-sample banks per stream. State flow and Free ISRU use AdamW 0.0003; Ring8 SwiGLU64 uses Muon 0.02 and Product16 SwiGLU192 uses AdamW 0.0003. State/Free dense forward MACs are 227,648/55,616 on Ring8 and 229,440/57,408 on Product16. These are matrix-work counts, not total training FLOPs.}
+\label{tab:ordinary}
+\end{table}
+\begin{table}[H]
+\centering\small
+\begin{tabular}{@{}rrrr@{}}
+\toprule
+Epoch & Native SwiGLU & Wide ISRU-D K1 & Wide ISRU-D K8\\
+\midrule
+100 & 35.918 & 37.925 & 38.136\\
+120 & 29.476 & 32.502 & 32.851\\
+140 & 25.986 & 29.629 & 30.082\\
+160 & 24.304 & 27.789 & 28.083\\
+\bottomrule
+\end{tabular}
+\caption{CelebA128 standard FID50k. Native has 130,405,632 parameters; both widened candidates have 130,402,560. The protocol uses EMA 0.9999, Heun50, CFG0 and the same reference. All three completed 160 epochs. These are frozen-diagonal image blocks, not the refreshed state-flow model.}
+\label{tab:image}
+\end{table}

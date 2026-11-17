@@ -1,5 +1,15 @@
 # Current ODE mechanism evidence
 
+Report3written17Novemberatuserrequest: complete EnglishLaTeX/PDFunder
+reports/report3/, authorZhizheZhang. Three main pages plus four supporting
+pages; tables/figures outside main narrative. Central sequence: Ring8symmetry
+case -> sharing versus exact coefficients/solver fidelity -> analytic field
+response -> common-bank and image performance. Two equations, seven tables,
+four figures, and a next-two-week compute-matching hypothesis. Source numbers
+come from26bound existing files; no training/sampling/model calls. All seven
+pages visually reviewed; final numeric/protection check and delivery recorded
+with the report. Report3remains a draft; Reports1/2are final and unchanged.
+
 Report3preparation17November: the professor's three latest concrete requests
 have direct completed responses: Product16weight/update rank and condition,
 Ring8C8equivariance/mode imbalance with samples/trajectories, and matched
