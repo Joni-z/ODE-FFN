@@ -4,6 +4,28 @@ Goal active: obtain a mathematically predicted, falsifiable account of ODE-FFN
 behavior, then decide which architecture merits another image test. Training
 seed0only. Preserve finalized Reports1/2and the native image baseline.
 
+## P0 parallel: ordinary controls on the current target banks
+
+- [x] Bind the four existing20kseed0FreeISRU/SwiGLUcontrols and current
+  2026112700/2026112800streams. Older ordinary scores use different banks;
+  do not rank them against the current ODEcohort. No retraining or retuning.
+- [x] Reuse the pinned native loader/sampler/metric, preserve actual FP32
+  nonpersistent time buffers on conversion toFP64, and replay every copied
+  historical field/sample anchor. Validate both128/2048real entrypoints.
+  Author15033actual0: all4old field/sample anchors replay exactly; all4models
+  pass both meshes/streams and parameter/buffer/RNGchecks. Widest full4096bank
+  Heun12814.454s, peak436.641MiB. Actual0/3CLI14090/1494and both NumPyverifiers
+  actual0; maximum metric error4.45e-16. Fresh frozen pass is next.
+- [ ] Freeze documented source and obtain the fresh verbatim CPUcheck;
+  launch at most two additional one-thread Macworkers after timing/memory.
+  The original four all-source followers and145GPUqueue continue unchanged.
+- [ ] Collect four controls/two streams/eight4096banks/both meshes, all raw
+  endpoints and independent metric checks. Only complete common-bank groups
+  enter architecture comparisons; no favorable checkpoint/bank selection.
+- [ ] Compare both native/crossed ODEsolves with ordinary controls at2048,
+  keeping the registered32paired contrasts and full cost/configuration labels.
+  Exact design: ordinary-population-protocol.md. No automatic image promotion.
+
 ## Completed causal chain
 
 - Matched midpoint/RK4training improves hidden solve accuracy45.580x/22.245x

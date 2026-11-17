@@ -1,0 +1,69 @@
+{
+  "scope": "authored readiness only; no formal quality results",
+  "passed": true,
+  "binding_sha256": "ed6e487133f99bcb93cb2b3f4e1b6de8a9202adf375a07084ca2e00a8680cd66",
+  "readiness_sha256": "332f6647cab911df154c91ad17143f8344c427d969da6e99799dde26db125c7b",
+  "producer_sha256": "9e39fc6ac30955a77bd7cb11c7c828bfbe7f5377305c887f80a1522386d5ba91",
+  "benchmark": {
+    "family": "swiglu192",
+    "points": 4096,
+    "steps": 128,
+    "seconds": 14.454472499899566,
+    "peak_rss_bytes": 457850880
+  },
+  "controls": [
+    {
+      "index": 0,
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "parameters": 56706,
+      "exact_old_field_and_sample_anchors": true,
+      "native_recording_both_meshes_exact": true,
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93"
+    },
+    {
+      "index": 1,
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "parameters": 56766,
+      "exact_old_field_and_sample_anchors": true,
+      "native_recording_both_meshes_exact": true,
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673"
+    },
+    {
+      "index": 2,
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "parameters": 58512,
+      "exact_old_field_and_sample_anchors": true,
+      "native_recording_both_meshes_exact": true,
+      "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a"
+    },
+    {
+      "index": 3,
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "parameters": 108624,
+      "exact_old_field_and_sample_anchors": true,
+      "native_recording_both_meshes_exact": true,
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c"
+    }
+  ],
+  "witnesses": [
+    {
+      "index": 0,
+      "complete_sha256": "04ed93df26b6b5683cba26b24a6b0e64d3827f4a9246c35f741007dc640d3146",
+      "independent_sha256": "8b3f53604f6fb9f8efb90855394dd13aacc2ced4ac0d463b751e577868344004",
+      "max_metric_error": 4.440892098500626e-16,
+      "actual_producer_exit": 0,
+      "actual_independent_exit": 0
+    },
+    {
+      "index": 3,
+      "complete_sha256": "aaff4f46aa41b7339864f2a3b71bc52457c3c360ad7cabcdb4061cd13a6c4b00",
+      "independent_sha256": "c7d3a83ef3ae5715fd9c42733247a5e23b38a0d63c2c2c4180e642ca74a25b00",
+      "max_metric_error": 2.220446049250313e-16,
+      "actual_producer_exit": 0,
+      "actual_independent_exit": 0
+    }
+  ],
+  "fresh_documented_pass": "pending",
+  "training_runs": 0,
+  "new_draws": 0
+}
