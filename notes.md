@@ -5,6 +5,22 @@ Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations
 
 ## Current complete Heun128 diagnostic
 
+Cached actual-endpoint geometry now completes all16banks and both pools,
+without model calls. Independent dense reconstruction16512actual0checks720
+scalars/18units,max3.33e-16; per-unit reverse-mode ADgradientmax1.44e-20.
+Top10analytic residuals contain62.173%/95.167%of particle squared error but
+12.274%/22.079%of absolute target-gradient contributions. Target rematching
+cancels98.841%/99.056%of actual projected quadratic displacement. The exact
+forecast-error split is gradient-weighted residual minus nonlinear remainder:
+selection4.940e-6-8.053e-5=-7.559e-5; confirmation-7.325e-5-6.396e-5=
+-1.372e-4. This is descriptive complete128accounting, not primary2048.
+Raw endpoint-geometry-128.json, curated analytic-target-endpoint-geometry.json.
+Original flags and all directions retained; no new model calls/samples.
+
+CPUall-source confirmation banks0-3now finish and independently qualify;
+actual runtimes4585.610--4652.162s. Controller15486continues banks4-7.
+Original145controller1477869and four primary2048workers remain live.
+
 Both ProductRK4streams retain8x4096banks and independent outputs. Analytic
 unfitted target scores0.966/0.758; measured-forcing scores0.994/0.870.
 Actual squared-loss changes-4.122e-4/-2.789e-4, analytic-4.878e-4/-4.161e-4.

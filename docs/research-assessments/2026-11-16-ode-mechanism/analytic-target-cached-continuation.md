@@ -36,3 +36,36 @@ If the analytic forecast improves at smaller lambda, this supports a local
 response account and identifies finite-scale effects to inspect. If it does
 not, the analytic approximation may miss target-sensitive directions even
 locally. Neither outcome establishes an ordinary-FFN performance advantage.
+
+## Actual endpoint geometry and source contributions
+
+Registered after the complete Heun128 diagnostic, before this additional
+accounting. The earlier remainder uses the potentially distant linearized
+endpoint x+u. Instead let d=x_crossed-x_native be the actual displacement
+and g the gradient of the same empirical squared SW2 at x_native. With no
+exact projected ties, the following is an exact finite-change identity:
+
+    actual_deltaL = dot(g,d) + Q(d) + C_sort(d).
+
+Here Q(d) is the mean squared projected displacement. C_sort is the loss
+with newly sorted crossed projections minus the loss with the original
+native rank assignment; it is nonpositive because sorting gives the optimal
+one-dimensional matching. For either predicted tangent u,
+
+    dot(g,u)-actual_deltaL = dot(g,u-d) - (Q(d)+C_sort(d)).
+
+Compute this on all eight banks and the 32,768-source pool of each completed
+primary group. Reconstruct both stored tangent derivatives independently.
+Check g against reverse-mode AD of the actual sorted metric, and reject exact
+ties rather than choose a derivative silently. Keep both analytic/measured
+tangents and all original numerical flags. Check native replay separately;
+the identity uses the actual native endpoint, with no replay approximation.
+
+Rank sources by squared tangent residual ||u-d||^2, breaking ties by original
+index. For the prescribed top1, top10 and top1% report residual-energy,
+target-gradient-energy and absolute gradient-contribution shares, plus the
+signed contribution. Report the full signed/absolute cancellation ratio too.
+These are descriptive decompositions; a small gradient projection alone does
+not establish special orthogonality or a new architecture advantage. There
+are no fitted scales, selected banks/directions, new model calls or samples.
+The original Heun2048 and all-source precision gates remain unchanged.

@@ -18,6 +18,17 @@ at lambda 0.125, without a fitted amplitude or another sampling run.
 [Complete diagnostic data](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-128-diagnostic.json),
 [cached continuation](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-cached-continuation.json).
 
+Actual-endpoint geometry now independently reconstructs all16banks and both
+pools. The top10analytic particle residuals hold62.173%/95.167%of squared
+error but12.274%/22.079%of absolute target-gradient contributions. The actual
+projected-displacement quadratic is6.947e-3/6.778e-3; optimal one-dimensional
+rematching cancels98.841%/99.056%of it. Remaining nonlinear terms are
+8.053e-5/6.396e-5. These exact decompositions explain why particle and scalar
+forecast errors differ without asserting an ODE-specific performance gain.
+Independent dense-array reconstruction agrees within3.34e-16and full-gradient
+ADwithin1.44e-20. All original flags remain unchanged.
+[Cached geometry](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-endpoint-geometry.json).
+
 Original bank numerical gates pass 15/16. Confirmation bank 0 retains its failed
 epsilon 1e-4 metric check. Independent AD agrees with the derivative within
 5.43e-19; the exact sorting correction reconstructs that finite-difference
@@ -27,8 +38,10 @@ error. Smaller four epsilons pass. The original flag remains unchanged.
 145 controller 1477869 continues the complete 128-task cohort on physical 4-7;
 the current four workers run primary Heun2048. Mac CPU controller 15486 follows
 completed banks with four one-thread all-source reference workers. Both
-queues are monitored; all-source qualification and the complete primary
-prediction remain open.
+queues are monitored. The first four all-source banks and their independent
+verifiers have finished; all four qualify. The complete all-source cohort
+and primary2048prediction remain open.
+[First four completed controls](docs/research-assessments/2026-11-16-ode-mechanism/trajectory-reference-readiness/first-completed-banks.json).
 
 ## The analytic ODE correction predicts the complete field change
 
@@ -66,12 +79,13 @@ The registered finer-mesh criterion passes. This is a same-weight solver effect;
 ordinary architecture rankings require controls on these same banks.
 [Complete generation results](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/analysis-report.md).
 
-## Next: analytic correction through the sampler and target loss
+## Active: analytic correction through the sampler and target loss
 
 The remaining link is the distributional response predicted from the analytic
-correction, rather than the already measured field difference. The eager
-256-step observer takes median7.232s per4,096 inputs. Primary full Heun2048
-transport projects to about132 GPUhours at that rate; it is not queued.
+correction, rather than the already measured field difference. The original
+eager256-step observer took median7.232s per4,096 inputs, projecting about132
+GPUhours for primary Heun2048 transport. The validated faster implementation
+is now executing that study on145; this is no longer an unqueued projection.
 Original compilation gives1.240x. Exact algebraic factorization and power
 reuse now pass all8x4096input comparisons and independent reconstruction,
 with4.475xresident speedup. Both fresh documented invocations exit0and

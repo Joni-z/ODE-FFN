@@ -73,6 +73,18 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 
 ## Subsequent causal link
 
+- [x] Cached endpoint-geometry diagnosis while the original queues continue:
+  reconstruct the target gradient, actual-displacement quadratic and exact
+  sorting correction on every bank and both complete primary128 pools.
+  Separate gradient-weighted tangent error from actual-endpoint nonlinearity;
+  retain fixed top1/top10/top1% source-error contributions. Bind all input
+  hashes, check independent AD and exact identities, add no model calls or
+  samples. This is retrospective accounting, not the pending2048 decision.
+  Controls44501/complete57725/independent16512actual0; all18units/720scalar
+  comparisons agree<=3.34e-16, full-gradient AD<=1.44e-20. Rematching cancels
+  98.841%/99.056%of actual quadratic displacement; sparse particle tails
+  weigh differently in the target gradient. All original flags retained.
+
 - [x] Register analytic-target-protocol.md before new target observations:
   both analytic/measured forcings, all models/banks,Heun128/2048and fixed gates.
 - [x] Validate joint sampler kernel on analytic fixtures and all8learned
@@ -122,6 +134,8 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
     All16Heun128main banks cached; full128follow-up results remain pending.
   - [ ] Collect every full-source reference array and independent gate,
     preserve failures, and join both meshes/all models before final claims.
+    First confirmation banks0-3and their NumPyverifiers now finish/qualify;
+    controller15486continues the remaining original cohort.
 
 Analytic field prediction now qualifies and the observed sampling benefit
 persists at the prescribed meshes. Propagate that analytic forcing
@@ -130,6 +144,10 @@ delta transport is not this ODE-specific prediction. Do not skip that link or
 claim ordinary-FFN superiority from a same-weight intervention.
 
 ## Owners and retained execution errors
+
+Two atomic documentation patches missed literal context during cached-geometry
+publication; no partial edit or experiment restart. Exact errors and corrected
+actions are retained in target-aware-transport/ops/publication-errors.jsonl.
 
 Population producer queue940668/tool29874and all8children terminal0.
 Collector9883/tool86573terminal1because analysis source hashing passed str

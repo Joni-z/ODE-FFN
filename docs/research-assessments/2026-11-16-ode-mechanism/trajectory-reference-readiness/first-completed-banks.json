@@ -1,0 +1,202 @@
+{
+  "scope": "partial status snapshot; complete128-bank cohort still required",
+  "observed_unix": 1794882577.6647098,
+  "controller_pid": 15486,
+  "controller_ps": "15486 01:20:41 Ss",
+  "expected": 128,
+  "independently_completed_banks": 4,
+  "rows": [
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "bank": 0,
+      "steps": 128,
+      "numerically_qualified": true,
+      "checks": {
+        "probe_input": {
+          "qualified": true,
+          "max_error": 2.220446049250313e-16,
+          "failed_components": 0
+        },
+        "primal_refinement": {
+          "qualified": true,
+          "max_error": 8.744516222236598e-10,
+          "failed_components": 0
+        },
+        "gpu_primal128": {
+          "qualified": true,
+          "max_error": 5.329070518200751e-15,
+          "failed_components": 0
+        },
+        "gpu_primal256": {
+          "qualified": true,
+          "max_error": 6.217248937900877e-15,
+          "failed_components": 0
+        },
+        "tangent_refinement": {
+          "qualified": true,
+          "max_error": 2.3813848098325208e-09,
+          "failed_components": 0
+        },
+        "gpu_tangent128": {
+          "qualified": true,
+          "max_error": 8.673617379884035e-17,
+          "failed_components": 0
+        },
+        "gpu_tangent256": {
+          "qualified": true,
+          "max_error": 9.367506770274758e-17,
+          "failed_components": 0
+        }
+      },
+      "complete_sha256": "1e905ad606841112cb74b3cb262ddb1a18cbed56f0b886b6bb0d64928d8b3e99",
+      "independent_sha256": "54c4df8190290cb945dec9d386edfc07cdc8745d6349a331dd745f9144765804",
+      "source_sha256": "8765adbae60eab54214622b40a1de2993fcf4a3df63b41973ede1ae1f7165d40",
+      "seconds": 4652.162000459153
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "bank": 1,
+      "steps": 128,
+      "numerically_qualified": true,
+      "checks": {
+        "probe_input": {
+          "qualified": true,
+          "max_error": 4.440892098500626e-16,
+          "failed_components": 0
+        },
+        "primal_refinement": {
+          "qualified": true,
+          "max_error": 8.24861068338123e-10,
+          "failed_components": 0
+        },
+        "gpu_primal128": {
+          "qualified": true,
+          "max_error": 4.884981308350689e-15,
+          "failed_components": 0
+        },
+        "gpu_primal256": {
+          "qualified": true,
+          "max_error": 5.773159728050814e-15,
+          "failed_components": 0
+        },
+        "tangent_refinement": {
+          "qualified": true,
+          "max_error": 2.9977745494291774e-09,
+          "failed_components": 0
+        },
+        "gpu_tangent128": {
+          "qualified": true,
+          "max_error": 5.941427905220564e-17,
+          "failed_components": 0
+        },
+        "gpu_tangent256": {
+          "qualified": true,
+          "max_error": 6.938893903907228e-17,
+          "failed_components": 0
+        }
+      },
+      "complete_sha256": "ec699a738d8430e1258b940bbc785990c0c7aad705795954965225cd1c3c8eed",
+      "independent_sha256": "102c273e5fe6c4aece544f5b70afb8e26e83745a9b43490796cfea3ad5f016d9",
+      "source_sha256": "8765adbae60eab54214622b40a1de2993fcf4a3df63b41973ede1ae1f7165d40",
+      "seconds": 4585.967766500078
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "bank": 2,
+      "steps": 128,
+      "numerically_qualified": true,
+      "checks": {
+        "probe_input": {
+          "qualified": true,
+          "max_error": 4.440892098500626e-16,
+          "failed_components": 0
+        },
+        "primal_refinement": {
+          "qualified": true,
+          "max_error": 7.906599819307303e-10,
+          "failed_components": 0
+        },
+        "gpu_primal128": {
+          "qualified": true,
+          "max_error": 6.8833827526759706e-15,
+          "failed_components": 0
+        },
+        "gpu_primal256": {
+          "qualified": true,
+          "max_error": 5.773159728050814e-15,
+          "failed_components": 0
+        },
+        "tangent_refinement": {
+          "qualified": true,
+          "max_error": 2.8862911262417246e-09,
+          "failed_components": 0
+        },
+        "gpu_tangent128": {
+          "qualified": true,
+          "max_error": 6.071532165918825e-17,
+          "failed_components": 0
+        },
+        "gpu_tangent256": {
+          "qualified": true,
+          "max_error": 6.245004513516506e-17,
+          "failed_components": 0
+        }
+      },
+      "complete_sha256": "5e2fba46d74e5a9f5b6f301172f0b18ce1ee354cb6f915760ceb90a7cd4ff69f",
+      "independent_sha256": "d9583310172e6afc88bef6982b8ea2e7bfca5716b5a2c1146fa0981862183417",
+      "source_sha256": "8765adbae60eab54214622b40a1de2993fcf4a3df63b41973ede1ae1f7165d40",
+      "seconds": 4585.609856749885
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "bank": 3,
+      "steps": 128,
+      "numerically_qualified": true,
+      "checks": {
+        "probe_input": {
+          "qualified": true,
+          "max_error": 2.220446049250313e-16,
+          "failed_components": 0
+        },
+        "primal_refinement": {
+          "qualified": true,
+          "max_error": 7.273230906434947e-10,
+          "failed_components": 0
+        },
+        "gpu_primal128": {
+          "qualified": true,
+          "max_error": 5.329070518200751e-15,
+          "failed_components": 0
+        },
+        "gpu_primal256": {
+          "qualified": true,
+          "max_error": 5.773159728050814e-15,
+          "failed_components": 0
+        },
+        "tangent_refinement": {
+          "qualified": true,
+          "max_error": 2.1358895034573333e-09,
+          "failed_components": 0
+        },
+        "gpu_tangent128": {
+          "qualified": true,
+          "max_error": 7.806255641895632e-17,
+          "failed_components": 0
+        },
+        "gpu_tangent256": {
+          "qualified": true,
+          "max_error": 2.0903417885520525e-16,
+          "failed_components": 0
+        }
+      },
+      "complete_sha256": "54543b61c1936c03ce1f54496039c50fb6e74367acf00aa2865acb19e519a2b0",
+      "independent_sha256": "ec7f430cfc1724e0f200d4dda86ec3a9d2d3d599cb5d96d5b8479df7f32f56fa",
+      "source_sha256": "8765adbae60eab54214622b40a1de2993fcf4a3df63b41973ede1ae1f7165d40",
+      "seconds": 4606.050538667012
+    }
+  ]
+}
