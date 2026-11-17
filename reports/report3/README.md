@@ -1,10 +1,11 @@
 # ODE-FFN: Progress Report 3
 
-**Working draft, revised 18 November 2026. Author: Zhizhe Zhang.**
+**Finalized by the user on 18 November 2026. Author: Zhizhe Zhang.**
 
 [Read the report](report3.pdf). The main report is **three pages**, followed
 by **four supporting pages** with tables, plots and a Ring8 case study.
-The report remains a draft until the user finalizes it.
+The [finalization record](finalization.json) binds the final files. Preserve the
+PDF, TeX, figures and evidence; subsequent work belongs to Report4.
 
 The central question is which part of ODE-inspired feature evolution helps:
 operator sharing, the prescribed coefficients, or numerical solution accuracy.
@@ -36,15 +37,18 @@ Reports 1 and 2 are unchanged.
 - [Evidence map](EVIDENCE.md) and [bound numeric data](data/evidence.json)
 - [Table and figure generation](make_artifacts.py)
 - [Verification](verification.json)
+- [Finalization](finalization.json)
 - [Earlier planning outline](outline.md)
 
-From this directory, run `bash build.sh`. It regenerates the tables and two
+For reproduction in a separate copy, `bash build.sh` regenerates the tables and two
 vector plots from completed repository results, copies the two original case
 figures unchanged, then compiles with latexmk, Tectonic or pdflatex. The plotting
 step uses the existing Python NumPy/Matplotlib installation; it does not load a
 model or run training, sampling or metrics on new data.
-Run `python3 verify_report.py` for the source, numeric, page-count, font and
-preserved-report checks on the development machine.
+The final directory must not be rebuilt. The retained verification and delivery
+JSON files document the preceding draft checks; `finalization.json` records the
+subsequent user approval. `verify_report.py` writes a new verification receipt,
+so run it only in a separate copy.
 
 The source bindings preserve different evaluation cohorts. Read comparisons
 within each table; the historical coefficient and sharing cohorts differ from

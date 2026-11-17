@@ -1,15 +1,17 @@
 # Current project status
 
-## Report3 draft
+## Report3 finalized
 
-The [complete Report3 draft](reports/report3/report3.pdf) is written:
+The user finalized [Report3](reports/report3/report3.pdf) on 18 November 2026:
 three pages of main text and four supporting pages. It separates the
 sharing/coefficient/solver controls, includes the professor-response evidence
 and Ring8case examples, and retains the completed common-bank/image results.
 Detailed tables and figures are outside the main text, following the professor's
 readability feedback. [Source and evidence](reports/report3/README.md).
 No experiment was launched for this report; Reports1/2remain unchanged.
-Report3is not finalized.
+The PDF, TeX, figures and evidence are preserved by
+[the finalization record](reports/report3/finalization.json).
+Subsequent research belongs to Report4. Finalization launches no experiments.
 
 18 November revision: the penultimate report now leads with the shared-iteration
 hypothesis and ends with one decisive compute-matched comparison on Ring8 and

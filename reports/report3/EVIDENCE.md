@@ -26,7 +26,8 @@ and later refinements remain in the source analyses.
 The professor's readability comment is addressed by separating three pages
 of explanation from four supporting pages, defining hidden/global time before
 using it, and stating the purpose and observation for each main experiment.
-This is a draft report; there is no finalization record.
+The user finalized this report on 18 November 2026. The
+[finalization record](finalization.json) preserves the final report and evidence.
 
 ## Interpretation and final-stage decision, 18 November
 

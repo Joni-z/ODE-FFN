@@ -1,7 +1,8 @@
 # Progress Report 3: What Does the ODE Constraint Contribute?
 
-The complete [report draft](report3.pdf) and [LaTeX source](report3.tex) now
-implement this plan. This file preserves the earlier planning outline.
+The final [report](report3.pdf) and [LaTeX source](report3.tex) implement this
+plan. The user finalized them on 18 November 2026; see
+[the finalization record](finalization.json). The outline below is historical.
 
 Author: Zhizhe Zhang. Status: working outline, 17 November 2026.
 This is preparation for a three-page report, not a finalized report or a new

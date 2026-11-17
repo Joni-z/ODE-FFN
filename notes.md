@@ -1,5 +1,10 @@
 # Current ODE mechanism evidence
 
+Report3 finalized by the user on 18 November 2026. Preserve the exact PDF,
+TeX, figures and evidence under reports/report3/; finalization.json binds the
+files. Historical draft status below no longer describes the report's current
+status. Subsequent research belongs to Report4. No experiment is launched.
+
 18 November readability pass: define sample banks, explain both equations and
 replace abstract conclusions with the experiment's question and observation.
 Section5 now fixes widths and continues ordinary controls to the existing20k

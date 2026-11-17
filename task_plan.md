@@ -1,6 +1,15 @@
 # Determine what the ODE structure contributes
 
-## Current task: improve Report3 readability
+## Current task: finalize Report3
+
+The user finalized the current report on 18 November 2026. Preserve the exact
+PDF, TeX, figures and results. Only status metadata and a checksum record change.
+
+- [x] Record the finalization and move later work to Report4.
+- [x] Bind the final files and verify the PDF is unchanged, without rebuilding.
+- [ ] Push to GitHub and fast-forward MBP; check the delivered final PDF.
+
+## Completed: improve Report3 readability
 
 18 November follow-up: use natural academic prose, explain the exact compute
 comparison and retain the professor's three-page text/four-page support layout.
