@@ -1,0 +1,52 @@
+{
+  "unix_time": 1794885986.3692667,
+  "reason": "User moved subsequent synthetic work to Mac mini; preserve four current workers and prevent further GPU launches",
+  "dispatcher_pid": 1477869,
+  "dispatcher_state": "Ts",
+  "action": "SIGSTOP dispatcher only; no worker or process group signaled",
+  "unstarted_tasks": 104,
+  "workers": [
+    {
+      "pid": 2120626,
+      "physical_gpu": 6,
+      "key": "product_rk4_trained-selection-bank4-heun2048",
+      "call": 984,
+      "total_calls": 4096,
+      "percent": 24.0234375,
+      "elapsed_seconds": 1686.941312596202,
+      "estimated_remaining_seconds": 5335.123338210752
+    },
+    {
+      "pid": 2130541,
+      "physical_gpu": 7,
+      "key": "product_rk4_trained-selection-bank5-heun2048",
+      "call": 904,
+      "total_calls": 4096,
+      "percent": 22.0703125,
+      "elapsed_seconds": 1572.4743617717177,
+      "estimated_remaining_seconds": 5552.3652243089855
+    },
+    {
+      "pid": 2138747,
+      "physical_gpu": 5,
+      "key": "product_rk4_trained-selection-bank6-heun2048",
+      "call": 824,
+      "total_calls": 4096,
+      "percent": 20.1171875,
+      "elapsed_seconds": 1454.7122257929295,
+      "estimated_remaining_seconds": 5776.478644168041
+    },
+    {
+      "pid": 2139760,
+      "physical_gpu": 4,
+      "key": "product_rk4_trained-selection-bank7-heun2048",
+      "call": 824,
+      "total_calls": 4096,
+      "percent": 20.1171875,
+      "elapsed_seconds": 1458.404130378738,
+      "estimated_remaining_seconds": 5791.138731309747
+    }
+  ],
+  "original_frozen_source_unchanged": true,
+  "resume_requires_explicit_user_authorization": true
+}

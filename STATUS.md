@@ -3,9 +3,16 @@
 ## User-requested pause and handoff
 
 17 November: the user requested closing the current code/evidence changes.
-Autonomous development and new experiment decisions are paused. Existing
-registered queues remain running:145controller1477869on physical4-7,
-Macall-source controller15486, ordinary-control controller19767and the fixed
+Autonomous development and new experiment decisions are paused. The user then
+moved subsequent synthetic work to Mac mini.145dispatcher1477869is stopped
+withSIGSTOP(stateTs): its104pending jobs cannot launch. Only the four already
+active workers on physical4-7continue. Their last measured progress was20-24%,
+with about89-97minutes remaining. General research resumption does not authorize
+resuming this145dispatcher. The remaining cohort needs a CPUcontinuation plan;
+the stopped dispatcher will not automatically reap/verify the final four jobs.
+[Resource-policy receipt](docs/research-assessments/2026-11-16-ode-mechanism/resource-policy-20261117.json).
+Existing Macqueues remain running: all-source controller15486,
+ordinary-control controller19767and the fixed
 cached-comparison follower20623(owner20622/tool67368). Their progress/logs
 remain under the raw roots recorded below. The follower waits for the full
 ordinary cohort before generating its comparison; public conclusions still
@@ -46,7 +53,8 @@ epsilon 1e-4 metric check. Independent AD agrees with the derivative within
 error. Smaller four epsilons pass. The original flag remains unchanged.
 [Cached diagnosis](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-retained-metric-failure.json).
 
-145 controller 1477869 continues the complete 128-task cohort on physical 4-7.
+145has completed20of128bank tasks; four already active workers continue.
+Dispatcher1477869is now paused under the Mac-only synthetic policy.
 The first four primary Heun2048banks and independent verifiers finish0and
 qualify numerically; the current four workers run selection banks4-7. These
 four completed banks are not a pooled quality decision.
@@ -116,13 +124,14 @@ The registered finer-mesh criterion passes. This is a same-weight solver effect;
 ordinary architecture rankings require controls on these same banks.
 [Complete generation results](docs/research-assessments/2026-11-16-ode-mechanism/population-resolution-results/analysis-report.md).
 
-## Active: analytic correction through the sampler and target loss
+## Partially executed analytic correction through the sampler and target loss
 
 The remaining link is the distributional response predicted from the analytic
 correction, rather than the already measured field difference. The original
 eager256-step observer took median7.232s per4,096 inputs, projecting about132
 GPUhours for primary Heun2048 transport. The validated faster implementation
-is now executing that study on145; this is no longer an unqueued projection.
+has executed that study on145. Its four current workers continue, while
+subsequent GPUdispatch is paused under the new resource policy.
 Original compilation gives1.240x. Exact algebraic factorization and power
 reuse now pass all8x4096input comparisons and independent reconstruction,
 with4.475xresident speedup. Both fresh documented invocations exit0and
@@ -134,10 +143,11 @@ for the primary test, excluding the remaining native sampler overhead.
 The joint analytic/measured sampler kernel passes all eight learned CPUprefix
 checks and linear8/128/2048controls. Both fresh documented GPUentrypoints and
 independent reconstructions pass, all5,229frozen source hashes unchanged.
-The monitored full-bank queue is active on145physical4-7, controller
-1477869, sourcefd04994. Primary128banks are complete;2048banks precede
-all other models. All128bank/mesh tasks and independent outputs remain
-required. The full-source CPUfollower is source46a9f7a/5244files, with a
+The original monitored queue used145physical4-7, controller1477869,
+sourcefd04994. Its dispatcher is now paused; the final four active workers
+remain running. Primary128banks are complete; four2048banks are complete.
+All128bank/mesh tasks and independent outputs remain required, with a future
+CPUcontinuation needed. The full-source CPUfollower is source46a9f7a/5244files, with a
 fresh five-command pass and unchanged packages. No final primary decision yet.
 [Launch](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-launch.json),
 [fresh readiness](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-fresh-summary.json),
