@@ -43,7 +43,15 @@ P and q across steps. This matches the midpoint model's eight P calls and unit
 internal duration. It is also explicit Euler: the experiment tests the value
 of midpoint staging beyond simple shared residual iteration, not whether the
 same computation can be called an ODE. Full training-cost matching must also
-include backward and optimizer work. Existing trained models remain references;
+include backward and optimizer work. The primary comparison fixes every model's
+existing width and uses the complete 20k midpoint trajectory as its budget.
+Continue the ordinary checkpoints with their original recipes until cumulative
+training FLOPs match, including their already completed training. Train the new
+tied residual model to the same budget. The forward-MAC ratio is not the full
+training-cost ratio. Widening an ordinary FFN while fixing the update count
+changes the architecture and optimization problem; it is not included in this
+comparison. Actual cost accounting and continuation settings belong in the run
+protocol before launch. Existing trained models remain references;
 the new control and ordinary continuation require a separately registered run
 decision. No activation search or immediate image launch is added.
 

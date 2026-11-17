@@ -16,6 +16,9 @@ hypothesis and ends with one decisive compute-matched comparison on Ring8 and
 Product16: midpoint, tied residual iteration, Free ISRU and SwiGLU. The proposed
 outcomes select midpoint, a simpler recurrence, or an ordinary FFN. No new run
 is launched; numerical evidence and finalized Reports1/2remain unchanged.
+The readability revision specifies fixed-width ordinary continuation to the
+20k midpoint model's total training-FLOP budget. It does not add wider models,
+gating or linear bypasses to this experiment.
 
 ## User-requested pause and handoff
 

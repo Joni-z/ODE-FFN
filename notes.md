@@ -1,5 +1,13 @@
 # Current ODE mechanism evidence
 
+18 November readability pass: define sample banks, explain both equations and
+replace abstract conclusions with the experiment's question and observation.
+Section5 now fixes widths and continues ordinary controls to the existing20k
+midpoint training-FLOP budget, including forward/backward/optimizer work and
+the training already completed. The tied residual arm gets the same budget.
+Widening, gating and linear bypasses are not part of this proposed test.
+All scores and underlying evidence stay unchanged; no training is launched.
+
 18 November Report3 revision: the user wants a clear claim and a bounded final
 stage, with direct factual writing. Shared nonlinear iteration is the leading
 architectural hypothesis; unique causality and a cause of image failure are not

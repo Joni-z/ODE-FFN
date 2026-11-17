@@ -17,6 +17,9 @@ hypothesis: sharing helps the tested stage comparisons, while prescribed
 coefficients and increased internal solution accuracy give no consistent gain.
 The final-stage proposal compares midpoint, a direct tied residual block,
 Free ISRU and SwiGLU at matched training computation on both synthetic tasks.
+The 20k midpoint models set the budget. Ordinary FFNs keep their current widths
+and training settings and continue until total training FLOPs match; the tied
+residual control trains to the same budget. Widening is a separate question.
 The result will determine whether to retain midpoint, simplify to recurrence,
 or conclude that the present gain requires more computation. It is a proposal,
 not a launched study.

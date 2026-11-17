@@ -1,6 +1,25 @@
 # Determine what the ODE structure contributes
 
-## Current task: sharpen Report3 and bound the final research stage
+## Current task: improve Report3 readability
+
+18 November follow-up: use natural academic prose, explain the exact compute
+comparison and retain the professor's three-page text/four-page support layout.
+
+- [x] Shorten abstract wording and explain each experiment before its result.
+- [x] Specify fixed-width ordinary continuation to the existing state-flow
+  training budget; keep widening and new response designs out of this test.
+- [x] Rebuild, inspect all pages and verify unchanged evidence and Reports1/2.
+- [ ] Push and synchronize the revised report to MBP.
+
+No new experiment is part of this writing pass.
+Editing note: the initial patch had a stale line context and applied no changes;
+the main-text section was then replaced using its exact section boundaries.
+Verification passes: three main pages plus four supporting pages, unchanged
+11pt font/margins,26source bindings and78table numeric cells. Changed pages
+1/2/3/5/7visually inspected; pages4/6render identically to the inspected version.
+No stray figure characters. Finalized reports and source data are unchanged.
+
+## Completed: sharpen Report3 and bound the final research stage
 
 18 November: this is the penultimate report. State supported findings directly,
 make the remaining architectural hypothesis explicit, and avoid expanding the

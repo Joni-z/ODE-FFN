@@ -25,166 +25,172 @@ Zhizhe Zhang\quad\textbar\quad NYU Shanghai\par
 \vspace{3pt}
 
 \section{Project and main progress}
-This project develops ODE-inspired feedforward networks (FFNs) for flow
-matching, starting from a truncated matrix exponential with a shared learned
-operator. Our main finding is that sharing improves generation in the tested
-stage comparisons, whereas prescribed coefficients and greater ODE solution
-accuracy provide no consistent gain. This makes shared nonlinear iteration
-the leading architectural hypothesis. We also identify symmetry breaking in
-Ring8's fitting--sampling mismatch and analytically predict how changing the
-hidden solver changes the complete network output.
+This project studies feedforward networks (FFNs) that transform features by
+evolving a learned ODE. The original block approximated a matrix exponential
+by repeatedly applying one learned matrix. We now ask which parts of this
+design help flow-matching models generate better samples. Sharing the matrix
+helps in our stage comparisons; fixed Taylor coefficients and more accurate
+ODE solves bring no consistent gain. We therefore focus on shared nonlinear
+iteration. We also diagnose Ring8 mode imbalance and derive a prediction of
+how numerical errors change the network output.
 
-Tests use a width-64, three-block velocity MLP. Ring8 has eight equal-weight 2D
-Gaussian modes; Product16 is a rotated product of sixteen bimodal factors.
-Training uses 20,000 updates, batch~512. Oracle MSE measures field fitting;
-sliced Wasserstein distance (SW2) measures generation. Each comparison shares
-inputs and eight banks of 4,096 samples. Tables report pooled SW2 within the
-named cohort. Image transfer uses the author-derived JiT on CelebA128.
+Synthetic tests use three-block velocity MLPs, with width~64 for the ODE
+variants. Ring8 has eight equal-weight 2D Gaussian modes; Product16 is a rotated
+product of sixteen bimodal factors. Training uses 20,000 updates, batch~512.
+Oracle MSE measures velocity-field error; sliced Wasserstein distance (SW2)
+measures generated-distribution error. Generation comparisons use eight shared
+sets (banks) of 4,096 samples. Tables report SW2 after pooling those samples
+within each comparison. Image tests use the author-derived JiT on CelebA128.
 
 \section{Why better field fitting can give worse samples}
 \textbf{Ring8 case study.} Report~2 found that ISRU-D's field MSE improved
 between 15k and 20k updates while mode balance deteriorated. We tested whether
-the learned field violated the target's 45-degree rotation symmetry. The
-intervention averages eight rotated predictions after mapping each velocity
-back to the original coordinates. It changes no learned weights.
+the learned field violated the target's 45-degree rotation symmetry. We rotate
+each input eight ways, rotate the predicted velocities back, and average them.
+This C8 projection enforces the symmetry without changing the weights.
 
 On rotation-balanced validation states, field error separates into a
 symmetry-preserving component and a symmetry-breaking component. From 15k to
 20k, the first decreases from $4.955\times10^{-3}$ to $3.256\times10^{-3}$,
 while the second increases from $5.745\times10^{-3}$ to $6.532\times10^{-3}$.
-Total MSE falls, but the field
-becomes more asymmetric. At 20k, enforcing the symmetry lowers pooled SW2 from
-0.133 to 0.053 and sector-frequency L1 error from 0.055 to 0.006. Ordinary
-Free ISRU and SwiGLU improve too (Table~\ref{tab:symmetry}).
-Figures~\ref{fig:trajectories} and~\ref{fig:ringcase} illustrate the trajectories
-and generated distributions.
-This identifies a shared mode-allocation failure. The projection uses eight
-field predictions, so it serves here as a diagnostic intervention.
+Total MSE falls, but the field becomes more asymmetric. At 20k, enforcing the
+symmetry lowers pooled SW2 from 0.133 to 0.053 and sector-frequency L1 error
+from 0.055 to 0.006. Ordinary Free ISRU and SwiGLU improve too
+(Table~\ref{tab:symmetry}). Figures~\ref{fig:trajectories} and~\ref{fig:ringcase}
+show the trajectories and generated distributions. All three models misallocate
+probability among modes. C8 projection corrects much of this imbalance at the
+cost of eight field predictions per call.
 
-\textbf{Weight geometry and response.} On Product16 Free ISRU, Muon versus
-AdamW raises update stable rank from 4.567 to 32.776, while weight entropy rank
-falls from 55.547 to 43.789 and condition number rises from 109.267 to 690.632.
-Broad updates need not produce broad, well-conditioned weights
-(Table~\ref{tab:ranks}). Matched scaled tanh competes with ISRU
-(Table~\ref{tab:response}). A wider eight-response screen likewise finds no
-consistent ISRU-specific advantage. This motivates testing the structural
-constraints separately from the activation's ODE origin.
+\textbf{Weight geometry.} We compared updates with the weights they produce.
+On Product16 Free ISRU, Muon versus AdamW raises update stable rank from
+4.567 to 32.776, while weight entropy rank falls from 55.547 to 43.789 and
+condition number rises from 109.267 to 690.632. High-rank updates can therefore
+accumulate into weights with a more concentrated spectrum and worse
+conditioning (Table~\ref{tab:ranks}).
+
+\textbf{Nonlinear response.} Scaled tanh, matched to ISRU's slope at zero and
+saturation level, performs similarly (Table~\ref{tab:response}). An
+eight-response screen also finds no consistent ISRU advantage. We keep ISRU
+fixed below to isolate the effect of sharing and numerical integration.
 
 \newpage
 \section{Which part of the ODE structure contributes?}
-\textbf{Two distinct constructions.} In frozen-diagonal ISRU-D, the entrance
-state determines $D(h)$ once; the block applies a Taylor polynomial in
-$A(h)=PD(h)$. D rescales each coordinate; K denotes the highest Taylor power.
-In the state-flow model, the response is recomputed as the
-hidden state evolves:
+\textbf{Two ways to evolve features.} In frozen-diagonal ISRU-D, $D(h)$ sets
+one scale per input coordinate. The block holds these scales fixed while
+applying a Taylor polynomial in $A(h)=PD(h)$; K is its highest power.
+The state-flow model instead recomputes the nonlinear response as the features
+evolve:
 \begin{equation}
 \frac{dy}{ds}=f(y)=Pq(y),\qquad
 q_i(y)=\frac{y_i}{\sqrt{1+1.2y_i^2}},\qquad y(0)=h.
 \label{eq:stateflow}
 \end{equation}
-The internal duration is one. This hidden time $s$ is separate from the
-flow-matching time supplied to the complete network. Four midpoint substeps
-use eight applications of P. Both constructions have the same first-order
-increment, but their higher-order terms differ because the second updates
-the response along the path.
+We integrate from $s=0$ to $s=1$. This internal time is separate from the
+flow-matching time given to the network. Four midpoint steps use eight
+applications of P. The two constructions have the same first-order increment;
+their higher-order terms differ because state flow updates the response along
+the path.
 
-\textbf{Sharing P.} We tested whether using one stationary operator matters
-by allowing the four stages to learn different matrices. The shared and
-released models start from the same function, receive the same minibatches,
-and use identical matrix work. Releasing stages adds parameters. At 20k,
-shared/released pooled SW2 is 0.091/0.111 on Ring8 and 0.064/0.073 on
-Product16; sharing wins all eight paired banks on each task
-(Table~\ref{tab:sharing}). On Product16 the released model fits the field
-slightly better, so its worse generation is not explained by poorer fitting.
+\textbf{Sharing P.} To test sharing, we let the four midpoint stages learn
+different matrices. Both models start from the same function, see the same
+minibatches and use the same number of matrix operations. Independent stages
+add parameters. At 20k, shared/independent pooled SW2 is
+0.091/0.111 on Ring8 and 0.064/0.073 on Product16; sharing wins all eight
+paired banks on each task (Table~\ref{tab:sharing}). On Product16 the
+independent-stage model fits the field slightly better, so its worse
+generation is not explained by poorer fitting.
 
-The release also changes optimization coordinates: the initial implementation
-writes stage matrices as P plus learned offsets. We therefore tested a
-mean-preserving representation of the same released function class. Its SW2
-is 0.104/0.072 on Ring8/Product16. The Ring8 difference from sharing is
-unresolved across banks; Product16 still favors sharing. This establishes a
-useful shared-operator constraint in the tested family while exposing an
-optimization effect in the original release comparison.
+The way we parameterize those matrices also matters. Initially, each stage
+uses P plus a learned offset. We repeated the test with offsets that sum to
+zero, so P remains the average stage matrix. This represents the same set of
+possible stage matrices. SW2 becomes 0.104/0.072 on Ring8/Product16. The Ring8
+gap from sharing is no longer resolved across banks; Product16 still favors
+sharing. Sharing helps, but the original comparison also depends on how the
+independent stages are optimized.
 
-\textbf{Expansion and stage coefficients.} To test the necessity of the
-prescribed coefficients, we made the higher Taylor terms learnable, starting
-from the exact original polynomial. Generation remains close to the fixed
-version: Ring8 SW2 is 0.088 versus 0.089, and Product16 is 0.056 versus 0.055.
-Freeing midpoint stage coefficients likewise gives similar sampling
-(Table~\ref{tab:coefficients}). The learned coefficients are active: resetting
-them after training changes the output. However, independently trained fixed
-and free models perform similarly. The free-stage version also loses the
-fixed midpoint method's near-second-order convergence. Using a mechanism
-during training therefore does not establish its necessity for generation.
+\textbf{Taylor and stage coefficients.} We made the higher Taylor
+coefficients learnable to test whether their prescribed values matter.
+Each model starts from the original polynomial. Generation stays close to
+the fixed version: Ring8 SW2 is 0.088 versus 0.089, and Product16 is 0.056
+versus 0.055. Freeing midpoint stage coefficients likewise gives similar
+sampling (Table~\ref{tab:coefficients}). The learned coefficients affect the
+output: resetting them after training changes predictions. Yet training with
+fixed or free coefficients gives similar generation quality. Freeing the
+midpoint coefficients also loses its near-second-order convergence as the step
+size decreases. The prescribed numerical behavior is not needed to reach these
+scores.
 
-\textbf{More accurate solves.} We next replaced four midpoint steps by two
+\textbf{More accurate solves.} We replaced four midpoint steps by two
 classical RK4 steps. Parameter count, initialization, data and optimizer are
 unchanged; both methods use eight P applications per local solve. Measured
 against high-accuracy solutions of each learned field, RK4 reduces normalized
-hidden squared error about 46-fold on Ring8 and 22-fold on Product16. Yet
-confirmation SW2 changes from 0.091 to 0.091 and from 0.064 to 0.065,
-respectively (Figure~\ref{fig:solver}). Accurate local ODE solution is thus
-insufficient to explain good generation in this comparison. The next question
-is how the hidden numerical difference reaches the complete output field.
+hidden squared error about 46-fold on Ring8 and 22-fold on Product16.
+Confirmation SW2 changes from 0.091 to 0.091 and from 0.064 to 0.065,
+respectively (Figure~\ref{fig:solver}). Solving the internal ODE more accurately
+does not improve generation here. We next trace how this numerical difference
+reaches the output.
 
 \newpage
 \section{From hidden numerical error to generation}
-\textbf{Predicting the output change.} We derived a correction from the
-midpoint and RK4 numerical defects, then propagated it through all six local
-flows and the unchanged downstream network. For each local flow, the
-response calculation follows
+\textbf{Predicting the output change.} Changing the solver changes the hidden
+features, which changes the predicted velocity. We derived this change from
+the midpoint and RK4 numerical errors and propagated it through the network's
+six local flows. Within each flow, we solve
 \begin{equation}
 \frac{dy}{ds}=f(y),\qquad
 \frac{dz}{ds}=J_f(y)z+G(y),\qquad z(0)=0.
 \label{eq:response}
 \end{equation}
-Here $G$ is the solver-derived forcing and $z$ predicts the hidden-state
-change. The correction uses the learned matrices and response derivatives;
-no scale is fitted to the measured output difference.
+The first equation follows the features. The second tracks their change $z$:
+$J_f$ is the Jacobian of $f$, and $G$ comes from the solver's numerical error.
+We use the learned matrices and response derivatives without fitting a scale
+to the observed output difference.
 
 Across four trained models and two 4,096-input streams, the complete-field
 prediction score is 0.957--0.983. The score is one minus prediction squared
 error divided by the squared error of predicting no change. Product16
 RK4-trained weights score 0.962 on both streams, with relative RMS error
-0.196 and vector alignment 0.987 (Figure~\ref{fig:forecast}). This gives a
-quantitative connection from the local ODE calculation to the actual network.
+0.196 and vector alignment 0.987 (Figure~\ref{fig:forecast}). The calculation
+predicts both the size and direction of the output change.
 
-\textbf{Field fitting and generation remain distinct.} With those fixed
+\textbf{Better samples despite worse field fitting.} With those fixed
 Product16 RK4 weights, switching inference to midpoint slightly worsens
-oracle field MSE; the analytic correction predicts that increase. Nevertheless,
-generation improves. The effect survives outer Heun refinement through 2,048
+oracle field MSE, as the analytic correction predicts. Generation nevertheless
+improves. This persists when we refine the outer Heun sampler to 2,048
 steps: pooled SW2 decreases from 0.053 to 0.049 on selection and from 0.048 to
 0.045 on confirmation, with all eight banks improving in each stream. The
-field-response prediction is complete; a high-resolution analytic forecast
-of the final distribution remains unfinished.
+output-field change is predicted analytically; the corresponding
+high-resolution prediction of the final distribution remains unfinished.
 
-\textbf{Practical comparison.} All models use the same source, target and
-direction arrays. At Heun2048,
+\textbf{Comparison with ordinary FFNs.} We use the same noise samples, target
+samples and SW2 projection directions for every model. At Heun2048,
 native midpoint state flow reaches confirmation SW2 0.068 on Ring8 versus
 0.091 for Free ISRU and 0.105 for SwiGLU. On Product16 it reaches 0.047 versus
 0.051 and 0.034. The Ring8 pooled ordering favors state flow, although most
 adjusted paired-bank intervals include zero. State flow uses about four times
 Free ISRU's dense forward matrix work (Table~\ref{tab:ordinary}).
 
-On CelebA128 at 160 epochs,
-native SwiGLU achieves FID50k 24.304, versus 27.789 for parameter-matched
-ISRU-D K1 and 28.083 for K8. Native leads at every shared checkpoint
-(Table~\ref{tab:image}). These image blocks use frozen entrance diagonals;
-the refreshed state-flow model has not been tested in this image comparison.
+On CelebA128 at 160 epochs, native SwiGLU achieves FID50k 24.304, versus
+27.789 for parameter-matched ISRU-D K1 and 28.083 for K8. Native leads at every
+shared checkpoint (Table~\ref{tab:image}). These image blocks hold entrance
+diagonals fixed; the refreshed state-flow model has not been tested here.
 
 \section{Hypothesis for the next two weeks}
-Our final-stage hypothesis is that shared nonlinear iteration improves
-quality per training computation, with midpoint structure adding value beyond
-plain recurrence. On Ring8 and Product16, compare midpoint with a tied
-residual block, Free ISRU and SwiGLU. The residual block uses the same response
-$Pq(y)$ in eight updates $y\leftarrow y+Pq(y)/8$, without midpoint evaluations.
-Match cumulative forward, backward and optimizer work; retain seed~0,
-common sample banks and mode-balance measurements.
+We hypothesize that shared iteration improves generation at equal total
+training cost. On Ring8 and Product16, we will keep the existing 20k midpoint
+models as references and continue Free ISRU and SwiGLU at their current widths
+and original training settings until their cumulative training FLOPs match.
+The budget will include forward, backward and optimizer work; the fourfold
+forward-MAC ratio alone does not set the number of updates.
 
-If tied residual iteration matches midpoint, retain the simpler shared
-architecture. If midpoint leads at matched cost, its stage structure becomes
-the architectural contribution. If ordinary FFNs catch up, the current gain
-is a computation trade-off. Only a candidate with a demonstrated quality--cost
-advantage proceeds to CelebA. These comparisons are planned, not yet run.
+A tied residual control will use eight updates of
+\mbox{$y\leftarrow y+Pq(y)/8$}, sharing P, and train to the same budget.
+This tests whether midpoint stages add value. All comparisons retain seed~0
+and the shared evaluation samples.
+If this simpler iteration matches midpoint, we will use it. If midpoint wins,
+we will retain its stage structure. If ordinary FFNs catch up, the current
+lead disappears at matched cost. A candidate that improves quality at matched
+cost will proceed to CelebA. These tests are planned, not yet run.
 \label{main:end}
 
 \clearpage
@@ -208,8 +214,8 @@ recorded checkpoint evaluations.}
 \includegraphics[width=0.95\textwidth]{figures/ring8-samples.png}
 \caption{The same ISRU-D checkpoints before and after C8 projection. Top:
 15k updates; bottom: 20k. Each panel uses the same fixed display indices from
-its saved generated samples. Visible clusters alone do not establish balanced
-mode probabilities; Table~\ref{tab:symmetry} quantifies the pooled imbalance.}
+its saved generated samples. Table~\ref{tab:symmetry} measures how evenly the
+generated samples are distributed among the eight modes.}
 \label{fig:ringcase}
 \end{figure}
 \input{data/symmetry-table.tex}
@@ -235,8 +241,8 @@ accuracy improvements do not produce a generation gain.}
 \caption{Unfitted prediction of the complete solver-induced field change.
 Both evaluation streams are shown for every trained model. A score of one is
 exact prediction; zero is the no-change predictor. The horizontal scale is
-restricted to show differences among the qualified results. These scores
-measure output-field prediction, not generated-distribution quality.}
+restricted to show differences among the models. The scores measure how well
+the analytic calculation predicts the output-field change.}
 \label{fig:forecast}
 \end{figure}
 \input{data/practical-tables.tex}
