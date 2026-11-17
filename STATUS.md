@@ -13,11 +13,11 @@ General research resumption does not authorize resuming this145dispatcher.
 [Resource-policy receipt](docs/research-assessments/2026-11-16-ode-mechanism/resource-policy-20261117.json).
 [Cancellation receipt](docs/research-assessments/2026-11-16-ode-mechanism/user-canceled-four-workers-20261117.json).
 Existing Macqueues remain running: all-source controller15486,
-ordinary-control controller19767and the fixed
-cached-comparison follower20623(owner20622/tool67368). Their progress/logs
-remain under the raw roots recorded below. The follower waits for the full
-ordinary cohort before generating its comparison; public conclusions still
-require independent checks and visual review. The investigation is unfinished.
+while ordinary-control controller19767and its cached-comparison follower20623
+have now completed. All four ordinary producers/checks pass; the comparison
+terminates0with source unchanged. Both generated figures have been reviewed.
+The all-source reference cohort remains incomplete. No canceled145task was
+resumed. [Report3 working outline](reports/report3/outline.md).
 
 The [whole-project review and full experiment ledger](docs/research-assessments/2026-11-17-project-review/README.md)
 now collect the legacy and later evidence. This read-only retrospective launches
@@ -71,29 +71,40 @@ verifiers have finished; all four qualify. The complete all-source cohort
 and primary2048prediction remain open.
 [First four completed controls](docs/research-assessments/2026-11-16-ode-mechanism/trajectory-reference-readiness/first-completed-banks.json).
 
-## Ordinary controls on the same current banks
+## Ordinary controls on the same current banks: complete
 
-The current-bank ordinary-control evaluation is also active on MacCPU.
+The current-bank ordinary-control evaluation completed on MacCPU.
 It reuses four original20kseed0checkpoints: Ring8FreeISRU/SwiGLU64and
 Product16FreeISRU/SwiGLU192, all original optimizer/capacity settings retained.
 The same current sources/targets/directions are evaluated at128and2048steps;
 older-bank ordinary scores are not used to rank this cohort. Fresh exact five
 commands pass, historical anchors replay exactly, and independent witness
-metric errors are<=4.45e-16. Both Ring8cases and their independent checks now
-complete; controller19767has moved its two one-thread workers to Product16.
-The full four-case comparison is pending. The read-only
+metric errors are<=4.45e-16. All four cases and independent checks complete.
+The cached comparison independently reconstructs48rows/32primary contrasts,
+maximum scalar discrepancy1.74e-18. The earlier
 [job snapshot](docs/research-assessments/2026-11-17-project-review/job-status.json)
-retains the observed terminal and live records.
+is a historical snapshot taken before the final two controls completed.
 [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-protocol.md),
 [fresh check](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-fresh.json),
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-launch.json).
 
-A frozen cached postprocessor now follows the original ordinary controller.
-It waits for all four producers and independent verifiers, then joins the48
-complete model/stream/mesh rows and32primary paired contrasts. It creates no
-partial report or figure. The separate recursive verifier checks source joins,
-bootstrap intervals and exact sign/Holm arithmetic. Full analysis and visual
-review remain pending.
+A frozen cached postprocessor waited for all producers and verifiers, then
+joined the complete model/stream/mesh rows and primary paired contrasts.
+The separate recursive verifier checks source joins, bootstrap intervals and
+exact sign/Holm arithmetic. Both figures are now visually checked.
+
+| Heun2048, confirmation | Ring8 pooled SW2 | Product16 pooled SW2 |
+|---|---:|---:|
+| State flow, midpoint training/inference |0.068|0.047|
+| Free ISRU / AdamW |0.091|0.051|
+| SwiGLU64/Muon, SwiGLU192/AdamW |0.105|0.034|
+
+All native/crossed solvers and both streams remain in the
+[completed comparison](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-results/analysis-report.md).
+Ring8pooled ordering favorsODEin16/16primary comparisons;3adjusted upper
+bank-bootstrap bounds are negative. Product16favorsODEin4/16,none with a
+negative upper bound. State flow uses about4.1timesFreeISRUdense forward matrix
+work; this is not a total training FLOPs comparison or a new image candidate.
 [Analysis follower](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-comparison-launch.json).
 
 ## The analytic ODE correction predicts the complete field change

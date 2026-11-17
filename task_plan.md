@@ -1,5 +1,16 @@
 # Determine what the ODE structure contributes
 
+## Current request: professor-response audit and Report3 preparation
+
+- [x] Check each professor question against direct existing evidence, including
+  weight/update rank, Ring8C8symmetry and response replacements.
+- [x] Read the now-completed four-case ordinary comparison and its independent
+  verification; visually inspect both generated figures.
+- [x] Publish the complete cached comparison and prepare a concise Report3
+  outline with evidence sources and next-two-week decision questions.
+- [x] Update current status, verify protected files and push. No new training,
+  evaluation or145dispatch is authorized by this planning pass.
+
 ## Current requested wrap-up: cancel four GPU workers and review all experiments
 
 - [x] Verify ownership/commands and terminate only the four recorded145GPU

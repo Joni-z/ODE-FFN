@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-17",
+  "collected_utc": "2026-11-17T06:38:35.969519+00:00",
+  "scope": "Collect already-completed cached ordinary/ODE comparison; no new training, sampling or analysis execution",
+  "raw_source": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/comparison",
+  "files_sha256": {
+    "analysis-report.md": "4ddad573542d73cdee3b7ba559756560f801e0c7008444192d5625bca66672d7",
+    "figure-catalog.md": "55a4deb2487e54517a0e099a8650b36df96acf926c23cca3d30e1c1442946b25",
+    "figures/paired-ordinary-contrasts.pdf": "4e579ed51956bb39c90f1f7271c883040576c02016c16b89d4455928115fa7d7",
+    "figures/paired-ordinary-contrasts.png": "b45d2138ae7ed454f5bf8102ac8e9e36dbae85284ebf2f5b62f1cd989147677d",
+    "figures/same-bank-quality.pdf": "aecf4e344ac97324674419dde08edef999835e5f0ad883993c3a7307658dc1e0",
+    "figures/same-bank-quality.png": "2d9c6be7bbab6a36fbc76e41e06f53254a93babf1e6762f779f829faaef06b66",
+    "independent.json": "557bb57269292c9eef3a367569890a7099bfdb1566f35c4731a64ea282f8c23c",
+    "stats-appendix.md": "0093db95065ea190e9809d79f62a150c94d4ca4627e13743e95a988dce297215",
+    "summary.json": "56a86fd6530cb648507254a4521c5465e56b248497f930d17262f2e02c3626db",
+    "table.md": "eb05e3225424f155a60a66ef6dc9fbd1eb76034919785b6802b798463c172791"
+  },
+  "independent": {
+    "passed": true,
+    "source_rows": 48,
+    "primary_contrasts": 32,
+    "scalar_checks": 576,
+    "max_error": 1.734723475976807e-18,
+    "bootstrap": "independent recursive 6435-multiset enumeration",
+    "summary_sha256": "56a86fd6530cb648507254a4521c5465e56b248497f930d17262f2e02c3626db",
+    "source_sha256": "f4174ac922568a9ef28492acd3c76f4e55ae2a85dde3eed3091f78f45200549e"
+  },
+  "actual_terminal": {
+    "actual_terminal_exit": 0,
+    "source_unchanged": true,
+    "launch_sha256": "9e470817dcd444e321d1537bbb4a6043d8b7c0498ccfb26cf707fef5d04378e6",
+    "finished_unix": 1794891514.1956632
+  },
+  "figures_visually_reviewed": [
+    "figures/same-bank-quality.png",
+    "figures/paired-ordinary-contrasts.png"
+  ],
+  "observations": [
+    "Ring8 ODE pooled SW2 is lower in all16 primary ordinary comparisons;3 adjusted upper bank-bootstrap bounds are negative.",
+    "Product16 ODE pooled SW2 is lower in4/16;none has a negative adjusted upper bank-bootstrap bound.",
+    "ODE uses about4.1times FreeISRU dense forward matrix MACs; these are not total training FLOPs."
+  ],
+  "ordinary_controls_completed": 4,
+  "no_new_experiments": true,
+  "collection_verification": {
+    "checked_utc": "2026-11-17T06:40:18.188686+00:00",
+    "protected_files_unchanged": 97,
+    "final_report2_bindings_unchanged": 11,
+    "native_five_unchanged": true,
+    "local_links_checked": 79,
+    "copied_artifacts_unchanged": true,
+    "source_rows": 48,
+    "contrasts": 32,
+    "new_experiment_runs": 0
+  }
+}

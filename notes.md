@@ -1,5 +1,26 @@
 # Current ODE mechanism evidence
 
+Report3preparation17November: the professor's three latest concrete requests
+have direct completed responses: Product16weight/update rank and condition,
+Ring8C8equivariance/mode imbalance with samples/trajectories, and matched
+ISRUreplacement controls plus the eight-response screen. EarlierMuon/PDdesign
+exploration is also documented. These answers do not establish a general
+ODE-specific advantage.
+
+The existing ordinary-control queue and cached follower now complete. All four
+producers/independent checks pass;48comparison rows/32contrasts independently
+reconstruct(max1.74e-18). Both figures viewed. Source-matched artifacts copied
+without rerun to ordinary-population-results/. AtHeun2048confirmation native
+state-flow/Free/SwiGLUpooledSW2is0.068/0.091/0.105Ring8and
+0.047/0.051/0.034Product16. Different streams are not mixed. State flow uses
+about4.1xFreeISRUdense forward MACs; no total-training-FLOPs claim.
+
+reports/report3/outline.md now maps the three-page narrative and sources:
+professor responses -> sharing versus solve fidelity -> practical generation
+and image evidence. Proposed next-two-week question is whether Ring8's gain
+survives compute-matched ordinary continuation. Proposal only; no new run.
+Reports1/2remain final;145canceled dispatch remains stopped.
+
 User requested closing the current work and stopping on17November. Goal is
 paused, not complete. Preserve existing compute/follower processes and resume
 agent work only when asked. The final cleanup publishes the cached-comparison
