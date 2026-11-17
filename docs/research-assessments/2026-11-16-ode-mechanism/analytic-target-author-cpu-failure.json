@@ -1,0 +1,13 @@
+{
+  "actual_exit": 1,
+  "tool_session": 24257,
+  "linear_checks_passed": [
+    8,
+    128,
+    2048
+  ],
+  "failed_stage": "outer torch.func.jvp of the forced learned sampler calls a separate forward_ad.dual_level inside the analytic observer",
+  "error": "RuntimeError: Nested forward mode AD is not supported at the moment",
+  "source_sha256": "497777ba5b6840e455685000efbfae2573963522697e81e67f4ec988e372f081",
+  "formal_target_trajectory_started": false
+}

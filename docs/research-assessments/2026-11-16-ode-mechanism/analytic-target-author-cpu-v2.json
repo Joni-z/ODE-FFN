@@ -1,0 +1,428 @@
+{
+  "passed": true,
+  "analytic_linear_rows": [
+    {
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.6293377197728063e-13
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 4.110104617760513e-12
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 4.708143597209613e-13
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 5.797223812109564e-12
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "steps": 128,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 3.0377107079759824e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 2.2005827715609882e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 9.51544398830606e-13
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.5701800970546742e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "steps": 2048,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 6.141587238772672e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 2.52082638617368e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 6.44648917580426e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 2.1156944252087584e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    }
+  ],
+  "learned_rows": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 1.3697949025059941e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.6296774259932922e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.6330621710757285e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.8705819011810565e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.115522600848463e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.5438198462669472e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 6.411099949532595e-13
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.8404678822636633e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 4.335067027572137e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.649216635653261e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 3.1633972785022335e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 9.39820617162912e-12
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 1.7319394616382988e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 2.393639995414143e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.9593220235435425e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 1.4463875843556684e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.0219693974699027e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 5.573745458231638e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.5301114827368243e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 2.6002837036354087e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 3.5639095841144552e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 3.066983819688396e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 5.186637577758724e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 3.405022027140256e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 1.7555835257754282e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 2.5244252543389634e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 1.8581484007712534e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 4.7276030312737305e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "steps": 8,
+      "points": 2,
+      "primal_exact": true,
+      "primal_jvp_error": 0.0,
+      "errors": {
+        "analytic": {
+          "direct_sampler_jvp": null,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 2.9388193267809726e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 5.20552971387811e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": true
+        },
+        "measured": {
+          "direct_sampler_jvp": 0.0,
+          "finite_differences": [
+            {
+              "epsilon": 0.0001,
+              "error": 7.548437569449007e-12
+            },
+            {
+              "epsilon": 1e-05,
+              "error": 3.241959131705663e-11
+            }
+          ],
+          "analytic_nested_jvp_unavailable": false
+        }
+      }
+    }
+  ],
+  "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+  "source_sha256": "41596dc663b40ced93a5c39c251f974409e120590e86badff6340b950dc8ea8a",
+  "kernel_source_sha256": "770ede9801049b12448058a667e0cd9b3f3ad98f07543c92c28ec3d9aaa48770",
+  "training_seed": 0,
+  "new_training": 0,
+  "new_draws": 0,
+  "learned_witness_reference_steps": 16,
+  "formal_reference_steps": 256,
+  "tensors_methods_rng_unchanged": true
+}

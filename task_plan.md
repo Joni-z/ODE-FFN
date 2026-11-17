@@ -70,6 +70,15 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 
 ## Subsequent causal link
 
+- [x] Register analytic-target-protocol.md before new target observations:
+  both analytic/measured forcings, all models/banks,Heun128/2048and fixed gates.
+- [x] Validate joint sampler kernel on analytic fixtures and all8learned
+  original two-source prefixes. First CPU24257exit1after linear8/128/2048
+  passes: optional outer JVPnests the analytic observer's existing forward AD,
+  unsupported. Preserve source/failure; analytic learned checks use the
+  registered independent two-epsilon finite differences, measured JVPretained.
+  Corrected38126actual0: all8learned cases and linear8/128/2048checks pass.
+
 Analytic field prediction now qualifies and the observed sampling benefit
 persists at the prescribed meshes. Propagate that analytic forcing
 through the actual learned sampler and target functional. The current measured-
