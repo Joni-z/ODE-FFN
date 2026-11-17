@@ -49,10 +49,24 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   - [x] Factor one coupled RK4step without editing the canonical observer.
     CPU66114actual0:8full-model prefix outputs/48nonzero-tangent layer checks
     match the original eagerly, bit for bit. GPUcompilation remains pending.
-  - [ ] Validate compiled numerical identity on fixed small controls, publish/
-    freeze and obtain the independent exact documented execution.
-  - [ ] Check ALLsaved4096-input fields, then paired3-repeat timing on the
-    primary confirmation field. Keep compiler failures and actual exits.
+  - [x] Original compiled author7526and fresh42278actual0. All8prefix cells
+    pass; frozenba0c426/5200source hashes unchanged.
+  - [x] Original full63139actual0: all8x4096fields pass, p<=6.67e-15,
+    z<=1.25e-16. Independent saved-array reconstruction passes. Three paired
+    resident timings show only1.240x; no graph breaks/fallback.
+
+## P1: exact algebraic execution improvement
+
+- [x] Follow analytic-drift-factorization.md: combine the same Pby linearity
+  to reduce19to6matrix actions per coupled drift; verify all768prebound learned
+  layer states locally, including both directions and zero forcing.
+- [x] Check half-integer-power reuse separately; no changed real-valued equation.
+  CPU80575actual0: both variants/all768states/four solver pairs pass;
+  original/factored drift max8.33e-17, independent jets1.34e-15.
+- [ ] Publish/freeze a new runtime, authored and fresh documented CUDAchecks
+  for both algebra variants; then full8x4096gates and three paired timings.
+- [ ] Only after identical numerical gates and measured full-batch speed gains
+  may a factored implementation replace execution of the same target predictor.
 
 ## Subsequent causal link
 
@@ -73,7 +87,8 @@ restarted. Canonical evidence: population-resolution-results/audit.json.
 Mac authored learned prefixes54925/11984and NumPyverifier are terminal0.
 All field actors are now terminal0; physicalGPU4 released. Actual256observer
 median7.232s/B4096projects primary transport to131.653GPUhours. Preserve
-reference/data/sampler fidelity while compiling the same coupled step first.
+reference/data/sampler fidelity. Original compilation only1.240x; registered
+exact19-to6Pfactorization is the next measured runtime intervention.
 Current raw roots: coefficient-20261116/target-aware-transport/
   population-resolution/ and learned-defect-fields/.
 

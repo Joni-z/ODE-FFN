@@ -16,9 +16,10 @@ def main():
     p=argparse.ArgumentParser()
     for name in ('root','reference','output','cache'):p.add_argument('--'+name,type=Path,required=True)
     p.add_argument('--witness',action='store_true');p.add_argument('--profile',action='store_true')
-    p.add_argument('--case');p.add_argument('--readiness',type=Path)
+    p.add_argument('--variant',choices=('original','linear-factorization','power-reuse'),default='original')
+    p.add_argument('--case');p.add_argument('--readiness',type=Path);p.add_argument('--gpu-uuid')
     a=p.parse_args();assert not a.output.exists()
-    physical,uuid=select_gpu(None);os.environ['CUDA_VISIBLE_DEVICES']=uuid
+    physical,uuid=select_gpu(a.gpu_uuid);os.environ['CUDA_VISIBLE_DEVICES']=uuid
     os.environ['TORCHINDUCTOR_CACHE_DIR']=str(a.cache/'inductor')
     os.environ['TRITON_CACHE_DIR']=str(a.cache/'triton')
     os.environ['TORCHINDUCTOR_COMPILE_THREADS']='1'
@@ -27,7 +28,13 @@ def main():
     from common import ev,base
     from gpu_resolution import exclusive_gpu
     import hidden_defect_transport as original
-    from compiled_defect_observer import make_compiled_step,response_with_step
+    from compiled_defect_observer import response_with_step
+    if a.variant=='original':
+        from compiled_defect_observer import make_compiled_step
+        step=make_compiled_step();step_file=Path(__file__).with_name('compiled_defect_observer.py')
+    else:
+        from factored_defect_drift import make_compiled_step
+        step=make_compiled_step(a.variant=='power-reuse');step_file=Path(__file__).with_name('factored_defect_drift.py')
     from check_hidden_defect_transport import close
     torch.set_num_threads(1);torch.backends.cuda.matmul.allow_tf32=False
     base.verify_sources()
@@ -38,10 +45,12 @@ def main():
     if not a.witness:
         assert a.readiness and read(a.readiness)['passed']
         assert read(a.readiness)['fields_sha256']==sha(a.root/'fields.json')
+        assert read(a.readiness).get('variant','original')==a.variant
+        assert read(a.readiness)['step_source_sha256']==sha(step_file)
     canonical=read(a.reference/'COMPLETE.json');assert canonical['passed'] and not canonical['witness']
     assert canonical['all_numerically_qualified'] and canonical['refined_reference']
     reference_rows=read(a.reference/'rows.json');portable=read(a.root/'portable.json')
-    rows=[];first_calls=[];timings=[];began=time.monotonic();step=make_compiled_step()
+    rows=[];first_calls=[];timings=[];began=time.monotonic()
     native_function=original.variation_solve
     selected=[c for c in portable['cases'] if not a.case or c['id']==a.case]
     assert len(selected)==(1 if a.case else 4)
@@ -138,7 +147,7 @@ def main():
         eager=statistics.median(v['eager_seconds'] for v in timings)
         fast=statistics.median(v['compiled_seconds'] for v in timings);speed=eager/fast
     result=dict(passed=True,witness=a.witness,rows=len(rows),physical_gpu=physical,gpu_uuid=uuid,
-        fields_sha256=sha(a.root/'fields.json'),step_source_sha256=sha(Path(__file__).with_name('compiled_defect_observer.py')),
+        fields_sha256=sha(a.root/'fields.json'),step_source_sha256=sha(step_file),variant=a.variant,
         source_sha256=sha(__file__),reference_complete_sha256=sha(a.reference/'COMPLETE.json'),
         first_calls=first_calls,timings=timings,median_speedup=speed,
         peak_memory_bytes=torch.cuda.max_memory_allocated(),tensors_methods_rng_unchanged=True,

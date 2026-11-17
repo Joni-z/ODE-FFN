@@ -1,0 +1,242 @@
+[
+  {
+    "case": "ring_midpoint_trained",
+    "split": "selection",
+    "points": 4096,
+    "primal_error": 2.220446049250313e-15,
+    "tangent_error": 4.163336342344337e-17,
+    "jvp_errors": [
+      1.3322676295501878e-15,
+      5.204170427930421e-18
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 1.0214221829452086e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 1.1191031087931513e-10
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "ring_midpoint_trained-selection.npz",
+    "sha256": "feced8b3d3d4d5590573938746ce1bdce9e9aa6870a067f4dd60b61d5acfaf3d",
+    "reference_sha256": "13a1d5894e51e5d300850b28bdd051e486a3584e3dfe6b32e9225d159dd73f50"
+  },
+  {
+    "case": "ring_midpoint_trained",
+    "split": "confirmation",
+    "points": 4096,
+    "primal_error": 2.220446049250313e-15,
+    "tangent_error": 2.7755575615628914e-17,
+    "jvp_errors": [
+      1.3322676295501878e-15,
+      8.673617379884035e-18
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 1.0800136826527584e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 5.995272334136104e-11
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "ring_midpoint_trained-confirmation.npz",
+    "sha256": "947c4f246807085529f610a7344a75935f017ba98d451fb0573280162f251f14",
+    "reference_sha256": "b8cc5503146938d3f193dfb3c4bcea526f1710d0ee21f321ecd4e4fb65356f96"
+  },
+  {
+    "case": "ring_rk4_trained",
+    "split": "selection",
+    "points": 4096,
+    "primal_error": 2.220446049250313e-15,
+    "tangent_error": 2.7755575615628914e-17,
+    "jvp_errors": [
+      8.881784197001252e-16,
+      3.903127820947816e-18
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 1.3461775097423079e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 8.007515570757073e-11
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "ring_rk4_trained-selection.npz",
+    "sha256": "d0cf637a6a661d90052bec553fd05bcd72370650b0de12293602c6310f243b45",
+    "reference_sha256": "f439ee3bedc1bc2bca2647d11384b9c207d6a6f050b4a38039583734583fd9e6"
+  },
+  {
+    "case": "ring_rk4_trained",
+    "split": "confirmation",
+    "points": 4096,
+    "primal_error": 2.6645352591003757e-15,
+    "tangent_error": 3.469446951953614e-17,
+    "jvp_errors": [
+      6.661338147750939e-16,
+      5.421010862427522e-18
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 8.699058617542277e-12
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 7.299303522723122e-11
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "ring_rk4_trained-confirmation.npz",
+    "sha256": "4eb67fe3d5a1ad705a6aea4dfd428873f2d4b371d7a0332d2f0b100541c2a97f",
+    "reference_sha256": "c0f715377c2a47b922af3440bb77c334289956a26cfee024ffb354024933f28a"
+  },
+  {
+    "case": "product_midpoint_trained",
+    "split": "selection",
+    "points": 4096,
+    "primal_error": 4.6629367034256575e-15,
+    "tangent_error": 1.249000902703301e-16,
+    "jvp_errors": [
+      1.7763568394002505e-15,
+      2.42861286636753e-17
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 1.9341531414668323e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 1.594656360084934e-10
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "product_midpoint_trained-selection.npz",
+    "sha256": "55ffee905a0a8ecad70b727bc75c03266bd01a4367bde605da6896e0e99d3aea",
+    "reference_sha256": "d56ae6828d05556f54a34628e4ffe447be3769640e026a75ba978504eb22507c"
+  },
+  {
+    "case": "product_midpoint_trained",
+    "split": "confirmation",
+    "points": 4096,
+    "primal_error": 4.884981308350689e-15,
+    "tangent_error": 8.326672684688674e-17,
+    "jvp_errors": [
+      2.3869795029440866e-15,
+      2.7755575615628914e-17
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 3.2561855989321487e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 1.8756169273964618e-10
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "product_midpoint_trained-confirmation.npz",
+    "sha256": "082bcb92282525267b1a61e03178bb4eca596a480b00ab9cbfc2eff6ad7b1b53",
+    "reference_sha256": "b5adf02ddcb6f17bbae69c22a31f502b4e52c0dcdd5a8be7d11f80bfd04078c0"
+  },
+  {
+    "case": "product_rk4_trained",
+    "split": "selection",
+    "points": 4096,
+    "primal_error": 6.661338147750939e-15,
+    "tangent_error": 1.1796119636642288e-16,
+    "jvp_errors": [
+      1.7763568394002505e-15,
+      2.0816681711721685e-17
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 2.3834326873251044e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 1.6467265051556268e-10
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "product_rk4_trained-selection.npz",
+    "sha256": "36120c1943cf77f7d544efca7ca974453bbc4409106a5178e870933f16d7335a",
+    "reference_sha256": "74cc7285630c5b355a225551ed71c8f22e62297525e690db3366ba1f7c77ad59"
+  },
+  {
+    "case": "product_rk4_trained",
+    "split": "confirmation",
+    "points": 4096,
+    "primal_error": 5.551115123125783e-15,
+    "tangent_error": 7.632783294297951e-17,
+    "jvp_errors": [
+      2.4424906541753444e-15,
+      2.42861286636753e-17
+    ],
+    "finite_differences": [
+      {
+        "epsilon": 0.0001,
+        "error": 3.099524109595464e-11
+      },
+      {
+        "epsilon": 1e-05,
+        "error": 1.953082556793717e-10
+      }
+    ],
+    "reverse_errors": [
+      0.0,
+      0.0
+    ],
+    "zero_exact": true,
+    "native_replay_exact": true,
+    "file": "product_rk4_trained-confirmation.npz",
+    "sha256": "27e272805fa69257a78be1196d30065d9c49a78a742514c16012d43e9b396d41",
+    "reference_sha256": "2ddc6c922d1fb51bb278fc95a1728e5cf8dede74134046fe7c7e73e69a7d1664"
+  }
+]

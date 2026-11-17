@@ -42,9 +42,11 @@ The remaining link is the distributional response predicted from the analytic
 correction, rather than the already measured field difference. The eager
 256-step observer takes median7.232s per4,096 inputs. Primary full Heun2048
 transport projects to about132 GPUhours at that rate; it is not queued.
-First validate compilation of the SAME coupled step, preserving FP64,256steps,
-all original banks and numerical gates. Then select execution by measured
-identity/throughput, not by changing the scientific test.
+Original compilation now passes all8x4096input comparisons and independent
+array reconstruction, but gives only1.240xresident speedup. Exact algebraic
+factorization reduces19to6matrix actions per coupled drift; both variants
+pass768learned CPUstates. Full GPUidentity and timing checks are next.
+FP64,256steps, all original banks and scientific gates remain fixed.
 [Registered runtime preparation](docs/research-assessments/2026-11-16-ode-mechanism/analytic-transport-runtime-protocol.md).
 
 ## Runtime and preserved artifacts

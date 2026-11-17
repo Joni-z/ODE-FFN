@@ -1,0 +1,1936 @@
+{
+  "passed": true,
+  "states": 768,
+  "layer_cells": 48,
+  "variants": 2,
+  "solver_pairs": 4,
+  "max_factorization_error": 8.326672684688674e-17,
+  "max_independent_jet_error": 1.339206523454095e-15,
+  "rows": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "layer": 0,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "layer": 1,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "layer": 2,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "layer": 3,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "layer": 4,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "layer": 5,
+      "points": 16,
+      "linear_calls": {
+        "midpoint->rk4/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->rk4/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/pow": {
+          "original": 19,
+          "factored": 6
+        },
+        "rk4->midpoint/reuse": {
+          "original": 19,
+          "factored": 6
+        },
+        "midpoint->midpoint/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "midpoint->midpoint/reuse": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/pow": {
+          "original": 2,
+          "factored": 2
+        },
+        "rk4->rk4/reuse": {
+          "original": 2,
+          "factored": 2
+        }
+      }
+    }
+  ],
+  "source_sha256": "9796a1a309dfbb1b601120153b39675bc1f8ff1ea5bf97b2d4ae617c748eaec5",
+  "drift_source_sha256": "8a4a16f4c9b5470af3044c2dca9fc5dd987cb6ad05f6b3391b93206ad2eefd81",
+  "equation_changed": false,
+  "new_training": 0,
+  "new_draws": 0
+}

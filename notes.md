@@ -36,6 +36,14 @@ full sets; all old flags remain recorded. Source055a860/5175hashes unchanged,
 GPU4released. Both actual figures inspected; original/layout-only analyses
 90318/56920actual0and numeric summaries identical. Final reports unchanged.
 
+Original compiled observer now complete: all8x4096original fields pass;
+maximum primal6.67e-15/tangent1.25e-16. Three paired timings give1.240x,
+7.103s eager versus5.726s compiled median. Independent array reconstruction
+passes, sourceba0c426/5200hashes unchanged. This is execution timing only.
+New exact19-to6Pdrift factorization and separate power reuse both pass all
+768learned CPUstates/four solver pairs; error8.33e-17, independent jets1.34e-15.
+GPUidentity/throughput validation precedes using either execution variant.
+
 The remaining ODE-specific link predicts target quality from this analytic
 forcing through the ACTUAL learned sampler. Median eager256observer7.232s/
 B4096projects primary full Heun2048transport to131.653GPUhours. Runtime

@@ -1,0 +1,82 @@
+{
+  "passed": true,
+  "variant": "original",
+  "rows": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "points": 4096,
+      "errors": {
+        "primal": 2.220446049250313e-15,
+        "tangent": 4.163336342344337e-17
+      }
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "errors": {
+        "primal": 2.220446049250313e-15,
+        "tangent": 2.7755575615628914e-17
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "points": 4096,
+      "errors": {
+        "primal": 2.220446049250313e-15,
+        "tangent": 2.7755575615628914e-17
+      }
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "errors": {
+        "primal": 2.6645352591003757e-15,
+        "tangent": 3.469446951953614e-17
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "points": 4096,
+      "errors": {
+        "primal": 4.6629367034256575e-15,
+        "tangent": 1.249000902703301e-16
+      }
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "errors": {
+        "primal": 4.884981308350689e-15,
+        "tangent": 8.326672684688674e-17
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "points": 4096,
+      "errors": {
+        "primal": 6.661338147750939e-15,
+        "tangent": 1.1796119636642288e-16
+      }
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "errors": {
+        "primal": 5.551115123125783e-15,
+        "tangent": 7.632783294297951e-17
+      }
+    }
+  ],
+  "median_speedup": 1.2404924614848587,
+  "unique_compiled_graphs": 6,
+  "complete_sha256": "eee4679a1a300400c96a0a1f8dbb05e034720b15e239552039e1d2459c65ddd4",
+  "source_sha256": "f6e6ef58e508c8d3bba615afc425bd6735a1e13882018f4f268e7ab0fa954a4e"
+}
