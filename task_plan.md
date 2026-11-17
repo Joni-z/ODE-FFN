@@ -1,5 +1,25 @@
 # Determine what the ODE structure contributes
 
+## Current requested wrap-up: cancel four GPU workers and review all experiments
+
+- [x] Verify ownership/commands and terminate only the four recorded145GPU
+  workers. All exit bySIGTERM; their CUDAcontexts are released. Preserve all
+  completed and partial outputs. Dispatcher1477869stays stopped.
+- [x] Consolidate the frozen127-entry historical ledger with the later Muon/PD,
+  response, image and ODE-mechanism studies. Distinguish evidence families,
+  actual training, frozen interventions, proofs, engineering and proposals.
+- [x] Write an English evidence-linked project review and complete source
+  inventory outside finalized reports. Give the user a Chinese scientific
+  briefing with practical conclusions and remaining work.
+- [x] Verify source links, numerical statements and protected report hashes;
+  push the review and cancellation handoff. Do not launch new experiments.
+
+Review verification passes:209source documents,162canonical analysis sources,
+307local links,97protected files,11Report2bindings and5native image files.
+Four145workers are canceled; two ordinary Maccases complete with independent
+checks, two continue. The complete current-bank comparison is still pending.
+The review introduces no model run, evaluation rerun or new research direction.
+
 Goal paused at the user's request on 17 November, after closing the current
 working changes. The objective remains to obtain a mathematically predicted,
 falsifiable account of ODE-FFN behavior and decide which architecture merits
@@ -7,10 +27,10 @@ another image test. Resume autonomous work only on the user's instruction.
 Existing registered compute queues and the fixed cached-analysis follower
 remain running on Mac mini; no new experimental family is launched during
 the pause. The user subsequently restricted synthetic work to Mac mini.
-145dispatcher1477869is SIGSTOPpaused, preserving its four active workers and
-blocking104unstarted jobs. Do not resume it without specific permission for
-145synthetic work. A future CPUcontinuation must preserve all existing outputs
-and explicitly handle the four workers' completion/independent verification.
+145dispatcher1477869is SIGSTOPpaused, blocking104unstarted jobs. The user then
+canceled its four remaining workers; all exited bySIGTERM, and their CUDA
+contexts are released. Do not resume145synthetic work. Preserve completed and
+partial outputs; the canceled banks are not completed evidence.
 Training seed0only. Preserve finalized Reports1/2and the native image baseline.
 
 ## P0 parallel: ordinary controls on the current target banks

@@ -8,6 +8,7 @@ the model extension replaces only each Transformer block's FFN.
 
 | What you want | Open |
 |---|---|
+| Whole-project findings and every recorded experiment | [17 November project review and full ledger](docs/research-assessments/2026-11-17-project-review/README.md) |
 | Current experiment, budget and jobs | [STATUS.md](STATUS.md) |
 | What the ODE constraints contribute | [Completed matched stage-order study](docs/research-assessments/2026-11-16-ode-mechanism/schedule-order/numerical-results/analysis-report.md) |
 | Does that change the learned target response? | [Independent all-bank output-Jacobian comparison](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md) |
@@ -50,7 +51,8 @@ The same focal ordering appears in whole-output Jacobian error on every
 independent input bank. This is a confirmed association; ordinary Product16
 SwiGLU still samples better despite greater average Jacobian error.
 [Derivation and complete confirmation](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/README.md).
-Later trajectory calibration remains numerically unresolved at its1024step cap.
+The initial trajectory calibration failed its1024step numerical cap; subsequent
+uniform refinement now qualifies all twelve models.
 An actual-model temporal-alias construction shows why dyadic-grid agreement
 alone does not establish a continuous-field explanation.
 [Precision audit](docs/research-assessments/2026-11-16-ode-mechanism/target-geometry/time-alias-results/analysis-report.md).

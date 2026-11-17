@@ -6,11 +6,15 @@ agent work only when asked. The final cleanup publishes the cached-comparison
 launch/progress record; no new model, training or experimental family is added.
 Subsequent resource correction: synthetic work belongs on Mac mini. Verified
 UID/command of145dispatcher1477869and SIGSTOPpaused only that process; stateTs
-confirmed. Its four workers continue and104pending jobs cannot launch. Their
-latest progress20.117--24.023%, ETA88.919--96.519minutes. Raw policy receipt
-retains PIDs/commands/time; original frozen code and running workers untouched.
-The paused dispatcher will not reap/verify those four completions automatically;
-this is a handoff item for CPUcontinuation, not a completed128task cohort.
+confirmed. The user then explicitly canceled the four remainingGPUworkers.
+PIDs2120626/2130541/2138747/2139760all exited bySIGTERM(exit15), and no owned
+CUDAcontext remains.104unstarted tasks stay blocked. Raw completed/partial
+outputs and frozen source are preserved; canceled banks are not complete.
+The new docs/research-assessments/2026-11-17-project-review/ indexes the exact
+127legacy records,83later/supplementary records and162canonical analysis
+sources. These are evidence records, not a count of independent training runs.
+It summarizes operator design, Muon/rank, symmetry, response/order, sharing,
+numerical mechanisms and matched CelebAwithout changing either final report.
 
 Canonical directory: docs/research-assessments/2026-11-16-ode-mechanism/.
 Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations.

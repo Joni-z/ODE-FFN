@@ -5,12 +5,13 @@
 17 November: the user requested closing the current code/evidence changes.
 Autonomous development and new experiment decisions are paused. The user then
 moved subsequent synthetic work to Mac mini.145dispatcher1477869is stopped
-withSIGSTOP(stateTs): its104pending jobs cannot launch. Only the four already
-active workers on physical4-7continue. Their last measured progress was20-24%,
-with about89-97minutes remaining. General research resumption does not authorize
-resuming this145dispatcher. The remaining cohort needs a CPUcontinuation plan;
-the stopped dispatcher will not automatically reap/verify the final four jobs.
+withSIGSTOP(stateTs): its104pending jobs cannot launch. The user then explicitly
+canceled its four remaining workers. All four exited bySIGTERM(exit15); their
+CUDAcontexts on physical4-7are released. Completed and partial outputs remain
+intact. The canceled banks do not establish a completed fine-mesh analytic test.
+General research resumption does not authorize resuming this145dispatcher.
 [Resource-policy receipt](docs/research-assessments/2026-11-16-ode-mechanism/resource-policy-20261117.json).
+[Cancellation receipt](docs/research-assessments/2026-11-16-ode-mechanism/user-canceled-four-workers-20261117.json).
 Existing Macqueues remain running: all-source controller15486,
 ordinary-control controller19767and the fixed
 cached-comparison follower20623(owner20622/tool67368). Their progress/logs
@@ -18,7 +19,11 @@ remain under the raw roots recorded below. The follower waits for the full
 ordinary cohort before generating its comparison; public conclusions still
 require independent checks and visual review. The investigation is unfinished.
 
-## Analytic target forecast: complete Heun128 diagnostic, Heun2048 running
+The [whole-project review and full experiment ledger](docs/research-assessments/2026-11-17-project-review/README.md)
+now collect the legacy and later evidence. This read-only retrospective launches
+no experiment and leaves finalized Reports1/2unchanged.
+
+## Analytic target forecast: complete Heun128 diagnostic, Heun2048 incomplete
 
 Both primary Heun128 streams retain all eight original banks and independent
 reconstructions. The ODE-derived forecast has the correct sign and beats
@@ -53,11 +58,11 @@ epsilon 1e-4 metric check. Independent AD agrees with the derivative within
 error. Smaller four epsilons pass. The original flag remains unchanged.
 [Cached diagnosis](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-retained-metric-failure.json).
 
-145has completed20of128bank tasks; four already active workers continue.
-Dispatcher1477869is now paused under the Mac-only synthetic policy.
+145completed20of128bank tasks; the next four were intentionally canceled.
+Dispatcher1477869remains paused under the Mac-only synthetic policy.
 The first four primary Heun2048banks and independent verifiers finish0and
-qualify numerically; the current four workers run selection banks4-7. These
-four completed banks are not a pooled quality decision.
+qualify numerically; selection banks4-7were canceled. The four completed
+fine-mesh banks are not a pooled quality decision.
 [First fine-mesh controls](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-first2048-banks.json).
 Mac CPU controller 15486 follows
 completed banks with four one-thread all-source reference workers. Both
@@ -74,8 +79,11 @@ Product16FreeISRU/SwiGLU192, all original optimizer/capacity settings retained.
 The same current sources/targets/directions are evaluated at128and2048steps;
 older-bank ordinary scores are not used to rank this cohort. Fresh exact five
 commands pass, historical anchors replay exactly, and independent witness
-metric errors are<=4.45e-16. Controller19767runs two one-thread workers
-19768/19769beside the four reference workers. Full comparison is pending.
+metric errors are<=4.45e-16. Both Ring8cases and their independent checks now
+complete; controller19767has moved its two one-thread workers to Product16.
+The full four-case comparison is pending. The read-only
+[job snapshot](docs/research-assessments/2026-11-17-project-review/job-status.json)
+retains the observed terminal and live records.
 [Protocol](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-protocol.md),
 [fresh check](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-fresh.json),
 [launch](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-launch.json).
@@ -130,8 +138,8 @@ The remaining link is the distributional response predicted from the analytic
 correction, rather than the already measured field difference. The original
 eager256-step observer took median7.232s per4,096 inputs, projecting about132
 GPUhours for primary Heun2048 transport. The validated faster implementation
-has executed that study on145. Its four current workers continue, while
-subsequent GPUdispatch is paused under the new resource policy.
+partially executed that study on145. Its four remaining workers are canceled,
+and subsequent GPUdispatch stays paused under the new resource policy.
 Original compilation gives1.240x. Exact algebraic factorization and power
 reuse now pass all8x4096input comparisons and independent reconstruction,
 with4.475xresident speedup. Both fresh documented invocations exit0and
@@ -145,7 +153,8 @@ checks and linear8/128/2048controls. Both fresh documented GPUentrypoints and
 independent reconstructions pass, all5,229frozen source hashes unchanged.
 The original monitored queue used145physical4-7, controller1477869,
 sourcefd04994. Its dispatcher is now paused; the final four active workers
-remain running. Primary128banks are complete; four2048banks are complete.
+were subsequently canceled by the user. Primary128banks are complete;
+four2048banks are complete.
 All128bank/mesh tasks and independent outputs remain required, with a future
 CPUcontinuation needed. The full-source CPUfollower is source46a9f7a/5244files, with a
 fresh five-command pass and unchanged packages. No final primary decision yet.
