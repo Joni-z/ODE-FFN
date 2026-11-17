@@ -11,7 +11,7 @@ experiment search. This pass revises the draft only; no training is launched.
 - [x] Revise the opening conclusion and final two-week hypothesis, retaining
   all measured results and the three-page main-text limit.
 - [x] Rebuild, verify source/protection bindings and inspect changed pages.
-- [ ] Push the revision and synchronize the source/PDF to MBP.
+- [x] Push the revision and synchronize the source/PDF to MBP.
 
 Findings: sharing is the leading structural explanation, not an isolated unique
 cause; the frozen-D image result does not diagnose why it loses. No stray
@@ -23,6 +23,8 @@ control for the current state-flow model.
 Revision verified: three main pages/four supporting pages, all78numeric cells
 and26source bindings unchanged;97protected files and all finalized Report2
 bindings pass. Changed pages1/3/7visually inspected. PDF420236bytes.
+Revision961d424is on GitHub main and MBP. Remote/local PDFSHA256matches;
+MBPworktree is clean and its finalized Report2PDFis unchanged. No new run.
 
 ## Current task: write a readable Report3, without further experiments
 
