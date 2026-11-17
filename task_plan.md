@@ -16,9 +16,14 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   pass both meshes/streams and parameter/buffer/RNGchecks. Widest full4096bank
   Heun12814.454s, peak436.641MiB. Actual0/3CLI14090/1494and both NumPyverifiers
   actual0; maximum metric error4.45e-16. Fresh frozen pass is next.
-- [ ] Freeze documented source and obtain the fresh verbatim CPUcheck;
+- [x] Freeze documented source and obtain the fresh verbatim CPUcheck;
   launch at most two additional one-thread Macworkers after timing/memory.
   The original four all-source followers and145GPUqueue continue unchanged.
+  Source29668aa/5262regular hashes and30input files unchanged; fresh exact
+  five commands all actual0, no invocation divergence. Native anchors/recordings
+  exact, independent error<=4.45e-16. Fresh full-bank benchmark14.113s,
+  433.063MiB. Controller19767and workers19768/19769verified live at97-98%CPU;
+  both started formal Ring8banks. Original controllers1477869/15486unchanged.
 - [ ] Collect four controls/two streams/eight4096banks/both meshes, all raw
   endpoints and independent metric checks. Only complete common-bank groups
   enter architecture comparisons; no favorable checkpoint/bank selection.

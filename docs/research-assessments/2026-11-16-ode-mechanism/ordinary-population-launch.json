@@ -1,0 +1,44 @@
+{
+  "pid": 19767,
+  "unix_time": 1794883928.626053,
+  "cwd": "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/runtime/repo",
+  "command": [
+    "/Users/mr.z/ode-workspace-prep/.venv-test/bin/python",
+    "-u",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/runtime/repo/studies/muon_pd_20261102/target_transport_20261117/ordinary_population.py",
+    "--mode",
+    "dispatch",
+    "--binding",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/inputs.json",
+    "--readiness",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/fresh/readiness.json",
+    "--output",
+    "/Users/mr.z/ode-workspace-prep/coefficient-20261116/target-aware-transport/ordinary-population/formal"
+  ],
+  "workers": 2,
+  "threads_per_worker": 1,
+  "device": "cpu",
+  "source_commit": "29668aaf8f33c86c9b79e54269443c0fbe45abe9",
+  "source_freeze_sha256": "be0db22e98a26979c73ad08e49e6a2b78696b9542ad1129f2dcb7b761b24b7f9",
+  "binding_sha256": "ed6e487133f99bcb93cb2b3f4e1b6de8a9202adf375a07084ca2e00a8680cd66",
+  "fresh_receipt_sha256": "2a4ae2e9bdefb879ae4a3192f4f0af42e7a54f2bad742d377656e16b9a6296e3",
+  "readiness_sha256": "91047219a2382a1e43bfd4435379e4eb37cd00a18d4043637a1e1d9e9890ce06",
+  "expected_cases": 4,
+  "expected_rows": 16,
+  "expected_banks": 128,
+  "training_runs": 0,
+  "new_draws": 0,
+  "observed_unix": 1794884019.816394,
+  "actual_live_processes": "  PID ELAPSED  %CPU    RSS STAT\n19767   01:31   0.0  24784 Ss  \n19768   01:30  97.3 665792 R   \n19769   01:30  97.5 363968 R   \n",
+  "workers_observed": [
+    {
+      "index": 0,
+      "pid": 19768
+    },
+    {
+      "index": 1,
+      "pid": 19769
+    }
+  ],
+  "failed": false
+}

@@ -1,0 +1,39 @@
+{
+  "scope": "reused forward dense MAC counts at identical checkpoint architecture; pointwise work excluded; no cross-host timing inference",
+  "source_file": "docs/research-assessments/2026-11-16-ode-mechanism/sharing-results/comparison.json",
+  "source_sha256": "59f1aff92b9078c7c73ae2b53926ac73d4d9e79e4a9652971f279230f35789b2",
+  "rows": [
+    {
+      "id": "gmm_ring8_2d__free_isru__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "family": "free_isru",
+      "parameters": 56706,
+      "dense_macs": 55616,
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93"
+    },
+    {
+      "id": "gmm_ring8_2d__swiglu64__muon_0.02",
+      "dataset": "gmm_ring8_2d",
+      "family": "swiglu64",
+      "parameters": 56766,
+      "dense_macs": 55232,
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__free_isru__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "free_isru",
+      "parameters": 58512,
+      "dense_macs": 57408,
+      "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "swiglu192",
+      "parameters": 108624,
+      "dense_macs": 106560,
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c"
+    }
+  ]
+}

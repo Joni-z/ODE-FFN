@@ -43,6 +43,20 @@ verifiers have finished; all four qualify. The complete all-source cohort
 and primary2048prediction remain open.
 [First four completed controls](docs/research-assessments/2026-11-16-ode-mechanism/trajectory-reference-readiness/first-completed-banks.json).
 
+## Ordinary controls on the same current banks
+
+The current-bank ordinary-control evaluation is also active on MacCPU.
+It reuses four original20kseed0checkpoints: Ring8FreeISRU/SwiGLU64and
+Product16FreeISRU/SwiGLU192, all original optimizer/capacity settings retained.
+The same current sources/targets/directions are evaluated at128and2048steps;
+older-bank ordinary scores are not used to rank this cohort. Fresh exact five
+commands pass, historical anchors replay exactly, and independent witness
+metric errors are<=4.45e-16. Controller19767runs two one-thread workers
+19768/19769beside the four reference workers. Full comparison is pending.
+[Protocol](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-protocol.md),
+[fresh check](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-fresh.json),
+[launch](docs/research-assessments/2026-11-16-ode-mechanism/ordinary-population-launch.json).
+
 ## The analytic ODE correction predicts the complete field change
 
 All four frozen models and both 4,096-input field streams are complete. Both

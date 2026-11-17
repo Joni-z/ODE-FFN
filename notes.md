@@ -3,6 +3,22 @@
 Canonical directory: docs/research-assessments/2026-11-16-ode-mechanism/.
 Image frozen-DTaylorK8and evolving-state synthetic ODEare different computations.
 
+## Current-bank ordinary comparison
+
+The old ordinary controls used earlier banks. The new ordinary-population
+study reuses all4original20kseed0checkpoints on current2026112700/2800streams,
+both128/2048meshes,8x4096banks. No retraining, tuning or new draws.
+Author15033/check14090/1494/NumPyall actual0; old512field/64sample anchors
+are exact for all4controls. Freeze29668aa/5262files; fresh exact five commands
+actual0, all30input hashes unchanged, no invocation divergence. Fresh receipt
+2a4ae2e9; widest4096bank/Heun12814.113s,433.063MiB. The same-checkpoint dense
+MACcounts are bound separately, excluding pointwise work and cross-host timing.
+Formal CPUcontroller19767and workers19768/19769are actual live97-98%CPU;
+two extra one-thread workers beside the original4reference workers. All128
+ordinary bank evaluations/16rows and independent checks remain required.
+Primary practical family:32paired2048contrasts versus original ODEweights/
+native-crossed solves. Never reuse older-bank scores as these outcomes.
+
 ## Current complete Heun128 diagnostic
 
 Cached actual-endpoint geometry now completes all16banks and both pools,
