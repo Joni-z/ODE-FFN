@@ -1,0 +1,182 @@
+{
+  "passed": true,
+  "witness": true,
+  "case": "product_rk4_trained",
+  "split": "confirmation",
+  "bank": 0,
+  "points": 2,
+  "steps": 8,
+  "hidden_reference_steps": 16,
+  "physical_gpu": 4,
+  "gpu_uuid": "GPU-6c644192-ce4a-5d10-b912-07a6fc24f352",
+  "variant": "power-reuse",
+  "numerically_qualified": true,
+  "primal_jvp_max_error": 0.0,
+  "native_replay_max_error": 0.0,
+  "numerical": {
+    "observer_primal_refinement": {
+      "qualified": true,
+      "max_error": 4.561933053537359e-10
+    },
+    "observer_tangent_refinement": {
+      "qualified": true,
+      "max_error": 4.132856242563404e-10
+    },
+    "observer_probe_replay": {
+      "qualified": true,
+      "max_error": 0.0
+    }
+  },
+  "predictions": {
+    "analytic": {
+      "derivative": {
+        "loss": 3.5427247217411546,
+        "sw2": 1.882212719577985,
+        "loss_derivative": -0.0038949777300179254,
+        "sw2_derivative": -0.0010346805357077883,
+        "projection_ties": 0,
+        "finite_differences": [
+          {
+            "epsilon": 0.0001,
+            "finite_difference": -0.00389497773145564,
+            "absolute_error": 1.437714530760914e-12,
+            "qualified": true
+          },
+          {
+            "epsilon": 1e-05,
+            "finite_difference": -0.0038949777181329632,
+            "absolute_error": 1.1884962198421833e-11,
+            "qualified": true
+          }
+        ],
+        "qualified": true
+      },
+      "actual_loss_change": -0.004516759026565342,
+      "score": 0.9810494654034445,
+      "sign_agrees": true,
+      "endpoint_metric_change": -0.003840599955005075
+    },
+    "measured": {
+      "derivative": {
+        "loss": 3.5427247217411546,
+        "sw2": 1.882212719577985,
+        "loss_derivative": -0.004395558063937618,
+        "sw2_derivative": -0.0011676570926911906,
+        "projection_ties": 0,
+        "finite_differences": [
+          {
+            "epsilon": 0.0001,
+            "finite_difference": -0.0043955580597554444,
+            "absolute_error": 4.182173704569969e-12,
+            "qualified": true
+          },
+          {
+            "epsilon": 1e-05,
+            "finite_difference": -0.004395558073078121,
+            "absolute_error": 9.14050259093191e-12,
+            "qualified": true
+          }
+        ],
+        "qualified": true
+      },
+      "actual_loss_change": -0.004516759026565342,
+      "score": 0.9992799572265002,
+      "sign_agrees": true,
+      "endpoint_metric_change": -0.004356253717357816
+    }
+  },
+  "prefix_derivative": {
+    "steps": 8,
+    "points": 2,
+    "primal_exact": true,
+    "primal_jvp_error": 0.0,
+    "errors": {
+      "analytic": {
+        "direct_sampler_jvp": null,
+        "finite_differences": [
+          {
+            "epsilon": 0.0001,
+            "error": 4.5371336895860814e-12
+          },
+          {
+            "epsilon": 1e-05,
+            "error": 7.425985130635193e-11
+          }
+        ],
+        "analytic_nested_jvp_unavailable": true
+      },
+      "measured": {
+        "direct_sampler_jvp": 0.0,
+        "finite_differences": [
+          {
+            "epsilon": 0.0001,
+            "error": 7.907721352728991e-12
+          },
+          {
+            "epsilon": 1e-05,
+            "error": 3.444997412338502e-11
+          }
+        ],
+        "analytic_nested_jvp_unavailable": false
+      }
+    }
+  },
+  "native_loss": 3.5427247217411546,
+  "crossed_loss": 3.5382079627145893,
+  "file": "bank.npz",
+  "sha256": "3ffc04477220b4d8e6db97b801785612bfc71841fcdfad2f60e886483c1746dd",
+  "probe_calls": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "reference_sha256": null,
+  "asset_sha256": "e50c400a293601c61036b4b7b9f39af4a8812cd51d02928aa451bdaeed327bdf",
+  "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+  "source_sha256": "0360912615030eb9a98da44b94be68e51d85f12a2016c8e235507c31aacb0ab2",
+  "kernel_sha256": "770ede9801049b12448058a667e0cd9b3f3ad98f07543c92c28ec3d9aaa48770",
+  "execution_proof_sha256": "c1cca9ff30c1bd1e010ef6f5cc4f32e7adc030df4336c581d2456a31a6a17ae6",
+  "compiler_counters": {
+    "inline_call": {},
+    "stats": {
+      "calls_captured": 1364,
+      "unique_graphs": 4
+    },
+    "inductor": {
+      "fxgraph_cache_miss": 4,
+      "extern_calls": 96,
+      "async_compile_cache_miss": 64,
+      "triton_bundler_save_kernel": 904,
+      "triton_bundler_save_static_autotuner": 4,
+      "benchmarking.InductorBenchmarker.benchmark_gpu": 98
+    },
+    "aot_autograd": {
+      "total": 4,
+      "autograd_cache_miss": 4,
+      "autograd_cache_saved": 4,
+      "ok": 4
+    },
+    "graph_break": {},
+    "aten_mm_info": {
+      "aten.mm_2_64_64": 24,
+      "aten.mm_32_64_64": 72
+    }
+  },
+  "tensors_methods_rng_unchanged": true,
+  "warm_seconds": 9.777771580964327,
+  "trajectory_seconds": 4.162853153422475,
+  "seconds": 60.52889053337276
+}

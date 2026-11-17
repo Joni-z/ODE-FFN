@@ -42,7 +42,7 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   scores0.962/0.962,relativeRMS0.196/0.196. Both primary streams pass.
 - [x] Publish the complete field evidence; both actual figures reviewed.
   learned-defect-field-results/ preserves all numerical flags and source audit.
-- [ ] Profile/compile the SAME256-step FP64observer per the registered runtime
+- [x] Profile/compile the SAME256-step FP64observer per the registered runtime
   protocol before paying the projected132GPUhours for primary target transport.
   - [x] Installed Torch2.8.0+cu128/Triton3.4.0and gcc/g++present; no packages
     changed. nvccabsent; actual TorchInductorkernel still needs validation.
@@ -68,7 +68,7 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   ab42e7c/5213source hashes unchanged. Author43099/84757,fresh84411/64229,
   full75849/56124and independent91714/29494all actual0. Linear1.921x;
   power reuse4.475x,1.539s/B4096; select the latter with all equations fixed.
-- [ ] Only after identical numerical gates and measured full-batch speed gains
+- [x] Only after identical numerical gates and measured full-batch speed gains
   may a factored implementation replace execution of the same target predictor.
 
 ## Subsequent causal link
@@ -81,10 +81,16 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   unsupported. Preserve source/failure; analytic learned checks use the
   registered independent two-epsilon finite differences, measured JVPretained.
   Corrected38126actual0: all8learned cases and linear8/128/2048checks pass.
-- [ ] Validate the real GPUbank entrypoint and its independent NumPyoutputs,
+- [x] Validate the real GPUbank entrypoint and its independent NumPyoutputs,
   freeze/publish and obtain the exact documented analytic-target execution.
-- [ ] Launch the monitored128bank-task queue on idle4-7: primary128then2048,
+  fd04994/5229hashes unchanged. Author83797/9229actual0/0; fresh four
+  invocations30564/26506/6480/16263actual0, both numerical cases qualify.
+- [x] Launch the monitored128bank-task queue on idle4-7: primary128then2048,
   followed by all original controls. All banks retained; no new training.
+  Detached controller1477869; initial workers1477920-1477923physical4-7,
+  primary selection banks0-3/Heun128. Actual live PID/CUDAcontexts verified.
+- [ ] Collect all128bank tasks and128independent checks, pooled primary
+ 128/2048predictions and both-forcing diagnosis. A launch is not completion.
 - [ ] Before final mechanism interpretation, run the pre-registered ALLsource
   reference control at the same16trajectory calls in every bank/mesh task.
   analytic-target-full-probe-control.md; main-prefix gates stay separate.

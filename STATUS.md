@@ -51,8 +51,16 @@ for the primary test, excluding the remaining native sampler overhead.
 [Measured execution comparison](docs/research-assessments/2026-11-16-ode-mechanism/analytic-runtime-results/analysis-report.md).
 
 The joint analytic/measured sampler kernel passes all eight learned CPUprefix
-checks and linear8/128/2048controls. Main GPUentrypoint validation precedes
-the monitored full-bank queue. No analytic target-quality result yet.
+checks and linear8/128/2048controls. Both fresh documented GPUentrypoints and
+independent reconstructions pass, all5,229frozen source hashes unchanged.
+The monitored full-bank queue is now active on145physical4-7, controller
+1477869, sourcefd04994. Initial workers1477920-1477923run Product16RK4
+selection banks0-3atHeun128. Primary128/2048banks precede all controls.
+All128bank/mesh tasks and independent outputs remain required. No complete
+analytic target-quality result yet.
+[Launch](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-launch.json),
+[fresh readiness](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-fresh-summary.json),
+[registered all-source trajectory follow-up](docs/research-assessments/2026-11-16-ode-mechanism/analytic-target-full-probe-control.md).
 [Registered runtime preparation](docs/research-assessments/2026-11-16-ode-mechanism/analytic-transport-runtime-protocol.md).
 
 ## Runtime and preserved artifacts

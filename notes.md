@@ -51,14 +51,19 @@ before target observations. CPU38126actual0passes all8real two-source prefixes
 and analytic linear8/128/2048controls. Original24257nested-forward-ADfailure
 and frozen checker remain. Sourcefd04994/5229frozen on145; authored real
 ProductRK4bank witness83797and independent9229actual0, numerical qualification
-true. Fresh exact Product/Ringentrypoint checks precede formal queue launch.
+true. Fresh exact Product/Ringentrypoints and NumPychecks all actual0;
+readinessSHA05f9eff0. Source5229hashes unchanged, both numerical cases qualify.
+Controller1477869now launches the monitored128task queue, physical4-7only;
+initial1477920-1477923on primary selection banks0-3/Heun128. Sourcefd04994.
+All-source16-call trajectory follow-up registered before formal observations;
+main-prefix and full-source numerical qualification remain distinct.
 
 The remaining ODE-specific link predicts target quality from this analytic
 forcing through the ACTUAL learned sampler. Median eager256observer7.232s/
 B4096projects primary full Heun2048transport to131.653GPUhours. Runtime
 protocol fixes the same equations while reducing execution cost; FP64,256steps,
-both defects,all banks and gates stay fixed. Only small target-entrypoint
-witnesses have run; no full-bank target-quality result yet.
+both defects,all banks and gates stay fixed. Small target-entrypoint witnesses
+pass; full-bank trajectories are now running. No complete target-quality result yet.
 
 ## Runtime and audit
 

@@ -1,0 +1,183 @@
+{
+  "passed": true,
+  "source_sha256": "0360912615030eb9a98da44b94be68e51d85f12a2016c8e235507c31aacb0ab2",
+  "kernel_sha256": "770ede9801049b12448058a667e0cd9b3f3ad98f07543c92c28ec3d9aaa48770",
+  "portable_sha256": "c3b0357dd02a8d254144a98fcb9c831fb5f7663db22dbfcc7cf6060260a30696",
+  "execution_success": true,
+  "numerical_witness_qualified": true,
+  "scientific_qualification": {
+    "full_population_target_transport_evaluated": false,
+    "quality_claim_supported": false,
+    "scope": "Documented two-source Heun8/hidden-reference16 derivative-composition readiness only; formal work retains4096sources and128/2048outer/256hidden steps."
+  },
+  "records": [
+    {
+      "actual_exit_code": 0,
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 145 'env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/analytic-target-20261117/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_analytic_target.py --root /data2/zz5070/ODE_FFN/population-resolution-20261117/portable --reference /data2/zz5070/ODE_FFN/population-resolution-20261117/formal --output /data2/zz5070/ODE_FFN/analytic-target-20261117/fresh-product --cache /data2/zz5070/ODE_FFN/analytic-target-20261117/cache --execution-proof /data2/zz5070/ODE_FFN/factored-analytic-observer-20261117/formal-power/COMPLETE.json --case product_rk4_trained --split confirmation --bank 0 --steps 128 --witness'",
+      "command_utf8_sha256": "8acc18ae1978cc9323e580a1d306510d2c622fe9eab087c43fbbe18a244d2a83",
+      "finished_utc": "2026-11-17T00:25:36.594Z",
+      "ordinal": 1,
+      "original_handle": 30564,
+      "output": "ANALYTIC_TARGET_BANK_COMPLETE product_rk4_trained confirmation 0 8 True 4.237103005871177\n",
+      "output_utf8_sha256": "1e50e470bf83b798fda0040f0b5bcee7a43e45937a64d02e333c460dc6e44211",
+      "started_utc": "2026-11-17T00:25:08.390Z",
+      "tool_events": [
+        {
+          "chunk_id": "75032a",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 30564,
+          "wall_time_seconds": 1.002764458
+        },
+        {
+          "chunk_id": "0cb9c5",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 30564,
+          "wall_time_seconds": 5.003682084
+        },
+        {
+          "chunk_id": "66fb07",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 30564,
+          "wall_time_seconds": 5.00407625
+        },
+        {
+          "chunk_id": "060f1e",
+          "exit_code": 0,
+          "original_token_count": 23,
+          "output": "ANALYTIC_TARGET_BANK_COMPLETE product_rk4_trained confirmation 0 8 True 4.237103005871177\n",
+          "wall_time_seconds": 2.017365708
+        }
+      ]
+    },
+    {
+      "actual_exit_code": 0,
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 145 'env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/analytic-target-20261117/repo/studies/muon_pd_20261102/target_transport_20261117/verify_analytic_target.py --input /data2/zz5070/ODE_FFN/analytic-target-20261117/fresh-product --output /data2/zz5070/ODE_FFN/analytic-target-20261117/fresh-product/independent.json'",
+      "command_utf8_sha256": "748343df9e47ba0c54050af0c3f97c83cc66a10f97f97956f6b37a11c314bc32",
+      "finished_utc": "2026-11-17T00:25:49.338Z",
+      "ordinal": 2,
+      "original_handle": 26506,
+      "output": "INDEPENDENT_ANALYTIC_TARGET_PASS product_rk4_trained confirmation 0 8 2.220446049250313e-11\n",
+      "output_utf8_sha256": "6213a8010fee4c451ef5efbb880797ee487dc00e92591b531b955bc94033503d",
+      "started_utc": "2026-11-17T00:25:42.504Z",
+      "tool_events": [
+        {
+          "chunk_id": "37d74c",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 26506,
+          "wall_time_seconds": 1.003153917
+        },
+        {
+          "chunk_id": "79db6d",
+          "exit_code": 0,
+          "original_token_count": 23,
+          "output": "INDEPENDENT_ANALYTIC_TARGET_PASS product_rk4_trained confirmation 0 8 2.220446049250313e-11\n",
+          "wall_time_seconds": 2.5875e-05
+        }
+      ]
+    },
+    {
+      "actual_exit_code": 0,
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 145 'env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/analytic-target-20261117/repo/studies/muon_pd_20261102/target_transport_20261117/evaluate_analytic_target.py --root /data2/zz5070/ODE_FFN/population-resolution-20261117/portable --reference /data2/zz5070/ODE_FFN/population-resolution-20261117/formal --output /data2/zz5070/ODE_FFN/analytic-target-20261117/fresh-ring --cache /data2/zz5070/ODE_FFN/analytic-target-20261117/cache --execution-proof /data2/zz5070/ODE_FFN/factored-analytic-observer-20261117/formal-power/COMPLETE.json --case ring_midpoint_trained --split selection --bank 0 --steps 128 --witness'",
+      "command_utf8_sha256": "19be2a0fcbd0af2f368dd3a2390ec06dfcef666e07bc1d231426b788fdd84331",
+      "finished_utc": "2026-11-17T00:26:38.752Z",
+      "ordinal": 3,
+      "original_handle": 6480,
+      "output": "ANALYTIC_TARGET_BANK_COMPLETE ring_midpoint_trained selection 0 8 True 3.711786460131407\n",
+      "output_utf8_sha256": "730cb7bb79f8ed02473c6dd3ff5db384a04cfec75901fdc216ef672399301c64",
+      "started_utc": "2026-11-17T00:25:56.010Z",
+      "tool_events": [
+        {
+          "chunk_id": "fe1ba1",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 6480,
+          "wall_time_seconds": 1.003083041
+        },
+        {
+          "chunk_id": "c4f5a6",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 6480,
+          "wall_time_seconds": 10.0024545
+        },
+        {
+          "chunk_id": "360ca1",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 6480,
+          "wall_time_seconds": 10.0035945
+        },
+        {
+          "chunk_id": "dd4a91",
+          "exit_code": 0,
+          "original_token_count": 23,
+          "output": "ANALYTIC_TARGET_BANK_COMPLETE ring_midpoint_trained selection 0 8 True 3.711786460131407\n",
+          "wall_time_seconds": 2.253504875
+        }
+      ]
+    },
+    {
+      "actual_exit_code": 0,
+      "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 145 'env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 /data2/zz5070/miniconda3/envs/py312/bin/python -u /data2/zz5070/ODE_FFN/analytic-target-20261117/repo/studies/muon_pd_20261102/target_transport_20261117/verify_analytic_target.py --input /data2/zz5070/ODE_FFN/analytic-target-20261117/fresh-ring --output /data2/zz5070/ODE_FFN/analytic-target-20261117/fresh-ring/independent.json'",
+      "command_utf8_sha256": "f71a4f73b7ae5dcfb6349877492b18851375f006050315c62e9e26ced55d4477",
+      "finished_utc": "2026-11-17T00:26:48.866Z",
+      "ordinal": 4,
+      "original_handle": 16263,
+      "output": "INDEPENDENT_ANALYTIC_TARGET_PASS ring_midpoint_trained selection 0 8 8.881784197001252e-12\n",
+      "output_utf8_sha256": "f1ee9574fce16a17f5431864c817414c67fa9a5624642cf9935072f2f2b883e3",
+      "started_utc": "2026-11-17T00:26:44.830Z",
+      "tool_events": [
+        {
+          "chunk_id": "1e76e2",
+          "original_token_count": 0,
+          "output": "",
+          "session_id": 16263,
+          "wall_time_seconds": 1.001411208
+        },
+        {
+          "chunk_id": "5789a3",
+          "exit_code": 0,
+          "original_token_count": 23,
+          "output": "INDEPENDENT_ANALYTIC_TARGET_PASS ring_midpoint_trained selection 0 8 8.881784197001252e-12\n",
+          "wall_time_seconds": 3.3042e-05
+        }
+      ]
+    }
+  ],
+  "invocation_divergences": [],
+  "documentation_divergences": [],
+  "read_only_audit_deviations": [
+    {
+      "action": "First ancillary read-only source-audit reader",
+      "actual_exit_code": 1,
+      "cause": "Reader assumed manifest files was sequence; actual schema is a dict.",
+      "error": "ValueError: too many values to unpack (expected 2)",
+      "mutations": false,
+      "resolution": "Corrected audit reader to files.items(); no documented target command was rerun."
+    }
+  ],
+  "evidence_limits": [
+    "Independent external prelaunch idle-GPU telemetry was not separately captured by this reader; the exact documented entrypoint selected the GPU. Its retained gpu-history starts after allocation. Post-exit physical4-7 telemetry is independently retained.",
+    "Only two original sources with Heun8 and hidden-reference16 were executed by documented --witness. These are derivative-composition readiness witnesses, not scientific target-transport quality results or formal-resolution qualifications.",
+    "Learned analytic forcing was checked by epsilon finite differences, as documented; direct nested-forward-AD sampler JVP is unavailable. Measured forcing has an independent whole-sampler JVP."
+  ],
+  "gpu_identity": {
+    "fresh-product": {
+      "physical_gpu": 4,
+      "uuid": "GPU-6c644192-ce4a-5d10-b912-07a6fc24f352"
+    },
+    "fresh-ring": {
+      "physical_gpu": 4,
+      "uuid": "GPU-6c644192-ce4a-5d10-b912-07a6fc24f352"
+    }
+  },
+  "source_hash_equality": true,
+  "raw_receipt_sha256": "05f9eff08785b26fb9d41572d3a3c247ba59acae0310dc1a18563db70b84c2fa",
+  "source_commit": "fd04994fbd338c1f0ea437540831ed8496de1119",
+  "source_files": 5229,
+  "all_frozen_hashes_unchanged": true
+}
