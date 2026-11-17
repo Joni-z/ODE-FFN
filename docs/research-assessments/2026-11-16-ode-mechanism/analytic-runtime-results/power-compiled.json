@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "witness": false,
+  "rows": 8,
+  "physical_gpu": 6,
+  "gpu_uuid": "GPU-8ffc220f-2b4f-5d14-0787-4f46ba75a023",
+  "fields_sha256": "a6c55e285f4ad474c791b4082979d0c7557b5298a9c2eb409b869824afa0f687",
+  "step_source_sha256": "8a4a16f4c9b5470af3044c2dca9fc5dd987cb6ad05f6b3391b93206ad2eefd81",
+  "variant": "power-reuse",
+  "source_sha256": "f9c7bdb559b3c694f1912a340004f80cfbc6c9a5b57f4711bf6c13d5380e4601",
+  "reference_complete_sha256": "1c391131305b048565639e4074241f358e825e54c3f9a9a0740de3055f1e868a",
+  "first_calls": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 13.990560747683048
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 1.5275283604860306
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 7.0153256338089705
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 1.5299987345933914
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 1.5248595010489225
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 1.5244338400661945
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 1.5304132476449013
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 1.5313768088817596
+    }
+  ],
+  "timings": [
+    {
+      "repetition": 0,
+      "order": [
+        "eager",
+        "compiled"
+      ],
+      "eager_seconds": 6.874166147783399,
+      "compiled_seconds": 1.5385446585714817
+    },
+    {
+      "repetition": 1,
+      "order": [
+        "compiled",
+        "eager"
+      ],
+      "compiled_seconds": 1.5360323078930378,
+      "eager_seconds": 6.88553155772388
+    },
+    {
+      "repetition": 2,
+      "order": [
+        "eager",
+        "compiled"
+      ],
+      "eager_seconds": 6.903360050171614,
+      "compiled_seconds": 1.540297569707036
+    }
+  ],
+  "median_speedup": 4.475353717790035,
+  "peak_memory_bytes": 159904768,
+  "tensors_methods_rng_unchanged": true,
+  "source_observer_unchanged": true,
+  "seconds": 114.95999925583601
+}

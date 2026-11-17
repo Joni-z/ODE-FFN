@@ -1,0 +1,96 @@
+{
+  "passed": true,
+  "witness": false,
+  "rows": 8,
+  "physical_gpu": 5,
+  "gpu_uuid": "GPU-ce799976-7805-c539-9913-3bbadcdbadbf",
+  "fields_sha256": "a6c55e285f4ad474c791b4082979d0c7557b5298a9c2eb409b869824afa0f687",
+  "step_source_sha256": "8a4a16f4c9b5470af3044c2dca9fc5dd987cb6ad05f6b3391b93206ad2eefd81",
+  "variant": "linear-factorization",
+  "source_sha256": "f9c7bdb559b3c694f1912a340004f80cfbc6c9a5b57f4711bf6c13d5380e4601",
+  "reference_complete_sha256": "1c391131305b048565639e4074241f358e825e54c3f9a9a0740de3055f1e868a",
+  "first_calls": [
+    {
+      "case": "ring_midpoint_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 19.532710565254092
+    },
+    {
+      "case": "ring_midpoint_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 3.6457296553999186
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 9.948128990828991
+    },
+    {
+      "case": "ring_rk4_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 3.6474209874868393
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 3.644261699169874
+    },
+    {
+      "case": "product_midpoint_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 3.6453083530068398
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "selection",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 3.650972254574299
+    },
+    {
+      "case": "product_rk4_trained",
+      "split": "confirmation",
+      "points": 4096,
+      "first_call_includes_trace_compile_and_execution_seconds": 3.651166120544076
+    }
+  ],
+  "timings": [
+    {
+      "repetition": 0,
+      "order": [
+        "eager",
+        "compiled"
+      ],
+      "eager_seconds": 7.0112452283501625,
+      "compiled_seconds": 3.6509400103241205
+    },
+    {
+      "repetition": 1,
+      "order": [
+        "compiled",
+        "eager"
+      ],
+      "compiled_seconds": 3.65117434412241,
+      "eager_seconds": 7.020742151886225
+    },
+    {
+      "repetition": 2,
+      "order": [
+        "eager",
+        "compiled"
+      ],
+      "eager_seconds": 7.013031275942922,
+      "compiled_seconds": 3.6676659286022186
+    }
+  ],
+  "median_speedup": 1.9207604499172615,
+  "peak_memory_bytes": 159904768,
+  "tensors_methods_rng_unchanged": true,
+  "source_observer_unchanged": true,
+  "seconds": 143.6523129567504
+}

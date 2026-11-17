@@ -42,11 +42,17 @@ The remaining link is the distributional response predicted from the analytic
 correction, rather than the already measured field difference. The eager
 256-step observer takes median7.232s per4,096 inputs. Primary full Heun2048
 transport projects to about132 GPUhours at that rate; it is not queued.
-Original compilation now passes all8x4096input comparisons and independent
-array reconstruction, but gives only1.240xresident speedup. Exact algebraic
-factorization reduces19to6matrix actions per coupled drift; both variants
-pass768learned CPUstates. Full GPUidentity and timing checks are next.
-FP64,256steps, all original banks and scientific gates remain fixed.
+Original compilation gives1.240x. Exact algebraic factorization and power
+reuse now pass all8x4096input comparisons and independent reconstruction,
+with4.475xresident speedup. Both fresh documented invocations exit0and
+all5,213source hashes remain unchanged. FP64,256steps, every bank and the
+scientific equations stay fixed. Selected observer projection:28.008GPUhours
+for the primary test, excluding the remaining native sampler overhead.
+[Measured execution comparison](docs/research-assessments/2026-11-16-ode-mechanism/analytic-runtime-results/analysis-report.md).
+
+The joint analytic/measured sampler kernel passes all eight learned CPUprefix
+checks and linear8/128/2048controls. Main GPUentrypoint validation precedes
+the monitored full-bank queue. No analytic target-quality result yet.
 [Registered runtime preparation](docs/research-assessments/2026-11-16-ode-mechanism/analytic-transport-runtime-protocol.md).
 
 ## Runtime and preserved artifacts

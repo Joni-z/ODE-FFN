@@ -1,0 +1,28 @@
+{
+  "actual_exit": 0,
+  "passed": true,
+  "variant": "linear-factorization",
+  "fields_sha256": "a6c55e285f4ad474c791b4082979d0c7557b5298a9c2eb409b869824afa0f687",
+  "step_source_sha256": "8a4a16f4c9b5470af3044c2dca9fc5dd987cb6ad05f6b3391b93206ad2eefd81",
+  "numeric_maxima": {
+    "finite_difference_error": 1.9530826261826562e-10,
+    "jvp_primal_error": 2.4424906541753444e-15,
+    "jvp_tangent_error": 2.949029909160572e-17,
+    "primal_error": 3.1086244689504383e-15,
+    "reverse_primal_error": 0.0,
+    "reverse_tangent_error": 1.3877787807814457e-17,
+    "tangent_error": 4.5102810375396984e-17
+  },
+  "gpu_identity": {
+    "gpu_uuid": "GPU-6c644192-ce4a-5d10-b912-07a6fc24f352",
+    "physical_gpu": 4
+  },
+  "row_count": 8,
+  "source_manifest_audit_passed": true,
+  "documentation_divergence": [
+    "The document says source-freeze.json binds every regular file under repo/. Before and after this invocation all 5213 manifest-listed hashes matched, but 39 pre-existing __pycache__/*.pyc regular files were outside the manifest. Their path inventory was unchanged; no cache was removed or source edited."
+  ],
+  "invocation_divergence": [],
+  "raw_receipt_sha256": "f604293447db81842e288313f836a21c4f97bc77fcbf3154e775c86e6f244dc6",
+  "frozen_source_files": 5213
+}

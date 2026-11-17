@@ -63,8 +63,11 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
 - [x] Check half-integer-power reuse separately; no changed real-valued equation.
   CPU80575actual0: both variants/all768states/four solver pairs pass;
   original/factored drift max8.33e-17, independent jets1.34e-15.
-- [ ] Publish/freeze a new runtime, authored and fresh documented CUDAchecks
+- [x] Publish/freeze a new runtime, authored and fresh documented CUDAchecks
   for both algebra variants; then full8x4096gates and three paired timings.
+  ab42e7c/5213source hashes unchanged. Author43099/84757,fresh84411/64229,
+  full75849/56124and independent91714/29494all actual0. Linear1.921x;
+  power reuse4.475x,1.539s/B4096; select the latter with all equations fixed.
 - [ ] Only after identical numerical gates and measured full-batch speed gains
   may a factored implementation replace execution of the same target predictor.
 
@@ -78,6 +81,10 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   unsupported. Preserve source/failure; analytic learned checks use the
   registered independent two-epsilon finite differences, measured JVPretained.
   Corrected38126actual0: all8learned cases and linear8/128/2048checks pass.
+- [ ] Validate the real GPUbank entrypoint and its independent NumPyoutputs,
+  freeze/publish and obtain the exact documented analytic-target execution.
+- [ ] Launch the monitored128bank-task queue on idle4-7: primary128then2048,
+  followed by all original controls. All banks retained; no new training.
 
 Analytic field prediction now qualifies and the observed sampling benefit
 persists at the prescribed meshes. Propagate that analytic forcing
@@ -97,7 +104,9 @@ Mac authored learned prefixes54925/11984and NumPyverifier are terminal0.
 All field actors are now terminal0; physicalGPU4 released. Actual256observer
 median7.232s/B4096projects primary transport to131.653GPUhours. Preserve
 reference/data/sampler fidelity. Original compilation only1.240x; registered
-exact19-to6Pfactorization is the next measured runtime intervention.
+exact19-to6Pfactorization with power reuse passes all full fields and reaches
+4.475x. Primary observer-only projection28.008GPUhours; measure actual sampler
+throughput before treating that projection as a runtime promise.
 Current raw roots: coefficient-20261116/target-aware-transport/
   population-resolution/ and learned-defect-fields/.
 
