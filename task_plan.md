@@ -85,6 +85,9 @@ seed0only. Preserve finalized Reports1/2and the native image baseline.
   freeze/publish and obtain the exact documented analytic-target execution.
 - [ ] Launch the monitored128bank-task queue on idle4-7: primary128then2048,
   followed by all original controls. All banks retained; no new training.
+- [ ] Before final mechanism interpretation, run the pre-registered ALLsource
+  reference control at the same16trajectory calls in every bank/mesh task.
+  analytic-target-full-probe-control.md; main-prefix gates stay separate.
 
 Analytic field prediction now qualifies and the observed sampling benefit
 persists at the prescribed meshes. Propagate that analytic forcing

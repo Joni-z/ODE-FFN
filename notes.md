@@ -40,16 +40,25 @@ Original compiled observer now complete: all8x4096original fields pass;
 maximum primal6.67e-15/tangent1.25e-16. Three paired timings give1.240x,
 7.103s eager versus5.726s compiled median. Independent array reconstruction
 passes, sourceba0c426/5200hashes unchanged. This is execution timing only.
-New exact19-to6Pdrift factorization and separate power reuse both pass all
-768learned CPUstates/four solver pairs; error8.33e-17, independent jets1.34e-15.
-GPUidentity/throughput validation precedes using either execution variant.
+Exact19-to6Pdrift factorization and separate power reuse now pass all768learned
+CPUstates and all8x4096GPUfields. Fresh commands/full producers/independent
+reconstructions all exit0; sourceab42e7c/5213hashes unchanged. Select power
+reuse4.475x,1.539s/B4096; primary observer-only projection28.008GPUhours.
+Both paired timing tables and compact receipts are in analytic-runtime-results/.
+
+Analytic-target-protocol.md registers both analytic/measured sampler tangents
+before target observations. CPU38126actual0passes all8real two-source prefixes
+and analytic linear8/128/2048controls. Original24257nested-forward-ADfailure
+and frozen checker remain. Sourcefd04994/5229frozen on145; authored real
+ProductRK4bank witness83797and independent9229actual0, numerical qualification
+true. Fresh exact Product/Ringentrypoint checks precede formal queue launch.
 
 The remaining ODE-specific link predicts target quality from this analytic
 forcing through the ACTUAL learned sampler. Median eager256observer7.232s/
 B4096projects primary full Heun2048transport to131.653GPUhours. Runtime
-protocol fixes compilation of the same coupled RK4step before any such long
-run; FP64,256steps,both defects,all banks and gates stay fixed. No target
-transport from the analytic forcing has run yet.
+protocol fixes the same equations while reducing execution cost; FP64,256steps,
+both defects,all banks and gates stay fixed. Only small target-entrypoint
+witnesses have run; no full-bank target-quality result yet.
 
 ## Runtime and audit
 
