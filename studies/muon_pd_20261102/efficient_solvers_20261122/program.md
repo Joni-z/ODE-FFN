@@ -11,3 +11,5 @@ The pinned dataset, minibatch order, loss, optimizer and outer sampler come from
 5. Score both on the original selection and confirmation arrays with Heun128, eight banks of 4,096 and 256 projection directions. Assess endpoints against the existing midpoint and ordinary FFN controls.
 
 The tracked protocol and trial source are committed before training. Keep raw logs, checkpoints and the live TSV under the work directory. Publish endpoint evidence and keep/discard decisions. The selection and confirmation stages use fixed arithmetic budgets because CPU wall time varies when the Mac mini runs multiple studies. This is one research cycle for the ODE-FFN project.
+
+After screening, evaluate the selected short-budget checkpoint and its historical baseline on the confirmation stream at the same short budget. This checks whether the value of the cheaper method depends on training exposure. The winner and the full-budget targets are already determined by selection. Neither changes during the short-budget confirmation.

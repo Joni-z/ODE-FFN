@@ -1,0 +1,23 @@
+{
+  "costs": {
+    "rotated_product_bimodal_16d": {
+      "state_midpoint2": 420288775,
+      "ralston2": 422648071,
+      "adams2": 342210823,
+      "ssp_rk3": 342407431
+    },
+    "gmm_ring8_2d": {
+      "state_midpoint2": 415586357,
+      "ralston2": 417945653,
+      "adams2": 337508405,
+      "ssp_rk3": 337705013
+    }
+  },
+  "screen_flops": 4202887750000,
+  "full_flops": {
+    "gmm_ring8_2d": 14636606500000,
+    "rotated_product_bimodal_16d": 14730654860000
+  },
+  "source_commit": "a3dd5c8812212074596c872f106a750099423130",
+  "torch_version": "2.10.0"
+}

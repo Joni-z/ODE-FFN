@@ -166,12 +166,36 @@ def cycle(work):
     status(dict(phase="complete", selected=family))
 
 
+def confirm_short_budget(work):
+    screen = read(work/"selection.json")
+    top = screen["selected"]
+    product = DATASETS[0]
+
+    def confirm(row):
+        family = row["family"]
+        path = work/"screen/selection"/f"{product}__{family}"
+        folder = Path(read(path/"binding.json")["source_folder"])
+        result = evaluate(work,folder,"screen",family,row["step"],product,"confirmation")
+        print("SHORT_CONFIRMATION",family,result["pooled_sw2"],flush=True)
+        return dict(result, phase="short-confirmation", flops=row["flops"])
+
+    references = [row for row in screen["rows"] if row["family"] in ("state_midpoint2",top)]
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        result = list(pool.map(confirm,references))
+    assert len({row["assets_sha256"] for row in result}) == 1
+    base.dump(work/"short-confirmation.json",result)
+
+
 if __name__ == "__main__":
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("work",type=Path)
+    parser.add_argument("--confirm-short-budget",action="store_true")
     args=parser.parse_args()
     args.work.mkdir(parents=True,exist_ok=True)
     import fcntl
+    if args.confirm_short_budget:
+        confirm_short_budget(args.work)
+        sys.exit(0)
     with (args.work/"cycle.lock").open("a") as handle:
         fcntl.flock(handle,fcntl.LOCK_EX | fcntl.LOCK_NB)
         cycle(args.work)

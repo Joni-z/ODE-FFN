@@ -4,6 +4,8 @@
 
 Use the installed Karpathy autoresearch workflow on an isolated branch with fixed synthetic data, seed 0 and SW2. Product16 is the selection task. Compare cheap internal integrators that retain ISRU, full-width P, parameter count and unit integration horizon. Evaluate the selected solver at the existing full budgets on both tasks.
 
+The three-call midpoint/Adams–Bashforth solver improves low-budget Product16 from 0.062 to 0.055 on confirmation and cuts Mac mini sampler time by 13%. The existing full-budget choices remain stronger. Averaging three checkpoints improves late Ring8 two-step SW2 from 0.138 to 0.104. [Evidence](docs/report4/efficient-solvers/README.md).
+
 ## Reduced-state midpoint and solver ablations, 22 November
 
 Compare four-step refreshed midpoint with frozen response at identical stage count, and train two-step midpoint directly to check how much training-time depth matters. The new operator uses U ISRU(V y). Exact integration of the reduced state replaces repeated wide products, with the same total number of learned matrix entries. Use batch 512, AdamW at 0.0003 and seed 0.

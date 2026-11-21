@@ -4,13 +4,14 @@ from pathlib import Path
 from statistics import median
 from time import perf_counter
 
-from efficient_trial import base, build_model, torch
+from efficient_trial import base, build_midpoint, build_model, torch
 from evaluate_screen import assets, ev
 
 
 def compare(work):
     torch.set_num_threads(1)
-    ev.build_model = build_model
+    ev.build_model = lambda dim, family: (build_midpoint(dim, family) if family=="state_midpoint4"
+                                         else build_model(dim, family))
     rows = []
     for final in base_read(work/"results.json")["full"]:
         if final["split"] != "confirmation":
@@ -21,8 +22,13 @@ def compare(work):
         info = base_read(ref)
         ref_dir, ref_step = Path(info["folder"]), info["target"]
         loc, = (work/"train/report4_efficient_solvers"/ds).glob(f"{ds}__{family}__*/seed000")
+        history = work.parent/"coefficient-20261116/state-analysis/confirmation"
+        anchor, = history.glob(f"{ds}__state_midpoint4__*/binding.json")
+        baseline = Path(base_read(anchor)["source_folder"])
+        check = base.digest(baseline/"checkpoints/step_0020000.pt")
         options = [(family, loc, final["step"], final["checkpoint_sha256"]),
-                   ("state_midpoint2",ref_dir,ref_step,info["checkpoint_sha256"])]
+                   ("state_midpoint2",ref_dir,ref_step,info["checkpoint_sha256"]),
+                   ("state_midpoint4",baseline,20000,check)]
         restored = []
         for name, folder, step, digest in options:
             cfg = base_read(folder/"config.json")
@@ -37,7 +43,8 @@ def compare(work):
         for name, model, _ in restored:
             sample(model,x,32)
         for i in range(6):
-            for name, model, _ in (restored if i%2==0 else restored[::-1]):
+            shift = i % len(restored)
+            for name, model, _ in restored[shift:] + restored[:shift]:
                 start = perf_counter()
                 value = sample(model,x,32)
                 times[name].append(perf_counter()-start)

@@ -1,5 +1,9 @@
 # Current project status
 
+## Autoresearch on Mac mini, 22 November
+
+The selected three-call Adams–Bashforth variant improves short-budget Product16 to 0.055 versus two-step midpoint at 0.062 on confirmation. Full-budget four-step Ring8 and two-step Product16 remain the best midpoint recipes. The Ring8 checkpoint average reduces the late two-step SW2 to 0.104. [Results and code](docs/report4/efficient-solvers/README.md).
+
 ## Midpoint solver ablations and reduced-state transfer, 22 November
 
 Six Mac mini seed-0 trajectories and all 24 held-out evaluations completed. Two-step training at matched FLOPs improves Product16 to 0.042 SW2 and reduces CPU sampling time by 37%. Ring8 retains the original four-step training checkpoint. The rank-32 operator is cheaper but trails full-width four-step midpoint in both tasks. [Results, timing and code](docs/report4/reduced-state/README.md).
