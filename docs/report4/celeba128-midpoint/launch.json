@@ -1,0 +1,77 @@
+{
+  "source_commit": "603c3536adc38b20f649590571056ddb5776ef7a",
+  "jobs": [
+    {
+      "job_id": "23992197",
+      "target": 40,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=midpt-s0-e40",
+        "--time=12:00:00",
+        "--mem=40G",
+        "--kill-on-invalid-dep=yes",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122,ODE_FFN_EPOCHS=40,ODE_FFN_FRESH_START=1,ODE_FFN_MAX_TRAIN_SECONDS=0",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122/slurm/celeba.slurm",
+        "midpoint",
+        "celeba128-midpoint"
+      ]
+    },
+    {
+      "job_id": "23992198",
+      "target": 80,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=midpt-s0-e80",
+        "--time=12:00:00",
+        "--mem=40G",
+        "--kill-on-invalid-dep=yes",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122,ODE_FFN_EPOCHS=80,ODE_FFN_FRESH_START=0,ODE_FFN_MAX_TRAIN_SECONDS=0",
+        "--dependency=afterok:23992197",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122/slurm/celeba.slurm",
+        "midpoint",
+        "celeba128-midpoint"
+      ]
+    },
+    {
+      "job_id": "23992199",
+      "target": 120,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=midpt-s0-e120",
+        "--time=12:00:00",
+        "--mem=40G",
+        "--kill-on-invalid-dep=yes",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122,ODE_FFN_EPOCHS=120,ODE_FFN_FRESH_START=0,ODE_FFN_MAX_TRAIN_SECONDS=0",
+        "--dependency=afterok:23992198",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122/slurm/celeba.slurm",
+        "midpoint",
+        "celeba128-midpoint"
+      ]
+    },
+    {
+      "job_id": "23992200",
+      "target": 160,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--job-name=midpt-s0-e160",
+        "--time=12:00:00",
+        "--mem=40G",
+        "--kill-on-invalid-dep=yes",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122,ODE_FFN_EPOCHS=160,ODE_FFN_FRESH_START=0,ODE_FFN_MAX_TRAIN_SECONDS=0",
+        "--dependency=afterok:23992199",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba128-midpoint-20261122/slurm/celeba.slurm",
+        "midpoint",
+        "celeba128-midpoint"
+      ]
+    }
+  ],
+  "monitor_pid": 2427363
+}

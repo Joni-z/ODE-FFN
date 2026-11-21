@@ -1,5 +1,9 @@
 # Current project status
 
+## CelebA128 midpoint on Torch, 22 November
+
+One seed-0 trajectory is submitted through 160 epochs. Jobs 23992197–23992200 share the run directory. The monitor records FID50k and sampler throughput at the registered checkpoints. [Protocol, scheduler receipt and live paths](docs/report4/celeba128-midpoint/README.md).
+
 ## Report 4 equal-compute comparison, 22 November
 
 All four seed-0 continuations and confirmation evaluations completed on Mac mini. At matched cumulative training FLOPs, native midpoint wins Ring8 (0.071 versus 0.085 SwiGLU and 0.091 Free ISRU). Free ISRU wins Product16 (0.043 versus 0.047 SwiGLU and 0.052 midpoint). [Results and budget](docs/report4/equal-compute/README.md).

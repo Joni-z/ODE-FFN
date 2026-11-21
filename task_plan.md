@@ -4,7 +4,7 @@
 
 - [x] Bind native epoch/EMA/FID and checkpoint availability.
 - [x] Implement and test midpoint training, paired FID and same-device timing.
-- [ ] Push and submit one monitored Torch trajectory through the 160-epoch comparison.
+- [x] Push and submit one monitored Torch trajectory through the 160-epoch comparison.
 
 ## Report 4 equal-compute study, 22 November
 
