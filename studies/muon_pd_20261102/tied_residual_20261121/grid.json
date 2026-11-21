@@ -1,0 +1,33 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "gmm_ring8_2d__tied_euler8__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "macmini",
+      "family": "tied_euler8",
+      "response": "state_isru",
+      "order": 1,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_candidate",
+      "substeps": 8
+    },
+    {
+      "id": "rotated_product_bimodal_16d__tied_euler8__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "macmini",
+      "family": "tied_euler8",
+      "response": "state_isru",
+      "order": 1,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_candidate",
+      "substeps": 8
+    }
+  ]
+}
