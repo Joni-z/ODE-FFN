@@ -47,6 +47,9 @@ def main() -> None:
                 fid = {tag: [{'epoch': e.step, 'value': e.value} for e in events.Scalars(tag)]
                        for tag in events.Tags()['scalars'] if tag.startswith('fid')}
                 states.setdefault(job_id, {})['FID'] = fid
+                paired = Path(output) / 'paired'
+                if paired.is_dir():
+                    states[job_id]['paired'] = [json.loads(p.read_text()) for p in sorted(paired.glob('epoch-*/comparison.json'))]
                 states[job_id]['numbered_checkpoints'] = sorted(
                     p.name for p in Path(output).glob('checkpoint-[0-9]*.pth'))
         snapshot = dict(updated_at=time.time(), source_commit=launch['source_commit'], jobs=states)

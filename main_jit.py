@@ -28,9 +28,11 @@ def get_args_parser():
     parser = argparse.ArgumentParser('JiT', add_help=False)
 
     # architecture
+    parser.add_argument('--paired_midpoint_eval', action='store_true')
+    parser.add_argument('--native_checkpoint_dir', type=Path)
     parser.add_argument('--model', default='JiT-B/16', type=str, metavar='MODEL',
                         help='Name of the model to train')
-    parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru', 'isru_d'))
+    parser.add_argument('--ffn', default='swiglu', choices=('swiglu', 'isru', 'isru_d', 'midpoint'))
     parser.add_argument('--ode_order', default=8, type=int)
     parser.add_argument('--ode_hidden_dim', default=0, type=int,
                         help='Internal ISRU-D width; 0 retains the original unexpanded FFN')
@@ -274,6 +276,17 @@ def main(args):
                 evaluate(model_without_ddp, args, args.start_epoch, batch_size=args.gen_bsz, log_writer=log_writer)
         return
 
+    if args.paired_midpoint_eval:
+        if args.ffn != 'midpoint' or not args.online_eval or args.distributed:
+            raise ValueError('Paired evaluation requires single-device online midpoint training')
+        from util.midpoint_eval import evaluate_pair
+        if args.start_epoch and args.start_epoch % args.eval_freq == 0:
+            # An interrupted assessment can be finished from the immutable milestone.
+            milestone = Path(args.output_dir) / f'checkpoint-{args.start_epoch:04d}.pth'
+            if not milestone.exists():
+                os.link(checkpoint_path, milestone)
+            evaluate_pair(args, args.start_epoch, log_writer)
+
     # Training loop
     print(f"Start training for {args.epochs} epochs")
     misc.save_operators(args, model_without_ddp, args.start_epoch)
@@ -327,7 +340,10 @@ def main(args):
                 with torch.random.fork_rng():
                     torch.manual_seed(seed)
                     with torch.no_grad():
-                        evaluate(model_without_ddp, args, epoch + 1, batch_size=args.gen_bsz, log_writer=log_writer)
+                        if args.paired_midpoint_eval:
+                            evaluate_pair(args, epoch + 1, log_writer)
+                        else:
+                            evaluate(model_without_ddp, args, epoch + 1, batch_size=args.gen_bsz, log_writer=log_writer)
             finally:
                 np.random.set_state(numpy_state)
                 random.setstate(python_state)

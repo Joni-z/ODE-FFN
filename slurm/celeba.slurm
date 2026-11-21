@@ -23,10 +23,12 @@ export TORCHINDUCTOR_COMPILE_THREADS=2 PYTHONUNBUFFERED=1
 unset RANK WORLD_SIZE LOCAL_RANK SLURM_PROCID
 
 FFN=${1:-isru_d}
-case "$FFN" in isru_d|swiglu) ;; *) exit 2 ;; esac
+case "$FFN" in isru_d|swiglu|midpoint) ;; *) exit 2 ;; esac
 RECIPE=${2:-celeba128-wide}
+if [[ "$FFN" == midpoint && "$RECIPE" != celeba128-midpoint ]]; then exit 2; fi
 ORDER=${3:-8}
 WIDTH=0
+PAIR_ARGS=()
 case "$RECIPE" in
     celeba64)
         MODEL=JiT-B/4; IMAGE_SIZE=64; BATCH_SIZE=64; NOISE_SCALE=1
@@ -34,11 +36,19 @@ case "$RECIPE" in
         LR_ARGS=(--lr 0.0001)
         OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261111-b4-${FFN}-s0
         ;;
-    celeba128|celeba128-wide|celeba128-baseline160)
+    celeba128|celeba128-wide|celeba128-baseline160|celeba128-midpoint)
         MODEL=JiT-B/16; IMAGE_SIZE=128; BATCH_SIZE=${ODE_FFN_BATCH_SIZE:-256}; NOISE_SCALE=0.5
         TARGET_EPOCHS=${ODE_FFN_EPOCHS:-100}; MAX_TRAIN_SECONDS=${ODE_FFN_MAX_TRAIN_SECONDS:-0}
         LR_ARGS=(--blr 0.00005)
-        if [[ "$RECIPE" == celeba128-wide ]]; then
+        if [[ "$RECIPE" == celeba128-midpoint ]]; then
+            [[ "$FFN" == midpoint && "$BATCH_SIZE" == 256 ]] || exit 2
+            case "$TARGET_EPOCHS" in 40|80|120|160) ;; *) exit 2 ;; esac
+            WIDTH=1200
+            OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0
+            NATIVE=/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160
+            for e in 0100 0120 0140 0160; do test -r "$NATIVE/checkpoint-$e.pth"; done
+            PAIR_ARGS=(--paired_midpoint_eval --native_checkpoint_dir "$NATIVE")
+        elif [[ "$RECIPE" == celeba128-wide ]]; then
             [[ "$FFN" == isru_d && ( "$ORDER" == 1 || "$ORDER" == 8 ) ]] || exit 2
             WIDTH=1200
             OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-isrud-w1200-k${ORDER}-s0
@@ -52,6 +62,7 @@ case "$RECIPE" in
             OUT=/scratch/zz5070/ODE_FFN/runs/celeba/20261112-b16-${FFN}-s0
             READINESS=/scratch/zz5070/ODE_FFN/operations/celeba128-20261112/cuda-readiness.json
         fi
+        if [[ "$RECIPE" != celeba128-midpoint ]]; then
         python - "$BATCH_SIZE" "$(git rev-parse HEAD)" "$READINESS" "$WIDTH" "$ORDER" "$RECIPE" <<'PY'
 import json
 import sys
@@ -74,6 +85,7 @@ else:
     for arm in ('swiglu', 'isru_d'):
         assert record['full_JiT_B16'][arm]['batch'] == int(sys.argv[1])
 PY
+        fi
         ;;
     *) echo "Unknown CelebA recipe" >&2; exit 2 ;;
 esac
@@ -100,6 +112,9 @@ state = torch.load(sys.argv[1], map_location='cpu', weights_only=False, mmap=Tru
 print(state['epoch'] + 1)
 PY
 )
+fi
+if [[ "$RECIPE" == celeba128-midpoint ]]; then
+    [[ "$START_EPOCHS" -ge $((TARGET_EPOCHS - 40)) && "$START_EPOCHS" -le "$TARGET_EPOCHS" ]] || exit 2
 fi
 echo "Allocation $ATTEMPT resumes after $START_EPOCHS completed epochs"
 
@@ -158,4 +173,19 @@ python -u main_jit.py \
     --ema_decay1 0.9999 --ema_decay2 0.9996 \
     --max_train_seconds "$MAX_TRAIN_SECONDS" --save_last_freq 1 --log_freq 100 \
     --online_eval --eval_freq 20 --num_images 50000 --gen_bsz 256 --sampling_method heun \
-    --output_dir "$OUT" "${RESUME[@]}"
+    --output_dir "$OUT" "${PAIR_ARGS[@]}" "${RESUME[@]}"
+
+if [[ "$RECIPE" == celeba128-midpoint ]]; then
+    python - "$OUT" "$TARGET_EPOCHS" <<'PYEND'
+import json
+import sys
+from pathlib import Path
+out, target = Path(sys.argv[1]), int(sys.argv[2])
+assert json.loads((out/'progress.json').read_text())['completed_epochs'] == target
+for epoch in range(20, target + 1, 20):
+    row = json.loads((out/'paired'/f'epoch-{epoch:04d}'/'comparison.json').read_text())
+    assert row['epoch'] == epoch and row['num_images'] == 50000
+    assert all(row['results'][mode]['images_per_second'] > 0 for mode in ('midpoint2', 'midpoint4'))
+    assert bool(row['results']['swiglu']) == (epoch >= 100)
+PYEND
+fi

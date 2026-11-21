@@ -1,5 +1,11 @@
 # Determine what the ODE structure contributes
 
+## CelebA128 midpoint transfer, 22 November
+
+- [x] Bind native epoch/EMA/FID and checkpoint availability.
+- [x] Implement and test midpoint training, paired FID and same-device timing.
+- [ ] Push and submit one monitored Torch trajectory through the 160-epoch comparison.
+
 ## Report 4 equal-compute study, 22 November
 
 - [x] Profile loss, backward and each original optimizer. Bind the existing 20k midpoint budget.

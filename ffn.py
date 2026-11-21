@@ -3,6 +3,7 @@ import math
 import torch
 from torch import nn
 from torch.nn import functional as F
+from torch.utils.checkpoint import checkpoint
 
 
 class FreeISRU(nn.Module):
@@ -45,15 +46,38 @@ class ISRU_DLayer(nn.Module):
         return out
 
 
-class ISRU_D(nn.Module):
-    def __init__(self, dim: int, orders: int = 8, hidden_dim: int = 0) -> None:
+class MidpointLayer(nn.Module):
+    """Integrate y' = P q(y) over unit time, refreshing the ISRU at each stage."""
+    def __init__(self, dim: int):
+        super().__init__()
+        self.proj = nn.Linear(dim, dim, bias=False)
+        self.substeps = 4
+
+    def drift(self, y):
+        return self.proj(y * torch.rsqrt(1 + 1.2 * y.square()))
+
+    def solve(self, y):
+        dt = 1 / self.substeps
+        for _ in range(self.substeps):
+            half = y + (0.5 * dt) * self.drift(y)
+            y = y + dt * self.drift(half)
+        return y
+
+    def forward(self, y):
+        if self.training and torch.is_grad_enabled():
+            return checkpoint(self.solve, y, use_reentrant=False, preserve_rng_state=False)
+        return self.solve(y)
+
+
+class TwoFlowFFN(nn.Module):
+    def __init__(self, dim, hidden_dim, make_layer):
         super().__init__()
         if hidden_dim < 0:
             raise ValueError('Internal width must be nonnegative')
         width = hidden_dim or dim
         self.input_proj = nn.Linear(dim, width, bias=False) if width != dim else nn.Identity()
-        self.ode1 = ISRU_DLayer(width, orders)
-        self.ode2 = ISRU_DLayer(width, orders)
+        self.ode1 = make_layer(width)
+        self.ode2 = make_layer(width)
         self.output_proj = nn.Linear(width, dim, bias=False) if width != dim else nn.Identity()
         if width != dim:
             nn.init.xavier_uniform_(self.input_proj.weight)
@@ -64,13 +88,18 @@ class ISRU_D(nn.Module):
         return self.output_proj(self.ode2(F.silu(self.ode1(x))))
 
 
+class ISRU_D(TwoFlowFFN):
+    def __init__(self, dim: int, orders: int = 8, hidden_dim: int = 0) -> None:
+        super().__init__(dim, hidden_dim, lambda width: ISRU_DLayer(width, orders))
+
+
 def replace_ffn(model, name, orders=8, hidden_dim=0):
     """Leave SwiGLU exactly native; replace only block.mlp for the candidate."""
-    if hidden_dim and name != 'isru_d':
-        raise ValueError('Internal ODE width applies only to isru_d')
+    if hidden_dim and name not in ('isru_d', 'midpoint'):
+        raise ValueError('Internal ODE width requires an ODE FFN')
     if name == 'swiglu':
         return
-    if name not in ('isru', 'isru_d'):
+    if name not in ('isru', 'isru_d', 'midpoint'):
         raise ValueError(f'Unknown FFN: {name}')
     # Candidate initialization must not shift the training RNG stream.
     with torch.random.fork_rng(devices=[]):
@@ -78,4 +107,7 @@ def replace_ffn(model, name, orders=8, hidden_dim=0):
             if block.mlp.ffn_dropout.p != 0:
                 raise ValueError('The existing ISRU experiment requires proj_dropout=0')
             dim = block.mlp.w3.out_features
-            block.mlp = FreeISRU(dim) if name == 'isru' else ISRU_D(dim, orders, hidden_dim)
+            if name == 'midpoint':
+                block.mlp = TwoFlowFFN(dim, hidden_dim, MidpointLayer)
+            else:
+                block.mlp = FreeISRU(dim) if name == 'isru' else ISRU_D(dim, orders, hidden_dim)

@@ -77,7 +77,7 @@ def train_one_epoch(model, model_without_ddp, data_loader, optimizer, device, ep
     return {key: meter.global_avg for key, meter in metric_logger.meters.items()}
 
 
-def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
+def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None, *, preloaded_ema=False):
 
     model_without_ddp.eval()
     device = next(model_without_ddp.parameters()).device
@@ -100,13 +100,14 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
         os.makedirs(save_folder)
 
     # switch to ema params, hard-coded to be the first one
-    model_state_dict = copy.deepcopy(model_without_ddp.state_dict())
-    ema_state_dict = copy.deepcopy(model_without_ddp.state_dict())
-    for i, (name, _value) in enumerate(model_without_ddp.named_parameters()):
-        assert name in ema_state_dict
-        ema_state_dict[name] = model_without_ddp.ema_params1[i]
-    print("Switch to ema")
-    model_without_ddp.load_state_dict(ema_state_dict)
+    if not preloaded_ema:
+        model_state_dict = copy.deepcopy(model_without_ddp.state_dict())
+        ema_state_dict = copy.deepcopy(model_without_ddp.state_dict())
+        for i, (name, _value) in enumerate(model_without_ddp.named_parameters()):
+            assert name in ema_state_dict
+            ema_state_dict[name] = model_without_ddp.ema_params1[i]
+        print("Switch to ema")
+        model_without_ddp.load_state_dict(ema_state_dict)
 
     # ensure that the number of images per class is equal.
     class_num = args.class_num
@@ -143,8 +144,9 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
     misc.barrier()
 
     # back to no ema
-    print("Switch back from ema")
-    model_without_ddp.load_state_dict(model_state_dict)
+    if not preloaded_ema:
+        print("Switch back from ema")
+        model_without_ddp.load_state_dict(model_state_dict)
 
     # compute FID and IS
     if log_writer is not None:
@@ -187,3 +189,5 @@ def evaluate(model_without_ddp, args, epoch, batch_size=64, log_writer=None):
             shutil.rmtree(save_folder)
 
     misc.barrier()
+    if log_writer is not None:
+        return float(fid)

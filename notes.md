@@ -1,5 +1,9 @@
 # Current ODE mechanism evidence
 
+## CelebA128 midpoint transfer, 22 November
+
+One seed-0 JiT trajectory, four internal midpoint steps during training. Evaluate two and four steps on each retained EMA every 20 epochs. Use the existing native baseline.
+
 ## Report 4 equal-compute study, 22 November
 
 The primary reference is the native four-step midpoint at 20k. Its two-step inference score is a secondary deployment comparison. The ordinary models retained their original widths and optimizers. All four endpoints finished. The pooled ordering favors midpoint on Ring8 and Free ISRU on Product16. [Budget and scores](docs/report4/equal-compute/README.md).

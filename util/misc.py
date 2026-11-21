@@ -220,7 +220,7 @@ def write_progress(args, **record):
 
 
 def save_operators(args, model, completed_epochs):
-    if not is_main_process() or getattr(args, 'ffn', 'swiglu') != 'isru_d':
+    if not is_main_process() or getattr(args, 'ffn', 'swiglu') not in ('isru_d', 'midpoint'):
         return
     folder = Path(args.output_dir) / 'operators'
     folder.mkdir(parents=True, exist_ok=True)
@@ -231,8 +231,8 @@ def save_operators(args, model, completed_epochs):
                 if '.mlp.ode' in name and name.endswith('.proj.weight')}
     assert len(matrices) == 2 * len(model.net.blocks)
     temporary = path.with_suffix('.pth.tmp')
-    torch.save(dict(completed_epochs=completed_epochs, ode_order=args.ode_order,
-                    operators=matrices), temporary)
+    metadata = dict(internal_midpoint_steps=4) if args.ffn == 'midpoint' else dict(ode_order=args.ode_order)
+    torch.save(dict(completed_epochs=completed_epochs, operators=matrices, **metadata), temporary)
     temporary.replace(path)
 
 
