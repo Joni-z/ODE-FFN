@@ -1,5 +1,20 @@
 # Eight shared residual updates
 
+## Architecture decision
+
+Keep the four-step midpoint training recipe and use two midpoint steps for sampling. Training an eight-update shared residual block from scratch gave higher pooled SW2 than training midpoint on both tasks. Reducing the internal midpoint steps at inference cut CPU sampling time by about 40% while giving similar or slightly lower pooled SW2. SwiGLU192 remains ahead on Product16.
+
+| Training and inference | Ring8 SW2 | Product16 SW2 |
+|---|---:|---:|
+| Four midpoint steps in training, two in sampling | 0.069 | 0.050 |
+| Four midpoint steps throughout | 0.071 | 0.052 |
+| Eight shared residual updates throughout | 0.077 | 0.055 |
+| Four midpoint steps in training, four Euler updates in sampling | 0.135 | 0.129 |
+| Free ISRU | 0.082 | 0.051 |
+| SwiGLU, width 64 on Ring8 and 192 on Product16 | 0.091 | 0.034 |
+
+The table uses 20,000 training updates, seed 0, eight shared confirmation banks totaling 32,768 samples per task, 256 projection directions and 128 outer Heun steps. The ordinary models used their original widths and optimizers. The ordinary-model training FLOPs differ. [Trained-model results](trained-results.json) include every bank and checkpoint hash.
+
 We train a feature block that applies the same matrix to the current ISRU response eight times. Each update is `y = y + P q(y) / 8`. The midpoint reference takes four steps, with two applications of P per step. Both blocks span one unit of internal time.
 
 The two runs use Mac mini CPU, seed 0, AdamW at 0.0003, batch size 512 and 20,000 updates. They inherit the midpoint trainer, initial weights, data stream and readout. Model sizes are 56,706 parameters for Ring8 and 58,512 for Product16. Measured generation quality at 20k determines the choice between the two architectures.

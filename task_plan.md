@@ -1,6 +1,6 @@
 # Determine what the ODE structure contributes
 
-## Report 4 candidate training, 21 November
+## Completed Report 4 candidate training, 21 November
 
 Train the eight-step tied residual FFN on Ring8 and Product16 on Mac mini.
 Reuse the 20k midpoint recipe, seed 0, width and batch size. Compare native
@@ -8,6 +8,8 @@ held-out Heun32 SW2 on identical samples at 20k and publish the endpoints.
 For the first architecture decision, prefer lower SW2 on both tasks.
 This comparison matches steps and P calls. Equal total training cost is a
 separate question.
+
+Both training runs and the eight-bank Heun128 evaluations completed. [Results](docs/report4/tied-residual/README.md) favor midpoint over the new residual block and retain two-step midpoint inference.
 
 ## Completed: finalize Report3
 

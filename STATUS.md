@@ -1,5 +1,9 @@
 # Current project status
 
+## Report 4 results, 21 November
+
+Both new shared-residual models completed 20,000 updates on Mac mini. Use the four-step midpoint training recipe with two internal midpoint steps at inference as the current ODE candidate. Ring8 / Product16 pooled SW2 is 0.069 / 0.050, versus 0.077 / 0.055 for the new eight-update residual block and 0.091 / 0.034 for SwiGLU. Mac CPU sampling took about 40% less time with two midpoint steps than with four. [Results and configuration](docs/report4/tied-residual/README.md).
+
 ## Report3 finalized
 
 The user finalized [Report3](reports/report3/report3.pdf) on 18 November 2026:

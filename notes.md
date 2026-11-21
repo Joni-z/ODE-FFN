@@ -1,5 +1,7 @@
 # Current ODE mechanism evidence
 
+21 November. Report 4 compared the trained eight-step residual candidate with midpoint on Ring8 and Product16. Four midpoint steps in training and two in sampling gave the strongest ODE result on both tasks. Product16 still favors SwiGLU192. [Methods, checkpoints, evaluation and timings](docs/report4/tied-residual/README.md).
+
 Report3 finalized by the user on 18 November 2026. Preserve the exact PDF,
 TeX, figures and evidence under reports/report3/; finalization.json binds the
 files. Historical draft status below no longer describes the report's current
