@@ -9,3 +9,5 @@ For the main table, use the existing confirmation stream 2026111800 with eight b
 [Training adapter and grid](../../../studies/muon_pd_20261102/tied_residual_20261121/)
 
 We also test a deployment shortcut on the already trained midpoint checkpoints. Four shared residual updates span the same internal duration and use four P applications per local block. We evaluate the full confirmation banks above and time both inference paths on the same 512 inputs with outer Heun32, using alternating order on one CPU thread while the training jobs run. A smaller SW2 together with lower measured latency would be a practical improvement.
+
+The four-update Euler deployment increased pooled SW2 on both tasks. We then tried two midpoint steps on the same weights to retain the trained update rule with the same four-call budget. This follow-up uses the same sample banks and timing procedure.
