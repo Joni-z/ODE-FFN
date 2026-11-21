@@ -1,5 +1,9 @@
 # Current project status
 
+## Midpoint solver ablations and reduced-state transfer, 22 November
+
+Six Mac mini seed-0 trajectories and all 24 held-out evaluations completed. Two-step training at matched FLOPs improves Product16 to 0.042 SW2 and reduces CPU sampling time by 37%. Ring8 retains the original four-step training checkpoint. The rank-32 operator is cheaper but trails full-width four-step midpoint in both tasks. [Results, timing and code](docs/report4/reduced-state/README.md).
+
 ## CelebA128 midpoint on Torch, 22 November
 
 One seed-0 trajectory is submitted through 160 epochs. Jobs 23992197–23992200 share the run directory. The monitor records FID50k and sampler throughput at the registered checkpoints. [Protocol, scheduler receipt and live paths](docs/report4/celeba128-midpoint/README.md).

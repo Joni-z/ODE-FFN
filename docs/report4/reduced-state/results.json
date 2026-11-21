@@ -1,0 +1,1046 @@
+{
+  "seed": 0,
+  "outer_heun_steps": 128,
+  "banks": 8,
+  "samples_per_bank": 4096,
+  "rows": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "frozen_midpoint4",
+      "step_flops": 718067765,
+      "midpoint_budget_flops": 14636606500000,
+      "matched_steps": 20383,
+      "matched_flops": 14636375253995,
+      "scores": {
+        "selection": {
+          "reference": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "11d0e0fc48f712269b2c3d00d1dd96c7a1511c81d1b62b10b1655dab1a0d4401",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.010241442847545367,
+            "pooled_sw2": 0.06123472602119723,
+            "bank_sw2": [
+              0.14304084385586777,
+              0.12130908302164967,
+              0.13732737521013477,
+              0.08003088374109593,
+              0.20003890981291367,
+              0.15768109106053493,
+              0.12278099026197296,
+              0.11710075644894329
+            ],
+            "sector_l1": 0.0277099609375,
+            "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+          },
+          "at_20k": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "acc1c9a7f5d87fae624764fd7c735b1c8d77f627d2256679b4fdedb348e180cb",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.010851435637209668,
+            "pooled_sw2": 0.07735504958709308,
+            "bank_sw2": [
+              0.1488096519669063,
+              0.13793170007221753,
+              0.14356972923979197,
+              0.09400335014582219,
+              0.2092980796473122,
+              0.15111052675752915,
+              0.12827094754696913,
+              0.10283883976843637
+            ],
+            "sector_l1": 0.03436279296875,
+            "checkpoint_sha256": "5741ce86db2e01186baadc082c1c9c12dc4fae46ed569ef1ac493ba482424d27",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.01612032356589585,
+            "banks_better_than_midpoint": 2,
+            "mean_bank_delta_vs_midpoint": 0.00456536146648398
+          },
+          "matched": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "dca854ee46ed3d7c6cdf56b6c9d6e216ecbe145bf4418d9073e8524ac5400c33",
+            "stream": 2026111700,
+            "step": 20383,
+            "field_mse": 0.009765328732655013,
+            "pooled_sw2": 0.1549766608420243,
+            "bank_sw2": [
+              0.19981383547211526,
+              0.1594465586023341,
+              0.15459241185727832,
+              0.18783501718415327,
+              0.14920535913663763,
+              0.25683075035410113,
+              0.15739535637952118,
+              0.20198071247951746
+            ],
+            "sector_l1": 0.07489013671875,
+            "checkpoint_sha256": "373b7f3a9c2b3c2127030c43ed27076070a67b308efb27d9fbe4347cee7b1522",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.09374193482082707,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.04847375850656817
+          }
+        },
+        "confirmation": {
+          "reference": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "7c6df0d200e73f48b8f576aea22e7bee994938f8f5b501e1786be1bd7e18bfad",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.010601457992938709,
+            "pooled_sw2": 0.07090918671454718,
+            "bank_sw2": [
+              0.13529392186685193,
+              0.13168571335194643,
+              0.1322370877680172,
+              0.10304427264265704,
+              0.10093992856582772,
+              0.13347253331688522,
+              0.10489206408393702,
+              0.07291124050741829
+            ],
+            "sector_l1": 0.0302734375,
+            "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+          },
+          "at_20k": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "b9d3e1c11b5399a26fe64695b5ffcdda6fa461779e38b7c79918caa44e9b6c18",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.011068418677990986,
+            "pooled_sw2": 0.08380905071475955,
+            "bank_sw2": [
+              0.1394519639052622,
+              0.14452806715006078,
+              0.1380605490115842,
+              0.10648411330989885,
+              0.09918426644701239,
+              0.14568727057269182,
+              0.11751571471412607,
+              0.08611455845604853
+            ],
+            "sector_l1": 0.037353515625,
+            "checkpoint_sha256": "5741ce86db2e01186baadc082c1c9c12dc4fae46ed569ef1ac493ba482424d27",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.012899864000212369,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.007818717682893
+          },
+          "matched": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "ecb80eda5d10db55afeb5e96003dd80981580f47143ed46f13375f7888091c3c",
+            "stream": 2026111800,
+            "step": 20383,
+            "field_mse": 0.009485359569197736,
+            "pooled_sw2": 0.15068895307335617,
+            "bank_sw2": [
+              0.18174264774762822,
+              0.12460715020660143,
+              0.22222353079332477,
+              0.19806708973652892,
+              0.1573472127347221,
+              0.1350510986504965,
+              0.16737159355788034,
+              0.15357706879138533
+            ],
+            "sector_l1": 0.0755615234375,
+            "checkpoint_sha256": "373b7f3a9c2b3c2127030c43ed27076070a67b308efb27d9fbe4347cee7b1522",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.07977976635880898,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.053188828764378346
+          }
+        }
+      }
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint2",
+      "step_flops": 415586357,
+      "midpoint_budget_flops": 14636606500000,
+      "matched_steps": 35219,
+      "matched_flops": 14636535907183,
+      "scores": {
+        "selection": {
+          "reference": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "11d0e0fc48f712269b2c3d00d1dd96c7a1511c81d1b62b10b1655dab1a0d4401",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.010241442847545367,
+            "pooled_sw2": 0.06123472602119723,
+            "bank_sw2": [
+              0.14304084385586777,
+              0.12130908302164967,
+              0.13732737521013477,
+              0.08003088374109593,
+              0.20003890981291367,
+              0.15768109106053493,
+              0.12278099026197296,
+              0.11710075644894329
+            ],
+            "sector_l1": 0.0277099609375,
+            "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+          },
+          "at_20k": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "18dd4af0d8f6690a8e8ea9eb696541d67200b516f1774d2664a149d794528756",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.01052730351793641,
+            "pooled_sw2": 0.05779200127722071,
+            "bank_sw2": [
+              0.14627061724214563,
+              0.12177966516262545,
+              0.13291008612149113,
+              0.08086035415483628,
+              0.19517524739176834,
+              0.1641269761520007,
+              0.11881180942808696,
+              0.1141049775995513
+            ],
+            "sector_l1": 0.0283203125,
+            "checkpoint_sha256": "79a2f5c353a26c2346f64e4dd1f0874dc497b8a2e8bb0892cc201956c837c1b1",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": -0.0034427247439765205,
+            "banks_better_than_midpoint": 4,
+            "mean_bank_delta_vs_midpoint": -0.0006587750200759013
+          },
+          "matched": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "485a40b5fea9d0825c87d7bb4186f6e2a74cfbecef2f2e44c64a1fd3e3e4295b",
+            "stream": 2026111700,
+            "step": 35219,
+            "field_mse": 0.006722017013235831,
+            "pooled_sw2": 0.15383460586391204,
+            "bank_sw2": [
+              0.1508553652918674,
+              0.11299970122670283,
+              0.2217068280696983,
+              0.1861038731360326,
+              0.22562563782381284,
+              0.2151599208911451,
+              0.17172596397458398,
+              0.20817537394996227
+            ],
+            "sector_l1": 0.05902099609375,
+            "checkpoint_sha256": "990ba3f9ae1526224007c1d876e30d70931018191a3e7cdd83942c800c648d1e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.09259987984271481,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.05163034136883654
+          }
+        },
+        "confirmation": {
+          "reference": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "7c6df0d200e73f48b8f576aea22e7bee994938f8f5b501e1786be1bd7e18bfad",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.010601457992938709,
+            "pooled_sw2": 0.07090918671454718,
+            "bank_sw2": [
+              0.13529392186685193,
+              0.13168571335194643,
+              0.1322370877680172,
+              0.10304427264265704,
+              0.10093992856582772,
+              0.13347253331688522,
+              0.10489206408393702,
+              0.07291124050741829
+            ],
+            "sector_l1": 0.0302734375,
+            "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+          },
+          "at_20k": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "44f061b357c07e94185a942e8be49bf721acdeeea1e20e15b615636fc41d7450",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.010890610353597936,
+            "pooled_sw2": 0.07320073760220581,
+            "bank_sw2": [
+              0.1370096147486387,
+              0.12604898141587462,
+              0.13997138725545102,
+              0.10420020147053001,
+              0.09683824137072991,
+              0.13027970289153223,
+              0.10706417227438203,
+              0.0727633601415882
+            ],
+            "sector_l1": 0.03057861328125,
+            "checkpoint_sha256": "79a2f5c353a26c2346f64e4dd1f0874dc497b8a2e8bb0892cc201956c837c1b1",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.0022915508876586305,
+            "banks_better_than_midpoint": 4,
+            "mean_bank_delta_vs_midpoint": -3.763756685176527e-05
+          },
+          "matched": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "79d4b8086184f1f4e9c757d560b1b5dd63908ddddf7d9c6cdf8eb36a2f11f22e",
+            "stream": 2026111800,
+            "step": 35219,
+            "field_mse": 0.006977796316925027,
+            "pooled_sw2": 0.13760765442419326,
+            "bank_sw2": [
+              0.19121590714144668,
+              0.18918958297431215,
+              0.1786618912147145,
+              0.16762917175247002,
+              0.13891935957361815,
+              0.10635466076594438,
+              0.10841991587867929,
+              0.15983384033786377
+            ],
+            "sector_l1": 0.052978515625,
+            "checkpoint_sha256": "990ba3f9ae1526224007c1d876e30d70931018191a3e7cdd83942c800c648d1e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.06669846770964608,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.04071844594193851
+          }
+        }
+      }
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "reduced_midpoint4",
+      "step_flops": 337158197,
+      "midpoint_budget_flops": 14636606500000,
+      "matched_steps": 43412,
+      "matched_flops": 14636711648164,
+      "scores": {
+        "selection": {
+          "reference": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "11d0e0fc48f712269b2c3d00d1dd96c7a1511c81d1b62b10b1655dab1a0d4401",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.010241442847545367,
+            "pooled_sw2": 0.06123472602119723,
+            "bank_sw2": [
+              0.14304084385586777,
+              0.12130908302164967,
+              0.13732737521013477,
+              0.08003088374109593,
+              0.20003890981291367,
+              0.15768109106053493,
+              0.12278099026197296,
+              0.11710075644894329
+            ],
+            "sector_l1": 0.0277099609375,
+            "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+          },
+          "at_20k": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "a728ca640d620679074fa6f06fc042c5fabe1d8a207c8ae39108f4424435f738",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.015761843042052158,
+            "pooled_sw2": 0.1204200419067716,
+            "bank_sw2": [
+              0.17139263713166658,
+              0.15110837428414453,
+              0.19115856768037726,
+              0.12932147487011691,
+              0.2339422672510126,
+              0.14564409063925285,
+              0.1418630541330079,
+              0.11861310701281906
+            ],
+            "sector_l1": 0.06158447265625,
+            "checkpoint_sha256": "64a569da6ab5fd220a37e7468edbeddf79a6292c34ff21988a98c0266bc54007",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.059185315885574366,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.025466704948660587
+          },
+          "matched": {
+            "split": "selection",
+            "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+            "summary_sha256": "dc045b9cd86c15de282d5ca2107cc9b7a4d7f51d9e689e4c51a1b960b9cdf686",
+            "stream": 2026111700,
+            "step": 43412,
+            "field_mse": 0.008934010599467655,
+            "pooled_sw2": 0.13079499141659992,
+            "bank_sw2": [
+              0.163098472677302,
+              0.10576245064714415,
+              0.17440277686538325,
+              0.1709300559492295,
+              0.17662193326915318,
+              0.21613244744322893,
+              0.13637134105595308,
+              0.19220304894946832
+            ],
+            "sector_l1": 0.0467529296875,
+            "checkpoint_sha256": "f7c6009f7b4a1fe11e01e7697db6b4480176bf09b0b572409cebac336656df65",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.06956026539540269,
+            "banks_better_than_midpoint": 2,
+            "mean_bank_delta_vs_midpoint": 0.03202657418046868
+          }
+        },
+        "confirmation": {
+          "reference": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "7c6df0d200e73f48b8f576aea22e7bee994938f8f5b501e1786be1bd7e18bfad",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.010601457992938709,
+            "pooled_sw2": 0.07090918671454718,
+            "bank_sw2": [
+              0.13529392186685193,
+              0.13168571335194643,
+              0.1322370877680172,
+              0.10304427264265704,
+              0.10093992856582772,
+              0.13347253331688522,
+              0.10489206408393702,
+              0.07291124050741829
+            ],
+            "sector_l1": 0.0302734375,
+            "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8"
+          },
+          "at_20k": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "e919b00cc83b2c778b048598bb33a1b5a0e153adc01f30dc69f598bd38fb9904",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.014738838365252149,
+            "pooled_sw2": 0.11051796420315484,
+            "bank_sw2": [
+              0.1638106683074721,
+              0.1702685505353694,
+              0.1285635239801815,
+              0.12061639993708732,
+              0.115126619120951,
+              0.15041294813141967,
+              0.11397662059456502,
+              0.1174855555816086
+            ],
+            "sector_l1": 0.06353759765625,
+            "checkpoint_sha256": "64a569da6ab5fd220a37e7468edbeddf79a6292c34ff21988a98c0266bc54007",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.03960877748860765,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.020723015510639223
+          },
+          "matched": {
+            "split": "confirmation",
+            "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+            "summary_sha256": "78e0c522558aa3a37a76a64a9c028e71feda7574b5c977c63c4424af792a234e",
+            "stream": 2026111800,
+            "step": 43412,
+            "field_mse": 0.00936203469407506,
+            "pooled_sw2": 0.12767771804471245,
+            "bank_sw2": [
+              0.19470112054646696,
+              0.1452289846802244,
+              0.185729615737779,
+              0.1733758435894595,
+              0.1338409629800921,
+              0.0629565823365252,
+              0.1098701872218172,
+              0.14333901113307362
+            ],
+            "sector_l1": 0.0413818359375,
+            "checkpoint_sha256": "f7c6009f7b4a1fe11e01e7697db6b4480176bf09b0b572409cebac336656df65",
+            "manifest_sha256": "d05c4d94bc26d01e5dbdee7aa290587ca728e4987bf679d5c4bdf643c051acc8",
+            "delta_vs_midpoint": 0.05676853133016527,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.02932069326523714
+          }
+        }
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "frozen_midpoint4",
+      "step_flops": 722770183,
+      "midpoint_budget_flops": 14730654860000,
+      "matched_steps": 20381,
+      "matched_flops": 14730779099723,
+      "scores": {
+        "selection": {
+          "reference": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "faf25eafb94d8c020f14768fbfc8052318290acef3b3a297a0bf1ff6c2f51037",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.01917023545910318,
+            "pooled_sw2": 0.05417286729139911,
+            "bank_sw2": [
+              0.07113024419956916,
+              0.07870531949085421,
+              0.07835662732853332,
+              0.08764175355017058,
+              0.06961250788847592,
+              0.06632619665060606,
+              0.0697709410432138,
+              0.06827173122976037
+            ],
+            "gap_mass": [
+              0.052001953125,
+              0.00433349609375,
+              0.000274658203125
+            ],
+            "gap_error_max": 0.021605600635137334,
+            "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+          },
+          "at_20k": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "05db40a2112acc47ccb8d70f472ecb15d4412084f3320354d89531e829dfead4",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.017525040961980504,
+            "pooled_sw2": 0.06089605989970482,
+            "bank_sw2": [
+              0.07511319236365926,
+              0.08455683002739013,
+              0.08461739661576265,
+              0.09334948026429929,
+              0.07530833616722567,
+              0.06988652758252197,
+              0.07349322836789098,
+              0.07210165087293649
+            ],
+            "gap_mass": [
+              0.055694580078125,
+              0.004364013671875,
+              6.103515625e-05
+            ],
+            "gap_error_max": 0.025298227588262334,
+            "checkpoint_sha256": "d2726025435a9b3d21ad44633cfe7ce23e8fa9e7bc918ba4620edf95a59e1959",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.006723192608305707,
+            "banks_better_than_midpoint": 0,
+            "mean_bank_delta_vs_midpoint": 0.004826415110062876
+          },
+          "matched": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "fc338a2d284a905da7d6451190920dd83dc4afe9b1a0cc0e78b30117a0fa1501",
+            "stream": 2026111700,
+            "step": 20381,
+            "field_mse": 0.018201470281438686,
+            "pooled_sw2": 0.05567706302557118,
+            "bank_sw2": [
+              0.07744457948824696,
+              0.06702068665526277,
+              0.06918859187294686,
+              0.08144090301484093,
+              0.08047173390511905,
+              0.07773363733760816,
+              0.07571728042855383,
+              0.07284476495961963
+            ],
+            "gap_mass": [
+              0.05023193359375,
+              0.003021240234375,
+              6.103515625e-05
+            ],
+            "gap_error_max": 0.019835581103887334,
+            "checkpoint_sha256": "2f986ab9f292959641545669f4c0aefdd6f956716361e505d19169f744420495",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.0015041957341720702,
+            "banks_better_than_midpoint": 3,
+            "mean_bank_delta_vs_midpoint": 0.0015058570351268452
+          }
+        },
+        "confirmation": {
+          "reference": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "8178940454ccd647591ff66d8709430d2e91fe743c9b83ed463405db5d0e1daa",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.018988035733789148,
+            "pooled_sw2": 0.05174562899186572,
+            "bank_sw2": [
+              0.0749537376592963,
+              0.06645850246916472,
+              0.06957915617928552,
+              0.08408879321684469,
+              0.07454872117631302,
+              0.07870196689983108,
+              0.07324605338392703,
+              0.07463005183942875
+            ],
+            "gap_mass": [
+              0.0523681640625,
+              0.0048828125,
+              0.000274658203125
+            ],
+            "gap_error_max": 0.021971811572637334,
+            "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+          },
+          "at_20k": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "3daa748213b8f4d4d0ec64f87b1718219382dbf7ef7e7755980b9a7fafe6f992",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.01736458052549885,
+            "pooled_sw2": 0.05600373222792197,
+            "bank_sw2": [
+              0.07896398714982933,
+              0.06562032245684483,
+              0.07293344968305934,
+              0.08966178935185912,
+              0.07420685865039173,
+              0.07937098168419665,
+              0.0799750903282916,
+              0.0803982959361331
+            ],
+            "gap_mass": [
+              0.055572509765625,
+              0.003631591796875,
+              6.103515625e-05
+            ],
+            "gap_error_max": 0.025176157275762334,
+            "checkpoint_sha256": "d2726025435a9b3d21ad44633cfe7ce23e8fa9e7bc918ba4620edf95a59e1959",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.004258103236056243,
+            "banks_better_than_midpoint": 2,
+            "mean_bank_delta_vs_midpoint": 0.0031154740520643216
+          },
+          "matched": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "ef9b58f4dcac4bb1be80e4d67b66594b1e4a175dc81b1a3a90c1457abafc07fe",
+            "stream": 2026111800,
+            "step": 20381,
+            "field_mse": 0.01809594814561588,
+            "pooled_sw2": 0.05733706640300528,
+            "bank_sw2": [
+              0.07968914543442077,
+              0.08500612496355618,
+              0.0764850282593037,
+              0.06916213300573654,
+              0.08645086092033599,
+              0.08948539058976084,
+              0.06768166468194145,
+              0.07565653269585955
+            ],
+            "gap_mass": [
+              0.0482177734375,
+              0.00347900390625,
+              0.0
+            ],
+            "gap_error_max": 0.017821420947637334,
+            "checkpoint_sha256": "2f986ab9f292959641545669f4c0aefdd6f956716361e505d19169f744420495",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.005591437411139558,
+            "banks_better_than_midpoint": 2,
+            "mean_bank_delta_vs_midpoint": 0.004176237215852986
+          }
+        }
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint2",
+      "step_flops": 420288775,
+      "midpoint_budget_flops": 14730654860000,
+      "matched_steps": 35049,
+      "matched_flops": 14730701274975,
+      "scores": {
+        "selection": {
+          "reference": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "faf25eafb94d8c020f14768fbfc8052318290acef3b3a297a0bf1ff6c2f51037",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.01917023545910318,
+            "pooled_sw2": 0.05417286729139911,
+            "bank_sw2": [
+              0.07113024419956916,
+              0.07870531949085421,
+              0.07835662732853332,
+              0.08764175355017058,
+              0.06961250788847592,
+              0.06632619665060606,
+              0.0697709410432138,
+              0.06827173122976037
+            ],
+            "gap_mass": [
+              0.052001953125,
+              0.00433349609375,
+              0.000274658203125
+            ],
+            "gap_error_max": 0.021605600635137334,
+            "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+          },
+          "at_20k": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "0701687871718626e37d2b1d6bbf45f0226c6b02e83e4b474dd292ead89e43d3",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.018892258729073748,
+            "pooled_sw2": 0.055724821331195315,
+            "bank_sw2": [
+              0.07187113578668794,
+              0.08100942938381149,
+              0.07900315698040872,
+              0.08970494282394138,
+              0.07073766622687781,
+              0.06718056934953061,
+              0.0707708278203896,
+              0.06850769652071567
+            ],
+            "gap_mass": [
+              0.053314208984375,
+              0.0045166015625,
+              0.000335693359375
+            ],
+            "gap_error_max": 0.022917856494512334,
+            "checkpoint_sha256": "f2fdc0da86273e897e70b4bad500a5d5226ea8e39f3fa9bff80a933dafd51127",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.0015519540397962023,
+            "banks_better_than_midpoint": 0,
+            "mean_bank_delta_vs_midpoint": 0.001121262938897475
+          },
+          "matched": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "b9c0af695e4c5fa3f28f437398f5640e61e6622eb3ae6af09be215a0ec7d5378",
+            "stream": 2026111700,
+            "step": 35049,
+            "field_mse": 0.013473546285307343,
+            "pooled_sw2": 0.04842355713761841,
+            "bank_sw2": [
+              0.06763889874260745,
+              0.06669906774878968,
+              0.07125862263443442,
+              0.08222025162201149,
+              0.06547949916550704,
+              0.07326067474443178,
+              0.06143611151406557,
+              0.07165942449903275
+            ],
+            "gap_mass": [
+              0.0498046875,
+              0.002685546875,
+              9.1552734375e-05
+            ],
+            "gap_error_max": 0.019408335010137334,
+            "checkpoint_sha256": "c321ae876ead55c2b7bb798b330469048d0b9da0ef03b6d1b3452e92e0b74eff",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": -0.005749310153780704,
+            "banks_better_than_midpoint": 6,
+            "mean_bank_delta_vs_midpoint": -0.0037703463387879065
+          }
+        },
+        "confirmation": {
+          "reference": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "8178940454ccd647591ff66d8709430d2e91fe743c9b83ed463405db5d0e1daa",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.018988035733789148,
+            "pooled_sw2": 0.05174562899186572,
+            "bank_sw2": [
+              0.0749537376592963,
+              0.06645850246916472,
+              0.06957915617928552,
+              0.08408879321684469,
+              0.07454872117631302,
+              0.07870196689983108,
+              0.07324605338392703,
+              0.07463005183942875
+            ],
+            "gap_mass": [
+              0.0523681640625,
+              0.0048828125,
+              0.000274658203125
+            ],
+            "gap_error_max": 0.021971811572637334,
+            "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+          },
+          "at_20k": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "2e5b3965ef213cb5137ab20a389aec9423fec24690b47e13860cb1954c479f76",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.018741530751931225,
+            "pooled_sw2": 0.05318539927948474,
+            "bank_sw2": [
+              0.07612756493552764,
+              0.06674272789624726,
+              0.06967891566525578,
+              0.0858094328168211,
+              0.0743280388823594,
+              0.07957056756780712,
+              0.07437207539941057,
+              0.07576598460148412
+            ],
+            "gap_mass": [
+              0.052734375,
+              0.00421142578125,
+              0.000213623046875
+            ],
+            "gap_error_max": 0.022338022510137334,
+            "checkpoint_sha256": "f2fdc0da86273e897e70b4bad500a5d5226ea8e39f3fa9bff80a933dafd51127",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.0014397702876190188,
+            "banks_better_than_midpoint": 1,
+            "mean_bank_delta_vs_midpoint": 0.0007735406176027325
+          },
+          "matched": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "6d43b044dc3bbb3ce69a3381418227ecd0c31a56ee3f36b039b7df0e2fca4f5d",
+            "stream": 2026111800,
+            "step": 35049,
+            "field_mse": 0.013243077791972091,
+            "pooled_sw2": 0.04171686045448467,
+            "bank_sw2": [
+              0.06271848462203783,
+              0.06485089231786552,
+              0.07294545412057685,
+              0.07272801654781423,
+              0.07231056343130654,
+              0.07169667491344235,
+              0.06694161074169146,
+              0.06289182220883682
+            ],
+            "gap_mass": [
+              0.04925537109375,
+              0.002655029296875,
+              6.103515625e-05
+            ],
+            "gap_error_max": 0.018859018603887334,
+            "checkpoint_sha256": "c321ae876ead55c2b7bb798b330469048d0b9da0ef03b6d1b3452e92e0b74eff",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": -0.010028768537381057,
+            "banks_better_than_midpoint": 7,
+            "mean_bank_delta_vs_midpoint": -0.006140432990064941
+          }
+        }
+      }
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "reduced_midpoint4",
+      "step_flops": 341860615,
+      "midpoint_budget_flops": 14730654860000,
+      "matched_steps": 43090,
+      "matched_flops": 14730773900350,
+      "scores": {
+        "selection": {
+          "reference": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "faf25eafb94d8c020f14768fbfc8052318290acef3b3a297a0bf1ff6c2f51037",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.01917023545910318,
+            "pooled_sw2": 0.05417286729139911,
+            "bank_sw2": [
+              0.07113024419956916,
+              0.07870531949085421,
+              0.07835662732853332,
+              0.08764175355017058,
+              0.06961250788847592,
+              0.06632619665060606,
+              0.0697709410432138,
+              0.06827173122976037
+            ],
+            "gap_mass": [
+              0.052001953125,
+              0.00433349609375,
+              0.000274658203125
+            ],
+            "gap_error_max": 0.021605600635137334,
+            "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+          },
+          "at_20k": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "c6ebd6998501264b0b27c4bab158e63750b1732a935c0f97401fbd3e82340b2b",
+            "stream": 2026111700,
+            "step": 20000,
+            "field_mse": 0.07585236833623747,
+            "pooled_sw2": 0.08321174774521047,
+            "bank_sw2": [
+              0.09082954921248408,
+              0.10480805325001598,
+              0.09734813092218725,
+              0.11452324825743247,
+              0.0851103146031091,
+              0.09924827258416549,
+              0.08970238642367703,
+              0.09579738854512505
+            ],
+            "gap_mass": [
+              0.04595947265625,
+              0.376983642578125,
+              0.0
+            ],
+            "gap_error_max": 0.37648021160699685,
+            "checkpoint_sha256": "66dc71259d8dd6666deb258ae0d29ea28b04216b7e2f62ed36de0eb15c5c7907",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.029038880453811353,
+            "banks_better_than_midpoint": 0,
+            "mean_bank_delta_vs_midpoint": 0.023444002802126628
+          },
+          "matched": {
+            "split": "selection",
+            "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+            "summary_sha256": "6e15edfa3e4c4a758eefe3088a1d55b93baf7cb58a74982ce381a5c699db532f",
+            "stream": 2026111700,
+            "step": 43090,
+            "field_mse": 0.01710280641516599,
+            "pooled_sw2": 0.10200796573963894,
+            "bank_sw2": [
+              0.11520690882653438,
+              0.10421856682117366,
+              0.11161452440986619,
+              0.13382415752541518,
+              0.10168589774872179,
+              0.11898244056751342,
+              0.10483047652721783,
+              0.11824898668122406
+            ],
+            "gap_mass": [
+              0.035400390625,
+              0.00445556640625,
+              0.0
+            ],
+            "gap_error_max": 0.005004038135137334,
+            "checkpoint_sha256": "21cc6627a6186b7dd0f9b80791bfbae52b31a4f6930582b186cd545bc84a4787",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.04783509844823983,
+            "banks_better_than_midpoint": 0,
+            "mean_bank_delta_vs_midpoint": 0.039849579715810386
+          }
+        },
+        "confirmation": {
+          "reference": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "8178940454ccd647591ff66d8709430d2e91fe743c9b83ed463405db5d0e1daa",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.018988035733789148,
+            "pooled_sw2": 0.05174562899186572,
+            "bank_sw2": [
+              0.0749537376592963,
+              0.06645850246916472,
+              0.06957915617928552,
+              0.08408879321684469,
+              0.07454872117631302,
+              0.07870196689983108,
+              0.07324605338392703,
+              0.07463005183942875
+            ],
+            "gap_mass": [
+              0.0523681640625,
+              0.0048828125,
+              0.000274658203125
+            ],
+            "gap_error_max": 0.021971811572637334,
+            "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+          },
+          "at_20k": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "c67d81a5d37a70a604bc027b62965f72c67751835ef46dee8529b461d998530b",
+            "stream": 2026111800,
+            "step": 20000,
+            "field_mse": 0.07548544273790461,
+            "pooled_sw2": 0.07741163293550005,
+            "bank_sw2": [
+              0.08890795730646235,
+              0.08356267169216738,
+              0.09460810367005076,
+              0.1003661401449113,
+              0.09620468728260545,
+              0.09664480827420258,
+              0.09897010571007707,
+              0.09478619210490402
+            ],
+            "gap_mass": [
+              0.0458984375,
+              0.37969970703125,
+              9.1552734375e-05
+            ],
+            "gap_error_max": 0.37919627606012185,
+            "checkpoint_sha256": "66dc71259d8dd6666deb258ae0d29ea28b04216b7e2f62ed36de0eb15c5c7907",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.025666003943634323,
+            "banks_better_than_midpoint": 0,
+            "mean_bank_delta_vs_midpoint": 0.019730460420161224
+          },
+          "matched": {
+            "split": "confirmation",
+            "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+            "summary_sha256": "ca50d3e53d840b36db81b1577a8d84897c0fcd213a421c3ef316e7bbd07d9f71",
+            "stream": 2026111800,
+            "step": 43090,
+            "field_mse": 0.016442291456498632,
+            "pooled_sw2": 0.10084818351941585,
+            "bank_sw2": [
+              0.1010733596960649,
+              0.10677855058037217,
+              0.1214537416369337,
+              0.11923130417932087,
+              0.12122271703753426,
+              0.12134452357243612,
+              0.11004798866901327,
+              0.11208315246160355
+            ],
+            "gap_mass": [
+              0.03582763671875,
+              0.00372314453125,
+              3.0517578125e-05
+            ],
+            "gap_error_max": 0.005431284228887334,
+            "checkpoint_sha256": "21cc6627a6186b7dd0f9b80791bfbae52b31a4f6930582b186cd545bc84a4787",
+            "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05",
+            "delta_vs_midpoint": 0.04910255452755013,
+            "banks_better_than_midpoint": 0,
+            "mean_bank_delta_vs_midpoint": 0.03962854437614847
+          }
+        }
+      }
+    }
+  ]
+}

@@ -4,6 +4,8 @@
 
 Compare four-step refreshed midpoint with frozen response at identical stage count, and train two-step midpoint directly to check how much training-time depth matters. The new operator uses U ISRU(V y). Exact integration of the reduced state replaces repeated wide products, with the same total number of learned matrix entries. Use batch 512, AdamW at 0.0003 and seed 0.
 
+At matched compute, two-step training improves Product16 confirmation SW2 from 0.052 to 0.042 and lowers sampler time by 37% on Mac mini. Ring8 favors the original four-step training checkpoint. Refreshing the response helps both tasks at 20k. The exact rank-32 reduction saves compute but gives worse SW2 than full-width four-step midpoint. [Verified results](docs/report4/reduced-state/README.md).
+
 ## CelebA128 midpoint transfer, 22 November
 
 One seed-0 JiT trajectory, four internal midpoint steps during training. Evaluate two and four steps on each retained EMA every 20 epochs. Use the existing native baseline.

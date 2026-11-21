@@ -1,0 +1,159 @@
+{
+  "host": "Zzzs-Mac-mini.local",
+  "device": "cpu",
+  "threads": 1,
+  "outer_heun_steps": 32,
+  "samples": 512,
+  "rows": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint4",
+      "steps": 20000,
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "checkpoint_sha256": "7944d4b6ba3be92e8d1282ccfd259935d2b94263e37b63a145e8e3fc17ff621e",
+      "seconds": [
+        0.18928250018507242,
+        0.2042876249179244,
+        0.2004168750718236,
+        0.20363950030878186,
+        0.18756812484934926
+      ],
+      "median_seconds": 0.2004168750718236
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "frozen_midpoint4",
+      "steps": 20383,
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "checkpoint_sha256": "373b7f3a9c2b3c2127030c43ed27076070a67b308efb27d9fbe4347cee7b1522",
+      "seconds": [
+        0.11903329193592072,
+        0.11845191707834601,
+        0.12712574983015656,
+        0.12215112522244453,
+        0.12030774960294366
+      ],
+      "median_seconds": 0.12030774960294366
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "state_midpoint2",
+      "steps": 35219,
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "checkpoint_sha256": "990ba3f9ae1526224007c1d876e30d70931018191a3e7cdd83942c800c648d1e",
+      "seconds": [
+        0.11213895818218589,
+        0.11660891585052013,
+        0.12000579107552767,
+        0.12047845823690295,
+        0.11398150026798248
+      ],
+      "median_seconds": 0.11660891585052013
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "reduced_midpoint4",
+      "steps": 43412,
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "checkpoint_sha256": "f7c6009f7b4a1fe11e01e7697db6b4480176bf09b0b572409cebac336656df65",
+      "seconds": [
+        0.14387429133057594,
+        0.15622533299028873,
+        0.1549342921935022,
+        0.14907341683283448,
+        0.1462733750231564
+      ],
+      "median_seconds": 0.14907341683283448
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "family": "reduced_midpoint4_unfolded",
+      "steps": 43412,
+      "assets_sha256": "75a3243833602e3f7a9e38b35a2ba1283f8c1d40dfed12e6589b441bf2fa9990",
+      "checkpoint_sha256": "f7c6009f7b4a1fe11e01e7697db6b4480176bf09b0b572409cebac336656df65",
+      "seconds": [
+        0.16925758309662342,
+        0.17836308339610696,
+        0.18024033261463046,
+        0.17373500019311905,
+        0.1800968749448657
+      ],
+      "median_seconds": 0.17836308339610696
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint4",
+      "steps": 20000,
+      "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+      "checkpoint_sha256": "e42ba5bafebd5a010c773a14645d17659ae592eb3688183f633192c06ea05fd8",
+      "seconds": [
+        0.2008402501232922,
+        0.22013550018891692,
+        0.1943974168971181,
+        0.21001479215919971,
+        0.1996110831387341
+      ],
+      "median_seconds": 0.2008402501232922
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "frozen_midpoint4",
+      "steps": 20381,
+      "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+      "checkpoint_sha256": "2f986ab9f292959641545669f4c0aefdd6f956716361e505d19169f744420495",
+      "seconds": [
+        0.13086045812815428,
+        0.1320579587481916,
+        0.12670399993658066,
+        0.1435827501118183,
+        0.12604470876976848
+      ],
+      "median_seconds": 0.13086045812815428
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "state_midpoint2",
+      "steps": 35049,
+      "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+      "checkpoint_sha256": "c321ae876ead55c2b7bb798b330469048d0b9da0ef03b6d1b3452e92e0b74eff",
+      "seconds": [
+        0.1295858328230679,
+        0.12739733420312405,
+        0.1278504580259323,
+        0.1271736673079431,
+        0.1213522907346487
+      ],
+      "median_seconds": 0.12739733420312405
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "reduced_midpoint4",
+      "steps": 43090,
+      "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+      "checkpoint_sha256": "21cc6627a6186b7dd0f9b80791bfbae52b31a4f6930582b186cd545bc84a4787",
+      "seconds": [
+        0.15922887483611703,
+        0.1634792499244213,
+        0.14967762492597103,
+        0.15376429166644812,
+        0.1536128749139607
+      ],
+      "median_seconds": 0.15376429166644812
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "family": "reduced_midpoint4_unfolded",
+      "steps": 43090,
+      "assets_sha256": "4a05ba14c3ff513ea81958a55554b6cc33b12afa49b85b3615c4e76aa139ecb5",
+      "checkpoint_sha256": "21cc6627a6186b7dd0f9b80791bfbae52b31a4f6930582b186cd545bc84a4787",
+      "seconds": [
+        0.18122299993410707,
+        0.2041035001166165,
+        0.16724629094824195,
+        0.18149624997749925,
+        0.18511220812797546
+      ],
+      "median_seconds": 0.18149624997749925
+    }
+  ]
+}
