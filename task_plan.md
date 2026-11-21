@@ -1,5 +1,13 @@
 # Determine what the ODE structure contributes
 
+## Reduced-state midpoint and solver ablations, 22 November
+
+- [x] Implement and check three branches from the existing midpoint trainer.
+- [ ] Run frozen response, two-step training and reduced-state midpoint on Ring8 and Product16 on Mac mini.
+- [ ] Evaluate each 20k checkpoint on the fixed selection and confirmation banks.
+- [ ] Profile each variant and compare a second endpoint at matched training compute.
+- [ ] Publish the code, scores and architecture decision.
+
 ## CelebA128 midpoint transfer, 22 November
 
 - [x] Bind native epoch/EMA/FID and checkpoint availability.

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "gmm_ring8_2d__frozen_midpoint4__adamw_0.0003",
+    "dataset": "gmm_ring8_2d",
+    "data_version": "v1",
+    "host": "macmini",
+    "family": "frozen_midpoint4",
+    "response": "state_isru",
+    "order": 2,
+    "optimizer": "adamw",
+    "projection_lr": 0.0003,
+    "role": "report4_reduced_state",
+    "phase_flops": {
+      "forward": 240898560,
+      "backward": 476261822,
+      "optimizer": 907383
+    },
+    "step_flops": 718067765,
+    "target_flops": 14636606500000,
+    "actual_flops": 14636375253995,
+    "total_steps": 20383
+  },
+  {
+    "id": "gmm_ring8_2d__state_midpoint2__adamw_0.0003",
+    "dataset": "gmm_ring8_2d",
+    "data_version": "v1",
+    "host": "macmini",
+    "family": "state_midpoint2",
+    "response": "state_isru",
+    "order": 2,
+    "optimizer": "adamw",
+    "projection_lr": 0.0003,
+    "role": "report4_reduced_state",
+    "phase_flops": {
+      "forward": 140235264,
+      "backward": 274443710,
+      "optimizer": 907383
+    },
+    "step_flops": 415586357,
+    "target_flops": 14636606500000,
+    "actual_flops": 14636535907183,
+    "total_steps": 35219
+  },
+  {
+    "id": "gmm_ring8_2d__reduced_midpoint4__adamw_0.0003",
+    "dataset": "gmm_ring8_2d",
+    "data_version": "v1",
+    "host": "macmini",
+    "family": "reduced_midpoint4",
+    "response": "state_isru",
+    "order": 2,
+    "optimizer": "adamw",
+    "projection_lr": 0.0003,
+    "role": "report4_reduced_state",
+    "phase_flops": {
+      "forward": 116457984,
+      "backward": 219792830,
+      "optimizer": 907383
+    },
+    "step_flops": 337158197,
+    "target_flops": 14636606500000,
+    "actual_flops": 14636711648164,
+    "total_steps": 43412
+  },
+  {
+    "id": "rotated_product_bimodal_16d__frozen_midpoint4__adamw_0.0003",
+    "dataset": "rotated_product_bimodal_16d",
+    "data_version": "product16_v1",
+    "host": "macmini",
+    "family": "frozen_midpoint4",
+    "response": "state_isru",
+    "order": 2,
+    "optimizer": "adamw",
+    "projection_lr": 0.0003,
+    "role": "report4_reduced_state",
+    "phase_flops": {
+      "forward": 242790912,
+      "backward": 479042992,
+      "optimizer": 936279
+    },
+    "step_flops": 722770183,
+    "target_flops": 14730654860000,
+    "actual_flops": 14730779099723,
+    "total_steps": 20381
+  },
+  {
+    "id": "rotated_product_bimodal_16d__state_midpoint2__adamw_0.0003",
+    "dataset": "rotated_product_bimodal_16d",
+    "data_version": "product16_v1",
+    "host": "macmini",
+    "family": "state_midpoint2",
+    "response": "state_isru",
+    "order": 2,
+    "optimizer": "adamw",
+    "projection_lr": 0.0003,
+    "role": "report4_reduced_state",
+    "phase_flops": {
+      "forward": 142127616,
+      "backward": 277224880,
+      "optimizer": 936279
+    },
+    "step_flops": 420288775,
+    "target_flops": 14730654860000,
+    "actual_flops": 14730701274975,
+    "total_steps": 35049
+  },
+  {
+    "id": "rotated_product_bimodal_16d__reduced_midpoint4__adamw_0.0003",
+    "dataset": "rotated_product_bimodal_16d",
+    "data_version": "product16_v1",
+    "host": "macmini",
+    "family": "reduced_midpoint4",
+    "response": "state_isru",
+    "order": 2,
+    "optimizer": "adamw",
+    "projection_lr": 0.0003,
+    "role": "report4_reduced_state",
+    "phase_flops": {
+      "forward": 118350336,
+      "backward": 222574000,
+      "optimizer": 936279
+    },
+    "step_flops": 341860615,
+    "target_flops": 14730654860000,
+    "actual_flops": 14730773900350,
+    "total_steps": 43090
+  }
+]
