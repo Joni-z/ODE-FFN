@@ -1,5 +1,12 @@
 # Determine what the ODE structure contributes
 
+## Autoresearch efficient solvers, 22 November
+
+- [ ] Freeze the autoresearch adaptation and reproduce the baseline scoring point on Product16.
+- [ ] Screen the solver candidates at matched training arithmetic.
+- [ ] Confirm the winning design at the full budget on Product16 and Ring8.
+- [ ] Publish decisions and evidence.
+
 ## Reduced-state midpoint and solver ablations, 22 November
 
 - [x] Implement and check three branches from the existing midpoint trainer.

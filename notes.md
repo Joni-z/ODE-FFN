@@ -1,5 +1,9 @@
 # Current ODE mechanism evidence
 
+## Autoresearch efficient solvers, 22 November
+
+Use the installed Karpathy autoresearch workflow on an isolated branch with fixed synthetic data, seed 0 and SW2. Product16 is the selection task. Compare cheap internal integrators that retain ISRU, full-width P, parameter count and unit integration horizon. Evaluate the selected solver at the existing full budgets on both tasks.
+
 ## Reduced-state midpoint and solver ablations, 22 November
 
 Compare four-step refreshed midpoint with frozen response at identical stage count, and train two-step midpoint directly to check how much training-time depth matters. The new operator uses U ISRU(V y). Exact integration of the reduced state replaces repeated wide products, with the same total number of learned matrix entries. Use batch 512, AdamW at 0.0003 and seed 0.

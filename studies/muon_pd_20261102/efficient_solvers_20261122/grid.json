@@ -1,0 +1,79 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "gmm_ring8_2d__ralston2__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "macmini",
+      "family": "ralston2",
+      "response": "state_isru",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_efficient_solvers"
+    },
+    {
+      "id": "gmm_ring8_2d__adams2__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "macmini",
+      "family": "adams2",
+      "response": "state_isru",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_efficient_solvers"
+    },
+    {
+      "id": "gmm_ring8_2d__ssp_rk3__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "macmini",
+      "family": "ssp_rk3",
+      "response": "state_isru",
+      "order": 3,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_efficient_solvers"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__ralston2__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "macmini",
+      "family": "ralston2",
+      "response": "state_isru",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_efficient_solvers"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__adams2__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "macmini",
+      "family": "adams2",
+      "response": "state_isru",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_efficient_solvers"
+    },
+    {
+      "id": "rotated_product_bimodal_16d__ssp_rk3__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "macmini",
+      "family": "ssp_rk3",
+      "response": "state_isru",
+      "order": 3,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "report4_efficient_solvers"
+    }
+  ]
+}
