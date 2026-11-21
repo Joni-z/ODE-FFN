@@ -2,7 +2,7 @@
 
 ## Report 4 equal-compute study, 22 November
 
-The primary reference is the native four-step midpoint at 20k. Its two-step inference score is a secondary deployment comparison. Use the original ordinary widths and optimizers.
+The primary reference is the native four-step midpoint at 20k. Its two-step inference score is a secondary deployment comparison. The ordinary models retained their original widths and optimizers. All four endpoints finished. The pooled ordering favors midpoint on Ring8 and Free ISRU on Product16. [Budget and scores](docs/report4/equal-compute/README.md).
 
 21 November. Report 4 compared the trained eight-step residual candidate with midpoint on Ring8 and Product16. Four midpoint steps in training and two in sampling gave the strongest ODE result on both tasks. Product16 still favors SwiGLU192. [Methods, checkpoints, evaluation and timings](docs/report4/tied-residual/README.md).
 

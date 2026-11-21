@@ -48,7 +48,7 @@ def collect(work):
             assert short["checkpoint_sha256"] == old["checkpoint_sha256"]
             assert short["assets_sha256"] == old["assets_sha256"]
             results.append(dict(rec, family="midpoint4_train_midpoint2_sample",
-                                checkpoint_sha256=old["checkpoint_sha256"], **scores(short)))
+                                checkpoint_sha256=old["checkpoint_sha256"], original_20k_sw2=short["pooled_sw2"], **scores(short)))
             continue
         assert progress[key]["phase"] == "complete"
         end = read(work / "trained-endpoints" / (key + ".json"))
