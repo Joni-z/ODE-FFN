@@ -1,5 +1,11 @@
 # Determine what the ODE structure contributes
 
+## Report 4 equal-compute study, 22 November
+
+- [x] Profile loss, backward and each original optimizer. Bind the existing 20k midpoint budget.
+- [ ] Complete the four ordinary controls on Mac mini, seed 0, with progress and recovery.
+- [ ] Score the four endpoints against midpoint on the same confirmation arrays and publish.
+
 ## Completed Report 4 candidate training, 21 November
 
 Train the eight-step tied residual FFN on Ring8 and Product16 on Mac mini.

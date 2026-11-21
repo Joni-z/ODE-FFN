@@ -1,5 +1,9 @@
 # Current ODE mechanism evidence
 
+## Report 4 equal-compute study, 22 November
+
+The primary reference is the native four-step midpoint at 20k. Its two-step inference score is a secondary deployment comparison. Use the original ordinary widths and optimizers.
+
 21 November. Report 4 compared the trained eight-step residual candidate with midpoint on Ring8 and Product16. Four midpoint steps in training and two in sampling gave the strongest ODE result on both tasks. Product16 still favors SwiGLU192. [Methods, checkpoints, evaluation and timings](docs/report4/tied-residual/README.md).
 
 Report3 finalized by the user on 18 November 2026. Preserve the exact PDF,
