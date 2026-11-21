@@ -48,6 +48,7 @@ def build_model(dim, family):
         if family in CALLS:
             layer.__class__ = AlternateSolver
             layer.solver = family
+            layer.orders = 3 if family == "ssp_rk3" else 2
         elif family != "state_midpoint2":
             raise ValueError(family)
     return model

@@ -18,6 +18,14 @@ THREADS = dict(OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1",
                VECLIB_MAXIMUM_THREADS="1", MKL_NUM_THREADS="1")
 
 
+class SolverArithmetic(Arithmetic):
+    def __torch_dispatch__(self, func, types, args=(), kwargs=None):
+        if func._schema.name == "aten::neg":
+            self.counts["neg"] += args[0].numel()
+            return func(*args, **(kwargs or {}))
+        return super().__torch_dispatch__(func, types, args, kwargs)
+
+
 def step_flops(dataset, family):
     torch.manual_seed(0)
     dim = 2 if dataset == DATASETS[1] else 16
@@ -32,7 +40,7 @@ def step_flops(dataset, family):
         optimizer.step()
 
     step()
-    with Arithmetic() as count:
+    with SolverArithmetic() as count:
         step()
     return sum(count.counts.values())
 
