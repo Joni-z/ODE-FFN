@@ -7,3 +7,5 @@ The two runs use Mac mini CPU, seed 0, AdamW at 0.0003, batch size 512 and 20,00
 For the main table, use the existing confirmation stream 2026111800 with eight banks of 4,096 samples, 256 directions and Heun128. Pool the eight banks per task. Existing midpoint, Free ISRU and SwiGLU scores on these exact arrays can be reused. The native trainer also evaluates Heun32 on a separate test split. It is recorded separately. The experiment compares architectures at the same update count. The total training cost of the ordinary controls differs.
 
 [Training adapter and grid](../../../studies/muon_pd_20261102/tied_residual_20261121/)
+
+We also test a deployment shortcut on the already trained midpoint checkpoints. Four shared residual updates span the same internal duration and use four P applications per local block. We evaluate the full confirmation banks above and time both inference paths on the same 512 inputs with outer Heun32, using alternating order on one CPU thread while the training jobs run. A smaller SW2 together with lower measured latency would be a practical improvement.
