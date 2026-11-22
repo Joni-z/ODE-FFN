@@ -1,0 +1,93 @@
+{
+  "stream": 2026112350,
+  "banks": 8,
+  "samples_per_bank": 4096,
+  "heun_steps": 128,
+  "training_seed": 0,
+  "weights": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "candidate",
+      "family": "bounded_odd_state_midpoint4",
+      "step": 19983,
+      "checkpoint_sha256": "3e15dded6f36c3d18732440bfb3f64daf5a7c5764ebce392d412615da4b06344"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gmm_ring8_2d__free_isru__adamw_0.0003-20k",
+      "family": "free_isru",
+      "step": 20000,
+      "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gmm_ring8_2d__free_isru__adamw_0.0003-matched",
+      "family": "free_isru",
+      "step": 83609,
+      "checkpoint_sha256": "6a49e71d918c8fcc762f892114add2291e8a0952d198bbf8a7f717e5050ebc15"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gmm_ring8_2d__swiglu64__muon_0.02-20k",
+      "family": "swiglu64",
+      "step": 20000,
+      "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "gmm_ring8_2d__swiglu64__muon_0.02-matched",
+      "family": "swiglu64",
+      "step": 69061,
+      "checkpoint_sha256": "d9bd737a39f2e2089c7ba6ebfaf40d8c7b801940a127d8f15ca38a96bab899e4"
+    },
+    {
+      "dataset": "gmm_ring8_2d",
+      "label": "odd_swiglu64-symmetry",
+      "family": "odd_swiglu64",
+      "step": 68987,
+      "checkpoint_sha256": "06f53e89d72e1b59e435863e162abe86ea6b34eab3d73c4527a2f4009f1d8b5e"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "candidate",
+      "family": "bounded_odd_state_midpoint4",
+      "step": 19984,
+      "checkpoint_sha256": "5eacaf26eff7051de24b1b115d00fe235f732ac366b3b7b48aa6f9a05941bb23"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "rotated_product_bimodal_16d__free_isru__adamw_0.0003-20k",
+      "family": "free_isru",
+      "step": 20000,
+      "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "rotated_product_bimodal_16d__free_isru__adamw_0.0003-matched",
+      "family": "free_isru",
+      "step": 81945,
+      "checkpoint_sha256": "35dcd3b7ebd3c2cca34822dffe9299f54afd5e2778a7ea9144731c98b054ee7d"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-20k",
+      "family": "swiglu192",
+      "step": 20000,
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-matched",
+      "family": "swiglu192",
+      "step": 44089,
+      "checkpoint_sha256": "d29f0c81e98dc1888f4ec71125ce5e44b2abc276fecda3ff1e98bede5e9692b9"
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "label": "odd_swiglu192-symmetry",
+      "family": "odd_swiglu192",
+      "step": 44060,
+      "checkpoint_sha256": "4bd8de96596df12cf6c810fdebbea74ca6544fb5cf0cb5bcc24e5159063041e9"
+    }
+  ]
+}

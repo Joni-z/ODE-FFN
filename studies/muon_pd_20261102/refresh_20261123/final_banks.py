@@ -15,7 +15,7 @@ def read(path):
     return json.loads(path.read_text())
 
 
-def entries(prep, candidate):
+def entries(prep, candidate, *, require_symmetry_win=True):
     historical = prep/'coefficient-20261116'
     ordinary = read(HERE.parents[2]/'docs/report4/midpoint-refresh/ordinary-selection.json')
     chosen = read(candidate/'selection.json')
@@ -63,7 +63,7 @@ def entries(prep, candidate):
             assert done['passed'] and not done['witness'] and done['steps']==[control['step']]
             assert detail['assets']['sha256']==binding['assets']['sha256']
             family=detail['source_config']['cell']['family']
-            if result['pooled_sw2'] >= control['pooled_sw2']:
+            if require_symmetry_win and result['pooled_sw2'] >= control['pooled_sw2']:
                 raise ValueError(f"{ds}: {family} already scores {control['pooled_sw2']} on selection")
             register(family+'-symmetry',Path(detail['source_folder']),control['step'],control['checkpoint_sha256'])
     assert len(families)==1 and all(len([m for m in models if m['dataset']==ds])>=6 for ds in DATASETS)
@@ -71,7 +71,7 @@ def entries(prep, candidate):
 
 
 @torch.no_grad()
-def run(prep, models, out):
+def run(prep, models, out, stream=STREAM):
     torch.set_num_threads(1)
     ev.build_model=build_model
     lock=out/'endpoints.json'
@@ -88,9 +88,9 @@ def run(prep, models, out):
         law=base.train.load_distribution(read(manifest)['datasets'][ds])
         _,fixed,_=assets(prep/'coefficient-20261116/assets',ds,'selection','cpu')
         dirs=fixed['directions'].double()
-        arrays=ev.bank_arrays(law,dirs.numpy(),4096,8,STREAM)
+        arrays=ev.bank_arrays(law,dirs.numpy(),4096,8,stream)
         hashes={k:ev.array_hash(v) for k,v in arrays.items()}
-        base.dump(out/f'{ds}-banks.json',dict(stream=STREAM,array_hashes=hashes))
+        base.dump(out/f'{ds}-banks.json',dict(stream=stream,array_hashes=hashes))
         targets=[torch.from_numpy(arrays[f'target_{i}']).double() for i in range(8)]
         for m in group:
             dest=out/ds/m['label']
@@ -125,12 +125,14 @@ def run(prep, models, out):
                 base.dump(prior,score)
             rows.append(score)
             base.dump(out/'progress.json',dict(scored=len(rows),total=len(models)))
-    wins={}
+    wins, archived_wins={}, {}
     for ds in DATASETS:
         group=[r for r in rows if r['model']['dataset']==ds]
         candidate,=[r for r in group if r['model']['label']=='candidate']
         wins[ds]=all(candidate['pooled_sw2']<r['pooled_sw2'] for r in group if r is not candidate)
-    base.dump(out/'results.json',dict(rows=rows,beats_all_ordinary=wins))
+        archived_wins[ds]=all(candidate['pooled_sw2']<r['pooled_sw2'] for r in group
+                              if r is not candidate and not r['model']['label'].endswith('-symmetry'))
+    base.dump(out/'results.json',dict(stream=stream,rows=rows,beats_archive=archived_wins,beats_all_ordinary=wins))
 
 
 if __name__=='__main__':
