@@ -1,0 +1,94 @@
+[
+  {
+    "dataset": "gmm_ring8_2d",
+    "family": "odd_glu_midpoint192",
+    "seed": 0,
+    "step": 26007,
+    "pooled_sw2": 0.07148305085540432,
+    "field_mse": 0.007261313803517199,
+    "bank_sw2": [
+      0.13557741919882654,
+      0.12028597108164356,
+      0.11325272263853245,
+      0.10959504840787716,
+      0.18056383017036312,
+      0.17320009190373414,
+      0.13526207358809286,
+      0.1414408564488896
+    ],
+    "checkpoint_sha256": "94357137b80b049336bdf6acce27459368d5d2c324d73b4868cc5f7db630d592",
+    "assets_sha256": "36f529e22371de0842c9d9b850860fe0ac7089c319736244430596c87971f810",
+    "files_sha256": [
+      "0d0c3b74ecf8f35cb416841898d1039e8d43957ce3fa0a2fe21396f46791550d",
+      "9ab14821b6592348d546b77a663d256775d52bfc47790fa417248ab4f73bce28",
+      "5d99c91d3b41eea4da4955f2eff0ba2345d49d89c7e323cb1bc160e82f03aafe",
+      "16bfb93ea12dd30ed8243b4ef5e33e5af76bcb920fbada5888ede96efdee5315",
+      "8ead4ad9249cf9be7ca346509e2700e957746e30209d702822d86b5b64c7852f",
+      "199f585f1095a47aba7f183c55affb9de84b0576a252de1cb2fe0f03c861030d",
+      "981047c3f262ebbe96c3ae3da5ae4f75bab0dd36fb4344644a17b8e9b1ccf78f",
+      "ee74b62eeec9f854a5baae98ba338a3c5020125cf9a5d64017248ea3d1b8d9b6"
+    ],
+    "radius_quantiles": [
+      0.5,
+      0.99,
+      1.0
+    ],
+    "generated_radius": [
+      2.9994273454901483,
+      3.4889748600444195,
+      3.825610006963096
+    ],
+    "target_radius": [
+      3.0068274350860738,
+      3.4684057948154305,
+      3.8070511284294493
+    ],
+    "beyond_twice_target_max": 0
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "family": "odd_glu_midpoint192",
+    "seed": 0,
+    "step": 25958,
+    "pooled_sw2": 0.02393840843562509,
+    "field_mse": 0.015259862447601866,
+    "bank_sw2": [
+      0.052831126865653597,
+      0.05606770703123931,
+      0.06047311978729634,
+      0.06210986177510931,
+      0.05650495892317623,
+      0.05762023509090394,
+      0.05133336297751541,
+      0.053279309588533004
+    ],
+    "checkpoint_sha256": "b5fa829c0a987e8fa65f27a896c859143254f948acb24dd5d4f76c595862ef7a",
+    "assets_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+    "files_sha256": [
+      "984fc9b8b795b8f91f27a81ac5b1dfd879173eae5c25f76fad819af17172a652",
+      "495c4fed421e0f1086b255f3ad32c7f91c87573f0b9187c16462afcfb50b49f2",
+      "9494c8843b15726a7f185f2b2d1f9dece4d2a9143a8e4055fd617aa5cbca2e53",
+      "930fd9881ea31f8c5df9ecd1dd4958a3f2e765b31973665a234f4e6435eec505",
+      "02756fc175f98a55a289d8aa76b3f0db9a0482311543ab9151dbbdef68c32fca",
+      "5134c71f49c89e793ca1063b8782e171d10db5bb906cf574fe998106ae420ea9",
+      "5a7219e50f5898fbfd73c0a981201f7c510145270137ff611bbea3f0bd05b50a",
+      "4f27fa249478d580480ed34a8bfb00ef5682ba59e9c1891c8561722e88b73a88"
+    ],
+    "radius_quantiles": [
+      0.5,
+      0.99,
+      1.0
+    ],
+    "generated_radius": [
+      6.325317775249318,
+      6.850052288280946,
+      7.690434043611702
+    ],
+    "target_radius": [
+      6.287981248965691,
+      6.748468090003116,
+      7.154521801443437
+    ],
+    "beyond_twice_target_max": 0
+  }
+]
