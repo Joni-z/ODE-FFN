@@ -1,15 +1,15 @@
 # Does the response have to follow the state?
 
-**One bounded, four-step midpoint FFN now beats the stronger archived ordinary endpoint on both tasks.** On the historical confirmation banks it lowers Ring8 SW2 by 21% and Product16 SW2 by 21%. Giving ordinary SwiGLU a sign-equivariant readout also improves both tasks and gives the best Product16 score. All rows below use seed 0, Heun128 and 32,768 paired endpoints per task and evaluation stream.
+**One bounded, four-step midpoint FFN now beats the stronger archived ordinary endpoint on both tasks.** A fresh twelve-checkpoint replication lowers pooled SW2 by 16% on Ring8 and 29% on Product16 against the strongest original ordinary checkpoint on those banks. Giving ordinary SwiGLU a sign-equivariant readout also improves both tasks and gives the best Product16 score. All rows below use seed 0, Heun128 and 32,768 paired endpoints per task and evaluation stream.
 
-| Model | Ring8 selection | Ring8 confirmation | Product16 selection | Product16 confirmation |
-|---|---:|---:|---:|---:|
-| Strongest archived SwiGLU or Free ISRU | 0.084 | 0.082 | 0.034 | 0.034 |
-| Original four-step midpoint | 0.061 | 0.071 | 0.054 | 0.052 |
-| Four-step midpoint with a bounded sign-equivariant readout | 0.057 | **0.065** | 0.024 | 0.027 |
-| Sign-equivariant ordinary SwiGLU | **0.056** | 0.068 | **0.021** | **0.022** |
+| Model | Ring8 selection | Ring8 confirmation | Ring8 fresh | Product16 selection | Product16 confirmation | Product16 fresh |
+|---|---:|---:|---:|---:|---:|---:|
+| Strongest archived SwiGLU or Free ISRU | 0.084 | 0.082 | 0.091 | 0.034 | 0.034 | 0.039 |
+| Original four-step midpoint | 0.061 | 0.071 | — | 0.054 | 0.052 | — |
+| Four-step midpoint with a bounded sign-equivariant readout | 0.057 | **0.065** | **0.076** | 0.024 | 0.027 | 0.028 |
+| Sign-equivariant ordinary SwiGLU | **0.056** | 0.068 | 0.079 | **0.021** | **0.022** | **0.024** |
 
-The bounded midpoint and sign-equivariant SwiGLU exchange rank on Ring8 across these two streams. The strongest historical ordinary row takes the lower score across the original and equal-training-compute checkpoints. A new twelve-checkpoint comparison with source and target draws fixed after model selection is in progress. [Archived confirmation results](archived-confirmation.json) · [Selection controls](ordinary-selection.json) · [Bounded checkpoint replay](bounded-selection.json)
+The bounded midpoint and sign-equivariant SwiGLU exchange rank on Ring8 across evaluation streams. The strongest historical ordinary row takes the lower score across the original and equal-training-compute checkpoints. The fresh stream was locked to twelve checkpoint hashes before sampling. Relative to the strongest archived control, the bounded model scores lower on six of eight paired banks on Ring8 and all eight on Product16. Relative to the sign-equivariant SwiGLU the corresponding counts are six and zero. [Fresh scores and all comparator hashes](bounded-fresh.json). [Archived confirmation results](archived-confirmation.json) · [Selection controls](ordinary-selection.json) · [Bounded checkpoint replay](bounded-selection.json)
 
 ![One replayed Product16 trajectory and both confirmation comparisons](trajectory-and-confirmation.png)
 
@@ -88,3 +88,5 @@ The fixed-weight extrapolation failed the pilot on both tasks. Ring8 SW2 rose fr
 ## Refresh in the model that beats the archived baselines
 
 We held the bounded model's final weights fixed, including its readout. Reusing the solve-entrance gate throughout all four steps raises selection SW2 from 0.057 to 0.104 on Ring8 and from 0.024 to 0.353 on Product16. Refreshing at substep boundaries but reusing that response at the midpoint yields 0.059 and 0.049. On Product16, even the second evaluation *within a substep* matters to the fitted field. All comparisons reuse the same 32,768 trajectories per task. This tests how these weights use their intermediate states. The trained ordinary FFN controls answer the separate architectural comparison. [Six paired frozen interventions](bounded-frozen-refresh.json).
+
+For the native nonlinear drift f(y) = P q(y), write d = (1 + 1.2 y²)^(−1/2) and q(y) = d y. Its coordinate derivative is q′(y) = d³. Holding the gate fixed uses the larger slope d instead. For a midpoint displacement δ, the extra response is therefore approximately P[(d³ − d) δ]. On 1,024 fixed inputs per task across six layers and four substeps, this term predicts the direction of the measured gate-refresh correction with cosine 0.996 (Ring8) and 0.977 (Product16). The full correction is 4.7% and 7.4% of the stale drift in RMS. [Checkpoint-bound derivative calculation](refresh-derivative.json).

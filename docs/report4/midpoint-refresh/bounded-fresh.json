@@ -1,0 +1,170 @@
+[
+  {
+    "dataset": "gmm_ring8_2d",
+    "training_seed": 0,
+    "stream": 2026112350,
+    "banks": 8,
+    "samples_per_bank": 4096,
+    "directions": 256,
+    "outer_heun": 128,
+    "ode_step": 19983,
+    "ode_sw2": 0.07628275741481955,
+    "ode_checkpoint_sha256": "3e15dded6f36c3d18732440bfb3f64daf5a7c5764ebce392d412615da4b06344",
+    "best_archived_control": {
+      "label": "gmm_ring8_2d__free_isru__adamw_0.0003-matched",
+      "family": "free_isru",
+      "checkpoint_sha256": "6a49e71d918c8fcc762f892114add2291e8a0952d198bbf8a7f717e5050ebc15",
+      "step": 83609,
+      "sw2": 0.09055841363268148,
+      "pooled_delta": -0.014275656217861935,
+      "paired_mean_delta": -0.0067978879170353945,
+      "banks_favoring_candidate": 6
+    },
+    "symmetry_control": {
+      "label": "odd_swiglu64-symmetry",
+      "family": "odd_swiglu64",
+      "checkpoint_sha256": "06f53e89d72e1b59e435863e162abe86ea6b34eab3d73c4527a2f4009f1d8b5e",
+      "step": 68987,
+      "sw2": 0.07853941859939545,
+      "pooled_delta": -0.0022566611845759033,
+      "paired_mean_delta": -0.0029161617074311714,
+      "banks_favoring_candidate": 6
+    },
+    "all_controls": [
+      {
+        "label": "gmm_ring8_2d__free_isru__adamw_0.0003-20k",
+        "family": "free_isru",
+        "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+        "step": 20000,
+        "sw2": 0.09500819348667826,
+        "pooled_delta": -0.01872543607185871,
+        "paired_mean_delta": -0.001223484894755121,
+        "banks_favoring_candidate": 5
+      },
+      {
+        "label": "gmm_ring8_2d__free_isru__adamw_0.0003-matched",
+        "family": "free_isru",
+        "checkpoint_sha256": "6a49e71d918c8fcc762f892114add2291e8a0952d198bbf8a7f717e5050ebc15",
+        "step": 83609,
+        "sw2": 0.09055841363268148,
+        "pooled_delta": -0.014275656217861935,
+        "paired_mean_delta": -0.0067978879170353945,
+        "banks_favoring_candidate": 6
+      },
+      {
+        "label": "gmm_ring8_2d__swiglu64__muon_0.02-20k",
+        "family": "swiglu64",
+        "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+        "step": 20000,
+        "sw2": 0.10024700821098594,
+        "pooled_delta": -0.02396425079616639,
+        "paired_mean_delta": -0.005354118118459065,
+        "banks_favoring_candidate": 4
+      },
+      {
+        "label": "gmm_ring8_2d__swiglu64__muon_0.02-matched",
+        "family": "swiglu64",
+        "checkpoint_sha256": "d9bd737a39f2e2089c7ba6ebfaf40d8c7b801940a127d8f15ca38a96bab899e4",
+        "step": 69061,
+        "sw2": 0.12210232421007257,
+        "pooled_delta": -0.04581956679525302,
+        "paired_mean_delta": -0.02064314938535928,
+        "banks_favoring_candidate": 8
+      },
+      {
+        "label": "odd_swiglu64-symmetry",
+        "family": "odd_swiglu64",
+        "checkpoint_sha256": "06f53e89d72e1b59e435863e162abe86ea6b34eab3d73c4527a2f4009f1d8b5e",
+        "step": 68987,
+        "sw2": 0.07853941859939545,
+        "pooled_delta": -0.0022566611845759033,
+        "paired_mean_delta": -0.0029161617074311714,
+        "banks_favoring_candidate": 6
+      }
+    ]
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "training_seed": 0,
+    "stream": 2026112350,
+    "banks": 8,
+    "samples_per_bank": 4096,
+    "directions": 256,
+    "outer_heun": 128,
+    "ode_step": 19984,
+    "ode_sw2": 0.027601399744281947,
+    "ode_checkpoint_sha256": "5eacaf26eff7051de24b1b115d00fe235f732ac366b3b7b48aa6f9a05941bb23",
+    "best_archived_control": {
+      "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-20k",
+      "family": "swiglu192",
+      "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c",
+      "step": 20000,
+      "sw2": 0.03898150087184998,
+      "pooled_delta": -0.011380101127568036,
+      "paired_mean_delta": -0.006259882123231886,
+      "banks_favoring_candidate": 8
+    },
+    "symmetry_control": {
+      "label": "odd_swiglu192-symmetry",
+      "family": "odd_swiglu192",
+      "checkpoint_sha256": "4bd8de96596df12cf6c810fdebbea74ca6544fb5cf0cb5bcc24e5159063041e9",
+      "step": 44060,
+      "sw2": 0.02409362923854588,
+      "pooled_delta": 0.003507770505736068,
+      "paired_mean_delta": 0.0016601841198402943,
+      "banks_favoring_candidate": 0
+    },
+    "all_controls": [
+      {
+        "label": "rotated_product_bimodal_16d__free_isru__adamw_0.0003-20k",
+        "family": "free_isru",
+        "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a",
+        "step": 20000,
+        "sw2": 0.05207669808926529,
+        "pooled_delta": -0.02447529834498334,
+        "paired_mean_delta": -0.014531895004407578,
+        "banks_favoring_candidate": 8
+      },
+      {
+        "label": "rotated_product_bimodal_16d__free_isru__adamw_0.0003-matched",
+        "family": "free_isru",
+        "checkpoint_sha256": "35dcd3b7ebd3c2cca34822dffe9299f54afd5e2778a7ea9144731c98b054ee7d",
+        "step": 81945,
+        "sw2": 0.04483867194121659,
+        "pooled_delta": -0.01723727219693464,
+        "paired_mean_delta": -0.008813438800775753,
+        "banks_favoring_candidate": 8
+      },
+      {
+        "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-20k",
+        "family": "swiglu192",
+        "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c",
+        "step": 20000,
+        "sw2": 0.03898150087184998,
+        "pooled_delta": -0.011380101127568036,
+        "paired_mean_delta": -0.006259882123231886,
+        "banks_favoring_candidate": 8
+      },
+      {
+        "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-matched",
+        "family": "swiglu192",
+        "checkpoint_sha256": "d29f0c81e98dc1888f4ec71125ce5e44b2abc276fecda3ff1e98bede5e9692b9",
+        "step": 44089,
+        "sw2": 0.05110275244164237,
+        "pooled_delta": -0.023501352697360423,
+        "paired_mean_delta": -0.01345563527994758,
+        "banks_favoring_candidate": 8
+      },
+      {
+        "label": "odd_swiglu192-symmetry",
+        "family": "odd_swiglu192",
+        "checkpoint_sha256": "4bd8de96596df12cf6c810fdebbea74ca6544fb5cf0cb5bcc24e5159063041e9",
+        "step": 44060,
+        "sw2": 0.02409362923854588,
+        "pooled_delta": 0.003507770505736068,
+        "paired_mean_delta": 0.0016601841198402943,
+        "banks_favoring_candidate": 0
+      }
+    ]
+  }
+]
