@@ -9,7 +9,8 @@ import numpy as np
 doc=Path(__file__).resolve().parents[3]/'docs/report4/midpoint-refresh'
 case=json.loads((doc/'escape-case.json').read_text())
 results=json.loads((doc/'archived-confirmation.json').read_text())
-fig,(a,b)=plt.subplots(1,2,figsize=(9.6,3.55),layout='constrained')
+bounded=json.loads((doc/'same-readout-swiglu.json').read_text())
+fig,(a,b)=plt.subplots(1,2,figsize=(10.6,3.8),layout='constrained')
 colors=['#a54430','#076b76','#5b598b']
 labels=['Midpoint, unbounded','Midpoint, bounded','SwiGLU, unbounded']
 markers=['o','s','^']
@@ -22,15 +23,16 @@ a.set(yscale='log',xlabel='Generation time',ylabel='Distance from origin',
 a.legend(frameon=False,fontsize=8,loc='upper left')
 groups=['gmm_ring8_2d','rotated_product_bimodal_16d']
 x=np.arange(2)
-for idx,(label,color) in enumerate(zip(['Best archived control','Bounded midpoint','Sign-equivariant SwiGLU'],['#848a8f',colors[1],colors[2]])):
+for idx,(label,color) in enumerate(zip(['Best archived control','Bounded midpoint','Sign-equivariant SwiGLU','Bounded sign-equivariant SwiGLU'],['#848a8f',colors[1],colors[2],'#234d7d'])):
     vals=[]
     for ds in groups:
         mid,=[r for r in results if r['dataset']==ds and r['family']=='bounded_odd_state_midpoint4']
         other,=[r for r in results if r['dataset']==ds and r['family'].startswith('odd_swiglu')]
-        vals.append([mid['best_legacy_sw2'],mid['pooled_sw2'],other['pooled_sw2']][idx])
-    bars=b.bar(x+(idx-1)*.26,vals,width=.245,label=label,color=color)
-    b.bar_label(bars,fmt='%.3f',fontsize=8,padding=2)
-b.set(title='Full confirmation banks',ylabel='Pooled SW2 (lower is better)',ylim=(0,.106),xticks=x,xticklabels=['Ring8','Product16'])
+        matched,=[r for r in bounded if r['dataset']==ds]
+        vals.append([mid['best_legacy_sw2'],mid['pooled_sw2'],other['pooled_sw2'],matched['confirmation_sw2']][idx])
+    bars=b.bar(x+(idx-1.5)*.225,vals,width=.205,label=label,color=color)
+    b.bar_label(bars,fmt='%.3f',fontsize=7,padding=2)
+b.set(title='Full confirmation banks',ylabel='Pooled SW2 (lower is better)',ylim=(0,.125),xticks=x,xticklabels=['Ring8','Product16'])
 b.legend(frameon=False,fontsize=8,loc='upper right')
 for ax in (a,b):
     ax.spines[['top','right']].set_visible(False)
