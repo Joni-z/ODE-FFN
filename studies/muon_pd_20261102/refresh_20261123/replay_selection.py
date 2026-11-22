@@ -6,9 +6,9 @@ import numpy as np
 from odd_trial import base
 
 
-def replay(work, out):
+def replay(work, out, split="selection"):
     table=[]
-    for directory in sorted((work/'selection').glob('*')):
+    for directory in sorted((work/split).glob('*')):
         if not (directory/'COMPLETE.json').exists():
             continue
         load=lambda p: json.loads(p.read_text())
@@ -16,6 +16,7 @@ def replay(work, out):
         binding=load(directory/'binding.json')
         row,=load(directory/'summary.json')
         assert done['passed'] and done['steps']==[row['step']] and not done['witness']
+        assert binding['split']==('confirmation' if split=='archive-confirmation' else 'selection')
         assets=binding['assets']; assert base.digest(assets['file'])==assets['sha256']
         with np.load(assets['file']) as inputs:
             target=np.concatenate([inputs[f'target_{i}'] for i in range(8)]).astype(float)
@@ -47,5 +48,6 @@ if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('work',type=Path)
     p.add_argument('output',type=Path)
+    p.add_argument('--split',choices=('selection','archive-confirmation'),default='selection')
     args=p.parse_args()
-    replay(args.work,args.output)
+    replay(args.work,args.output,args.split)
