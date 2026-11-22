@@ -2,10 +2,9 @@
 import os
 os.environ['TORCH_COMPILE_DISABLE'] = '1'
 
-import copy
 from pathlib import Path
 import sys
-from types import MethodType, SimpleNamespace
+from types import SimpleNamespace
 
 import torch
 
@@ -13,19 +12,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import model_jit
 from denoiser import Denoiser
 from ffn import MidpointLayer
-
-
-def unconditional_velocity(self, image, time, labels):
-    null_labels = torch.full_like(labels, self.num_classes)
-    prediction = self.net(image, time.flatten(), null_labels)
-    return (prediction - image) / (1.0 - time).clamp_min(self.t_eps)
+from util.midpoint_eval import UnconditionalHeunEMA
 
 
 @torch.no_grad()
 def check(family, substeps):
     torch.manual_seed(0)
     cfg = SimpleNamespace(
-        model='fixture', img_size=32, class_num=1, attn_dropout=0., proj_dropout=0.,
+        dataset='celeba', model='fixture', img_size=32, class_num=1, attn_dropout=0., proj_dropout=0.,
         ffn=family, ode_hidden_dim=0, label_drop_prob=1., P_mean=-.8, P_std=.8,
         t_eps=.05, noise_scale=.5, ema_decay1=.9999, ema_decay2=.9996,
         sampling_method='heun', num_sampling_steps=50, cfg=0., interval_min=0., interval_max=1.,
@@ -43,8 +37,11 @@ def check(family, substeps):
     time = torch.full((2,), .5)
     assert not torch.equal(model.net(image, time, labels), model.net(image, time, labels + 1))
 
-    fast = copy.deepcopy(model)
-    fast._forward_sample = MethodType(unconditional_velocity, fast)
+    fast = UnconditionalHeunEMA(cfg).eval()
+    fast.load_state_dict(model.state_dict())
+    for layer in fast.modules():
+        if isinstance(layer, MidpointLayer):
+            layer.substeps = substeps
     samples = []
     for candidate, expected_calls in ((model, 198), (fast, 99)):
         visited = []

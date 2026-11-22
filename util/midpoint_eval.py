@@ -34,13 +34,29 @@ def file_hash(path):
     return digest.hexdigest()
 
 
-def ema_model(path, epoch, family, device, args):
+class UnconditionalHeunEMA(Denoiser):
+    """Heun50 ends with Euler, so every requested velocity lies in [0, 1)."""
+
+    def __init__(self, cfg):
+        super().__init__(cfg)
+        if (cfg.dataset != 'celeba' or cfg.class_num != 1 or cfg.label_drop_prob != 1
+                or (self.method, self.steps, self.cfg_scale, self.cfg_interval)
+                != ('heun', 50, 0, (0, 1))):
+            raise ValueError('Single-branch sampling requires unconditional CelebA with full-interval Heun50')
+
+    @torch.no_grad()
+    def _forward_sample(self, z, t, labels):
+        pred = self.net(z, t.flatten(), torch.full_like(labels, self.num_classes))
+        return (pred - z) / (1.0 - t).clamp_min(self.t_eps)
+
+
+def ema_model(path, epoch, family, device, args, *, single_branch=False):
     state = torch.load(path, map_location='cpu', mmap=True, weights_only=False)
     cfg = state['args']
     assert state['epoch'] + 1 == epoch and cfg.ffn == family and cfg.ema_decay1 == args.ema_decay1
     for key in ('seed', 'model', 'img_size', 'class_num', 'dataset', 'noise_scale', 't_eps'):
         assert getattr(cfg, key) == getattr(args, key), key
-    model = Denoiser(cfg)
+    model = UnconditionalHeunEMA(cfg) if single_branch else Denoiser(cfg)
     model.load_state_dict(state['model_ema1'], strict=True)
     assert (model.steps, model.method, model.cfg_scale, model.cfg_interval) == (
         args.num_sampling_steps, args.sampling_method, args.cfg, (args.interval_min, args.interval_max))
