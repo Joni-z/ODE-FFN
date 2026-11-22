@@ -25,5 +25,8 @@ def build_model(dim, family):
 
 if __name__ == '__main__':
     torch.set_num_threads(1)
-    base.execute(base.argument_parser().parse_args(), grid_path=HERE/'odd-grid.json',
-                 experiment_id='odd_field_20261123', model_builder=build_model)
+    args = base.argument_parser().parse_args()
+    control = '__odd_swiglu' in args.cell
+    grid = 'odd-control-grid.json' if control else 'odd-grid.json'
+    tag = 'odd_control_20261123' if control else 'odd_field_20261123'
+    base.execute(args, grid_path=HERE/grid, experiment_id=tag, model_builder=build_model)

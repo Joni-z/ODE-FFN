@@ -1,20 +1,22 @@
 """Run the two registered matched-budget cells on the Mac and score selection banks."""
 from concurrent.futures import ThreadPoolExecutor
 import fcntl
-import json
 import os
 import subprocess
+import time
 import sys
 
-from refresh_trial import HERE, base, build_model, original, torch
+from refresh_trial import HERE, base, original, torch
 sys.path.insert(0, str(HERE.parent/'efficient_solvers_20261122'))
 import cycle
 
-def run(work, odd=False):
+def run(work, odd=False, control=False):
     torch.set_num_threads(1)
     trainer = 'odd_trial.py' if odd else 'refresh_trial.py'
     tag = 'odd_field_20261123' if odd else 'refresh_20261123'
     grid = 'odd-grid.json' if odd else 'grid.json'
+    if control:
+        grid, tag = 'odd-control-grid.json', 'odd_control_20261123'
     from odd_trial import build_model as all_models
     cycle.build_model = all_models
     budgets = {r['dataset']: r['target_flops'] for r in cycle.read(cycle.DOC/'budget.json')['rows']
@@ -24,7 +26,7 @@ def run(work, odd=False):
         ds=c['dataset']
         dim=2 if ds=='gmm_ring8_2d' else 16
         torch.manual_seed(0)
-        ref=original(dim,'state_midpoint4')
+        ref=original(dim, c['family'].removeprefix('odd_') if odd else 'state_midpoint4')
         torch.manual_seed(0)
         model=all_models(dim,c['family'])
         x=torch.randn(32,dim)
@@ -34,7 +36,7 @@ def run(work, odd=False):
             with torch.no_grad():
                 model.output.weight.normal_()
                 torch.testing.assert_close(model(x,t), -model(-x,t), rtol=0, atol=0)
-        cost=cycle.step_flops(ds,c['family'])
+        cost=cycle.step_flops(ds, c['family'], c['optimizer'], c['projection_lr'])
         c.update(step_flops=cost, steps=cycle.closest(budgets[ds],cost))
     base.dump(work/'budget.json',cells)
     base.dump(work/'progress.json',dict(pid=os.getpid(), phase='training',cells=cells))
@@ -53,8 +55,16 @@ def run(work, odd=False):
             call(trainer,['--cell',cell['id'],'--output',work/'train','--data-root',work.parent/'data/synthetic',
                              '--device','cpu','--steps',steps]+(['--resume',prior[-1]] if prior else []))
         output=work/'selection'/ds
-        call('evaluate.py',['--folder',folder,'--assets',work.parent/'coefficient-20261116/assets','--output',output,
+        if output.exists() and not (output/'COMPLETE.json').exists():
+            output.rename(output.with_name(f'{ds}-partial-{time.time_ns()}'))
+        if not (output/'COMPLETE.json').exists():
+            call('evaluate.py',['--folder',folder,'--assets',work.parent/'coefficient-20261116/assets','--output',output,
                             '--data-root',work.parent/'data/synthetic','--split','selection','--device','cpu','--steps',steps])
+        done=cycle.read(output/'COMPLETE.json')
+        binding=cycle.read(output/'binding.json')
+        assert done['passed'] and not done['witness'] and done['steps']==[steps]
+        assert binding['split']=='selection' and binding['source_config']['cell']['id']==cell['id']
+        assert (binding['banks'],binding['samples_per_bank'],binding['heun_steps'])==(8,4096,128)
         score,=cycle.read(output/'summary.json')
         assert score['checkpoint_sha256']==base.digest(endpoint)
         return dict(dataset=ds,**score)
@@ -69,4 +79,4 @@ if __name__=='__main__':
     work.mkdir(parents=True,exist_ok=True)
     with (work/'cycle.lock').open('a') as handle:
         fcntl.flock(handle,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        run(work, odd='--odd' in sys.argv[2:])
+        run(work, odd=bool({'--odd','--control'}.intersection(sys.argv[2:])), control='--control' in sys.argv[2:])

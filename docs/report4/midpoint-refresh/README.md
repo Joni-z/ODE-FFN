@@ -17,3 +17,19 @@ The final paired source/target stream is reserved before inspecting candidate re
 Both laws are invariant under global sign reversal. As a diagnostic, split the fixed velocity into its odd and even components. The population velocity is odd, so the even-component energy measures a removable field error. Compare this for ordinary FFNs and midpoint before using symmetry to guide a new design.
 
 On the same 20k checkpoints, the part of the learned midpoint field that assigns the same velocity to x and -x accounts for 31.0% of paired oracle MSE on Ring8 and 40.3% on Product16. SwiGLU also has this error (31.2% and 37.3%). To remove it in one forward pass, learn a signed carrier u = W x. Supply squared carrier features and time to the existing network, multiply the resulting coefficients by u, then apply a bias-free output projection. The coefficients are identical at x and -x, so the velocity changes sign exactly. No mode centers, rotation axes or oracle labels enter training. The first trainable version retains four-step midpoint. A SwiGLU with the same construction separates the effect of the symmetry from the choice of FFN.
+
+## Selection results
+
+| Change to the four-step model | Ring8 pooled SW2 | Product16 pooled SW2 |
+|---|---:|---:|
+| Original checkpoint | 0.061 | 0.054 |
+| Read the entrance gate at the midpoint of each substep | 0.094 | 0.101 |
+| Freeze the gate across all four substeps | 0.367 | 0.344 |
+| Four substeps before SiLU, two after | 0.069 | 0.046 |
+| Two before SiLU, four after | 0.062 | 0.057 |
+| Two before and after | 0.067 | 0.046 |
+| Train a dense gate map at matched compute | 0.085 | 0.071 |
+
+The first six rows use the same fitted weights. Moving two of the substeps from one side of SiLU to the other improves Ring8 in one direction and Product16 in the other. We found no common placement rule. The seventh row fits new weights. Its extra matrix multiplication allows about 11k training updates at the cost of 20k native updates. It worsens both endpoints.
+
+[Fixed-weight results](frozen-selection.json) · [Dense gate training endpoints](cross-selection.json) · [Reflection error on six checkpoints](parity.json)

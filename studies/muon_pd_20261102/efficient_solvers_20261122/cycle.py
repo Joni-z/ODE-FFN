@@ -26,11 +26,11 @@ class SolverArithmetic(Arithmetic):
         return super().__torch_dispatch__(func, types, args, kwargs)
 
 
-def step_flops(dataset, family):
+def step_flops(dataset, family, optimizer_name="adamw", projection_lr=0.0003):
     torch.manual_seed(0)
     dim = 2 if dataset == DATASETS[1] else 16
     model = build_model(dim, family)
-    optimizer = base.ProjectionOptimizer(model, 'adamw', 0.0003)
+    optimizer = base.ProjectionOptimizer(model, optimizer_name, projection_lr)
     x, y, t = torch.randn(512, dim), torch.randn(512, dim), torch.rand(512, 1)
 
     def step():
