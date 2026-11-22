@@ -10,15 +10,21 @@ from refresh_trial import HERE, base, original, torch
 sys.path.insert(0, str(HERE.parent/'efficient_solvers_20261122'))
 import cycle
 
-def run(work, odd=False, control=False, bounded=False):
+STUDIES = {
+    'original': ('grid.json', 'refresh_20261123'),
+    'odd': ('odd-grid.json', 'odd_field_20261123'),
+    'control': ('odd-control-grid.json', 'odd_control_20261123'),
+    'bounded': ('bounded-grid.json', 'bounded_odd_20261123'),
+    'glu': ('glu-grid.json', 'glu_midpoint_20261123'),
+    'euler': ('glu-euler-grid.json', 'glu_euler_ring_20261123'),
+}
+
+
+def run(work, variant, workers):
     torch.set_num_threads(1)
+    grid, tag = STUDIES[variant]
+    odd = variant != 'original'
     trainer = 'odd_trial.py' if odd else 'refresh_trial.py'
-    tag = 'odd_field_20261123' if odd else 'refresh_20261123'
-    grid = 'odd-grid.json' if odd else 'grid.json'
-    if control:
-        grid, tag = 'odd-control-grid.json', 'odd_control_20261123'
-    if bounded:
-        grid, tag = 'bounded-grid.json', 'bounded_odd_20261123'
     from odd_trial import build_model as all_models
     cycle.build_model = all_models
     budgets = {r['dataset']: r['target_flops'] for r in cycle.read(cycle.DOC/'budget.json')['rows']
@@ -28,7 +34,8 @@ def run(work, odd=False, control=False, bounded=False):
         ds=c['dataset']
         dim=2 if ds=='gmm_ring8_2d' else 16
         torch.manual_seed(0)
-        ref=original(dim, c['family'].removeprefix('bounded_').removeprefix('odd_') if odd else 'state_midpoint4')
+        reference_family = c['family'].removeprefix('bounded_').removeprefix('odd_') if odd else 'state_midpoint4'
+        ref=original(dim,'swiglu192' if variant=='glu' else reference_family)
         torch.manual_seed(0)
         model=all_models(dim,c['family'])
         x=torch.randn(32,dim)
@@ -70,7 +77,7 @@ def run(work, odd=False, control=False, bounded=False):
         score,=cycle.read(output/'summary.json')
         assert score['checkpoint_sha256']==base.digest(endpoint)
         return dict(dataset=ds,**score)
-    with ThreadPoolExecutor(max_workers=2) as pool:
+    with ThreadPoolExecutor(max_workers=workers) as pool:
         rows=list(pool.map(execute,cells))
     base.dump(work/'selection.json',rows)
     base.dump(work/'progress.json',dict(pid=os.getpid(), phase='selection_complete'))
@@ -84,8 +91,9 @@ if __name__=='__main__':
         import argparse
         parser = argparse.ArgumentParser()
         parser.add_argument('work')
+        parser.add_argument('--workers', choices=(1,2), type=int, default=2)
         variants = parser.add_mutually_exclusive_group()
-        for flag in ('odd', 'control', 'bounded'):
-            variants.add_argument('--'+flag, action='store_true')
+        for flag in STUDIES.keys()-{'original'}:
+            variants.add_argument('--'+flag, dest='variant', action='store_const', const=flag)
         args = parser.parse_args()
-        run(work, odd=args.odd or args.control or args.bounded, control=args.control, bounded=args.bounded)
+        run(work, args.variant or 'original', args.workers)

@@ -1,0 +1,31 @@
+{
+  "seed": 0,
+  "steps": 20000,
+  "batch_size": 512,
+  "cells": [
+    {
+      "id": "rotated_product_bimodal_16d__odd_glu_midpoint192__adamw_0.0003",
+      "dataset": "rotated_product_bimodal_16d",
+      "data_version": "product16_v1",
+      "host": "macmini",
+      "family": "odd_glu_midpoint192",
+      "response": "state_isru",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "glu_midpoint_20261123"
+    },
+    {
+      "id": "gmm_ring8_2d__odd_glu_midpoint192__adamw_0.0003",
+      "dataset": "gmm_ring8_2d",
+      "data_version": "v1",
+      "host": "macmini",
+      "family": "odd_glu_midpoint192",
+      "response": "state_isru",
+      "order": 2,
+      "optimizer": "adamw",
+      "projection_lr": 0.0003,
+      "role": "glu_midpoint_20261123"
+    }
+  ]
+}

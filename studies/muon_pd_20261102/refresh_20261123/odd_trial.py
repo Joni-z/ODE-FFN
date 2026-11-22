@@ -16,12 +16,25 @@ def odd_velocity(self, x, t):
     return self.output(carrier * self.norm(features))
 
 
+def midpoint_block(self, x, temb):
+    scale, shift = self.condition(temb).chunk(2, dim=-1)
+    gain = 1 + scale
+    def drift(state):
+        return self.ffn(self.norm(state) * gain + shift)
+    half = x + (0.5 * self.residual_scale) * drift(x)
+    return x + self.residual_scale * drift(half)
+
+
 def build_model(dim, family):
     bounded = family.startswith('bounded_odd_')
     family = family.removeprefix('bounded_') if bounded else family
     if not family.startswith('odd_'):
         return standard(dim, family)
-    model = standard(dim, family.removeprefix('odd_'))
+    midpoint = family == 'odd_glu_midpoint192'
+    model = standard(dim, 'swiglu192' if midpoint else family.removeprefix('odd_'))
+    if midpoint:
+        for block in model.blocks:
+            block.forward = MethodType(midpoint_block, block)
     model.bounded_carrier = bounded
     model.output.register_parameter('bias', None)
     model.forward = MethodType(odd_velocity, model)
@@ -36,4 +49,8 @@ if __name__ == '__main__':
     tag = 'odd_control_20261123' if control else 'odd_field_20261123'
     if '__bounded_odd_' in args.cell:
         grid, tag = 'bounded-grid.json', 'bounded_odd_20261123'
+    if '__odd_glu_midpoint192__' in args.cell:
+        grid, tag = 'glu-grid.json', 'glu_midpoint_20261123'
+    if args.cell == 'gmm_ring8_2d__odd_swiglu192__adamw_0.0003':
+        grid, tag = 'glu-euler-grid.json', 'glu_euler_ring_20261123'
     base.execute(args, grid_path=HERE/grid, experiment_id=tag, model_builder=build_model)
