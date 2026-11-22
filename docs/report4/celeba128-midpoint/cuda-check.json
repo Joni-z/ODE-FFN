@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_uuid": "0914d198-fd27-a77e-2d09-7fe5743d554c",
+  "results": {
+    "midpoint2": {
+      "epoch": 60,
+      "checkpoint_hash": "dbc48dc9880a435a78713cbe62419cb963d9ac988f4a0476a098a18c76feeb5a",
+      "batch": 256,
+      "original_seconds": 13.712010903458577,
+      "max_abs_difference": 0.0,
+      "single_branch_seconds": 6.857898408547044,
+      "speedup": 1.9994479484223924
+    },
+    "midpoint4": {
+      "epoch": 60,
+      "checkpoint_hash": "dbc48dc9880a435a78713cbe62419cb963d9ac988f4a0476a098a18c76feeb5a",
+      "batch": 256,
+      "original_seconds": 22.319029357517138,
+      "max_abs_difference": 0.0,
+      "single_branch_seconds": 11.15811218653107,
+      "speedup": 2.00025138521715
+    },
+    "swiglu": {
+      "epoch": 100,
+      "checkpoint_hash": "317153d1954e2723214c310dd25e93897a5030358488a01d06ff0967ba03fab1",
+      "batch": 256,
+      "original_seconds": 7.232257076539099,
+      "max_abs_difference": 0.0,
+      "single_branch_seconds": 3.615332796005532,
+      "speedup": 2.0004402041576346
+    }
+  }
+}

@@ -15,6 +15,12 @@
 - [x] Profile each variant and compare a second endpoint at matched training compute.
 - [x] Publish the code, scores and architecture decision.
 
+## CelebA128 sampler repair
+
+- [x] Replay the 60-epoch EMA on Torch with identical BF16 noise and check sample equality and throughput.
+- [x] Resume the full training state and score each remaining milestone in its own allocation.
+- [x] Verify job ownership, checkpoint continuity, monitoring and the published source.
+
 ## CelebA128 midpoint transfer, 22 November
 
 - [x] Bind native epoch/EMA/FID and checkpoint availability.

@@ -10,7 +10,7 @@ Six Mac mini seed-0 trajectories and all 24 held-out evaluations completed. Two-
 
 ## CelebA128 midpoint on Torch, 22 November
 
-Torch saved epoch 60 and began its paired FID50k evaluation. The first 40 epochs took 11 h 49 min on L40S, including 7 h 14 min for the epoch-20 and epoch-40 evaluations. The unconditional Heun50 sampler executes 198 network forwards per batch. A 99-forward path gives identical samples in a small CPU replay. [Timing audit and live paths](docs/report4/celeba128-midpoint/README.md#where-the-gpu-time-went).
+The seed-0 CelebA training resumed from the epoch-95 checkpoint. FID50k and native timing now have separate GPU allocations from training. On a dedicated A100 the corrected Heun50 sampler reproduced all 256 images exactly for two-step midpoint, four-step midpoint and SwiGLU. [CUDA timings, checkpoint and jobs](docs/report4/celeba128-midpoint/README.md#detached-evaluation-on-torch).
 
 ## Report 4 equal-compute comparison, 22 November
 

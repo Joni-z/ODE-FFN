@@ -48,17 +48,34 @@ memory. These differences matter even at matched parameter counts.
 The unconditional sampler also does avoidable work. JiT's Heun50 grid
 evaluates velocity 99 times per batch (49 Heun steps and one final Euler
 step). The largest evaluation time is 0.98. With CFG 0 throughout that grid,
-the conditional branch has weight zero on every call. The active sampler
+the conditional branch has weight zero on every call. The original sampler
 nevertheless executes both branches, or 198 network forwards. A seed-0 CPU
 replay with a small nonzero JiT and distinct conditional and unconditional
 predictions produced exactly the same final tensors with 99 forwards for
 SwiGLU and both midpoint settings. The L40S timing above is for the original
-198-forward path. A production speedup has yet to be measured.
+198-forward path. The CUDA replay below measures the single-branch path.
 [Replay the Heun50 check](../../../tests/check_unconditional_sampler.py)
 
-For a faster schedule, first replay a saved EMA on CUDA/BF16 with identical
-noise across both implementations, then time all three FFNs with the same
-sampler. Evaluate the numbered checkpoints in separate allocations so that
-training can advance while the two FID50k runs finish on one evaluation GPU.
-The fixed CelebA reference can also reuse a validated Inception-statistics
-cache. Keep the generator, image count, checkpoint and preprocessing fixed.
+## Detached evaluation on Torch
+
+On one dedicated A100, the original and single-branch Heun50 samplers generated
+identical CUDA/BF16 outputs from the same seed-0 batch of 256 faces. The
+midpoint modes used the same epoch-60 EMA. SwiGLU used its epoch-100 EMA.
+Times are medians of two synchronized batches after one warmup per path.
+
+| FFN | Original, s | Single branch, s | Speedup | Largest output difference |
+|---|---:|---:|---:|---:|
+| Two-step midpoint | 13.712 | 6.858 | 1.999× | 0 |
+| Four-step midpoint | 22.319 | 11.158 | 2.000× | 0 |
+| SwiGLU | 7.232 | 3.615 | 2.000× | 0 |
+
+The continuation starts at epoch 95 after 60,325 AdamW
+updates. A hard link preserves the complete checkpoint, including both EMA
+copies and the RNG state. Each training job writes an immutable milestone.
+The next training job and the paired FID50k job can start once that
+milestone has been saved. Both midpoint modes and native timing use the
+same evaluation GPU. Raw outputs, GPU telemetry and per-epoch comparison
+records are under `runs/celeba/20261123-midpoint4-detached-s0` on Torch.
+Previous milestones remain under `runs/celeba/20261122-midpoint4-w1200-s0`.
+
+[CUDA timings and equality](cuda-check.json) · [Checkpoint handoff](handoff.json) · [Slurm dependencies](detached-launch.json)

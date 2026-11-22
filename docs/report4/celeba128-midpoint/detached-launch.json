@@ -1,0 +1,149 @@
+{
+  "source_commit": "196d942b5e57c93a8757a5593678c83b3a74182d",
+  "jobs": [
+    {
+      "phase": "train",
+      "target": 100,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0",
+      "job_id": "24093448",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-train-100",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "train",
+        "100"
+      ]
+    },
+    {
+      "phase": "fid",
+      "target": 100,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/paired/epoch-0100",
+      "job_id": "24093449",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-fid-100",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093448",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "fid",
+        "100"
+      ]
+    },
+    {
+      "phase": "train",
+      "target": 120,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0",
+      "job_id": "24093450",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-train-120",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093448",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "train",
+        "120"
+      ]
+    },
+    {
+      "phase": "fid",
+      "target": 120,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/paired/epoch-0120",
+      "job_id": "24093451",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-fid-120",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093450",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "fid",
+        "120"
+      ]
+    },
+    {
+      "phase": "train",
+      "target": 140,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0",
+      "job_id": "24093452",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-train-140",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093450",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "train",
+        "140"
+      ]
+    },
+    {
+      "phase": "fid",
+      "target": 140,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/paired/epoch-0140",
+      "job_id": "24093454",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-fid-140",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093452",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "fid",
+        "140"
+      ]
+    },
+    {
+      "phase": "train",
+      "target": 160,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0",
+      "job_id": "24093455",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-train-160",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093452",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "train",
+        "160"
+      ]
+    },
+    {
+      "phase": "fid",
+      "target": 160,
+      "output": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/paired/epoch-0160",
+      "job_id": "24093456",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--kill-on-invalid-dep=yes",
+        "--job-name=mid-fid-160",
+        "--export=ALL,ODE_FFN_CODE=/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942",
+        "--time=04:00:00",
+        "--dependency=afterok:24093455",
+        "/scratch/zz5070/ODE_FFN/runtimes/celeba-detached-196d942/slurm/celeba_midpoint_stage.slurm",
+        "fid",
+        "160"
+      ]
+    }
+  ],
+  "monitor_pid": 1901674
+}
