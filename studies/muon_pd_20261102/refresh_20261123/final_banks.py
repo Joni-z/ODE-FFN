@@ -50,7 +50,23 @@ def entries(prep, candidate):
             matched=read(prep/'report4-equal-compute-20261122/trained-endpoints'/f'{cell}.json')
             register(cell+'-20k',Path(read(orig)['source_folder']),20000,r['original_checkpoint_sha256'])
             register(cell+'-matched',Path(matched['folder']),r['matched_steps'],r['matched_checkpoint_sha256'])
-    assert len(families)==1 and len(models)==10
+        # These ordinary fields share the candidate's sign symmetry. Keep them
+        # in the same paired evaluation for attribution on these two laws.
+        extra = [prep/'odd-control-20261123']
+        if ds == DATASETS[0] and binding['source_config']['cell']['family']=='odd_glu_midpoint192':
+            extra.append(prep/'glu-euler-ring-20261123')
+        for work in extra:
+            path=work/'selection'/ds
+            done=read(path/'COMPLETE.json')
+            detail=read(path/'binding.json')
+            control,=read(path/'summary.json')
+            assert done['passed'] and not done['witness'] and done['steps']==[control['step']]
+            assert detail['assets']['sha256']==binding['assets']['sha256']
+            family=detail['source_config']['cell']['family']
+            if result['pooled_sw2'] >= control['pooled_sw2']:
+                raise ValueError(f"{ds}: {family} already scores {control['pooled_sw2']} on selection")
+            register(family+'-symmetry',Path(detail['source_folder']),control['step'],control['checkpoint_sha256'])
+    assert len(families)==1 and all(len([m for m in models if m['dataset']==ds])>=6 for ds in DATASETS)
     return models
 
 
