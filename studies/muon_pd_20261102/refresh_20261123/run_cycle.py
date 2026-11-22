@@ -16,6 +16,7 @@ STUDIES = {
     'control': ('odd-control-grid.json', 'odd_control_20261123'),
     'bounded': ('bounded-grid.json', 'bounded_odd_20261123'),
     'glu': ('glu-grid.json', 'glu_midpoint_20261123'),
+    'feedback': ('feedback-grid.json', 'gate_feedback_20261123'),
     'euler': ('glu-euler-grid.json', 'glu_euler_ring_20261123'),
 }
 
@@ -35,7 +36,7 @@ def run(work, variant, workers):
         dim=2 if ds=='gmm_ring8_2d' else 16
         torch.manual_seed(0)
         reference_family = c['family'].removeprefix('bounded_').removeprefix('odd_') if odd else 'state_midpoint4'
-        ref=original(dim,'swiglu192' if variant=='glu' else reference_family)
+        ref=original(dim,'swiglu192' if variant in ('glu','feedback') else reference_family)
         torch.manual_seed(0)
         model=all_models(dim,c['family'])
         x=torch.randn(32,dim)

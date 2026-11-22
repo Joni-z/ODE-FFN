@@ -53,7 +53,7 @@ def entries(prep, candidate):
         # These ordinary fields share the candidate's sign symmetry. Keep them
         # in the same paired evaluation for attribution on these two laws.
         extra = [prep/'odd-control-20261123']
-        if ds == DATASETS[0] and binding['source_config']['cell']['family']=='odd_glu_midpoint192':
+        if ds == DATASETS[0] and binding['source_config']['cell']['family'] in ('odd_glu_midpoint192','odd_feedback192'):
             extra.append(prep/'glu-euler-ring-20261123')
         for work in extra:
             path=work/'selection'/ds

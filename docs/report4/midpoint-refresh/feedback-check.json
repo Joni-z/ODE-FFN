@@ -1,0 +1,30 @@
+[
+  {
+    "dim": 2,
+    "zero_feedback_exact_native": true,
+    "all_shared_gradients_match": true,
+    "native_ffn_linear_calls": 6,
+    "feedback_ffn_linear_calls": 6,
+    "feedback_parameters": 384,
+    "feedback_gradient_norms": [
+      0.010394664481282234,
+      0.006089998874813318,
+      0.008555821143090725
+    ],
+    "nonzero_gain_matches_two_stage_midpoint": true
+  },
+  {
+    "dim": 16,
+    "zero_feedback_exact_native": true,
+    "all_shared_gradients_match": true,
+    "native_ffn_linear_calls": 6,
+    "feedback_ffn_linear_calls": 6,
+    "feedback_parameters": 384,
+    "feedback_gradient_norms": [
+      0.0016854875721037388,
+      0.0017792024882510304,
+      0.0014249535743147135
+    ],
+    "nonzero_gain_matches_two_stage_midpoint": true
+  }
+]

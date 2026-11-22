@@ -25,13 +25,27 @@ def midpoint_block(self, x, temb):
     return x + self.residual_scale * drift(half)
 
 
+def feedback_ffn(self, x):
+    gate, value = self.w12(x).chunk(2, dim=-1)
+    half = 0.5 * torch.nn.functional.silu(gate) * value
+    response = half * torch.rsqrt(1 + half.square())
+    updated_gate = gate + self.feedback * response
+    return self.w3(torch.nn.functional.silu(updated_gate) * value)
+
+
 def build_model(dim, family):
     bounded = family.startswith('bounded_odd_')
     family = family.removeprefix('bounded_') if bounded else family
     if not family.startswith('odd_'):
         return standard(dim, family)
     midpoint = family == 'odd_glu_midpoint192'
-    model = standard(dim, 'swiglu192' if midpoint else family.removeprefix('odd_'))
+    feedback = family == 'odd_feedback192'
+    model = standard(dim, 'swiglu192' if midpoint or feedback else family.removeprefix('odd_'))
+    if feedback:
+        for block in model.blocks:
+            ffn = block.ffn
+            ffn.feedback = torch.nn.Parameter(ffn.w3.weight.new_zeros(ffn.w3.in_features))
+            ffn.forward = MethodType(feedback_ffn, ffn)
     if midpoint:
         for block in model.blocks:
             block.forward = MethodType(midpoint_block, block)
@@ -53,4 +67,6 @@ if __name__ == '__main__':
         grid, tag = 'glu-grid.json', 'glu_midpoint_20261123'
     if args.cell == 'gmm_ring8_2d__odd_swiglu192__adamw_0.0003':
         grid, tag = 'glu-euler-grid.json', 'glu_euler_ring_20261123'
+    if '__odd_feedback192__' in args.cell:
+        grid, tag = 'feedback-grid.json', 'gate_feedback_20261123'
     base.execute(args, grid_path=HERE/grid, experiment_id=tag, model_builder=build_model)
