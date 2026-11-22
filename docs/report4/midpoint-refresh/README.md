@@ -1,5 +1,18 @@
 # Does the response have to follow the state?
 
+**One bounded, four-step midpoint FFN now beats the stronger archived ordinary endpoint on both tasks.** On the historical confirmation banks it lowers Ring8 SW2 by 21% and Product16 SW2 by 21%. Giving ordinary SwiGLU a sign-equivariant readout also improves both tasks and gives the best Product16 score. All rows below use seed 0, Heun128 and 32,768 paired endpoints per task and evaluation stream.
+
+| Model | Ring8 selection | Ring8 confirmation | Product16 selection | Product16 confirmation |
+|---|---:|---:|---:|---:|
+| Strongest archived SwiGLU or Free ISRU | 0.084 | 0.082 | 0.034 | 0.034 |
+| Original four-step midpoint | 0.061 | 0.071 | 0.054 | 0.052 |
+| Four-step midpoint with a bounded sign-equivariant readout | 0.057 | **0.065** | 0.024 | 0.027 |
+| Sign-equivariant ordinary SwiGLU | **0.056** | 0.068 | **0.021** | **0.022** |
+
+The bounded midpoint and sign-equivariant SwiGLU exchange rank on Ring8 across these two streams. The strongest historical ordinary row takes the lower score across the original and equal-training-compute checkpoints. A new twelve-checkpoint comparison with source and target draws fixed after model selection is in progress. [Archived confirmation results](archived-confirmation.json) · [Selection controls](ordinary-selection.json) · [Bounded checkpoint replay](bounded-selection.json)
+
+## Where the midpoint uses its state
+
 On Ring8 the shared four-step midpoint beats matched-compute SwiGLU (pooled SW2 0.071 vs 0.085). On Product16 it trails SwiGLU (0.052 vs 0.047), including the stronger earlier checkpoint (0.034). Freezing the diagonal throughout training worsened both 20k endpoints. That intervention changed the learned weights as well as the step rule. Eight tied Euler updates also trailed midpoint with the same matrix-call count. These controls motivate locating the contribution of the midpoint response on fixed weights.
 
 1. Restore the original four-step checkpoint. At each substep keep the midpoint state and P unchanged, then evaluate its diagonal either at the substep entrance or the midpoint. Compare the predicted field and endpoints on identical selection inputs. A third intervention freezes the diagonal for the entire solve. The difference between the latter two locates refresh across successive substeps.

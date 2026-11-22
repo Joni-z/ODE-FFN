@@ -244,3 +244,5 @@ Earlier journal: docs/history/2026-11-17-after-population-resolution/.
 ## November 23 — response refresh
 
 The same frozen four-step weights lose generation quality on both selection streams when their midpoint reads a stale gate. Using a step's entrance gate at its midpoint increases Ring8 pooled SW2 from 0.061 to 0.094 and Product16 from 0.054 to 0.101. Freezing the gate across the whole solve gives 0.367 and 0.344. Raw checkpoint bindings and metric tables are in docs/report4/midpoint-refresh.
+
+The seed-0 bounded signed midpoint clears both archived ordinary benchmarks on both evaluation streams. On historical confirmation its pooled SW2 is 0.065 on Ring8 and 0.027 on Product16; the best archived ordinary checkpoints are 0.082 and 0.034. The new signed ordinary SwiGLU gives 0.068 and 0.022. Weights for a separate 12-checkpoint fresh-source comparison are locked in docs/report4/midpoint-refresh/bounded-replication-lock.json.
