@@ -1,4 +1,4 @@
-from refresh_trial import build_model
+from odd_trial import build_model
 from evaluate_screen import ev, main
 
 if __name__ == '__main__':

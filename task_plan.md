@@ -387,3 +387,9 @@ CelebA160FID50k stays native24.304/K1 27.789/K8 28.083. Publish verified changes
 promptly to Joni-z/ODE-FFNmain as Zhizhe Zhang; no force push.
 
 Earlier complete journal: docs/history/2026-11-17-after-population-resolution/.
+
+## November 23 — seed-0 synthetic architecture search on Mac mini
+
+1. Locate the effect of refreshing the state inside a midpoint step on frozen weights. Score Ring8 and Product16 using the same noise samples as the native solver.
+2. Test learning the coordinates read by the gate, starting from the native function and matching total training arithmetic. Compare models on selection banks.
+3. Freeze a candidate only after it passes both tasks. Evaluate it and the original and equal-cost ordinary checkpoints on fresh paired source/target banks, streams 2026112300 through 2026112307, with the existing 256 directions and Heun128. Use pooled SW2 and show each ordinary checkpoint separately.
