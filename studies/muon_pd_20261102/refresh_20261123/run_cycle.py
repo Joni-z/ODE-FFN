@@ -16,6 +16,7 @@ STUDIES = {
     'control': ('odd-control-grid.json', 'odd_control_20261123'),
     'bounded': ('bounded-grid.json', 'bounded_odd_20261123'),
     'glu': ('glu-grid.json', 'glu_midpoint_20261123'),
+    'bounded-control': ('bounded-control-grid.json', 'bounded_control_20261123'),
     'feedback': ('feedback-grid.json', 'gate_feedback_20261123'),
     'euler': ('glu-euler-grid.json', 'glu_euler_ring_20261123'),
 }

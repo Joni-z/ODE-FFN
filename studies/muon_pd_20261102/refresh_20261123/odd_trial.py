@@ -69,4 +69,6 @@ if __name__ == '__main__':
         grid, tag = 'glu-euler-grid.json', 'glu_euler_ring_20261123'
     if '__odd_feedback192__' in args.cell:
         grid, tag = 'feedback-grid.json', 'gate_feedback_20261123'
+    if '__bounded_odd_swiglu' in args.cell:
+        grid, tag = 'bounded-control-grid.json', 'bounded_control_20261123'
     base.execute(args, grid_path=HERE/grid, experiment_id=tag, model_builder=build_model)
