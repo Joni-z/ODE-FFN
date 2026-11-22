@@ -6,7 +6,7 @@ import os
 import subprocess
 import sys
 
-from trial import HERE, base, build_model, original, torch
+from refresh_trial import HERE, base, build_model, original, torch
 sys.path.insert(0, str(HERE.parent/'efficient_solvers_20261122'))
 import cycle
 
@@ -42,7 +42,7 @@ def run(work):
                                stdout=log,stderr=subprocess.STDOUT,env=dict(os.environ,**cycle.THREADS),check=True)
         if not (endpoint.exists() and (folder/'ADAPTER_COMPLETE').exists()):
             prior=sorted((folder/'checkpoints').glob('step_*.pt'))
-            call('trial.py',['--cell',cell['id'],'--output',work/'train','--data-root',work.parent/'data/synthetic',
+            call('refresh_trial.py',['--cell',cell['id'],'--output',work/'train','--data-root',work.parent/'data/synthetic',
                              '--device','cpu','--steps',steps]+(['--resume',prior[-1]] if prior else []))
         output=work/'selection'/ds
         call('evaluate.py',['--folder',folder,'--assets',work.parent/'coefficient-20261116/assets','--output',output,
