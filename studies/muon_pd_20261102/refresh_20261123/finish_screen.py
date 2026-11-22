@@ -7,8 +7,10 @@ import subprocess
 from final_banks import DATASETS, HERE, base, entries, read
 
 
-def collect(prep, out):
+def collect(prep, out, feedback=False):
     designs=['bounded-odd-20261123','glu-midpoint-20261123']
+    if feedback:
+        designs=['gate-feedback-20261123']
     workdirs=designs+['odd-control-20261123','glu-euler-ring-20261123']
     while True:
         unfinished=[]
@@ -45,6 +47,11 @@ def collect(prep, out):
         passed.append((max(r['pooled_sw2']/limits[r['dataset']] for r in table),name))
     selected=min(passed)[1] if passed else None
     base.dump(out/'selection-decision.json',dict(scores=scores,selected=selected,limits=limits))
+    if selected and feedback:
+        prior=read(prep/'refresh-screen-monitor-20261123/selection-decision.json')
+        if prior['selected'] is not None:
+            base.dump(out/'progress.json',dict(phase='existing_finalist',selected=selected,prior=prior['selected']))
+            return
     if selected:
         subprocess.run([sys.executable,str(HERE/'final_banks.py'),str(prep),str(prep/selected)],check=True)
     base.dump(out/'progress.json',dict(phase='complete',selected=selected,checked_unix=time.time()))
@@ -52,9 +59,12 @@ def collect(prep, out):
 
 if __name__=='__main__':
     prep=Path(sys.argv[1])
-    out=prep/'refresh-screen-monitor-20261123'
+    feedback=sys.argv[2:]==['--feedback']
+    if sys.argv[2:] and not feedback:
+        raise ValueError('Expected --feedback')
+    out=prep/('feedback-screen-monitor-20261123' if feedback else 'refresh-screen-monitor-20261123')
     out.mkdir(exist_ok=True)
     import fcntl
     with (out/'monitor.lock').open('a') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        collect(prep,out)
+        collect(prep,out,feedback)

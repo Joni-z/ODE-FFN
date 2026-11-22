@@ -11,6 +11,12 @@
 
 The bounded midpoint and sign-equivariant SwiGLU exchange rank on Ring8 across these two streams. The strongest historical ordinary row takes the lower score across the original and equal-training-compute checkpoints. A new twelve-checkpoint comparison with source and target draws fixed after model selection is in progress. [Archived confirmation results](archived-confirmation.json) · [Selection controls](ordinary-selection.json) · [Bounded checkpoint replay](bounded-selection.json)
 
+![One replayed Product16 trajectory and both confirmation comparisons](trajectory-and-confirmation.png)
+
+The left panel follows the same noise vector through each model. We selected the most extreme endpoint of the unbounded midpoint run. All three replays reproduce the original 4,096 samples in its bank exactly. At t = 0.25 the unbounded midpoint predicts outward radial speed 24.826 where the oracle predicts −5.908. Its endpoint radius is 21,777.754; the bounded midpoint reaches 5.952 and ordinary SwiGLU reaches 6.035. Across the full evaluation, 69 of 32,768 endpoints crossed twice the largest target radius before bounding and none did afterwards. [Replayed case](escape-case.json).
+
+For the bounded model there is also a global velocity bound. Each signed readout multiplier has magnitude at most one. LayerNorm at width H gives a coefficient vector with norm at most √H ‖γ‖∞ + ‖β‖₂. Multiplying by the output matrix gives an upper bound of 28.747 on velocity norm for this Product16 checkpoint. The unbounded model's radial speed along the escaping endpoint direction instead approaches 11.265 times its radius. These are properties of the fitted field; the same initial source also stayed within the target scale under ordinary SwiGLU.
+
 ## Where the midpoint uses its state
 
 On Ring8 the shared four-step midpoint beats matched-compute SwiGLU (pooled SW2 0.071 vs 0.085). On Product16 it trails SwiGLU (0.052 vs 0.047), including the stronger earlier checkpoint (0.034). Freezing the diagonal throughout training worsened both 20k endpoints. That intervention changed the learned weights as well as the step rule. Eight tied Euler updates also trailed midpoint with the same matrix-call count. These controls motivate locating the contribution of the midpoint response on fixed weights.

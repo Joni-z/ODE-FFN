@@ -1,0 +1,169 @@
+{
+  "dataset": "rotated_product_bimodal_16d",
+  "stream": "selection",
+  "bank": 3,
+  "index": 312,
+  "bank_sha256": "2b31991cc0fa90a29d76e96d8c60a3294e625b6aa81d860af9c4e6877d927746",
+  "selection_rule": "largest unbounded-midpoint endpoint norm",
+  "rows": [
+    {
+      "family": "odd_state_midpoint4",
+      "step": 19994,
+      "trajectory": [
+        {
+          "t": 0.0,
+          "radius": 5.299460086521207,
+          "radial_speed": 1.2529395774063077,
+          "oracle_radial_speed": -5.299460086521204
+        },
+        {
+          "t": 0.25,
+          "radius": 6.6370884896488445,
+          "radial_speed": 24.825523248162565,
+          "oracle_radial_speed": -5.908250085112199
+        },
+        {
+          "t": 0.5,
+          "radius": 78.35513763900973,
+          "radial_speed": 883.3571279835821,
+          "oracle_radial_speed": -141.40849419621395
+        },
+        {
+          "t": 0.75,
+          "radius": 1307.1456497605818,
+          "radial_speed": 14727.730644306417,
+          "oracle_radial_speed": -3378.4541990183056
+        },
+        {
+          "t": 0.9375,
+          "radius": 10779.686428857221,
+          "radial_speed": 121436.63273790716,
+          "oracle_radial_speed": -6896.424085935432
+        },
+        {
+          "t": 0.9921875,
+          "radius": 19945.15715219706,
+          "radial_speed": 224685.37552364258,
+          "oracle_radial_speed": 16120.411125227145
+        }
+      ],
+      "endpoint_radius": 21777.753987488766,
+      "radial_limit": 11.265141767401472,
+      "bounded_velocity_norm": null,
+      "ray_relative_error_across_three_times": {
+        "100": 0.00023271004115571985,
+        "1000": 2.299335505534597e-06,
+        "10000": 2.2990594652444227e-08
+      },
+      "checkpoint_sha256": "397212bf9cc82922f85e7a6cab9c79fb1ecf9a3d514d39648c6133a6b139e836",
+      "config_sha256": "bd2202f95292dc37a980d123ccd09d3de2d7556139268a4af0f56cf1f94a1070",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "family": "bounded_odd_state_midpoint4",
+      "step": 19984,
+      "trajectory": [
+        {
+          "t": 0.0,
+          "radius": 5.299460086521207,
+          "radial_speed": -3.006164522902953,
+          "oracle_radial_speed": -5.299460086521204
+        },
+        {
+          "t": 0.25,
+          "radius": 4.694227148377025,
+          "radial_speed": -0.9635702789183374,
+          "oracle_radial_speed": -3.040614660103701
+        },
+        {
+          "t": 0.5,
+          "radius": 4.793668346728554,
+          "radial_speed": 1.2165461359115786,
+          "oracle_radial_speed": -2.3452095415625127
+        },
+        {
+          "t": 0.75,
+          "radius": 5.157892820353594,
+          "radial_speed": 1.8640053065509787,
+          "oracle_radial_speed": -1.0053752851031577
+        },
+        {
+          "t": 0.9375,
+          "radius": 5.6592187434753916,
+          "radial_speed": 3.813912716042876,
+          "oracle_radial_speed": 3.7958867087622705
+        },
+        {
+          "t": 0.9921875,
+          "radius": 5.9124999549650745,
+          "radial_speed": 5.133956506459909,
+          "oracle_radial_speed": 5.7186920527154985
+        }
+      ],
+      "endpoint_radius": 5.952040438196642,
+      "radial_limit": 3.764294775739308,
+      "bounded_velocity_norm": 28.747034688885822,
+      "ray_relative_error_across_three_times": {
+        "100": 0.4346585557625929,
+        "1000": 0.13248981360126585,
+        "10000": 0.0034135516222758666
+      },
+      "checkpoint_sha256": "5eacaf26eff7051de24b1b115d00fe235f732ac366b3b7b48aa6f9a05941bb23",
+      "config_sha256": "14facfafe0d8bb985bf99c4ee7c93217a391816157d5000fbb24a0ab7f7e2d0d",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    },
+    {
+      "family": "odd_swiglu192",
+      "step": 44060,
+      "trajectory": [
+        {
+          "t": 0.0,
+          "radius": 5.299460086521207,
+          "radial_speed": -5.0612215258961974,
+          "oracle_radial_speed": -5.299460086521204
+        },
+        {
+          "t": 0.25,
+          "radius": 4.35894976986108,
+          "radial_speed": -2.4890621646865094,
+          "oracle_radial_speed": -2.575212762463682
+        },
+        {
+          "t": 0.5,
+          "radius": 3.9999210029889185,
+          "radial_speed": 0.24216121710026703,
+          "oracle_radial_speed": 0.12658000757050167
+        },
+        {
+          "t": 0.75,
+          "radius": 4.623800183107375,
+          "radial_speed": 4.661974371511058,
+          "oracle_radial_speed": 4.3573039038015775
+        },
+        {
+          "t": 0.9375,
+          "radius": 5.666268080963351,
+          "radial_speed": 5.900709189214087,
+          "oracle_radial_speed": 6.003105631653231
+        },
+        {
+          "t": 0.9921875,
+          "radius": 5.988826860807529,
+          "radial_speed": 5.955198571100868,
+          "oracle_radial_speed": 6.036627696526758
+        }
+      ],
+      "endpoint_radius": 6.035480216817521,
+      "radial_limit": 9.555947949331438,
+      "bounded_velocity_norm": null,
+      "ray_relative_error_across_three_times": {
+        "100": 0.002651998871610261,
+        "1000": 2.6462005100564073e-05,
+        "10000": 2.6474612663453294e-07
+      },
+      "checkpoint_sha256": "4bd8de96596df12cf6c810fdebbea74ca6544fb5cf0cb5bcc24e5159063041e9",
+      "config_sha256": "3f154b354b6f043878e2168f546c01086a1849266f3d1d86193f9f4d670049a6",
+      "manifest_sha256": "f15e3bebdc673a1c51eb643723f863559192409d6ba558e2272739dc7dcbbb05"
+    }
+  ]
+}
