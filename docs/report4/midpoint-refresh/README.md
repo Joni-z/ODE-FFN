@@ -1,0 +1,9 @@
+# Does the response have to follow the state?
+
+On Ring8 the shared four-step midpoint beats matched-compute SwiGLU (pooled SW2 0.071 vs 0.085). On Product16 it trails SwiGLU (0.052 vs 0.047), including the stronger earlier checkpoint (0.034). Freezing the diagonal throughout training worsened both 20k endpoints. That intervention changed the learned weights as well as the step rule. Eight tied Euler updates also trailed midpoint with the same matrix-call count. These controls motivate locating the contribution of the midpoint response on fixed weights.
+
+1. Restore the original four-step checkpoint. At each substep keep the midpoint state and P unchanged, then evaluate its diagonal either at the substep entrance or the midpoint. Compare the predicted field and endpoints on identical selection inputs. A third intervention freezes the diagonal for the entire solve. The difference between the latter two locates refresh across successive substeps.
+2. Train a model in which the gate can observe other coordinates: evaluate the diagonal at B y, initializing B to identity so the starting field is identical to midpoint. Use the same four substeps on both tasks. Charge the extra matrix operations against the existing training budget. If the same trained architecture fails either control, continue design selection using the selection stream.
+3. Keep seed 0, the training data, sample banks, optimizer, state width and outer sampler fixed. Select on both tasks. Compare pooled Heun128 SW2 on confirmation against the native SwiGLU and Free ISRU endpoints, including their stronger earlier checkpoints. Reserve a fresh paired bank stream for the final candidate and ordinary controls after adaptive search on previously seen results. Record sampler cost separately.
+
+[Existing compute controls](../equal-compute/README.md) · [Frozen-response controls](../reduced-state/README.md)
