@@ -20,6 +20,7 @@
 - [x] Bind native epoch/EMA/FID and checkpoint availability.
 - [x] Implement and test midpoint training, paired FID and same-device timing.
 - [x] Push and submit one monitored Torch trajectory through the 160-epoch comparison.
+- [x] Audit per-epoch training time, paired FID time and unused CFG forwards at epoch 60. [Audit](docs/report4/celeba128-midpoint/README.md#where-the-gpu-time-went).
 
 ## Report 4 equal-compute study, 22 November
 

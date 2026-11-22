@@ -10,7 +10,7 @@ Six Mac mini seed-0 trajectories and all 24 held-out evaluations completed. Two-
 
 ## CelebA128 midpoint on Torch, 22 November
 
-One seed-0 trajectory is submitted through 160 epochs. Jobs 23992197–23992200 share the run directory. The monitor records FID50k and sampler throughput at the registered checkpoints. [Protocol, scheduler receipt and live paths](docs/report4/celeba128-midpoint/README.md).
+Torch saved epoch 60 and began its paired FID50k evaluation. The first 40 epochs took 11 h 49 min on L40S, including 7 h 14 min for the epoch-20 and epoch-40 evaluations. The unconditional Heun50 sampler executes 198 network forwards per batch. A 99-forward path gives identical samples in a small CPU replay. [Timing audit and live paths](docs/report4/celeba128-midpoint/README.md#where-the-gpu-time-went).
 
 ## Report 4 equal-compute comparison, 22 November
 

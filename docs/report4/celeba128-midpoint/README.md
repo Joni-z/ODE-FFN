@@ -23,3 +23,42 @@ The persistent monitor runs on Torch (PID 2427363). Live paths under `/scratch/z
 - `runs/celeba/20261122-midpoint4-w1200-s0/paired/epoch-NNNN/comparison.json` contains each finished FID and same-device speed comparison.
 
 [Launch receipt](launch.json)
+
+## Where the GPU time went
+
+On the L40S, job 23992197 took 11 h 49 min for epochs 1–40. From the
+`Evaluating checkpoint` line to `PAIRED_MILESTONE`, the two FID evaluations
+at epoch 20 took 220.4 minutes together. At epoch 40 the pair took 213.8
+minutes. These two checkpoints account for 61.2% of the allocation. The
+remaining 4 h 35 min includes training, staging and checkpoint writes.
+A steady training epoch took 407.8 s on the L40S and 257.5 s on the next
+A100 (median, epochs 2–39 excluding 20, and 42–59 respectively).
+The epoch timer includes online evaluation, so it understates training
+throughput on milestone rows.
+
+The original SwiGLU ran 100 epochs in 3 h 12 min on one L40S, with online
+FID disabled. Its last five epochs averaged 113.7 s. Both logs show JiT-B/16,
+128px, batch 256, 635 updates per epoch, AdamW at 0.00005, five warmup
+epochs and seed 0. The midpoint has 130.353M parameters and SwiGLU has
+130.406M. Each training FFN applies a 1,200 by 1,200 matrix 16 times across
+its two four-step solves. Backpropagation recomputes the solves to save
+memory. These differences matter even at matched parameter counts.
+[Original native run](../../celeba128-20261112/results.md)
+
+The unconditional sampler also does avoidable work. JiT's Heun50 grid
+evaluates velocity 99 times per batch (49 Heun steps and one final Euler
+step). The largest evaluation time is 0.98. With CFG 0 throughout that grid,
+the conditional branch has weight zero on every call. The active sampler
+nevertheless executes both branches, or 198 network forwards. A seed-0 CPU
+replay with a small nonzero JiT and distinct conditional and unconditional
+predictions produced exactly the same final tensors with 99 forwards for
+SwiGLU and both midpoint settings. The L40S timing above is for the original
+198-forward path. A production speedup has yet to be measured.
+[Replay the Heun50 check](../../../tests/check_unconditional_sampler.py)
+
+For a faster schedule, first replay a saved EMA on CUDA/BF16 with identical
+noise across both implementations, then time all three FFNs with the same
+sampler. Evaluate the numbered checkpoints in separate allocations so that
+training can advance while the two FID50k runs finish on one evaluation GPU.
+The fixed CelebA reference can also reuse a validated Inception-statistics
+cache. Keep the generator, image count, checkpoint and preprocessing fixed.
