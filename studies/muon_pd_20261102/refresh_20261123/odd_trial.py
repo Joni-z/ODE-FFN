@@ -11,13 +11,18 @@ def odd_velocity(self, x, t):
     time = self.time(t)
     for block in self.blocks:
         features = block(features, time)
+    if self.bounded_carrier:
+        carrier = carrier * torch.rsqrt(1 + carrier.square())
     return self.output(carrier * self.norm(features))
 
 
 def build_model(dim, family):
+    bounded = family.startswith('bounded_odd_')
+    family = family.removeprefix('bounded_') if bounded else family
     if not family.startswith('odd_'):
         return standard(dim, family)
     model = standard(dim, family.removeprefix('odd_'))
+    model.bounded_carrier = bounded
     model.output.register_parameter('bias', None)
     model.forward = MethodType(odd_velocity, model)
     return model
@@ -29,4 +34,6 @@ if __name__ == '__main__':
     control = '__odd_swiglu' in args.cell
     grid = 'odd-control-grid.json' if control else 'odd-grid.json'
     tag = 'odd_control_20261123' if control else 'odd_field_20261123'
+    if '__bounded_odd_' in args.cell:
+        grid, tag = 'bounded-grid.json', 'bounded_odd_20261123'
     base.execute(args, grid_path=HERE/grid, experiment_id=tag, model_builder=build_model)

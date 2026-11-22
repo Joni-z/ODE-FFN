@@ -10,13 +10,15 @@ from refresh_trial import HERE, base, original, torch
 sys.path.insert(0, str(HERE.parent/'efficient_solvers_20261122'))
 import cycle
 
-def run(work, odd=False, control=False):
+def run(work, odd=False, control=False, bounded=False):
     torch.set_num_threads(1)
     trainer = 'odd_trial.py' if odd else 'refresh_trial.py'
     tag = 'odd_field_20261123' if odd else 'refresh_20261123'
     grid = 'odd-grid.json' if odd else 'grid.json'
     if control:
         grid, tag = 'odd-control-grid.json', 'odd_control_20261123'
+    if bounded:
+        grid, tag = 'bounded-grid.json', 'bounded_odd_20261123'
     from odd_trial import build_model as all_models
     cycle.build_model = all_models
     budgets = {r['dataset']: r['target_flops'] for r in cycle.read(cycle.DOC/'budget.json')['rows']
@@ -26,7 +28,7 @@ def run(work, odd=False, control=False):
         ds=c['dataset']
         dim=2 if ds=='gmm_ring8_2d' else 16
         torch.manual_seed(0)
-        ref=original(dim, c['family'].removeprefix('odd_') if odd else 'state_midpoint4')
+        ref=original(dim, c['family'].removeprefix('bounded_').removeprefix('odd_') if odd else 'state_midpoint4')
         torch.manual_seed(0)
         model=all_models(dim,c['family'])
         x=torch.randn(32,dim)
@@ -79,4 +81,11 @@ if __name__=='__main__':
     work.mkdir(parents=True,exist_ok=True)
     with (work/'cycle.lock').open('a') as handle:
         fcntl.flock(handle,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        run(work, odd=bool({'--odd','--control'}.intersection(sys.argv[2:])), control='--control' in sys.argv[2:])
+        import argparse
+        parser = argparse.ArgumentParser()
+        parser.add_argument('work')
+        variants = parser.add_mutually_exclusive_group()
+        for flag in ('odd', 'control', 'bounded'):
+            variants.add_argument('--'+flag, action='store_true')
+        args = parser.parse_args()
+        run(work, odd=args.odd or args.control or args.bounded, control=args.control, bounded=args.bounded)
