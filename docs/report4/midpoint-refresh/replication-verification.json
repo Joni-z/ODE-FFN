@@ -1,0 +1,101 @@
+{
+  "stream": 2026112350,
+  "samples_per_dataset_model": 32768,
+  "projections": 256,
+  "rows": [
+    {
+      "dataset": "gmm_ring8_2d",
+      "seed": 0,
+      "device": "cpu",
+      "host": "macmini",
+      "parameters": 56704,
+      "training_steps": 19983,
+      "budget_ratio": 0.9999971684548601,
+      "scores": [
+        {
+          "label": "candidate",
+          "checkpoint_sha256": "3e15dded6f36c3d18732440bfb3f64daf5a7c5764ebce392d412615da4b06344",
+          "sw2": 0.07628275741481955,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "gmm_ring8_2d__free_isru__adamw_0.0003-20k",
+          "checkpoint_sha256": "0cabe0a227070bc11279019c5c476e1bd32e6881d4ff4d4797531c2a363b1c93",
+          "sw2": 0.09500819348667826,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "gmm_ring8_2d__free_isru__adamw_0.0003-matched",
+          "checkpoint_sha256": "6a49e71d918c8fcc762f892114add2291e8a0952d198bbf8a7f717e5050ebc15",
+          "sw2": 0.09055841363268148,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "gmm_ring8_2d__swiglu64__muon_0.02-20k",
+          "checkpoint_sha256": "7e74829c9de3698bfd6ac23ed71f57d369ee12233937c2d79d8306cbbdfcf673",
+          "sw2": 0.10024700821098594,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "gmm_ring8_2d__swiglu64__muon_0.02-matched",
+          "checkpoint_sha256": "d9bd737a39f2e2089c7ba6ebfaf40d8c7b801940a127d8f15ca38a96bab899e4",
+          "sw2": 0.12210232421007257,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "odd_swiglu64-symmetry",
+          "checkpoint_sha256": "06f53e89d72e1b59e435863e162abe86ea6b34eab3d73c4527a2f4009f1d8b5e",
+          "sw2": 0.07853941859939545,
+          "replay_absolute_error": 0.0
+        }
+      ]
+    },
+    {
+      "dataset": "rotated_product_bimodal_16d",
+      "seed": 0,
+      "device": "cpu",
+      "host": "macmini",
+      "parameters": 58496,
+      "training_steps": 19984,
+      "budget_ratio": 1.0000220683109535,
+      "scores": [
+        {
+          "label": "candidate",
+          "checkpoint_sha256": "5eacaf26eff7051de24b1b115d00fe235f732ac366b3b7b48aa6f9a05941bb23",
+          "sw2": 0.027601399744281947,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "rotated_product_bimodal_16d__free_isru__adamw_0.0003-20k",
+          "checkpoint_sha256": "59fa303672933eb57f4b3438009dadb4f5dfd2fd15209eb2a7b11e854028c72a",
+          "sw2": 0.052076698089265294,
+          "replay_absolute_error": 6.938893903907228e-18
+        },
+        {
+          "label": "rotated_product_bimodal_16d__free_isru__adamw_0.0003-matched",
+          "checkpoint_sha256": "35dcd3b7ebd3c2cca34822dffe9299f54afd5e2778a7ea9144731c98b054ee7d",
+          "sw2": 0.04483867194121659,
+          "replay_absolute_error": 0.0
+        },
+        {
+          "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-20k",
+          "checkpoint_sha256": "6ce396008959f243c204856cfd8e805739056b491cfd4d596af6818b3c0c1b4c",
+          "sw2": 0.03898150087184999,
+          "replay_absolute_error": 6.938893903907228e-18
+        },
+        {
+          "label": "rotated_product_bimodal_16d__swiglu192__adamw_0.0003-matched",
+          "checkpoint_sha256": "d29f0c81e98dc1888f4ec71125ce5e44b2abc276fecda3ff1e98bede5e9692b9",
+          "sw2": 0.05110275244164238,
+          "replay_absolute_error": 6.938893903907228e-18
+        },
+        {
+          "label": "odd_swiglu192-symmetry",
+          "checkpoint_sha256": "4bd8de96596df12cf6c810fdebbea74ca6544fb5cf0cb5bcc24e5159063041e9",
+          "sw2": 0.024093629238545876,
+          "replay_absolute_error": 3.469446951953614e-18
+        }
+      ]
+    }
+  ]
+}
