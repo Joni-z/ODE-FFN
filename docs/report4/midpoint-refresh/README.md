@@ -1,15 +1,18 @@
 # Does the response have to follow the state?
 
-**One bounded, four-step midpoint FFN now beats the stronger archived ordinary endpoint on both tasks.** A fresh twelve-checkpoint replication lowers pooled SW2 by 16% on Ring8 and 29% on Product16 against the strongest original ordinary checkpoint on those banks. Giving ordinary SwiGLU a sign-equivariant readout also improves both tasks and gives the best Product16 score. All rows below use seed 0, Heun128 and 32,768 paired endpoints per task and evaluation stream.
+**The bounded four-step midpoint beats the original benchmarks on both tasks. Ordinary SwiGLU with the same bounded readout scores better on fresh samples on both.** A fresh twelve-checkpoint replication lowers pooled SW2 by 16% on Ring8 and 29% on Product16 against the strongest original ordinary checkpoint on those banks. With the same readout, SwiGLU reaches 0.054 on Ring8 and 0.023 on Product16. All rows below use seed 0, Heun128 and 32,768 paired endpoints per task and evaluation stream.
 
 | Model | Ring8 selection | Ring8 confirmation | Ring8 fresh | Product16 selection | Product16 confirmation | Product16 fresh |
 |---|---:|---:|---:|---:|---:|---:|
 | Strongest archived SwiGLU or Free ISRU | 0.084 | 0.082 | 0.091 | 0.034 | 0.034 | 0.039 |
 | Original four-step midpoint | 0.061 | 0.071 | — | 0.054 | 0.052 | — |
-| Four-step midpoint with a bounded sign-equivariant readout | 0.057 | **0.065** | **0.076** | 0.024 | 0.027 | 0.028 |
-| Sign-equivariant ordinary SwiGLU | **0.056** | 0.068 | 0.079 | **0.021** | **0.022** | **0.024** |
+| Four-step midpoint with a bounded sign-equivariant readout | 0.057 | 0.065 | 0.076 | 0.024 | 0.027 | 0.028 |
+| Sign-equivariant ordinary SwiGLU | **0.056** | 0.068 | 0.079 | 0.021 | 0.022 | 0.024 |
+| Ordinary SwiGLU with the identical bounded sign-equivariant readout | 0.059 | **0.054** | **0.054** | **0.020** | **0.021** | **0.023** |
 
-The bounded midpoint and sign-equivariant SwiGLU exchange rank on Ring8 across evaluation streams. The strongest historical ordinary row takes the lower score across the original and equal-training-compute checkpoints. The fresh stream was locked to twelve checkpoint hashes before sampling. Relative to the strongest archived control, the bounded model scores lower on six of eight paired banks on Ring8 and all eight on Product16. Relative to the sign-equivariant SwiGLU the corresponding counts are six and zero. [Fresh scores and all comparator hashes](bounded-fresh.json). [Archived confirmation results](archived-confirmation.json) · [Selection controls](ordinary-selection.json) · [Bounded checkpoint replay](bounded-selection.json)
+The bounded midpoint and the ordinary SwiGLU with the unbounded sign-equivariant readout exchange rank on Ring8 across evaluation streams. The strongest historical ordinary row takes the lower score across the original and equal-training-compute checkpoints. The fresh stream was locked to twelve checkpoint hashes before sampling. Relative to the strongest archived control, the bounded model scores lower on six of eight paired banks on Ring8 and all eight on Product16. Relative to the sign-equivariant SwiGLU the corresponding counts are six and zero. [Fresh scores and all comparator hashes](bounded-fresh.json). [Archived confirmation results](archived-confirmation.json) · [Selection controls](ordinary-selection.json) · [Bounded checkpoint replay](bounded-selection.json)
+
+The final ordinary control uses the same odd carrier, bound and sampling banks as the bounded midpoint. It retains the original task-specific SwiGLU width and optimizer, with training steps chosen for the same total budget. It scores lower on six of eight fresh Ring8 banks and seven of eight Product16 banks. The fixed-weight interventions below explain what the midpoint model uses internally. The across-model comparison favors bounded SwiGLU on the fresh samples. [All three streams and paired comparisons](same-readout-swiglu.json).
 
 ![One replayed Product16 trajectory and both confirmation comparisons](trajectory-and-confirmation.png)
 

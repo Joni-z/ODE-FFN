@@ -1,0 +1,48 @@
+[
+  {
+    "dataset": "gmm_ring8_2d",
+    "family": "bounded_odd_swiglu64",
+    "steps": 68859,
+    "step_flops": 212558702,
+    "checkpoint_sha256": "d82156a32397c3f904bdfb11f58c309ea3197b9a3c27c0ae2285550caba21ec4",
+    "selection_sw2": 0.05894167567103428,
+    "confirmation_sw2": 0.05378590365707986,
+    "fresh_sw2": 0.054323014627145415,
+    "bounded_midpoint_fresh_sw2": 0.07628275741481955,
+    "paired_banks_favoring_midpoint": 2,
+    "fresh_bank_sw2": [
+      0.1328223531809071,
+      0.11409287716976657,
+      0.08193738978302169,
+      0.11054390392736967,
+      0.08693852227212402,
+      0.14286765406400656,
+      0.1586337036523498,
+      0.14276866526759857
+    ],
+    "stream": 2026112350
+  },
+  {
+    "dataset": "rotated_product_bimodal_16d",
+    "family": "bounded_odd_swiglu192",
+    "steps": 44009,
+    "step_flops": 334721126,
+    "checkpoint_sha256": "6ea40d19543cc2896e80dbd4e23d562af066694e80bb2ac87219baa526d35932",
+    "selection_sw2": 0.01950050184808612,
+    "confirmation_sw2": 0.02050493319018986,
+    "fresh_sw2": 0.023152785284571206,
+    "bounded_midpoint_fresh_sw2": 0.027601399744281947,
+    "paired_banks_favoring_midpoint": 1,
+    "fresh_bank_sw2": [
+      0.06043503472377891,
+      0.058818408987414396,
+      0.05187722337442111,
+      0.0526885668968084,
+      0.05236303996406207,
+      0.07099777068494352,
+      0.05890285934623252,
+      0.053393399109671065
+    ],
+    "stream": 2026112350
+  }
+]
