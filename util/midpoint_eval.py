@@ -84,11 +84,14 @@ def speed(model, batch, seed, device):
     return dict(batch=batch, batch_seconds=times, median_batch_seconds=median, images_per_second=batch / median)
 
 
-def evaluate_pair(args, epoch, writer):
+def evaluate_pair(args, epoch, writer, *, detached=False):
     output = Path(args.output_dir)
     checkpoint = output / f'checkpoint-{epoch:04d}.pth'
     folder = output / 'paired' / f'epoch-{epoch:04d}'
     folder.mkdir(parents=True, exist_ok=True)
+    progress_args = copy.copy(args)
+    if detached:
+        progress_args.output_dir = str(folder)
     receipt = folder / 'comparison.json'
     digest = file_hash(checkpoint)
     if receipt.exists():
@@ -100,7 +103,7 @@ def evaluate_pair(args, epoch, writer):
     numpy_state, python_state = np.random.get_state(), random.getstate()
     try:
         with torch.random.fork_rng(), torch.no_grad():
-            model = ema_model(checkpoint, epoch, 'midpoint', device, args)
+            model = ema_model(checkpoint, epoch, 'midpoint', device, args, single_branch=detached)
             layers = [m for m in model.modules() if isinstance(m, MidpointLayer)]
             assert len(layers) == 2 * len(model.net.blocks) and layers
             comparisons = {}
@@ -108,7 +111,7 @@ def evaluate_pair(args, epoch, writer):
                 for m in layers:
                     m.substeps = steps
                 mode = f'midpoint{steps}'
-                write_progress(args, status='evaluating', completed_epochs=epoch, mode=mode,
+                write_progress(progress_args, status='evaluating', completed_epochs=epoch, mode=mode,
                                target_epochs=args.epochs, evaluation_images=args.num_images)
                 timed = speed(model, args.gen_bsz, args.seed, device)
                 # Cache fully finished FIDs. Speed is measured together across all modes on recovery.
@@ -137,7 +140,7 @@ def evaluate_pair(args, epoch, writer):
                 native_fid = {int(r['epoch']): float(r['baseline']) for r in csv.DictReader(file)}
             if epoch in native_fid:
                 native_file = args.native_checkpoint_dir / f'checkpoint-{epoch:04d}.pth'
-                native = ema_model(native_file, epoch, 'swiglu', device, args)
+                native = ema_model(native_file, epoch, 'swiglu', device, args, single_branch=detached)
                 comparisons['swiglu'] = dict(fid=native_fid[epoch], checkpoint=str(native_file),
                                               checkpoint_sha256=file_hash(native_file),
                                               **speed(native, args.gen_bsz, args.seed, device))
@@ -150,6 +153,8 @@ def evaluate_pair(args, epoch, writer):
                           ema=args.ema_decay1, num_images=args.num_images, outer_steps=args.num_sampling_steps,
                           sampler=args.sampling_method, cfg=args.cfg, results=comparisons,
                           gpu=torch.cuda.get_device_name(device) if device.type == 'cuda' else 'cpu')
+            if detached:
+                result['network_forwards_per_batch'] = 99
             if device.type == 'cuda':
                 result['gpu_uuid'] = str(torch.cuda.get_device_properties(device).uuid)
             atomic_json(receipt, result)
