@@ -71,7 +71,7 @@ def entries(prep, candidate, *, require_symmetry_win=True):
 
 
 @torch.no_grad()
-def run(prep, models, out, stream=STREAM):
+def run(prep, models, out, stream=STREAM, datasets=DATASETS):
     torch.set_num_threads(1)
     ev.build_model=build_model
     lock=out/'endpoints.json'
@@ -81,7 +81,7 @@ def run(prep, models, out, stream=STREAM):
     else:
         base.dump(lock,models)
     rows=[]
-    for ds in DATASETS:
+    for ds in datasets:
         group=[m for m in models if m['dataset']==ds]
         cache=Path(read(Path(group[0]['folder'])/'config.json')['data_root'])
         manifest=cache/'manifest.json'
@@ -126,7 +126,7 @@ def run(prep, models, out, stream=STREAM):
             rows.append(score)
             base.dump(out/'progress.json',dict(scored=len(rows),total=len(models)))
     wins, archived_wins={}, {}
-    for ds in DATASETS:
+    for ds in datasets:
         group=[r for r in rows if r['model']['dataset']==ds]
         candidate,=[r for r in group if r['model']['label']=='candidate']
         wins[ds]=all(candidate['pooled_sw2']<r['pooled_sw2'] for r in group if r is not candidate)
