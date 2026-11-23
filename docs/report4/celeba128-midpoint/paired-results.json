@@ -1,0 +1,374 @@
+[
+  {
+    "epoch": 20,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0/checkpoint-0020.pth",
+    "checkpoint_sha256": "ace2e772a471fa43522a623acaded7a8b4eb03a6859caa66452158759a4a59a7",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 409.7496913439404,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          20.908132234122604,
+          20.906188047025353,
+          20.87355935294181
+        ],
+        "median_batch_seconds": 20.906188047025353,
+        "images_per_second": 12.245178289995582
+      },
+      "midpoint4": {
+        "fid": 409.90919248916964,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          35.51952388393693,
+          35.69629160105251,
+          35.87605448812246
+        ],
+        "median_batch_seconds": 35.69629160105251,
+        "images_per_second": 7.17161331101553
+      },
+      "swiglu": null
+    },
+    "gpu": "NVIDIA L40S",
+    "gpu_uuid": "ee94d330-dad5-2475-07bf-fa58cf0e5556"
+  },
+  {
+    "epoch": 40,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0/checkpoint-0040.pth",
+    "checkpoint_sha256": "7ced05e086ce72e05b84888b00dc0891c18d5bc88f81ec5df436044c019947f0",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 249.89562701723344,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          21.039561869809404,
+          21.08421647292562,
+          21.027309628902003
+        ],
+        "median_batch_seconds": 21.039561869809404,
+        "images_per_second": 12.167553753452713
+      },
+      "midpoint4": {
+        "fid": 249.85970552901705,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          35.60188041999936,
+          35.69647690909915,
+          35.82345770299435
+        ],
+        "median_batch_seconds": 35.69647690909915,
+        "images_per_second": 7.1715760816369185
+      },
+      "swiglu": null
+    },
+    "gpu": "NVIDIA L40S",
+    "gpu_uuid": "ee94d330-dad5-2475-07bf-fa58cf0e5556"
+  },
+  {
+    "epoch": 60,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0/checkpoint-0060.pth",
+    "checkpoint_sha256": "dbc48dc9880a435a78713cbe62419cb963d9ac988f4a0476a098a18c76feeb5a",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 79.28080375847523,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          13.78423810203094,
+          13.785227988963015,
+          13.785832104971632
+        ],
+        "median_batch_seconds": 13.785227988963015,
+        "images_per_second": 18.570603272210185
+      },
+      "midpoint4": {
+        "fid": 80.31021798371302,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          22.384279372985475,
+          22.386831506039016,
+          22.383839718066156
+        ],
+        "median_batch_seconds": 22.384279372985475,
+        "images_per_second": 11.436597789650278
+      },
+      "swiglu": null
+    },
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_uuid": "821f5e0f-8e14-f479-c897-a122f9d60e9a"
+  },
+  {
+    "epoch": 80,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261122-midpoint4-w1200-s0/checkpoint-0080.pth",
+    "checkpoint_sha256": "7b5c2be6e335b290754a16eeefbf3cc6d3134d90882f579d1a95835e0084a12c",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 51.035336118500254,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          13.79121858801227,
+          13.796988358953968,
+          13.795858661993407
+        ],
+        "median_batch_seconds": 13.795858661993407,
+        "images_per_second": 18.556293324841135
+      },
+      "midpoint4": {
+        "fid": 49.51148193419769,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          22.389092950033955,
+          22.39774949499406,
+          22.401142469025217
+        ],
+        "median_batch_seconds": 22.39774949499406,
+        "images_per_second": 11.429719760782953
+      },
+      "swiglu": null
+    },
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_uuid": "821f5e0f-8e14-f479-c897-a122f9d60e9a"
+  },
+  {
+    "epoch": 100,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/checkpoint-0100.pth",
+    "checkpoint_sha256": "3598a263af087fd879e0331ec763568eafab30218b09f89562c97b7442362327",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 38.767423209417274,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          6.844290998997167,
+          6.846252084011212,
+          6.846460220986046
+        ],
+        "median_batch_seconds": 6.846252084011212,
+        "images_per_second": 37.39272186571457
+      },
+      "midpoint4": {
+        "fid": 37.28915904113845,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          11.125255698920228,
+          11.128587109968066,
+          11.129318903083913
+        ],
+        "median_batch_seconds": 11.128587109968066,
+        "images_per_second": 23.00381867619982
+      },
+      "swiglu": {
+        "fid": 35.91785430908203,
+        "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160/checkpoint-0100.pth",
+        "checkpoint_sha256": "317153d1954e2723214c310dd25e93897a5030358488a01d06ff0967ba03fab1",
+        "batch": 256,
+        "batch_seconds": [
+          3.6093774910550565,
+          3.6093828540761024,
+          3.610779221984558
+        ],
+        "median_batch_seconds": 3.6093828540761024,
+        "images_per_second": 70.92625258938584
+      }
+    },
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "network_forwards_per_batch": 99,
+    "gpu_uuid": "aabe2a20-1e6d-43cb-820a-4d7017ea756f"
+  },
+  {
+    "epoch": 120,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/checkpoint-0120.pth",
+    "checkpoint_sha256": "2f8b691f84a4302a35524242e91b4046536cf5fed7dd4af2effc9e54043d2176",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 34.36471957618184,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          3.0841349890688434,
+          3.0853058990323916,
+          3.0852893089177087
+        ],
+        "median_batch_seconds": 3.0852893089177087,
+        "images_per_second": 82.97439052475842
+      },
+      "midpoint4": {
+        "fid": 32.40225562403853,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          4.964600487961434,
+          4.964225695934147,
+          4.9638672430301085
+        ],
+        "median_batch_seconds": 4.964225695934147,
+        "images_per_second": 51.56896879399981
+      },
+      "swiglu": {
+        "fid": 29.476015090942383,
+        "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160/checkpoint-0120.pth",
+        "checkpoint_sha256": "f0794a1ae55bfbc7f488b53e8428c8b5aafd76b96cde98031a87fbcfc322bd0e",
+        "batch": 256,
+        "batch_seconds": [
+          1.7348011090653017,
+          1.7379272520774975,
+          1.7388320920290425
+        ],
+        "median_batch_seconds": 1.7379272520774975,
+        "images_per_second": 147.3019078870998
+      }
+    },
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "network_forwards_per_batch": 99,
+    "gpu_uuid": "8c5e9c19-891c-058f-901a-95a9be3b98bc"
+  },
+  {
+    "epoch": 140,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/checkpoint-0140.pth",
+    "checkpoint_sha256": "28117d000cd8f6922499bc84bdd0f14ddb5643f740d68db33fc773eb566296b5",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 32.606146026961994,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          10.238992771017365,
+          10.291639533010311,
+          10.309020521002822
+        ],
+        "median_batch_seconds": 10.291639533010311,
+        "images_per_second": 24.874559508121425
+      },
+      "midpoint4": {
+        "fid": 29.59014412190558,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          17.826920598046854,
+          17.85056625190191,
+          17.92385760997422
+        ],
+        "median_batch_seconds": 17.85056625190191,
+        "images_per_second": 14.34128174912794
+      },
+      "swiglu": {
+        "fid": 25.98558807373047,
+        "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160/checkpoint-0140.pth",
+        "checkpoint_sha256": "5cdac695437d9280bfcab56cd8252206a45df0120cbb2178f016d8dfaf91f90c",
+        "batch": 256,
+        "batch_seconds": [
+          5.0758781300392,
+          5.086205480969511,
+          5.0988712629769
+        ],
+        "median_batch_seconds": 5.086205480969511,
+        "images_per_second": 50.332217398185485
+      }
+    },
+    "gpu": "NVIDIA L40S",
+    "network_forwards_per_batch": 99,
+    "gpu_uuid": "f8f05224-be8e-7b55-4d6b-cb028982ba51"
+  },
+  {
+    "epoch": 160,
+    "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261123-midpoint4-detached-s0/checkpoint-0160.pth",
+    "checkpoint_sha256": "1cb13e06d65ab5f91d7a9dc01738ecf1fe829f5198d15106a816548fae5d5d05",
+    "seed": 0,
+    "ema": 0.9999,
+    "num_images": 50000,
+    "outer_steps": 50,
+    "sampler": "heun",
+    "cfg": 0.0,
+    "results": {
+      "midpoint2": {
+        "fid": 33.74118307739241,
+        "internal_steps": 2,
+        "batch": 256,
+        "batch_seconds": [
+          6.829286900931038,
+          6.8317029980244115,
+          6.827483867993578
+        ],
+        "median_batch_seconds": 6.829286900931038,
+        "images_per_second": 37.485612145698475
+      },
+      "midpoint4": {
+        "fid": 27.68147890288469,
+        "internal_steps": 4,
+        "batch": 256,
+        "batch_seconds": [
+          11.113714069011621,
+          11.106359400087968,
+          11.106762359966524
+        ],
+        "median_batch_seconds": 11.106762359966524,
+        "images_per_second": 23.04902110112056
+      },
+      "swiglu": {
+        "fid": 24.30356788635254,
+        "checkpoint": "/scratch/zz5070/ODE_FFN/runs/celeba/20261114-b16-swiglu-s0-to160/checkpoint-0160.pth",
+        "checkpoint_sha256": "ed7f0205adf69ae4185712b2b94cd860a4e57cc5defad4d4e9dd22481e9154ae",
+        "batch": 256,
+        "batch_seconds": [
+          3.604468316072598,
+          3.6067338769789785,
+          3.606442946009338
+        ],
+        "median_batch_seconds": 3.606442946009338,
+        "images_per_second": 70.98407040745603
+      }
+    },
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "network_forwards_per_batch": 99,
+    "gpu_uuid": "d99e0998-736a-bed3-4f92-12e16d45a98d"
+  }
+]

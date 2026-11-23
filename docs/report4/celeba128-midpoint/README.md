@@ -1,5 +1,22 @@
 # CelebA128 midpoint transfer
 
+## Final CelebA128 results
+
+Four-step midpoint reached FID50k 27.681 at epoch 160. The native SwiGLU reached 24.304. Each midpoint pair uses the same EMA checkpoint. Lower FID is better.
+
+| Epoch | SwiGLU | Two-step midpoint | Four-step midpoint |
+|---:|---:|---:|---:|
+| 20 | — | 409.750 | 409.909 |
+| 40 | — | 249.896 | 249.860 |
+| 60 | — | 79.281 | 80.310 |
+| 80 | — | 51.035 | 49.511 |
+| 100 | 35.918 | 38.767 | 37.289 |
+| 120 | 29.476 | 34.365 | 32.402 |
+| 140 | 25.986 | 32.606 | 29.590 |
+| 160 | 24.304 | 33.741 | 27.681 |
+
+At epoch 160 on the same A100, SwiGLU generated 70.984 images/s, two-step midpoint 37.486, and four-step midpoint 23.049. Halving the internal steps increased throughput by 1.626× and raised FID by 6.060. [Checkpoint hashes, FID50k and synchronized timings](paired-results.json)
+
 One JiT-B/16 trajectory tests whether the midpoint FFN improves face generation at the same training exposure as native SwiGLU. The primary comparison is FID50k at epoch 160. Each numbered checkpoint also tests whether halving the internal steps preserves FID at higher throughput.
 
 The FFN projects 768 channels to 1,200, integrates four explicit midpoint steps over unit internal time, applies SiLU, integrates a second independent four-step map, and projects back to 768. Each map shares its matrix across all stages and refreshes the ISRU response at each evaluation. This preserves the parameter layout of the previous wide image candidate. Training recomputes the local solve during backward to save GPU memory.
